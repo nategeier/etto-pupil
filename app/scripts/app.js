@@ -1,6 +1,6 @@
 "use strict";
 
-var enrollgoComposerApp = angular.module("enrollgoComposerApp", [ "ngResource" ]);
+var enrollgoComposerApp = angular.module("enrollgoComposerApp", [ "ngResource", "ngTouch" ]);
 
 enrollgoComposerApp
 .config(function ($routeProvider) {
