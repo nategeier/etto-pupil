@@ -6,7 +6,7 @@ angular.module("enrollgoComposerApp")
 
     template: "<div class='enrollgo-module-prev-block' ng-click='prevBlock()'><i class='fa fa-2x fa-arrow-circle-left'></i></div>" +
               "<div class='container row'>" +
-              "<enrollgo-block class='columns' ng-repeat='block in module.blocks' ng-show='isCurrentBlock()' block='block'></enrollgo-block>" +
+              "<enrollgo-block ng-repeat='block in module.blocks' ng-show='isCurrentBlock()' block='block'></enrollgo-block>" +
               "</div>" +
               "<div class='enrollgo-module-next-block' ng-click='nextBlock()'><i class='fa fa-2x fa-arrow-circle-right'></i></div>",
 
