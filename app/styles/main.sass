@@ -1,13 +1,25 @@
 @import 'foundation/scss/foundation.scss'
 @import 'font-awesome/scss/font-awesome.scss'
 
+$engo-darkblue: #004056
+$engo-mildblue: #386b86
+$engo-accentblue: #50889f
+$engo-turquoise: #3da6cb
+$engo-aqua: #50889f
+$engo-greenish: #74ceb7
+$engo-light: #c9ffd5
+$engo-tan: #ffffcb
+$engo-grey: #eee
+$engo-mediumgrey: #e3e3e3
+$engo-darkgrey: #dadada
+
 html, body
   height: 100%
 
 body
   background: #fafafa
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
-  color: #333
+  color: $engo-light
 
 enrollgo-module
   min-height: 100%
@@ -24,4 +36,30 @@ enrollgo-module
 
 .enrollgo-module-next-block
   right: 0
+
+enrollgo-module
+  background: $engo-darkblue
+  color: $engo-tan
+  padding-top: 1em
+
+  h1, h2
+    background: $engo-tan
+    color: $engo-darkblue
+    margin-bottom: 0
+    margin-top: 0
+    padding: 0.33em 1.33rem 0.67em
+  
+  p
+    font-size: 1.33em
+
+  blockquote
+    p
+      color: $engo-tan
+      font-size: 3em
+    footer
+      color: $engo-tan
+      text-align: right
+      font-size: 2em
+    footer:before
+      content: "\2014"
 
