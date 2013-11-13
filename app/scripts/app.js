@@ -16,6 +16,10 @@ enrollgoComposerApp
       module: function( ModuleLoader ) { return new ModuleLoader(); }
     }
   })
+  .when("/engo", {
+    templateUrl: "views/landing.html",
+    controller: "MainCtrl"
+  })
   .otherwise({
     redirectTo: "/"
   });

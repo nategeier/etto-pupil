@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 25 March 2009), see www.w3.org" />
+
+  <title>Sails</title>
+  <link href="http://fonts.googleapis.com/css?family=Varela" rel="stylesheet" type=
+  "text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+  @charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none !important;}ng\:form{display:block;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class=" hasGoogleVoiceExt">
+  <div class="large-6 columns small-6">
+    <div class="logo">
+      <h2>EnrollGo</h2>
+    </div>
+  </div>
+
+  <ul>
+    <li><a href="/">Home</a></li>
+
+    <li><a href="/login/new">Login</a></li>
+  </ul>
+
+  <div class="large-main large-12 center">
+    <div class="main-img"></div>
+  </div>
+
+  <div style="margin-top:20px;" class="row">
+    <div class="large-4 columns">
+      <div ng-app="" class="register ng-scope">
+        <h3>Enroll</h3>
+
+        <form ng-submit="update(user)" ng-controller="Controller" class="ng-scope ng-pristine ng-invalid ng-invalid-required">
+          <input type="text" ng-model="user.levelTitle" required="" placeholder= "Company or Username" class="ng-pristine ng-invalid ng-invalid-required" />
+          <input type="text" ng-model="user.name" required="" placeholder="First and Last Name" class="ng-pristine ng-invalid ng-invalid-required" />
+          <div class="err ng-binding"></div>
+          <input type="email" ng-model="user.email" required="" placeholder="Email" class="ng-pristine ng-invalid ng-invalid-required ng-valid-email" />
+          <input type="password" ng-model="user.password" required="" placeholder="Password" class="ng-pristine ng-invalid ng-invalid-required" />
+          <input type="submit" value= "Enroll" class="button small" />
+        </form>
+      </div>
+    </div>
+
+    <div class="large-8 columns">
+      <div class="large-6 columns thumb">
+        <div class="thumbHolder"></div>
+      </div>
+
+      <div class="large-6 columns thumb">
+        <div class="thumbHolder"></div>
+      </div>
+
+      <div class="large-6 columns thumb">
+        <div class="thumbHolder"></div>
+      </div>
+
+      <div class="large-6 columns thumb">
+        <div class="thumbHolder"></div>
+      </div>
+    </div>
+  </div>
+<script type="text/javascript" src="/js/mediators/create_brand.js">
+</script>
+
+  <p>By Nate and Randall</p>
+</body>
+</html>
