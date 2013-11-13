@@ -1,14 +1,14 @@
 "use strict";
 
-angular.module("enrollgoComposerApp")
-.directive("enrollgoModule", [function () {
+angular.module( "engoPupil" )
+.directive( "engoModule", [ function () {
   return {
 
     template: "<div class='container row'>" +
-              "<enrollgo-block ng-repeat='block in module.blocks' ng-show='isCurrentBlock()' block='block'></enrollgo-block>" +
+              "<engo-block ng-repeat='block in module.blocks' ng-show='isCurrentBlock()' block='block'></engo-block>" +
               "</div>" +
-              "<div class='enrollgo-module-prev-block' ng-click='prevBlock()'><i class='fa fa-2x fa-arrow-circle-left'></i></div>" +
-              "<div class='enrollgo-module-next-block' ng-click='nextBlock()'><i class='fa fa-2x fa-arrow-circle-right'></i></div>",
+              "<div class='engo-module-prev-block' ng-click='prevBlock()'><i class='fa fa-2x fa-arrow-circle-left'></i></div>" +
+              "<div class='engo-module-next-block' ng-click='nextBlock()'><i class='fa fa-2x fa-arrow-circle-right'></i></div>",
 
     restrict: "E",
 
@@ -28,7 +28,7 @@ angular.module("enrollgoComposerApp")
           $scope.$apply();
         }
       };
-    
+
       $scope.prevBlock = function() {
         if( $scope.currentBlock > 0 ) {
           $scope.currentBlock--;

@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-describe('Controller: ModuleviewCtrl', function () {
+describe("Controller: ModuleviewCtrl", function () {
 
   // load the controller's module
-  beforeEach(module('enrollgoComposerApp'));
+  beforeEach(module("engoPupil"));
 
   var ModuleviewCtrl,
     scope;
@@ -11,12 +11,12 @@ describe('Controller: ModuleviewCtrl', function () {
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    ModuleviewCtrl = $controller('ModuleviewCtrl', {
+    ModuleviewCtrl = $controller("ModuleviewCtrl", {
       $scope: scope
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
+  it("should attach a list of awesomeThings to the scope", function () {
     expect(scope.awesomeThings.length).toBe(3);
   });
 });

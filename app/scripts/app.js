@@ -1,15 +1,15 @@
 "use strict";
 
-var enrollgoComposerApp = angular.module("enrollgoComposerApp", [ "ngResource", "ngTouch" ]);
+var engoPupil = angular.module( "engoPupil", [ "ngResource", "ngTouch" ]);
 
-enrollgoComposerApp
-.config(function ($routeProvider) {
+engoPupil
+.config( function ($routeProvider) {
   $routeProvider
-  .when("/", {
+  .when( "/", {
     templateUrl: "views/main.html",
     controller: "MainCtrl",
   })
-  .when("/module/view/:moduleId", {
+  .when( "/module/view/:moduleId", {
     templateUrl: "views/ModuleView.html",
     controller: "ModuleViewCtrl",
     resolve: {
