@@ -4,15 +4,17 @@ angular.module("enrollgoComposerApp")
 .directive("enrollgoModule", [function () {
   return {
 
-    template: "<div class='enrollgo-module-prev-block' ng-click='prevBlock()'><i class='fa fa-2x fa-arrow-circle-left'></i></div>" +
-              "<div class='container row'>" +
+    template: "<div class='container row'>" +
               "<enrollgo-block ng-repeat='block in module.blocks' ng-show='isCurrentBlock()' block='block'></enrollgo-block>" +
               "</div>" +
+              "<div class='enrollgo-module-prev-block' ng-click='prevBlock()'><i class='fa fa-2x fa-arrow-circle-left'></i></div>" +
               "<div class='enrollgo-module-next-block' ng-click='nextBlock()'><i class='fa fa-2x fa-arrow-circle-right'></i></div>",
 
     restrict: "E",
 
-    controller: function ( $scope, $document ) {
+    controller: function ( $scope, $document, $attrs ) {
+      $scope.editing = $attrs[ "edit" ] !== undefined;
+
       $scope.currentBlock = 0;
 
       $scope.module.blocks = $scope.module.blocks.map( function( block, index ) {
