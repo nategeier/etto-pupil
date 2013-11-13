@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-describe('Service: ModuleData', function () {
+describe("Service: ModuleData", function () {
 
   // load the service's module
-  beforeEach(module('enrollgoComposerApp'));
+  beforeEach(module("engoPupil"));
 
   // instantiate service
   var ModuleData;
@@ -11,7 +11,7 @@ describe('Service: ModuleData', function () {
     ModuleData = _ModuleData_;
   }));
 
-  it('should do something', function () {
+  it("should do something", function () {
     expect(!!ModuleData).toBe(true);
   });
 

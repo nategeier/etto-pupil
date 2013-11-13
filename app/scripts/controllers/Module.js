@@ -1,10 +1,6 @@
-'use strict';
+"use strict";
 
-angular.module('enrollgoComposerApp')
-  .controller('ModuleCtrl', ['$scope', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  }]);
+angular.module( "engoPupil" )
+.controller( "ModuleCtrl", [ "$scope", function ( $scope ) {
+}]);
+
