@@ -3,7 +3,7 @@
 describe('Directive: engoLogin', function () {
 
   // load the directive's module
-  beforeEach(module('enrollgoComposerApp'));
+  beforeEach(module('engoPupil'));
 
   var element,
     scope;
@@ -12,9 +12,4 @@ describe('Directive: engoLogin', function () {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<engo-login></engo-login>');
-    element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the engoLogin directive');
-  }));
 });

@@ -3,7 +3,7 @@
 describe('Service: Session', function () {
 
   // load the service's module
-  beforeEach(module('enrollgoComposerApp'));
+  beforeEach(module('engoPupil'));
 
   // instantiate service
   var Session;

@@ -3,7 +3,7 @@
 describe('Controller: LogoutCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('enrollgoComposerApp'));
+  beforeEach(module('engoPupil'));
 
   var LogoutCtrl,
     scope;
@@ -16,7 +16,4 @@ describe('Controller: LogoutCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
-  });
 });
