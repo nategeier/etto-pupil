@@ -11,8 +11,5 @@ describe("Service: BlockType", function () {
     BlockType = _BlockType_;
   }));
 
-  it("should do something", function () {
-    expect(!!BlockType).toBe(true);
-  });
-
 });
+

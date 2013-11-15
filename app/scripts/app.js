@@ -16,6 +16,13 @@ engoPupil
       module: function( ModuleLoader ) { return new ModuleLoader(); }
     }
   })
+  .when("/module/edit/:moduleId", {
+    templateUrl: "views/ModuleEdit.html",
+    controller: "ModuleEditCtrl",
+    resolve: {
+      module: function( ModuleLoader ) { return new ModuleLoader(); }
+    }
+  })
   .otherwise({
     redirectTo: "/"
   });

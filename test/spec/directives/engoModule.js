@@ -1,20 +1,34 @@
 "use strict";
 
-describe("Directive: enrollgoModule", function () {
+describe( "Directive: engoModule", function () {
+  var element, scope, ctrl;
 
   // load the directive's module
-  beforeEach(module("engoPupil"));
+  beforeEach( module( "engoPupil" ) );
 
-  var element,
-    scope;
+  beforeEach( inject( function( $rootScope, $compile ) {
+    //scope = $rootScope.$new();
+    scope = $rootScope;
 
-  beforeEach(inject(function ($rootScope) {
-    scope = $rootScope.$new();
+    element = angular.element( "<engo-module></engo-module>" );
+    element = $compile( element )( scope );
   }));
 
-  it("should make hidden element visible", inject(function ($compile) {
-    element = angular.element("<enrollgo-module></enrollgo-module>");
-    element = $compile(element)(scope);
-    expect(element.text()).toBe("this is the enrollgoModule directive");
-  }));
+  //beforeEach( function() {
+    //module( function( $provide ) {
+      //$provide.value( "$document", {
+        //keydown: function() { return null; }
+      //});
+    //});
+  //});
+
+  //it( "should know if it is in edit mode or not", inject( function( $compile ) {
+    //expect( element.scope().editing ).toBeDefined();
+  //}));
+
+  //it( "should go to the next block", inject( function( $compile ) {
+    //console.dir(scope)
+    //expect( element.scope().nextBlock ).toBeDefined();
+  //}));
 });
+
