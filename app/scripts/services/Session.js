@@ -2,7 +2,7 @@
 
 angular.module('engoPupil')
 .factory("Session", [ "$http", function ( $http ) {
-  //return $resource( "/api/v1/blocktype", {}, { update: { method: "PUT" }} );
+  /*
     var sdo = {
       isLogged: false,
       any: 'dave',
@@ -15,6 +15,18 @@ angular.module('engoPupil')
      sdo.user = user
     //return sdo;
   });
+
+*/
+
+  return {
+      getSessions: function() {
+          return $http.get('/api/v1/sessions/get_session');
+      },
+       destroySession: function() {
+          console.log('ddd dritst')
+          return $http.get('/api/v1/sessions/destroy');
+      }
+  };
 
 }]);
 

@@ -12,7 +12,6 @@ angular.module('engoPupil')
       '<nav>' +
         '<ul>' +
           '<li><a href="/#/engo">Home</a></li>' +
-          '<li><a href="/#/login/new">Login</a></li>' +
           '<li><a href="/#/store">Store</a></li>' +
           '<li><a href="/#/levels/0/0">Reports</a></li>' +
          ' <li><a href="/#/session/destroy">Logout</a></li>' +
