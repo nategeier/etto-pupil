@@ -1,20 +1,34 @@
 "use strict";
 
-describe("Directive: enrollgoBlock", function () {
+describe("Directive: enrollgoBlock", function() {
+  var element, scope, $httpBackend;
 
   // load the directive's module
   beforeEach( module( "engoPupil" ) );
 
-  var element,
-      scope;
+  beforeEach( inject( function( $rootScope, $compile, $injector ) {
+    $httpBackend = $injector.get( "$httpBackend" );
+    $httpBackend.when( "GET", "/api/v1/blocktype?type=text" ).respond({
+      type: "text",
+      template: "<p>{{ block.data.text }}</p>",
+      id: "test"
+    });
 
-  beforeEach(inject(function ($rootScope) {
-    scope = $rootScope.$new();
+    scope = $rootScope;
+
+    element = angular.element( "<engo-block block='{ type: \"text\", data: { text: \"engo!\" } }'></engo-block>" );
+    element = $compile( element )( scope );
   }));
 
-  it("should make hidden element visible", inject(function ($compile) {
-    element = angular.element("<enrollgo-block></enrollgo-block>");
-    element = $compile(element)(scope);
-    expect(element.text()).toBe("this is the enrollgoBlock directive");
-  }));
+  afterEach( function() {
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
+  });
+
+  //it( "should know if it is in edit mode or not", inject( function( $compile ) {
+    //$httpBackend.expectGET( "/api/v1/blocktype?type=text" );
+    //$httpBackend.flush();
+    //expect( element.scope().editing ).toBeDefined();
+  //}));
 });
+
