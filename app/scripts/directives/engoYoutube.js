@@ -1,7 +1,7 @@
 "use strict";
 
-angular.module("enrollgoComposerApp")
-.directive("engoYoutube", [ function () {
+angular.module( "engoPupil" )
+.directive( "engoYoutube", [ function () {
   return {
 
     restrict: "EA",

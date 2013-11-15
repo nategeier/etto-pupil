@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module( "enrollgoComposerApp" )
+angular.module( "engoPupil" )
 .controller( "HomeCtrl", [ "$scope", "$compile", "$http", function ( $scope, $compile, $http ) {
 
   /*
@@ -13,18 +13,18 @@ angular.module( "enrollgoComposerApp" )
   });
   */
 
-  //console.log('datatatata:', Session.user)
+  //console.log("datatatata:", Session.user)
 
 
-  $http({method: 'GET', url: '/api/v1/sessions/home'})
+  $http({ method: "GET", url: "/api/v1/sessions/home" })
     .success(function(data, status, headers, config){
       $scope.error = data.err;
       $scope.user = data.user;
       $scope.createdCourses = data.createdCourses;
-  }).
+    }).
     error(function(data, status, headers, config) {
-      console.log(data, 'err');
-  });
+      console.log(data, "err");
+    });
 
 }]);
 

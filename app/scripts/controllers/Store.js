@@ -1,9 +1,6 @@
 'use strict';
 
-'use strict';
-
-
-angular.module("enrollgoComposerApp")
+angular.module("engoPupil")
 .controller("StoreCtrl", [ "$scope", "$http", "$location", function ( $scope, $http, $location ) {
 
 

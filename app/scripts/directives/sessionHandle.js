@@ -2,7 +2,7 @@
 
 
 
-angular.module("enrollgoComposerApp")
+angular.module("engoPupil")
 .directive("sessionHandle", [ "Session", function ( Session ) {
 
   console.log('form dir---------------', Session.isLogged)

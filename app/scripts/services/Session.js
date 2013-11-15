@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('enrollgoComposerApp')
+angular.module('engoPupil')
 .factory("Session", [ "$http", function ( $http ) {
   //return $resource( "/api/v1/blocktype", {}, { update: { method: "PUT" }} );
     var sdo = {

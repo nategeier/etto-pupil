@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('enrollgoComposerApp')
+angular.module('engoPupil')
   .directive('notLoggedInNav', [function () {
     console.log('roller')
     return {
@@ -18,7 +18,7 @@ angular.module('enrollgoComposerApp')
     '</div>',
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
-       
+
       }
     };
   }]);

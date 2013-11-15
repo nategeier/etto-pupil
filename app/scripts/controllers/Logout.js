@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module( "enrollgoComposerApp" )
+angular.module( "engoPupil" )
 .controller( "LogoutCtrl", [ "$scope", "$location", "$http", "Session", function ( $scope, $location, $http, Session ) {
   console.log('heree:');
   var handleSuccess = function(data) {
@@ -11,7 +11,7 @@ angular.module( "enrollgoComposerApp" )
   Session.destroySession().success(handleSuccess);
 
 
-  
+
 }]);
 
 

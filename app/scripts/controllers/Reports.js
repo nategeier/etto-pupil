@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module("enrollgoComposerApp")
+angular.module("engoPupil")
 .controller("ReportsCtrl", [ "$scope", "$http", "$location", function ( $scope, $http, $location ) {
 
   console.log($location.path())

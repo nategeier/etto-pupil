@@ -1,7 +1,7 @@
 "use strict";
 
-angular.module("enrollgoComposerApp")
-.directive("enrollgoBlock", [ "$compile", "BlockType", function ( $compile, BlockType ) {
+angular.module( "engoPupil" )
+.directive( "engoBlock", [ "$compile", "BlockType", function ( $compile, BlockType ) {
   return {
 
     template: "",

@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module( "enrollgoComposerApp" )
+angular.module( "engoPupil" )
 .controller( "ModuleViewCtrl", [ "$scope", "$compile", "module", function ( $scope, $compile, module ) {
   $scope.module = module;
 }]);

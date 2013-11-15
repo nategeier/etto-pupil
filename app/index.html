@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>EnrollGo</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela">
         <!-- endbuild -->
 </head>
-  <body ng-app="enrollgoComposerApp">
+  <body ng-app="engoPupil">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -27,10 +27,10 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    
-    
+
+
     <div ng-view=""></div>
-    
+
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -62,8 +62,7 @@
         <script src="bower_components/foundation/js/foundation/foundation.tooltips.js"></script>
         <script src="bower_components/foundation/js/foundation/foundation.topbar.js"></script>
         <script src="bower_components/foundation/js/foundation/foundation.interchange.js"></script>
-        <script src="bower_components/underscore/underscore.js"></script>
-        <script src="bower_components/greensock-js/src/minified/TweenMax.min.js"></script>
+        <script src="bower_components/greensock/src/minified/TweenMax.min.js"></script>
         <!-- endbuild -->
 
         <!-- build:js scripts/modules.js -->
@@ -76,26 +75,26 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/services/Module.js"></script>
-        <script src="scripts/directives/composerToolbox.js"></script>
-        <script src="scripts/directives/enrollgoModule.js"></script>
-        <script src="scripts/directives/enrollgoBlock.js"></script>
+        <script src="scripts/controllers/home.js"></script>
         <script src="scripts/controllers/Module.js"></script>
         <script src="scripts/controllers/ModuleView.js"></script>
-        <script src="scripts/services/BlockType.js"></script>
-        <script src="scripts/directives/engoYoutube.js"></script>
-
-        <script src="scripts/directives/engoLogin.js"></script>
-        <script src="scripts/controllers/home.js"></script>
-        <script src="scripts/services/Session.js"></script>
+        <script src="scripts/controllers/ModuleEdit.js"></script>
         <script src="scripts/controllers/Reports.js"></script>
-        <script src="scripts/directives/scaleBar.js"></script>
         <script src="scripts/controllers/Store.js"></script>
         <script src="scripts/controllers/Logout.js"></script>
-        <script src="scripts/directives/sessionHandle.js"></script>
 
+        <script src="scripts/directives/engoModule.js"></script>
+        <script src="scripts/directives/engoBlock.js"></script>
+        <script src="scripts/directives/engoYoutube.js"></script>
+        <script src="scripts/directives/engoLogin.js"></script>
         <script src="scripts/directives/notLoggedInNav.js"></script>
         <script src="scripts/directives/loggedInNav.js"></script>
+        <script src="scripts/directives/sessionHandle.js"></script>
+        <script src="scripts/directives/scaleBar.js"></script>
+
+        <script src="scripts/services/Session.js"></script>
+        <script src="scripts/services/Module.js"></script>
+        <script src="scripts/services/BlockType.js"></script>
         <!-- endbuild -->
 </body>
 </html>
