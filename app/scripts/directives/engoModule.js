@@ -17,6 +17,9 @@ angular.module( "engoPupil" )
 
       $scope.currentBlock = 0;
 
+      if( $scope.module === undefined ) { $scope.module = {}; }
+      if( $scope.module.blocks === undefined ) { $scope.module.blocks = []; }
+
       $scope.module.blocks = $scope.module.blocks.map( function( block, index ) {
         block.index = index;
         return block;
@@ -25,14 +28,12 @@ angular.module( "engoPupil" )
       $scope.nextBlock = function() {
         if( $scope.currentBlock < $scope.module.blocks.length - 1 ) {
           $scope.currentBlock++;
-          $scope.$apply();
         }
       };
 
       $scope.prevBlock = function() {
         if( $scope.currentBlock > 0 ) {
           $scope.currentBlock--;
-          $scope.$apply();
         }
       };
 
@@ -44,6 +45,8 @@ angular.module( "engoPupil" )
         } else if (key === 37) {
           $scope.prevBlock();
         }
+
+        $scope.$apply();
       });
 
     },
