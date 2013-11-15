@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="118px" height="61.333px" viewBox="0 0 118 61.333" enable-background="new 0 0 118 61.333" xml:space="preserve">
+<rect x="9.297" y="8.434" opacity="0.27" fill="#2C858D" width="52.516" height="2.757"/>
+<rect x="9.297" y="3.917" opacity="0.27" fill="#2C858D" width="52.516" height="2.757"/>
+<rect x="9.297" y="17.468" opacity="0.27" fill="#2C858D" width="52.516" height="2.757"/>
+<rect x="9.297" y="12.951" opacity="0.27" fill="#2C858D" width="52.516" height="2.757"/>
+<rect x="65.42" y="41.516" opacity="0.27" fill="#2C858D" width="44.639" height="2.758"/>
+<rect x="65.42" y="36.999" opacity="0.27" fill="#2C858D" width="44.639" height="2.758"/>
+<rect x="65.42" y="50.551" opacity="0.27" fill="#2C858D" width="44.639" height="2.757"/>
+<g>
+	<rect x="55.408" y="10.827" fill="#2C858D" width="9.311" height="29.875"/>
+	<rect x="45.126" y="20.462" fill="#2C858D" width="29.875" height="9.311"/>
+</g>
+<rect x="65.42" y="46.034" opacity="0.27" fill="#2C858D" width="44.639" height="2.757"/>
+<path opacity="0.27" fill="#2C858D" d="M9.297,24.438v29.996h52.516V24.438H9.297z M55.801,51H15.309V27.872h40.492V51z"/>
+<g opacity="0.27">
+	<polygon fill="#2C858D" points="85.602,25.765 92.6,18.768 85.602,11.768 	"/>
+	<path fill="#2C858D" d="M87.214,9.392c-5.176,0-9.374,4.196-9.374,9.376c0,5.178,4.198,9.373,9.374,9.373
+		c5.178,0,9.374-4.195,9.374-9.373C96.588,13.588,92.392,9.392,87.214,9.392z M87.185,26.662c-4.286,0-7.762-3.474-7.762-7.759
+		c0-4.286,3.476-7.761,7.762-7.761c4.284,0,7.76,3.475,7.76,7.761C94.944,23.188,91.469,26.662,87.185,26.662z"/>
+	<path fill="#2C858D" d="M65.419,4v29.997h44.64V4H65.419z M108.169,27.495c0,2.473-2.002,4.474-4.471,4.474H71.773
+		c-2.47,0-4.474-2.001-4.474-4.474V10.498c0-2.472,2.004-4.473,4.474-4.473h31.925c2.469,0,4.471,2.001,4.471,4.473V27.495z"/>
+</g>
+<line opacity="0.27" fill="#FFFFFF" stroke="#2C858D" stroke-width="2" stroke-miterlimit="10" x1="12.25" y1="25.765" x2="57" y2="51.93"/>
+<line opacity="0.27" fill="none" stroke="#2C858D" stroke-width="2" stroke-miterlimit="10" x1="13.75" y1="51.93" x2="57" y2="28.141"/>
+</svg>

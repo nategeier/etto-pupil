@@ -13,6 +13,7 @@
 
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela">
         <!-- endbuild -->
 </head>
   <body ng-app="enrollgoComposerApp">
@@ -26,7 +27,10 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
+    
+    
     <div ng-view=""></div>
+    
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -59,6 +63,7 @@
         <script src="bower_components/foundation/js/foundation/foundation.topbar.js"></script>
         <script src="bower_components/foundation/js/foundation/foundation.interchange.js"></script>
         <script src="bower_components/underscore/underscore.js"></script>
+        <script src="bower_components/greensock-js/src/minified/TweenMax.min.js"></script>
         <!-- endbuild -->
 
         <!-- build:js scripts/modules.js -->
@@ -79,6 +84,18 @@
         <script src="scripts/controllers/ModuleView.js"></script>
         <script src="scripts/services/BlockType.js"></script>
         <script src="scripts/directives/engoYoutube.js"></script>
+
+        <script src="scripts/directives/engoLogin.js"></script>
+        <script src="scripts/controllers/home.js"></script>
+        <script src="scripts/services/Session.js"></script>
+        <script src="scripts/controllers/Reports.js"></script>
+        <script src="scripts/directives/scaleBar.js"></script>
+        <script src="scripts/controllers/Store.js"></script>
+        <script src="scripts/controllers/Logout.js"></script>
+        <script src="scripts/directives/sessionHandle.js"></script>
+
+        <script src="scripts/directives/notLoggedInNav.js"></script>
+        <script src="scripts/directives/loggedInNav.js"></script>
         <!-- endbuild -->
 </body>
 </html>

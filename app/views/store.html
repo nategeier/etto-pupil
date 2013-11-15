@@ -1,0 +1,65 @@
+<logged-in-nav></logged-in-nav>
+<div class= 'header'>
+  <div class= 'row'>
+    <div class= 'large-5 columns'>
+      <h2>Welcome to the store</h2>
+      <P>Purchase or upload a new course</P>
+    </div>
+    <div class= 'large-7 columns'>
+      <div class= 'large-4 columns no-pad'>
+        <div class= 'little-pad'>
+          <div class='header-btn'>
+            <object type="image/svg+xml" data="/images/svg/create_course.svg"/>
+            <div class='clear'/>
+            <p1> Create Course</p1>
+          </div>
+        </div>
+      </div>
+      <div class= 'large-4 columns no-pad'>
+        <div class= 'little-pad'>
+          <div class='header-btn'>
+            <object type="image/svg+xml" data="/images/svg/get_course.svg"/>
+            <div class='clear'/>
+            <p1> Get Courses</p1>
+          </div>
+        </div>
+      </div>
+      <div class= 'large-4 columns no-pad'>
+        <div class= 'little-pad'>
+          <div class='header-btn'>
+            <object type="image/svg+xml" data="/images/svg/add_people.svg"/>
+            <div class='clear'/>
+            <p1> Add People</p1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='main'>
+  <div class='row openHolder'>
+    <h3 class='center'> Available to load for your people</h3>
+    <div ng-repeat='course in courses'>
+      <div class='large-4 columns no-pad'>
+          <div class= 'little-pad'>
+            <div class= 'course-holder'>
+              <div class= 'row'>
+                <div class='large-8 columns'>
+                  <h5>{{course.courseTitle}}</h5>
+                  <p>{{course.subTxt}}</p>
+                </div>
+                <div class='large-4 columns'>
+                  <h5>{{course.price}}</h5>
+                  <hr/>
+                  <div class='button tiny w100'> Demo </div>
+                  <a href='/purchase_course/#{course.courseID}' class='button tiny w100'> Purchase </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

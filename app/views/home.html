@@ -1,0 +1,78 @@
+<logged-in-nav></logged-in-nav>
+<div class= 'header'>
+  <div class= 'row'>
+    <div class= 'large-5 columns'>
+      <h2>Welcome {{user.name}}</h2>
+      <P>{{user.brandTitle}}</P>
+    </div>
+    <div class= 'large-7 columns'>
+      <div class= 'large-4 columns no-pad'>
+        <div class= 'little-pad'>
+          <div class='header-btn'>
+            <object type="image/svg+xml" data="/images/svg/create_course.svg"/>
+            <div class='clear'/>
+            <p1> Create Course</p1>
+          </div>
+        </div>
+      </div>
+      <div class= 'large-4 columns no-pad'>
+        <div class= 'little-pad'>
+          <div class='header-btn'>
+            <object type="image/svg+xml" data="/images/svg/get_course.svg"/>
+            <div class='clear'/>
+            <p1> Get Courses</p1>
+          </div>
+        </div>
+      </div>
+      <div class= 'large-4 columns no-pad'>
+        <div class= 'little-pad'>
+          <div class='header-btn'>
+            <object type="image/svg+xml" data="/images/svg/add_people.svg"/>
+            <div class='clear'/>
+            <p1> Add People</p1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='main'>
+  <div class='row openHolder radial-box'>
+    <div class='large-4 columns aside'>
+      <h3>Created Courses</h3>
+      <div ng-repeat='course in createdCourses'>
+        <div class='large-12 columns no-pad'>
+          <div class= 'little-pad'>
+            <div class= 'course-holder'>
+              <div class= 'row'>
+                <div class='large-9 columns'>
+                  <h5>{{course.courseTitle}}</h5>
+                  <p>{{course.subTxt}}</p>
+                </div>
+                <div class='large-3 columns'>
+                  <p>{{course.price}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class='large-8 columns aside'>
+      <h3>Courses for my Users</h3>
+      <div ng-repeat='course in user.courses'>
+        <div class='large-6 columns no-pad'>
+          <div class= 'little-pad'>
+            <div class= 'course-holder'>
+              <h5>{{course.courseTitle}}</h5>
+              <p>{{course.subTxt}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+</div>

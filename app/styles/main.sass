@@ -6,7 +6,7 @@ $engo-mildblue: #386b86
 $engo-accentblue: #50889f
 $engo-turquoise: #3da6cb
 $engo-aqua: #50889f
-$engo-greenish: #74ceb7
+$engo-greenish: #74ceb7P
 $engo-light: #c9ffd5
 $engo-tan: #ffffcb
 $engo-grey: #eee
@@ -28,10 +28,20 @@ $dark-grey : #dadada
 html, body
   height: 100%
 
+
 body
   background: #fafafa
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
   color: $engo-light
+  margin: 0
+  padding: 0
+
+
+h1, h2, h3, h4, h5, p, p1, p2, p3
+  font-family: "Varela", sans-serif
+
+
+.header h2
+  color: $grey
 
 enrollgo-module
   min-height: 100%
@@ -60,6 +70,8 @@ enrollgo-module
     margin-bottom: 0
     margin-top: 0
     padding: 0.33em 1.33rem 0.67em
+    font-family: "Varela", sans-serif
+
   
   p
     font-size: 1.33em
@@ -75,7 +87,11 @@ enrollgo-module
     footer:before
       content: "\2014"
 
+.aside h3, .header-btn, .aside p
+  color: $mild-blue
 
+.aside h5
+  color: $acent-blue
 
 
 
@@ -83,18 +99,12 @@ enrollgo-module
 .radial-box, .header-btn, .aside, .course-holder, .headerBtn
   border-radius: 4px
 
-.aside, .course-holder
+.course-holder
   border: 1px solid $med-grey
-
-body
-  padding: 0
-  margin: 0
-  width: 100%
-  font-family: 'Varela', sans-serif
 
 
 .main-img
-  background-image: url('/images/site/opener2.jpg')
+  background-image: url("/images/site/opener2.jpg")
   background-repeat: no-repeat
   background-attachment: fixed
   background-position: center top
@@ -135,6 +145,10 @@ p3
 h4
   color: $turquoise
   text-transform: uppercase
+
+h2
+  color: #666
+  font-family: "Varela", sans-serif
 
 
 .dark-grey
@@ -197,8 +211,7 @@ header
   margin: 0
   padding: 15px
   padding-bottom: 44px
-  border-top: 1px solid $acent-blue
-
+  border-top: 3px solid $acent-blue
 
 .headerBtn
   width: 100%
@@ -237,8 +250,7 @@ header
   background-color: $grey
   position: relative
   padding-bottom: 40px
-
-
+  width: 100%
   
 footer
   background-color: $dark-blue
@@ -246,7 +258,10 @@ footer
   margin-top: 60px
   text-align: center
   padding: 20px
-  color: $tan
+  color: $grey
+  text-align:center
+  width: 100%
+  font-size: .8em
 
 .fixed
   position: fixed
