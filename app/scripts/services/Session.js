@@ -9,24 +9,29 @@ angular.module('engoPupil')
       user: null
     };
 
-     return sdo;
-
+     //return sdo;
+  
   $http.get('/api/v1/sessions/get_session').success(function(user){
-     sdo.user = user
-    //return sdo;
+    sdo.user = user
+    
   });
 
-*/
 
+  return sdo;
+  
+
+  */
   return {
       getSessions: function() {
-          return $http.get('/api/v1/sessions/get_session');
+          $http.get('/api/v1/sessions/get_session');
       },
        destroySession: function() {
-          console.log('ddd dritst')
           return $http.get('/api/v1/sessions/destroy');
       }
-  };
+  }
+
+
+
 
 }]);
 

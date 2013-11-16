@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('enrollgoComposerApp')
+angular.module('engoPupil')
   .directive('logOut', ['$location', function (location) {
 
     return {

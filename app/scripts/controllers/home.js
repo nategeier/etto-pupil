@@ -1,19 +1,24 @@
 "use strict";
 
 angular.module( "engoPupil" )
-.controller( "HomeCtrl", [ "$scope", "$compile", "$http", function ( $scope, $compile, $http ) {
+.controller( "HomeCtrl", [ "$scope", "$compile", "$http", 'Session', '$location', function ( $scope, $compile, $http, session, $location) {
 
-  /*
+  
   var handleSuccess = function(data) {
-    $scope.session = data;
+    if(data){
+      $scope.session = data;
+    }else{
+      $location.path('/login/new/');
+    } 
   };
-  Session.getSessions().success(function(session){
-    $scope.session = session;
-    //return session;
-  });
-  */
 
-  //console.log("datatatata:", Session.user)
+
+  //session.getSessions.success(handleSuccess);
+  
+
+
+//console.log("user-----:", session.user)
+  //console.log("is logged in-----:", session.isLogged)
 
 
   $http({ method: "GET", url: "/api/v1/sessions/home" })

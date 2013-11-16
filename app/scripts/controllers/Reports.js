@@ -26,7 +26,7 @@ angular.module("engoPupil")
     $scope.master = angular.copy(newLevel);
     newLevel.auth =  $scope.currLevel.auth - 1;
     newLevel.aboveID =  $scope.currLevel.levelID;
-    newLevel.courses = $scope.levels[0].courses;
+    //newLevel.courses = $scope.levels[0].courses;
     $http.post('/api/v1/reports/createLevel', newLevel).success(function(created){
       $scope.levels.unshift(newLevel);
     });
