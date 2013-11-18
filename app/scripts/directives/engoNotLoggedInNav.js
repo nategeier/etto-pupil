@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('engoPupil')
-  .directive('loggedInNav', [function () {
+  .directive('engoNotLoggedInNav', [function () {
+    console.log('roller')
     return {
       template: '<div class="row">' +
       '<div class="large-6 columns small-6">' +
@@ -11,10 +12,7 @@ angular.module('engoPupil')
       '</div>' +
       '<nav>' +
         '<ul>' +
-          '<li><a href="/#/engo">Home</a></li>' +
-          '<li><a href="/#/store">Store</a></li>' +
-          '<li><a href="/#/levels/0/0">Reports</a></li>' +
-         ' <li><a href="/#/session/destroy">Logout</a></li>' +
+          '<li><a href="/#/login/new">Login</a></li>' +
         '</ul>' +
       '</nav>' +
     '</div>',

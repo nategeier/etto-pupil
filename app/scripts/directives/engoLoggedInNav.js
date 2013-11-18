@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('engoPupil')
-  .directive('loggedInNav', [function () {
+  .directive('engoLoggedInNav', [function () {
     return {
       template: '<div class="row">' +
       '<div class="large-6 columns small-6">' +

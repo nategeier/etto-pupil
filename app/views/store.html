@@ -1,8 +1,8 @@
 <logged-in-nav></logged-in-nav>
-<div class= 'header'>
+<div class= 'header main-img'>
   <div class= 'row'>
     <div class= 'large-5 columns'>
-      <h2>Welcome to the store</h2>
+      <h2>Course Market</h2>
       <P>Purchase or upload a new course</P>
     </div>
     <div class= 'large-7 columns'>
@@ -37,8 +37,8 @@
   </div>
 </div>
 <div class='main'>
-  <div class='row openHolder'>
-    <h3 class='center'> Available to load for your people</h3>
+  <div class='row openHolder radial-box'>
+    <h3> Available to load for your people</h3>
     <div ng-repeat='course in courses'>
       <div class='large-4 columns no-pad'>
           <div class= 'little-pad'>
@@ -52,7 +52,7 @@
                   <h5>{{course.price}}</h5>
                   <hr/>
                   <div class='button tiny w100'> Demo </div>
-                  <a href='/purchase_course/#{course.courseID}' class='button tiny w100'> Purchase </a>
+                  <a href='/#/purchase_course/{{course.courseID}}' class='button tiny w100'> Purchase </a>
                 </div>
               </div>
             </div>

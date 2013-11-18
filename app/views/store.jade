@@ -1,0 +1,43 @@
+engo-logged-in-nav
+.header.main-img
+  .row
+    .large-5.columns
+      h2 Course Market
+      p Purchase or upload a new course
+    .large-7.columns
+      .large-4.columns.no-pad
+        .little-pad
+          .header-btn
+            object(type='image/svg+xml', data='/images/svg/create_course.svg')
+            .clear
+            p1  Create Course
+      .large-4.columns.no-pad
+        .little-pad
+          .header-btn
+            object(type='image/svg+xml', data='/images/svg/get_course.svg')
+            .clear
+            p1  Get Courses
+      .large-4.columns.no-pad
+        .little-pad
+          .header-btn
+            object(type='image/svg+xml', data='/images/svg/add_people.svg')
+            .clear
+            p1  Add People
+.main
+  .row.openHolder.radial-box
+    h3  Available to load for your people
+    div(ng-repeat='course in courses')
+      .large-4.columns.no-pad
+        .little-pad
+          .course-holder
+            .row
+              .large-8.columns
+                h5 {{course.courseTitle}}
+                p {{course.subTxt}}
+              .large-4.columns
+                h5 {{course.price}}
+                hr
+                .button.tiny.w100  Demo 
+                a.button.tiny.w100(href='/#/purchase_course/{{course.courseID}}')  Purchase 
+
+

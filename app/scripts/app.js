@@ -2,16 +2,17 @@
 
 var engoPupil = angular.module( "engoPupil", [ "ngResource", "ngTouch" ]);
 
+
 engoPupil
 .config( function ($routeProvider) {
   $routeProvider
   .when("/", {
     templateUrl: "views/landing.html",
-    controller: "MainCtrl"
+    controller: "NewbrandCtrl"
   })
   .when("/login/new", {
     templateUrl: "views/login.html",
-    controller: "MainCtrl"
+    controller: "LoginCtrl"
   })
   .when("/engo", {
     templateUrl: "views/home.html",
@@ -20,11 +21,15 @@ engoPupil
   .when("/levels/:levelID/:auth", {
     templateUrl: "views/reports.html",
     controller: "ReportsCtrl"
-  })
+  })//-----------------------------Store
   .when("/store", {
     templateUrl: "views/store.html",
     controller: "StoreCtrl"
   })
+  .when("/purchase_course/:courseID", {
+    templateUrl: "views/storePurchase.html",
+    controller: "StorepurchaseCtrl"
+  })//-----------------------------Sessions
    .when("/session/destroy", {
     controller: "LogoutCtrl",
     templateUrl: "views/home.html"
@@ -43,7 +48,7 @@ engoPupil
       module: function( ModuleLoader ) { return new ModuleLoader(); }
     }
   })
-  .otherwise({
+  /*.otherwise({
     redirectTo: "/"
-  });
+  })*/;
 });

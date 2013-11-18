@@ -7,7 +7,7 @@ angular.module( "engoPupil" )
     $http({method: 'POST', url: link, data:$scope.user})
       .success(function(data, status, headers, config){
         $scope.error = data.err;
-        /*
+
         if(data.err){
           Session.isLogged = false;
           Session.user = null;
@@ -18,8 +18,8 @@ angular.module( "engoPupil" )
           $location.path("/engo");
 
         }
-        */
-        $location.path("/engo");
+
+        //$location.path("/engo");
 
     })
       .error(function(data, status, headers, config) {
