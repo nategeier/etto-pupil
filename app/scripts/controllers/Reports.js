@@ -2,31 +2,22 @@
 
 
 angular.module("engoPupil")
-.controller("ReportsCtrl", [ "$scope", "$http", "$location", function ( $scope, $http, $location ) {
-
-  console.log($location.path())
-
+.controller("ReportsCtrl", [ "$scope", "$http", "$location", 'Reports', function ( $scope, $http, $location, Reports ) {
 
   var link = '/api/v1/' + $location.path();
 
-  $http({method: 'GET', url: link})
-    .success(function(data, status, headers, config){
-      $scope.error = data.err;
-      $scope.currLevel = data.currLevel;
-      $scope.levels = data.levels;
-      $scope.user = data.user;
-
-  }).
-    error(function(data, status, headers, config) {
-      console.log(data, 'err');
+  
+  Reports.get_reports(link, function(data){
+    $scope.error = data.err;
+    $scope.currLevel = data.currLevel;
+    $scope.levels = data.levels;
+    $scope.user = data.user;
   });
-
 
   $scope.update = function(newLevel) {
     $scope.master = angular.copy(newLevel);
     newLevel.auth =  $scope.currLevel.auth - 1;
     newLevel.aboveID =  $scope.currLevel.levelID;
-    //newLevel.courses = $scope.levels[0].courses;
     $http.post('/api/v1/reports/createLevel', newLevel).success(function(created){
       $scope.levels.unshift(newLevel);
     });
@@ -43,6 +34,4 @@ angular.module("engoPupil")
     });
 
   };
-
-
 }]);

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('engoPupil')
-.factory("Session", [ "$http", function ( $http ) {
+.factory("Session", [ "$http", '$location', function ( $http, $location ) {
   /*
     var sdo = {
       isLogged: false,
@@ -22,8 +22,16 @@ angular.module('engoPupil')
 
   */
   return {
-      getSessions: function() {
-          $http.get('/api/v1/sessions/get_session');
+      get_session: function(callback) {
+          //$http.get('/api/v1/sessions/get_session');
+          $http({method: 'GET', url: '/api/v1/sessions/get_session'})
+            .success(function(data, status, headers, config){
+              callback(data);
+              //callback(data);
+          }).
+            error(function(data, status, headers, config) {
+              console.log(data, 'err');
+          });;
       },
        destroySession: function() {
           return $http.get('/api/v1/sessions/destroy');

@@ -1,0 +1,18 @@
+engo-logged-in-nav
+.header.main-img
+  .row
+    .large-12.columns
+      h2.centerTxt Course Market
+      p.centerTxt Purchase or upload a new course
+.main
+  .row.openHolder.radial-box
+    h3 Purchase Course
+    .large-main.large-12
+      .rownter
+        .large-5.columns.register.large-centered
+          .err
+            h3 {{course.courseTitle}}
+            p {{course.price}}
+            engo-enter-card(ng-show='!customer')
+            engo-show-card(ng-show='customer')
+            input.button.small.right(type='submit', value='Add card')

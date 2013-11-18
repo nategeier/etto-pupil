@@ -1,0 +1,48 @@
+
+engo-logged-in-nav
+.header.main-img
+  .row
+    .large-5.columns
+      h2 Welcome {{user.name}}
+      p {{user.brandTitle}}
+    .large-7.columns
+      .large-4.columns.no-pad
+        .little-pad
+          .header-btn
+            object(type='image/svg+xml', data='/images/svg/create_course.svg')
+            .clear
+            p1  Create Course
+      .large-4.columns.no-pad
+        .little-pad
+          .header-btn
+            object(type='image/svg+xml', data='/images/svg/get_course.svg')
+            .clear
+            p1  Get Courses
+      .large-4.columns.no-pad
+        .little-pad
+          .header-btn
+            object(type='image/svg+xml', data='/images/svg/add_people.svg')
+            .clear
+            p1  Add People
+.main
+  .row.openHolder.radial-box
+    .large-4.columns.aside
+      h3 Created Courses
+      div(ng-repeat='course in createdCourses')
+        .large-12.columns.no-pad
+          .little-pad
+            .course-holder
+              .row
+                .large-9.columns
+                  h5 {{course.courseTitle}}
+                  p {{course.subTxt}}
+                .large-3.columns
+                  p {{course.price}}
+    .large-8.columns.aside
+      h3 Courses for my Users
+      div(ng-repeat='course in user.courses')
+        .large-6.columns.no-pad
+          .little-pad
+            .course-holder
+              h5 {{course.courseTitle}}
+              p {{course.subTxt}}

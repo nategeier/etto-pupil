@@ -15,6 +15,7 @@ var mountFolder = function (connect, dir) {
 module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
   require('time-grunt')(grunt);
+  grunt.loadNpmTasks('grunt-contrib-jade');
 
   // configurable paths
   var yeomanConfig = {
@@ -29,6 +30,10 @@ module.exports = function (grunt) {
   grunt.initConfig({
     yeoman: yeomanConfig,
     watch: {
+      jade: {
+       files: ['<%= yeoman.app %>/*.jade', '<%= yeoman.app %>/views/**/{,*/}*.jade', '<%= yeoman.app %>/view/{,*/}*.jade'],
+        tasks: ['jade:dist']
+      },
       coffee: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
         tasks: ['coffee:dist']
@@ -50,11 +55,25 @@ module.exports = function (grunt) {
           livereload: LIVERELOAD_PORT
         },
         files: [
-          '<%= yeoman.app %>/{,*/}*.html',
+          '.tmp/views/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
           '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
+      }
+    },
+    jade: {
+      dist: {
+        options: {
+          pretty: true
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>',
+          src: ['{,*/}*.jade', '/views/**/{,*/}*.jade', '/views/{,*/}*.jade'],
+          dest: '.tmp',
+          ext: '.html'
+        }]
       }
     },
     autoprefixer: {
@@ -262,6 +281,7 @@ module.exports = function (grunt) {
       }
     },
     // Put files not handled in other tasks here
+
     copy: {
       dist: {
         files: [{
@@ -296,7 +316,8 @@ module.exports = function (grunt) {
       server: [
         'coffee:dist',
         'compass:server',
-        'copy:styles'
+        'copy:styles',
+        'jade:dist'
       ],
       test: [
         'coffee',
@@ -354,6 +375,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
+      'jade',
       'open',
       'watch'
     ]);
@@ -373,6 +395,7 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'autoprefixer',
     'concat',
+    'jade',
     'copy:dist',
     'cdnify',
     'ngmin',
