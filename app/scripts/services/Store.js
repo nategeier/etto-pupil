@@ -12,6 +12,15 @@ angular.module('engoPupil')
           .error(function(data, status, headers, config) {
             callback(data);
         });
+      },
+      purchase_course: function (courseID, callback) {
+        $http({method: 'GET', url: '/api/v1/store/purchase_course/' + courseID})
+          .success(function(data, status, headers, config){
+          callback(data);
+        })
+          .error(function(data, status, headers, config) {
+            callback(data);
+        });
       }
     };
-  }]);
+}]);
