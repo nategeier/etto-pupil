@@ -3,7 +3,7 @@
 describe('Controller: ModuleeditCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('enrollgoComposerApp'));
+  beforeEach(module('engoPupil'));
 
   var ModuleeditCtrl,
     scope;
