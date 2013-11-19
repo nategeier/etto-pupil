@@ -3,7 +3,7 @@
 describe('Controller: StorepurchaseCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('enrollgoComposerApp'));
+  beforeEach(module('engoPupil'));
 
   var StorepurchaseCtrl,
     scope;
@@ -16,7 +16,4 @@ describe('Controller: StorepurchaseCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
-  });
 });
