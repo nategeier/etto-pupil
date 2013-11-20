@@ -2,13 +2,7 @@
 
 angular.module('engoPupil')
   .factory('Reports', [ '$http', function ($http) {
-    // Service logic
-    // ...
-    console.log('mad itss')
 
-    var meaningOfLife = 42;
-
-    // Public API here
     return {
       get_reports: function (link, callback) {
         $http({method: 'GET', url: link})
@@ -17,7 +11,20 @@ angular.module('engoPupil')
         }).
           error(function(data, status, headers, config) {
             console.log(data, 'err');
-        });;
+        });
+      },
+
+      brand_tree: function (callback) {
+        $http({method: 'GET', url: '/api/v1/reports/brand_tree'})
+          .success(function(data, status, headers, config){
+            console.log(data);
+            callback(data);
+        }).
+          error(function(data, status, headers, config) {
+            console.log(data, 'err');
+        });
       }
+
     };
+
   }]);

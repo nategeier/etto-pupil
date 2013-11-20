@@ -25,19 +25,37 @@ engo-logged-in-nav
             p1  Add People
 .main
   .row.openHolder.radial-box
-    h3  Available to load for your people
-    div(ng-repeat='course in courses')
-      .large-4.columns.no-pad
-        .little-pad
-          .course-holder
-            .row
-              .large-8.columns
-                h5 {{course.courseTitle}}
-                p {{course.subTxt}}
-              .large-4.columns
-                h5 {{course.price}}
-                hr
-                .button.tiny.w100  Demo 
-                a.button.tiny.w100(href='/#/purchase_course/{{course.courseID}}')  Purchase 
+    .large-9.columns
+      h3  Purchase courses
+      div(ng-repeat='course in courses')
+        .large-6.columns.no-pad
+          .little-pad
+            .course-holder
+              .row
+                .large-8.columns
+                  h5 {{course.courseTitle}}
+                  p {{course.subTxt}}
+                .large-4.columns
+                  h5 ${{course.price}}
+                  hr
+                  .button.tiny.w100  Demo 
+                  a.button.tiny.w100(href='/#/purchase_course/{{course.courseID}}')  Purchase 
+    .large-3.columns
+      p Levels: {{delegatedTo}}
+      h3  Deligate to:
+      input.left(id='all', type='checkbox', ng-model='delegated.brandID')
+      label(for='all') All Level
+     
+      div(ng-repeat='medLevel in medLevels')
+        {{j = $index}}
+        input.left(id='medLevel{{$index}}', type='checkbox', ng-model='delegated.medID', ng-change="updateSelected($index, user.brandID, medLevel.medID, null)", brandID='{{user.brandID}}', engo-delegate-to)
+        label(for='medLevel{{$index}}') 
+          h4 {{medLevel.medTitle}} {{medLevel.totEmps}} | {{j}} | {{medLevel.medID}}
+        .clear
+        div(ng-repeat='lowerLevel in medLevel.lowerLevels')
+          input.left(style='margin-left:20px;', id='lowCB{{$index}}', type='checkbox', ng-model='delegated.lowID', ng-click="updateSelected(delegated, 1)")
+          label(for='lowCB{{$index}}') {{lowerLevel.lowTitle}}:{{lowerLevel.totEmps}} ---- {{$index}}
+          .clear
+     
 
 

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('engoPupil')
-  .controller('StorepurchaseCtrl', ['$scope', '$routeParams', '$http', 'Store', function ($scope, $routeParams, $http, Store) {
+  .controller('StorepurchaseCtrl', ['$scope', '$routeParams', '$http', 'Store', 'Reports', function ($scope, $routeParams, $http, Store, Reports) {
 
     Store.purchase_course($routeParams.courseID, function(data){
       $scope.error = data.err;
@@ -9,4 +9,6 @@ angular.module('engoPupil')
       $scope.user = data.user;
       $scope.customer = data.customer;
     });
+
+
   }]);
