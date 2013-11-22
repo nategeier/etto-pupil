@@ -1,16 +1,64 @@
 'use strict';
 
-angular.module('engoPupil')
-  .directive('engoDelegateTo', function () {
-    return {
-      template: '<div></div>',
-      restrict: 'EA',
+var app = angular.module('engoPupil');
 
-      link: function postLink(scope, element, attrs) {
-        element.bind('click', function(){
-          console.log(' attrs', attrs.brandID)
-          //scope.delegated = 
-        })
-      }
-    };
-  });
+
+
+app.directive('headTree', function () {
+  return {
+    restrict: 'EA',
+    template: '<div class="tree-btn" move-side><h2>All {{totUsers}}</h2></div>',
+
+    link: function postLink(scope, element, attrs) {
+    
+    }
+  };
+});
+
+ 
+app.directive('medTree', function () {
+  return {
+    restrict: 'EA',
+    template: '<div class="tree-btn" move-side><h4>{{medLevel.medTitle}} + {{medLevel.totEmps}}</h4></div>',
+
+    link: function postLink(scope, element, attrs) {
+      TweenMax.from(element, .5, {scaleY:0, opacity:0})
+    }
+  };
+});
+
+
+
+
+
+app.directive('lowTree', function () {
+  return {
+    restrict: 'EA',
+    template: '<div class="tree-btn" move-side><p>{{lowerLevel.lowTitle}} + {{lowerLevel.totEmps}}</p></div>',
+
+    link: function postLink(scope, element, attrs) {
+      TweenMax.from(element, .5, {delay:.3, scaleY:0, opacity:0})
+    }
+  };
+});
+
+
+app.directive('moveSide', function () {
+  return {
+    restrict: 'EA',
+
+    link: function postLink(scope, element, attrs) {
+
+      element.bind('mouseover', function(){
+         TweenMax.to(element, .3, {x:-10})
+      });
+
+      element.bind('mouseout', function(){
+         TweenMax.to(element, .3, {x:0})
+      });
+
+    }
+  };
+});
+
+

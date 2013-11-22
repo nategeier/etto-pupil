@@ -25,9 +25,10 @@ engo-logged-in-nav
             p1  Add People
 .main
   .row.openHolder.radial-box
-    .large-9.columns
+    .large-8.columns
       h3  Purchase courses
-      div(ng-repeat='course in courses')
+      input(type='text', ng-model='searchCourse', placeholder='Search Course')
+      div(ng-repeat='course in courses | filter:searchCourse')
         .large-6.columns.no-pad
           .little-pad
             .course-holder
@@ -36,26 +37,23 @@ engo-logged-in-nav
                   h5 {{course.courseTitle}}
                   p {{course.subTxt}}
                 .large-4.columns
-                  h5 ${{course.price}}
+                  h5 ${{course.priceWithEmps}}
                   hr
                   .button.tiny.w100  Demo 
                   a.button.tiny.w100(href='/#/purchase_course/{{course.courseID}}')  Purchase 
-    .large-3.columns
-      p Levels: {{delegatedTo}}
-      h3  Deligate to:
-      input.left(id='all', type='checkbox', ng-model='delegated.brandID')
-      label(for='all') All Level
-     
-      div(ng-repeat='medLevel in medLevels')
-        {{j = $index}}
-        input.left(id='medLevel{{$index}}', type='checkbox', ng-model='delegated.medID', ng-change="updateSelected($index, user.brandID, medLevel.medID, null)", brandID='{{user.brandID}}', engo-delegate-to)
-        label(for='medLevel{{$index}}') 
-          h4 {{medLevel.medTitle}} {{medLevel.totEmps}} | {{j}} | {{medLevel.medID}}
-        .clear
-        div(ng-repeat='lowerLevel in medLevel.lowerLevels')
-          input.left(style='margin-left:20px;', id='lowCB{{$index}}', type='checkbox', ng-model='delegated.lowID', ng-click="updateSelected(delegated, 1)")
-          label(for='lowCB{{$index}}') {{lowerLevel.lowTitle}}:{{lowerLevel.totEmps}} ---- {{$index}}
-          .clear
+    .large-4.columns
+      h3  Course is for:
+
+      div.off-bar(head-tree, ng-click='updateAllLevel(allLevels)', ng-model='allLevels', ng-show='allLevels.ison')
+      div.on-bar(head-tree, ng-click='updateAllLevel(allLevels)', ng-model='allLevels', ng-show='!allLevels.ison')
+
+      div.mid-tree(ng-repeat='medLevel in medLevels')
+        div.off-bar(med-tree, ng-click='updateMedLevel(medLevel)', ng-model='medLevel', ng-show='medLevel.ison')
+        div.on-bar(med-tree, ng-click='updateMedLevel(medLevel)', ng-model='medLevel', ng-show='!medLevel.ison')
+
+        div.low-tree(low ng-repeat='lowerLevel in medLevel.lowerLevels')
+          div.off-bar(low-tree, ng-click='updateLowLevel(lowerLevel)', ng-model='lowerLevel', ng-show='lowerLevel.ison')
+          div.on-bar(low-tree, ng-click='updateLowLevel(lowerLevel)', ng-model='lowerLevel', ng-show='!lowerLevel.ison')
      
 
 
