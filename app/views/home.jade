@@ -22,23 +22,25 @@ engo-logged-in-nav
             object(type='image/svg+xml', data='/images/svg/add_people.svg')
             .clear
             p1  Add People
-.main.container
-  .row.openHolder.radial-box
-    .col-md-4.aside
+.container
+  .row
+    .col-md-4
       h3 Created Courses
-      div(ng-repeat='course in createdCourses')
-        .col-md-12
-          .course-holder
-            .row
-              .col-md-9
-                h5 {{course.courseTitle}}
-                p {{course.subTxt}}
-              .col-md-3
-                p {{course.price}}
-    .col-md-8.aside
+      div.no-pad(ng-repeat='course in createdCourses')
+        .course-holder
+          .row
+            .col-md-9
+              h5 {{course.courseTitle}}
+              p {{course.subTxt}}
+            .col-md-3
+              p {{course.price}}
+    .col-md-8
       h3 Courses for my Users
-      div(ng-repeat='course in user.courses')
-        .col-md-6
-          .course-holder
-            h5 {{course.courseTitle}}
-            p {{course.subTxt}}
+      .row
+        div(ng-repeat='course in user.courses')
+            
+          .col-md-6.no-pad
+            .course-holder
+              img(src='/images/courses/thumbs/default.jpg', style='width:100%')
+              h5 {{course.courseTitle}}
+              p {{course.subTxt}}

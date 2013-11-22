@@ -23,7 +23,7 @@ engo-logged-in-nav
             .clear
             p1  Add People
 .main.container
-  .row.openHolder.radial-box
+  .row
     .col-md-9
       h4 Departments
       img(ng-show='!levels', src='/images/site/loader.gif')
@@ -45,7 +45,7 @@ engo-logged-in-nav
                         .fillBar(ng-show="!course.totTaken && currLevel.auth >= 3", style ='height:100%;', scale-bar='isHidden')
                        .fillBar(ng-show="!course.totTaken && currLevel.auth <= 2", style ='height:100%;', scale-bar='isHidden')
                       p.overNum {{course.courseID}}
-    .col-md-3.aside
+    .col-md-3
       h4 Create Departments
       input.form-control(type='text', ng-model='newLevel.levelTitle', placeholder='New Department Title')
       .btn.btn-primary.btn-sm(ng-show='currLevel.auth != 2', ng-click='update(newLevel)')  Add Department
