@@ -5,9 +5,10 @@ angular.module( "engoPupil" )
   return {
 
     template: "",
-
     restrict: "E",
-
+    scope: {
+      block: "="
+    },
     controller: function( $scope, $element ) {
 
       // Get the BlockType, including template
@@ -26,15 +27,8 @@ angular.module( "engoPupil" )
         $element.append( blockEl );
       });
 
-      $scope.isCurrentBlock = function() {
-        return $scope.block.index === $scope.$parent.currentBlock;
-      };
-
     },
 
-    scope: {
-      block: "="
-    },
 
     link: function postLink(scope, element, attrs) {
     }

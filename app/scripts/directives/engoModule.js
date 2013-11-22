@@ -4,14 +4,8 @@ angular.module( "engoPupil" )
 .directive( "engoModule", [ function () {
   return {
 
-    template: "<div class='container row'>" +
-              "<engo-block ng-repeat='block in module.blocks' ng-show='isCurrentBlock()' block='block'></engo-block>" +
-              "</div>" +
-              "<div class='engo-module-prev-block' ng-click='prevBlock()'><i class='fa fa-2x fa-arrow-circle-left'></i></div>" +
-              "<div class='engo-module-next-block' ng-click='nextBlock()'><i class='fa fa-2x fa-arrow-circle-right'></i></div>",
-
+    templateUrl: "views/directives/engoModule.html",
     restrict: "E",
-
     controller: function ( $scope, $document, $attrs ) {
       $scope.editing = $attrs[ "edit" ] !== undefined;
 
@@ -24,6 +18,10 @@ angular.module( "engoPupil" )
         block.index = index;
         return block;
       });
+
+      $scope.isCurrentBlock = function( index ) {
+        return index === $scope.currentBlock;
+      };
 
       $scope.nextBlock = function() {
         if( $scope.currentBlock < $scope.module.blocks.length - 1 ) {
