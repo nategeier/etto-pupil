@@ -1,55 +1,55 @@
 
 engo-logged-in-nav
 .header.main-img
-  .row
-    .col-md-5
-      h2 Course Market
-      p Purchase or upload a new course
-    .col-md-7
-      .col-md-4.col-xs-4
-        .header-btn
-          object(type='image/svg+xml', data='/images/svg/create_course.svg')
-          .clear
-          p1  Create Course
-      .col-md-4.col-xs-4
-        .header-btn
-          object(type='image/svg+xml', data='/images/svg/get_course.svg')
-          .clear
-          p1  Get Courses
-      .col-md-4.col-xs-4
-        .header-btn
-          object(type='image/svg+xml', data='/images/svg/add_people.svg')
-          .clear
-          p1  Add People
-.main
+  .container
+    .row
+      .col-md-5
+        h2 Course Market
+        p Purchase or upload a new course
+      .col-md-7
+        .col-md-4.col-xs-4
+          .header-btn
+            object(type='image/svg+xml', data='/images/svg/create_course.svg')
+            .clear
+            p1  Create Course
+        .col-md-4.col-xs-4
+          .header-btn
+            object(type='image/svg+xml', data='/images/svg/get_course.svg')
+            .clear
+            p1  Get Courses
+        .col-md-4.col-xs-4
+          .header-btn
+            object(type='image/svg+xml', data='/images/svg/add_people.svg')
+            .clear
+            p1  Add People
+.main.container
   .row.openHolder.radial-box
     .col-md-9
       h4 Departments
       img(ng-show='!levels', src='/images/site/loader.gif')
       div(ng-repeat='level in levels')
-        .col-md-6.no-pad
+        .col-md-6
           .little-pad
             .course-holder
               a(href='/#/levels/{{level.levelID}}/{{currLevel.auth - 1}}')
                 .row
-                  .col-md-7.columns
+                  .col-md-7
                     p {{level.levelTitle}}: {{level.levelID}}
-                  .col-md-5.columns
+                  .col-md-5
                     p.dark-grey {{level.totUsers}}
                 .row(style='padding-left: 10px;')
                   div(ng-repeat='course in level.courses')
-                    .col-md-2.columns.no-pad
-                      .little-pad
-                        .backBar
-                          .fillBar(ng-show="course.totTaken && currLevel.auth >= 3", style ='height:{{100 - (course.totTaken/level.totUsers * 100)}}%;', scale-bar='isHidden')
-                          .fillBar(ng-show="!course.totTaken && currLevel.auth >= 3", style ='height:100%;', scale-bar='isHidden')
-                         .fillBar(ng-show="!course.totTaken && currLevel.auth <= 2", style ='height:100%;', scale-bar='isHidden')
-                        p.overNum {{course.courseID}}
-    .col-md-3.columns.aside
+                    .col-md-2.col-xs-2.col-sm-2
+                      .backBar
+                        .fillBar(ng-show="course.totTaken && currLevel.auth >= 3", style ='height:{{100 - (course.totTaken/level.totUsers * 100)}}%;', scale-bar='isHidden')
+                        .fillBar(ng-show="!course.totTaken && currLevel.auth >= 3", style ='height:100%;', scale-bar='isHidden')
+                       .fillBar(ng-show="!course.totTaken && currLevel.auth <= 2", style ='height:100%;', scale-bar='isHidden')
+                      p.overNum {{course.courseID}}
+    .col-md-3.aside
       h4 Create Departments
-      input(type='text', ng-model='newLevel.levelTitle', placeholder='New Department Title')
-      .button.tiny(ng-show='currLevel.auth != 2', ng-click='update(newLevel)')  Add Department
-      .button.tiny(ng-show='currLevel.auth == 2', ng-click='sendInvite(newLevel)')  Add Employee
+      input.form-control(type='text', ng-model='newLevel.levelTitle', placeholder='New Department Title')
+      .btn.btn-primary.btn-sm(ng-show='currLevel.auth != 2', ng-click='update(newLevel)')  Add Department
+      .btn.btn-primary.btn-sm(ng-show='currLevel.auth == 2', ng-click='sendInvite(newLevel)')  Add Employee
 
 
 

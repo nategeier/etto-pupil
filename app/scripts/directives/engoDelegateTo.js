@@ -29,8 +29,6 @@ app.directive('medTree', function () {
 
 
 
-
-
 app.directive('lowTree', function () {
   return {
     restrict: 'EA',
