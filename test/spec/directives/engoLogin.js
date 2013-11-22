@@ -1,20 +1,13 @@
-'use strict';
+"use strict";
 
-describe('Directive: engoLogin', function () {
+describe("Directive: engoLogin", function () {
+  var element, scope;
 
   // load the directive's module
-  beforeEach(module('enrollgoComposerApp'));
-
-  var element,
-    scope;
-
+  beforeEach(module("engoPupil"));
   beforeEach(inject(function ($rootScope) {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<engo-login></engo-login>');
-    element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the engoLogin directive');
-  }));
 });
+

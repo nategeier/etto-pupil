@@ -6,19 +6,22 @@ describe("Directive: enrollgoBlock", function() {
   // load the directive's module
   beforeEach( module( "engoPupil" ) );
 
-  beforeEach( inject( function( $rootScope, $compile, $injector ) {
-    $httpBackend = $injector.get( "$httpBackend" );
-    $httpBackend.when( "GET", "/api/v1/blocktype?type=text" ).respond({
-      type: "text",
-      template: "<p>{{ block.data.text }}</p>",
-      id: "test"
-    });
+  //beforeEach( inject( function( $rootScope, $compile, $injector ) {
+    //$httpBackend = $injector.get( "$httpBackend" );
+    //$httpBackend.when( "GET", "/api/v1/blocktype?type=text" ).respond({
+      //type: "text",
+      //template: "<p>{{ block.data.text }}</p>",
+      //id: "test"
+    //});
 
-    scope = $rootScope;
+    //scope = $rootScope;
 
-    element = angular.element( "<engo-block block='{ type: \"text\", data: { text: \"engo!\" } }'></engo-block>" );
-    element = $compile( element )( scope );
-  }));
+    //element = angular.element( "<engo-block block='{ type: \"text\", data: { text: \"engo!\" } }'></engo-block>" );
+    //element = $compile( element )( scope );
+  //}));
+
+  beforeEach( function() {
+  });
 
   afterEach( function() {
     $httpBackend.verifyNoOutstandingExpectation();

@@ -3,7 +3,7 @@
 describe('Directive: notLoggedInNav', function () {
 
   // load the directive's module
-  beforeEach(module('enrollgoComposerApp'));
+  beforeEach(module('engoPupil'));
 
   var element,
     scope;
@@ -12,9 +12,4 @@ describe('Directive: notLoggedInNav', function () {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<not-logged-in-nav></not-logged-in-nav>');
-    element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the notLoggedInNav directive');
-  }));
 });

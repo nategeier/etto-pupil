@@ -14,13 +14,13 @@ describe( "Directive: engoModule", function () {
     element = $compile( element )( scope );
   }));
 
-  //beforeEach( function() {
-    //module( function( $provide ) {
-      //$provide.value( "$document", {
-        //keydown: function() { return null; }
-      //});
-    //});
-  //});
+  beforeEach( function() {
+    module( function( $provide ) {
+      $provide.value( "$document", {
+        keydown: function() { return null; }
+      });
+    });
+  });
 
   //it( "should know if it is in edit mode or not", inject( function( $compile ) {
     //expect( element.scope().editing ).toBeDefined();

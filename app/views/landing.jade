@@ -1,22 +1,23 @@
-
 engo-not-logged-in-nav
-.large-main.large-12.center
-  .main-img
-.row(style='margin-top: 20px;')
-  .large-4.columns
-    .register.ng-scope
-      h3 Enroll
-      .err
-        | {{errors}}
-      engo-new-brand
-  .large-8.columns
-    .large-6.columns.thumb
-      .thumbHolder
-    .large-6.columns.thumb
-      .thumbHolder
-    .large-6.columns.thumb
-      .thumbHolder
-    .large-6.columns.thumb
-      .thumbHolder
+.main-img
+.container
+  .row
+    .col-lg-4
+      .register.ng-scope
+        h3 Enroll
+        .err
+          | {{errors}}
+        engo-new-brand
+    .col-lg-8
+      .large-6.columns.thumb
+        .thumbHolder
+      .large-6.columns.thumb
+        .thumbHolder
+      .large-6.columns.thumb
+        .thumbHolder
+      .large-6.columns.thumb
+        .thumbHolder
+
 footer
   p By Nate and Randall
+
