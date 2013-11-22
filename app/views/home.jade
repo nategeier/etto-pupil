@@ -2,47 +2,42 @@
 engo-logged-in-nav
 .header.main-img
   .row
-    .large-5.columns
-      h2 Welcome {{user.name}}
-      p {{user.brandTitle}}
-    .large-7.columns
-      .large-4.columns.no-pad
-        .little-pad
-          .header-btn
-            object(type='image/svg+xml', data='/images/svg/create_course.svg')
-            .clear
-            p1  Create Course
-      .large-4.columns.no-pad
-        .little-pad
-          .header-btn
-            object(type='image/svg+xml', data='/images/svg/get_course.svg')
-            .clear
-            p1  Get Courses
-      .large-4.columns.no-pad
-        .little-pad
-          .header-btn
-            object(type='image/svg+xml', data='/images/svg/add_people.svg')
-            .clear
-            p1  Add People
+    .col-md-5
+      h2 Course Market
+      p Purchase or upload a new course
+    .col-md-7
+      .col-md-4.col-xs-4
+        .header-btn
+          object(type='image/svg+xml', data='/images/svg/create_course.svg')
+          .clear
+          p1  Create Course
+      .col-md-4.col-xs-4
+        .header-btn
+          object(type='image/svg+xml', data='/images/svg/get_course.svg')
+          .clear
+          p1  Get Courses
+      .col-md-4.col-xs-4
+        .header-btn
+          object(type='image/svg+xml', data='/images/svg/add_people.svg')
+          .clear
+          p1  Add People
 .main
   .row.openHolder.radial-box
-    .large-4.columns.aside
+    .col-md-4.aside
       h3 Created Courses
       div(ng-repeat='course in createdCourses')
-        .large-12.columns.no-pad
-          .little-pad
-            .course-holder
-              .row
-                .large-9.columns
-                  h5 {{course.courseTitle}}
-                  p {{course.subTxt}}
-                .large-3.columns
-                  p {{course.price}}
-    .large-8.columns.aside
+        .col-md-12
+          .course-holder
+            .row
+              .col-md-9
+                h5 {{course.courseTitle}}
+                p {{course.subTxt}}
+              .col-md-3
+                p {{course.price}}
+    .col-md-8.aside
       h3 Courses for my Users
       div(ng-repeat='course in user.courses')
-        .large-6.columns.no-pad
-          .little-pad
-            .course-holder
-              h5 {{course.courseTitle}}
-              p {{course.subTxt}}
+        .col-md-6
+          .course-holder
+            h5 {{course.courseTitle}}
+            p {{course.subTxt}}
