@@ -1,43 +1,55 @@
 engo-logged-in-nav
 .header.main-img
   .row
-    .large-5.columns
+    .col-md-5
       h2 Course Market
       p Purchase or upload a new course
-    .large-7.columns
-      .large-4.columns.no-pad
-        .little-pad
-          .header-btn
-            object(type='image/svg+xml', data='/images/svg/create_course.svg')
-            .clear
-            p1  Create Course
-      .large-4.columns.no-pad
-        .little-pad
-          .header-btn
-            object(type='image/svg+xml', data='/images/svg/get_course.svg')
-            .clear
-            p1  Get Courses
-      .large-4.columns.no-pad
-        .little-pad
-          .header-btn
-            object(type='image/svg+xml', data='/images/svg/add_people.svg')
-            .clear
-            p1  Add People
+    .col-md-7
+      .col-md-4
+        .header-btn
+          object(type='image/svg+xml', data='/images/svg/create_course.svg')
+          .clear
+          p1  Create Course
+      .col-md-4
+        .header-btn
+          object(type='image/svg+xml', data='/images/svg/get_course.svg')
+          .clear
+          p1  Get Courses
+      .col-md-4
+        .header-btn
+          object(type='image/svg+xml', data='/images/svg/add_people.svg')
+          .clear
+          p1  Add People
 .main
   .row.openHolder.radial-box
-    h3  Available to load for your people
-    div(ng-repeat='course in courses')
-      .large-4.columns.no-pad
-        .little-pad
+    .col-md-8
+      h3  Purchase courses
+      input(type='text', ng-model='searchCourse', placeholder='Search Course')
+      div(ng-repeat='course in courses | filter:searchCourse')
+        .col-md-6
           .course-holder
             .row
-              .large-8.columns
+              .col-md-8
                 h5 {{course.courseTitle}}
                 p {{course.subTxt}}
-              .large-4.columns
-                h5 {{course.price}}
+              .col-md-4
+                h5 ${{course.priceWithEmps}}
                 hr
                 .button.tiny.w100  Demo 
                 a.button.tiny.w100(href='/#/purchase_course/{{course.courseID}}')  Purchase 
+    .col-md-4
+      h3  Course is for:
+
+      div.off-bar(head-tree, ng-click='updateAllLevel(allLevels)', ng-model='allLevels', ng-show='allLevels.ison')
+      div.on-bar(head-tree, ng-click='updateAllLevel(allLevels)', ng-model='allLevels', ng-show='!allLevels.ison')
+
+      div.mid-tree(ng-repeat='medLevel in medLevels')
+        div.off-bar(med-tree, ng-click='updateMedLevel(medLevel)', ng-model='medLevel', ng-show='medLevel.ison')
+        div.on-bar(med-tree, ng-click='updateMedLevel(medLevel)', ng-model='medLevel', ng-show='!medLevel.ison')
+
+        div.low-tree(low ng-repeat='lowerLevel in medLevel.lowerLevels')
+          div.off-bar(low-tree, ng-click='updateLowLevel(lowerLevel)', ng-model='lowerLevel', ng-show='lowerLevel.ison')
+          div.on-bar(low-tree, ng-click='updateLowLevel(lowerLevel)', ng-model='lowerLevel', ng-show='!lowerLevel.ison')
+     
 
 

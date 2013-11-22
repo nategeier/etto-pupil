@@ -39,6 +39,11 @@ body
 h1, h2, h3, h4, h5, p, p1, p2, p3
   font-family: "Varela", sans-serif
 
+.green
+  background-color: green
+
+.red
+  background-color: red
 
 .header h2
   color: $grey
@@ -96,7 +101,7 @@ engo-module
   color: $acent-blue
 
 
-.radial-box, .header-btn, .aside, .course-holder, .headerBtn
+.radial-box, .aside, .course-holder, .headerBtn
   border-radius: 5px
 
 .course-holder
@@ -129,6 +134,8 @@ engo-module
 a
   color: #00B7FF
 
+p
+  color: $acent-blue
 
 p.red
   color: red
@@ -281,7 +288,7 @@ footer
   background-color: $grey
   padding: 20px
 
-.large-main
+.col-md-main
   background-color: $grey
   padding-top: 5px
   padding-bottom: 5px
@@ -326,9 +333,36 @@ footer
   width: 100%
   min-height: 600px
   position: relative
-  top: -120px
+  top: -50px
   padding: 20px
   border: 1px solid $dark-grey
+
+
+.off-bar, .on-bar
+  border-bottom: 1px solid #cccccc
+
+
+.off-bar p, .off-bar h4, .off-bar h1
+  color: #e0e0e0
+
+
+.on-bar
+  background-color: #eee
+
+
+
+.low-tree p
+  padding-left: 25px
+  padding-top: 10px
+
+.tree-btn
+  padding: 10px
+  padding-top: 5px
+  padding-bottom: 0px
+  height: 100%
+
+move-side:hover
+  cursor: pointer
 
 
 

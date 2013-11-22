@@ -14,8 +14,9 @@
     "es5-shim": "~2.0.8",
     "foundation": "~4.3.2",
     "font-awesome": "~4.0.2",
-    "greensock": "1.11.1",
+    "greensock": "~1.11.1",
     "async": "~0.2.5",
+    "underscore": "~1.5.2",
     "bootstrap-sass": "~3.0.2"
   },
   "devDependencies": {
