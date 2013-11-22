@@ -1,5 +1,5 @@
 engo-logged-in-nav
-.header.main-img
+.header.main-img(style='height:200px')
   .container
     .row
       .col-md-5
@@ -21,23 +21,26 @@ engo-logged-in-nav
             object(type='image/svg+xml', data='/images/svg/add_people.svg')
             .clear
             p1  Add People
-.main.container
-  .row.openHolder.radial-box
+
+.container
+  .row
     .col-md-8
-      h3  Purchase courses
-      input.form-control(type='text', ng-model='searchCourse', placeholder='Search Course')
-      div(ng-repeat='course in courses | filter:searchCourse')
-        .col-md-6
-          .course-holder
-            .row
-              .col-md-8
+      h3 Courses for my Users
+      .row
+        input.form-control(type='text', ng-model='searchCourse', placeholder='Search Course')
+        div(ng-repeat='course in courses | filter:searchCourse')
+          .col-md-6.no-pad
+            .course-holder
+              img(src='/images/courses/thumbs/default.jpg', style='width:100%')
+              .col-md-8.no-pad
                 h5 {{course.courseTitle}}
                 p {{course.subTxt}}
-              .col-md-4
+              .col-md-4.no-pad
                 h5 ${{course.priceWithEmps}}
-                hr
-                .button.tiny.w100  Demo 
-                a.button.tiny.w100(href='/#/purchase_course/{{course.courseID}}')  Purchase 
+                a.btn.btn-default.btn-sm.w100(href='/#/purchase_course/{{course.courseID}}')  Purchase
+                a.btn.btn-default.btn-sm.w100(href='/#/purchase_course/{{course.courseID}}')  Demo
+              .clear
+
     .col-md-4
       h3  Course is for:
 
