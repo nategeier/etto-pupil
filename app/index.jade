@@ -1,10 +1,10 @@
 !!! 5
 //if lt IE 7
-  html.no-js.lt-ie9.lt-ie8.lt-ie7  
+  html.no-js.lt-ie9.lt-ie8.lt-ie7
 //if IE 7
-  html.no-js.lt-ie9.lt-ie8  
+  html.no-js.lt-ie9.lt-ie8
 //if IE 8
-  html.no-js.lt-ie9  
+  html.no-js.lt-ie9
 // [if gt IE 8] <!
 html.no-js
   // <![endif]
@@ -31,7 +31,7 @@ html.no-js
       script(src='bower_components/es5-shim/es5-shim.js')
       script(src='bower_components/json3/lib/json3.min.js')
     // Add your site or application content here
-    div(ng-view='')
+    #view(ng-view='')
     // Google Analytics: change UA-XXXXX-X to be your site's ID
     script
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -62,10 +62,13 @@ html.no-js
     script(src='bower_components/async/lib/async.js')
     // endbuild
     // build:js scripts/modules.js
+    script(src='bower_components/angular-route/angular-route.js')
     script(src='bower_components/angular-resource/angular-resource.js')
     script(src='bower_components/angular-cookies/angular-cookies.js')
     script(src='bower_components/angular-sanitize/angular-sanitize.js')
     script(src='bower_components/angular-touch/angular-touch.js')
+    script(src='bower_components/angular-bootstrap/ui-bootstrap.js')
+    script(src='bower_components/angular-bootstrap/ui-bootstrap-tpls.js')
     // endbuild
     // build:js({.tmp,app}) scripts/scripts.js
     script(src='scripts/app.js')
@@ -81,10 +84,14 @@ html.no-js
     script(src='scripts/controllers/NewBrand.js')
     script(src='scripts/controllers/StorePurchase.js')
 
+    script(src='scripts/directives/engoModal.js')
+    script(src='scripts/directives/engoLoginModal.js')
     script(src='scripts/directives/engoModule.js')
     script(src='scripts/directives/engoBlock.js')
     script(src='scripts/directives/engoYoutube.js')
+
     script(src='scripts/directives/engoLogin.js')
+    script(src='scripts/directives/engoLogOut.js')
     script(src='scripts/directives/engoNotLoggedInNav.js')
     script(src='scripts/directives/engoLoggedInNav.js')
     script(src='scripts/directives/engoScaleBar.js')
@@ -92,7 +99,6 @@ html.no-js
     script(src='scripts/directives/engoStorePurchase.js')
     script(src='scripts/directives/engoEnterCard.js')
     script(src='scripts/directives/engoShowCard.js')
-    script(src='scripts/directives/engoLogOut.js')
 
     script(src='scripts/services/Session.js')
     script(src='scripts/services/Module.js')
@@ -101,28 +107,4 @@ html.no-js
     script(src='scripts/services/Home.js')
     script(src='scripts/services/Store.js')
     // endbuild
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

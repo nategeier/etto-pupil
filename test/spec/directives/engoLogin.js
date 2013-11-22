@@ -1,15 +1,13 @@
-'use strict';
+"use strict";
 
-describe('Directive: engoLogin', function () {
+describe("Directive: engoLogin", function () {
+  var element, scope;
 
   // load the directive's module
-  beforeEach(module('engoPupil'));
-
-  var element,
-    scope;
-
+  beforeEach(module("engoPupil"));
   beforeEach(inject(function ($rootScope) {
     scope = $rootScope.$new();
   }));
 
 });
+
