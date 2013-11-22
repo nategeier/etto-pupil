@@ -3,7 +3,7 @@
 angular.module("engoPupil")
   .directive("engoLoginModal", [function () {
     return {
-      template: "<a class='button small' href='#' ng-click='login()'>Login</a>",
+      template: "<a class='btn btn-primary top-logout-btn' href='#' ng-click='login()'>Login</a>",
       restrict: "AE",
       controller: function( $scope, $modal, Session, $location ) {
         $scope.login = function() {

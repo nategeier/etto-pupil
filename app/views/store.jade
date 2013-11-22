@@ -1,30 +1,31 @@
 engo-logged-in-nav
 .header.main-img
-  .row
-    .col-md-5
-      h2 Course Market
-      p Purchase or upload a new course
-    .col-md-7
-      .col-md-4
-        .header-btn
-          object(type='image/svg+xml', data='/images/svg/create_course.svg')
-          .clear
-          p1  Create Course
-      .col-md-4
-        .header-btn
-          object(type='image/svg+xml', data='/images/svg/get_course.svg')
-          .clear
-          p1  Get Courses
-      .col-md-4
-        .header-btn
-          object(type='image/svg+xml', data='/images/svg/add_people.svg')
-          .clear
-          p1  Add People
-.main
+  .container
+    .row
+      .col-md-5
+        h2 Course Market
+        p Purchase or upload a new course
+      .col-md-7
+        .col-md-4.col-xs-4
+          .header-btn
+            object(type='image/svg+xml', data='/images/svg/create_course.svg')
+            .clear
+            p1  Create Course
+        .col-md-4.col-xs-4
+          .header-btn
+            object(type='image/svg+xml', data='/images/svg/get_course.svg')
+            .clear
+            p1  Get Courses
+        .col-md-4.col-xs-4
+          .header-btn
+            object(type='image/svg+xml', data='/images/svg/add_people.svg')
+            .clear
+            p1  Add People
+.main.container
   .row.openHolder.radial-box
     .col-md-8
       h3  Purchase courses
-      input(type='text', ng-model='searchCourse', placeholder='Search Course')
+      input.form-control(type='text', ng-model='searchCourse', placeholder='Search Course')
       div(ng-repeat='course in courses | filter:searchCourse')
         .col-md-6
           .course-holder

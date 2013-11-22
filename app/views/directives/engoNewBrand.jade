@@ -1,0 +1,7 @@
+form(ng-submit="update(user)", class="ng-scope ng-pristine ng-invalid ng-invalid-required")
+  .form-group
+    .err.ng-binding
+    input.form-control(type="text", ng-model="user.levelTitle", required="", placeholder= "Company or Username", class="ng-pristine ng-invalid ng-invalid-required")
+    input.form-control(type="text", ng-model="user.name", required="", placeholder="First and Last Name", class="ng-pristine ng-invalid ng-invalid-required")
+    input.form-control(type="email", ng-model="user.email", required="", placeholder="Email", class="ng-pristine ng-invalid ng-invalid-required ng-valid-email")
+    input.form-control(type="password", ng-model="user.password", required="", placeholder="Password", class="ng-pristine ng-invalid ng-invalid-required")
