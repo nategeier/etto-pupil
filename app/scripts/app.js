@@ -1,6 +1,6 @@
 "use strict";
 
-var engoPupil = angular.module( "engoPupil", [ "ngResource", "ngTouch" ]);
+var engoPupil = angular.module( "engoPupil", [ "ngRoute", "ngResource", "ngTouch", "ui.bootstrap" ]);
 
 
 engoPupil
@@ -52,3 +52,4 @@ engoPupil
     redirectTo: "/"
   })*/;
 });
+

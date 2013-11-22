@@ -15,7 +15,6 @@ var mountFolder = function (connect, dir) {
 module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
   require('time-grunt')(grunt);
-  grunt.loadNpmTasks('grunt-contrib-jade');
 
   // configurable paths
   var yeomanConfig = {
@@ -55,7 +54,7 @@ module.exports = function (grunt) {
           livereload: LIVERELOAD_PORT
         },
         files: [
-          '.tmp/views/{,*/}*.html',
+          '.tmp/views/**/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
           '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
@@ -69,10 +68,10 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: '<%= yeoman.app %>',
-          src: ['{,*/}*.jade', '/views/**/{,*/}*.jade', '/views/{,*/}*.jade'],
-          dest: '.tmp',
-          ext: '.html'
+          cwd: "<%= yeoman.app %>",
+          src: [ "index.jade", "views/**/*.jade" ],
+          dest: ".tmp",
+          ext: ".html"
         }]
       }
     },
