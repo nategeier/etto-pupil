@@ -12,14 +12,16 @@ angular.module("engoPupil")
     $scope.currLevel = data.currLevel;
     $scope.levels = data.levels;
     $scope.user = data.user;
+    console.log($scope.levels);
   });
 
   $scope.update = function(newLevel) {
-    $scope.master = angular.copy(newLevel);
     newLevel.auth =  $scope.currLevel.auth - 1;
     newLevel.aboveID =  $scope.currLevel.levelID;
-    $http.post('/api/v1/reports/createLevel', newLevel).success(function(created){
-      $scope.levels.unshift(newLevel);
+
+    $http.post('/api/v1/reports/createLevel', newLevel).success(function(data){
+      console.log(data)
+      $scope.levels.unshift(data.level);
     });
   };
 
@@ -34,4 +36,17 @@ angular.module("engoPupil")
     });
 
   };
+  /*
+  var createLevel = function(levelTitle, auth, aboveID){
+    var newLevel = {
+      levelTitle: levelTitle,
+      levelID: 
+    }
+
+
+  }
+
+  */
+
+
 }]);

@@ -3,31 +3,14 @@ engo-logged-in-nav
 .header.main-img
   .container
     .row
-      .col-md-5
-        h2 Course Market
-        p Purchase or upload a new course
-      .col-md-7
-        .col-md-4.col-xs-4
-          .header-btn
-            object(type='image/svg+xml', data='/images/svg/create_course.svg')
-            .clear
-            p1  Create Course
-        .col-md-4.col-xs-4
-          .header-btn
-            object(type='image/svg+xml', data='/images/svg/get_course.svg')
-            .clear
-            p1  Get Courses
-        .col-md-4.col-xs-4
-          .header-btn
-            object(type='image/svg+xml', data='/images/svg/add_people.svg')
-            .clear
-            p1  Add People
+      h2 Course Market
+      p Purchase or upload a new course
 .container
   .row
     .col-md-4
       h3 Created Courses
       div.no-pad(ng-repeat='course in createdCourses')
-        .course-holder
+        .course-holder(sink-in)
           .row
             .col-md-9
               h5 {{course.courseTitle}}
@@ -38,9 +21,8 @@ engo-logged-in-nav
       h3 Courses for my Users
       .row
         div(ng-repeat='course in user.courses')
-            
           .col-md-6.no-pad
-            .course-holder
+            .course-holder(sink-in)
               img(src='/images/courses/thumbs/default.jpg', style='width:100%')
               h5 {{course.courseTitle}}
               p {{course.subTxt}}

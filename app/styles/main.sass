@@ -23,7 +23,7 @@ $light : #C9FFD5
 $tan : #FFFFCB
 $grey : #eee
 $med-grey : #e3e3e3
-$dark-grey : #dadada
+$dark-grey : #bebebe
 
 html, body
   height: 100%
@@ -47,6 +47,9 @@ h1, h2, h3, h4, h5, p, p1, p2, p3
 .header h2
   color: $grey
 
+.form-control
+  margin-bottom: 20px
+
 engo-module
   min-height: 100%
   position: absolute
@@ -56,6 +59,9 @@ engo-module
   bottom: 0
   padding: 0.33em
   position: fixed
+
+.on-bar:hover
+  background-color: #b2fff9
 
 .engo-module-prev-block
   left: 0
@@ -226,6 +232,12 @@ header
 .header p
   color: $grey
 
+.header
+  text-align: center
+
+.center-txt
+  text-align: center
+  width: 100%
 
 .overNum
   position: relative
@@ -235,13 +247,6 @@ header
   font-size: .7em
   text-align: center
 
-
-
-
-.main
-  background-color: $grey
-  position: relative
-  padding-bottom: 40px
 
 
 footer
@@ -310,6 +315,9 @@ footer
   color: $dark-blue
   background-color: #fff
 
+.course-holder:hover
+  cursor: pointer
+
 
 .header-btn
   background-color:  rgba(255,255,255,.9)
@@ -318,6 +326,8 @@ footer
   text-align: center
   border: 1px solid $acent-blue
 
+.bar-pad
+  padding-right: 1px
 
 .backBar
   width: 100%
@@ -340,14 +350,23 @@ footer
 
 .off-bar, .on-bar
   border-bottom: 1px solid #cccccc
+  cursor: pointer
 
+.off-bar:hover
+  background-color: #ffafba
+
+
+
+
+.off-bar:hover , .on-bar:hover
+  cursor: pointer
 
 .off-bar p, .off-bar h4, .off-bar h1
   color: #e0e0e0
 
 
 .on-bar
-  background-color: #eee
+  color: #666
 
 
 
@@ -361,8 +380,6 @@ footer
   padding-bottom: 0px
   height: 100%
 
-move-side:hover
-  cursor: pointer
 
 
 .top-logout-btn
