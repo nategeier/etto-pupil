@@ -1,43 +1,41 @@
+"use strict";
 
+var app = angular.module( "engoPupil" );
 
-'use strict';
-
-var app = angular.module('engoPupil');
-
-
-app.directive('moveSide', function () {
+app.directive( "moveSide", [ function() {
   return {
-    restrict: 'EA',
+    restrict: "EA",
 
-    link: function postLink(scope, element, attrs) {
+    link: function postLink( scope, element, attrs ) {
 
-      element.bind('mouseover', function(){
-         TweenMax.to(element, .3, {x:-10})
+      element.bind( "mouseover", function() {
+        TweenMax.to( element, 0.3, { x: -10 });
       });
 
-      element.bind('mouseout', function(){
-         TweenMax.to(element, .3, {x:0})
+      element.bind( "mouseout", function() {
+        TweenMax.to( element, 0.3, { x: 0 });
       });
 
     }
   };
-});
+}]);
 
 
-app.directive('sinkIn', function () {
+app.directive( "sinkIn", [ function() {
   return {
-    restrict: 'EA',
+    restrict: "EA",
 
-    link: function postLink(scope, element, attrs) {
+    link: function postLink( scope, element, attrs ) {
 
-      element.bind('mouseover', function(){
-         TweenMax.to(element, .3, {scaleX:.95, scaleY:.95, backgroundColor:'#eee'})
+      element.bind( "mouseover", function() {
+        TweenMax.to( element, 0.3, { scaleX: 0.95, scaleY: 0.95, backgroundColor:"#eee" });
       });
 
-      element.bind('mouseout', function(){
-         TweenMax.to(element, .3, {scaleX:1, scaleY:1, backgroundColor:'none'})
+      element.bind( "mouseout", function() {
+        TweenMax.to(element, 0.3, { scaleX: 1, scaleY: 1, backgroundColor:"none" });
       });
 
     }
   };
-});
+}]);
+
