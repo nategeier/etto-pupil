@@ -31,7 +31,7 @@ app.directive('sinkIn', function () {
     link: function postLink(scope, element, attrs) {
 
       element.bind('mouseover', function(){
-         TweenMax.to(element, .3, {scaleX:.95, scaleY:.95, backgroundColor:'#b2fff9'})
+         TweenMax.to(element, .3, {scaleX:.95, scaleY:.95, backgroundColor:'#eee'})
       });
 
       element.bind('mouseout', function(){
