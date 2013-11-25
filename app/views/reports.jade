@@ -34,7 +34,7 @@ engo-logged-in-nav
                           .backBar
                             .fillBar(ng-show="course.totTaken && currLevel.auth >= 3", style ='height:{{100 - (course.totTaken/level.totUsers * 100)}}%;', scale-bar='isHidden')
                             .fillBar(ng-show="!course.totTaken && currLevel.auth >= 3", style ='height:100%;', scale-bar='isHidden')
-                           .fillBar(ng-show="!course.totTaken && currLevel.auth <= 2", style ='height:100%;', scale-bar='isHidden')
+                            .fillBar(ng-show="!course.totTaken && currLevel.auth <= 2", style ='height:100%;', scale-bar='isHidden')
                           p.overNum {{course.courseID}}
                   .col-md-3
                     p.right.dark-grey Users {{level.totUsers}}
