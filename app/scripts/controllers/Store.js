@@ -26,11 +26,14 @@ angular.module("engoPupil")
     ],
     function(err, results){
       setPrice();
-    });
+    }
+  );
 
   
   $scope.allLevels = {};
 
+
+  //---- Fired when top all levels is clicked
   $scope.updateAllLevel = function(allLevels){
     allLevels.totEmps = totOverallUsers;
     allLevels.ison = switchCol(allLevels);
@@ -46,9 +49,9 @@ angular.module("engoPupil")
     setPrice();
   }
 
+  //---- Fired when any medium levels are clicked
   $scope.updateMedLevel = function(medLevel){
     medLevel.ison = switchCol(medLevel);
-
     _.map(medLevel.lowerLevels, function(level){
       level.ison = medLevel.ison;
     });
@@ -57,12 +60,15 @@ angular.module("engoPupil")
     setPrice();
   }
 
+  //---- Fired when any medium levels are clicked
   $scope.updateLowLevel = function(level){
     level.ison = switchCol(level);
-    $scope.totUsers = countUsers();
+    if(level.ison){
+      $scope.totUsers = $scope.totUsers - level.totEmps;
+    }else{
+      $scope.totUsers = $scope.totUsers + level.totEmps;
+    }
     setPrice();
-
-    //setUserCount(level.totEmps, level.ison);
   }
 
   var switchCol = function(level){
@@ -77,39 +83,29 @@ angular.module("engoPupil")
 
   var intCountUsers = function (levels){
     var sum = _.reduce(levels, function(memo, num){ 
+      console.log('intCountUsers:', num)
       if(!num.ison){
         return memo + num.totEmps;
       }else{
         return 0;
       }
-      
     }, 0);
     return sum;
   }
-
+  //---- Count all still enabled higher levels, then count still enabled lower levels within
   var countUsers = function (){
     var count = 0;
      _.map($scope.medLevels, function(midLevel){
-      console.log('num', intCountUsers(midLevel.lowerLevels))
       count = count + Number(intCountUsers(midLevel.lowerLevels));
     });
     return count;
   }
 
+  //--- Sets price to all courses acorsing to how mnay users will have access to the courses
+
   var setPrice = function (){
     _.map($scope.courses, function(course){
-      course.priceWithEmps = course.price * $scope.totUsers;
+      course.priceWithEmps = (course.price * $scope.totUsers).toFixed(2);
     });
   }
-
-
-  
-
-
-
-
-
-
-
-
 }]);

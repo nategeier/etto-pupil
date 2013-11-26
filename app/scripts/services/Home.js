@@ -9,7 +9,6 @@ angular.module('engoPupil')
         $http({ method: "GET", url: "/api/v1/sessions/home" })
           .success(function(data, status, headers, config){
             callback(data);
-           
           }).
           error(function(data, status, headers, config) {
             callback(data);

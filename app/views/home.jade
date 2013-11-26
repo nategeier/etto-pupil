@@ -3,26 +3,37 @@ engo-logged-in-nav
 .header.main-img
   .container
     .row
-      h2 Course Market
-      p Purchase or upload a new course
+      h2 Start creating, taking, and sharing courses
+      p Welcome {{user.brandTitle}} Team
 .container
   .row
-    .col-md-4
-      h3 Created Courses
-      div.no-pad(ng-repeat='course in createdCourses')
-        .course-holder(sink-in)
-          .row
-            .col-md-9
-              h5 {{course.courseTitle}}
-              p {{course.subTxt}}
-            .col-md-3
-              p {{course.price}}
-    .col-md-8
-      h3 Courses for my Users
-      .row
-        div(ng-repeat='course in user.courses')
-          .col-md-6.no-pad
-            .course-holder(sink-in)
-              img(src='/images/courses/thumbs/default.jpg', style='width:100%')
-              h5 {{course.courseTitle}}
-              p {{course.subTxt}}
+    div(ng-show='createdCourses[0]')
+      .col-md-4
+        h3 Created Courses
+        div.no-pad(ng-repeat='course in createdCourses')
+          .course-holder(sink-in)
+            .row
+              .col-md-9
+                h5 {{course.courseTitle}}
+                p {{course.subTxt}}
+              .col-md-3
+                p {{course.price}}
+      .col-md-8
+        h3 Courses for my Users
+        .row
+          div(ng-repeat='course in user.courses')
+            .col-md-6.no-pad
+              .course-holder(sink-in)
+                img(src='/images/courses/thumbs/default.jpg', style='width:100%')
+                h5 {{course.courseTitle}}
+                p {{course.subTxt}}
+    div(ng-show='!createdCourses[0]')
+      .col-md-12
+        h3 Courses for my Users
+        .row
+          div(ng-repeat='course in user.courses')
+            .col-md-4.no-pad
+              .course-holder(sink-in)
+                img(src='/images/courses/thumbs/default.jpg', style='width:100%')
+                h5 {{course.courseTitle}}
+                p {{course.subTxt}}

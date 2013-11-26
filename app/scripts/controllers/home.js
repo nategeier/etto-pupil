@@ -11,6 +11,8 @@ angular.module( "engoPupil" )
   });
 
 
+  $scope.active = 'Home';
+
 }]);
 
 

@@ -18,12 +18,21 @@ angular.module("engoPupil")
           });
 
           modal.result.then( function( user ) {
-            Session.authenticate( user );
-            $location.path( "/engo" );
+            //Session.authenticate( user );
+            //$location.path( "/engo" );
+
+            
+
+             Session.authenticate( user , function(data){
+              $location.path( $scope.redirectTo )
+              //$location.path( "/engo" );
+            });
+
           });
         };
       },
       link: function postLink(scope, element, attrs) {
+        scope.redirectTo = attrs.redirectTo;
       }
     };
   }]);

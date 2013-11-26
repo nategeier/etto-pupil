@@ -19,10 +19,23 @@ angular.module("engoPupil")
       return $http.get("/api/v1/sessions/destroy");
     },
 
-    authenticate: function( user ) {
+    authenticate: function( user, callback) {
       $http.post( "/api/v1/sessions/start_session", user )
       .success( function( data, status, headers, config ) {
+        //user = data.user;
+        callback(data.user);
+      })
+      .error( function( data, status, headers, config ) {
+        console.dir( data );
+      });
+    },
+
+    register_invite: function( user, callback ) {
+      $http.post( "/api/v1/sessions/register_invite", user )
+      .success( function( data, status, headers, config ) {
         user = data.user;
+
+        callback(data.user);
         console.dir( data );
       })
       .error( function( data, status, headers, config ) {

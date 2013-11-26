@@ -1,24 +1,19 @@
 'use strict';
 
 angular.module('engoPupil')
-  .controller('LoginCtrl', ["$scope", "$http", "$location", function ( $scope, $http, $location ) {
+  .controller('LoginCtrl', ["$scope", "$http", "$location", 'Session', '$routeParams', function ( $scope, $http, $location, Session, $routeParams ) {
 
-  $scope.submitLogin = function(link){
 
-    $http({method: 'POST', url: link, data:$scope.user})
-      .success(function(data, status, headers, config){
-        if(data.err){
-          $scope.error = data.err;
-        }else{
-          $location.path("/engo");
-        }
-    })
-      .error(function(data, status, headers, config) {
-        console.log(data, 'err');
-        //Session.isLogged = false;
-        //Session.user = null;
+
+  $scope.confInvite = function(user){
+    user.userID = $routeParams.userID;
+
+   
+    Session.register_invite(user, function(user){
+      console.log( 'user:-----------', user);
+      $location.path('/engo');
     });
+
     
-   }   
-  
+  }   
 }]);

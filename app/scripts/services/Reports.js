@@ -23,6 +23,18 @@ angular.module('engoPupil')
           error(function(data, status, headers, config) {
             console.log(data, 'err');
         });
+      },
+      create_level: function(newLevel, callback){
+        $http.post('/api/v1/reports/createLevel', newLevel).success(function(data){
+          callback(data);
+          
+        });
+      },
+
+      invite_user: function(newLevel, callback){
+        $http.post('/api/v1/sessions/invite_user', newLevel).success(function(data){
+          callback(data);
+        });
       }
 
     };
