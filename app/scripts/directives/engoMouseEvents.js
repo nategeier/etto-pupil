@@ -1,8 +1,7 @@
 "use strict";
 
-var app = angular.module( "engoPupil" );
-
-app.directive( "moveSide", [ function() {
+angular.module( "engoPupil" )
+.directive( "moveSide", [ function() {
   return {
     restrict: "EA",
 
@@ -18,10 +17,8 @@ app.directive( "moveSide", [ function() {
 
     }
   };
-}]);
-
-
-app.directive( "sinkIn", [ function() {
+}])
+.directive( "sinkIn", [ function() {
   return {
     restrict: "EA",
 
