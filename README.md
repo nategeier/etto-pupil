@@ -16,7 +16,6 @@ $ grunt build
 $ sudo rm /usr/share/nginx/html/engo-pupil -rf
 
 # Deploy newly rebuilt dist
-$ sudo cp -r dist /usr/share/nginx/html
-$ sudo mv /usr/share/nginx/html/dist /usr/share/nginx/html/engo-pupil
+$ sudo cp -r dist /usr/share/nginx/html/engo-pupil/
 ```
 
