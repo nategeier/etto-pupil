@@ -30,18 +30,20 @@ angular.module("engoPupil")
     }
   };
 }])
+
+
 .directive("moveSide", [ function () {
   return {
     restrict: "EA",
 
     link: function postLink(scope, element, attrs) {
 
-      element.bind("mouseover", function(){
-         TweenMax.to(element, .3, {x:-10})
+      element.currentTarget.bind("mouseover", function(){
+         TweenMax.to(element.currentTarget, .3, {x:-10})
       });
 
-      element.bind("mouseout", function(){
-         TweenMax.to(element, .3, {x:0})
+      element.currentTarget.bind("mouseout", function(){
+         TweenMax.to(element.currentTarget, .3, {x:0})
       });
 
     }
