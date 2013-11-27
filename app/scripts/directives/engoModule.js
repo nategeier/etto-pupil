@@ -36,15 +36,18 @@ angular.module( "engoPupil" )
       };
 
       $document.keydown(function (e) {
+        var KEY_ENTER = 13, KEY_RIGHT = 39, KEY_LEFT = 37;
         var key = e.keyCode;
 
-        if (key === 32 || key === 39) {
-          $scope.nextBlock();
-        } else if (key === 37) {
-          $scope.prevBlock();
-        }
+        if( !$scope.editing ) {
+          if( key === KEY_ENTER || key === KEY_RIGHT ) {
+            $scope.nextBlock();
+          } else if ( key === KEY_LEFT ) {
+            $scope.prevBlock();
+          }
 
-        $scope.$apply();
+          $scope.$apply();
+        }
       });
 
     },
