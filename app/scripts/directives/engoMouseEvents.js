@@ -1,5 +1,7 @@
 "use strict";
 
+var scaleOver = 1;
+
 angular.module( "engoPupil" )
 .directive( "moveSide", [ function() {
   return {
@@ -24,12 +26,25 @@ angular.module( "engoPupil" )
 
     link: function postLink( scope, element, attrs ) {
 
+      element.bind( "mousedown", function() {
+        TweenMax.to( element, 0.2, { backgroundColor:"#386b86" });
+      });
+
+
+      element.bind( "mousedown", function() {
+        TweenMax.to( element, 0.2, { backgroundColor:"#386b86" });
+      });
+
+      element.bind( "mouseup", function() {
+        TweenMax.to( element, 0.2, { backgroundColor:"none" });
+      });
+
       element.bind( "mouseover", function() {
-        TweenMax.to( element, 0.3, { scaleX: 0.95, scaleY: 0.95, backgroundColor:"#eee" });
+        TweenMax.to( element, 0.2, { backgroundColor:"#eee" });
       });
 
       element.bind( "mouseout", function() {
-        TweenMax.to(element, 0.3, { scaleX: 1, scaleY: 1, backgroundColor:"none" });
+        TweenMax.to(element, 0.1, { backgroundColor:"none" });
       });
 
     }
