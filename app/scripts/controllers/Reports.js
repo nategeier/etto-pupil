@@ -18,11 +18,11 @@ angular.module("engoPupil")
   $scope.update = function(newLevel) {
     newLevel.auth =  $scope.currLevel.auth - 1;
     newLevel.aboveID =  $scope.currLevel.levelID;
-
-    $http.post('/api/v1/reports/createLevel', newLevel).success(function(data){
-      console.log(data)
+    
+    Reports.create_level(newLevel, function (data){
       $scope.levels.unshift(data.level);
     });
+    
   };
 
 
@@ -31,8 +31,16 @@ angular.module("engoPupil")
     newLevel.lowID = $scope.currLevel.levelID;
     newLevel.medID = $scope.currLevel.aboveID;
     newLevel.brandID = $scope.currLevel.brandID;
-    $http.post('/api/v1/invite_user', newLevel).success(function(err, created){
-      $scope.users.err = err.message;
+
+
+    Reports.invite_user(newLevel, function(results){
+      if(results.err){
+        $scope.err = results.err;
+      }else{
+        $scope.levels.unshift(results.user);
+        $scope.err = 'Invite has been sent to ' + newLevel.levelTitle;
+      } 
+
     });
 
   };

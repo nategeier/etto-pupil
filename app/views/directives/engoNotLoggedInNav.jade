@@ -5,11 +5,12 @@ nav.navbar.navbar-default( role="navigation" )
       .icon-bar
       .icon-bar
       .icon-bar
-    a.navbar-brand( href="/#/" ) EnrollGo
+    a.navbar-brand( href="/#/" )
+      img(src='/images/site/logo.png')
 
   #engo-navbar.collapse.navbar-collapse
     ul.nav.navbar-nav
       li
         a( href="/#/engo" ) Home
-    engo-login-modal.navbar-right
+    engo-login-modal.navbar-right(redirect-to='/engo')
 

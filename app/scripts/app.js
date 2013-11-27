@@ -28,8 +28,12 @@ engoPupil
   })
   .when("/purchase_course/:courseID", {
     templateUrl: "views/storePurchase.html",
-    controller: "StorepurchaseCtrl"
+    controller: "LoginCtrl"
   })//-----------------------------Sessions
+  .when("/register_invite/:userID", {
+    templateUrl: "views/register_invite.html",
+    controller: "LoginCtrl"
+  })
    .when("/session/destroy", {
     controller: "LogoutCtrl",
     templateUrl: "views/home.html"

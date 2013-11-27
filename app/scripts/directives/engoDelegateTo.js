@@ -1,10 +1,7 @@
 "use strict";
 
-var app = angular.module("engoPupil");
-
-
-
-app.directive("headTree", [ function () {
+angular.module("engoPupil")
+.directive("headTree", [ function () {
   return {
     restrict: "EA",
     template: "<div class='tree-btn' move-side><h2>All {{totUsers}}</h2></div>",
@@ -13,10 +10,8 @@ app.directive("headTree", [ function () {
 
     }
   };
-}]);
-
-
-app.directive("medTree", [ function () {
+}])
+.directive("medTree", [ function () {
   return {
     restrict: "EA",
     template: "<div class='tree-btn' move-side><h4>{{medLevel.medTitle}} + {{medLevel.totEmps}}</h4></div>",
@@ -25,21 +20,16 @@ app.directive("medTree", [ function () {
       TweenMax.from(element, .5, {scaleY:0, opacity:0})
     }
   };
-}]);
-
-
-
-app.directive("lowTree", [ function () {
+}])
+.directive("lowTree", [ function () {
   return {
     restrict: "EA",
     link: function postLink(scope, element, attrs) {
       TweenMax.from(element, .5, {delay:.3, scaleY:0, opacity:0})
     }
   };
-}]);
-
-
-app.directive("moveSide", [ function () {
+}])
+.directive("moveSide", [ function () {
   return {
     restrict: "EA",
 
@@ -56,5 +46,4 @@ app.directive("moveSide", [ function () {
     }
   };
 }]);
-
 
