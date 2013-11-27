@@ -24,6 +24,7 @@ angular.module("engoPupil")
 .directive("lowTree", [ function () {
   return {
     restrict: "EA",
+    template: "<div class='tree-btn' move-side><p>{{lowerLevel.lowTitle}} + {{lowerLevel.totEmps}}</p></div>",
     link: function postLink(scope, element, attrs) {
       TweenMax.from(element, .5, {delay:.3, scaleY:0, opacity:0})
     }
