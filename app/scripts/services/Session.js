@@ -23,7 +23,7 @@ angular.module("engoPupil")
       $http.post( "/api/v1/sessions/start_session", user )
       .success( function( data, status, headers, config ) {
         //user = data.user;
-        callback(data.user);
+        callback(data);
       })
       .error( function( data, status, headers, config ) {
         console.dir( data );

@@ -12,22 +12,17 @@ angular.module("engoPupil")
             controller: function( $scope, $modalInstance ) {
               $scope.user = {};
               $scope.handleLogin = function() {
+                
                 $modalInstance.close( $scope.user );
               };
             }
           });
-
           modal.result.then( function( user ) {
-            //Session.authenticate( user );
-            //$location.path( "/engo" );
-
-            
-
              Session.authenticate( user , function(data){
-              $location.path( $scope.redirectTo )
-              //$location.path( "/engo" );
+              if(data.user){
+                $location.path( $scope.redirectTo );
+              }
             });
-
           });
         };
       },
