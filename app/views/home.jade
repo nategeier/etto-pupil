@@ -27,7 +27,7 @@ engo-logged-in-nav
               .course-holder.pad20(sink-in)
                 .courseThumbHolder
                   img.courseThumb(src='/images/courses/thumbs/course_{{course.courseID}}.jpg', style='width:100%')
-                  img.cert(src='/images/badges/default.png')
+                  img.cert(ng-show='course.didPass == "Completed"', src='/images/badges/default.png')
 
                 h4 {{course.courseTitle}}
                 p {{course.subTxt}}
