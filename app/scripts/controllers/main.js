@@ -2,9 +2,9 @@
 
 angular.module( "engoPupil" )
 .controller( "MainCtrl", [ "$scope", "$http", "$location", function ( $scope, $http, $location ) {
-  $scope.submitLogin = function(link){
+  $scope.submitLogin = function(){
 
-    $http({method: 'POST', url: link, data:$scope.user})
+    $http({method: 'POST', url: '/api/v1/sessions/create_brand', data:$scope.user})
       .success(function(data, status, headers, config){
         $scope.error = data.err;
         if(data.err){
@@ -15,9 +15,6 @@ angular.module( "engoPupil" )
           Session.user = data.user;
           $location.path("/engo");
         }
-
-        //$location.path("/engo");
-
     })
       .error(function(data, status, headers, config) {
         console.log(data, 'err');

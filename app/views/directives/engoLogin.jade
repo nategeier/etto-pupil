@@ -1,8 +1,8 @@
-form( ng-submit="handleLogin()")
+form(ng-submit="handleLogin()")
   .form-group
     input.form-control( type="email", ng-model="user.email", placeholder="Enter your email address...", autocomplete="on", required )
   .form-group
     input.form-control( type="password", ng-model="user.password", placeholder="Enter your password...", required )
   .form-group
-    input.form-control( type="submit", value="Login", class="button small" )
+    input.btn.btn-primary( type="submit", value="Login")
 

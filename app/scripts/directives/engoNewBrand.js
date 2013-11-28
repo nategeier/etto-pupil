@@ -2,7 +2,7 @@
 
 angular.module('engoPupil')
   .directive('engoNewBrand', [function () {
-    var subBtn = angular.element('<input type="submit" value="Login" class="btn btn-default right"/><div class="clear"></div></form>');
+    var subBtn = angular.element('<input type="submit" value="Login" class="btn btn-primary right"/><div class="clear"></div></form>');
 
     return {
 
