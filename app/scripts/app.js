@@ -8,7 +8,7 @@ engoPupil
   $routeProvider
   .when("/", {
     templateUrl: "views/landing.html",
-    controller: "NewbrandCtrl"
+    controller: "MainCtrl"
   })
   .when("/login/new", {
     templateUrl: "views/login.html",

@@ -2,18 +2,21 @@
 
 angular.module( "engoPupil" )
 .controller( "MainCtrl", [ "$scope", "$http", "$location", function ( $scope, $http, $location ) {
+
+
   $scope.submitLogin = function(){
+    console.log('clicked');
 
     $http({method: 'POST', url: '/api/v1/sessions/create_brand', data:$scope.user})
       .success(function(data, status, headers, config){
-        $scope.error = data.err;
+        console.log(data);
+        
         if(data.err){
-          Session.isLogged = false;
-          Session.user = null;
+          $scope.err = data.err;
+        
         }else{
-          Session.isLogged = true;
-          Session.user = data.user;
-          $location.path("/engo");
+          //$location.path("/engo");
+           $scope.err = 'The learning worlds thanks you for your support.';
         }
     })
       .error(function(data, status, headers, config) {
@@ -22,9 +25,6 @@ angular.module( "engoPupil" )
         Session.user = null;
     });
   }
-
-
-
 
 }]);
 
