@@ -11,7 +11,7 @@ engo-logged-in-nav
       .col-xs-12.col-sm-4.col-md-4
         h3 Created Courses
         div.no-pad(ng-repeat='course in createdCourses')
-          .course-holder(sink-in)
+          div(sink-in)
             .pad20
               .row
                 .col-md-9
@@ -20,7 +20,7 @@ engo-logged-in-nav
                 .col-md-3
                   p {{course.price}}
       .col-xs-12.col-sm-8.col-md-8
-        h3 Courses for my Users
+        h3 My Courses
         .row
           div(ng-repeat='course in user.courses')
             .col-xs-12.col-sm-6.col-md-6.no-pad

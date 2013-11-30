@@ -2,31 +2,73 @@ engo-not-logged-in-nav
 
 .header.main-img
   .container
-    .row
-      h2 Start creating, taking, tracking, and sharing courses
-      h1 Rolling out mid-January 2014
+    .row(style='text-align:left;')
+      .col-xs-12.col-sm-6.col-md-6
+        h3 Start creating, taking, tracking, <br>and sharing courses
+        h4 Launching early 2014
+
 
 .container
   .row
     .col-xs-12.col-sm-6.col-md-4
       .register.ng-scope
         h1 Enroll
+        p Sign up to follow our progress
         .err
-          | {{errors}}
+          | {{err}}
         engo-new-brand
     .col-xs-12.col-sm-6.col-md-8
-      .col-md-6.thumb
-        .thumbHolder
-          img(src='/images/site/thumbs/view1.jpg')
-      .col-md-6.thumb
-        .thumbHolder
-          img(src='/images/site/thumbs/view4.jpg')
-      .col-md-6.thumb
-        .thumbHolder
-          img(src='/images/site/thumbs/view3.jpg')
-      .col-md-6.thumb
-        .thumbHolder
-          img(src='/images/site/thumbs/view2.jpg')
+      .col-md-6.no-pad
+        .course-holder
+          img.w100(src='/images/site/thumbs/view1.jpg')
+      .col-md-6.no-pad
+        .course-holder
+          img.w100(src='/images/site/thumbs/view4.jpg')
+      .col-md-6.no-pad
+        .course-holder
+          img.w100(src='/images/site/thumbs/view3.jpg')
+      .col-md-6.no-pad
+        .course-holder
+          img.w100(src='/images/site/thumbs/view2.jpg')
+
+
+  .row
+    hr
+    h2.centerTxt Create a custom structure to your company
+    hr
+    .col-xs-12.col-sm-4.col-md-4
+      .course-holder
+        img.w100(src='/images/site/thumbs/old.jpg')
+        h4 Old way
+        p Tracking an employees course progress in a large company structure can be impossible with any other out-of-the-box software.
+    .col-xs-12.col-sm-4.col-md-4
+      .course-holder
+        img.w100(src='/images/site/thumbs/new.jpg')
+        h4 EnrollGo way
+        p Create your company organization tree anyway you like, even place managers in change of a single branch to view only that branches employee progress. Also dedicate courses to just specifically needed branch. Valet employees do not need to learn about making a bed.
+
+    .col-xs-12.col-sm-4.col-md-4
+      .course-holder
+        img.w100(src='/images/site/thumbs/small.jpg')
+        h4 Small businesses
+        p The system was designed to be affordable according to company scale benefitting smaller companies an entrance to the learning and training world.
+  .row
+    hr
+    h2.centerTxt Content Creation
+    hr
+    .col-xs-12.col-sm-8.col-md-8
+      .course-holder
+        img.w100(src='/images/site/thumbs/content_create.png')
+    .col-xs-12.col-sm-4.col-md-4
+      h1 Course Store
+      p A single store connects content creators, bloggers, and industries leaders to large and small scale companies and even opens the door to single users who want to learn.
+      p A content creator sets their own price for a particular course they created or sets a subscription base. If a user or company loves a certain content creators materials they are able to pay a monthly subscription set by the creator for unlimited access.  
+      h4 Important Note
+      p Companies can create their own content to not only delegate to their own specific employees, but also send to the course store generating revenue from their own SOP's. Or if it’s brand secretes, set the course to private.
+
+    
+
+
 
 
 
