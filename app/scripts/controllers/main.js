@@ -16,7 +16,7 @@ angular.module( "engoPupil" )
         
         }else{
           //$location.path("/engo");
-           $scope.err = 'The learning worlds thanks you for your support.';
+           $scope.err = 'The learning world thanks you for your support';
         }
     })
       .error(function(data, status, headers, config) {
