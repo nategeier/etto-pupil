@@ -41,7 +41,8 @@
     "karma": "~0.10.2",
     "karma-ng-html2js-preprocessor": "~0.1.0",
     "karma-html-reporter": "~0.1.1",
-    "grunt-contrib-jade": "~0.8.0"
+    "grunt-contrib-jade": "~0.8.0",
+    "grunt-jscs-checker": "~0.2.5"
   },
   "engines": {
     "node": ">=0.8.0"
