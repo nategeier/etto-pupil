@@ -1,41 +1,44 @@
 "use strict";
 
 angular.module( "engoPupil" )
-.service( "CoursePlayer", [ function() {
-  this.onBlock = 0;
+.factory( "CoursePlayer", [ function() {
+  var onBlock = 0;
   
-  this.course = { blocks: [ {} ] };
+  var course = { blocks: [ {} ] };
 
-  this.blocksInCourse = function() {
-    return this.course.blocks.length;
+  var blocksInCourse = function() {
+    return course.blocks.length;
   };
 
-  this.onLastBlock = function() {
-    return this.onBlock === this.blocksInCourse() - 1;
+  var onLastBlock = function() {
+    return onBlock === blocksInCourse() - 1;
   };
 
-  this.prevBlock = function() {
-    if( this.onBlock > 0 ) {
-      this.onBlock--;
+  var prevBlock = function() {
+    if( onBlock > 0 ) {
+      onBlock--;
     }
   };
 
-  this.nextBlock = function() {
-    if( !this.onLastBlock() ) {
-      this.onBlock++;
+  var nextBlock = function() {
+    if( !onLastBlock() ) {
+      onBlock++;
     }
   };
 
-  this.currentBlock = function() {
-    return this.onBlock;
+  var CoursePlayer = {
+    play: function( newCourse ) { course = newCourse; },
+    blocksInCourse: blocksInCourse,
+    currentBlock: function() {
+      return onBlock;
+    },
+    onLastBlock: onLastBlock,
+    isCurrentBlock: function( block ) {
+      return block === onBlock;
+    },
+    prevBlock: prevBlock,
+    nextBlock: nextBlock
   };
 
-  this.play = function( newCourse ) {
-    this.course = newCourse;
-  };
-
-  this.isCurrentBlock = function( block ) {
-    return block === this.onBlock;
-  };
-
+  return CoursePlayer;
 }]);
