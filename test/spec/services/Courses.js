@@ -3,7 +3,7 @@
 describe('Service: Courses', function () {
 
   // load the service's module
-  beforeEach(module('engoPupilApp'));
+  beforeEach(module('engoPupil'));
 
   // instantiate service
   var Courses;
@@ -11,8 +11,8 @@ describe('Service: Courses', function () {
     Courses = _Courses_;
   }));
 
-  it('should do something', function () {
-    expect(!!Courses).toBe(true);
-  });
+  //it('should do something', function () {
+    //expect(!!Courses).toBe(true);
+  //});
 
 });

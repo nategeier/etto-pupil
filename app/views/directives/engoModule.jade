@@ -1,5 +1,5 @@
 div
-  engo-block( ng-repeat="block in module.blocks", ng-show="isCurrentBlock( block.index )", block="block" )
+  engo-block( ng-repeat="block in module.blocks", ng-show="isCurrentBlock( $index )", block="block" )
 
 .engo-module-prev-block( ng-click="prevBlock()" )
   i.fa.fa-2x.fa-arrow-circle-left
