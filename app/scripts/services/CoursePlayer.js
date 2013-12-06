@@ -4,14 +4,26 @@ angular.module( "engoPupil" )
 .factory( "CoursePlayer", [ function() {
   var onBlock = 0;
   
-  var course = { blocks: [ {} ] };
+  var course = { blocks: [] };
+  
+  var play = function( newCourse ) {
+    course = newCourse;
+  };
 
   var blocksInCourse = function() {
     return course.blocks.length;
   };
 
+  var currentBlock = function() {
+    return onBlock;
+  };
+
   var onLastBlock = function() {
     return onBlock === blocksInCourse() - 1;
+  };
+
+  var isCurrentBlock = function( block ) {
+    return block === onBlock;
   };
 
   var prevBlock = function() {
@@ -27,15 +39,11 @@ angular.module( "engoPupil" )
   };
 
   var CoursePlayer = {
-    play: function( newCourse ) { course = newCourse; },
+    play: play,
     blocksInCourse: blocksInCourse,
-    currentBlock: function() {
-      return onBlock;
-    },
+    currentBlock: currentBlock,
     onLastBlock: onLastBlock,
-    isCurrentBlock: function( block ) {
-      return block === onBlock;
-    },
+    isCurrentBlock: isCurrentBlock,
     prevBlock: prevBlock,
     nextBlock: nextBlock
   };
