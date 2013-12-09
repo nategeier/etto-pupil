@@ -1,10 +1,7 @@
 "use strict";
 
-var engoPupil = angular.module( "engoPupil", [ "ngRoute", "ngResource", "ngTouch", "ui.bootstrap" ]);
-
-
-engoPupil
-.config( function ($routeProvider) {
+angular.module( "engoPupil", [ "ngRoute", "ngResource", "ngTouch", "ui.bootstrap" ])
+.config( function( $routeProvider ) {
   $routeProvider
   .when("/", {
     templateUrl: "views/landing.html",
@@ -21,7 +18,7 @@ engoPupil
   .when("/levels/:levelID/:auth", {
     templateUrl: "views/reports.html",
     controller: "ReportsCtrl"
-  })//-----------------------------Store
+  }) //-----------------------------Store
   .when("/store", {
     templateUrl: "views/store.html",
     controller: "StoreCtrl"
@@ -29,7 +26,7 @@ engoPupil
   .when("/purchase_course/:courseID", {
     templateUrl: "views/storePurchase.html",
     controller: "LoginCtrl"
-  })//-----------------------------Sessions
+  }) //-----------------------------Sessions
   .when("/register_invite/:userID", {
     templateUrl: "views/register_invite.html",
     controller: "LoginCtrl"
@@ -52,8 +49,8 @@ engoPupil
       module: function( ModuleLoader ) { return new ModuleLoader(); }
     }
   })
-  /*.otherwise({
+  .otherwise({
     redirectTo: "/"
-  })*/;
+  });
 });
 
