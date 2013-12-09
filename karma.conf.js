@@ -27,6 +27,10 @@ module.exports = function(config) {
     // list of files / patterns to exclude
     exclude: [],
 
+    preprocessors: {
+      "*.js": [ "coverage" ]
+    },
+
     // web server port
     port: 8080,
 
@@ -54,7 +58,7 @@ module.exports = function(config) {
     // if true, it capture browsers, run tests and exit
     singleRun: false,
 
-    reporters: [ "progress", "html" ]
+    reporters: [ "progress", "html", "coverage" ]
   });
 };
 

@@ -150,6 +150,13 @@ module.exports = function (grunt) {
         '<%= yeoman.app %>/scripts/{,*/}*.js'
       ]
     },
+    jscs: {
+      main: [
+        //'Gruntfile.js',
+        '<%= yeoman.app %>/scripts/{,*/}*.js'
+        //'app/scripts/controller/Module.js'
+      ]
+    },
     coffee: {
       options: {
         sourceMap: true,

@@ -40,6 +40,7 @@ Session.vim
 ########################
 .tmp
 karma_html
+coverage
 dist
 .sass-cache
 
