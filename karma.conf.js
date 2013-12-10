@@ -11,6 +11,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      "app/bower_components/jquery/jquery.min.js",
       "app/bower_components/angular/angular.js",
       "app/bower_components/angular-route/angular-route.js",
       "app/bower_components/angular-resource/angular-resource.js",
@@ -21,14 +22,21 @@ module.exports = function(config) {
       "app/scripts/*.js",
       "app/scripts/**/*.js",
       "test/mock/**/*.js",
-      "test/spec/**/*.js"
+      "test/spec/**/*.js",
+
+      "app/views/**/*.jade"
     ],
 
     // list of files / patterns to exclude
     exclude: [],
 
     preprocessors: {
+      "app/views/**/*.jade": [ "ng-html2js" ],
       "*.js": [ "coverage" ]
+    },
+
+    ngHtml2JsPreprocessor: {
+      stripPrefix: "app/"
     },
 
     // web server port
