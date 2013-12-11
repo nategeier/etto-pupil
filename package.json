@@ -43,7 +43,8 @@
     "karma-html-reporter": "~0.1.1",
     "grunt-contrib-jade": "~0.8.0",
     "grunt-jscs-checker": "~0.2.5",
-    "karma-coverage": "~0.1.4"
+    "karma-coverage": "~0.1.4",
+    "karma-spec-reporter": "0.0.6"
   },
   "engines": {
     "node": ">=0.8.0"
