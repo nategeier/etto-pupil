@@ -32,6 +32,7 @@ describe( "Directive: engoModule", function () {
     httpBackend.expectGET( "/api/v1/blocktype?" );
     scope.$digest();
     expect( element.scope().editing ).toBeDefined();
+    expect( element.scope().editing ).toBe( false );
     httpBackend.flush();
   });
 
