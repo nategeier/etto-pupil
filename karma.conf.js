@@ -21,8 +21,10 @@ module.exports = function(config) {
       "app/bower_components/angular-mocks/angular-mocks.js",
       "app/scripts/*.js",
       "app/scripts/**/*.js",
-      "test/**/*.js",
+
+      // CoffeScript tests take precedence over JS
       "test/**/*.coffee",
+      "test/**/*.js",
 
       "app/views/**/*.jade"
     ],
