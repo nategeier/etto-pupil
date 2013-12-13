@@ -35,7 +35,8 @@ body
   margin: 0
   padding: 0
 
-
+.container-full
+  padding: 0 15px
 
 *
   -webkit-border-radius: 0 !important
@@ -54,20 +55,22 @@ h1, h2, h3, h4, h5, p, p1, p2, p3
 .header h2
   color: $grey
 
+.pad20
+  padding: 10px
+
 .form-control
   margin-bottom: 10px
 
 engo-module
-  min-height: 100%
-  position: absolute
+  //min-height: 100%
+  //position: absolute
   width: 100%
 
 .engo-module-prev-block, .engo-module-next-block
-  bottom: 0
+  color: $engo-darkblue
+  bottom: -3em
   padding: 0.33em
-  position: fixed
-.pad20
-  padding: 10px
+  position: absolute
 
 .engo-module-prev-block
   left: 0
@@ -76,8 +79,10 @@ engo-module
   right: 0
 
 // Temporary base styling
-engo-module
+.engo-module-container
   background: $engo-darkblue
+
+engo-module
   color: $engo-tan
   padding-top: 1em
 

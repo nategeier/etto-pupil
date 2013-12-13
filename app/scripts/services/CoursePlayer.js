@@ -3,9 +3,9 @@
 angular.module( "engoPupil" )
 .factory( "CoursePlayer", [ function() {
   var onBlock = 0;
-  
+
   var course = { blocks: [] };
-  
+
   var play = function( newCourse ) {
     course = newCourse;
   };

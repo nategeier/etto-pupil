@@ -21,8 +21,10 @@ module.exports = function(config) {
       "app/bower_components/angular-mocks/angular-mocks.js",
       "app/scripts/*.js",
       "app/scripts/**/*.js",
-      "test/mock/**/*.js",
-      "test/spec/**/*.js",
+
+      // CoffeScript tests take precedence over JS
+      "test/**/*.coffee",
+      "test/**/*.js",
 
       "app/views/**/*.jade"
     ],
@@ -31,6 +33,7 @@ module.exports = function(config) {
     exclude: [],
 
     preprocessors: {
+      "test/**/*.coffee": "coffee",
       "app/views/**/*.jade": [ "ng-html2js" ],
       "*.js": [ "coverage" ]
     },
