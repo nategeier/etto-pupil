@@ -1,4 +1,4 @@
-describe "Integration Directive: engoModule", ->
+describe "Integration - Directive: engoModule", ->
   scope = element = httpBackend = null
 
   beforeEach module "engoPupil", "views/directives/engoModule.html"

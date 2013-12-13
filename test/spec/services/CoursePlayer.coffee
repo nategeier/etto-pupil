@@ -4,14 +4,10 @@ describe "Service: CoursePlayer", ->
   beforeEach module "engoPupil"
   beforeEach inject ( _CoursePlayer_ ) ->
     CoursePlayer = _CoursePlayer_
-    # Mock out a three block module
-    CoursePlayer.play {
-      blocks: [
-        { },
-        { },
-        { }
-      ]
-    }
+    # Mock out a three block module and "play" it
+    CoursePlayer.play { blocks: [ { }, { }, { } ] }
+
+  # TODO: Write tests for play
 
   it "should start on the first Block", ->
     expect( CoursePlayer.currentBlock() ).toBe 0
