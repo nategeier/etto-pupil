@@ -1,30 +1,7 @@
-@import 'bootstrap-sass/lib/bootstrap.scss'
-$fa-font-path: "/bower_components/font-awesome/fonts"
-@import 'font-awesome/scss/font-awesome.scss'
+@import "base/_config"
+@import "base/_colors"
 
-$engo-darkblue: #004056
-$engo-mildblue: #386b86
-$engo-accentblue: #50889f
-$engo-turquoise: #3da6cb
-$engo-aqua: #50889f
-$engo-greenish: #74ceb7
-$engo-light: #c9ffd5
-$engo-tan: #ffffcb
-$engo-grey: #eee
-$engo-mediumgrey: #e3e3e3
-$engo-darkgrey: #dadada
-
-$dark-blue : #004056
-$mild-blue : #386b86
-$acent-blue : #50889f
-$turquoise : #3da6cb
-$aqua : #50889f
-$greenish : #74CEB7
-$light : #C9FFD5
-$tan : #FFFFCB
-$grey : #eee
-$med-grey : #e3e3e3
-$dark-grey : #bebebe
+@import "module/_courseplayer"
 
 html, body
   height: 100%
@@ -32,19 +9,13 @@ html, body
 body
   background: #fafafa
   color: $mild-blue
-  margin: 0
-  padding: 0
 
 .container-full
   padding: 0 15px
 
-*
-  -webkit-border-radius: 0 !important
-  -moz-border-radius: 0 !important
-  border-radius: 0 !important
-
 h1, h2, h3, h4, h5, p, p1, p2, p3
   font-family: "Varela", sans-serif
+
 
 .green
   background-color: green
@@ -61,62 +32,6 @@ h1, h2, h3, h4, h5, p, p1, p2, p3
 .form-control
   margin-bottom: 10px
 
-engo-module
-  //min-height: 100%
-  //position: absolute
-  width: 100%
-
-.engo-module-prev-block, .engo-module-next-block
-  color: $engo-darkblue
-  bottom: -3em
-  padding: 0.33em
-  position: absolute
-
-.engo-module-prev-block
-  left: 0
-
-.engo-module-next-block
-  right: 0
-
-// Temporary base styling
-.engo-module-container
-  background: $engo-darkblue
-
-engo-module
-  color: $engo-tan
-  padding-top: 1em
-
-  h1, h2
-    background: $engo-tan
-    color: $engo-darkblue
-    margin-bottom: 0
-    margin-top: 0
-    padding: 0.33em 1.33rem 0.67em
-    font-family: "Varela", sans-serif
-
-  p
-    color: $engo-tan
-    font-size: 1.33em
-
-  blockquote
-    border-left-color: $engo-tan
-    p
-      color: $engo-tan
-      font-size: 3em
-    footer
-      color: $engo-tan
-      text-align: right
-      font-size: 2em
-    footer:before
-      content: "\2014"
-
-  .engo-module-block-edit-container
-    border-bottom: 1px solid $engo-tan
-    margin-bottom: 1em
-
-  .engo-module-block-edit-container .btn
-    margin-bottom: 1em
-
 .aside h3, .header-btn, .aside p, .openHolder h3
   color: $mild-blue
 
@@ -128,9 +43,6 @@ engo-module
 .aside h5
   color: $acent-blue
 
-
-
-
 .main-img
   background-image: url("/images/site/opener2.jpg")
   background-repeat: no-repeat
@@ -139,17 +51,14 @@ engo-module
   height: 300px
   margin-bottom: 20px
 
-
 .small-pad
   padding: 5px
-
 
 .err
   color: red
   font-size: 13px
   text-align: center
   margin: 5px
-
 
 .loader
   width: 66px
@@ -169,7 +78,6 @@ p3
   font-size: .8 em
   color: $dark-grey
 
-
 h4
   color: $turquoise
   text-transform: uppercase
@@ -178,10 +86,8 @@ h2
   color: #666
   font-family: "Varela", sans-serif
 
-
 .dark-grey
   color: $dark-grey
-
 
 .w100
   width: 100%
