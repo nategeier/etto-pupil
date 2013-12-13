@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module( "engoPupil" )
-.directive( "engoBlock", [ "$compile", "BlockType", function ( $compile, BlockType ) {
+.directive( "engoBlock", [ "$compile", "BlockType", "CoursePlayer", function ( $compile, BlockType, CoursePlayer ) {
   return {
 
     template: "",
@@ -10,6 +10,9 @@ angular.module( "engoPupil" )
       block: "="
     },
     controller: function( $scope, $element, $attrs ) {
+      // TODO: Not very DRY, call parent scope's isCurrentBlock from template?
+      $scope.isCurrentBlock = function( block ) { return CoursePlayer.isCurrentBlock( block ); };
+
       // Get the BlockType, including template
       // TODO: is `query` the best way? or `get` with `isArray: true`? or...?
       BlockType.query({ type: $scope.block.type }, function( blocktype ) {
@@ -29,15 +32,12 @@ angular.module( "engoPupil" )
         $element.append( blockEl );
 
         if( $scope.$parent.editing ) {
-          editEl = $compile( "<div class='container engo-module-block-edit-container'>" +
-                             "<div class='row'>" +
-                             "<div class='col-md-3'>" +
+          editEl = $compile( "<div class='engo-module-block-edit-container' ng-show='isCurrentBlock( block.index )'>" +
                              "<h3 ng-bind='blocktype.humanizedType'>Block Type</h3>" +
-                             "<button class='btn btn-primary' ng-click='saveModule()'>Save</button>" +
-                             "</div>" +
                              $scope.blocktype.editorTemplate +
-                             "</div></div>" )( $scope );
-          $element.prepend( editEl );
+                             "<button class='btn btn-primary' ng-click='saveModule()'>Save</button>" +
+                             "</div>" )( $scope );
+          angular.element( ".engo-toolbox" ).append( editEl );
         }
       });
 
