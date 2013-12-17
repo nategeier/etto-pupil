@@ -144,9 +144,10 @@ module.exports = function (grunt) {
       server: ".tmp"
     },
     jshint: {
-      options: {
-        jshintrc: ".jshintrc"
-      },
+      options: grunt.util._.defaults({
+        "unused": false,
+        "camelcase": false
+      }, grunt.file.readJSON(".jshintrc")),
       all: [
         "Gruntfile.js",
         "<%= yeoman.app %>/scripts/{,*/}*.js"
