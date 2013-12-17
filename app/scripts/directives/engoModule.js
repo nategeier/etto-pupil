@@ -7,7 +7,7 @@ angular.module("engoPupil")
         templateUrl: "views/directives/engoModule.html",
         restrict: "E",
         controller: function ($scope, $document, $attrs) {
-          $scope.editing = $attrs["edit"] !== undefined;
+          $scope.editing = $attrs.edit !== undefined;
 
           CoursePlayer.play($scope.module);
           $scope.isCurrentBlock = function (block) {

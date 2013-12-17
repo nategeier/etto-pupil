@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-angular.module('engoPupil')
-  .controller('StorepurchaseCtrl', ['$scope', '$routeParams', '$http', 'Store', 'Reports',
+angular.module("engoPupil")
+  .controller("StorepurchaseCtrl", ["$scope", "$routeParams", "$http", "Store", "Reports",
     function ($scope, $routeParams, $http, Store, Reports) {
 
       Store.purchase_course($routeParams.courseID, function (data) {

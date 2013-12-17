@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
 angular.module("engoPupil")
-  .controller("StoreCtrl", ["$scope", "$http", "$location", 'Store', 'Reports',
+  .controller("StoreCtrl", ["$scope", "$http", "$location", "Store", "Reports",
     function ($scope, $http, $location, Store, Reports) {
 
       var totOverallUsers = 0;
@@ -46,7 +46,7 @@ angular.module("engoPupil")
         });
         $scope.totUsers = countUsers();
         setPrice();
-      }
+      };
 
       //---- Fired when any medium levels are clicked
       $scope.updateMedLevel = function (medLevel) {
@@ -58,7 +58,7 @@ angular.module("engoPupil")
 
         $scope.totUsers = countUsers();
         setPrice();
-      }
+      };
 
       //---- Fired when any medium levels are clicked
       $scope.updateLowLevel = function (level) {
@@ -69,7 +69,7 @@ angular.module("engoPupil")
           $scope.totUsers = $scope.totUsers + level.totEmps;
         }
         setPrice();
-      }
+      };
 
       var switchCol = function (level) {
         var ison = null;
@@ -79,7 +79,7 @@ angular.module("engoPupil")
           ison = null;
         }
         return ison;
-      }
+      };
 
       var intCountUsers = function (levels) {
         var sum = _.reduce(levels, function (memo, num) {
@@ -90,7 +90,7 @@ angular.module("engoPupil")
           }
         }, 0);
         return sum;
-      }
+      };
       //---- Count all enabled higher levels, then count still enabled lower levels within
       var countUsers = function () {
         var count = 0;
@@ -98,13 +98,13 @@ angular.module("engoPupil")
           count = count + Number(intCountUsers(midLevel.lowerLevels));
         });
         return count;
-      }
+      };
 
       //--- Sets binding price to all courses according to how many users will have access to the courses
       var setPrice = function () {
         _.map($scope.courses, function (course) {
           course.priceWithEmps = (course.price * $scope.totUsers).toFixed(2);
         });
-      }
+      };
     }
   ]);

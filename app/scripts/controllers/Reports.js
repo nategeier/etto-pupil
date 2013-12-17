@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
 angular.module("engoPupil")
-  .controller("ReportsCtrl", ["$scope", "$http", "$location", 'Reports',
+  .controller("ReportsCtrl", ["$scope", "$http", "$location", "Reports",
     function ($scope, $http, $location, Reports) {
 
-      var link = '/api/v1/' + $location.path();
+      var link = "/api/v1/" + $location.path();
 
       Reports.get_reports(link, function (data) {
         $scope.error = data.err;
@@ -35,7 +35,7 @@ angular.module("engoPupil")
             $scope.err = results.err;
           } else {
             $scope.levels.unshift(results.user);
-            $scope.err = 'Invite has been sent to ' + newLevel.levelTitle;
+            $scope.err = "Invite has been sent to " + newLevel.levelTitle;
           }
 
         });
@@ -45,7 +45,7 @@ angular.module("engoPupil")
   var createLevel = function(levelTitle, auth, aboveID){
     var newLevel = {
       levelTitle: levelTitle,
-      levelID: 
+      levelID:
     }
 
 

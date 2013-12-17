@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("engoPupil")
-  .controller("HomeCtrl", ["$scope", "$compile", "$http", 'Home',
+  .controller("HomeCtrl", ["$scope", "$compile", "$http", "Home",
     function ($scope, $compile, $http, Home) {
 
       Home.home_layout(function (data) {
@@ -10,7 +10,7 @@ angular.module("engoPupil")
         $scope.createdCourses = data.createdCourses;
       });
 
-      $scope.active = 'Home';
+      $scope.active = "Home";
 
     }
   ]);

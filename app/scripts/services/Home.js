@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-angular.module('engoPupil')
-  .factory('Home', ['$http',
+angular.module("engoPupil")
+  .factory("Home", ["$http",
     function ($http) {
 
       // Public API here

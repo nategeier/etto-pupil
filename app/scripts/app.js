@@ -18,19 +18,19 @@ angular.module("engoPupil", ["ngRoute", "ngResource", "ngTouch", "ui.bootstrap"]
       .when("/levels/:levelID/:auth", {
         templateUrl: "views/reports.html",
         controller: "ReportsCtrl"
-      }) //-----------------------------Store
-    .when("/store", {
-      templateUrl: "views/store.html",
-      controller: "StoreCtrl"
-    })
+      })
+      .when("/store", {
+        templateUrl: "views/store.html",
+        controller: "StoreCtrl"
+      })
       .when("/purchase_course/:courseID", {
         templateUrl: "views/storePurchase.html",
         controller: "LoginCtrl"
-      }) //-----------------------------Sessions
-    .when("/register_invite/:userID", {
-      templateUrl: "views/register_invite.html",
-      controller: "LoginCtrl"
-    })
+      })
+      .when("/register_invite/:userID", {
+        templateUrl: "views/register_invite.html",
+        controller: "LoginCtrl"
+      })
       .when("/session/destroy", {
         controller: "LogoutCtrl",
         templateUrl: "views/home.html"

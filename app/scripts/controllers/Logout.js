@@ -5,7 +5,7 @@ angular.module("engoPupil")
     function ($scope, $location, $http, Session) {
 
       var handleSuccess = function (data) {
-        $location.path('/');
+        $location.path("/");
       };
       Session.destroySession().success(handleSuccess);
 
