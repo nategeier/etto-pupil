@@ -1,30 +1,31 @@
 "use strict";
 
-angular.module( "engoPupil" )
-.controller( "MainCtrl", [ "$scope", "$http", "$location", function ( $scope, $http, $location ) {
+angular.module("engoPupil")
+  .controller("MainCtrl", ["$scope", "$http", "$location", "Session",
+    function ($scope, $http, $location, Session) {
 
+      $scope.submitLogin = function () {
+        $http({
+          method: "POST",
+          url: "/api/v1/sessions/create_brand",
+          data: $scope.user
+        })
+          .success(function (data, status, headers, config) {
+            console.log(data);
 
-  $scope.submitLogin = function(){
-    console.log('clicked');
+            if (data.err) {
+              $scope.err = data.err;
 
-    $http({method: 'POST', url: '/api/v1/sessions/create_brand', data:$scope.user})
-      .success(function(data, status, headers, config){
-        console.log(data);
-        
-        if(data.err){
-          $scope.err = data.err;
-        
-        }else{
-          //$location.path("/engo");
-           $scope.err = 'The learning world thanks you for your support';
-        }
-    })
-      .error(function(data, status, headers, config) {
-        console.log(data, 'err');
-        Session.isLogged = false;
-        Session.user = null;
-    });
-  }
+            } else {
+              //$location.path("/engo");
+              $scope.err = "The learning world thanks you for your support";
+            }
+          })
+          .error(function (data, status, headers, config) {
+            Session.isLogged = false;
+            Session.user = null;
+          });
+      };
 
-}]);
-
+    }
+  ]);

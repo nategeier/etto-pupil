@@ -1,17 +1,16 @@
-'use strict';
+"use strict";
 
-angular.module('engoPupil')
-  .directive('engoEnterCard', [function () {
-    return {
-      template: '<input type="text" ng-model="card.number" placeholder="card number" autocomplete="off"></input>' +
-        '<input type="text" ng-model="card.exp_month" placeholder="exp_month" autocomplete="off"></input>' +
-        '<input type="text" ng-model="card.exp_year" placeholder="exp_year" autocomplete="off"></input>' +
-        '<input type="text" ng-model="card.cvc" placeholder="cvc" autocomplete="off"></input>'
+angular.module("engoPupil")
+  .directive("engoEnterCard", [
 
-      ,
-      restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        //element.text('this is the engoEnterCard directive');
-      }
-    };
-  }]);
+    function () {
+      return {
+        template: "<input type='text' ng-model='card.number' placeholder='card number' autocomplete='off'></input>" +
+          "<input type='text' ng-model='card.exp_month' placeholder='exp_month' autocomplete='off'></input>" +
+          "<input type='text' ng-model='card.exp_year' placeholder='exp_year' autocomplete='off'></input>" +
+          "<input type='text' ng-model='card.cvc' placeholder='cvc' autocomplete='off'></input>",
+        restrict: "E",
+        link: function postLink(scope, element, attrs) {}
+      };
+    }
+  ]);

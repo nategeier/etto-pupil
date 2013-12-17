@@ -1,53 +1,58 @@
 "use strict";
 
-angular.module( "engoPupil" )
-.factory( "CoursePlayer", [ function() {
-  var onBlock = 0;
+angular.module("engoPupil")
+  .factory("CoursePlayer", [
 
-  var course = { blocks: [] };
+    function () {
+      var onBlock = 0;
 
-  var play = function( newCourse ) {
-    course = newCourse;
-    onBlock = 0;
-  };
+      var course = {
+        blocks: []
+      };
 
-  var blocksInCourse = function() {
-    return course.blocks.length;
-  };
+      var play = function (newCourse) {
+        course = newCourse;
+        onBlock = 0;
+      };
 
-  var currentBlock = function() {
-    return onBlock;
-  };
+      var blocksInCourse = function () {
+        return course.blocks.length;
+      };
 
-  var onLastBlock = function() {
-    return onBlock === blocksInCourse() - 1;
-  };
+      var currentBlock = function () {
+        return onBlock;
+      };
 
-  var isCurrentBlock = function( block ) {
-    return block === onBlock;
-  };
+      var onLastBlock = function () {
+        return onBlock === blocksInCourse() - 1;
+      };
 
-  var prevBlock = function() {
-    if( onBlock > 0 ) {
-      onBlock--;
+      var isCurrentBlock = function (block) {
+        return block === onBlock;
+      };
+
+      var prevBlock = function () {
+        if (onBlock > 0) {
+          onBlock--;
+        }
+      };
+
+      var nextBlock = function () {
+        if (!onLastBlock()) {
+          onBlock++;
+        }
+      };
+
+      var CoursePlayer = {
+        play: play,
+        blocksInCourse: blocksInCourse,
+        currentBlock: currentBlock,
+        onLastBlock: onLastBlock,
+        isCurrentBlock: isCurrentBlock,
+        prevBlock: prevBlock,
+        nextBlock: nextBlock
+      };
+
+      return CoursePlayer;
     }
-  };
-
-  var nextBlock = function() {
-    if( !onLastBlock() ) {
-      onBlock++;
-    }
-  };
-
-  var CoursePlayer = {
-    play: play,
-    blocksInCourse: blocksInCourse,
-    currentBlock: currentBlock,
-    onLastBlock: onLastBlock,
-    isCurrentBlock: isCurrentBlock,
-    prevBlock: prevBlock,
-    nextBlock: nextBlock
-  };
-
-  return CoursePlayer;
-}]);
+  ]);
