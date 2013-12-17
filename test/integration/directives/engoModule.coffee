@@ -1,7 +1,9 @@
 describe "Integration - Directive: engoModule", ->
   scope = element = httpBackend = null
 
-  beforeEach module "engoPupil", "views/directives/engoModule.html"
+  beforeEach module "engoPupil",
+                    "views/directives/engoModule.html",
+                    "views/blocks/engoBlockUndefined.html"
 
   beforeEach inject ( $rootScope, $compile, $httpBackend ) ->
     scope = $rootScope.$new()
@@ -11,7 +13,6 @@ describe "Integration - Directive: engoModule", ->
     element = $compile( element ) scope
 
     httpBackend = $httpBackend
-    httpBackend.when( "GET", "/api/v1/blocktype?" ).respond []
 
   afterEach ->
     httpBackend.verifyNoOutstandingExpectation

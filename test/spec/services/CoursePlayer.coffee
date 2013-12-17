@@ -5,9 +5,7 @@ describe "Service: CoursePlayer", ->
   beforeEach inject ( _CoursePlayer_ ) ->
     CoursePlayer = _CoursePlayer_
     # Mock out a three block module and "play" it
-    CoursePlayer.play { blocks: [ { }, { }, { } ] }
-
-  # TODO: Write tests for play
+    CoursePlayer.play { blocks: [ {}, {}, {} ] }
 
   it "should start on the first Block", ->
     expect( CoursePlayer.currentBlock() ).toBe 0
@@ -47,4 +45,12 @@ describe "Service: CoursePlayer", ->
     CoursePlayer.nextBlock()
     CoursePlayer.nextBlock()
     expect( CoursePlayer.currentBlock() ).toBe 2
+
+  # TODO: Write more tests for play
+  describe "play function", ->
+
+    it "should reset to the first block", ->
+      CoursePlayer.nextBlock()
+      CoursePlayer.play { blocks: [ {} ] }
+      expect( CoursePlayer.currentBlock() ).toBe 0
 
