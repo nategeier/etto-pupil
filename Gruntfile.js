@@ -1,7 +1,9 @@
 // Generated on 2013-10-21 using generator-angular 0.4.0
 "use strict";
 var LIVERELOAD_PORT = 35730;
-var lrSnippet = require("connect-livereload")({ port: LIVERELOAD_PORT });
+var lrSnippet = require("connect-livereload")({
+  port: LIVERELOAD_PORT
+});
 var mountFolder = function (connect, dir) {
   return connect.static(require("path").resolve(dir));
 };
@@ -69,7 +71,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: "<%= yeoman.app %>",
-          src: [ "index.jade", "views/**/*.jade" ],
+          src: ["index.jade", "views/**/*.jade"],
           dest: ".tmp",
           ext: ".html"
         }]
@@ -423,8 +425,8 @@ module.exports = function (grunt) {
     "jshint"
   ]);
 
-  grunt.registerTask("clean", [
-    "jsbeautifier:verify",
+  grunt.registerTask("cleanjs", [
+    "jsbeautifier:modify",
     "jshint"
   ]);
 
