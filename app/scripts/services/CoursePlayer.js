@@ -8,6 +8,7 @@ angular.module( "engoPupil" )
 
   var play = function( newCourse ) {
     course = newCourse;
+    onBlock = 0;
   };
 
   var blocksInCourse = function() {
