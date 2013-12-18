@@ -397,7 +397,7 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask("server", function (target) {
+  grunt.registerTask("serve", function (target) {
     if (target === "dist") {
       return grunt.task.run(["build", "open", "connect:dist:keepalive"]);
     }
@@ -411,6 +411,11 @@ module.exports = function (grunt) {
       "open",
       "watch"
     ]);
+  });
+
+  grunt.registerTask("server", function () {
+    grunt.log.warn("The `server` task has been deprecated. Use `grunt serve` to start a server.");
+    grunt.task.run(["serve"]);
   });
 
   grunt.registerTask("test", [

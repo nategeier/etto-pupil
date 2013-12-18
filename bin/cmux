@@ -19,7 +19,7 @@ tmux split-window -t engo-pupil:servers
 tmux split-window -t engo-pupil:vim
 
 # Run commands
-tmux send-keys -t engo-pupil:servers.0 'c engo-pupil; grunt server' C-m
+tmux send-keys -t engo-pupil:servers.0 'c engo-pupil; grunt serve' C-m
 tmux send-keys -t engo-pupil:servers.1 'c engo; sails lift' C-m
 tmux send-keys -t engo-pupil:vim.0 'c engo-pupil; vim -S' C-m
 tmux send-keys -t engo-pupil:vim.1 'c engo-pupil; karma start --auto-watch' C-m
