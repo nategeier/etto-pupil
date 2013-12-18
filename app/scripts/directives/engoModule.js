@@ -10,12 +10,15 @@ angular.module("engoPupil")
           $scope.editing = $attrs.edit !== undefined;
 
           CoursePlayer.play($scope.module);
+
           $scope.isCurrentBlock = function (block) {
             return CoursePlayer.isCurrentBlock(block);
           };
+
           $scope.nextBlock = function () {
             CoursePlayer.nextBlock();
           };
+
           $scope.prevBlock = function () {
             CoursePlayer.prevBlock();
           };
