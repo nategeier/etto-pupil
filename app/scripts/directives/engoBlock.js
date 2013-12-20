@@ -4,17 +4,9 @@ angular.module("engoPupil")
   .directive("engoBlock", ["$compile", "BlockType", "CoursePlayer",
     function ($compile, BlockType, CoursePlayer) {
       return {
-
         template: "<ng-include src='blockTemplate'></ng-include>",
         restrict: "E",
-        scope: {
-          block: "="
-        },
-        controller: function ($scope, $element, $attrs) {},
-
-        link: function postLink($scope, $element, $attrs) {
-          var editTemplate, editEl;
-
+        controller: function ($scope, $element, $attrs) {
           // TODO: Not very DRY, call parent scope's isCurrentBlock from template?
           $scope.isCurrentBlock = function (block) {
             return CoursePlayer.isCurrentBlock(block);
@@ -23,6 +15,9 @@ angular.module("engoPupil")
           $scope.saveModule = function () {
             $scope.$emit("module-save");
           };
+        },
+        link: function postLink($scope, $element, $attrs) {
+          var editTemplate, editEl;
 
           // Set the blockTemplate based off $scope's block.type
           var pathBase = "views/blocks/" + $.camelCase("engo-block-" + $scope.block.type);
@@ -37,9 +32,7 @@ angular.module("engoPupil")
             editEl = $compile(editTemplate)($scope);
             angular.element(".engo-toolbox").append(editEl);
           }
-
         }
-
       };
     }
   ]);
