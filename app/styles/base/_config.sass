@@ -1,10 +1,72 @@
-// Kill those damn rouded corners...
+//
+// Variables
+// --------------------------------------------------
+
+@import "colors"
+
+// Golden Ratio
+// -------------------------
+@function golden()
+  @return 1/2 + sqrt(5) / 2
+$ratio: golden()
+
+//
+// Override Default Bootstrap Variables
+// --------------------------------------------------
+
+// Brand colors
+// -------------------------
+
+$brand-primary: $engo-mildblue
+//$brand-success: #5cb85c
+//$brand-warning: #f0ad4e
+//$brand-danger:  #d9534f
+$brand-info:    $engo-accentblue
+
+// Scaffolding
+// -------------------------
+
+$body-bg:    #fafafa
+$text-color: $engo-mildblue
+
+// Links
+// -------------------------
+
+$link-color:       $engo-accentblue
+$link-hover-color: darken($link-color, 15%)
+
+// Typography
+// -------------------------
+
+$font-family-sans-serif:  Lato, "Helvetica Neue", Helvetica, Arial, sans-serif
+$font-family-serif:       Georgia, "Times New Roman", Times, serif
+$font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace
+$font-family-base:        $font-family-sans-serif
+
+$font-size-base: 16px
+$line-height-base: $ratio
+
+// Components
+// -------------------------
+
 $border-radius-base: 0px
 $border-radius-large: 0px
 $border-radius-small: 0px
-@import "bootstrap-sass/lib/bootstrap.scss"
+
+// Import Bootstrap
+// Leave both @imports for ease of switching, but only use one at a time
+// -------------------------
+//@import "bootstrap-sass/lib/bootstrap.scss"
+@import "_bootstrap"
+
+
+//
+// Override Default FontAwesome Variables
+// --------------------------------------------------
 
 // Tell FontAwesome where to find the font files
 $fa-font-path: "/bower_components/font-awesome/fonts"
-@import "font-awesome/scss/font-awesome.scss"
 
+// Import FontAwesome
+// -------------------------
+@import "font-awesome/scss/font-awesome.scss"
