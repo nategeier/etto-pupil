@@ -15,18 +15,19 @@ engo-logged-in-nav
         hr
       .row
         div(ng-repeat='course in courses | filter:searchCourse')
-          .col-md-4.col-sm-4.no-pad
+          .col-md-4.col-sm-4
             .course-holder(sink-in)
-              .pad20
-                img(src='/images/courses/thumbs/course_{{course.courseID}}.jpg', style='width:100%')
-                .col-md-8.no-pad
+              .row
+                .col-xs-12
+                  img(src='/images/courses/thumbs/course_{{course.courseID}}.jpg', style='width:100%')
+              .row
+                .col-md-8
                   h5 {{course.courseTitle}}
                   p {{course.subTxt}}
-                .col-md-4.no-pad
+                .col-md-4
                   h5 ${{course.priceWithEmps}}
                   a.btn.btn-primary.btn-xs.w100.bottom10(href='/#/purchase_course/{{course.courseID}}')  Purchase
                   a.btn.btn-default.btn-xs.w100(href='/#/purchase_course/{{course.courseID}}')  Demo
-                .clear
 
     .col-xs-12.col-sm-3.col-md-3
       h3  Course is for:
@@ -40,6 +41,6 @@ engo-logged-in-nav
         div.low-tree(low ng-repeat='lowerLevel in medLevel.lowerLevels')
           div.off-bar(low-tree, ng-click='updateLowLevel(lowerLevel)', ng-model='lowerLevel', ng-show='lowerLevel.ison')
           div.on-bar(low-tree, ng-click='updateLowLevel(lowerLevel)', ng-model='lowerLevel', ng-show='!lowerLevel.ison')
-     
+
 
 
