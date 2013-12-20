@@ -6,6 +6,7 @@ angular.module("engoPupil")
       return {
         templateUrl: "views/directives/engoModule.html",
         restrict: "E",
+        //replace: true,
         controller: function ($scope, $document, $attrs) {
           $scope.editing = $attrs.edit !== undefined;
 
