@@ -19,15 +19,15 @@ engo-logged-in-nav
             .course-holder(sink-in)
               .row
                 .col-xs-12
-                  img(src='/images/courses/thumbs/course_{{course.courseID}}.jpg', style='width:100%')
+                  img.img-responsive(src='/images/courses/thumbs/course_{{course.courseID}}.jpg')
               .row
                 .col-md-8
                   h5 {{course.courseTitle}}
                   p {{course.subTxt}}
                 .col-md-4
                   h5 ${{course.priceWithEmps}}
-                  a.btn.btn-primary.btn-xs.w100.bottom10(href='/#/purchase_course/{{course.courseID}}')  Purchase
-                  a.btn.btn-default.btn-xs.w100(href='/#/purchase_course/{{course.courseID}}')  Demo
+                  a.btn.btn-primary.btn-xs.img-responsive.bottom10(href='/#/purchase_course/{{course.courseID}}')  Purchase
+                  a.btn.btn-default.btn-xs.img-responsive(href='/#/purchase_course/{{course.courseID}}')  Demo
 
     .col-xs-12.col-sm-3.col-md-3
       h3  Course is for:
