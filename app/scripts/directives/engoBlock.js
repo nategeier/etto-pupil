@@ -7,9 +7,6 @@ angular.module("engoPupil")
 
         template: "<ng-include src='blockTemplate'></ng-include>",
         restrict: "E",
-        scope: {
-          block: "="
-        },
         controller: function ($scope, $element, $attrs) {},
 
         link: function postLink($scope, $element, $attrs) {
@@ -25,7 +22,7 @@ angular.module("engoPupil")
           };
 
           // Set the blockTemplate based off $scope's block.type
-          var pathBase = "views/blocks/" + $.camelCase("engo-block-" + $scope.block.type);
+          var pathBase = "/views/blocks/" + $.camelCase("engo-block-" + $scope.block.type);
           $scope.blockTemplate = pathBase + ".html";
           $scope.blockTemplateEdit = pathBase + "Edit.html";
 

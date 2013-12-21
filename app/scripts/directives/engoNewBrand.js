@@ -6,7 +6,7 @@ angular.module("engoPupil")
     function () {
       return {
         restrict: "E",
-        templateUrl: "views/directives/engoNewBrand.html",
+        templateUrl: "/views/directives/engoNewBrand.html",
         link: function postLink(scope, element, attrs) {
           TweenMax.from(element, 1, {
             scaleY: 0,

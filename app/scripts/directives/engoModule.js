@@ -4,7 +4,7 @@ angular.module("engoPupil")
   .directive("engoModule", ["CoursePlayer",
     function (CoursePlayer) {
       return {
-        templateUrl: "views/directives/engoModule.html",
+        templateUrl: "/views/directives/engoModule.html",
         restrict: "E",
         controller: function ($scope, $document, $attrs) {
           $scope.editing = $attrs.edit !== undefined;
