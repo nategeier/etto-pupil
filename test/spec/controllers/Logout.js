@@ -3,7 +3,7 @@
 describe('Controller: LogoutCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('engoPupil'));
+  beforeEach(module('ettoPupil'));
 
   var LogoutCtrl,
     scope;

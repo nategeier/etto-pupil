@@ -4,7 +4,7 @@ describe( "Service: ModuleLoader", function() {
   var mockBackend, loader, location;
 
   // load the service's module
-  beforeEach( module( "engoPupil" ) );
+  beforeEach( module( "ettoPupil" ) );
 
   // instantiate service
   beforeEach( inject( function( _$httpBackend_, Module, ModuleLoader, _$route_, $location ) {

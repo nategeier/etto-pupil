@@ -3,7 +3,7 @@
 describe('Controller: StorepurchaseCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('engoPupil'));
+  beforeEach(module('ettoPupil'));
 
   var StorepurchaseCtrl,
     scope;

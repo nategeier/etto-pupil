@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("engoPupil")
+angular.module("ettoPupil")
   .controller("ReportsCtrl", ["$scope", "$http", "$location", "Reports",
     function ($scope, $http, $location, Reports) {
 

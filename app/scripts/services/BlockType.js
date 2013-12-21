@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("engoPupil")
+angular.module("ettoPupil")
   .factory("BlockType", ["$resource",
     function ($resource) {
       return $resource("/api/v1/blocktype", {}, {

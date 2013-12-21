@@ -1,0 +1,10 @@
+div
+  etto-block( ng-repeat="block in module.blocks",
+              ng-show="isCurrentBlock( $index )",
+              block="block" )
+
+.etto-module-prev-block( ng-click="prevBlock()" )
+  i.fa.fa-2x.fa-arrow-circle-left
+.etto-module-next-block( ng-click="nextBlock()" )
+  i.fa.fa-2x.fa-arrow-circle-right
+
