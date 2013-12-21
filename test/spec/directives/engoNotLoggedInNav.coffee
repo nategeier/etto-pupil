@@ -1,7 +1,7 @@
 describe "Directive: notLoggedInNav", ->
   element = scope = null
 
-  beforeEach module "engoPupil", "views/directives/engoNotLoggedInNav.html"
+  beforeEach module "engoPupil", "/views/directives/engoNotLoggedInNav.html"
   beforeEach inject ( $rootScope, $compile ) ->
     scope = $rootScope.$new()
 

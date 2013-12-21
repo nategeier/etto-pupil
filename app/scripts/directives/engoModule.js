@@ -4,7 +4,7 @@ angular.module("engoPupil")
   .directive("engoModule", ["CoursePlayer",
     function (CoursePlayer) {
       return {
-        templateUrl: "views/directives/engoModule.html",
+        templateUrl: "/views/directives/engoModule.html",
         restrict: "E",
         //replace: true,
         controller: function ($scope, $document, $attrs) {

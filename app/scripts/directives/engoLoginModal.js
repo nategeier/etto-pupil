@@ -10,7 +10,7 @@ angular.module("engoPupil")
         controller: function ($scope, $modal, Session, $location) {
           $scope.login = function () {
             var modal = $modal.open({
-              templateUrl: "views/directives/engoLoginModal.html",
+              templateUrl: "/views/directives/engoLoginModal.html",
               controller: function ($scope, $modalInstance) {
                 $scope.user = {};
                 $scope.handleLogin = function () {

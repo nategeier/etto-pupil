@@ -5,7 +5,7 @@ angular.module("engoPupil")
 
     function () {
       return {
-        templateUrl: "views/directives/engoLoggedInNav.html",
+        templateUrl: "/views/directives/engoLoggedInNav.html",
         restrict: "E",
         link: function postLink(scope, element, attrs) {}
       };

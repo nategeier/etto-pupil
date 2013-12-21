@@ -39,7 +39,8 @@ module.exports = function(config) {
     },
 
     ngHtml2JsPreprocessor: {
-      stripPrefix: "app/"
+      stripPrefix: "app/",
+      prependPrefix: "/"
     },
 
     // web server port

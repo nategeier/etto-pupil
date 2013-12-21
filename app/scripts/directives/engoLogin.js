@@ -6,7 +6,7 @@ angular.module("engoPupil")
     function () {
       return {
         restrict: "E",
-        templateUrl: "views/directives/engoLogin.html",
+        templateUrl: "/views/directives/engoLogin.html",
       };
     }
   ]);

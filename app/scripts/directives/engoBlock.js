@@ -20,7 +20,7 @@ angular.module("engoPupil")
           var editTemplate, editEl;
 
           // Set the blockTemplate based off $scope's block.type
-          var pathBase = "views/blocks/" + $.camelCase("engo-block-" + $scope.block.type);
+          var pathBase = "/views/blocks/" + $.camelCase("engo-block-" + $scope.block.type);
           $scope.blockTemplate = pathBase + ".html";
           $scope.blockTemplateEdit = pathBase + "Edit.html";
 

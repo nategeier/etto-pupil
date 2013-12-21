@@ -2,7 +2,7 @@ describe "Directive: engoBlock", ->
   scope = element = httpBackend = null
 
   beforeEach module "engoPupil",
-                    "views/blocks/engoBlockText.html"
+                    "/views/blocks/engoBlockText.html"
 
   beforeEach inject ( $rootScope, $compile, $httpBackend ) ->
     scope = $rootScope.$new()
@@ -19,4 +19,4 @@ describe "Directive: engoBlock", ->
 
   it "set blockTemplate properly", ->
     scope.$digest()
-    expect( element.scope().blockTemplate ).toBe "views/blocks/engoBlockText.html"
+    expect( element.scope().blockTemplate ).toBe "/views/blocks/engoBlockText.html"
