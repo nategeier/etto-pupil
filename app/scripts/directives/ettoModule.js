@@ -6,16 +6,20 @@ angular.module("ettoPupil")
       return {
         templateUrl: "/views/directives/ettoModule.html",
         restrict: "E",
+        //replace: true,
         controller: function ($scope, $document, $attrs) {
           $scope.editing = $attrs.edit !== undefined;
 
           CoursePlayer.play($scope.module);
+
           $scope.isCurrentBlock = function (block) {
             return CoursePlayer.isCurrentBlock(block);
           };
+
           $scope.nextBlock = function () {
             CoursePlayer.nextBlock();
           };
+
           $scope.prevBlock = function () {
             CoursePlayer.prevBlock();
           };

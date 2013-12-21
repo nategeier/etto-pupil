@@ -4,14 +4,9 @@ angular.module("ettoPupil")
   .directive("ettoBlock", ["$compile", "BlockType", "CoursePlayer",
     function ($compile, BlockType, CoursePlayer) {
       return {
-
         template: "<ng-include src='blockTemplate'></ng-include>",
         restrict: "E",
-        controller: function ($scope, $element, $attrs) {},
-
-        link: function postLink($scope, $element, $attrs) {
-          var editTemplate, editEl;
-
+        controller: function ($scope, $element, $attrs) {
           // TODO: Not very DRY, call parent scope's isCurrentBlock from template?
           $scope.isCurrentBlock = function (block) {
             return CoursePlayer.isCurrentBlock(block);
@@ -20,6 +15,9 @@ angular.module("ettoPupil")
           $scope.saveModule = function () {
             $scope.$emit("module-save");
           };
+        },
+        link: function postLink($scope, $element, $attrs) {
+          var editTemplate, editEl;
 
           // Set the blockTemplate based off $scope's block.type
           var pathBase = "/views/blocks/" + $.camelCase("etto-block-" + $scope.block.type);
@@ -34,9 +32,7 @@ angular.module("ettoPupil")
             editEl = $compile(editTemplate)($scope);
             angular.element(".etto-toolbox").append(editEl);
           }
-
         }
-
       };
     }
   ]);

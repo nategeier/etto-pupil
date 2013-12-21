@@ -1,5 +1,5 @@
 .etto-module-container
-  min-height: 42em
+  min-height: 36em
   padding-bottom: 2.67em
 
 .etto-toolbox
@@ -18,12 +18,15 @@
   right: 0
 
 // Temporary base styling
+// -------------------------
 .etto-module-container
   background: $etto-darkblue
 
 etto-module
   color: $etto-tan
-  padding-top: 1em
+
+  > div
+    margin-top: 1em
 
   h1, h2
     background: $etto-tan
@@ -31,28 +34,13 @@ etto-module
     margin-bottom: 0
     margin-top: 0
     padding: 0.33em 1.33rem 0.67em
-    font-family: "Varela", sans-serif
-
-  p
-    color: $etto-tan
-    font-size: 1.33em
 
   blockquote
     border-left-color: $etto-tan
     p
-      color: $etto-tan
       font-size: 3em
     footer
-      color: $etto-tan
       text-align: right
       font-size: 2em
     footer:before
       content: "\2014"
-
-  .etto-module-block-edit-container
-    border-bottom: 1px solid $etto-tan
-    margin-bottom: 1em
-
-  .etto-module-block-edit-container .btn
-    margin-bottom: 1em
-

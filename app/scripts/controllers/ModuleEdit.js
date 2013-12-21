@@ -8,6 +8,9 @@ angular.module("ettoPupil")
       $scope.$on("module-save", function () {
         // TODO: Validate module before update
         $scope.module.$update();
+
+        // Clear out the Toolbox
+        angular.element(".engo-toolbox").empty();
       });
     }
   ]);
