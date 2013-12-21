@@ -2,8 +2,8 @@ describe "Directive: engoModule", ->
   scope = element = httpBackend = null
 
   beforeEach module "engoPupil",
-                    "views/directives/engoModule.html",
-                    "views/blocks/engoBlockUndefined.html"
+                    "/views/directives/engoModule.html",
+                    "/views/blocks/engoBlockUndefined.html"
 
   beforeEach inject ( $rootScope, $compile, $httpBackend ) ->
     scope = $rootScope.$new()
