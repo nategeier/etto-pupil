@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("engoPupil", ["ngRoute", "ngResource", "ngTouch", "ui.bootstrap"])
+angular.module("ettoPupil", ["ngRoute", "ngResource", "ngTouch", "ui.bootstrap"])
   .config(["$routeProvider", "$locationProvider", function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true).hashPrefix('#');
     $routeProvider
@@ -12,7 +12,7 @@ angular.module("engoPupil", ["ngRoute", "ngResource", "ngTouch", "ui.bootstrap"]
         templateUrl: "/views/login.html",
         controller: "LoginCtrl"
       })
-      .when("/engo", {
+      .when("/etto", {
         templateUrl: "/views/home.html",
         controller: "HomeCtrl"
       })

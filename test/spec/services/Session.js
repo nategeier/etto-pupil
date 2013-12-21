@@ -3,7 +3,7 @@
 describe( "Service: Session", function() {
   var Session, httpBackend;
 
-  beforeEach( module( "engoPupil" ) );
+  beforeEach( module( "ettoPupil" ) );
 
   beforeEach( inject( function ( _Session_, _$httpBackend_ ) {
     Session = _Session_;

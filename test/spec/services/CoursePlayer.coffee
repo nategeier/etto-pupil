@@ -1,7 +1,7 @@
 describe "Service: CoursePlayer", ->
   CoursePlayer = null
 
-  beforeEach module "engoPupil"
+  beforeEach module "ettoPupil"
   beforeEach inject ( _CoursePlayer_ ) ->
     CoursePlayer = _CoursePlayer_
     # Mock out a three block module and "play" it

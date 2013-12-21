@@ -3,7 +3,7 @@
 describe('Controller: SessionsCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('engoPupil'));
+  beforeEach(module('ettoPupil'));
 
   var SessionsCtrl,
     scope;

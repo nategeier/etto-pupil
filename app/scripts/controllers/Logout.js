@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("engoPupil")
+angular.module("ettoPupil")
   .controller("LogoutCtrl", ["$scope", "$location", "$http", "Session",
     function ($scope, $location, $http, Session) {
 

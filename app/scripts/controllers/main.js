@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("engoPupil")
+angular.module("ettoPupil")
   .controller("MainCtrl", ["$scope", "$http", "$location", "Session",
     function ($scope, $http, $location, Session) {
 
@@ -17,7 +17,7 @@ angular.module("engoPupil")
               $scope.err = data.err;
 
             } else {
-              //$location.path("/engo");
+              //$location.path("/etto");
               $scope.err = "The learning world thanks you for your support";
             }
           })
