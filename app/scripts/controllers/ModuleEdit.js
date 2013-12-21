@@ -10,7 +10,8 @@ angular.module("ettoPupil")
         $scope.module.$update();
 
         // Clear out the Toolbox
-        angular.element(".engo-toolbox").empty();
+        // TODO: Understand why saving relinks Blocks
+        angular.element(".etto-toolbox").empty();
       });
     }
   ]);
