@@ -1,15 +1,15 @@
-describe "Directive: ettoModule", ->
+describe "Directive: ettoCourse", ->
   scope = element = httpBackend = null
 
   beforeEach module "ettoPupil",
-                    "/views/directives/ettoModule.html",
+                    "/views/directives/ettoCourse.html",
                     "/views/blocks/ettoBlockUndefined.html"
 
   beforeEach inject ( $rootScope, $compile, $httpBackend ) ->
     scope = $rootScope.$new()
-    scope.module = { blocks: [ {}, {}, {} ] }
+    scope.course = { blocks: [ {}, {}, {} ] }
 
-    element = angular.element "<etto-module></etto-module>"
+    element = angular.element "<etto-course></etto-course>"
     element = $compile( element ) scope
 
     httpBackend = $httpBackend
@@ -23,9 +23,9 @@ describe "Directive: ettoModule", ->
     expect( element.scope().editing ).toBeDefined
     expect( element.scope().editing ).toBe( false )
 
-  it "should know there are three blocks in the mock module", ->
+  it "should know there are three blocks in the mock course", ->
     scope.$digest()
-    expect( element.scope().module.blocks.length ).toBe( 3 )
+    expect( element.scope().course.blocks.length ).toBe( 3 )
 
   it "should go to the next block", ->
     scope.$digest()

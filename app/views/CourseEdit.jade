@@ -3,11 +3,11 @@ etto-logged-in-nav
 .container-full
   .row
     .col-sm-3
-      h4 {{ module.name }}
+      h4 {{ course.name }}
       .etto-toolbox
-    .col-sm-9.etto-module-container
-      etto-module( edit='edit',
-                   module='module',
+    .col-sm-9.etto-course-container
+      etto-course( edit='edit',
+                   course='course',
                    ng-swipe-left='nextBlock()',
                    ng-swipe-right='prevBlock()' )
 

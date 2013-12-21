@@ -36,21 +36,21 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngTouch", "ui.bootstrap"]
         controller: "LogoutCtrl",
         templateUrl: "/views/home.html"
       })
-      .when("/module/view/:moduleId", {
-        templateUrl: "/views/ModuleView.html",
-        controller: "ModuleViewCtrl",
+      .when("/course/view/:courseId", {
+        templateUrl: "/views/CourseView.html",
+        controller: "CourseViewCtrl",
         resolve: {
-          module: function (ModuleLoader) {
-            return new ModuleLoader();
+          course: function (CourseLoader) {
+            return new CourseLoader();
           }
         }
       })
-      .when("/module/edit/:moduleId", {
-        templateUrl: "/views/ModuleEdit.html",
-        controller: "ModuleEditCtrl",
+      .when("/course/edit/:courseId", {
+        templateUrl: "/views/CourseEdit.html",
+        controller: "CourseEditCtrl",
         resolve: {
-          module: function (ModuleLoader) {
-            return new ModuleLoader();
+          course: function (CourseLoader) {
+            return new CourseLoader();
           }
         }
       })

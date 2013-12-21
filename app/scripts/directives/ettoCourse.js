@@ -1,16 +1,15 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .directive("ettoModule", ["CoursePlayer",
+  .directive("ettoCourse", ["CoursePlayer",
     function (CoursePlayer) {
       return {
-        templateUrl: "/views/directives/ettoModule.html",
+        templateUrl: "/views/directives/ettoCourse.html",
         restrict: "E",
-        //replace: true,
         controller: function ($scope, $document, $attrs) {
           $scope.editing = $attrs.edit !== undefined;
 
-          CoursePlayer.play($scope.module);
+          CoursePlayer.play($scope.course);
 
           $scope.isCurrentBlock = function (block) {
             return CoursePlayer.isCurrentBlock(block);
