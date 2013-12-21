@@ -2,7 +2,9 @@ engo-logged-in-nav
 
 .container-full
   .row
-    .col-sm-3.engo-toolbox
+    .col-sm-3
+      h4 {{ module.name }}
+      .engo-toolbox
     .col-sm-9.engo-module-container
       engo-module( edit='edit',
                    module='module',
