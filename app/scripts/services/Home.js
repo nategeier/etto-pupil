@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("engoPupil")
+angular.module("ettoPupil")
   .factory("Home", ["$http",
     function ($http) {
 

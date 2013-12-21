@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("engoPupil")
+angular.module("ettoPupil")
   .controller("LoginCtrl", ["$scope", "$http", "$location", "Session", "$routeParams",
     function ($scope, $http, $location, Session, $routeParams) {
 
@@ -9,7 +9,7 @@ angular.module("engoPupil")
 
         Session.register_invite(user, function (user) {
           console.log("user:-----------", user);
-          $location.path("/engo");
+          $location.path("/etto");
         });
 
       };

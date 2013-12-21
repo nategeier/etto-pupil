@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("engoPupil")
+angular.module("ettoPupil")
   .controller("ModuleEditCtrl", ["$scope", "module",
     function ($scope, module) {
       $scope.module = module;

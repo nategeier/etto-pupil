@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("engoPupil")
+angular.module("ettoPupil")
   .controller("HomeCtrl", ["$scope", "$compile", "$http", "Home",
     function ($scope, $compile, $http, Home) {
 

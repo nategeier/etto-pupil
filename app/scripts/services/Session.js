@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("engoPupil")
+angular.module("ettoPupil")
   .factory("Session", ["$http", "$compile", "$document", "$modal",
     function ($http, $compile, $document, $modal) {
       var Session, user;
@@ -64,7 +64,7 @@ angular.module("engoPupil")
         //loginModal: function() {
         //var modal;
 
-        //modal = $compile( "<engo-modal id='login-modal'><engo-login></engo-login></engo-modal>" )( $rootScope );
+        //modal = $compile( "<etto-modal id='login-modal'><etto-login></etto-login></etto-modal>" )( $rootScope );
         //if ($rootScope.$root.$$phase !== "$apply" && $rootScope.$root.$$phase !== "$digest") {
         //$rootScope.$apply();
         //}
@@ -74,7 +74,7 @@ angular.module("engoPupil")
 
         loginModal: function () {
           var modal = $modal.open({
-            templateUrl: "views/directives/engoLogin.html",
+            templateUrl: "views/directives/ettoLogin.html",
             controller: function ($scope) {
               console.log("stuff");
             }

@@ -3,7 +3,7 @@
 describe("Service: BlockType", function () {
 
   // load the service's module
-  beforeEach(module("engoPupil"));
+  beforeEach(module("ettoPupil"));
 
   // instantiate service
   var BlockType;
