@@ -12,8 +12,8 @@ angular.module("ettoPupil")
             return CoursePlayer.isCurrentBlock(block);
           };
 
-          $scope.saveModule = function () {
-            $scope.$emit("module-save");
+          $scope.saveCourse = function () {
+            $scope.$emit("course-save");
           };
         },
         link: function postLink($scope, $element, $attrs) {
@@ -25,9 +25,9 @@ angular.module("ettoPupil")
           $scope.blockTemplateEdit = pathBase + "Edit.html";
 
           if ($scope.$parent.editing) {
-            editTemplate = "<div class='etto-module-block-edit-container' ng-show='isCurrentBlock( block.index )'>" +
+            editTemplate = "<div class='etto-course-block-edit-container' ng-show='isCurrentBlock( $index )'>" +
               "<ng-include src='blockTemplateEdit'></ng-include>" +
-              "<button class='btn btn-primary' ng-click='saveModule()'>Save</button>" +
+              "<button class='btn btn-primary' ng-click='saveCourse()'>Save</button>" +
               "</div>";
             editEl = $compile(editTemplate)($scope);
             angular.element(".etto-toolbox").append(editEl);
