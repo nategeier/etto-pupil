@@ -1,30 +1,30 @@
 #!/bin/sh
 # Attach if session has been created
-tmux has-session -t engo-pupil 2>/dev/null
+tmux has-session -t etto-pupil 2>/dev/null
 if [ $? -eq 0 ]; then
   echo "Session already exists, attaching..."
-  tmux attach-session -t engo-pupil
+  tmux attach-session -t etto-pupil
   exit 0;
 fi
 
 # Otherwise, make it happen!
-tmux new-session -d -s engo-pupil -n servers
+tmux new-session -d -s etto-pupil -n servers
 
 # Create Windows
-tmux new-window -t engo-pupil:2 -n vim
-tmux new-window -t engo-pupil:3 -n zsh
+tmux new-window -t etto-pupil:2 -n vim
+tmux new-window -t etto-pupil:3 -n zsh
 
 # Create Panes
-tmux split-window -t engo-pupil:servers
-tmux split-window -t engo-pupil:vim
+tmux split-window -t etto-pupil:servers
+tmux split-window -t etto-pupil:vim
 
 # Run commands
-tmux send-keys -t engo-pupil:servers.0 'c engo-pupil; grunt serve' C-m
-tmux send-keys -t engo-pupil:servers.1 'c engo; sails lift' C-m
-tmux send-keys -t engo-pupil:vim.0 'c engo-pupil; vim -S' C-m
-tmux send-keys -t engo-pupil:vim.1 'c engo-pupil; karma start --auto-watch' C-m
+tmux send-keys -t etto-pupil:servers.0 'c etto-pupil; grunt serve' C-m
+tmux send-keys -t etto-pupil:servers.1 'c etto; sails lift' C-m
+tmux send-keys -t etto-pupil:vim.0 'c etto-pupil; vim -S' C-m
+tmux send-keys -t etto-pupil:vim.1 'c etto-pupil; karma start --auto-watch' C-m
 
 # Connect to Session
-tmux select-window -t engo-pupil:servers
-tmux attach-session -t engo-pupil
+tmux select-window -t etto-pupil:servers
+tmux attach-session -t etto-pupil
 
