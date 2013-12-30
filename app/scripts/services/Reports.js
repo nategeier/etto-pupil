@@ -3,9 +3,26 @@
 angular.module("ettoPupil")
   .factory("Reports", ["$http",
     function ($http) {
-
       return {
-        get_reports: function (link, callback) {
+
+        get_reports: function (link, parentID, callback) {
+
+          var obj = {
+            parentID: parentID
+          }
+
+          $http.post(link, obj)
+            .success(function (data, status, headers, config) {
+
+              //user = data.user;
+              callback(data.err, data.results);
+            })
+            .error(function (data, status, headers, config) {
+              console.dir(data);
+            });
+
+
+          /*
           $http({
             method: "GET",
             url: link
@@ -16,6 +33,7 @@ angular.module("ettoPupil")
           error(function (data, status, headers, config) {
             console.log(data, "err");
           });
+*/
         },
 
         brand_tree: function (callback) {
@@ -31,13 +49,21 @@ angular.module("ettoPupil")
             console.log(data, "err");
           });
         },
-        create_level: function (newLevel, callback) {
-          $http.post("/api/v1/reports/createLevel", newLevel).success(function (data) {
-            callback(data);
-
+        add_tier: function (newTier, callback) {
+          $http.post("/api/v1/tier/add", newTier).success(function (data) {
+            callback(data.err, data.results);
           });
         },
-
+        delete_tier: function (tier, callback) {
+          $http.post("/api/v1/tier/delete", tier).success(function (data) {
+            callback(data.err, data.results);
+          });
+        },
+        find_tier: function (tier, callback) {
+          $http.post("/api/v1/tier/find", tier).success(function (data) {
+            callback(data.err, data.results);
+          });
+        },
         invite_user: function (newLevel, callback) {
           $http.post("/api/v1/sessions/invite_user", newLevel).success(function (data) {
             callback(data);

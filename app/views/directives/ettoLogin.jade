@@ -5,4 +5,6 @@ form(ng-submit="handleLogin()")
     input.form-control( type="password", ng-model="user.password", placeholder="Enter your password...", required )
   .form-group
     input.btn.btn-primary( type="submit", value="Login")
-
+a.btn(href='/api/v1/auth/github/', target='_blank') with GitHub
+a.btn(href='/api/v1/auth/facebook/', target='_blank') with Facebook
+a.btn(href='/api/v1/auth/google/', target='_blank') with Google+

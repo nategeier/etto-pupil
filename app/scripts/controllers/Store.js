@@ -3,7 +3,7 @@
 angular.module("ettoPupil")
   .controller("StoreCtrl", ["$scope", "$http", "$location", "Store", "Reports",
     function ($scope, $http, $location, Store, Reports) {
-
+      /*
       var totOverallUsers = 0;
 
       async.parallel([
@@ -106,5 +106,6 @@ angular.module("ettoPupil")
           course.priceWithEmps = (course.price * $scope.totUsers).toFixed(2);
         });
       };
+      */
     }
   ]);

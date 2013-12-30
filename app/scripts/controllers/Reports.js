@@ -1,57 +1,53 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("ReportsCtrl", ["$scope", "$http", "$location", "Reports",
-    function ($scope, $http, $location, Reports) {
+  .controller("ReportsCtrl", ["$scope", "Reports", "$routeParams",
+    function ($scope, Reports, $routeParams) {
 
-      var link = "/api/v1/" + $location.path();
+     var link = "/api/v1/tier/list_children";
+      var parentID = $routeParams.parentID;
 
-      Reports.get_reports(link, function (data) {
-        $scope.error = data.err;
-        $scope.currLevel = data.currLevel;
-        $scope.levels = data.levels;
-        $scope.user = data.user;
-        console.log($scope.levels);
-      });
+      if(parentID == '0'){
+        parentID = null;
+      }
 
-      $scope.update = function (newLevel) {
-        newLevel.auth = $scope.currLevel.auth - 1;
-        newLevel.aboveID = $scope.currLevel.levelID;
-
-        Reports.create_level(newLevel, function (data) {
-          $scope.levels.unshift(data.level);
+      $scope.reset = function () {
+        Reports.get_reports(link, parentID, function (err, results) {
+          $scope.error = err;
+          $scope.tiers = results;
         });
 
-      };
+        var currentTier = {
+          tierID : parentID
+        }
 
-      $scope.sendInvite = function (newLevel) {
-        newLevel.auth = $scope.currLevel.auth - 1;
-        newLevel.lowID = $scope.currLevel.levelID;
-        newLevel.medID = $scope.currLevel.aboveID;
-        newLevel.brandID = $scope.currLevel.brandID;
-
-        Reports.invite_user(newLevel, function (results) {
-          if (results.err) {
-            $scope.err = results.err;
-          } else {
-            $scope.levels.unshift(results.user);
-            $scope.err = "Invite has been sent to " + newLevel.levelTitle;
-          }
-
+        Reports.find_tier(currentTier, function (err, results) {
+          $scope.error = err;
+          console.log(results);
+          $scope.currentTier = results;
         });
 
+      }
+
+      $scope.add = function (newTier) {
+        var newTier = {
+          title : newTier.title,
+          parentID : parentID
+        }
+        Reports.add_tier(newTier, function (err, results) {
+          $scope.reset();
+        });
       };
-      /*
-  var createLevel = function(levelTitle, auth, aboveID){
-    var newLevel = {
-      levelTitle: levelTitle,
-      levelID:
-    }
 
+       $scope.delete = function (tierID) {
+        var tier = {
+          tierID : tierID
+        }
+        Reports.delete_tier(tier, function (err, results) {
+          $scope.reset();
+        });
+      };
 
-  }
-
-  */
-
+      $scope.reset();
     }
   ]);
