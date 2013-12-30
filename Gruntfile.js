@@ -421,14 +421,13 @@ module.exports = function (grunt) {
 
   grunt.registerTask("test", [
     "clean:server",
-    "verifyjs",
     "concurrent:test",
     "autoprefixer",
     "connect:test",
     "karma"
   ]);
 
-  grunt.registerTask("verifyjs", [
+  grunt.registerTask("verify", [
     "jsbeautifier:verify",
     "jshint"
   ]);
