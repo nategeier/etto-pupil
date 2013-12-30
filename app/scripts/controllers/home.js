@@ -1,16 +1,13 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("HomeCtrl", ["$scope", "$compile", "$http", "Home",
-    function ($scope, $compile, $http, Home) {
+  .controller("HomeCtrl", ["$scope", "$compile", "Session",
+    function ($scope, $compile, Session) {
 
-      Home.home_layout(function (data) {
-        $scope.error = data.err;
-        $scope.user = data.user;
-        $scope.createdCourses = data.createdCourses;
+      Session.get_session(function (data) {
+        Session.treat_session(data);
+        $scope.user = data;
       });
-
-      $scope.active = "Home";
 
     }
   ]);

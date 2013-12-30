@@ -3,47 +3,34 @@ etto-logged-in-nav
   .container
     .row
       .col-md-8
-        h2.center-txt {{user.brandTitle}}
+        h2.center-txt {{currentTier.title}}
         p.center-txt Reports
       .col-md-4
         h4 Create Departments
         .warn
           p {{err}}
         .col-md-9
-          input.form-control(type='text', ng-model='newLevel.levelTitle', placeholder='New Department Title')
+          input.form-control(type='text', ng-model='newTier.title', placeholder='New Department Title')
         .col-md-3
-          .btn.btn-primary.btn-sm(ng-show='currLevel.auth != 2', ng-click='update(newLevel)')  Add Department
-          .btn.btn-primary.btn-sm(ng-show='currLevel.auth == 2', ng-click='sendInvite(newLevel)')  Add Employee
+          .btn.btn-primary.btn-sm(ng-click='add(newTier)')  Add Department
 .container
   .row
     .col-md-12
       h3 Departments
-      img(ng-show='!levels', src='/images/site/loader.gif')
-      div(ng-repeat='level in levels')
+      div(ng-show="!tiers[0]") 
+        p No Levels have been added yet, Add some... {{tiers[0]}}
+
+      div(ng-repeat= 'tier in tiers')
         .col-xs-12.col-sm-6.col-md-4.no-pad
-          .report-holder(sink-in)
-            .pad20
-              a(href='/#/levels/{{level.levelID}}/{{currLevel.auth - 1}}')
-                .row
-                  .col-sm-9.col-md-9
-                    h4 {{level.levelTitle}}
-                    .progress()
-                      .progress-bar(role="progressbar", aria-valuenow="{{(level.overallTaken/(level.totUsers * level.courses.length)) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width:{{(level.overallTaken/(level.totUsers * level.courses.length)) * 100}}%; background-color:#50889f")
-                    div(ng-repeat='course in level.courses')
-                      .col-md-2.col-xs-2.col-sm-2.no-pad
-                        .bar-pad
-                          .backBar
-                            .fillBar(ng-show="course.totTaken && currLevel.auth >= 3", style ='height:{{100 - (course.totTaken/level.totUsers * 100)}}%;', scale-bar='isHidden')
-                            .fillBar(ng-show="!course.totTaken && currLevel.auth >= 3", style ='height:100%;', scale-bar='isHidden')
-                            .fillBar(ng-show="!course.totTaken && currLevel.auth <= 2", style ='height:100%;', scale-bar='isHidden')
-                          p.overNum {{course.courseID}}
-                  .col-sm-3.col-md-3
-                    .statBox
-                      p2 {{level.totUsers}}
-                      br
-                      p.dark-grey Users
-                    .clear
-                    .statBox
-                      p2 {{level.overallTaken}}
-                      br
-                      p.dark-grey Courses
+          .course-holder(sink-in)
+            .pad20              
+              .row
+                .col-sm-9.col-md-9
+                  h4 {{tier.title}}
+                  .btn.btn-primary.btn-sm(ng-click='delete(tier._id)')  Delete
+                  a.btn.btn-primary.btn-sm(href='/levels/{{tier._id}}') View
+                .col-sm-3.col-md-3
+                  .statBox
+                    p2 {{tier.totUsers}}
+                    br
+                    p.dark-grey Users

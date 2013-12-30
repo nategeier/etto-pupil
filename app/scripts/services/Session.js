@@ -1,11 +1,16 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .factory("Session", ["$http", "$compile", "$document", "$modal",
-    function ($http, $compile, $document, $modal) {
+  .factory("Session", ["$http", "$compile", "$document", "$modal", "$location",
+    function ($http, $compile, $document, $modal, $location) {
       var Session, user;
 
       Session = {
+        treat_session : function(data, callback){
+          if(data.err && data.err == 'Login'){
+            $location.path('/');
+          }
+        },
         get_session: function (callback) {
           //$http.get("/api/v1/sessions/get_session");
           $http({

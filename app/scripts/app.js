@@ -16,7 +16,7 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngTouch", "ui.bootstrap"]
         templateUrl: "/views/home.html",
         controller: "HomeCtrl"
       })
-      .when("/levels/:levelID/:auth", {
+      .when("/levels/:parentID", {
         templateUrl: "/views/reports.html",
         controller: "ReportsCtrl"
       })
@@ -55,6 +55,6 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngTouch", "ui.bootstrap"]
         }
       })
       .otherwise({
-        redirectTo: "/"
+        redirectTo: "/etto"
       });
   }]);
