@@ -17,6 +17,7 @@ var mountFolder = function (connect, dir) {
 module.exports = function (grunt) {
   require("load-grunt-tasks")(grunt);
   require("time-grunt")(grunt);
+  grunt.loadNpmTasks("sassdown");
 
   // configurable paths
   var yeomanConfig = {
@@ -124,6 +125,16 @@ module.exports = function (grunt) {
             ];
           }
         }
+      },
+      styleguide: {
+        options: {
+          port: 8080,
+          middleware: function (connect) {
+            return [
+              mountFolder(connect, "styleguide")
+            ];
+          }
+        }
       }
     },
     open: {
@@ -142,7 +153,8 @@ module.exports = function (grunt) {
           ]
         }]
       },
-      server: ".tmp"
+      server: ".tmp",
+      styleguide: "styleguide"
     },
     jshint: {
       options: grunt.util._.defaults({
@@ -340,6 +352,12 @@ module.exports = function (grunt) {
         cwd: "<%= yeoman.app %>/styles",
         dest: ".tmp/styles/",
         src: "{,*/}*.css"
+      },
+      styleguide: {
+        expand: true,
+        cwd: ".tmp/styles",
+        dest: "styleguide/styles/",
+        src: "{,*/}*.css"
       }
     },
     concurrent: {
@@ -395,12 +413,27 @@ module.exports = function (grunt) {
           ]
         }
       }
+    },
+    sassdown: {
+      options: {
+        template: "<%= yeoman.app %>/styles/sassdown-template.hbs"
+      },
+      files: {
+        expand: true,
+        cwd: "<%= yeoman.app %>/styles",
+        src: ["**/*.{sass,scss}"],
+        dest: "styleguide/"
+      }
     }
   });
 
   grunt.registerTask("serve", function (target) {
     if (target === "dist") {
       return grunt.task.run(["build", "open", "connect:dist:keepalive"]);
+    }
+
+    if (target == "styleguide") {
+      return grunt.task.run([ "styleguide", "connect:styleguide:keepalive" ]);
     }
 
     grunt.task.run([
@@ -412,11 +445,6 @@ module.exports = function (grunt) {
       "open",
       "watch"
     ]);
-  });
-
-  grunt.registerTask("server", function () {
-    grunt.log.warn("The `server` task has been deprecated. Use `grunt serve` to start a server.");
-    grunt.task.run(["serve"]);
   });
 
   grunt.registerTask("test", [
@@ -435,6 +463,13 @@ module.exports = function (grunt) {
   grunt.registerTask("beautify", [
     "jsbeautifier:modify",
     "jshint"
+  ]);
+
+  grunt.registerTask("styleguide", [
+    "clean:styleguide",
+    "compass:dist",
+    "copy:styleguide",
+    "sassdown"
   ]);
 
   grunt.registerTask("build", [
