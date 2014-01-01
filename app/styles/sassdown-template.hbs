@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{heading}} &middot; Styleguide</title>
+    {{> theme}}
+    {{> prism}}
+    <style type="text/css">
+        a { color: #3fbead; }
+        .navigation .group>a, .navigation .group>span {
+            padding: 0 2em;
+        }
+        .navigation li a {
+            min-width: 22em;
+            position: relative;
+        }
+        .navigation span.filename {
+            color: gray;
+            font-size: 0.80em;
+            display: inline-block;
+            text-align: right;
+            position: absolute;
+            top: 0;
+            right: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navigation">
+        <div class="gutter">
+            <div class="group {{#if_group ''}}is-active{{/if_group}}">
+                <a href="/">Home</a>
+            </div>
+            {{#each site.groups}}
+            <div class="group {{#if_name ../group}}is-active{{/if_name}}">
+                <span>{{name}}{{#if_name '.'}}/{{/if_name}}</span>
+                <ul>
+                    {{#each pages}}
+                    <li><a class="{{#if_path ../../path}}is-active{{/if_path}}" href="/{{group}}/{{slug}}.html">{{heading}}<span class="filename"> {{slug}}.sass</span></a></li>
+                    {{/each}}
+                </ul>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="gutter">
+        {{#each sections}}
+            <div class="section">
+                {{#if comment}}
+                    <div class="comment">{{{comment}}}</div>
+                {{/if}}
+                {{#if result}}
+                    <div class="result">
+                        <iframe id="iframe_{{{id}}}" height="0" src="about:blank"></iframe>
+                        <script id="script_{{{id}}}">
+                            var iframe  = document.getElementById('iframe_{{{id}}}');
+                            var context = iframe.contentWindow.document;
+                            var script  = document.getElementById('script_{{{id}}}');
+                            context.open();
+                            context.write('<!doctype html>'
+                                +'<html>'
+                                +'    <head>'
+                                +'        {{> assets}}'
+                                +'        <link rel="stylesheet" href="/styles/main.css">'
+                                +'    </head>'
+                                +'    <body>'
+                                +'        {{{result}}}'
+                                +'    </body>'
+                                +'</html>');
+                            context.close();
+                            script.parentNode.removeChild(script);
+                        </script>
+                    </div>
+                {{/if}}
+                {{#if source}}
+                    <div class="source language-markup">{{{source}}}</div>
+                {{/if}}
+            </div>
+        {{/each}}
+    </div>
+
+    <script>
+        // Resize all iframes to exactly fit content within
+        window.onload = function() {
+            var iframes = document.querySelectorAll('iframe');
+            for ( var i = 0; i < iframes.length; i++ ){
+                iframes[i].height = iframes[i].contentWindow.document.body.scrollHeight;
+            }
+        };
+    </script>
+
+</body>
+</html>

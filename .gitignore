@@ -43,4 +43,5 @@ karma_html
 coverage
 dist
 .sass-cache
+styleguide
 
