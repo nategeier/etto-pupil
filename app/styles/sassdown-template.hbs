@@ -4,6 +4,25 @@
     <title>{{heading}} &middot; Styleguide</title>
     {{> theme}}
     {{> prism}}
+    <style type="text/css">
+        a { color: #3fbead; }
+        .navigation .group>a, .navigation .group>span {
+            padding: 0 2em;
+        }
+        .navigation li a {
+            min-width: 22em;
+            position: relative;
+        }
+        .navigation span.filename {
+            color: gray;
+            font-size: 0.80em;
+            display: inline-block;
+            text-align: right;
+            position: absolute;
+            top: 0;
+            right: 1em;
+        }
+    </style>
 </head>
 <body>
 
@@ -14,10 +33,10 @@
             </div>
             {{#each site.groups}}
             <div class="group {{#if_name ../group}}is-active{{/if_name}}">
-                <span>{{name}}</span>
+                <span>{{name}}{{#if_name '.'}}/{{/if_name}}</span>
                 <ul>
                     {{#each pages}}
-                    <li><a class="{{#if_path ../../path}}is-active{{/if_path}}" href="/{{group}}/{{slug}}.html">{{heading}}</a></li>
+                    <li><a class="{{#if_path ../../path}}is-active{{/if_path}}" href="/{{group}}/{{slug}}.html">{{heading}}<span class="filename"> {{slug}}.sass</span></a></li>
                     {{/each}}
                 </ul>
             </div>

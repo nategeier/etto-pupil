@@ -416,6 +416,7 @@ module.exports = function (grunt) {
     },
     sassdown: {
       options: {
+        assets: [ "styles/main.css" ],
         template: "<%= yeoman.app %>/styles/sassdown-template.hbs"
       },
       files: {
