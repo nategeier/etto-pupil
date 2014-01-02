@@ -126,6 +126,16 @@ module.exports = function (grunt) {
           }
         }
       },
+      dox: {
+        options: {
+          port: 8080,
+          middleware: function (connect) {
+            return [
+              mountFolder(connect, "docs")
+            ];
+          }
+        }
+      },
       styleguide: {
         options: {
           port: 8080,
@@ -437,12 +447,26 @@ module.exports = function (grunt) {
         src: ["**/*.{sass,scss}"],
         dest: "styleguide/"
       }
+    },
+    dox: {
+      options: {
+        title: "Coursetto Docs",
+        template: "dox/views/template.jade"
+      },
+      files: {
+        src: ["app/scripts/"],
+        dest: "docs"
+      }
     }
   });
 
   grunt.registerTask("serve", function (target) {
     if (target === "dist") {
       return grunt.task.run(["build", "open", "connect:dist:keepalive"]);
+    }
+
+    if (target == "dox") {
+      return grunt.task.run([ "dox", "connect:dox:keepalive" ]);
     }
 
     if (target == "styleguide") {
