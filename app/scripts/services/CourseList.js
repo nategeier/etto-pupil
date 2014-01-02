@@ -9,7 +9,17 @@ angular.module("ettoPupil")
     
 
         list_all: function (callback) {
-          $http.get("/api/v1/courses/list")
+          $http.get("/api/v1/course/list")
+            .success(function (data, status, headers, config) {
+              //user = data.user;
+              callback(data);
+            })
+            .error(function (data, status, headers, config) {
+              console.dir(data);
+            });
+        },
+        list_users_created_courses: function (user, callback) {
+          $http.post("/api/v1/course/list_users_created_courses", user)
             .success(function (data, status, headers, config) {
               //user = data.user;
               callback(data);
