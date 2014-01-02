@@ -214,6 +214,7 @@ module.exports = function (grunt) {
       options: {
         sassDir: "<%= yeoman.app %>/styles",
         cssDir: ".tmp/styles",
+        sourcemap: true,
         generatedImagesDir: ".tmp/images/generated",
         imagesDir: "<%= yeoman.app %>/images",
         javascriptsDir: "<%= yeoman.app %>/scripts",
@@ -348,10 +349,20 @@ module.exports = function (grunt) {
         }]
       },
       styles: {
-        expand: true,
-        cwd: "<%= yeoman.app %>/styles",
-        dest: ".tmp/styles/",
-        src: "{,*/}*.css"
+        files: [{
+          expand: true,
+          cwd: "<%= yeoman.app %>/styles",
+          dest: ".tmp/styles/",
+          src: "{,*/}*.css"
+        }]
+      },
+      sass: {
+        files: [{
+          expand: true,
+          cwd: "<%= yeoman.app %>/styles",
+          dest: ".tmp/app/styles/",
+          src: "**/*.{sass,scss}"
+        }]
       },
       styleguide: {
         expand: true,
@@ -364,6 +375,7 @@ module.exports = function (grunt) {
       server: [
         "coffee:dist",
         "compass:server",
+        "copy:sass",
         "copy:styles",
         "jade:dist"
       ],
