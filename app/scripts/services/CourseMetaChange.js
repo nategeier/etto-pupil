@@ -7,7 +7,7 @@ angular.module("ettoPupil")
 
       CourseMetaChange = {
         create: function (new_course, callback) {
-          $http.post("/api/v1/courses/create", new_course)
+          $http.post("/api/v1/course/create", new_course)
             .success(function (data, status, headers, config) {
               //user = data.user;
               callback(data);
@@ -18,9 +18,7 @@ angular.module("ettoPupil")
         },
 
         remove_course: function(course, callback){
-
-
-          $http.post("/api/v1/courses/remove", course)
+          $http.post("/api/v1/course/remove", course)
             .success(function (data, status, headers, config) {
               //user = data.user;
               callback(data);
@@ -28,7 +26,6 @@ angular.module("ettoPupil")
             .error(function (data, status, headers, config) {
               console.dir(data);
             });
-
         }
       }
       return CourseMetaChange;

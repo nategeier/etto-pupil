@@ -15,7 +15,7 @@ angular.module("ettoPupil")
           //$http.get("/api/v1/sessions/get_session");
           $http({
             method: "GET",
-            url: "/api/v1/sessions/get_session"
+            url: "/api/v1/auth/get_session"
           })
             .success(function (data, status, headers, config) {
               callback(data);
@@ -25,9 +25,9 @@ angular.module("ettoPupil")
           });
         },
         destroySession: function () {
-          return $http.get("/api/v1/sessions/destroy");
+          return $http.get("/api/v1/auth/destroy");
         },
-
+        /*
         authenticate: function (user, callback) {
           $http.post("/api/v1/sessions/start_session", user)
             .success(function (data, status, headers, config) {
@@ -51,7 +51,7 @@ angular.module("ettoPupil")
               console.dir(data);
             });
         },
-
+        */
         //authenticate: function( email, password ) {
         //$http.post( "/api/v1/sessions/start_session", {
         //email: email,
