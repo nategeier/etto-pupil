@@ -14,7 +14,6 @@ angular.module("ettoPupil")
               controller: function ($scope, $modalInstance) {
                 $scope.user = {};
                 $scope.handleLogin = function () {
-
                   $modalInstance.close($scope.user);
                 };
               }

@@ -1,8 +1,27 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("StoreCtrl", ["$scope", "$http", "$location", "Store", "Reports",
-    function ($scope, $http, $location, Store, Reports) {
+  .controller("StoreCtrl", ["$scope", "$http", "Session", "Store", "CourseList",
+    function ($scope, $http, Session, Store, CourseList) {
+
+
+      Session.get_session(function (data) {
+        Session.treat_session(data);
+        $scope.user = data;
+      });
+
+      $scope.listCourses = function(){
+        CourseList.list_all(function (data) {
+          console.log(data.results)
+
+          $scope.courses = data.results;
+        });
+      }
+
+
+      $scope.listCourses();
+
+
       /*
       var totOverallUsers = 0;
 
