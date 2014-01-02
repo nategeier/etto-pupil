@@ -7,39 +7,54 @@ etto-logged-in-nav
       p Welcome {{user.brandTitle}} Team
 .container
   .row
-    div(ng-show='createdCourses[0]')
-      .col-xs-12.col-sm-4.col-md-4
-        h3 Created Courses
-        div.no-pad(ng-repeat='course in createdCourses')
-          div(sink-in)
-            .pad20
-              .row
-                .col-md-9
+    etto-add-course(redirect-to='/etto')
+    .col-xs-12.col-sm-4.col-md-4
+      h3 All Courses
+
+      div.no-pad(ng-repeat='course in courses')
+        div(sink-in)
+          .pad20
+            .row
+              .col-md-9
+                h4 {{course.title}}
+                p {{course.subTitle}}
+              .col-md-3
+                p ${{course.price}}
+              .btn.btn-warning(ng-click='removeCourse(course._id)') X
+    //
+      div(ng-show='createdCourses[0]')
+        .col-xs-12.col-sm-4.col-md-4
+          h3 Created Courses
+          div.no-pad(ng-repeat='course in createdCourses')
+            div(sink-in)
+              .pad20
+                .row
+                  .col-md-9
+                    h4 {{course.courseTitle}}
+                    p {{course.subTxt}}
+                  .col-md-3
+                    p {{course.price}}
+        .col-xs-12.col-sm-8.col-md-8
+          h3 My Courses
+          .row
+            div(ng-repeat='course in user.courses')
+              .col-xs-12.col-sm-6.col-md-6.no-pad
+                .course-holder.pad20(sink-in)
+                  .courseThumbHolder
+                    img.img-responsive.courseThumb(src='/images/courses/thumbs/course_{{course.courseID}}.jpg')
+                    img.cert(ng-show='course.didPass == "Completed"', src='/images/badges/default.png')
+
                   h4 {{course.courseTitle}}
                   p {{course.subTxt}}
-                .col-md-3
-                  p {{course.price}}
-      .col-xs-12.col-sm-8.col-md-8
-        h3 My Courses
-        .row
-          div(ng-repeat='course in user.courses')
-            .col-xs-12.col-sm-6.col-md-6.no-pad
-              .course-holder.pad20(sink-in)
-                .courseThumbHolder
-                  img.img-responsive.courseThumb(src='/images/courses/thumbs/course_{{course.courseID}}.jpg')
-                  img.cert(ng-show='course.didPass == "Completed"', src='/images/badges/default.png')
-
-                h4 {{course.courseTitle}}
-                p {{course.subTxt}}
-                .progress()
-                  .progress-bar(role="progressbar", aria-valuenow="{{(course.bookmark/course.totBlocks) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width:{{(course.bookmark/course.totBlocks) * 100}}%; background-color:#50889f")
-    div(ng-show='!createdCourses[0]')
-      .col-md-12
-        h3 Courses for my Users
-        .row
-          div(ng-repeat='course in user.courses')
-            .col-md-4.no-pad
-              .course-holder(sink-in)
-                img.img-responsive(src='/images/courses/thumbs/default.jpg')
-                h4 {{course.courseTitle}}
-                p {{course.subTxt}}
+                  .progress()
+                    .progress-bar(role="progressbar", aria-valuenow="{{(course.bookmark/course.totBlocks) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width:{{(course.bookmark/course.totBlocks) * 100}}%; background-color:#50889f")
+      div(ng-show='!createdCourses[0]')
+        .col-md-12
+          h3 Courses for my Users
+          .row
+            div(ng-repeat='course in user.courses')
+              .col-md-4.no-pad
+                .course-holder(sink-in)
+                  img.img-responsive(src='/images/courses/thumbs/default.jpg')
+                  h4 {{course.courseTitle}}
+                  p {{course.subTxt}}
