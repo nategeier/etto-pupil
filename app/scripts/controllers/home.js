@@ -1,20 +1,20 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("HomeCtrl", ["$scope", "$compile", "Session", "CourseList", "CourseMetaChange",
-    function ($scope, $compile, Session, CourseList, CourseMetaChange) {
+  .controller("HomeCtrl", ["$scope", "$compile", "Session", "CourseList", "CourseMetaChange", "$rootScope",
+    function ($scope, $compile, Session, CourseList, CourseMetaChange, $rootScope) {
+
+      $scope.$watch('user', function() {
+        $scope.listUsersCreatedCourses()
+      })
 
 
-      Session.get_session(function (data) {
-        Session.treat_session(data);
-        $scope.user = data;
-        $scope.listUsersCreatedCourses();
-      });
+      $scope.listUsersCreatedCourses = function(){
 
-       $scope.listUsersCreatedCourses = function(){
         var obj = {
-          userID:$scope.user._id
+          userID: $scope.user._id
         }
+
         CourseList.list_users_created_courses(obj, function (data) {
           $scope.courses = data.results;
         });

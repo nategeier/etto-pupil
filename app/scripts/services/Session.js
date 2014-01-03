@@ -7,11 +7,12 @@ angular.module("ettoPupil")
 
       Session = {
         treat_session : function(data, callback){
-          if(data.err && data.err == 'Login'){
+          if(data.err && data.err == 'Login' || !data){
             $location.path('/');
           }
         },
         get_session: function (callback) {
+
           //$http.get("/api/v1/sessions/get_session");
           $http({
             method: "GET",
