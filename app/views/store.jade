@@ -28,8 +28,10 @@ etto-logged-in-nav
                   h5 ${{course.price}}
                   a.btn.btn-primary.btn-xs.img-responsive.bottom10(href='/purchase_course/{{course._id}}')  Purchase
                   a.btn.btn-default.btn-xs.img-responsive(href='/purchase_course/{{course._id}}')  Demo
-    //
-      .col-xs-12.col-sm-3.col-md-3
+
+    .col-xs-12.col-sm-3.col-md-3
+      etto-tier-tree
+      //
         h3  Course is for:
         div.off-bar(head-tree, ng-click='updateAllLevel(allLevels)', ng-model='allLevels', ng-show='allLevels.ison')
         div.on-bar(head-tree, ng-click='updateAllLevel(allLevels)', ng-model='allLevels', ng-show='!allLevels.ison')

@@ -1,19 +1,19 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .directive("ettoRegisterModal", ["Reports", "Users",
+  .directive("ettoRegisterModal", ["Tiers", "Users",
 
     function () {
 
       return {
 
         restrict: "AE",
-        controller: function ($scope, $modal, Reports, $location, Users) {
+        controller: function ($scope, $modal, Tiers, $location, Users) {
 
           $scope.$watch('user', function() {
 
             if($scope.user && !$scope.user._tier){
-              $scope.register()
+              $scope.register();
             }
           })
 
@@ -33,7 +33,7 @@ angular.module("ettoPupil")
               var newTier = {
                 title : tier.title
               }
-              Reports.add_tier(newTier, function (err, newTier) {
+              Tiers.add_tier(newTier, function (err, newTier) {
 
                 var obj = {
                   tierID : newTier._id,

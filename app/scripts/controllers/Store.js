@@ -5,21 +5,16 @@ angular.module("ettoPupil")
     function ($scope, $http, Session, Store, CourseList) {
 
 
-      Session.get_session(function (data) {
-        Session.treat_session(data);
-        $scope.user = data;
-      });
 
       $scope.listCourses = function(){
         CourseList.list_all(function (data) {
-          console.log(data.results)
-
           $scope.courses = data.results;
         });
       }
 
 
       $scope.listCourses();
+
 
 
       /*
