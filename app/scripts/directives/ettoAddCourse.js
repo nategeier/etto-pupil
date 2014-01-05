@@ -26,7 +26,7 @@ angular.module("ettoPupil")
               CourseMetaChange.create(course, function (data) {
 
                 if (data.results) {
-                  $scope.listCourses();
+                  $scope.listUsersCreatedCourses();
                   //$location.path($scope.redirectTo);
                 }
               });

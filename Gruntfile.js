@@ -63,7 +63,16 @@ module.exports = function (grunt) {
           "{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js",
           "<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}"
         ]
-      }
+      },
+      dox: {
+        options: {
+          livereload: LIVERELOAD_PORT + 1
+        },
+        files: [
+          "<%= yeoman.app %>/scripts/**/*.js",
+        ],
+        tasks: ["dox"],
+      },
     },
     jade: {
       dist: {
@@ -131,7 +140,8 @@ module.exports = function (grunt) {
           port: 8080,
           middleware: function (connect) {
             return [
-              mountFolder(connect, "docs")
+              require("connect-livereload")({ port: LIVERELOAD_PORT + 1 }),
+              mountFolder(connect, "docs"),
             ];
           }
         }
@@ -450,7 +460,6 @@ module.exports = function (grunt) {
     },
     dox: {
       options: {
-        title: "Coursetto Docs",
         template: "dox/views/template.jade"
       },
       files: {
@@ -465,11 +474,11 @@ module.exports = function (grunt) {
       return grunt.task.run(["build", "open", "connect:dist:keepalive"]);
     }
 
-    if (target == "dox") {
-      return grunt.task.run([ "dox", "connect:dox:keepalive" ]);
+    if (target === "dox") {
+      return grunt.task.run([ "dox", "connect:dox", "watch:dox" ]);
     }
 
-    if (target == "styleguide") {
+    if (target === "styleguide") {
       return grunt.task.run([ "styleguide", "connect:styleguide:keepalive" ]);
     }
 

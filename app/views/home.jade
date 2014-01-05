@@ -1,12 +1,15 @@
 
 etto-logged-in-nav
+etto-register-modal(redirect-to='/etto')
+
 .header.main-img
   .container
     .row
       h2 Start creating, taking, and sharing courses
-      p Welcome {{user.brandTitle}} Team
+      p Welcome Team
 .container
   .row
+
     etto-add-course(redirect-to='/etto')
     .col-xs-12.col-sm-4.col-md-4
       h3 All Courses

@@ -1,4 +1,4 @@
-nav.navbar.navbar-default( role="navigation" )
+nav.navbar.navbar-default( role="navigation", etto-session)
   .navbar-header
     button.navbar-toggle( data-toggle="collapse", data-target="#etto-navbar" )
       .sr-only Toggle navigation
@@ -17,11 +17,11 @@ nav.navbar.navbar-default( role="navigation" )
       li
         a( href="/store" ) Store
       li
-        a( href="/levels/0" ) Reports
+        a( href="/levels/{{user._tier}}" ) Reports
       li
         a( href="/course/view/527ac7a09f2b97d313000004" ) View Test Course
       li
         a( href="/course/edit/527ac7a09f2b97d313000004" ) Edit Test Course
     .navbar-right
-      a.btn.btn-default.btn-sm.top-logout-btn(href="/session/destroy") Logout
+      a.btn.btn-default.btn-sm.top-logout-btn(href="/api/v1/auth/logout", target="_self") Logout
 
