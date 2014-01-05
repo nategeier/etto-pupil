@@ -2,9 +2,6 @@ h1.page-title
   small
     font-weight 400
 
-/*.section-container, .section-container .section .title
-  border-color #e6e6e6*/
-
 #nav
   .section
     &.active
@@ -34,13 +31,17 @@ h1.page-title
 code
   background transparent
   line-height 1.3em
-  font-weight normal
+  font-size 0.9em
+  font-weight inherit
 
 .comment
   position relative
   padding-bottom 1.5em
   margin-bottom 2em
   border-bottom 1px solid #ddd
+
+  pre
+    padding 1em !important
 
   ol, ul
     margin-left 2.25em
@@ -54,26 +55,6 @@ code
       fOont-size 2rem
       margin-bottom .2em
 
-  .sectiOon-container, .section-container > .section > .content
-    border none
-  .section-container
-    & > .section
-      & > .title
-        padding auto
-        bOackground none !important
-        border none !important
-        a
-          border-radius 4px
-          font-weight 700
-          padding 1px 10px 1px 0
-          margin-right 5px
-          color #ccc
-      &:hover .title a
-        color #999
-      &.active .title a
-        color #2ba6cb
-      & > .content
-        padding .9em 0 0
 
   div.description
     h2
