@@ -34,7 +34,12 @@ etto-logged-in-nav
                     p2 {{tier.totUsers}}
                     br
                     p.dark-grey Users
+
+
+
     .col-md-4
       h3 Users
       etto-invite-user-modal
+      div(ng-repeat= 'user in users')
+        p.ison {{user.name}}
 

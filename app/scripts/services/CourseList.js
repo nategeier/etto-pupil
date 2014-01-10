@@ -8,7 +8,7 @@ angular.module("ettoPupil")
       Courses = {
     
 
-        list_all: function (callback) {
+        listAll: function (callback) {
           $http.get("/api/v1/course")
             .success(function (data, status, headers, config) {
               //user = data.user;

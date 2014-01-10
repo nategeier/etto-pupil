@@ -1,51 +1,53 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("ReportsCtrl", ["$scope", "Tiers", "$routeParams",
-    function ($scope, Tiers, $routeParams) {
+  .controller("ReportsCtrl", ["$scope", "Tiers", "$routeParams", "Users",
+    function ($scope, Tiers, $routeParams, Users) {
 
-      var parentID = $routeParams.parentID;
+      $scope.parentID = $routeParams.parentID;
 
-      if(parentID == '0'){
-        parentID = null;
+      if($scope.parentID === '0'){
+        $scope.parentID = null;
       }
 
       var obj = {
-        _id: parentID
-      }
+        _id: $scope.parentID
+      };
+
+      Users.listUsersInTier($scope.parentID, function(users){
+        console.log(users)
+        $scope.users = users;
+      });
 
       $scope.reset = function () {
-        Tiers.list_children_and_count_users(obj, function (results) {
+        Tiers.listChildrenAndCountUsers(obj, function (results) {
           $scope.tiers = results;
         });
 
-        var currentTier = {
-          _id : parentID
-        }
 
-        Tiers.find_tier(currentTier, function (results) {
+        Tiers.findTier($scope.parentID, function (results) {
           $scope.currentTier = results;
         });
 
-      }
+      };
 
       $scope.add = function (newTier) {
         var newTier = {
           title : newTier.title,
-          parent : parentID
-        }
-        Tiers.add_tier(newTier, function (results) {
+          parent : $scope.parentID
+        };
+        Tiers.addTier(newTier, function (results) {
           $scope.reset();
-          $scope.newTier.title = '';
+          $scope.newTier.title = "";
         });
       };
 
-       $scope.remove = function (tierID) {
+      $scope.remove = function (tierID) {
         var tier = {
           _id : tierID,
-          parent : parentID
-        }
-        Tiers.remove_tier(tier, function (results) {
+          parent : $scope.parentID
+        };
+        Tiers.removeTier(tier, function (results) {
           $scope.reset();
         });
       };

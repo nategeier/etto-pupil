@@ -1,4 +1,5 @@
 
+"use strict";
 
 angular.module("ettoPupil")
   .controller("StoreCtrl", ["$scope", "$http", "Session", "Store", "CourseList", "Tiers", "$timeout",
@@ -9,10 +10,10 @@ angular.module("ettoPupil")
 
 
       $scope.listCourses = function(){
-        CourseList.list_all(function (data) {
+        CourseList.listAll(function (data) {
           $scope.courses = data;
         });
-      }
+      };
 
 
       $scope.listCourses();
@@ -23,21 +24,20 @@ angular.module("ettoPupil")
 
          var obj = {
             _id: $scope.user._tier._id
-          }
+          };
 
-          Tiers.list_children_and_count_users(obj, function(tiers){
+          Tiers.listChildrenAndCountUsers(obj, function(tiers){
 
             $scope.data = {
-              title : "Oregon",
               children: tiers
             };
             //---- Count initial total users
             for(var i = 0; i < tiers.length; i++){
               totUsers += tiers[i].totUsers;
             }
-            $scope.totUsers = totUsers
+            $scope.totUsers = totUsers;
             //----- Set price for each course.
-            setPrice()
+            setPrice();
           });
         }
       })
@@ -45,11 +45,11 @@ angular.module("ettoPupil")
 
       $scope.toggleMinimized = function (child) {
         
-        if(child.minimized == undefined){
+        if(child.minimized === undefined){
           var obj = {
             _id: child._id
           }
-          Tiers.list_children_and_count_users(obj, function(tiers){
+          Tiers.listChildrenAndCountUsers(obj, function(tiers){
             child.children = tiers;
 
             for(var i = 0; i < tiers.length; i++){
@@ -64,7 +64,7 @@ angular.module("ettoPupil")
 
 
       $scope.toggleIsOn = function (child) {
-        if(child.isoff == undefined){
+        if(child.isoff === undefined){
           child.isoff = true;
         }else{
           child.isoff = !child.isoff;
@@ -72,31 +72,28 @@ angular.module("ettoPupil")
 
         $scope.countUsers(child, function(totUsersInChildren){
           if(child.isoff){
-            $scope.totUsers -= child.totUsers - totUsersInChildren
+            $scope.totUsers -= child.totUsers - totUsersInChildren;
           }else{
-            $scope.totUsers += child.totUsers - totUsersInChildren
+            $scope.totUsers += child.totUsers - totUsersInChildren;
           }
           setPrice();
         });
-      }
+      };
 
 
       $scope.countUsers = function(tier, callback){
 
-
         var totUsersInChildren = 0;
-
-        recursive(tier);
 
         function recursive(tier){
           if(tier.children[0]){
-            for(j = 0; j < tier.children.length; j++){
-              if(tier.children[j].isoff == tier.isoff){
-                totUsersInChildren += tier.children[j].totUsers
+            for(var j = 0; j < tier.children.length; j++){
+              if(tier.children[j].isoff === tier.isoff){
+                totUsersInChildren += tier.children[j].totUsers;
               }
 
               tier.children[j].isoff = tier.isoff;
-              recursive(tier.children[j])
+              recursive(tier.children[j]);
             }
             callback(totUsersInChildren);
           }else{
@@ -105,8 +102,8 @@ angular.module("ettoPupil")
 
         }
 
-       
-      }
+        recursive(tier);
+      };
 
 
       var setPrice = function () {
