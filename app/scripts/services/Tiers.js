@@ -5,15 +5,11 @@ angular.module("ettoPupil")
     function ($http) {
       return {
 
-        list_children_and_count_users: function (parentID, callback) {
+        list_children_and_count_users: function (tier, callback) {
 
-          var obj = {
-            parentID: parentID
-          }
-
-          $http.post('/api/v1/tier/list_children_and_count_users', obj)
+          $http.post('/api/v1/tier/list_children_and_count_users', tier)
             .success(function (data, status, headers, config) {
-              callback(data.err, data.results);
+              callback(data);
             })
             .error(function (data, status, headers, config) {
               console.dir(data);
@@ -22,17 +18,17 @@ angular.module("ettoPupil")
 
         add_tier: function (newTier, callback) {
           $http.post("/api/v1/tier/add", newTier).success(function (data) {
-            callback(data.err, data.results);
+            callback(data);
           });
         },
-        delete_tier: function (tier, callback) {
-          $http.post("/api/v1/tier/delete", tier).success(function (data) {
-            callback(data.err, data.results);
+        remove_tier: function (tier, callback) {
+          $http.post("/api/v1/tier/remove", tier).success(function (data) {
+            callback(data);
           });
         },
         find_tier: function (tier, callback) {
-          $http.post("/api/v1/tier/find", tier).success(function (data) {
-            callback(data.err, data.results);
+          $http.get("/api/v1/tier/52d0291070eafae05ca187d1").success(function (data) {
+            callback(data);
           });
         },
         invite_user: function (newLevel, callback) {

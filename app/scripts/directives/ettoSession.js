@@ -9,7 +9,6 @@ angular.module("ettoPupil")
          link: function (scope, element, attrs) {
 
           Session.get_session(function (data) {
-            console.log(data)
             Session.treat_session(data);
             scope.user = data;
           });

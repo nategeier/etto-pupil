@@ -7,7 +7,7 @@ etto-logged-in-nav
 
 .container
   .row
-    .col-xs-12.col-sm-9.col-md-9
+    .col-xs-12.col-sm-8.col-md-8
       .row
         .col-xs-12.col-sm-6.col-md-6
           h3 Courses for my Users
@@ -25,24 +25,29 @@ etto-logged-in-nav
                   h5 {{course.title}}
                   p {{course.subTitle}}
                 .col-md-4
-                  h5 ${{course.price}}
+                  h5 ${{course.priceWithEmps}}
                   a.btn.btn-primary.btn-xs.img-responsive.bottom10(href='/purchase_course/{{course._id}}')  Purchase
                   a.btn.btn-default.btn-xs.img-responsive(href='/purchase_course/{{course._id}}')  Demo
 
-    .col-xs-12.col-sm-3.col-md-3
-      etto-tier-tree
-      //
-        h3  Course is for:
-        div.off-bar(head-tree, ng-click='updateAllLevel(allLevels)', ng-model='allLevels', ng-show='allLevels.ison')
-        div.on-bar(head-tree, ng-click='updateAllLevel(allLevels)', ng-model='allLevels', ng-show='!allLevels.ison')
+    .col-xs-12.col-sm-4.col-md-4
+      h1 {{user._tier.title}}
+      p Total Users {{totUsers}}
+      div.tree(ng-cloak='ng-cloak')
+        .live
+          ol
+            li(ya-tree='child in data.children at ol', ng-class='{minimized:child.minimized}')
+              div(ng-class='{isoff: child.isoff, ison: !child.isoff}')
+                .toggle(ng-click='toggleMinimized(child)', ng-switch='child.minimized', on='child.minimized')
+                  .btn.btn-default.btn-xs.toggle-arrow(ng-show= 'child._children', ng-switch-when= 'false') ▼
+                  .btn.btn-default.btn-xs.toggle-arrow(ng-show= 'child._children', ng-switch-default='ng-switch-default') ▶
+                
+                p.left {{child.title}}
+                p.left(style='font-size:9px') {{child._id}}
+                p.right {{child.totUsers}}
+                .btn.btn-default.btn-xs(ng-click='toggleIsOn(child)') x
+              ol(ng-class='{pregnant:child.children.length}')
+              .clear
 
-        div.mid-tree(ng-repeat='medLevel in medLevels')
-          div.off-bar(med-tree, ng-click='updateMedLevel(medLevel)', ng-model='medLevel', ng-show='medLevel.ison')
-          div.on-bar(med-tree, ng-click='updateMedLevel(medLevel)', ng-model='medLevel', ng-show='!medLevel.ison')
-
-          div.low-tree(low ng-repeat='lowerLevel in medLevel.lowerLevels')
-            div.off-bar(low-tree, ng-click='updateLowLevel(lowerLevel)', ng-model='lowerLevel', ng-show='lowerLevel.ison')
-            div.on-bar(low-tree, ng-click='updateLowLevel(lowerLevel)', ng-model='lowerLevel', ng-show='!lowerLevel.ison')
 
 
 

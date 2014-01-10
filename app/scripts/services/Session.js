@@ -12,8 +12,6 @@ angular.module("ettoPupil")
           }
         },
         get_session: function (callback) {
-
-          //$http.get("/api/v1/sessions/get_session");
           $http({
             method: "GET",
             url: "/api/v1/auth/get_session"
@@ -25,59 +23,21 @@ angular.module("ettoPupil")
             console.log(data, "err");
           });
         },
-        destroySession: function () {
-          return $http.get("/api/v1/auth/destroy");
-        },
-        /*
-        authenticate: function (user, callback) {
-          $http.post("/api/v1/sessions/start_session", user)
+        update_session: function (user, callback) {
+          console.log('post', user)
+          //$http.get("/api/v1/sessions/get_session");
+         $http.post('/api/v1/auth/update_session', user)
             .success(function (data, status, headers, config) {
-              //user = data.user;
               callback(data);
             })
             .error(function (data, status, headers, config) {
               console.dir(data);
-            });
+          });
         },
-
-        register_invite: function (user, callback) {
-          $http.post("/api/v1/sessions/register_invite", user)
-            .success(function (data, status, headers, config) {
-              user = data.user;
-
-              callback(data.user);
-              console.dir(data);
-            })
-            .error(function (data, status, headers, config) {
-              console.dir(data);
-            });
+        destroySession: function () {
+          return $http.get("/api/v1/auth/destroy");
         },
-        */
-        //authenticate: function( email, password ) {
-        //$http.post( "/api/v1/sessions/start_session", {
-        //email: email,
-        //password: password
-        //})
-        //.success( function( data, status, headers, config ) {
-        //user = data.user;
-        //console.dir( data );
-        //})
-        //.error( function( data, status, headers, config ) {
-        //console.dir( data );
-        //});
-        //},
-
-        //loginModal: function() {
-        //var modal;
-
-        //modal = $compile( "<etto-modal id='login-modal'><etto-login></etto-login></etto-modal>" )( $rootScope );
-        //if ($rootScope.$root.$$phase !== "$apply" && $rootScope.$root.$$phase !== "$digest") {
-        //$rootScope.$apply();
-        //}
-        //modal.appendTo( "#view" );
-        //modal.foundation( "reveal", "open" );
-        //}
-
+      
         loginModal: function () {
           var modal = $modal.open({
             templateUrl: "views/directives/ettoLogin.html",
@@ -87,8 +47,6 @@ angular.module("ettoPupil")
           });
         }
       };
-
-      //$rootScope.login = function() { Session.loginModal(); };
 
       return Session;
     }
