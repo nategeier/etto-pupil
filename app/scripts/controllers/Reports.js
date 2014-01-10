@@ -1,29 +1,29 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("ReportsCtrl", ["$scope", "Reports", "$routeParams",
-    function ($scope, Reports, $routeParams) {
+  .controller("ReportsCtrl", ["$scope", "Tiers", "$routeParams",
+    function ($scope, Tiers, $routeParams) {
 
-     var link = "/api/v1/tier/list_children";
       var parentID = $routeParams.parentID;
 
       if(parentID == '0'){
         parentID = null;
       }
 
+      var obj = {
+        _id: parentID
+      }
+
       $scope.reset = function () {
-        Reports.get_reports(link, parentID, function (err, results) {
-          $scope.error = err;
+        Tiers.list_children_and_count_users(obj, function (results) {
           $scope.tiers = results;
         });
 
         var currentTier = {
-          tierID : parentID
+          _id : parentID
         }
 
-        Reports.find_tier(currentTier, function (err, results) {
-          $scope.error = err;
-          console.log(results);
+        Tiers.find_tier(currentTier, function (results) {
           $scope.currentTier = results;
         });
 
@@ -32,18 +32,20 @@ angular.module("ettoPupil")
       $scope.add = function (newTier) {
         var newTier = {
           title : newTier.title,
-          parentID : parentID
+          parent : parentID
         }
-        Reports.add_tier(newTier, function (err, results) {
+        Tiers.add_tier(newTier, function (results) {
           $scope.reset();
+          $scope.newTier.title = '';
         });
       };
 
-       $scope.delete = function (tierID) {
+       $scope.remove = function (tierID) {
         var tier = {
-          tierID : tierID
+          _id : tierID,
+          parent : parentID
         }
-        Reports.delete_tier(tier, function (err, results) {
+        Tiers.remove_tier(tier, function (results) {
           $scope.reset();
         });
       };

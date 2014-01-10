@@ -1,32 +1,32 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .directive("ettoAddCourse", [
+  .directive("ettoInviteUserModal", ["Users",
 
-    function () {
+    function (Users) {
       return {
-        template: "<a class='btn btn-primary btn-sm top-logout-btn' href='#' ng-click='addCourse()'>Add Course</a>",
+        template: "<a class='btn btn-primary btn-sm top-logout-btn' href='#' ng-click='inviteUser()'>Invite User to {{currentTier.title}}</a>",
         restrict: "AE",
         controller: function ($scope, $modal, CourseMetaChange, $location) {
-          $scope.addCourse = function () {
+          $scope.inviteUser = function () {
             var modal = $modal.open({
-              templateUrl: "/views/directives/ettoAddCourseModal.html",
+              templateUrl: "/views/directives/ettoInviteUserModal.html",
               controller: function ($scope, $modalInstance) {
                 $scope.course = {};
-                $scope.handleLogin = function () {
+                $scope.inviteUser = function () {
                   $modalInstance.close($scope.course);
                 };
               }
             });
-            modal.result.then(function (course) {
+            modal.result.then(function (user) {
 
-              console.log($scope.user._id);
-              course._creators = [$scope.user._id];
+              //console.log($scope.user._id);
+              //course._creators = [$scope.user._id];
 
-              CourseMetaChange.create(course, function (data) {
+              Users.invite_user(user, function (data) {
 
                 if (data) {
-                  $scope.listUsersCreatedCourses();
+                  //$scope.listUsersCreatedCourses();
                   //$location.path($scope.redirectTo);
                 }
               });

@@ -5,18 +5,18 @@ angular.module("ettoPupil")
     function ($scope, $compile, Session, CourseList, CourseMetaChange, $rootScope) {
 
       $scope.$watch('user', function() {
-        $scope.listUsersCreatedCourses()
+        if($scope.user){
+          $scope.listUsersCreatedCourses()
+        }
+       
       })
 
 
       $scope.listUsersCreatedCourses = function(){
 
-        var obj = {
-          userID: $scope.user._id
-        }
+        CourseList.list_users_created_courses($scope.user, function (data) {
 
-        CourseList.list_users_created_courses(obj, function (data) {
-          $scope.courses = data.results;
+          $scope.courses = data;
         });
       }
 
@@ -24,7 +24,7 @@ angular.module("ettoPupil")
       $scope.removeCourse = function(id){
 
         var course = {
-          courseID: id
+          id: id
         }
 
         CourseMetaChange.remove_course(course, function (data) {
