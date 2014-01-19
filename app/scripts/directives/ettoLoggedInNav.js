@@ -3,7 +3,7 @@
 angular.module("ettoPupil")
   .directive("ettoLoggedInNav", [
 
-    function () {
+    function() {
       return {
         templateUrl: "/views/directives/ettoLoggedInNav.html",
         restrict: "E",

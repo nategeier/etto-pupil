@@ -3,56 +3,53 @@
 angular.module("ettoPupil")
   .directive("ettoRegisterModal", ["Tiers", "Users", "Session",
 
-    function () {
+    function() {
 
       return {
 
         restrict: "AE",
-        controller: function ($scope, $modal, Tiers, $location, Users, Session) {
+        controller: function($scope, $modal, Tiers, $location, Users, Session) {
 
-          $scope.$watch('user', function() {
-            if($scope.user && !$scope.user._tier){
+          $scope.$watch("user", function() {
+            if ($scope.user && !$scope.user._tier) {
               $scope.register();
             }
-          })
+          });
 
 
-          $scope.register = function () {
+          $scope.register = function() {
 
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoRegister.html",
-              controller: function ($scope, $modalInstance) {
+              controller: function($scope, $modalInstance) {
                 $scope.tier = {};
-                $scope.handleLogin = function () {
+                $scope.handleLogin = function() {
                   $modalInstance.close($scope.tier);
                 };
               }
             });
-            modal.result.then(function (tier) {
+            modal.result.then(function(tier) {
               var newTier = {
-                title : tier.title
-              }
-              Tiers.add_tier(newTier, function (tier) {
+                title: tier.title
+              };
+              Tiers.addTier(newTier, function(tier) {
 
                 var obj = {
-                  tierID : tier._id,
-                  userID : $scope.user._id
-                }
+                  tierID: tier._id,
+                  userID: $scope.user._id
+                };
 
 
-                Users.update_users_tier(obj, function(data){
+                Users.updateUsersTier(obj, function(data) {
 
-                  var user = $scope.user;
+                  //var user = $scope.user;
 
-                  Session.update_session($scope.user, function(data){
+                  Session.updateSession($scope.user, function(data) {
                     $scope.user = data;
                     $location.path($scope.redirectTo);
-                  })
-
-                })
-                
+                  });
+                });
               });
-
             });
           };
         },

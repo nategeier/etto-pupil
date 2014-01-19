@@ -1,0 +1,28 @@
+
+.modal-header
+  button.close( type="button" )
+  h2.modal-title Puchase {{selCourse.title}}
+.modal-body
+  
+  form(ng-submit="handlePurchase(card)", ng-show="!customer")
+    p {{selCourse.priceWithEmps}} whats
+    .form-group
+      input.form-control( type="text", ng-model="card.number", placeholder="number", autocomplete="on", required )
+    .form-group
+      input.form-control( type="text", ng-model="card.exp_month", placeholder="exp_month", required )
+    .form-group
+      input.form-control( type="text", ng-model="card.exp_year", placeholder="exp_year", required )
+    .form-group
+      input.form-control( type="text", ng-model="card.cvc", placeholder="cvc", required )
+    .form-group
+      input.btn.btn-primary( type="submit", value="Puchase")
+
+  div(ng-show="customer")
+    form(ng-submit="handlePurchase(card)")
+      p {{selCourse.priceWithEmps}} whats
+    
+      .form-group
+        input.btn.btn-primary( type="submit", value="Puchase")
+    h5 Card on file
+    p {{customer.active_card.last4}}
+    p {{customer.active_card.type}}

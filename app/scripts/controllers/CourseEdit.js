@@ -2,10 +2,10 @@
 
 angular.module("ettoPupil")
   .controller("CourseEditCtrl", ["$scope", "course",
-    function ($scope, course) {
+    function($scope, course) {
       $scope.course = course;
 
-      $scope.$on("course-save", function () {
+      $scope.$on("course-save", function() {
         // TODO: Validate course before update
         $scope.course.$update();
 

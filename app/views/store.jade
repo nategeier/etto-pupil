@@ -7,7 +7,7 @@ etto-logged-in-nav
 
 .container
   .row
-    .col-xs-12.col-sm-8.col-md-8
+    .col-xs-12.col-sm-9.col-md-9
       .row
         .col-xs-12.col-sm-6.col-md-6
           h3 Courses for my Users
@@ -26,11 +26,11 @@ etto-logged-in-nav
                   p {{course.subTitle}}
                 .col-md-4
                   h5 ${{course.priceWithEmps}}
-                  a.btn.btn-primary.btn-xs.img-responsive.bottom10(href='/purchase_course/{{course._id}}')  Purchase
+                  etto-purchase-course(redirect-to='/etto', course='{{$index}}')
                   a.btn.btn-default.btn-xs.img-responsive(href='/purchase_course/{{course._id}}')  Demo
 
-    .col-xs-12.col-sm-4.col-md-4
-      h1 {{user._tier.title}}
+    .col-xs-12.col-sm-3.col-md-3
+      h1 {{currentTier.title}}
       p Total Users {{totUsers}}
       div.tree(ng-cloak='ng-cloak')
         .live
@@ -40,11 +40,11 @@ etto-logged-in-nav
                 .toggle(ng-click='toggleMinimized(child)', ng-switch='child.minimized', on='child.minimized')
                   .btn.btn-default.btn-xs.toggle-arrow(ng-show= 'child._children', ng-switch-when= 'false') ▼
                   .btn.btn-default.btn-xs.toggle-arrow(ng-show= 'child._children', ng-switch-default='ng-switch-default') ▶
-                
-                p.left {{child.title}}
-                p.left(style='font-size:9px') {{child._id}}
-                p.right {{child.totUsers}}
-                .btn.btn-default.btn-xs(ng-click='toggleIsOn(child)') x
+                .tree-btn(ng-click='toggleIsOn(child)')
+                  div.left(ng-show= '!child._children[0]', style='width:40px; height:30px;')
+                  p.left {{child.title}}
+                  p.right {{child.totUsers}}
+                  .clear
               ol(ng-class='{pregnant:child.children.length}')
               .clear
 

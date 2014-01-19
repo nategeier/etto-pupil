@@ -4,7 +4,7 @@ etto-logged-in-nav
     .row
       .col-md-8
         h2.center-txt {{currentTier.title}}
-        p.center-txt Reports
+        etto-overall-tier-graph(data= "{{[3, 8, 9, 10, 22, 14]}}")
       .col-md-4
         h4 Create Departments
         .warn
@@ -16,19 +16,22 @@ etto-logged-in-nav
 .container
   .row
     .col-md-8
+      .chart
+
       h3 Departments
       div(ng-show="!tiers[0]") 
         p No Levels have been added yet, Add some... {{tiers[0]}}
 
       div(ng-repeat= 'tier in tiers')
-        .col-xs-12.col-sm-6.col-md-4.no-pad
-          .course-holder(sink-in)
+        .col-xs-12.col-sm-6.col-md-6.no-pad
+          .btn-xs.close-btn.right(ng-click='remove(tier._id)') X
+          .course-holder(sink-in, ng-click ="viewChildren('/levels/{{tier._id}}')")
             .pad20              
               .row
                 .col-sm-9.col-md-9
+                  
                   h4 {{tier.title}}
-                  .btn.btn-primary.btn-sm(ng-click='remove(tier._id)')  Delete
-                  a.btn.btn-primary.btn-sm(href='/levels/{{tier._id}}') View
+                  etto-tier-graph(data= "[3,8,9,10]")
                 .col-sm-3.col-md-3
                   .statBox
                     p2 {{tier.totUsers}}
