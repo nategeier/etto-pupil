@@ -11,7 +11,6 @@ angular.module("ettoPupil")
             Session.treatSession(data);
             scope.user = data;
           });
-
         }
       };
     }

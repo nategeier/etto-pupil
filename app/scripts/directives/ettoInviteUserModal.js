@@ -25,6 +25,7 @@ angular.module("ettoPupil")
               Users.inviteUser(newUser, function(data) {
 
                 if (data) {
+                  $scope.listUsers();
                   //$scope.listUsersCreatedCourses();
                   //$location.path($scope.redirectTo);
                 }

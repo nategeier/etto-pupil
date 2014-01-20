@@ -18,9 +18,13 @@ angular.module("ettoPupil")
         _id: $scope.parentID
       };
 
-      Users.listUsersInTier($scope.parentID, function(users) {
-        $scope.users = users;
-      });
+
+      $scope.listUsers = function(){
+        Users.listUsersInTier($scope.parentID, function(users) {
+          $scope.users = users;
+        });
+      }
+      
 
       $scope.reset = function() {
         Tiers.listChildrenAndCountUsers(obj, function(results) {
@@ -56,5 +60,6 @@ angular.module("ettoPupil")
       };
 
       $scope.reset();
+      $scope.listUsers();
     }
   ]);

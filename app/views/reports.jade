@@ -38,11 +38,13 @@ etto-logged-in-nav
                     br
                     p.dark-grey Users
 
-
-
     .col-md-4
       h3 Users
       etto-invite-user-modal
-      div(ng-repeat= 'user in users')
-        p.ison {{user.name}}
+      .course-holder(sink-in)
+        .pad20              
+          .row  
+            div(ng-repeat= 'user in users')
+              h4  {{user.name}}
+              etto-tier-graph(data= "{{[3, 8, 9, 10, 22, 14]}}")
 

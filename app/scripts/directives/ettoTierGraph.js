@@ -38,8 +38,6 @@ angular.module("ettoPupil")
         restrict: "EA",
         link: function postLink(scope, element, attrs) {
 
-
-
           var chartEl = d3.select(element[0]);
 
           var data = $parse(attrs.data)(scope);
