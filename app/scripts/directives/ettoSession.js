@@ -6,13 +6,11 @@ angular.module("ettoPupil")
     function (Session) {
       return {
         restrict: "EA",
-         link: function (scope, element, attrs) {
-
-          Session.get_session(function (data) {
-            Session.treat_session(data);
+        link: function (scope, element, attrs) {
+          Session.getSession(function (data) {
+            Session.treatSession(data);
             scope.user = data;
           });
-
         }
       };
     }

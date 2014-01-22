@@ -3,15 +3,15 @@
 angular.module("ettoPupil")
   .factory("Session", ["$http", "$compile", "$document", "$modal", "$location",
     function ($http, $compile, $document, $modal, $location) {
-      var Session, user;
+      var Session;
 
       Session = {
-        treat_session : function(data, callback){
-          if(data.err && data.err == 'Login' || !data){
-            $location.path('/');
+        treatSession: function (data, callback) {
+          if (data.err && data.err === "Login" || !data) {
+            $location.path("/");
           }
         },
-        get_session: function (callback) {
+        getSession: function (callback) {
           $http({
             method: "GET",
             url: "/api/v1/auth/get_session"
@@ -23,27 +23,23 @@ angular.module("ettoPupil")
             console.log(data, "err");
           });
         },
-        update_session: function (user, callback) {
-          console.log('post', user)
-          //$http.get("/api/v1/sessions/get_session");
-         $http.post('/api/v1/auth/update_session', user)
+        updateSession: function (user, callback) {
+          $http.post("/api/v1/auth/update_session", user)
             .success(function (data, status, headers, config) {
               callback(data);
             })
             .error(function (data, status, headers, config) {
               console.dir(data);
-          });
+            });
         },
         destroySession: function () {
           return $http.get("/api/v1/auth/destroy");
         },
-      
+
         loginModal: function () {
           var modal = $modal.open({
             templateUrl: "views/directives/ettoLogin.html",
-            controller: function ($scope) {
-              console.log("stuff");
-            }
+            controller: function ($scope) {}
           });
         }
       };

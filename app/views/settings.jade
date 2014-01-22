@@ -1,0 +1,29 @@
+etto-logged-in-nav
+.container
+  .col-md-12
+    h1  Settings
+    form(role='form')
+      .col-md-8
+        .form-group
+          label(for='exampleInputEmail1') Name
+          input#exampleInputEmail1.form-control(type='email', placeholder='name', value="{{user.name}}")
+          label(for='exampleInputEmail1') Email
+          input#exampleInputEmail1.form-control(type='email', placeholder='email', value="{{user.email}}")
+          
+      .col-md-4
+        img(src= "{{user.avatarUrl}}")
+
+
+      .col-md-12
+        .form-group
+          label(for='exampleInputPassword1') Password
+          input#exampleInputPassword1.form-control(type='password', placeholder='Password')
+        .form-group
+          label(for='exampleInputFile') File input
+          input#exampleInputFile(type='file')
+          p.help-block Example block-level help text here.
+        .checkbox
+          label
+            input(type='checkbox')
+            | Is manager
+        button.btn.btn-default(type='submit') Submit

@@ -5,9 +5,9 @@ angular.module("ettoPupil")
 
     function () {
       return {
-        template: "<a class='btn btn-primary btn-sm top-logout-btn' href='#' ng-click='addCourse()'>Add Course</a>",
+        template: "<a class='btn btn-primary btn-xs top-logout-btn' href='#' ng-click='addCourse()'>Add Course</a>",
         restrict: "AE",
-        controller: function ($scope, $modal, CourseMetaChange, $location) {
+        controller: function ($scope, $modal, CourseMetaChange) {
           $scope.addCourse = function () {
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoAddCourseModal.html",
@@ -20,14 +20,12 @@ angular.module("ettoPupil")
             });
             modal.result.then(function (course) {
 
-              console.log($scope.user._id);
               course._creators = [$scope.user._id];
 
               CourseMetaChange.create(course, function (data) {
 
                 if (data) {
                   $scope.listUsersCreatedCourses();
-                  //$location.path($scope.redirectTo);
                 }
               });
             });

@@ -10,12 +10,11 @@ angular.module("ettoPupil")
         restrict: "AE",
         controller: function ($scope, $modal, Tiers, $location, Users, Session) {
 
-          $scope.$watch('user', function() {
-            if($scope.user && !$scope.user._tier){
+          $scope.$watch("user", function () {
+            if ($scope.user && !$scope.user._tier) {
               $scope.register();
             }
-          })
-
+          });
 
           $scope.register = function () {
 
@@ -30,29 +29,25 @@ angular.module("ettoPupil")
             });
             modal.result.then(function (tier) {
               var newTier = {
-                title : tier.title
-              }
-              Tiers.add_tier(newTier, function (tier) {
+                title: tier.title
+              };
+              Tiers.addTier(newTier, function (tier) {
 
                 var obj = {
-                  tierID : tier._id,
-                  userID : $scope.user._id
-                }
+                  tierID: tier._id,
+                  userID: $scope.user._id
+                };
 
+                Users.updateUsersTier(obj, function (data) {
 
-                Users.update_users_tier(obj, function(data){
+                  //var user = $scope.user;
 
-                  var user = $scope.user;
-
-                  Session.update_session($scope.user, function(data){
+                  Session.updateSession($scope.user, function (data) {
                     $scope.user = data;
                     $location.path($scope.redirectTo);
-                  })
-
-                })
-                
+                  });
+                });
               });
-
             });
           };
         },

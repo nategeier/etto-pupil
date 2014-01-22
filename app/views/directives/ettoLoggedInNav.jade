@@ -15,9 +15,11 @@ nav.navbar.navbar-default( role="navigation", etto-session)
       li
         a( href="/etto" ) Home
       li
-        a( href="/store" ) Store
+        a( href="/store/{{user._tier._id}}" ) Store
       li
         a( href="/levels/{{user._tier._id}}" ) Reports
+      li
+        a( href="/settings/{{user._id}}" ) Settings
       li
         a( href="/course/view/527ac7a09f2b97d313000004" ) View Test Course
       li

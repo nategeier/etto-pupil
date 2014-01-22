@@ -1,55 +1,62 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("ReportsCtrl", ["$scope", "Tiers", "$routeParams",
-    function ($scope, Tiers, $routeParams) {
+  .controller("ReportsCtrl", ["$scope", "Tiers", "$routeParams", "$location", "Users",
+    function ($scope, Tiers, $routeParams, $location, Users) {
 
-      var parentID = $routeParams.parentID;
+      $scope.viewChildren = function (link) {
+        $location.path(link);
+      };
 
-      if(parentID == '0'){
-        parentID = null;
+      $scope.parentID = $routeParams.parentID;
+
+      if ($scope.parentID === "0") {
+        $scope.parentID = null;
       }
 
       var obj = {
-        _id: parentID
-      }
+        _id: $scope.parentID
+      };
 
-      $scope.reset = function () {
-        Tiers.list_children_and_count_users(obj, function (results) {
-          $scope.tiers = results;
-        });
-
-        var currentTier = {
-          _id : parentID
-        }
-
-        Tiers.find_tier(currentTier, function (results) {
-          $scope.currentTier = results;
-        });
-
-      }
-
-      $scope.add = function (newTier) {
-        var newTier = {
-          title : newTier.title,
-          parent : parentID
-        }
-        Tiers.add_tier(newTier, function (results) {
-          $scope.reset();
-          $scope.newTier.title = '';
+      $scope.listUsers = function () {
+        Users.listUsersInTier($scope.parentID, function (users) {
+          $scope.users = users;
         });
       };
 
-       $scope.remove = function (tierID) {
+      $scope.reset = function () {
+        Tiers.listChildrenAndCountUsers(obj, function (results) {
+          $scope.tiers = results;
+        });
+
+        Tiers.findTier($scope.parentID, function (results) {
+          $scope.currentTier = results;
+        });
+
+      };
+
+      $scope.add = function (newTier) {
+        newTier = {
+          title: newTier.title,
+          parent: $scope.parentID
+        };
+        Tiers.addTier(newTier, function (results) {
+          $scope.reset();
+          $scope.newTier.title = "";
+        });
+      };
+
+      $scope.remove = function (tierID) {
         var tier = {
-          _id : tierID,
-          parent : parentID
-        }
-        Tiers.remove_tier(tier, function (results) {
+          _id: tierID,
+          parent: $scope.parentID
+        };
+        Tiers.removeTier(tier, function (results) {
           $scope.reset();
         });
       };
 
       $scope.reset();
+      $scope.listUsers();
     }
   ]);
