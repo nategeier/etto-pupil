@@ -3,7 +3,7 @@
 angular.module("ettoPupil")
   .directive("ettoTierGraph", ["$parse",
 
-    function($parse) {
+    function ($parse) {
       return {
         restrict: "EA",
         link: function postLink(scope, element, attrs) {
@@ -16,22 +16,20 @@ angular.module("ettoPupil")
             .domain([0, d3.max(data)])
             .range([0, 320]);
 
-
-
           chartEl
             .selectAll("div")
             .data(data)
             .enter().append("div")
-            .style("width", function(d) {
+            .style("width", function (d) {
               return 0 + "px";
             })
-            .transition().delay(function(d, i) {
+            .transition().delay(function (d, i) {
               return i / 5 * 200;
-            }).style("width", function(d) {
+            }).style("width", function (d) {
               return x(d) + "px";
             })
 
-          .text(function(d) {
+          .text(function (d) {
             return d;
           });
         }
@@ -40,7 +38,7 @@ angular.module("ettoPupil")
   ])
   .directive("ettoOverallTierGraph", ["$parse",
 
-    function($parse) {
+    function ($parse) {
       return {
         restrict: "EA",
         link: function postLink(scope, element, attrs) {
@@ -56,16 +54,16 @@ angular.module("ettoPupil")
             .selectAll("div")
             .data(data)
             .enter().append("div")
-            .style("width", function() {
+            .style("width", function () {
               return 0 + "px";
             })
-            .transition().delay(function(d, i) {
+            .transition().delay(function (d, i) {
               return i / 5 * 200;
-            }).style("width", function(d) {
+            }).style("width", function (d) {
               return x(d) + "px";
             })
 
-          .text(function(d) {
+          .text(function (d) {
             return d;
           });
 
@@ -74,7 +72,7 @@ angular.module("ettoPupil")
     }
   ]).directive("ettoProgressBar", ["$parse",
 
-    function($parse) {
+    function ($parse) {
       return {
         restrict: "EA",
         link: function postLink(scope, element, attrs) {
@@ -92,12 +90,12 @@ angular.module("ettoPupil")
             .selectAll("div")
             .data(data)
             .enter().append("div")
-            .style("width", function(d) {
+            .style("width", function (d) {
               return 0 + "px";
             })
-            .transition().delay(function(d, i) {
+            .transition().delay(function (d, i) {
               return i / 5 * 200;
-            }).style("width", function(d) {
+            }).style("width", function (d) {
               return x(d) + "px";
             });
         }

@@ -2,7 +2,7 @@
 
 angular.module("ettoPupil", ["ngRoute", "ngResource", "ngTouch", "ui.bootstrap"])
   .config(["$routeProvider", "$locationProvider",
-    function($routeProvider, $locationProvider) {
+    function ($routeProvider, $locationProvider) {
       $locationProvider.html5Mode(true).hashPrefix("#");
       $routeProvider
         .when("/", {
@@ -45,7 +45,7 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngTouch", "ui.bootstrap"]
           templateUrl: "/views/CourseView.html",
           controller: "CourseViewCtrl",
           resolve: {
-            course: function(CourseLoader) {
+            course: function (CourseLoader) {
               return new CourseLoader();
             }
           }
@@ -54,7 +54,7 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngTouch", "ui.bootstrap"]
           templateUrl: "/views/CourseEdit.html",
           controller: "CourseEditCtrl",
           resolve: {
-            course: function(CourseLoader) {
+            course: function (CourseLoader) {
               return new CourseLoader();
             }
           }

@@ -2,27 +2,24 @@
 
 angular.module("ettoPupil")
   .controller("StoreCtrl", ["$scope", "$http", "Session", "Store", "CourseList", "Tiers", "$timeout", "$routeParams",
-    function($scope, $http, Session, Store, CourseList, Tiers, $timeout, $routeParams) {
-
+    function ($scope, $http, Session, Store, CourseList, Tiers, $timeout, $routeParams) {
 
       var totUsers = 0;
       $scope.onTiers = [];
       $scope.parentID = $routeParams.tierID;
 
-      $scope.listCourses = function() {
-        CourseList.listAll(function(data) {
+      $scope.listCourses = function () {
+        CourseList.listAll(function (data) {
           $scope.courses = data;
         });
       };
 
-
       $scope.listCourses();
 
-
-      $scope.$watch("user", function() {
+      $scope.$watch("user", function () {
         if ($scope.user) {
 
-          Store.find($scope.user._id, function(customer) {
+          Store.find($scope.user._id, function (customer) {
 
             if (customer === "null") {
               $scope.customer = null;
@@ -32,7 +29,7 @@ angular.module("ettoPupil")
 
           });
 
-          Tiers.findTier($scope.parentID, function(results) {
+          Tiers.findTier($scope.parentID, function (results) {
             $scope.currentTier = results;
           });
 
@@ -40,7 +37,7 @@ angular.module("ettoPupil")
             _id: $scope.user._tier._id
           };
 
-          Tiers.listChildrenAndCountUsers(obj, function(tiers) {
+          Tiers.listChildrenAndCountUsers(obj, function (tiers) {
 
             $scope.data = {
               children: tiers
@@ -56,14 +53,13 @@ angular.module("ettoPupil")
         }
       });
 
-
-      $scope.toggleMinimized = function(child) {
+      $scope.toggleMinimized = function (child) {
 
         if (child.minimized === undefined) {
           var obj = {
             _id: child._id
           };
-          Tiers.listChildrenAndCountUsers(obj, function(tiers) {
+          Tiers.listChildrenAndCountUsers(obj, function (tiers) {
             child.children = tiers;
 
             for (var i = 0; i < tiers.length; i++) {
@@ -76,15 +72,14 @@ angular.module("ettoPupil")
         }
       };
 
-
-      $scope.toggleIsOn = function(child) {
+      $scope.toggleIsOn = function (child) {
         if (child.isoff === undefined) {
           child.isoff = true;
         } else {
           child.isoff = !child.isoff;
         }
 
-        $scope.changeParent(child, function(totUsersInChildren) {
+        $scope.changeParent(child, function (totUsersInChildren) {
           if (child.isoff) {
             $scope.totUsers -= totUsersInChildren;
           } else {
@@ -95,7 +90,7 @@ angular.module("ettoPupil")
 
       };
 
-      $scope.changeParent = function(intChild, callback) {
+      $scope.changeParent = function (intChild, callback) {
 
         function recursive(tier, child) {
 
@@ -126,7 +121,7 @@ angular.module("ettoPupil")
           recursive($scope.data, intChild);
         }
       };
-      $scope.listAllOnTiers = function() {
+      $scope.listAllOnTiers = function () {
 
         $scope.onTiers = [{
           hasChildren: true,
@@ -137,7 +132,7 @@ angular.module("ettoPupil")
 
         function recursiveFindOnTiers(tier) {
           if (tier.children[0]) {
-            async.map(tier.children, function(child, callback) {
+            async.map(tier.children, function (child, callback) {
               if (!child.isoff) {
 
                 var hasChildren = false;
@@ -155,7 +150,6 @@ angular.module("ettoPupil")
                   child.minimized = true;
                 }
 
-
                 $scope.onTiers.push({
                   hasChildren: hasChildren,
                   hasAddedChildren: hasAddedChildren,
@@ -165,7 +159,7 @@ angular.module("ettoPupil")
                 recursiveFindOnTiers(child);
               }
               callback(null, null);
-            }, function(err, results) {
+            }, function (err, results) {
               //----Nothing called back
             });
           }
@@ -197,8 +191,8 @@ angular.module("ettoPupil")
 
       */
 
-      var setPrice = function() {
-        _.map($scope.courses, function(course) {
+      var setPrice = function () {
+        _.map($scope.courses, function (course) {
           course.priceWithEmps = (course.price * $scope.totUsers).toFixed(2);
         });
       };

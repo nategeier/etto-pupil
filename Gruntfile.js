@@ -140,7 +140,9 @@ module.exports = function (grunt) {
           port: 8080,
           middleware: function (connect) {
             return [
-              require("connect-livereload")({ port: LIVERELOAD_PORT + 1 }),
+              require("connect-livereload")({
+                port: LIVERELOAD_PORT + 1
+              }),
               mountFolder(connect, "docs"),
             ];
           }
@@ -448,7 +450,7 @@ module.exports = function (grunt) {
     },
     sassdown: {
       options: {
-        assets: [ "styles/main.css" ],
+        assets: ["styles/main.css"],
         template: "<%= yeoman.app %>/styles/sassdown-template.hbs"
       },
       files: {
@@ -475,11 +477,11 @@ module.exports = function (grunt) {
     }
 
     if (target === "dox") {
-      return grunt.task.run([ "dox", "connect:dox", "watch:dox" ]);
+      return grunt.task.run(["dox", "connect:dox", "watch:dox"]);
     }
 
     if (target === "styleguide") {
-      return grunt.task.run([ "styleguide", "connect:styleguide:keepalive" ]);
+      return grunt.task.run(["styleguide", "connect:styleguide:keepalive"]);
     }
 
     grunt.task.run([

@@ -2,17 +2,17 @@
 
 angular.module("ettoPupil")
   .directive("ettoBlock", ["$compile", "BlockType", "CoursePlayer",
-    function($compile, BlockType, CoursePlayer) {
+    function ($compile, BlockType, CoursePlayer) {
       return {
         template: "<ng-include src='blockTemplate'></ng-include>",
         restrict: "E",
-        controller: function($scope, $element, $attrs) {
+        controller: function ($scope, $element, $attrs) {
           // TODO: Not very DRY, call parent scope's isCurrentBlock from template?
-          $scope.isCurrentBlock = function(block) {
+          $scope.isCurrentBlock = function (block) {
             return CoursePlayer.isCurrentBlock(block);
           };
 
-          $scope.saveCourse = function() {
+          $scope.saveCourse = function () {
             $scope.$emit("course-save");
           };
         },

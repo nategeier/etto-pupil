@@ -3,26 +3,26 @@
 angular.module("ettoPupil")
   .directive("ettoInviteUserModal", ["Users",
 
-    function() {
+    function () {
       return {
         template: "<a class='right btn btn-primary btn-xs top-logout-btn' href='#' ng-click='inviteUser()'>Invite User</a>",
         restrict: "AE",
-        controller: function($scope, $modal, Users) {
-          $scope.inviteUser = function() {
+        controller: function ($scope, $modal, Users) {
+          $scope.inviteUser = function () {
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoInviteUserModal.html",
-              controller: function($scope, $modalInstance) {
+              controller: function ($scope, $modalInstance) {
                 $scope.newUser = {};
-                $scope.inviteUser = function() {
+                $scope.inviteUser = function () {
                   $modalInstance.close($scope.newUser);
                 };
               }
             });
-            modal.result.then(function(newUser) {
+            modal.result.then(function (newUser) {
 
               newUser._tier = $scope.parentID;
 
-              Users.inviteUser(newUser, function(data) {
+              Users.inviteUser(newUser, function (data) {
 
                 if (data) {
                   $scope.listUsers();

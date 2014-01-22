@@ -3,7 +3,7 @@
 angular.module("ettoPupil")
   .directive("ettoNewBrand", [
 
-    function() {
+    function () {
       return {
         restrict: "E",
         templateUrl: "/views/directives/ettoNewBrand.html",
