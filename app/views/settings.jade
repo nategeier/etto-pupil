@@ -1,14 +1,20 @@
 etto-logged-in-nav
 .container
-  .col-md-8
+  .col-md-12
     h1  Settings
     form(role='form')
-      .form-group
+      .col-md-8
+        .form-group
           label(for='exampleInputEmail1') Name
           input#exampleInputEmail1.form-control(type='email', placeholder='name', value="{{user.name}}")
           label(for='exampleInputEmail1') Email
           input#exampleInputEmail1.form-control(type='email', placeholder='email', value="{{user.email}}")
-          img(src= "{{user.avitar_url}}")
+          
+      .col-md-4
+        img(src= "{{user.avatarUrl}}")
+
+
+      .col-md-12
         .form-group
           label(for='exampleInputPassword1') Password
           input#exampleInputPassword1.form-control(type='password', placeholder='Password')

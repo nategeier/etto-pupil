@@ -5,7 +5,7 @@ angular.module("ettoPupil")
 
     function() {
       return {
-        template: "<a class='btn btn-primary btn-sm top-logout-btn' href='#' ng-click='inviteUser()'>Invite User to {{currentTier.title}}</a>",
+        template: "<a class='right btn btn-primary btn-xs top-logout-btn' href='#' ng-click='inviteUser()'>Invite User</a>",
         restrict: "AE",
         controller: function($scope, $modal, Users) {
           $scope.inviteUser = function() {

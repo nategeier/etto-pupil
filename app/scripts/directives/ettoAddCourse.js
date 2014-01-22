@@ -5,7 +5,7 @@ angular.module("ettoPupil")
 
     function() {
       return {
-        template: "<a class='btn btn-primary btn-sm top-logout-btn' href='#' ng-click='addCourse()'>Add Course</a>",
+        template: "<a class='btn btn-primary btn-xs top-logout-btn' href='#' ng-click='addCourse()'>Add Course</a>",
         restrict: "AE",
         controller: function($scope, $modal, CourseMetaChange) {
           $scope.addCourse = function() {

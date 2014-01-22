@@ -1,14 +1,14 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .directive("yaTree", function() {
+  .directive("yaTree", function () {
 
     return {
       restrict: "A",
       transclude: "element",
       priority: 1000,
       terminal: true,
-      compile: function(tElement, tAttrs, transclude) {
+      compile: function (tElement, tAttrs, transclude) {
 
         var repeatExpr, childExpr, rootExpr, childrenExpr, branchExpr;
 
@@ -24,6 +24,7 @@ angular.module("ettoPupil")
             cache = [];
 
           // Reverse lookup object to avoid re-rendering elements
+
           function lookup(child) {
             var i = cache.length;
             while (i--) {
@@ -33,12 +34,13 @@ angular.module("ettoPupil")
             }
           }
 
-          scope.$watch(rootExpr, function(root) {
+          scope.$watch(rootExpr, function (root) {
 
             var currentCache = [];
 
             // Recurse the data structure
             (function walk(children, parentNode, parentScope, depth) {
+
               if (children && children[0]) {
 
                 var i = 0,
@@ -49,6 +51,22 @@ angular.module("ettoPupil")
                   cached,
                   childScope,
                   grandchildren;
+
+                var outerLoop = function (clone, childScope) {
+                  childScope[childExpr] = child;
+
+                  cached = {
+                    scope: childScope,
+                    parentScope: parentScope,
+                    element: clone[0],
+                    branch: clone.find(branchExpr)[0]
+                  };
+
+                  // This had to happen during transclusion so inherited 
+                  // controllers, among other things, work properly
+                  parentNode.insertBefore(cached.element, cursor);
+
+                };
 
                 // Iterate the children at the current level
                 for (i = 0; i < n; i++) {
@@ -76,22 +94,9 @@ angular.module("ettoPupil")
                   // We also cache a reference to its branch node which will
                   // be used as the parentNode in the next level of recursion
                   if (!cached) {
-                    transclude(parentScope.$new(), function(clone, childScope) {
 
-                      childScope[childExpr] = child;
+                    transclude(parentScope.$new(), outerLoop);
 
-                      cached = {
-                        scope: childScope,
-                        parentScope: parentScope,
-                        element: clone[0],
-                        branch: clone.find(branchExpr)[0]
-                      };
-
-                      // This had to happen during transclusion so inherited 
-                      // controllers, among other things, work properly
-                      parentNode.insertBefore(cached.element, cursor);
-
-                    });
                   } else if (cached.element !== cursor) {
                     parentNode.insertBefore(cached.element, cursor);
                   }
@@ -119,6 +124,7 @@ angular.module("ettoPupil")
                     walk(grandchildren, cached.branch, childScope, depth + 1);
                   }
                 }
+
               }
             })(root, rootElement, scope, 0);
 
@@ -139,7 +145,6 @@ angular.module("ettoPupil")
 
             // Replace previous cache.
             cache = currentCache;
-
 
           }, true);
         };

@@ -10,8 +10,8 @@ etto-register-modal(redirect-to='/etto')
 .container
   .row 
     .col-xs-12.col-sm-4.col-md-4
-      h3 Created Courses
-      etto-add-course(redirect-to='/etto')
+      h3.left Created Courses
+      etto-add-course.right(redirect-to='/etto')
       div.no-pad(ng-repeat='course in courses')
         div(sink-in)
           .pad20
@@ -21,7 +21,7 @@ etto-register-modal(redirect-to='/etto')
                 p {{course.subTitle}}
               .col-md-3
                 p ${{course.price}}
-              .btn.btn-warning(ng-click='removeCourse(course._id)') X
+                .btn.btn-warning.btn-xs(ng-click='removeCourse(course._id)') X
 
     .col-md-8.col-sm-8.col-md-8
       h3 Courses for my Users
@@ -30,5 +30,6 @@ etto-register-modal(redirect-to='/etto')
           .col-md-6.no-pad
             .course-holder(sink-in)
               img.img-responsive(src='/images/courses/thumbs/default.jpg')
+              etto-progress-bar(data= "[60]")
               h4 {{course.title}}
               p {{course.subtitle}}
