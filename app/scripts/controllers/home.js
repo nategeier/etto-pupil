@@ -2,34 +2,38 @@
 
 angular.module("ettoPupil")
   .controller("HomeCtrl", ["$scope", "$compile", "Session", "CourseList", "CourseMetaChange", "$rootScope",
-    function ($scope, $compile, Session, CourseList, CourseMetaChange, $rootScope) {
+    function ($scope, $compile, Session, CourseList, CourseMetaChange) {
 
-      $scope.$watch('user', function() {
-        $scope.listUsersCreatedCourses()
-      })
+      $scope.$watch("user", function () {
+        if ($scope.user) {
+          $scope.listUsersCreatedCourses();
+        }
+      });
 
+      $scope.listUsersCreatedCourses = function () {
 
-      $scope.listUsersCreatedCourses = function(){
+        CourseList.listUsersCreatedCourses($scope.user, function (data) {
+          $scope.courses = data;
+        });
 
         var obj = {
-          userID: $scope.user._id
-        }
+          tierID: $scope.user._tier._id
+        };
 
-        CourseList.list_users_created_courses(obj, function (data) {
-          $scope.courses = data.results;
+        CourseList.listTiersCourses(obj, function (data) {
+          $scope.tiersCourses = data;
         });
-      }
+      };
 
-
-      $scope.removeCourse = function(id){
+      $scope.removeCourse = function (id) {
 
         var course = {
-          courseID: id
-        }
+          id: id
+        };
 
-        CourseMetaChange.remove_course(course, function (data) {
+        CourseMetaChange.removeCourse(course, function (data) {
           $scope.listUsersCreatedCourses();
         });
-      }
+      };
     }
   ]);

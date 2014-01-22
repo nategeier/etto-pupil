@@ -1,22 +1,20 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .directive("ettoRegisterModal", ["Reports", "Users",
+  .directive("ettoRegisterModal", ["Tiers", "Users", "Session",
 
     function () {
 
       return {
 
         restrict: "AE",
-        controller: function ($scope, $modal, Reports, $location, Users) {
+        controller: function ($scope, $modal, Tiers, $location, Users, Session) {
 
-          $scope.$watch('user', function() {
-
-            if($scope.user && !$scope.user._tier){
-              $scope.register()
+          $scope.$watch("user", function () {
+            if ($scope.user && !$scope.user._tier) {
+              $scope.register();
             }
-          })
-
+          });
 
           $scope.register = function () {
 
@@ -31,23 +29,25 @@ angular.module("ettoPupil")
             });
             modal.result.then(function (tier) {
               var newTier = {
-                title : tier.title
-              }
-              Reports.add_tier(newTier, function (err, newTier) {
+                title: tier.title
+              };
+              Tiers.addTier(newTier, function (tier) {
 
                 var obj = {
-                  tierID : newTier._id,
-                  userID : $scope.user._id
-                }
+                  tierID: tier._id,
+                  userID: $scope.user._id
+                };
 
-                Users.update_users_tier(obj, function(err, results){
+                Users.updateUsersTier(obj, function (data) {
 
-                  $scope.user._tier = newTier._id;
-                  $location.path($scope.redirectTo);
-                })
-                
+                  //var user = $scope.user;
+
+                  Session.updateSession($scope.user, function (data) {
+                    $scope.user = data;
+                    $location.path($scope.redirectTo);
+                  });
+                });
               });
-
             });
           };
         },

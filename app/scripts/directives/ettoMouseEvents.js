@@ -1,7 +1,5 @@
 "use strict";
 
-var scaleOver = 1;
-
 angular.module("ettoPupil")
   .directive("moveSide", [
 

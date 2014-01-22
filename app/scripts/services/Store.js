@@ -4,7 +4,7 @@ angular.module("ettoPupil")
   .factory("Store", ["$http",
     function ($http) {
       return {
-        course_store: function (callback) {
+        courseStore: function (callback) {
           $http({
             method: "GET",
             url: "/api/v1/store/course_store"
@@ -16,17 +16,25 @@ angular.module("ettoPupil")
               callback(data);
             });
         },
-        purchase_course: function (courseID, callback) {
-          $http({
-            method: "GET",
-            url: "/api/v1/store/purchase_course/" + courseID
-          })
+        purchase: function (order, callback) {
+          $http.post("/api/v1/store/purchase", order)
             .success(function (data, status, headers, config) {
-
               callback(data);
             })
             .error(function (data, status, headers, config) {
+              console.dir(data);
+            });
+        },
+        find: function (id, callback) {
+          var obj = {
+            _id: id
+          };
+          $http.post("/api/v1/store/find", obj)
+            .success(function (data, status, headers, config) {
               callback(data);
+            })
+            .error(function (data, status, headers, config) {
+              console.dir(data);
             });
         }
       };

@@ -7,18 +7,38 @@ angular.module("ettoPupil")
 
       User = {
 
-        update_users_tier: function (data, callback) {
+        updateUsersTier: function (tier, callback) {
 
-          //$http.get("/api/v1/sessions/get_session");
-          $http.post("/api/v1/user/update_users_tier", data)
+          $http.post("/api/v1/user/update_users_tier", tier)
             .success(function (data, status, headers, config) {
-              //user = data.user;
               callback(data);
             })
             .error(function (data, status, headers, config) {
               console.dir(data);
             });
-        }
+        },
+        inviteUser: function (data, callback) {
+
+          $http.post("/api/v1/user/invite_user", data)
+            .success(function (data, status, headers, config) {
+              callback(data);
+            })
+            .error(function (data, status, headers, config) {
+              console.dir(data);
+            });
+        },
+
+        listUsersInTier: function (id, callback) {
+
+          $http.get("/api/v1/user/listUsersInTier/" + id)
+            .success(function (data, status, headers, config) {
+              callback(data);
+            })
+            .error(function (data, status, headers, config) {
+              console.dir(data);
+            });
+        },
+
       };
 
       //$rootScope.login = function() { Session.loginModal(); };

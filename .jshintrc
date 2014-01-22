@@ -23,6 +23,7 @@
       "angular": false,
       "_": false,
       "async": false,
-      "TweenMax": false
+      "TweenMax": false,
+      "d3": false
     }
 }

@@ -2,35 +2,63 @@ etto-logged-in-nav
 .header.main-img
   .container
     .row
-      .col-md-8
+      .col-xs-12.col-sm-6.col-md-8
         h2.center-txt {{currentTier.title}}
-        p.center-txt Reports
-      .col-md-4
+        etto-overall-tier-graph(data= "{{[3, 8, 9, 10, 22, 14]}}")
+      .col-xs-12.col-sm-6.col-md-4
         h4 Create Departments
         .warn
           p {{err}}
-        .col-md-9
-          input.form-control(type='text', ng-model='newTier.title', placeholder='New Department Title')
-        .col-md-3
-          .btn.btn-primary.btn-sm(ng-click='add(newTier)')  Add Department
+        .col-md-12
+          form(ng-submit="add(newTier)")
+            input.form-control.left(style='width:60%', type='text', ng-model='newTier.title', placeholder='New Department')
+            input.btn.btn-primary( type="submit", value="Create")
 .container
   .row
-    .col-md-12
-      h3 Departments
-      div(ng-show="!tiers[0]") 
-        p No Levels have been added yet, Add some... {{tiers[0]}}
+    div(ng-show="tiers[0]") 
+      .col-md-8
+        .chart
+        h3 Departments
+        hr
+        div(ng-show="!tiers[0]") 
+          p No Levels have been added yet, Add some... {{tiers[0]}}
 
-      div(ng-repeat= 'tier in tiers')
-        .col-xs-12.col-sm-6.col-md-4.no-pad
+        div(ng-show="tiers[0]") 
+          div(ng-repeat= 'tier in tiers')
+            .col-xs-12.col-sm-6.col-md-6.no-pad
+              .btn-xs.close-btn.right(ng-click='remove(tier._id)') X
+              .course-holder(sink-in, ng-click ="viewChildren('/levels/{{tier._id}}')")
+                .pad20              
+                  .row
+                    .col-sm-9.col-md-9
+                      h4 {{tier.title}}
+                      etto-tier-graph(data= "[3,8,9,10]")
+                    .col-sm-3.col-md-3
+                      .statBox
+                        p2 {{tier.totUsers}}
+                        br
+                        p.dark-grey Users
+
+      .col-md-4
+        h3.left Users
+        etto-invite-user-modal
+        .clear
+        hr
+        div(ng-repeat= 'user in users')
           .course-holder(sink-in)
             .pad20              
-              .row
-                .col-sm-9.col-md-9
-                  h4 {{tier.title}}
-                  .btn.btn-primary.btn-sm(ng-click='delete(tier._id)')  Delete
-                  a.btn.btn-primary.btn-sm(href='/levels/{{tier._id}}') View
-                .col-sm-3.col-md-3
-                  .statBox
-                    p2 {{tier.totUsers}}
-                    br
-                    p.dark-grey Users
+              .row  
+                h4  {{user.name}}
+                etto-tier-graph(data= "{{[3, 8, 9, 10, 22, 14]}}")
+
+    .col-md-12(ng-show="!tiers[0]")
+      h3.left Users
+      etto-invite-user-modal
+      .clear
+      hr
+      div(ng-repeat= 'user in users')
+        .course-holder(sink-in).col-md-4
+          .pad20              
+            .row  
+              h4 {{user.name}}
+              etto-tier-graph(data= "{{[3, 8, 9, 10, 22, 14]}}")
