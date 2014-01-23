@@ -1,0 +1,68 @@
+/*
+ * Course Player
+ * ============================================================================
+ */
+
+/* .etto-course-container
+ * ----------------------------------------------------------------------------
+ *
+ * It contains stuff.
+ *
+ * Here's a sample button for now:
+ *
+ *    <a class="btn btn-default">Thing</a>
+ */
+.etto-course-container{
+  min-height: 36em;
+  padding-bottom: 2.67em;
+}
+.etto-toolbox{
+  border-right: #e7e7e7 1px solid;
+}
+.etto-course-prev-block, .etto-course-next-block{
+  color: $etto-tan;
+  bottom: 0;
+  padding: 0.33em 0.67em;
+  position: absolute;
+}
+.etto-course-prev-block{
+  left: 0;
+}
+.etto-course-next-block{
+  right: 0;
+}
+// Temporary base styling
+// -------------------------
+.etto-course-container{
+  background: $etto-darkblue;
+}
+etto-course{
+  color: $etto-tan;
+
+  > div{
+    margin-top: 1em;
+  }
+
+  h1, h2{
+    background: $etto-tan;
+    color: $etto-darkblue;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0.33em 1.33rem 0.67em;
+  }
+
+  blockquote{
+    border-left-color: $etto-tan;
+    p{
+      font-size: 3em;
+    }
+    footer{
+      text-align: right;
+      font-size: 2em;
+    }
+
+    footer:before{
+      content: "\2014";
+    }
+  }
+}

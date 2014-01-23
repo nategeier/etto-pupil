@@ -1,0 +1,31 @@
+/*
+ * Header
+ * ============================================================================
+ *
+ * Keep your head on straight.
+ *
+ */
+
+.header{
+  background-color: $etto-mildblue;
+  color: $etto-accentblue;
+  margin: 0;
+  padding: 15px 44px $grid-gutter-width;
+  padding-bottom: 44px;
+  border-top: 3px solid $etto-accentblue;
+  margin-bottom: 20px;
+
+  h3, h4{
+    line-height: 1.1;
+  }
+}
+
+
+.main-img{
+  background-image: url("/images/site/opener2.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
+  height: 300px;
+  margin-bottom: 20px;
+}

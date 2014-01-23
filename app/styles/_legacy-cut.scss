@@ -1,0 +1,195 @@
+/*
+ * Legacy Styling - Cut
+ * ============================================================================
+ *
+ * This is the legacy styling working file.
+ *
+ * Remove code as it is transferred to individual modules while leaving
+ * `_legacy.sass` untouched to for easy switching to verify changes
+ *
+ * To switch, uncomment `@import "legacy"` and comment out the individual `@import`s in `main.sass`
+ *
+ */
+
+.green
+  background-color: green
+
+.red
+  background-color: red
+
+.header h2
+  color: $etto-grey
+
+.pad20
+  padding: 10px
+
+.form-control
+  margin-bottom: 10px
+
+.aside h3, .header-btn, .aside p, .openHolder h3
+  color: $etto-mildblue
+
+
+.aside h5
+  color: $etto-accentblue
+
+.small-pad
+  padding: 5px
+
+.err
+  color: red
+  font-size: 13px
+  text-align: center
+  margin: 5px
+
+.loader
+  width: 66px
+  margin: 0 auto
+
+a
+  color: #00B7FF
+
+p
+  color: $etto-accentblue
+
+p.red
+  color: red
+
+
+p3
+  font-size: .8 em
+  color: $etto-darkgrey
+
+h4
+  color: $etto-turquoise
+  text-transform: uppercase
+
+h2
+  color: #666
+  font-family: "Varela", sans-serif
+
+.dark-grey
+  color: $etto-darkgrey
+
+
+
+.clear
+  clear: both
+  height: 0
+
+.tan
+  color: $etto-tan
+
+.grey
+  color: $etto-grey
+
+.aqua
+  color: $etto-aqua
+
+.light
+  color: $etto-light
+
+.centerTxt
+  text-align: center
+
+.little-pad
+  padding: 3px
+
+
+.aside
+  padding-bottom: 15px
+
+
+header
+  z-index: 2
+  padding-top: 10px
+
+
+.headerBtn
+  width: 100%
+  height: 100%
+  background-color: $etto-accentblue
+  text-align: center
+  padding: 30px
+
+
+
+.headerBtn a
+  color: $etto-grey
+
+
+.header h3
+  color: $etto-accentblue
+
+
+
+.header p
+  color: $etto-grey
+
+.header
+  text-align: center
+
+.center-txt
+  text-align: center
+  width: 100%
+
+.overNum
+  position: relative
+  z-index: 20
+  margin-top: -20px
+  color: $etto-mildblue
+  font-size: .7em
+  text-align: center
+
+.fixed
+  position: fixed
+
+.absolute
+  position: absolute
+
+
+.right
+  float: right
+
+
+.register
+  background-color: $etto-grey
+  padding: 20px
+
+.col-md-main
+  background-color: $etto-accentblue
+  padding-top: 5px
+
+
+.thumb
+  padding: 3px
+
+
+
+.header-btn
+  background-color:  rgba(255,255,255,.9)
+  width: 100%
+  padding: 10px
+  text-align: center
+  border: 1px solid $etto-accentblue
+
+.bar-pad
+  padding-right: 1px
+
+.backBar
+  width: 100%
+  height: 50px
+  background-color: $etto-darkblue
+
+.fillBar
+  width: 100%
+  height: 100%
+  background-color: $etto-accentblue
+
+.openHolder
+  background-color: rgba(255,255,255,.9)
+  min-height: 600px
+  position: relative
+  top: -50px
+  padding: 20px
+  border: 1px solid $etto-darkgrey
