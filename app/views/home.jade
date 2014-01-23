@@ -8,12 +8,13 @@ etto-register-modal(redirect-to='/etto')
       h2 Start creating, taking, and sharing courses
       p Welcome Team
 .container
-  .row 
+  .row
     .col-xs-12.col-sm-4.col-md-4
-      h3.left Created Courses
-      etto-add-course.right(redirect-to='/etto')
-      div.no-pad(ng-repeat='course in courses')
-        div(sink-in)
+      h3 Created Courses
+      etto-add-course(redirect-to='/etto')
+      .clear
+      div(ng-repeat='course in courses')
+        .course-holder(sink-in)
           .pad20
             .row
               .col-md-9
