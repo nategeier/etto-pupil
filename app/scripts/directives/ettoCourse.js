@@ -9,6 +9,18 @@ angular.module("ettoPupil")
         controller: function ($scope, $document, $attrs) {
           $scope.editing = $attrs.edit !== undefined;
 
+          $scope.addBlock = function (blocktype) {
+            // Convert humanized string to dashed
+            if (blocktype) {
+              // Trim
+              blocktype = blocktype.replace(/^\s+|\s+$/gm, "");
+              // Dasherize
+              blocktype = blocktype.replace(/\s+/g, "-");
+              blocktype = blocktype.toLowerCase();
+            }
+            return CoursePlayer.addBlock(blocktype);
+          };
+
           CoursePlayer.play($scope.course);
 
           $scope.isCurrentBlock = function (block) {
