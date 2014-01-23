@@ -1,0 +1,47 @@
+/*
+ * Colors
+ * ============================================================================
+ *
+ * Fly Coursetto's colors!
+ *
+ *    <div style="background: #004056;" class="etto-styleguide-color dark">$etto-darkblue - #004056</div>
+ *    <div style="background: #386b86;" class="etto-styleguide-color dark">$etto-mildblue - #386b86</div>
+ *    <div style="background: #50889f;" class="etto-styleguide-color dark">$etto-accentblue - #50889f</div>
+ *    <div style="background: #3da6cb;" class="etto-styleguide-color dark">$etto-turquoise - #3da6cb</div>
+ *
+ *    <div style="background: #c9ffd5;" class="etto-styleguide-color light">$etto-light - #c9ffd5</div>
+ *    <div style="background: #ffffcb;" class="etto-styleguide-color light">$etto-tan - #ffffcb</div>
+ *    <div style="background: #eeeeee;" class="etto-styleguide-color light">$etto-grey - #eeeeee</div>
+ *    <div style="background: #e3e3e3;" class="etto-styleguide-color light">$etto-mediumgrey - #e3e3e3</div>
+ *    <div style="background: #dadada;" class="etto-styleguide-color light">$etto-darkgrey - #dadada</div>
+ *
+ */
+
+$etto-darkblue: #004056;
+$etto-mildblue: #386b86;
+$etto-accentblue: #50889f;
+$etto-turquoise: #3da6cb;
+
+$etto-light: #c9ffd5;
+$etto-tan: #ffffcb;
+$etto-grey: #eee;
+$etto-mediumgrey: #e3e3e3;
+$etto-darkgrey: #dadada;
+
+// Helper Class - Use to display sample colorbars within the style guide
+// ----------------------------------------------------------------------------
+.etto-styleguide-color{
+  width: 100%;
+  padding: 0.5em 1em;
+
+  &.dark{
+    color: $etto-grey;
+    text-shadow: 1px 1px 0px rgba(black, 0.7);
+  }
+
+
+  &.light{
+      color: $etto-darkblue;
+      text-shadow: 1px 1px 0px rgba(white, 0.8);
+  }
+}
