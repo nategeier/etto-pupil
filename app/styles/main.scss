@@ -1,0 +1,38 @@
+/*
+ * int main(void)
+ * ============================================================================
+ *
+ * The "entry point" that `@import`s all the individual Sass modules!
+ *
+ */
+
+@import "base/_config";
+
+
+//@import "legacy"
+
+@import "module/_navbar";
+@import "module/_header";
+@import "module/_footer";
+
+@import "module/_video";
+
+@import "module/_store";
+@import "module/_coursethumb";
+@import "module/_courseholder";
+@import "module/_reportholder";
+@import "module/_reportbar";
+
+
+@import "module/_courseplayer";
+
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+
+.clear{
+  clear: both;
+}
