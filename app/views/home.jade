@@ -18,8 +18,9 @@ etto-register-modal(redirect-to='/etto')
           .pad20
             .row
               .col-md-9
-                h4 {{course.title}}
-                p {{course.subTitle}}
+                a(href="/course/view/{{ course._id }}")
+                  h4 {{course.title}}
+                  p {{course.subTitle}}
               .col-md-3
                 p ${{course.price}}
                 .btn.btn-warning.btn-xs(ng-click='removeCourse(course._id)') X

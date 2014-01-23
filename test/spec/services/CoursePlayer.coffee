@@ -54,3 +54,8 @@ describe "Service: CoursePlayer", ->
       CoursePlayer.play { blocks: [ {} ] }
       expect( CoursePlayer.currentBlock() ).toBe 0
 
+  describe "editing function", ->
+    it "should be able to add a new block of type 'text'", ->
+      CoursePlayer.addBlock('text');
+      expect( CoursePlayer.blocksInCourse() ).toBe 4
+
