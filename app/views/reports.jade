@@ -15,20 +15,20 @@ etto-logged-in-nav
             input.btn.btn-primary( type="submit", value="Create")
 .container
   .row
-    div(ng-show="tiers[0]") 
+    div(ng-show="tiers[0]")
       .col-md-8
         .chart
         h3 Departments
         hr
-        div(ng-show="!tiers[0]") 
+        div(ng-show="!tiers[0]")
           p No Levels have been added yet, Add some... {{tiers[0]}}
 
-        div(ng-show="tiers[0]") 
+        div(ng-show="tiers[0]")
           div(ng-repeat= 'tier in tiers')
             .col-xs-12.col-sm-6.col-md-6.no-pad
               .btn-xs.close-btn.right(ng-click='remove(tier._id)') X
               .course-holder(sink-in, ng-click ="viewChildren('/levels/{{tier._id}}')")
-                .pad20              
+                .pad20
                   .row
                     .col-sm-9.col-md-9
                       h4 {{tier.title}}
@@ -40,14 +40,14 @@ etto-logged-in-nav
                         p.dark-grey Users
 
       .col-md-4
-        h3.left Users
+        h3 Users
         etto-invite-user-modal
         .clear
         hr
         div(ng-repeat= 'user in users')
           .course-holder(sink-in)
-            .pad20              
-              .row  
+            .pad20
+              .row
                 h4  {{user.name}}
                 etto-tier-graph(data= "{{[3, 8, 9, 10, 22, 14]}}")
 
@@ -58,7 +58,7 @@ etto-logged-in-nav
       hr
       div(ng-repeat= 'user in users')
         .course-holder(sink-in).col-md-4
-          .pad20              
-            .row  
+          .pad20
+            .row
               h4 {{user.name}}
               etto-tier-graph(data= "{{[3, 8, 9, 10, 22, 14]}}")
