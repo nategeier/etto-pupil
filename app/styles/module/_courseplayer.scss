@@ -12,38 +12,71 @@
  *
  *    <a class="btn btn-default">Thing</a>
  */
-.etto-course-container{
-  min-height: 36em;
+.etto-course-container {
   padding-bottom: 2.67em;
 }
-.etto-toolbox{
-  border-right: #e7e7e7 1px solid;
+
+@media all and (min-width: 60rem) {
+  .etto-course-container {
+    min-height: 36em;
+  }
 }
-.etto-course-prev-block, .etto-course-next-block{
+
+.etto-toolbox {
+  border-right: #e7e7e7 1px solid;
+
+  button.save, button.remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .etto-toolbox-newblock {
+    select {
+      display: inline;
+      width: 80%;
+    }
+
+    button {
+      width: 18%;
+      float: right;
+    }
+  }
+
+  .etto-toolbox-toolbar, .etto-toolbox-blocktools {
+    position: relative;
+  }
+}
+
+.etto-course-prev-block, .etto-course-next-block {
   color: $etto-tan;
   bottom: 0;
   padding: 0.33em 0.67em;
   position: absolute;
 }
-.etto-course-prev-block{
+
+.etto-course-prev-block {
   left: 0;
 }
-.etto-course-next-block{
+
+.etto-course-next-block {
   right: 0;
 }
+
 // Temporary base styling
 // -------------------------
-.etto-course-container{
+.etto-course-container {
   background: $etto-darkblue;
 }
-etto-course{
+
+etto-course {
   color: $etto-tan;
 
-  > div{
+  > div {
     margin-top: 1em;
   }
 
-  h1, h2{
+  h1, h2 {
     background: $etto-tan;
     color: $etto-darkblue;
     margin-bottom: 0;
@@ -51,17 +84,18 @@ etto-course{
     padding: 0.33em 1.33rem 0.67em;
   }
 
-  blockquote{
+  blockquote {
     border-left-color: $etto-tan;
-    p{
+    p {
       font-size: 3em;
     }
-    footer{
+
+    footer {
       text-align: right;
       font-size: 2em;
     }
 
-    footer:before{
+    footer:before {
       content: "\2014";
     }
   }
