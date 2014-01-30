@@ -11,7 +11,7 @@ angular.module("ettoPupil")
 
         // Clear out the Toolbox
         // TODO: Understand why saving relinks Blocks
-        angular.element(".etto-toolbox").empty();
+        angular.element(".etto-toolbox-blocktools").empty();
       });
     }
   ]);

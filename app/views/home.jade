@@ -28,13 +28,19 @@ etto-register-modal(redirect-to='/etto')
       hr
       .clearfix
       div(ng-repeat='course in courses')
-        .course-holder(sink-in)
+        a.course-holder(sink-in, href="/course/view/{{ course._id }}")
           .pad20
             .row
               .col-md-12
                 button.close.pull-right(type="button", aria-hidden="true", ng-click='removeCourse(course._id)') &times;
                 h4 {{course.title}}
                 p {{course.subtitle}}
+                a.btn.btn-primary(href="/course/edit/{{ course._id }}")
+                  i.fa.fa-edit
+
 
                 p ${{course.price}}
+                p ${{course.price}}
+
+
         hr

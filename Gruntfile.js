@@ -538,6 +538,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask("default", [
     "jshint",
+    "jsbeautifier:verify",
     "test",
     "build"
   ]);
