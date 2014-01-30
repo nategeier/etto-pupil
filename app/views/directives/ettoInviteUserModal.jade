@@ -1,6 +1,7 @@
 .modal-header
   button.close( type="button" )
-  h2.modal-title Create a Course
+  h2.modal-title Join {{currentTier.title}}
+  p An email will be set to this use to register on this level
 .modal-body
   form(ng-submit="inviteUser(newUser)")
     .form-group

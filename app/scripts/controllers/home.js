@@ -17,11 +17,12 @@ angular.module("ettoPupil")
         });
 
         var obj = {
-          tierID: $scope.user._tier._id
+          _id: $scope.user._tier._id
         };
 
         CourseList.listTiersCourses(obj, function (data) {
           $scope.tiersCourses = data;
+          console.log(data)
         });
       };
 

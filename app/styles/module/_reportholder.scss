@@ -23,3 +23,22 @@
 .report-holder:hover{
   cursor: pointer;
 }
+
+
+
+.aside{
+  //background-color: $etto-mildblue;
+  border-left-style: solid;
+  border-color: $etto-darkgrey;
+  border-width:1px;
+
+}
+
+.aside h3, .aside h4{
+  color: $etto-greyblue;
+}
+
+hr {
+ color:$etto-darkgrey;
+ background-color:$etto-darkgrey;
+}
