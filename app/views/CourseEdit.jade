@@ -2,20 +2,20 @@ etto-logged-in-nav
 
 .container-full
   .row
-    .col-sm-3
-      h4 {{ course.title }}
-      .name-me-something-great
-        select(ng-model="newBlocktype")
-          option Title
-          option Text
-          option Three Up
-          option Quote
-          option Youtube
-        button.btn.btn-default(ng-click="addBlock(newBlocktype)") New Block
-      .etto-toolbox
+    .col-sm-3.etto-toolbox
+      .etto-toolbox-toolbar
+        button.save.btn.btn-primary(ng-click="saveCourse()")
+          i.fa.fa-save
+        .etto-toolbox-title.clearfix
+          h4.pull-left {{ course.title }}
+      .etto-toolbox-newblock.clearfix
+        select.form-control(ng-model="newBlocktype", ng-options="bt.humanized for bt in blocktypes")
+        button.btn.btn-default(ng-click="addBlock(newBlocktype.name)")
+          i.fa.fa-plus
+      .etto-toolbox-blocktools
+
     .col-sm-9.etto-course-container
       etto-course( edit='edit',
                    course='course',
                    ng-swipe-left='nextBlock()',
                    ng-swipe-right='prevBlock()' )
-

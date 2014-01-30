@@ -27,10 +27,10 @@ angular.module("ettoPupil")
           if ($scope.$parent.editing) {
             editTemplate = "<div class='etto-course-block-edit-container' ng-show='isCurrentBlock( $index )'>" +
               "<ng-include src='blockTemplateEdit'></ng-include>" +
-              "<button class='btn btn-primary' ng-click='saveCourse()'>Save</button>" +
+              "<button class='remove btn btn-primary' ng-click='removeBlock()'><i class='fa fa-minus'></i></button>" +
               "</div>";
             editEl = $compile(editTemplate)($scope);
-            angular.element(".etto-toolbox").append(editEl);
+            angular.element(".etto-toolbox-blocktools").append(editEl);
           }
         }
       };

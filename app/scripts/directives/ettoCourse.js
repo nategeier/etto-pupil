@@ -7,21 +7,45 @@ angular.module("ettoPupil")
         templateUrl: "/views/directives/ettoCourse.html",
         restrict: "E",
         controller: function ($scope, $document, $attrs) {
+          // Are we in edit mode?
           $scope.editing = $attrs.edit !== undefined;
 
+          // Setup blocktype info
+          // TODO: Should be refactored somewhere else. Service?
+          $scope.blocktypes = [{
+            name: "title",
+            humanized: "Title",
+          }, {
+            name: "text",
+            humanized: "Text",
+          }, {
+            name: "three-up",
+            humanized: "Three Up",
+          }, {
+            name: "quote",
+            humanized: "Quote",
+          }, {
+            name: "youtube",
+            humanized: "You Tube",
+          }];
+          $scope.newBlocktype = $scope.blocktypes[0];
+
+          // Start the course!
+          CoursePlayer.play($scope.course);
+
+          // Controller Methods
           $scope.addBlock = function (blocktype) {
-            // Convert humanized string to dashed
-            if (blocktype) {
-              // Trim
-              blocktype = blocktype.replace(/^\s+|\s+$/gm, "");
-              // Dasherize
-              blocktype = blocktype.replace(/\s+/g, "-");
-              blocktype = blocktype.toLowerCase();
-            }
-            return CoursePlayer.addBlock(blocktype);
+            var newBlockId = CoursePlayer.addBlock(blocktype, CoursePlayer.currentBlock() + 1);
+            CoursePlayer.switchToBlock(newBlockId);
           };
 
-          CoursePlayer.play($scope.course);
+          $scope.removeBlock = function (index) {
+            CoursePlayer.removeBlock(CoursePlayer.currentBlock());
+          };
+
+          $scope.saveCourse = function () {
+            $scope.$emit("course-save");
+          };
 
           $scope.isCurrentBlock = function (block) {
             return CoursePlayer.isCurrentBlock(block);
@@ -35,6 +59,7 @@ angular.module("ettoPupil")
             CoursePlayer.prevBlock();
           };
 
+          // Setup handlers for alternative input methods
           $document.keydown(function (e) {
             var KEY_ENTER = 13,
               KEY_RIGHT = 39,

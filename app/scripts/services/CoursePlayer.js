@@ -9,102 +9,130 @@
  */
 
 angular.module("ettoPupil")
-.factory("CoursePlayer", [
+  .factory("CoursePlayer", [
 
-  function () {
-    var onBlock = 0;
+    function () {
+      var onBlock = 0;
 
-    var course = {
-      blocks: []
-    };
+      var course = {
+        blocks: []
+      };
 
-    /**
-     * Starts a new course.
-     *
-     * @param {course} newCourse The new course object to start playing.
-     */
-    var play = function (newCourse) {
-      course = newCourse;
-      onBlock = 0;
-    };
+      /**
+       * Starts a new course.
+       *
+       * @param {course} newCourse The new course object to start playing.
+       */
+      var play = function (newCourse) {
+        course = newCourse;
+        onBlock = 0;
+      };
 
-    /**
-     * Returns the number of blocks in the active course.
-     *
-     * @return {Number}
-     */
-    var blocksInCourse = function () {
-      return course.blocks.length;
-    };
+      /**
+       * Returns the number of blocks in the active course.
+       *
+       * @return {Number}
+       */
+      var blocksInCourse = function () {
+        return course.blocks.length;
+      };
 
-    /**
-     * Returns the index of the current block in the active course.
-     *
-     * @return {Number}
-     */
-    var currentBlock = function () {
-      return onBlock;
-    };
+      /**
+       * Returns the index of the current block in the active course.
+       *
+       * @return {Number}
+       */
+      var currentBlock = function () {
+        return onBlock;
+      };
 
-    /**
-     * Returns true if the current block is the last block in the current course.
-     *
-     * @return {Boolean}
-     */
-    var onLastBlock = function () {
-      return onBlock === blocksInCourse() - 1;
-    };
+      /**
+       * Returns true if the current block is the last block in the current course.
+       *
+       * @return {Boolean}
+       */
+      var onLastBlock = function () {
+        return onBlock === blocksInCourse() - 1;
+      };
 
-    /**
-     * Returns true if the passed block index is the current block in the active course.
-     *
-     * @param {block} The index to check against.
-     * @return {Boolean}
-     */
-    var isCurrentBlock = function (block) {
-      return block === onBlock;
-    };
+      /**
+       * Returns true if the passed block index is the current block in the active course.
+       *
+       * @param {block} The index to check against.
+       * @return {Boolean}
+       */
+      var isCurrentBlock = function (block) {
+        return block === onBlock;
+      };
 
-    /**
-     * Switch to the previous block in the active course.
-     */
-    var prevBlock = function () {
-      if (onBlock > 0) {
-        onBlock--;
-      }
-    };
+      /**
+       * Switch to the previous block in the active course.
+       */
+      var prevBlock = function () {
+        if (onBlock > 0) {
+          onBlock--;
+        }
+      };
 
-    /**
-     * Switch to the next block in the active course.
-     */
-    var nextBlock = function () {
-      if (!onLastBlock()) {
-        onBlock++;
-      }
-    };
+      /**
+       * Switch to the next block in the active course.
+       */
+      var nextBlock = function () {
+        if (!onLastBlock()) {
+          onBlock++;
+        }
+      };
 
-    /**
-     * Add a new block to the course
-     */
-    var addBlock = function (blocktype) {
-      course.blocks.push({
-        type: blocktype,
-        data: {},
-      });
-      console.dir(course.blocks);
-    };
+      /**
+       * Switch to the next block in the active course.
+       */
+      var switchToBlock = function (block) {
+        if (blocksInCourse() > block) {
+          onBlock = block;
+        } else {
+          // Block doesn't exist!
+          return -1;
+        }
+      };
 
-    var CoursePlayer = {
-      play: play,
-      blocksInCourse: blocksInCourse,
-      currentBlock: currentBlock,
-      onLastBlock: onLastBlock,
-      isCurrentBlock: isCurrentBlock,
-      prevBlock: prevBlock,
-      nextBlock: nextBlock,
-      addBlock: addBlock,
-    };
+      /**
+       * Add a new block to the end of the course or, if provided, the index
+       */
+      var addBlock = function (blocktype, index) {
+        var newBlock = {
+          type: blocktype,
+          data: {},
+        };
 
-    return CoursePlayer;
-  }
-]);
+        if (index !== undefined) {
+          course.blocks.splice(index, 0, newBlock);
+          return index;
+        } else {
+          return course.blocks.push(newBlock) - 1; // One less!
+        }
+      };
+
+      /**
+       * Remove the block at the passed index and return how many are left
+       */
+      var removeBlock = function (index) {
+        course.blocks.splice(index, 1);
+        return blocksInCourse();
+      };
+
+      var CoursePlayer = {
+        play: play,
+        blocksInCourse: blocksInCourse,
+        currentBlock: currentBlock,
+        onLastBlock: onLastBlock,
+        isCurrentBlock: isCurrentBlock,
+        prevBlock: prevBlock,
+        nextBlock: nextBlock,
+        switchToBlock: switchToBlock,
+        addBlock: addBlock,
+        removeBlock: removeBlock,
+      };
+
+      return CoursePlayer;
+    }
+  ]);
