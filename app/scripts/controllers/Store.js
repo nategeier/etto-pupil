@@ -79,9 +79,9 @@ angular.module("ettoPupil")
           child.isoff = !child.isoff;
         }
 
-        $scope.changeChildren(child, function (totUsersInChildren) {
+        /*$scope.changeChildren(child, function (totUsersInChildren) {
 
-        });
+        });*/
 
         $scope.changeParent(child, function (totUsersInChildren) {
           if (child.isoff) {
@@ -94,9 +94,6 @@ angular.module("ettoPupil")
       };
 
       $scope.changeChildren = function (intChild, callback) {
-        console.log(intChild)
-
-        recursive(intChild);
 
         function recursive(tier, child) {
 
@@ -120,6 +117,8 @@ angular.module("ettoPupil")
             }
           }
         }
+
+        recursive(intChild);
 
       };
 
