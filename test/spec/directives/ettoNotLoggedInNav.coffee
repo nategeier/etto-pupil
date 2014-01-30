@@ -10,5 +10,5 @@ describe "Directive: notLoggedInNav", ->
 
   it "should make hidden element visible", ->
     scope.$digest()
-    expect( element.text() ).toBe "Toggle navigationLogin"
+    expect( element.text() ).toBe "Toggle navigationCoursettoLogin"
 

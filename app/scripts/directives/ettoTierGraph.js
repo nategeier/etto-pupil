@@ -79,8 +79,6 @@ angular.module("ettoPupil")
 
           var chartEl = d3.select(element[0]);
 
-          console.log('attrs.data', attrs.data)
-
           var data = $parse(attrs.data)(scope);
           var max = 100;
 

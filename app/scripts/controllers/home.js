@@ -22,7 +22,6 @@ angular.module("ettoPupil")
 
         CourseList.listTiersCourses(obj, function (data) {
           $scope.tiersCourses = data;
-          console.log(data)
         });
       };
 
