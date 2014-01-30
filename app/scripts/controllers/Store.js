@@ -79,6 +79,10 @@ angular.module("ettoPupil")
           child.isoff = !child.isoff;
         }
 
+        $scope.changeChildren(child, function (totUsersInChildren) {
+
+        });
+
         $scope.changeParent(child, function (totUsersInChildren) {
           if (child.isoff) {
             $scope.totUsers -= totUsersInChildren;
@@ -87,6 +91,35 @@ angular.module("ettoPupil")
           }
           setPrice();
         });
+      };
+
+      $scope.changeChildren = function (intChild, callback) {
+        console.log(intChild)
+
+        recursive(intChild);
+
+        function recursive(tier, child) {
+
+          if (tier.children && tier.children[0]) {
+            for (var j = 0; j < tier.children.length; j++) {
+              if (tier.children[j]._id === child.parent) {
+                if (intChild.isoff) {
+                  tier.children[j].totUsers -= intChild.totUsers;
+                } else {
+                  tier.children[j].totUsers += intChild.totUsers;
+                }
+                if (tier.children[j].parent === $scope.currentTier._id) {
+                  callback(intChild.totUsers);
+                } else {
+                  recursive($scope.data, tier.children[j]);
+                }
+
+              } else {
+                recursive(tier.children[j], child);
+              }
+            }
+          }
+        }
 
       };
 
@@ -102,7 +135,6 @@ angular.module("ettoPupil")
                 } else {
                   tier.children[j].totUsers += intChild.totUsers;
                 }
-
                 if (tier.children[j].parent === $scope.currentTier._id) {
                   callback(intChild.totUsers);
                 } else {
@@ -121,6 +153,7 @@ angular.module("ettoPupil")
           recursive($scope.data, intChild);
         }
       };
+
       $scope.listAllOnTiers = function () {
 
         $scope.onTiers = [{

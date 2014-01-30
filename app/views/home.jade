@@ -6,34 +6,41 @@ etto-register-modal(redirect-to='/etto')
   .container
     .row
       h2 Start creating, taking, and sharing courses
-      p Welcome Team
+      p Welcome <i>{{user._tier.title}}</i> Team
 .container
   .row
-    .col-xs-12.col-sm-4.col-md-4
-      h3 Created Courses
-      etto-add-course(redirect-to='/etto')
-      .clear
-      div(ng-repeat='course in courses')
-        .course-holder(sink-in)
-          .pad20
-            .row
-              .col-md-9
-                a(href="/course/view/{{ course._id }}")
-                  h4 {{course.title}}
-                  p {{course.subTitle}}
-                a.btn.btn-primary(href="/course/edit/{{ course._id }}")
-                  i.fa.fa-edit
-              .col-md-3
-                p ${{course.price}}
-                .btn.btn-warning.btn-xs(ng-click='removeCourse(course._id)') X
 
-    .col-md-8.col-sm-8.col-md-8
+    .col-md-9.col-sm-9.col-md-9
       h3 Courses for my Users
       .row
         div(ng-repeat='course in tiersCourses')
-          .col-md-6.no-pad
+          .col-md-4.no-pad
             .course-holder(sink-in)
               img.img-responsive(src='/images/courses/thumbs/default.jpg')
-              etto-progress-bar(data= "[60]")
-              h4 {{course.title}}
-              p {{course.subtitle}}
+              h4 {{course._course.title}}
+              p {{course._course.subtitle}}
+              .progress
+                .progress-bar(role="progressbar", aria-valuenow="28", aria-valuemin="0", aria-valuemax="100", style="width: 28%;")
+
+    .col-xs-12.col-sm-3.col-md-3.aside
+      h3 Created Courses
+      etto-add-course(redirect-to='/etto')
+      hr
+      .clearfix
+      div(ng-repeat='course in courses')
+        a.course-holder(sink-in, href="/course/view/{{ course._id }}")
+          .pad20
+            .row
+              .col-md-12
+                button.close.pull-right(type="button", aria-hidden="true", ng-click='removeCourse(course._id)') &times;
+                h4 {{course.title}}
+                p {{course.subtitle}}
+                a.btn.btn-primary(href="/course/edit/{{ course._id }}")
+                  i.fa.fa-edit
+
+
+                p ${{course.price}}
+                p ${{course.price}}
+
+
+        hr

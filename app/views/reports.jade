@@ -1,64 +1,73 @@
 etto-logged-in-nav
-.header.main-img
-  .container
-    .row
-      .col-xs-12.col-sm-6.col-md-8
-        h2.center-txt {{currentTier.title}}
-        etto-overall-tier-graph(data= "{{[3, 8, 9, 10, 22, 14]}}")
-      .col-xs-12.col-sm-6.col-md-4
-        h4 Create Departments
-        .warn
-          p {{err}}
-        .col-md-12
-          form(ng-submit="add(newTier)")
-            input.form-control.left(style='width:60%', type='text', ng-model='newTier.title', placeholder='New Department')
-            input.btn.btn-primary( type="submit", value="Create")
+
 .container
   .row
+
+
+    h2.cap-first {{currentTier.title}}
+    P {{currentTier._id}}
+    form(ng-submit="add(newTier)")
+      input.form-control.pull-left(style='width:60%', type='text', ng-model='newTier.title', placeholder='New Department')
+      input.btn.btn-primary( type="submit", value="Create")
+    hr
     div(ng-show="tiers[0]")
       .col-md-8
         .chart
         h3 Departments
-        hr
         div(ng-show="!tiers[0]")
           p No Levels have been added yet, Add some... {{tiers[0]}}
 
         div(ng-show="tiers[0]")
           div(ng-repeat= 'tier in tiers')
             .col-xs-12.col-sm-6.col-md-6.no-pad
-              .btn-xs.close-btn.right(ng-click='remove(tier._id)') X
+              button.close.pull-right(type="button", aria-hidden="true", ng-click='remove(tier._id)') &times;
               .course-holder(sink-in, ng-click ="viewChildren('/levels/{{tier._id}}')")
                 .pad20
                   .row
                     .col-sm-9.col-md-9
                       h4 {{tier.title}}
-                      etto-tier-graph(data= "[3,8,9,10]")
                     .col-sm-3.col-md-3
-                      .statBox
+                      .statBox.pull-right
                         p2 {{tier.totUsers}}
                         br
                         p.dark-grey Users
+                    .col-xs-12(ng-repeat= 'course in tier._courses')
+                      p {{course._course.title}}
+                      div(ng-show='never')
+                        {{total = course._notCompleted.length + course._completed.length}}
+                        {{perc = ((total - course._notCompleted.length)/total) * 100}}
+                      .progress
+                        .progress-bar(role="progressbar", aria-valuenow="{{perc}}", aria-valuemin="0", aria-valuemax="100", style="width: {{perc}}%;")
 
-      .col-md-4
-        h3 Users
-        etto-invite-user-modal
-        .clear
+
+      .col-md-4.aside
+        .col-sm-9.col-md-9
+          h3.light-txt(style="text-transform: capitalize") {{currentTier.title}} users
+        .col-sm-3.col-md-3
+          etto-invite-user-modal
+        .clearfix
         hr
         div(ng-repeat= 'user in users')
           .course-holder(sink-in)
             .pad20
               .row
-                h4  {{user.name}}
-                etto-tier-graph(data= "{{[3, 8, 9, 10, 22, 14]}}")
+                .col-xs-3
+                  img.img-circle(ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
+                  i.fa.fa-user.fa-3x.center-block(ng-show="!user.avatarUrl")
+                .col-xs-9
+                  h4.cap-first  {{user.name}}
+                  p {{user._id}}
+          hr
 
     .col-md-12(ng-show="!tiers[0]")
-      h3.left Users
+      h3.pull-left Users
       etto-invite-user-modal
-      .clear
+      .clearfix
       hr
       div(ng-repeat= 'user in users')
         .course-holder(sink-in).col-md-4
           .pad20
             .row
-              h4 {{user.name}}
-              etto-tier-graph(data= "{{[3, 8, 9, 10, 22, 14]}}")
+              h4.cap-first {{user.name}}
+              p {{user._id}}
+          hr

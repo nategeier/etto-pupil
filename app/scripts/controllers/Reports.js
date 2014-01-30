@@ -42,6 +42,7 @@ angular.module("ettoPupil")
         };
         Tiers.addTier(newTier, function (results) {
           $scope.reset();
+          $scope.listUsers();
           $scope.newTier.title = "";
         });
       };
