@@ -39,6 +39,27 @@ angular.module("ettoPupil")
             });
         },
 
+        fullDetails: function (id, callback) {
+
+          $http.get("/api/v1/user/fullDetails/" + id)
+            .success(function (data, status, headers, config) {
+              callback(data);
+            })
+            .error(function (data, status, headers, config) {
+              console.dir(data);
+            });
+        },
+        update: function (user, callback) {
+
+          $http.post("/api/v1/user/update", user)
+            .success(function (data, status, headers, config) {
+              callback(data);
+            })
+            .error(function (data, status, headers, config) {
+              console.dir(data);
+            });
+        }
+
       };
 
       //$rootScope.login = function() { Session.loginModal(); };

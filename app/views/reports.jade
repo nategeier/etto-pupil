@@ -2,18 +2,20 @@ etto-logged-in-nav
 
 .container
   .row
-
-
     h2.cap-first {{currentTier.title}}
     P {{currentTier._id}}
-    form(ng-submit="add(newTier)")
-      input.form-control.pull-left(style='width:60%', type='text', ng-model='newTier.title', placeholder='New Department')
-      input.btn.btn-primary( type="submit", value="Create")
+
     hr
     div(ng-show="tiers[0]")
       .col-md-8
         .chart
         h3 Departments
+        form(ng-submit="add(newTier)")
+          .input-group
+            input.form-control(type="text", ng-model='newTier.title', placeholder='New Department')
+            span.input-group-btn
+              input.btn.btn-default(type= "submit") Create Department
+        hr
         div(ng-show="!tiers[0]")
           p No Levels have been added yet, Add some... {{tiers[0]}}
 
@@ -41,22 +43,22 @@ etto-logged-in-nav
 
 
       .col-md-4.aside
-        .col-sm-9.col-md-9
-          h3.light-txt(style="text-transform: capitalize") {{currentTier.title}} users
-        .col-sm-3.col-md-3
-          etto-invite-user-modal
+
+        h3.light-txt(style="text-transform: capitalize") {{currentTier.title}} users
+        etto-invite-user-modal
         .clearfix
         hr
         div(ng-repeat= 'user in users')
           .course-holder(sink-in)
-            .pad20
-              .row
-                .col-xs-3
-                  img.img-circle(ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
-                  i.fa.fa-user.fa-3x.center-block(ng-show="!user.avatarUrl")
-                .col-xs-9
-                  h4.cap-first  {{user.name}}
-                  p {{user._id}}
+            a(href = "/settings/{{user._id}}")
+              .pad20
+                .row
+                  .col-xs-3
+                    img.img-circle(ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
+                    i.fa.fa-user.fa-3x.center-block(ng-show="!user.avatarUrl")
+                  .col-xs-9
+                    h4.cap-first  {{user.name}}
+                    p {{user._id}}
           hr
 
     .col-md-12(ng-show="!tiers[0]")
@@ -65,9 +67,14 @@ etto-logged-in-nav
       .clearfix
       hr
       div(ng-repeat= 'user in users')
-        .course-holder(sink-in).col-md-4
-          .pad20
-            .row
-              h4.cap-first {{user.name}}
-              p {{user._id}}
-          hr
+        .col-sm-4.col-md-4
+          .course-holder(sink-in)
+            a(href = "/settings/{{user._id}}")
+              .pad20
+                .row
+                  .col-xs-3
+                    img.img-circle(ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
+                    i.fa.fa-user.fa-3x.center-block(ng-show="!user.avatarUrl")
+                  .col-xs-9
+                    h4.cap-first  {{user.name}}
+                    p {{user._id}}

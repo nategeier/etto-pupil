@@ -28,10 +28,9 @@ etto-logged-in-nav
                 .col-md-4
                   h5 ${{course.priceWithEmps}}
                   etto-purchase-course(redirect-to='/etto', course='{{$index}}')
-                  a.btn.btn-default.btn-xs.img-responsive(href='/purchase_course/{{course._id}}')  Demo
+                  a.btn.btn-default.btn-xs.img-responsive(href="/course/view/{{ course._id }}")  Demo
 
     .col-xs-12.col-sm-3.col-md-3.aside
-
       h3 {{currentTier.title}}
       p Total Users {{totUsers}}
       hr
