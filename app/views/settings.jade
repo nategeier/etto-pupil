@@ -1,29 +1,48 @@
 etto-logged-in-nav
 .container
   .col-md-12
-    h1  Settings
-    form(role='form')
-      .col-md-8
+    .col-sm-8.col-md-8
+      h1.pull-left Settings
+      .alert.alert-success(ng-show="saved")
+        p saved
+
+
+
+
+    form(role='form', ng-submit="updateUser()")
+      .col-sm-7.col-md-7
         .form-group
           label(for='exampleInputEmail1') Name
-          input#exampleInputEmail1.form-control(type='email', placeholder='name', value="{{user.name}}")
+          input#exampleInputEmail1.form-control(type='text', placeholder='name', value="{{editUser.name}}", ng-model="editUser.name")
           label(for='exampleInputEmail1') Email
-          input#exampleInputEmail1.form-control(type='email', placeholder='email', value="{{user.email}}")
+          input#exampleInputEmail1.form-control(type='email', placeholder='email', value="{{editUser.email}}", ng-model="editUser.email")
 
-      .col-md-4
-        img.img-circle(src= "{{user.avatarUrl}}")
+      .col-sm-5.col-md-5.aside
+        img.img-circle(src= "{{editUser.avatarUrl}}")
+        i.fa.fa-user.fa-3x.center-block(ng-show="!editUser.avatarUrl")
 
-
-      .col-md-12
-        .form-group
-          label(for='exampleInputPassword1') Password
-          input#exampleInputPassword1.form-control(type='password', placeholder='Password')
-        .form-group
-          label(for='exampleInputFile') File input
-          input#exampleInputFile(type='file')
-          p.help-block Example block-level help text here.
         .checkbox
           label
-            input(type='checkbox')
-            | Is manager
-        button.btn.btn-default(type='submit') Submit
+            input(type='checkbox', ng-model="editUser.auth.canPurchase")
+            | Can Purchase
+        .checkbox
+          label
+            input(type='checkbox', ng-model="editUser.auth.canGetCourses")
+            | Can Get Courses
+        .checkbox
+          label
+            input(type='checkbox', ng-model="editUser.auth.canCreateCourses")
+            | Can Create Courses
+        .checkbox
+          label
+            input(type='checkbox', ng-model="editUser.auth.canInvite")
+            | Can Invite Users to {{editUser._tier.title}}
+        .checkbox
+          label
+            input(type='checkbox', ng-model="editUser.enabled")
+            | Is Enabled
+
+
+
+      .col-sm-7.col-md-7
+        input.btn.btn-default.pull-right(type='submit', value="Update Profile")

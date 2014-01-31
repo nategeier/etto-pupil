@@ -1,12 +1,18 @@
 .modal-header
   button.close( type="button" )
-  h2.modal-title Join {{currentTier.title}}
-  p An email will be set to this use to register on this level
+  h2.modal-title Join the team
+  p An email will be set to this user to register on this department
 .modal-body
   form(ng-submit="inviteUser(newUser)")
-    .form-group
-      input.form-control( type="text", ng-model="newUser.name", placeholder="name", autocomplete="on", required )
-    .form-group
-      input.form-control( type="text", ng-model="newUser.email", placeholder="email", required )
-    .form-group
-      input.btn.btn-primary( type="submit", value="Create")
+    .col-md-8
+      .form-group
+        input.form-control( type="text", ng-model="newUser.name", placeholder="full name", autocomplete="on", required )
+      .form-group
+        input.form-control( type="text", ng-model="newUser.email", placeholder="email", required )
+    .col-md-4
+      i.fa.fa-envelope-o.fa-4x
+    .col-md-12
+      .form-group
+        input.btn.btn-primary( type="submit", value="Send Invite")
+    .clearfix
+
