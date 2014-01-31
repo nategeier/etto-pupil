@@ -8,7 +8,6 @@ etto-logged-in-nav
     hr
     div(ng-show="tiers[0]")
       .col-md-8
-        .chart
         h3 Departments
         form(ng-submit="add(newTier)")
           .input-group
@@ -62,6 +61,12 @@ etto-logged-in-nav
           hr
 
     .col-md-12(ng-show="!tiers[0]")
+      h3 Departments
+        form(ng-submit="add(newTier)")
+          .input-group
+            input.form-control(type="text", ng-model='newTier.title', placeholder='New Department')
+            span.input-group-btn
+              input.btn.btn-default(type= "submit") Create Department
       h3.pull-left Users
       etto-invite-user-modal
       .clearfix
