@@ -2,11 +2,7 @@ etto-logged-in-nav
 .container
   .col-md-12
     .col-sm-8.col-md-8
-      h1.pull-left Settings
-      .alert.alert-success(ng-show="saved")
-        p saved
-
-
+      h1 Settings
 
 
     form(role='form', ng-submit="updateUser()")
@@ -16,6 +12,8 @@ etto-logged-in-nav
           input#exampleInputEmail1.form-control(type='text', placeholder='name', value="{{editUser.name}}", ng-model="editUser.name")
           label(for='exampleInputEmail1') Email
           input#exampleInputEmail1.form-control(type='email', placeholder='email', value="{{editUser.email}}", ng-model="editUser.email")
+          p User ID: {{editUser._id}}
+          p Tier ID {{editUser._tier._id}}
 
       .col-sm-5.col-md-5.aside
         img.img-circle(src= "{{editUser.avatarUrl}}")
@@ -45,4 +43,6 @@ etto-logged-in-nav
 
 
       .col-sm-7.col-md-7
-        input.btn.btn-default.pull-right(type='submit', value="Update Profile")
+        input.btn.btn-success(type='submit', value="Update Profile")
+        .alert.alert-success(ng-show="saved")
+          p saved
