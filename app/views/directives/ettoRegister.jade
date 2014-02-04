@@ -1,10 +1,32 @@
 
 .modal-header
   button.close( type="button" )
-  h2.modal-title Almost Done...
+  h2.modal-title Register
+
 .modal-body
-  form(ng-submit="handleLogin()")
-    .form-group
-      input.form-control( type="text", ng-model="tier.title", placeholder="Company Name", autocomplete="on", required )
-    .form-group
-      input.btn.btn-primary( type="submit", value="Create" )
+  .col-md-8
+    form(ng-submit="handleLogin(user)", novalidate, class="css-form")
+      .form-group
+        input.form-control( type="text", ng-model="user.tier.title", placeholder="Company Name", autocomplete="on", required )
+      .form-group
+        input.form-control( type="text", ng-model="user.name", placeholder="name", autocomplete="on", required )
+      .form-group
+        input.form-control( type="email", ng-model="user.email", placeholder="email", autocomplete="on", required )
+      .form-group
+        input.form-control( type="text", ng-model="user.username", placeholder="username", autocomplete="on", required )
+      .form-group
+        input.form-control( type="password", ng-model="user.password", placeholder="password", autocomplete="on", required )
+      .form-group
+        input.btn.btn-primary( type="submit", value="Create" )
+  .col-md-4
+    p Or use single sign on
+    hr
+    .btn-group-vertical.btn-group-justified.sign-on-btns
+      a.btn.btn-default(href='/api/v1/auth/github/', target="_self")
+        i.fa.fa-github-square.fa-2x
+      a.btn.btn-default(href='/api/v1/auth/facebook/', target="_self")
+        i.fa.fa-facebook.fa-2x
+      a.btn.btn-default(href='/api/v1/auth/google/', target="_self")
+        i.fa.fa-google-plus-square.fa-2x
+    hr
+  .clearfix

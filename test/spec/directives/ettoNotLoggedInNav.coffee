@@ -1,7 +1,7 @@
 describe "Directive: notLoggedInNav", ->
   element = scope = null
 
-  beforeEach module "ettoPupil", "/views/directives/ettoNotLoggedInNav.html"
+  beforeEach module "ettoPupil", "/views/directives/ettoNotLoggedInNav.html", "/views/directives/ettoLoginBtns.html"
   beforeEach inject ( $rootScope, $compile ) ->
     scope = $rootScope.$new()
 
@@ -10,5 +10,5 @@ describe "Directive: notLoggedInNav", ->
 
   it "should make hidden element visible", ->
     scope.$digest()
-    expect( element.text() ).toBe "Toggle navigationCoursettoLogin"
+    expect( element.text() ).toBe "Toggle navigationCoursettoRegisterLogin"
 

@@ -21,6 +21,11 @@ angular.module("ettoPupil")
             callback(data);
           });
         },
+        createCompany: function (newTier, callback) {
+          $http.post("/api/v1/tier/createCompany", newTier).success(function (data) {
+            callback(data);
+          });
+        },
         removeTier: function (tier, callback) {
           $http.post("/api/v1/tier/remove", tier).success(function (data) {
             callback(data);
@@ -28,6 +33,12 @@ angular.module("ettoPupil")
         },
         findTier: function (tierID, callback) {
           $http.get("/api/v1/tier/" + tierID).success(function (data) {
+            callback(data);
+          });
+        },
+
+        updateTier: function (tier, callback) {
+          $http.post("/api/v1/tier/update", tier).success(function (data) {
             callback(data);
           });
         },

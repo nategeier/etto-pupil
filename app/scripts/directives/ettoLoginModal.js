@@ -5,25 +5,31 @@ angular.module("ettoPupil")
 
     function () {
       return {
-        template: "<a class='btn btn-primary btn-sm top-logout-btn' href='#' ng-click='login()'>Login</a>",
+        //templateUrl: "/views/directives/ettoLoginBtns.html",
         restrict: "AE",
         controller: function ($scope, $modal, Session, $location) {
           $scope.login = function () {
+
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoLoginModal.html",
               controller: function ($scope, $modalInstance) {
                 $scope.user = {};
-                $scope.handleLogin = function () {
-                  $modalInstance.close($scope.user);
+                $scope.handleLogin = function (user) {
+
+                  Session.authenticate(user, function (data) {
+
+                    if (data.message) {
+                      $scope.err = data;
+                    } else {
+                      $location.path("/etto");
+                      $modalInstance.close(user);
+                    }
+                  });
                 };
               }
             });
             modal.result.then(function (user) {
-              Session.authenticate(user, function (data) {
-                if (data.user) {
-                  $location.path($scope.redirectTo);
-                }
-              });
+
             });
           };
         },

@@ -21,6 +21,10 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngTouch", "ui.bootstrap"]
           templateUrl: "/views/reports.html",
           controller: "ReportsCtrl"
         })
+        .when("/tier/edit/:id", {
+          templateUrl: "/views/editTier.html",
+          controller: "TierCtrl"
+        })
         .when("/store/:tierID", {
           templateUrl: "/views/store.html",
           controller: "StoreCtrl"
