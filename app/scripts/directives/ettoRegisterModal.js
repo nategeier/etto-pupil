@@ -25,6 +25,7 @@ angular.module("ettoPupil")
                     user._tier = tier._id;
 
                     Users.updateUsersTier(user, function (data) {
+                      console.log("close", data)
                       $modalInstance.close(data);
                     });
                   });
@@ -36,8 +37,9 @@ angular.module("ettoPupil")
 
               Session.updateSession(user, function (data) {
                 $scope.user = data;
-                $location.path($scope.redirectTo);
+                $location.path("/etto");
               });
+
             });
 
           };
