@@ -1,8 +1,9 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .factory("Session", ["$http", "$compile", "$document", "$modal", "$location",
-    function ($http, $compile, $document, $modal, $location) {
+  .factory("Session", ["$http", "$compile", "$document", "$modal", "$location", "$log",
+    function ($http, $compile, $document, $modal, $location, $log) {
+
       var Session;
 
       Session = {
@@ -11,6 +12,17 @@ angular.module("ettoPupil")
             $location.path("/");
           }
         },
+
+        authenticate: function (user, callback) {
+          $http.post("/api/v1/auth/local", user)
+            .success(function (data, status, headers, config) {
+              callback(data);
+            })
+            .error(function (data, status, headers, config) {
+              console.dir(data);
+            });
+        },
+
         getSession: function (callback) {
           $http({
             method: "GET",

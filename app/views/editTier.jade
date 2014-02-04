@@ -1,0 +1,18 @@
+etto-logged-in-nav
+.container
+  .col-md-12
+    .col-sm-8.col-md-8
+      h1 Edit Tier
+
+    form(role='form', ng-submit="updateTier()")
+      .col-sm-7.col-md-7
+        .form-group
+          label(for='exampleInputEmail1') Title
+          input#exampleInputEmail1.form-control(type='text', placeholder='name', ng-model="tier.title")
+          input.btn.btn-success(type='submit', value="Update Tier")
+
+      .col-sm-5.col-md-5.aside
+        i.fa.fa-user.fa-3x.center-block(ng-show="!editUser.avatarUrl")
+        
+        .alert.alert-success(ng-show="saved")
+          p saved

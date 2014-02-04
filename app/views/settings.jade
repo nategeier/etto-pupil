@@ -16,7 +16,7 @@ etto-logged-in-nav
           p Tier ID {{editUser._tier._id}}
 
       .col-sm-5.col-md-5.aside
-        img.img-circle(src= "{{editUser.avatarUrl}}")
+        img.img-circle.user-thumb(src= "{{editUser.avatarUrl}}")
         i.fa.fa-user.fa-3x.center-block(ng-show="!editUser.avatarUrl")
 
         .checkbox

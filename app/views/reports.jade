@@ -22,6 +22,8 @@ etto-logged-in-nav
           div(ng-repeat= 'tier in tiers')
             .col-xs-12.col-sm-6.col-md-6.no-pad
               button.close.pull-right(type="button", aria-hidden="true", ng-click='remove(tier._id)') &times;
+              a.btn.btn-default.btn-xs(href="/tier/edit/{{ tier._id }}")
+                i.fa.fa-edit
               .course-holder(sink-in, ng-click ="viewChildren('/levels/{{tier._id}}')")
                 .pad20
                   .row
@@ -33,8 +35,9 @@ etto-logged-in-nav
                         br
                         p.dark-grey Users
                     .col-xs-12(ng-repeat= 'course in tier._courses')
-                      p {{course._course.title}}
+                      p {{course._course.title}} comp {{course._completed.length}} not {{course._notCompleted.length}}
                       div(ng-show='never')
+                        {{total = 0}}
                         {{total = course._notCompleted.length + course._completed.length}}
                         {{perc = ((total - course._notCompleted.length)/total) * 100}}
                       .progress
@@ -53,10 +56,10 @@ etto-logged-in-nav
               .pad20
                 .row
                   .col-xs-3
-                    img.img-circle(ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
+                    img.img-circle.user-thumb(ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
                     i.fa.fa-user.fa-3x.center-block(ng-show="!user.avatarUrl")
                   .col-xs-9
-                    h4.cap-first  {{user.name}}
+                    h4.cap-first.pull-right  {{user.name}}
                     p {{user._id}}
           hr
 
@@ -78,7 +81,7 @@ etto-logged-in-nav
               .pad20
                 .row
                   .col-xs-3
-                    img.img-circle(ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
+                    img.img-circle.user-thumb(ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
                     i.fa.fa-user.fa-3x.center-block(ng-show="!user.avatarUrl")
                   .col-xs-9
                     h4.cap-first  {{user.name}}

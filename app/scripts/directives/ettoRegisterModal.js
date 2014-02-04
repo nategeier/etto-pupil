@@ -6,49 +6,40 @@ angular.module("ettoPupil")
     function () {
 
       return {
-
         restrict: "AE",
         controller: function ($scope, $modal, Tiers, $location, Users, Session) {
 
-          $scope.$watch("user", function () {
-            if ($scope.user && !$scope.user._tier) {
-              $scope.register();
-            }
-          });
-
-          $scope.register = function () {
+          $scope.register = function (user) {
 
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoRegister.html",
               controller: function ($scope, $modalInstance) {
-                $scope.tier = {};
-                $scope.handleLogin = function () {
-                  $modalInstance.close($scope.tier);
+
+                $scope.handleLogin = function (user) {
+
+                  var newTier = {
+                    title: user.tier.title
+                  };
+                  Tiers.createCompany(newTier, function (tier) {
+
+                    user._tier = tier._id;
+
+                    Users.updateUsersTier(user, function (data) {
+                      $modalInstance.close(data);
+                    });
+                  });
+
                 };
               }
             });
-            modal.result.then(function (tier) {
-              var newTier = {
-                title: tier.title
-              };
-              Tiers.addTier(newTier, function (tier) {
+            modal.result.then(function (user) {
 
-                var obj = {
-                  tierID: tier._id,
-                  userID: $scope.user._id
-                };
-
-                Users.updateUsersTier(obj, function (data) {
-
-                  //var user = $scope.user;
-
-                  Session.updateSession($scope.user, function (data) {
-                    $scope.user = data;
-                    $location.path($scope.redirectTo);
-                  });
-                });
+              Session.updateSession(user, function (data) {
+                $scope.user = data;
+                $location.path($scope.redirectTo);
               });
             });
+
           };
         },
         link: function postLink(scope, element, attrs) {
