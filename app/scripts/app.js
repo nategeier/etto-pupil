@@ -41,6 +41,10 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngTouch", "ui.bootstrap"]
           templateUrl: "/views/settings.html",
           controller: "SettingsCtrl"
         })
+        .when("/billing/:userID", {
+          templateUrl: "/views/billing.html",
+          controller: "SettingsCtrl"
+        })
         .when("/session/destroy", {
           controller: "LogoutCtrl",
           templateUrl: "/views/home.html"

@@ -7,9 +7,9 @@ etto-verify-modal(redirect-to='/etto')
     .row
       h2 Start creating, taking, and sharing courses
       p Welcome <i>{{user._tier.title}}</i> Team
+
 .container
   .row
-
     .col-md-9.col-sm-9.col-md-9
       h3 Courses for my Users
       .row
@@ -19,7 +19,6 @@ etto-verify-modal(redirect-to='/etto')
               a(href="/course/view/{{ course._course._id }}")
                 .row
                   .col-xs-12
-                    p {{ course._id }}
                     img.img-responsive(src='/images/courses/thumbs/course_2.jpg')
                   .col-xs-12
                     h4 {{course._course.title}}
@@ -33,18 +32,16 @@ etto-verify-modal(redirect-to='/etto')
       hr
       .clearfix
       div(ng-repeat='course in courses')
-        course-holder(sink-in)
+        .course-holder(sink-in)
+          a(href="/course/view/{{ course._id }}")
           .col-md-12
-
             button.close.btn.btn-default(type="button", aria-hidden="true", ng-click='removeCourse(course._id)') &times;
-
-
             h4 {{course.title}}
             p {{course.subtitle}}
             .btn-group
             a.btn.btn-default(href="/course/edit/{{ course._id }}")
               i.fa.fa-edit
-            a.btn.btn-success(href="/course/view/{{ course._id }}")
-              i.fa.fa-play-circle
+          .clearfix
+
 
           hr

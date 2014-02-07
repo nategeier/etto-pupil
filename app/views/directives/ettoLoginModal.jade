@@ -2,24 +2,25 @@
   button.close( type="button" )
   h2.modal-title Login
 .modal-body
-  form(ng-submit="handleLogin(user)")
-    div(ng-show="err")
-      .alert.alert-danger {{err.message}}
-    .form-group
-      input.form-control( type="text", ng-model="user.username", placeholder="Enter your email address...", autocomplete="on", required )
-    .form-group
-      input.form-control( type="password", ng-model="user.password", placeholder="Enter your password...", required )
-    input.btn.btn-primary.pull-left( type="submit", value="Login")
+  .col-md-8.col-sm-8col-md-8
+    form(ng-submit="handleLogin(user)")
+      div(ng-show="err")
+        .alert.alert-danger {{err.message}}
+      .form-group
+        input.form-control( type="text", ng-model="user.username", placeholder="Enter your email address...", autocomplete="on", required )
+      .form-group
+        input.form-control( type="password", ng-model="user.password", placeholder="Enter your password...", required )
+      input.btn.btn-primary.pull-left( type="submit", value="Login")
 
+  .col-md-4.col-sm-4.col-md-4
+    .btn-group.pull-right.sign-on-btns
+      a.btn.btn-default(href='/api/v1/auth/github/', target="_self")
+        i.fa.fa-github-square.fa-2x
+      a.btn.btn-default(href='/api/v1/auth/facebook/', target="_self")
+        i.fa.fa-facebook.fa-2x
+      a.btn.btn-default(href='/api/v1/auth/google/', target="_self")
+        i.fa.fa-google-plus-square.fa-2x
 
-  .btn-group-vertical.btn-group-justified.sign-on-btns.pull-right
-    p Or use single sign on
-    a.btn.btn-default(href='/api/v1/auth/github/', target="_self")
-      i.fa.fa-github-square.fa-2x
-    a.btn.btn-default(href='/api/v1/auth/facebook/', target="_self")
-      i.fa.fa-facebook.fa-2x
-    a.btn.btn-default(href='/api/v1/auth/google/', target="_self")
-      i.fa.fa-google-plus-square.fa-2x
 
   .clearfix
 

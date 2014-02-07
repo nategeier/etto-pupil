@@ -20,17 +20,22 @@ angular.module("ettoPupil")
               controller: function ($scope, $modalInstance) {
                 $scope.selCourse = course;
                 $scope.customer = customer;
+                $scope.user = user;
 
                 $scope.handlePurchase = function (card) {
+
+                  var credits = course.priceWithEmps / course.price;
 
                   var order = {
                     course: {
                       price: course.priceWithEmps,
+
                       _id: course._id
                     },
                     user: user,
                     card: card,
-                    tiers: onTiers
+                    tiers: onTiers,
+                    credits: credits
                   };
 
                   Store.purchase(order, function (responce) {

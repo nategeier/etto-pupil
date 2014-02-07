@@ -20,6 +20,22 @@ nav.navbar.navbar-default( role="navigation", etto-session)
         a( href="/levels/{{user._tier._id}}" ) Reports
       li
         a( href="/settings/{{user._id}}" ) Settings
+
     .navbar-right
-      a.btn.btn-default.btn-sm.top-logout-btn(href="/api/v1/auth/logout", target="_self") Logout
+     a.btn.btn-default(href="/api/v1/auth/logout", target="_self")
+      i.fa.fa-times-circle.fa-1x
+
+    //
+      button(class="btn dropdown-toggle sr-only", type="button", id="dropdownMenu1", data-toggle="dropdown") Dropdown
+        span.caret
+      ul.dropdown-menu(role="menu", aria-labelledby="dropdownMenu1")
+        li(role="presentation")
+          a(role="menuitem", tabindex="-1", href="#") Action
+        li(role="presentation")
+          a(role="menuitem", tabindex="-1", href="#") what
+        li(role="presentation")
+          a(role="menuitem", tabindex="-1", href="/api/v1/auth/logout", target="_self") Logout
+
+
+
 

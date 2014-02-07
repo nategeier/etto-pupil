@@ -36,7 +36,19 @@ angular.module("ettoPupil")
             .error(function (data, status, headers, config) {
               console.dir(data);
             });
-        }
+        },
+        findCredit: function (id, callback) {
+          $http({
+            method: "GET",
+            url: "/api/v1/store/findCredit/" + id
+          })
+            .success(function (data, status, headers, config) {
+              callback(data);
+            })
+            .error(function (data, status, headers, config) {
+              callback(data);
+            });
+        },
       };
     }
   ]);

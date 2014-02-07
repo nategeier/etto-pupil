@@ -37,16 +37,19 @@ etto-logged-in-nav
       div.tree(ng-cloak='ng-cloak')
         .live
           ol
-            li(ya-tree='child in data.children at ol', ng-class='{minimized:child.minimized}')
+            li(etto-tree='child in data.children at ol', ng-class='{minimized:child.minimized}')
               div(ng-class='{isoff: child.isoff, ison: !child.isoff}')
                 .toggle(ng-click='toggleMinimized(child)', ng-switch='child.minimized', on='child.minimized')
-                  i.fa.fa-sort-asc.pull-left(ng-show= 'child._children', ng-switch-when= 'false')
-                  //.btn.btn-default.btn-xs.toggle-arrow(ng-show= 'child._children', ng-switch-when= 'false') ▼
-                  i.fa.fa-caret-right.pull-left(ng-show= 'child._children', ng-switch-default='ng-switch-default')
+                  i.fa.fa-sort-asc.fa-2x.pull-left(ng-show= 'child._children', ng-switch-when= 'false')
+                  i.fa.fa-caret-right.fa-2x.pull-left(ng-show= 'child._children', ng-switch-default='ng-switch-default')
                 .tree-btn(ng-click='toggleIsOn(child)')
                   div.pull-left(ng-show= '!child._children[0]', style='width:20px; height:30px;')
                   p.pull-left {{child.title}}
-                  p.pull-right {{child.totUsers}}
+
+                  .pull-right(style="width:40px")
+
+                    i.fa.fa-user.pull.pull-left(style="padding-top:5px")
+                    p {{child.dynamicTotalUsers}}
                   .clearfix
               ol(ng-class='{pregnant:child.children.length}')
               .clearfix

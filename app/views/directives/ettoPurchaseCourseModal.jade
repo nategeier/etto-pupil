@@ -5,7 +5,6 @@
 .modal-body
 
   form(ng-submit="handlePurchase(card)", ng-show="!customer")
-    p {{selCourse.priceWithEmps}} whats
     .form-group
       input.form-control( type="text", ng-model="card.number", placeholder="number", autocomplete="on", required)
     .form-group
@@ -21,7 +20,8 @@
     .col-md-main.col-md-8.col-sm-8
       form(ng-submit="handlePurchase(card)")
         h3 ${{selCourse.priceWithEmps}}
-        p {{selCourse.priceWithEmps}} Credits will be added to your company
+        p {{selCourse.priceWithEmps }} Credits will be added to {{user._tier.title}}
+        p {{totUsers}}
         blockquote
           small Credits are only used when a user takes a course
 

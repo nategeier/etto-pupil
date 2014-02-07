@@ -1,14 +1,22 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("HomeCtrl", ["$scope", "$compile", "Session", "CourseList", "CourseMetaChange", "$rootScope",
-    function ($scope, $compile, Session, CourseList, CourseMetaChange) {
+  .run(function (Session) {})
+  .controller("HomeCtrl", ["$scope", "$compile", "Session", "CourseList", "CourseMetaChange", "$rootScope", "Sessions",
+    function ($scope, $compile, Session, CourseList, CourseMetaChange, $rootScope, Sessions) {
+
+      $scope.person = "watata";
 
       $scope.$watch("user", function () {
         if ($scope.user) {
           $scope.listUsersCreatedCourses();
         }
       });
+      angular.module("ettoPupil");
+
+      $scope.tick = function () {
+        console.log("clicked", Sessions.user)
+      };
 
       $scope.listUsersCreatedCourses = function () {
 
