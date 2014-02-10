@@ -15,37 +15,45 @@ angular.module("ettoPupil")
             var onTiers = $scope.onTiers;
             var customer = $scope.customer;
 
-            var modal = $modal.open({
-              templateUrl: "/views/directives/ettoPurchaseCourseModal.html",
-              controller: function ($scope, $modalInstance) {
-                $scope.selCourse = course;
+            Store.findCard($scope.user._id, function (customer) {
+
+              if (customer === "null") {
+                $scope.customer = null;
+              } else {
                 $scope.customer = customer;
-                $scope.user = user;
-
-                $scope.handlePurchase = function (card) {
-
-                  var credits = course.priceWithEmps / course.price;
-
-                  var order = {
-                    course: {
-                      price: course.priceWithEmps,
-
-                      _id: course._id
-                    },
-                    user: user,
-                    card: card,
-                    tiers: onTiers,
-                    credits: credits
-                  };
-
-                  Store.purchase(order, function (responce) {
-                    $modalInstance.close(responce);
-                  });
-                };
               }
-            });
-            modal.result.then(function (responce) {
-              $location.path($scope.redirectTo);
+
+              var modal = $modal.open({
+                templateUrl: "/views/directives/ettoPurchaseCourseModal.html",
+                controller: function ($scope, $modalInstance) {
+                  $scope.selCourse = course;
+                  $scope.customer = customer;
+                  $scope.user = user;
+
+                  $scope.handlePurchase = function (card) {
+
+                    var credits = course.priceWithEmps / course.price;
+
+                    var order = {
+                      course: {
+                        price: course.priceWithEmps,
+                        _id: course._id
+                      },
+                      user: user,
+                      card: card,
+                      tiers: onTiers,
+                      credits: credits
+                    };
+
+                    Store.purchase(order, function (responce) {
+                      $modalInstance.close(responce);
+                    });
+                  };
+                }
+              });
+              modal.result.then(function (responce) {
+                $location.path($scope.redirectTo);
+              });
             });
           };
         },

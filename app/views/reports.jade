@@ -34,14 +34,12 @@ etto-logged-in-nav
                         p2 {{tier.totUsers}}
                         br
                         p.dark-grey Users
-                    .col-xs-12(ng-repeat= 'course in tier._courses')
-                      p {{course._course.title}} comp {{course._completed.length}} not {{course._notCompleted.length}}
-                      div(ng-show='never')
-                        {{total = 0}}
-                        {{total = course._notCompleted.length + course._completed.length}}
-                        {{perc = ((total - course._notCompleted.length)/total) * 100}}
-                      .progress
-                        .progress-bar(role="progressbar", aria-valuenow="{{perc}}", aria-valuemin="0", aria-valuemax="100", style="width: {{perc}}%;")
+                    
+                    .courses
+                      div(ng-repeat= 'course in tier._courses')
+                        p Title
+                        .progress
+                          .progress-bar(role="progressbar", aria-valuenow="50", aria-valuemin="0", aria-valuemax="100", style="width: {{45}}%;")
 
 
       .col-md-4.aside

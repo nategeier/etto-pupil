@@ -19,15 +19,6 @@ angular.module("ettoPupil")
       $scope.$watch("user", function () {
         if ($scope.user) {
 
-          Store.find($scope.user._id, function (customer) {
-
-            if (customer === "null") {
-              $scope.customer = null;
-            } else {
-              $scope.customer = customer;
-            }
-          });
-
           Tiers.findTier($scope.parentID, function (results) {
             $scope.currentTier = results;
           });

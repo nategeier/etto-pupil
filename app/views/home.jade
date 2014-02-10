@@ -16,13 +16,13 @@ etto-verify-modal(redirect-to='/etto')
         div(ng-repeat='course in tiersCourses')
           .col-md-4.col-sm-4
             .course-holder(sink-in)
-              a(href="/course/view/{{ course._course._id }}")
+              a(href="/course/view/{{ course._id }}")
                 .row
                   .col-xs-12
                     img.img-responsive(src='/images/courses/thumbs/course_2.jpg')
                   .col-xs-12
-                    h4 {{course._course.title}}
-                    p {{course._course.subtitle}}
+                    h4 {{course.title}}
+                    p {{course.subtitle}}
                     .progress
                       .progress-bar(role="progressbar", aria-valuenow="28", aria-valuemin="0", aria-valuemax="100", style="width: 28%;")
 

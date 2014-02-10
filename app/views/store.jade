@@ -5,7 +5,7 @@ etto-logged-in-nav
       h2.light-txt Course Market
       p.light-txt Purchase or upload a new course
 
-.container
+.container.store
   .row
     .col-xs-12.col-sm-9.col-md-9
       .row
@@ -28,7 +28,7 @@ etto-logged-in-nav
                 .col-md-4
                   h5 ${{course.priceWithEmps}}
                   etto-purchase-course(redirect-to='/etto', course='{{$index}}')
-                  a.btn.btn-default.btn-xs.img-responsive(href="/course/view/{{ course._id }}")  Demo
+                  a.btn.btn-default.btn-xs(href="/course/view/{{ course._id }}")  Demo
 
     .col-xs-12.col-sm-3.col-md-3.aside
       h3 {{currentTier.title}}
