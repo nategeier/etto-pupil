@@ -8,7 +8,7 @@ nav.navbar.navbar-default( role="navigation", etto-session)
     a.navbar-brand( href="/etto" )
       span
         img(src="/images/site/logo.png")
-      span.logo-name Coursettoetto
+      span.logo-name Coursetto
 
   #etto-navbar.collapse.navbar-collapse
     ul.nav.navbar-nav
@@ -18,24 +18,18 @@ nav.navbar.navbar-default( role="navigation", etto-session)
         a( href="/store/{{user._tier._id}}" ) Store
       li
         a( href="/levels/{{user._tier._id}}" ) Reports
-      li
-        a( href="/settings/{{user._id}}" ) Settings
+      li(ng-show="user.auth.canPurchase")
+        a( href="/levels/{{user._tier._id}}" ) Credits
+
 
     .navbar-right
-     a.btn.btn-default(href="/api/v1/auth/logout", target="_self")
-      i.fa.fa-times-circle.fa-1x
-
-    //
-      button(class="btn dropdown-toggle sr-only", type="button", id="dropdownMenu1", data-toggle="dropdown") Dropdown
-        span.caret
-      ul.dropdown-menu(role="menu", aria-labelledby="dropdownMenu1")
-        li(role="presentation")
-          a(role="menuitem", tabindex="-1", href="#") Action
-        li(role="presentation")
-          a(role="menuitem", tabindex="-1", href="#") what
-        li(role="presentation")
-          a(role="menuitem", tabindex="-1", href="/api/v1/auth/logout", target="_self") Logout
-
-
-
-
+      .dropdown
+        a(data-toggle="dropdown", href="#")
+          i.fa.fa-cog.fa-2x
+        ul(class="dropdown-menu", role="menu", aria-labelledby="dLabel")
+          li
+            a( href="/settings/{{user._id}}" ) Settings
+          li
+            a( href="/api/v1/auth/logout", target="_self" ) Logout
+          li
+            a( href="/billing/{{user._id}}", target="_self" ) Billing

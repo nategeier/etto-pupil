@@ -25,9 +25,12 @@ angular.module("ettoPupil")
                     user._tier = tier._id;
 
                     Users.updateUsersTier(user, function (data) {
-                      $modalInstance.close(data);
+                      if (data.err) {
+                        $scope.err = data.err;
+                      } else {
+                        $modalInstance.close(data);
+                      }
                     });
-                    xdxdxdcc
                   });
 
                 };

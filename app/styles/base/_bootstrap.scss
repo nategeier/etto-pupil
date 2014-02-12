@@ -10,7 +10,7 @@
 @import "bootstrap-sass/lib/_grid.scss";
 @import "bootstrap-sass/lib/_forms.scss";
 @import "bootstrap-sass/lib/_buttons.scss";
-@import "bootstrap-sass/lib/dropdowns.scss";
+@import "bootstrap-sass/lib/_dropdowns.scss";
 
 
 @import "bootstrap-sass/lib/tables.scss";
@@ -42,4 +42,10 @@
 
 .btn-group-vertical .btn{
   width:100%;
+}
+
+.w100 {
+
+    width: 100%;
+
 }

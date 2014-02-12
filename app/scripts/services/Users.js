@@ -14,6 +14,7 @@ angular.module("ettoPupil")
               callback(data);
             })
             .error(function (data, status, headers, config) {
+              callback(data);
               console.dir(data);
             });
         },

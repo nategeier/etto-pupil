@@ -13,14 +13,11 @@ angular.module("ettoPupil")
             $scope.listAllOnTiers();
             var user = $scope.user;
             var onTiers = $scope.onTiers;
-            var customer = $scope.customer;
 
             Store.findCard($scope.user._id, function (customer) {
 
               if (customer === "null") {
-                $scope.customer = null;
-              } else {
-                $scope.customer = customer;
+                customer = null;
               }
 
               var modal = $modal.open({

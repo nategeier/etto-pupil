@@ -25,12 +25,26 @@ angular.module("ettoPupil")
       };
 
       $scope.reset = function () {
-        Tiers.listChildrenAndCountUsers(obj, function (results) {
-          $scope.tiers = results;
-        });
+
+        $scope.children = [];
 
         Tiers.findTier($scope.parentID, function (results) {
           $scope.currentTier = results;
+          async.map(results._children, function (tierId, callback) {
+              Tiers.tierReport(tierId, function (results) {
+                $scope.children.push(results);
+                callback(results);
+              });
+
+            },
+            function (err, results) {
+              //---Finished
+            });
+
+        });
+
+        Tiers.tierReport($scope.parentID, function (results) {
+          $scope.tierReport = results;
         });
 
       };
@@ -38,7 +52,7 @@ angular.module("ettoPupil")
       $scope.add = function (newTier) {
         newTier = {
           title: newTier.title,
-          parent: $scope.parentID
+          parent: $scope.parentID,
         };
         Tiers.addTier(newTier, function (results) {
           $scope.reset();

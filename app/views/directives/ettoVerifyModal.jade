@@ -4,6 +4,8 @@
   h2.modal-title Almost Done...
 
 .modal-body
+  .alert.alert-danger(ng-show="err")
+    p {{err}}
   form(ng-submit="handleLogin(user)", novalidate, class="css-form")
     .form-group
       input.form-control( type="text", ng-model="user.tier.title", placeholder="Company Name", autocomplete="on", required )

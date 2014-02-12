@@ -37,6 +37,12 @@ angular.module("ettoPupil")
           });
         },
 
+        tierReport: function (id, callback) {
+          $http.get("/api/v1/record/tierReport/" + id).success(function (data) {
+            callback(data);
+          });
+        },
+
         updateTier: function (tier, callback) {
           $http.post("/api/v1/tier/update", tier).success(function (data) {
             callback(data);

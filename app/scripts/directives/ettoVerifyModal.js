@@ -23,28 +23,35 @@ angular.module("ettoPupil")
               templateUrl: "/views/directives/ettoVerifyModal.html",
               controller: function ($scope, $modalInstance) {
                 $scope.user = user;
-                $scope.handleLogin = function () {
-                  $modalInstance.close($scope.user);
+                $scope.handleLogin = function (user) {
+
+                  var newTier = {
+                    title: user.tier.title
+                  };
+
+                  Tiers.createCompany(newTier, function (tier) {
+
+                    user._tier = tier._id;
+
+                    Users.updateUsersTier(user, function (data) {
+                      if (data.err) {
+                        $scope.err = data.err;
+                      } else {
+                        $modalInstance.close(data);
+                      }
+
+                    });
+                  });
+
                 };
               }
             });
             modal.result.then(function (user) {
-              var newTier = {
-                title: user.tier.title
-              };
-
-              Tiers.createCompany(newTier, function (tier) {
-
-                user._tier = tier._id;
-
-                Users.updateUsersTier(user, function (data) {
-
-                  Session.updateSession(data, function (data) {
-                    $scope.user = data;
-                    $location.path($scope.redirectTo);
-                  });
-                });
+              Session.updateSession(user, function (data) {
+                $scope.user = data;
+                $location.path($scope.redirectTo);
               });
+
             });
           };
         },

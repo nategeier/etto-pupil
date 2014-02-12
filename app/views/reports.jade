@@ -2,52 +2,75 @@ etto-logged-in-nav
 
 .container
   .row
-    h2.cap-first {{currentTier.title}}
-    P {{currentTier._id}}
-
-    hr
-    div(ng-show="tiers[0]")
-      .col-md-8
-        h3 Departments
-        form(ng-submit="add(newTier)")
-          .input-group
-            input.form-control(type="text", ng-model='newTier.title', placeholder='New Department')
-            span.input-group-btn
-              input.btn.btn-default(type= "submit") Create Department
-        hr
-        div(ng-show="!tiers[0]")
-          p No Levels have been added yet, Add some... {{tiers[0]}}
-
-        div(ng-show="tiers[0]")
-          div(ng-repeat= 'tier in tiers')
-            .col-xs-12.col-sm-6.col-md-6.no-pad
-              button.close.pull-right(type="button", aria-hidden="true", ng-click='remove(tier._id)') &times;
-              a.btn.btn-default.btn-xs(href="/tier/edit/{{ tier._id }}")
-                i.fa.fa-edit
-              .course-holder(sink-in, ng-click ="viewChildren('/levels/{{tier._id}}')")
-                .pad20
-                  .row
-                    .col-sm-9.col-md-9
-                      h4 {{tier.title}}
-                    .col-sm-3.col-md-3
-                      .statBox.pull-right
-                        p2 {{tier.totUsers}}
-                        br
-                        p.dark-grey Users
-                    
-                    .courses
-                      div(ng-repeat= 'course in tier._courses')
-                        p Title
-                        .progress
-                          .progress-bar(role="progressbar", aria-valuenow="50", aria-valuemin="0", aria-valuemax="100", style="width: {{45}}%;")
-
-
-      .col-md-4.aside
-
-        h3.light-txt(style="text-transform: capitalize") {{currentTier.title}} users
-        etto-invite-user-modal
+    .col-sm-8.col-md-8.col-sm-8
+      h2.cap-first {{currentTier.title}}
+      a.btn.btn-default.btn-xs(href="/tier/edit/{{ currentTier._id }}")
+        i.fa.fa-edit {{ currentTier.title }}
+    .col-md-4.col-md-4.col-sm-4
+      .statBox
+        .col-md-6
+          p2 {{tierReport.totalUsers}}
+          br
+          p.dark-grey Total Users
+        .col-md-6
+          p2 {{tierReport.totalTaken}}
+          br
+          p.dark-grey Completed Courses
         .clearfix
-        hr
+
+
+    .col-sm-12.col-md-12
+      .col-xs-12.col-sm-12.col-md-4
+        .col-md-12
+          h3 Tiers
+          etto-add-tier
+          div(ng-show="!children[0]")
+            p No tiers have been added yet
+
+          div(ng-show="children[0]")
+            div(ng-repeat= 'tier in children')
+              .col-xs-12.col-sm-6.col-md-12
+                .course-holder(sink-in, ng-click ="viewChildren('/levels/{{tier._id}}')")
+                  .pad20
+                    .row
+                      .col-sm-9.col-md-9
+                        h4 {{tier.title}}
+                        .progress
+                          .progress-bar(role="progressbar", aria-valuenow="{{(tier.totalTaken/tier.totalToTake) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(tier.totalTaken/tier.totalToTake) * 100}}%;")
+                      .col-sm-3.col-md-3
+                        .statBox.pull-right
+                          p2 {{tier.totalUsers}}
+                          br
+                          p.dark-grey Users
+                  .clearfix
+
+                .clearfix
+
+      .col-xs-12.col-sm-6.col-md-4
+        .col-md-12
+          h3 Reports
+
+        .col-md-12
+          h4.pull-left Overall
+          h4.pull-right  {{tierReport.totalTaken}}/{{tierReport.totalToTake}}
+          .clearfix
+        .col-md-12
+          .progress
+            .progress-bar(role="progressbar", aria-valuenow="{{(tierReport.totalTaken/tierReport.totalToTake) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(tierReport.totalTaken/tierReport.totalToTake) * 100}}%;")
+          div(ng-repeat="course in tierReport.courses")
+            .col-md-12
+              p.pull-left {{course.title}}
+              p.pull-right  {{course.completed.length}}/{{course.completed.length + course.notCompleted.length}}
+            .clearfix
+            .col-md-12
+              .progress
+                .progress-bar(role="progressbar", aria-valuenow="{{(course.completed.length/(course.completed.length + course.notCompleted.length)) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(course.completed.length/(course.completed.length + course.notCompleted.length)) * 100}}%;")
+            .clearfix
+
+
+      .col-xs-12.col-sm-6.col-md-4
+        h3(style="text-transform: capitalize") Users
+        etto-invite-user-modal
         div(ng-repeat= 'user in users')
           .course-holder(sink-in)
             a(href = "/settings/{{user._id}}")
@@ -58,27 +81,3 @@ etto-logged-in-nav
                     i.fa.fa-user.fa-3x.center-block(ng-show="!user.avatarUrl")
                   .col-xs-9
                     h4.cap-first.pull-right  {{user.name}}
-          hr
-
-    .col-md-12(ng-show="!tiers[0]")
-      h3 Departments
-        form(ng-submit="add(newTier)")
-          .input-group
-            input.form-control(type="text", ng-model='newTier.title', placeholder='New Department')
-            span.input-group-btn
-              input.btn.btn-default(type= "submit") Create Department
-      h3.pull-left Users
-      etto-invite-user-modal
-      .clearfix
-      hr
-      div(ng-repeat= 'user in users')
-        .col-sm-4.col-md-4
-          .course-holder(sink-in)
-            a(href = "/settings/{{user._id}}")
-              .pad20
-                .row
-                  .col-xs-3
-                    img.img-circle.user-thumb(ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
-                    i.fa.fa-user.fa-3x.center-block(ng-show="!user.avatarUrl")
-                  .col-xs-9
-                    h4.cap-first  {{user.name}}
