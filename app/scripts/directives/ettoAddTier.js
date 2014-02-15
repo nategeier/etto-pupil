@@ -5,7 +5,7 @@ angular.module("ettoPupil")
 
     function () {
       return {
-        template: "<a class='w100 btn btn-primary btn-sm' href='#' ng-click='addTier()'><i class='fa fa-plus-circle'></i>Create Tier</a>",
+        template: "<a class='btn btn-primary btn-xs' href='#' ng-click='addTier()'><i class='fa fa-plus-square-o'></i>Create</a>",
         restrict: "AE",
         controller: function ($scope, $modal, Tiers) {
           $scope.addTier = function () {

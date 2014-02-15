@@ -1,18 +1,69 @@
 etto-logged-in-nav
 .container
   .col-md-12
-    .col-sm-8.col-md-8
-      h1 Edit Tier
+    h2 Edit {{tier.title}} Tier
+    p {{tier._id}}
+    .col-sm-4.col-md-4
 
-    form(role='form', ng-submit="updateTier()")
-      .col-sm-7.col-md-7
+      form(role='form', ng-submit="updateTier()")
+        h4 Details
+        .form-group.col-sm-8.col-md-8
+          label.col-sm-2.control-label(for='title') Title
+          input#title.form-control(type='text', placeholder='name', ng-model="tier.title")
+        .form-group.col-sm-4.col-md-4
+          label.col-sm-2.control-label(for='internalId') Id
+          input#internalId.form-control(type='text', placeholder='optional', ng-model="tier.internalId")
+
         .form-group
-          label(for='exampleInputEmail1') Title
-          input#exampleInputEmail1.form-control(type='text', placeholder='name', ng-model="tier.title")
-          input.btn.btn-success(type='submit', value="Update Tier")
-
-      .col-sm-5.col-md-5.aside
-        i.fa.fa-user.fa-3x.center-block(ng-show="!editUser.avatarUrl")
-        
+          input.btn.btn-primary.btn-sm.pull-right(type='submit', value="Update Tier")
         .alert.alert-success(ng-show="saved")
           p saved
+      .clearfix
+      h4 Users
+      div(ng-repeat="user in users")
+        .course-holder(sink-in)
+          a(href = "/settings/{{user._id}}")
+            .pad20
+              .row
+                .col-xs-3
+                  img.img-circle.user-thumb(ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
+                  i.fa.fa-user.fa-3x.center-block(ng-show="!user.avatarUrl")
+                .col-xs-9
+                  h4.cap-first.pull-right  {{user.name}}
+
+
+
+    .col-sm-4.col-md-4
+      h4 {{tier.title}} Courses
+      h4.pull-left Overall
+      h4.pull-right  {{tierReport.totalTaken}}/{{tierReport.totalToTake}}
+      .clearfix
+      .col-md-12
+        .progress
+          .progress-bar(role="progressbar", aria-valuenow="{{(tierReport.totalTaken/tierReport.totalToTake) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(tierReport.totalTaken/tierReport.totalToTake) * 100}}%;")
+        div(ng-repeat="course in tierReport.courses")
+          .col-md-12
+            p.pull-left {{course.title}}
+            button.close.pull-right(type="button", aria-hidden="true", ng-click="removeCourse(course._id)") &times;
+            p.pull-right  {{course.completed.length}}/{{course.completed.length + course.notCompleted.length}}
+
+
+          .clearfix
+          .col-md-12
+            .progress
+              .progress-bar(role="progressbar", aria-valuenow="{{(course.completed.length/(course.completed.length + course.notCompleted.length)) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(course.completed.length/(course.completed.length + course.notCompleted.length)) * 100}}%;")
+          .clearfix
+    .col-sm-4.col-md-4
+      h4 Companies courses
+      table.table-condensed
+
+        tr(ng-repeat="course in companyCourses")
+          td {{course.title}}
+          td
+            .checkbox
+              label
+                small Add To all Lower
+                input(type="checkbox", ng-model="course.ison")
+          td
+            button.btn.btn-default.btn-xs(type="button", ng-click="addCourse(course)", ) add course
+

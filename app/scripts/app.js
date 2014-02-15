@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("ettoPupil", ["ngRoute", "ngResource", "ngTouch", "ui.bootstrap"])
+angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "ui.bootstrap", "chieffancypants.loadingBar"])
   .config(["$routeProvider", "$locationProvider",
     function ($routeProvider, $locationProvider) {
       $locationProvider.html5Mode(true).hashPrefix("#");
@@ -33,7 +33,7 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngTouch", "ui.bootstrap"]
           templateUrl: "/views/storePurchase.html",
           controller: "LoginCtrl"
         })
-        .when("/register_invite/:userID", {
+        .when("/invited/:id", {
           templateUrl: "/views/register_invite.html",
           controller: "LoginCtrl"
         })

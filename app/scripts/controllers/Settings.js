@@ -9,7 +9,6 @@ angular.module("ettoPupil")
       Users.fullDetails(id, function (user) {
         $scope.editUser = user;
         Store.findCredit(user._tier._company, function (credit) {
-          console.log("credit--------", credit);
           $scope.credit = credit;
         });
       });
@@ -17,7 +16,6 @@ angular.module("ettoPupil")
       $scope.updateUser = function () {
         $scope.saved = null;
         Users.update($scope.editUser, function (user) {
-
           $scope.saved = "true";
         });
       };

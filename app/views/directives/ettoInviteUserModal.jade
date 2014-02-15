@@ -1,16 +1,40 @@
 .modal-header
-  button.close( type="button" )
-  h2.modal-title Join the team
-  p An email will be set to this user to register on this department
+  button.close(type="button", data-dismiss="modal", aria-hidden="true") &times;
+  .col-md-9
+    h2.modal-title Join the team
+    p An email will be set to this user with registration instructions
+  .col-md-3
+    i.fa.fa-envelope-o.fa-4x
+  .clearfix
 .modal-body
   form(ng-submit="inviteUser(newUser)")
-    .col-md-8
-      .form-group
-        input.form-control( type="text", ng-model="newUser.name", placeholder="full name", autocomplete="on", required )
+    .col-md-12
+      .alert.alert-danger(ng-show="err")
+        p {{err}}
       .form-group
         input.form-control( type="text", ng-model="newUser.email", placeholder="email", required )
-    .col-md-4
-      i.fa.fa-envelope-o.fa-4x
+    .col-md-6
+      .checkbox
+        label
+          input(type='checkbox', ng-model="newUser.auth.canPurchase")
+          small Can purchase credits and courses
+      .checkbox
+        label
+          input(type='checkbox', ng-model="newUser.auth.canGetCourses")
+          small Can add/remove courses
+    .col-md-6
+      .checkbox
+        label
+          input(type='checkbox', ng-model="newUser.auth.canCreateCourses")
+          small Can Create Courses
+      .checkbox
+        label
+          input(type='checkbox', ng-model="newUser.auth.canInvite")
+          small Can invite other users {{editUser._tier.title}}
+    .col-md-12
+      blockquote
+        small This user will only have the ability to edit users and courses on the same or below tiers never effecting the rest of your companies system.
+
     .col-md-12
       .form-group
         input.btn.btn-primary( type="submit", value="Send Invite")

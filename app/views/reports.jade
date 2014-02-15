@@ -2,11 +2,11 @@ etto-logged-in-nav
 
 .container
   .row
-    .col-sm-8.col-md-8.col-sm-8
+    .col-sm-4.col-md-4.col-sm-4
       h2.cap-first {{currentTier.title}}
       a.btn.btn-default.btn-xs(href="/tier/edit/{{ currentTier._id }}")
-        i.fa.fa-edit {{ currentTier.title }}
-    .col-md-4.col-md-4.col-sm-4
+        i.fa.fa-edit Edit
+    .col-md-8.col-md-8.col-sm-8
       .statBox
         .col-md-6
           p2 {{tierReport.totalUsers}}
@@ -21,32 +21,29 @@ etto-logged-in-nav
 
     .col-sm-12.col-md-12
       .col-xs-12.col-sm-12.col-md-4
-        .col-md-12
-          h3 Tiers
-          etto-add-tier
-          div(ng-show="!children[0]")
-            p No tiers have been added yet
+        h3 Tiers
+        etto-add-tier
+        div(ng-show="!children[0]")
+          p No tiers have been added yet
 
-          div(ng-show="children[0]")
-            div(ng-repeat= 'tier in children')
-              .col-xs-12.col-sm-6.col-md-12
-                .course-holder(sink-in, ng-click ="viewChildren('/levels/{{tier._id}}')")
-                  .pad20
-                    .row
-                      .col-sm-9.col-md-9
-                        h4 {{tier.title}}
-                        .progress
-                          .progress-bar(role="progressbar", aria-valuenow="{{(tier.totalTaken/tier.totalToTake) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(tier.totalTaken/tier.totalToTake) * 100}}%;")
-                      .col-sm-3.col-md-3
-                        .statBox.pull-right
-                          p2 {{tier.totalUsers}}
-                          br
-                          p.dark-grey Users
-                  .clearfix
+        div(ng-show="children[0]")
+          div(ng-repeat= 'tier in children')
+            .col-xs-12.col-sm-6.col-md-12
+              .course-holder(sink-in, ng-click ="viewChildren('/levels/{{tier._id}}')")
+                .pad20
+                  .row
+                    .col-sm-9.col-md-9
+                      h4 {{tier.title}}
+                      .progress
+                        .progress-bar(role="progressbar", aria-valuenow="{{(tier.totalTaken/tier.totalToTake) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(tier.totalTaken/tier.totalToTake) * 100}}%;")
+                    .col-sm-3.col-md-3
+                      .statBox.pull-right
+                        p2 {{tier.totalUsers}}
+                        br
+                        p.dark-grey Users
+              .clearfix
 
-                .clearfix
-
-      .col-xs-12.col-sm-6.col-md-4
+      .col-xs-12.col-sm-6.col-md-4.report-progress
         .col-md-12
           h3 Reports
 
@@ -69,8 +66,10 @@ etto-logged-in-nav
 
 
       .col-xs-12.col-sm-6.col-md-4
-        h3(style="text-transform: capitalize") Users
+        h3(ng-show="currentTier._children[0]") Managers
+        h3(ng-show="!currentTier._children[0]") Users
         etto-invite-user-modal
+        .clearfix
         div(ng-repeat= 'user in users')
           .course-holder(sink-in)
             a(href = "/settings/{{user._id}}")
@@ -80,4 +79,8 @@ etto-logged-in-nav
                     img.img-circle.user-thumb(ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
                     i.fa.fa-user.fa-3x.center-block(ng-show="!user.avatarUrl")
                   .col-xs-9
-                    h4.cap-first.pull-right  {{user.name}}
+                    div(ng-show="user.name")
+                      h5.cap-first {{user.name}}
+                    div(ng-show="!user.name")
+                      h5.cap-first {{user.email[0]}}
+                      small.text-warning Pending Registration

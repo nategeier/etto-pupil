@@ -23,14 +23,16 @@
   margin-top:20px;
   text-align: center;
   padding: 10px;
-  background-color: $etto-greyblue;
+  //background-color: ;
+
+  border:1px solid $etto-darkgrey;
 
   p2{
     font-size: 1.5em;
-    color: #fff;
+    color: $etto-greyblue;
   }
   p{
-    color: #fff;
+    color: $etto-greyblue;
   }
 }
 

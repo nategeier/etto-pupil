@@ -20,7 +20,7 @@ angular.module("ettoPupil")
         },
         inviteUser: function (data, callback) {
 
-          $http.post("/api/v1/user/invite_user", data)
+          $http.post("/api/v1/user/inviteUser", data)
             .success(function (data, status, headers, config) {
               callback(data);
             })

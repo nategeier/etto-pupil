@@ -1,8 +1,39 @@
-h1 hellooeoeoe
 
-.row
-  .col-md-12
-    form(ng-submit="confInvite(user)")
-      input.form-control(type='text', placeholder='name', ng-model='user.name')
-      input.form-control(type='password', placeholder='password', ng-model='user.password')
-      input.btn.btn-default(type='submit', value='Enroll')
+.container
+  .row
+    .col-md-4
+      img.img-responsive(src="/images/site/logo-large.png")
+    .col-md-8
+      .modal-header
+        button.close( type="button" )
+        h2.modal-title Register
+
+      .modal-body
+        .col-sm-8.col-md-8
+          p {{inviteUser._id}}
+          .alert.alert-danger(ng-show="err")
+            p {{err}}
+          form(ng-submit="handleLogin(user)", novalidate, class="css-form")
+            .form-group
+              input.form-control( type="text", ng-model="inviteUser.name", placeholder="name", autocomplete="on", required )
+            .form-group
+              input.form-control( type="email", ng-model="inviteUser.email", placeholder="email", autocomplete="on", required )
+            .form-group
+              input.form-control( type="text", ng-model="inviteUser.username", placeholder="username", autocomplete="on", required )
+            .form-group
+              input.form-control( type="password", ng-model="inviteUser.password", placeholder="password", autocomplete="on", required )
+            .form-group
+              input.btn.btn-primary( type="submit", value="Create" )
+        .col-sm-4.col-md-4
+          p Or use single sign on
+          .btn-group-vertical.btn-group-justified.sign-on-btns
+            a.btn.btn-default(href="/api/v1/auth/github/?userId={{inviteUser._id}}", target="_self")
+              i.fa.fa-github-square.fa-2x
+            a.btn.btn-default(href="/api/v1/auth/facebook/", target="_self")
+              i.fa.fa-facebook.fa-2x
+            a.btn.btn-default(href="/api/v1/auth/google/", target="_self")
+              i.fa.fa-google-plus-square.fa-2x
+        .clearfix
+
+
+  .clearfix

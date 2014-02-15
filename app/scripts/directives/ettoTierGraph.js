@@ -1,4 +1,4 @@
-"use strict";
+/*"use strict";
 
 angular.module("ettoPupil")
   .directive("ettoTierGraph", ["$parse",
@@ -125,3 +125,5 @@ angular.module("ettoPupil")
     });
 
   ]);
+
+  */

@@ -2,16 +2,19 @@ etto-logged-in-nav
 .header.main-img(style="background-image: url('/images/site/market.jpg')")
   .container
     .row
-      h2 Course Market
-      p Purchase or upload a new course
+      .col-md-9
+        h2 Course Market
+        p Purchase or upload a new course
+      .col-md-3
+        input.form-control.over-img(type='text', ng-model='searchCourse', placeholder='Search Course')
 
 .container.store
   .row
     .col-xs-12.col-sm-9.col-md-9
       .row
         .col-xs-12.col-sm-6.col-md-6
-          h3 Courses for my Users
-          input.form-control(type='text', ng-model='searchCourse', placeholder='Search Course')
+          h3 Courses for Purchase
+
       .clearfix
       .row
         div(ng-repeat='course in courses | filter:searchCourse')
@@ -21,14 +24,14 @@ etto-logged-in-nav
                 .col-xs-12
                   img.img-responsive(src='/images/courses/thumbs/course_2.jpg')
               .row
-                .col-md-8
+                .col-md-7
                   h4 {{course.title}}
                   p {{course.subtitle}}
                   p(style="font-size:10px;") {{course._id}}
-                .col-md-4
+                .col-md-5
                   h5 ${{course.priceWithEmps}}
-                  etto-purchase-course(redirect-to='/etto', course='{{$index}}')
-                  a.btn.btn-default.btn-xs(href="/course/view/{{ course._id }}")  Demo
+                  a.btn.btn-primary.btn-xs.w100(etto-purchase-course, href="#", ng-click='purchaseCourse(course)') Purchase
+                  a.btn.btn-default.btn-xs.w100(href="/course/view/{{ course._id }}")  Demo
 
     .col-xs-12.col-sm-3.col-md-3.aside
       h3 {{currentTier.title}}

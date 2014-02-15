@@ -4,13 +4,17 @@ angular.module("ettoPupil")
   .directive("ettoPurchaseCourse", [
 
     function () {
+
       return {
-        template: "<a class='btn btn-primary btn-xs top-logout-btn' href='#' ng-click='purchaseCourse(course)'>Purchase</a>",
         restrict: "AE",
         controller: function ($scope, $modal, Store, $location) {
 
           $scope.purchaseCourse = function (course) {
-            $scope.listAllOnTiers();
+
+            if (course) {
+              $scope.listAllOnTiers();
+            }
+
             var user = $scope.user;
             var onTiers = $scope.onTiers;
 
@@ -24,22 +28,34 @@ angular.module("ettoPupil")
                 templateUrl: "/views/directives/ettoPurchaseCourseModal.html",
                 controller: function ($scope, $modalInstance) {
                   $scope.selCourse = course;
+                  if (course) {
+                    $scope.addedCredits = course.priceWithEmps;
+                  }
+
                   $scope.customer = customer;
                   $scope.user = user;
 
-                  $scope.handlePurchase = function (card) {
+                  $scope.handleCancil = function () {
+                    $modalInstance.close();
+                  };
 
-                    var credits = course.priceWithEmps / course.price;
+                  $scope.handlePurchase = function (card, addedCredits) {
+
+                    var courseId = null;
+
+                    if (course) {
+                      courseId = course._id;
+                    }
+
+                    //credits = addedCredits;
+                    console.log(addedCredits);
 
                     var order = {
-                      course: {
-                        price: course.priceWithEmps,
-                        _id: course._id
-                      },
                       user: user,
                       card: card,
                       tiers: onTiers,
-                      credits: credits
+                      courseId: courseId,
+                      addedCredits: addedCredits
                     };
 
                     Store.purchase(order, function (responce) {
@@ -49,7 +65,7 @@ angular.module("ettoPupil")
                 }
               });
               modal.result.then(function (responce) {
-                $location.path($scope.redirectTo);
+                $location.path("/etto");
               });
             });
           };

@@ -1,10 +1,16 @@
 
 .modal-header
   button.close( type="button" )
-  h2.modal-title Puchase {{selCourse.title}}
+  h2.modal-title Purchase Credits
 .modal-body
 
-  form(ng-submit="handlePurchase(card)", ng-show="!customer")
+  form(ng-submit="handlePurchase(card, addedCredits)", ng-show="!customer")
+    .form-group.col-md-main.col-md-8.col-sm-8
+      .input-group
+        span.input-group-addon $
+        input.form-control(type="text", required, ng-model="addedCredits")
+        span.input-group-addon .00
+
     .form-group
       input.form-control( type="text", ng-model="card.number", placeholder="number", autocomplete="on", required)
     .form-group
@@ -13,22 +19,27 @@
       input.form-control( type="text", ng-model="card.exp_year", placeholder="exp_year", required )
     .form-group
       input.form-control( type="text", ng-model="card.cvc", placeholder="cvc", required )
+
     .form-group
-      input.btn.btn-primary( type="submit", value="Puchase")
+      .btn-group
+        button.btn.btn-default( type="button", ng-click="handleCancil()") Cancel
+        input.btn.btn-success( type="submit", value="Purchase")
 
   div(ng-show="customer")
     .col-md-main.col-md-8.col-sm-8
-      form(ng-submit="handlePurchase(card)")
-        h3 ${{selCourse.priceWithEmps}}
-        p {{selCourse.priceWithEmps }} Credits will be added to {{user._tier.title}}
-        p {{totUsers}}
+      form(ng-submit="handlePurchase(card, addedCredits)")
+        .input-group
+          span.input-group-addon $
+          input.form-control(type="text", required, ng-model="addedCredits")
+          span.input-group-addon .00
+        p {{addedCredits }} Credits will be added to {{user._tier.title}}
         blockquote
           small Credits are only used when a user takes a course
 
         .form-group
           .btn-group
-            button.btn.btn-default( type="button") Cancel
-            input.btn.btn-success( type="submit", value="Puchase")
+            button.btn.btn-default( type="button", ng-click="handleCancil()") Cancel
+            input.btn.btn-success( type="submit", value="Purchase")
 
 
 
@@ -39,3 +50,4 @@
       p **** **** **** {{customer.active_card.last4}}
       p {{customer.active_card.type}}
     .clearfix
+

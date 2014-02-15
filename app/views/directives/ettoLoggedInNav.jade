@@ -18,18 +18,19 @@ nav.navbar.navbar-default( role="navigation", etto-session)
         a( href="/store/{{user._tier._id}}" ) Store
       li
         a( href="/levels/{{user._tier._id}}" ) Reports
-      li(ng-show="user.auth.canPurchase")
-        a( href="/levels/{{user._tier._id}}" ) Credits
 
 
     .navbar-right
-      .dropdown
-        a(data-toggle="dropdown", href="#")
-          i.fa.fa-cog.fa-2x
-        ul(class="dropdown-menu", role="menu", aria-labelledby="dLabel")
-          li
-            a( href="/settings/{{user._id}}" ) Settings
-          li
-            a( href="/api/v1/auth/logout", target="_self" ) Logout
-          li
-            a( href="/billing/{{user._id}}", target="_self" ) Billing
+      ul.nav.navbar-nav
+        li(ng-show="user.auth.canPurchase")
+          a.btn.btn-default.btn-sm(etto-purchase-course, href="#", ng-click='purchaseCourse(course)') {{credit.credits}} Credits
+        li.dropdown
+          a(data-toggle="dropdown", href="#")
+            i.fa.fa-cog.fa-2x
+          ul(class="dropdown-menu", role="menu", aria-labelledby="dLabel")
+            li
+              a( href="/settings/{{user._id}}" ) Settings
+            li
+              a( href="/api/v1/auth/logout", target="_self" ) Logout
+            li
+              a( href="/billing/{{user._id}}", target="_self" ) Billing

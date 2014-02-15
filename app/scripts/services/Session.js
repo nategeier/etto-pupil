@@ -26,7 +26,7 @@ angular.module("ettoPupil")
         getSession: function (callback) {
           $http({
             method: "GET",
-            url: "/api/v1/auth/get_session"
+            url: "/api/v1/auth/getSession"
           })
             .success(function (data, status, headers, config) {
               callback(data);
@@ -36,7 +36,7 @@ angular.module("ettoPupil")
           });
         },
         updateSession: function (user, callback) {
-          $http.post("/api/v1/auth/update_session", user)
+          $http.post("/api/v1/auth/updateSession", user)
             .success(function (data, status, headers, config) {
               callback(data);
             })

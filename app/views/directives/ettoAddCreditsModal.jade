@@ -1,0 +1,15 @@
+.modal-header
+  button.close( type="button" )
+  h2.modal-title Purchase Credits
+  p Currently at {{credit.credits}}
+
+.modal-body
+  form(ng-submit="handleCedits(credits)")
+    .form-group
+      .input-group
+        span.input-group-addon $
+        input.form-control(type="text", required, ng-model="credits")
+        span.input-group-addon .00
+
+    .form-group
+      input.btn.btn-primary( type="submit", value="Purchase")
