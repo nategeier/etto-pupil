@@ -88,7 +88,7 @@ angular.module("ettoPupil")
         $scope.changeChildren(child);
         $scope.checkIfParentsAreOff(child, function (totalOff) {
 
-          if (totalOff != 0) {
+          if (totalOff !== 0) {
             changeTotal = totalOff + child.totUsers;
           }
 
@@ -175,8 +175,6 @@ angular.module("ettoPupil")
       };
 
       $scope.changeParent = function (intChild, changeTotal, callback) {
-
-        console.log("change parents")
 
         var totToChange = intChild.totUsers;
 

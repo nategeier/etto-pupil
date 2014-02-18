@@ -18,7 +18,7 @@ angular.module("ettoPupil")
             });
         },
         listUsersCreatedCourses: function (id, callback) {
-          $http.post("/api/v1/user/listUsersCreatedCourses/" + id)
+          $http.get("/api/v1/user/listUsersCreatedCourses/" + id)
             .success(function (data, status, headers, config) {
               callback(data);
             })

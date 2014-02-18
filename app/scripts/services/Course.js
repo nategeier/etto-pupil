@@ -36,7 +36,6 @@ angular.module("ettoPupil")
       Course.get({
         id: $route.current.params.courseId
       }, function (course) {
-        console.log(course, "its a course")
         delay.resolve(course);
       }, function () {
         // Are we in edit mode? If so, send back a new course.

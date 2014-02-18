@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("SettingsCtrl", ["$scope", "Tiers", "$routeParams", "Users", "Store",
-    function ($scope, Tiers, $routeParams, Users, Store) {
+  .controller("SettingsCtrl", ["$scope", "Tiers", "$routeParams", "Users", "Store", "Session",
+    function ($scope, Tiers, $routeParams, Users, Store, Session) {
 
       var id = $routeParams.userID;
 
@@ -17,8 +17,11 @@ angular.module("ettoPupil")
         $scope.saved = null;
         Users.update($scope.editUser, function (user) {
           $scope.saved = "true";
+
+          Session.updateSession(user, function (data) {
+            $scope.user = data;
+          });
         });
       };
-
     }
   ]);

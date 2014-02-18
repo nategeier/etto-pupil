@@ -9,10 +9,6 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
           templateUrl: "/views/landing.html",
           controller: "MainCtrl"
         })
-        .when("/login/new", {
-          templateUrl: "/views/login.html",
-          controller: "LoginCtrl"
-        })
         .when("/etto", {
           templateUrl: "/views/home.html",
           controller: "HomeCtrl"
@@ -29,13 +25,9 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
           templateUrl: "/views/store.html",
           controller: "StoreCtrl"
         })
-        .when("/purchase_course/:courseID", {
-          templateUrl: "/views/storePurchase.html",
-          controller: "LoginCtrl"
-        })
         .when("/invited/:id", {
           templateUrl: "/views/register_invite.html",
-          controller: "LoginCtrl"
+          controller: "InviteCtrl"
         })
         .when("/settings/:userID", {
           templateUrl: "/views/settings.html",

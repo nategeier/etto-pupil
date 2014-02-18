@@ -10,8 +10,6 @@ angular.module("ettoPupil")
         controller: function ($scope, $modal, Tiers) {
           $scope.addTier = function () {
 
-            console.log('step opn', $scope.parentID);
-
             var parentId = $scope.parentID;
 
             var modal = $modal.open({
@@ -19,23 +17,15 @@ angular.module("ettoPupil")
               controller: function ($scope, $modalInstance) {
                 $scope.handleNewTier = function (tier) {
 
-                  console.log('step two', $scope.parentID)
-
                   tier.parent = parentId;
                   $modalInstance.close(tier);
-
-                  console.log('step tier', tier)
                 };
               }
             });
             modal.result.then(function (tier) {
-
               Tiers.addTier(tier, function (data) {
                 $scope.reset();
                 $scope.listUsers();
-                if (data) {
-                  //$scope.listUsersCreatedCourses();
-                }
               });
             });
           };

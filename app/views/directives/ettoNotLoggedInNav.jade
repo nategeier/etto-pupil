@@ -12,5 +12,8 @@ nav.navbar.navbar-default( role="navigation" )
 
   #etto-navbar.collapse.navbar-collapse
     .navbar-right
-      etto-login-btns(redirect-to='/etto')
+      .btn-group
+        button.btn.btn-primary.btn-sm.navbar-btn(etto-register-modal, ng-click='register(user)') Register
+        button.btn.btn-default.btn-sm.navbar-btn(etto-login-modal, ng-click='login()') Login
+
 

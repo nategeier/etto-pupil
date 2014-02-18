@@ -14,10 +14,6 @@ angular.module("ettoPupil")
         $scope.parentID = null;
       }
 
-      var obj = {
-        _id: $scope.parentID
-      };
-
       $scope.listUsers = function () {
         Users.listUsersInTier($scope.parentID, function (users) {
           $scope.users = users;
@@ -30,17 +26,14 @@ angular.module("ettoPupil")
 
         Tiers.findTier($scope.parentID, function (results) {
           $scope.currentTier = results;
-          async.map(results._children, function (tierId, callback) {
-              Tiers.tierReport(tierId, function (results) {
-                $scope.children.push(results);
-                callback(results);
-              });
 
-            },
-            function (err, results) {
-              //---Finished
+          async.map(results._children, function (tierId, callback) {
+            Tiers.tierReport(tierId, function (results) {
+              $scope.children.push(results);
+              callback(results);
             });
 
+          });
         });
 
         Tiers.tierReport($scope.parentID, function (results) {

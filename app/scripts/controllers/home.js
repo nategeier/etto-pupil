@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("HomeCtrl", ["$scope", "$compile", "Session", "CourseList", "CourseMetaChange", "$rootScope",
-    function ($scope, $compile, Session, CourseList, CourseMetaChange) {
+  .controller("HomeCtrl", ["$scope", "$compile", "Session", "CourseList", "CourseMetaChange", "Wire",
+    function ($scope, $compile, Session, CourseList, CourseMetaChange, Wire) {
 
       $scope.$watch("user", function () {
         if ($scope.user) {
@@ -11,16 +11,16 @@ angular.module("ettoPupil")
       });
 
       $scope.listUsersCreatedCourses = function () {
-        console.log("vrerated", $scope.user._id)
-        CourseList.listUsersCreatedCourses($scope.user._id, function (data) {
+
+        Wire.get("user/listUsersCreatedCourses/" + $scope.user._id, function (data) {
           $scope.courses = data;
         });
+
         if ($scope.user._tier) {
-          CourseList.listTiersCourses($scope.user._tier._id, function (courses) {
+          Wire.get("course/listTiersCourses/" + $scope.user._tier._id, function (courses) {
             $scope.tiersCourses = courses;
           });
         }
-
       };
 
       $scope.removeCourse = function (id) {

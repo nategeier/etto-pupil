@@ -32,12 +32,17 @@ angular.module("ettoPupil")
                     if (data.err) {
                       $scope.err = data.err;
                     } else {
+
                       $modalInstance.close();
                     }
                   });
 
                 };
               }
+            });
+            modal.result.then(function () {
+
+              $scope.listUsers();
             });
 
           };

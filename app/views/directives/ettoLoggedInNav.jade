@@ -1,36 +1,37 @@
 nav.navbar.navbar-default( role="navigation", etto-session)
-  .navbar-header
-    button.navbar-toggle( data-toggle="collapse", data-target="#etto-navbar" )
-      .sr-only Toggle navigation
-      .icon-bar
-      .icon-bar
-      .icon-bar
-    a.navbar-brand( href="/etto" )
-      span
-        img(src="/images/site/logo.png")
-      span.logo-name Coursetto
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle( data-toggle="collapse", data-target="#etto-navbar" )
+        .sr-only Toggle navigation
+        .icon-bar
+        .icon-bar
+        .icon-bar
+      a.navbar-brand( href="/etto" )
+        span
+          img(src="/images/site/logo.png")
+        span.logo-name Coursetto
 
-  #etto-navbar.collapse.navbar-collapse
-    ul.nav.navbar-nav
-      li
-        a( href="/etto" ) Home
-      li
-        a( href="/store/{{user._tier._id}}" ) Store
-      li
-        a( href="/levels/{{user._tier._id}}" ) Reports
-
-
-    .navbar-right
+    #etto-navbar.collapse.navbar-collapse
       ul.nav.navbar-nav
-        li(ng-show="user.auth.canPurchase")
-          a.btn.btn-default.btn-sm(etto-purchase-course, href="#", ng-click='purchaseCourse(course)') {{credit.credits}} Credits
-        li.dropdown
-          a(data-toggle="dropdown", href="#")
-            i.fa.fa-cog.fa-2x
-          ul(class="dropdown-menu", role="menu", aria-labelledby="dLabel")
-            li
-              a( href="/settings/{{user._id}}" ) Settings
-            li
-              a( href="/api/v1/auth/logout", target="_self" ) Logout
-            li
-              a( href="/billing/{{user._id}}", target="_self" ) Billing
+        li
+          a( href="/etto" ) Home
+        li(ng-show= "user.auth.canGetCourses")
+          a( href="/store/{{user._tier._id}}" ) Store
+        li(ng-show= "user.auth.canInvite")
+          a( href="/levels/{{user._tier._id}}" ) Reports
+
+
+      .navbar-right
+        ul.nav.navbar-nav
+          li(ng-show="user.auth.canPurchase")
+            a.btn.btn-default.btn-sm(etto-purchase-course, href="#", ng-click='purchaseCourse(course)') {{credit.credits}} Credits
+          li.dropdown
+            a(data-toggle="dropdown", href="#")
+              i.fa.fa-cog.fa-2x
+            ul(class="dropdown-menu", role="menu", aria-labelledby="dLabel")
+              li
+                a( href="/settings/{{user._id}}" ) Settings
+              li
+                a( href="/api/v1/auth/logout", target="_self" ) Logout
+              li
+                a( href="/billing/{{user._id}}", target="_self" ) Billing

@@ -48,11 +48,9 @@ angular.module("ettoPupil")
               }
             });
             modal.result.then(function (user) {
-              console.log("updated user-------", user)
 
               Session.updateSession(user, function (data) {
                 $scope.user = data;
-                console.log("updated-------", data)
                 $location.path($scope.redirectTo);
               });
 

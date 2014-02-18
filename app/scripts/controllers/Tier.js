@@ -20,7 +20,6 @@ angular.module("ettoPupil")
                 $scope.companyCourses = courses;
               });
           });
-
         });
 
         Tiers.tierReport($scope.tierID, function (results) {
@@ -35,7 +34,6 @@ angular.module("ettoPupil")
       $scope.updateTier = function () {
         Tiers.updateTier($scope.tier, function (results) {
           $scope.tier = results;
-
         });
       };
 
