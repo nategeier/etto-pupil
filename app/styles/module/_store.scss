@@ -23,7 +23,9 @@
 }
 
 
-
+.store .course-holder{
+  height:280px;
+}
 
 .toggle-arrow{
   float: left;
@@ -46,6 +48,10 @@
   color: #e0e0e0;
 }
 .tree{
+
+  .fa-user{
+    color: $etto-darkgrey;
+  }
 
   ol{
     margin: 4px 0;

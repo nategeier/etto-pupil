@@ -1,7 +1,7 @@
 describe "Directive: notLoggedInNav", ->
   element = scope = null
 
-  beforeEach module "ettoPupil", "/views/directives/ettoNotLoggedInNav.html", "/views/directives/ettoLoginBtns.html"
+  beforeEach module "ettoPupil", "/views/directives/ettoNotLoggedInNav.html"
   beforeEach inject ( $rootScope, $compile ) ->
     scope = $rootScope.$new()
 

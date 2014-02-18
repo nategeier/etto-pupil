@@ -20,8 +20,12 @@
   background-color: $etto-accentblue;
 }
 .statBox{
+  margin-top:20px;
   text-align: center;
-  color: $etto-darkgrey;
+  padding: 10px;
+  //background-color: ;
+
+  border:1px solid $etto-darkgrey;
 
   p2{
     font-size: 1.5em;
@@ -31,6 +35,16 @@
     color: $etto-greyblue;
   }
 }
+
+.courses{
+  height:200px;
+  overflow: hidden;
+}
+
+.progress{
+  height:5px;
+}
+
 etto-tier-graph div{
   font: 10px sans-serif;
   background-color: $etto-accentblue;

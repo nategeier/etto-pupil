@@ -5,32 +5,46 @@ angular.module("ettoPupil")
 
     function () {
       return {
-        template: "<a class='btn btn-default btn-xs top-logout-btn' href='#' ng-click='inviteUser()'><i class='fa fa-envelope-o'></i>Invite</a>",
+        template: "<a class='btn btn-primary btn-xs' href='#' ng-click='inviteUser()'><i class='fa fa-envelope-o'></i>Invite</a>",
         restrict: "AE",
         controller: function ($scope, $modal, Users) {
+
+          var _tier = $scope.parentID;
+
           $scope.inviteUser = function () {
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoInviteUserModal.html",
               controller: function ($scope, $modalInstance) {
-                $scope.newUser = {};
-                $scope.inviteUser = function () {
-                  $modalInstance.close($scope.newUser);
+                $scope.newUser = {
+                  auth: {
+                    canPurchase: false,
+                    canGetCourses: true,
+                    canCreateCourses: true,
+                    canInvite: true
+                  }
+                };
+
+                $scope.inviteUser = function (newUser) {
+
+                  newUser._tier = _tier;
+
+                  Users.inviteUser(newUser, function (data) {
+                    if (data.err) {
+                      $scope.err = data.err;
+                    } else {
+
+                      $modalInstance.close();
+                    }
+                  });
+
                 };
               }
             });
-            modal.result.then(function (newUser) {
+            modal.result.then(function () {
 
-              newUser._tier = $scope.parentID;
-
-              Users.inviteUser(newUser, function (data) {
-
-                if (data) {
-                  $scope.listUsers();
-                  //$scope.listUsersCreatedCourses();
-                  //$location.path($scope.redirectTo);
-                }
-              });
+              $scope.listUsers();
             });
+
           };
         },
         link: function postLink(scope, element, attrs) {

@@ -1,48 +1,56 @@
 etto-logged-in-nav
 .container
   .col-md-12
-    .col-sm-8.col-md-8
-      h1 Settings
+    h1 Settings
+
+    .col-sm-2.col-md-2
+      etto-settings-nav
+
+    .col-sm-10.col-md-10
+      form(role='form', ng-submit="updateUser()")
+        .col-sm-7.col-md-7
+          .form-group
+            label(for='exampleInputEmail1') Name
+            input#exampleInputEmail1.form-control(type='text', placeholder='name', ng-model="editUser.name", ng-change="updateUser()")
+          .form-group
+            div(ng-repeat="email in editUser.email")
+              label(for='exampleInputEmail1') Email {{$index + 1}}
+              input#exampleInputEmail1.form-control(type='email', placeholder='email', ng-model="email", ng-change="updateUser()")
+
+          .form-group
+            label(for='username') Username
+            input#username.form-control(type='text', placeholder='username', ng-model="editUser.username", ng-change="updateUser()")
+            p User ID: {{editUser._id}}
+            p Tier ID {{editUser._tier._id}}
+
+        .col-sm-5.col-md-5.aside
+          img.img-circle.user-thumb(src= "{{editUser.avatarUrl}}")
+          i.fa.fa-user.fa-3x.center-block(ng-show="!editUser.avatarUrl")
+
+          .checkbox
+            label
+              input(type='checkbox', ng-model="editUser.auth.canPurchase", ng-change="updateUser()")
+              | Can Purchase
+          .checkbox
+            label
+              input(type='checkbox', ng-model="editUser.auth.canGetCourses", ng-change="updateUser()")
+              | Can Get Courses
+          .checkbox
+            label
+              input(type='checkbox', ng-model="editUser.auth.canCreateCourses", ng-change="updateUser()")
+              | Can Create Courses
+          .checkbox
+            label
+              input(type='checkbox', ng-model="editUser.auth.canInvite", ng-change="updateUser()")
+              | Can Invite Users to {{editUser._tier.title}}
+          .checkbox
+            label
+              input(type='checkbox', ng-model="editUser.enabled", ng-change="updateUser()")
+              | Is Enabled
+        .col-sm-12.col-md-12
+          .alert.alert-success(ng-show="saved")
+            p saved
 
 
-    form(role='form', ng-submit="updateUser()")
-      .col-sm-7.col-md-7
-        .form-group
-          label(for='exampleInputEmail1') Name
-          input#exampleInputEmail1.form-control(type='text', placeholder='name', value="{{editUser.name}}", ng-model="editUser.name")
-          label(for='exampleInputEmail1') Email
-          input#exampleInputEmail1.form-control(type='email', placeholder='email', value="{{editUser.email}}", ng-model="editUser.email")
-          p User ID: {{editUser._id}}
-          p Tier ID {{editUser._tier._id}}
-
-      .col-sm-5.col-md-5.aside
-        img.img-circle.user-thumb(src= "{{editUser.avatarUrl}}")
-        i.fa.fa-user.fa-3x.center-block(ng-show="!editUser.avatarUrl")
-
-        .checkbox
-          label
-            input(type='checkbox', ng-model="editUser.auth.canPurchase")
-            | Can Purchase
-        .checkbox
-          label
-            input(type='checkbox', ng-model="editUser.auth.canGetCourses")
-            | Can Get Courses
-        .checkbox
-          label
-            input(type='checkbox', ng-model="editUser.auth.canCreateCourses")
-            | Can Create Courses
-        .checkbox
-          label
-            input(type='checkbox', ng-model="editUser.auth.canInvite")
-            | Can Invite Users to {{editUser._tier.title}}
-        .checkbox
-          label
-            input(type='checkbox', ng-model="editUser.enabled")
-            | Is Enabled
 
 
-
-      .col-sm-7.col-md-7
-        input.btn.btn-success(type='submit', value="Update Profile")
-        .alert.alert-success(ng-show="saved")
-          p saved

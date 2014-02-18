@@ -10,7 +10,10 @@
 @import "bootstrap-sass/lib/_grid.scss";
 @import "bootstrap-sass/lib/_forms.scss";
 @import "bootstrap-sass/lib/_buttons.scss";
+@import "bootstrap-sass/lib/_dropdowns.scss";
 
+
+@import "bootstrap-sass/lib/tables.scss";
 @import "bootstrap-sass/lib/input-groups.scss";
 
 @import "bootstrap-sass/lib/_component-animations.scss";
@@ -34,4 +37,13 @@
 .modal-header{
   background-color: $etto-accentblue;
   color: #fff;
+}
+
+
+.btn-group-vertical .btn{
+  width:100%;
+}
+
+.w100 {
+  width: 100%;
 }

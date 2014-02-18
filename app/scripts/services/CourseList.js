@@ -17,8 +17,8 @@ angular.module("ettoPupil")
               console.dir(data);
             });
         },
-        listUsersCreatedCourses: function (user, callback) {
-          $http.post("/api/v1/user/list_users_created_courses", user)
+        listUsersCreatedCourses: function (id, callback) {
+          $http.get("/api/v1/user/listUsersCreatedCourses/" + id)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -26,8 +26,8 @@ angular.module("ettoPupil")
               console.dir(data);
             });
         },
-        listTiersCourses: function (courses, callback) {
-          $http.post("/api/v1/course/listTiersCourses", courses)
+        listTiersCourses: function (tierId, callback) {
+          $http.get("/api/v1/course/listTiersCourses/" + tierId)
             .success(function (data, status, headers, config) {
               callback(data);
             })

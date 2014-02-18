@@ -37,6 +37,30 @@ angular.module("ettoPupil")
           });
         },
 
+        tierReport: function (id, callback) {
+          $http.get("/api/v1/record/tierReport/" + id).success(function (data) {
+            callback(data);
+          });
+        },
+
+        addCourseToTier: function (tierId, courseId, addAllLowerTiers, callback) {
+
+          var query = tierId + "?" + "courseId=" + courseId + "&" + "addAllLowerTiers=" + addAllLowerTiers;
+
+          $http.get("/api/v1/tier/addCourseToTier/" + query).success(function (data) {
+            callback(data);
+          });
+        },
+
+        removeCourseFromTiers: function (tierId, courseId, callback) {
+
+          var query = tierId + "?" + "courseId=" + courseId;
+
+          $http.get("/api/v1/tier/removeCourseFromTiers/" + query).success(function (data) {
+            callback(data);
+          });
+        },
+
         updateTier: function (tier, callback) {
           $http.post("/api/v1/tier/update", tier).success(function (data) {
             callback(data);

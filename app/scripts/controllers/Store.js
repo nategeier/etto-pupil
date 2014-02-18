@@ -19,16 +19,6 @@ angular.module("ettoPupil")
       $scope.$watch("user", function () {
         if ($scope.user) {
 
-          Store.find($scope.user._id, function (customer) {
-
-            if (customer === "null") {
-              $scope.customer = null;
-            } else {
-              $scope.customer = customer;
-            }
-
-          });
-
           Tiers.findTier($scope.parentID, function (results) {
             $scope.currentTier = results;
           });
@@ -45,6 +35,7 @@ angular.module("ettoPupil")
             //---- Count initial total users
             for (var i = 0; i < tiers.length; i++) {
               totUsers += tiers[i].totUsers;
+              tiers[i].dynamicTotalUsers = tiers[i].totUsers;
             }
             $scope.totUsers = totUsers;
             //----- Set price for each course.
@@ -64,6 +55,7 @@ angular.module("ettoPupil")
 
             for (var i = 0; i < tiers.length; i++) {
               tiers[i].isoff = child.isoff;
+              tiers[i].dynamicTotalUsers = tiers[i].totUsers;
             }
             child.minimized = false;
           });
@@ -79,41 +71,88 @@ angular.module("ettoPupil")
           child.isoff = !child.isoff;
         }
 
-        /*$scope.changeChildren(child, function (totUsersInChildren) {
+        var numToChange = countChildrenUsers(child);
 
-        });*/
+        var changeTotal = 0;
 
-        $scope.changeParent(child, function (totUsersInChildren) {
-          if (child.isoff) {
-            $scope.totUsers -= totUsersInChildren;
-          } else {
-            $scope.totUsers += totUsersInChildren;
+        if (child.isoff) {
+          child.dynamicTotalUsers -= numToChange;
+        } else {
+          child.dynamicTotalUsers = child.totUsers;
+
+          child.totUsers += numToChange;
+        }
+
+        changeTotal = child.dynamicTotalUsers + countChildrenUsers(child);
+
+        $scope.changeChildren(child);
+        $scope.checkIfParentsAreOff(child, function (totalOff) {
+
+          if (totalOff !== 0) {
+            changeTotal = totalOff + child.totUsers;
           }
-          setPrice();
+
+          $scope.changeParent(child, changeTotal, function (totUsersInChildren) {
+            $scope.totUsers = countChildrenUsers($scope.data);
+            setPrice();
+          });
+
         });
+
       };
 
-      $scope.changeChildren = function (intChild, callback) {
+      $scope.checkIfParentsAreOff = function (intChild, callback) {
+        var totToChange = 0;
 
-        function recursive(tier, child) {
+        function recursive(tiers, child) {
 
-          if (tier.children && tier.children[0]) {
-            for (var j = 0; j < tier.children.length; j++) {
-              if (tier.children[j]._id === child.parent) {
-                if (intChild.isoff) {
-                  tier.children[j].totUsers -= intChild.totUsers;
-                } else {
-                  tier.children[j].totUsers += intChild.totUsers;
+          if (tiers.children && tiers.children[0]) {
+            for (var j = 0; j < tiers.children.length; j++) {
+              if (tiers.children[j]._id === child.parent) {
+                //------- Parent tier is off == true
+
+                if (tiers.children[j].isoff === true) {
+                  totToChange += tiers.children[j].dynamicTotalUsers;
                 }
-                if (tier.children[j].parent === $scope.currentTier._id) {
-                  callback(intChild.totUsers);
+                if (tiers.children[j].parent === $scope.currentTier._id) {
+                  callback(totToChange);
                 } else {
-                  recursive($scope.data, tier.children[j]);
+                  recursive($scope.data, tiers.children[j]);
                 }
 
               } else {
-                recursive(tier.children[j], child);
+                recursive(tiers.children[j], child);
               }
+            }
+          }
+        }
+        if (intChild.parent === $scope.currentTier._id) {
+          callback(totToChange);
+        } else {
+          recursive($scope.data, intChild);
+        }
+
+      };
+
+      $scope.changeChildren = function (intChild) {
+
+        function recursive(tier) {
+
+          if (tier.children && tier.children[0]) {
+            for (var j = 0; j < tier.children.length; j++) {
+
+              tier.children[j].isoff = intChild.isoff;
+
+              if (tier.children[j].isoff === true) {
+                tier.children[j].dynamicTotalUsers -= countChildrenUsers(tier.children[j]);
+              } else {
+                tier.children[j].dynamicTotalUsers = tier.children[j].totUsers;
+              }
+
+              if (tier.children[j].children) {
+                recursive(tier.children[j]);
+              }
+
             }
           }
         }
@@ -122,32 +161,65 @@ angular.module("ettoPupil")
 
       };
 
-      $scope.changeParent = function (intChild, callback) {
+      var countChildrenUsers = function (tier) {
+        var numUsers = 0;
 
-        function recursive(tier, child) {
+        for (var j = 0; j < tier.children.length; j++) {
+          if (!tier.children[j].isoff) {
+            numUsers += tier.children[j].dynamicTotalUsers;
+          }
 
-          if (tier.children && tier.children[0]) {
-            for (var j = 0; j < tier.children.length; j++) {
-              if (tier.children[j]._id === child.parent) {
-                if (intChild.isoff) {
-                  tier.children[j].totUsers -= intChild.totUsers;
+        }
+        return numUsers;
+
+      };
+
+      $scope.changeParent = function (intChild, changeTotal, callback) {
+
+        var totToChange = intChild.totUsers;
+
+        function recursive(tiers, child) {
+
+          if (tiers.children && tiers.children[0]) {
+            for (var j = 0; j < tiers.children.length; j++) {
+
+              if (tiers.children[j]._id === child.parent) {
+                //------- Parent tier is off == true
+
+                if (intChild.isoff === false && tiers.children[j].isoff === true) {
+
+                  tiers.children[j].isoff = false;
+                  tiers.children[j].dynamicTotalUsers = tiers.children[j].dynamicTotalUsers + countChildrenUsers(tiers.children[j]);
+
+                  totToChange = tiers.children[j].dynamicTotalUsers + totToChange;
+                  //tiers.children[j].dynamicTotalUsers += changeTotal + ;
+
+                } else if (intChild.isoff) {
+                  //tiers.children[j].totUsers -= changeTotal;
+                  tiers.children[j].dynamicTotalUsers -= changeTotal;
+
                 } else {
-                  tier.children[j].totUsers += intChild.totUsers;
+                  //tiers.children[j].totUsers += changeTotal;
+                  tiers.children[j].dynamicTotalUsers += changeTotal;
                 }
-                if (tier.children[j].parent === $scope.currentTier._id) {
-                  callback(intChild.totUsers);
+
+                if (tiers.children[j].parent === $scope.currentTier._id) {
+                  callback(totToChange);
                 } else {
-                  recursive($scope.data, tier.children[j]);
+                  recursive($scope.data, tiers.children[j]);
                 }
 
               } else {
-                recursive(tier.children[j], child);
+                recursive(tiers.children[j], child);
               }
             }
           }
         }
+
+        //----- Start check if there are even tiers if so start recursion
         if (intChild.parent === $scope.currentTier._id) {
-          callback(intChild.totUsers);
+
+          callback(intChild.dynamicTotalUsers);
         } else {
           recursive($scope.data, intChild);
         }
@@ -198,30 +270,6 @@ angular.module("ettoPupil")
         }
         recursiveFindOnTiers($scope.data);
       };
-
-      /*
-      $scope.turnChildren = function(tier, callback) {
-
-
-        function recursive(tier) {
-          if (tier.children[0]) {
-            for (var j = 0; j < tier.children.length; j++) {
-
-              tier.children[j].isoff = tier.isoff;
-              recursive(tier.children[j]);
-            }
-            callback(totUsersInChildren);
-          }
-        }
-        if (tier.children[0]) {
-          callback(0);
-        } else {
-          recursive(tier);
-        }
-
-      };
-
-      */
 
       var setPrice = function () {
         _.map($scope.courses, function (course) {

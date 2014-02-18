@@ -4,43 +4,69 @@ angular.module("ettoPupil")
   .directive("ettoPurchaseCourse", [
 
     function () {
+
       return {
-        template: "<a class='btn btn-primary btn-xs top-logout-btn' href='#' ng-click='purchaseCourse(course)'>Purchase</a>",
         restrict: "AE",
         controller: function ($scope, $modal, Store, $location) {
 
           $scope.purchaseCourse = function (course) {
-            $scope.listAllOnTiers();
+
+            if (course) {
+              $scope.listAllOnTiers();
+            }
+
             var user = $scope.user;
             var onTiers = $scope.onTiers;
-            var customer = $scope.customer;
 
-            var modal = $modal.open({
-              templateUrl: "/views/directives/ettoPurchaseCourseModal.html",
-              controller: function ($scope, $modalInstance) {
-                $scope.selCourse = course;
-                $scope.customer = customer;
+            Store.findCard($scope.user._id, function (customer) {
 
-                $scope.handlePurchase = function (card) {
+              if (customer === "null") {
+                customer = null;
+              }
 
-                  var order = {
-                    course: {
-                      price: course.priceWithEmps,
-                      _id: course._id
-                    },
-                    user: user,
-                    card: card,
-                    tiers: onTiers
+              var modal = $modal.open({
+                templateUrl: "/views/directives/ettoPurchaseCourseModal.html",
+                controller: function ($scope, $modalInstance) {
+                  $scope.selCourse = course;
+                  if (course) {
+                    $scope.addedCredits = course.priceWithEmps;
+                  }
+
+                  $scope.customer = customer;
+                  $scope.user = user;
+
+                  $scope.handleCancil = function () {
+                    $modalInstance.close();
                   };
 
-                  Store.purchase(order, function (responce) {
-                    $modalInstance.close(responce);
-                  });
-                };
-              }
-            });
-            modal.result.then(function (responce) {
-              $location.path($scope.redirectTo);
+                  $scope.handlePurchase = function (card, addedCredits) {
+
+                    var courseId = null;
+
+                    if (course) {
+                      courseId = course._id;
+                    }
+
+                    //credits = addedCredits;
+                    console.log(addedCredits);
+
+                    var order = {
+                      user: user,
+                      card: card,
+                      tiers: onTiers,
+                      courseId: courseId,
+                      addedCredits: addedCredits
+                    };
+
+                    Store.purchase(order, function (responce) {
+                      $modalInstance.close(responce);
+                    });
+                  };
+                }
+              });
+              modal.result.then(function (responce) {
+                $location.path("/etto");
+              });
             });
           };
         },

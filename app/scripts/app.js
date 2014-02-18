@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("ettoPupil", ["ngRoute", "ngResource", "ngTouch", "ui.bootstrap"])
+angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "ui.bootstrap", "chieffancypants.loadingBar"])
   .config(["$routeProvider", "$locationProvider",
     function ($routeProvider, $locationProvider) {
       $locationProvider.html5Mode(true).hashPrefix("#");
@@ -8,10 +8,6 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngTouch", "ui.bootstrap"]
         .when("/", {
           templateUrl: "/views/landing.html",
           controller: "MainCtrl"
-        })
-        .when("/login/new", {
-          templateUrl: "/views/login.html",
-          controller: "LoginCtrl"
         })
         .when("/etto", {
           templateUrl: "/views/home.html",
@@ -29,16 +25,16 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngTouch", "ui.bootstrap"]
           templateUrl: "/views/store.html",
           controller: "StoreCtrl"
         })
-        .when("/purchase_course/:courseID", {
-          templateUrl: "/views/storePurchase.html",
-          controller: "LoginCtrl"
-        })
-        .when("/register_invite/:userID", {
+        .when("/invited/:id", {
           templateUrl: "/views/register_invite.html",
-          controller: "LoginCtrl"
+          controller: "InviteCtrl"
         })
         .when("/settings/:userID", {
           templateUrl: "/views/settings.html",
+          controller: "SettingsCtrl"
+        })
+        .when("/billing/:userID", {
+          templateUrl: "/views/billing.html",
           controller: "SettingsCtrl"
         })
         .when("/session/destroy", {

@@ -15,18 +15,32 @@ angular.module("ettoPupil")
               templateUrl: "/views/directives/ettoRegister.html",
               controller: function ($scope, $modalInstance) {
 
-                $scope.handleLogin = function (user) {
+                $scope.newUser = {
+                  tierTitle: "",
+                  name: "",
+                  email: [],
+                  username: "",
+                  password: ""
+                };
+
+                $scope.handleLogin = function () {
 
                   var newTier = {
-                    title: user.tier.title
+                    title: $scope.newUser.tierTitle
                   };
+
                   Tiers.createCompany(newTier, function (tier) {
 
-                    user._tier = tier._id;
+                    $scope.newUser._tier = tier._id;
 
-                    Users.updateUsersTier(user, function (data) {
-                      console.log("close", data)
-                      $modalInstance.close(data);
+                    console.log($scope.newUser);
+
+                    Users.saveNewUser($scope.newUser, function (data) {
+                      if (data.err) {
+                        $scope.err = data.err;
+                      } else {
+                        $modalInstance.close(data);
+                      }
                     });
                   });
 

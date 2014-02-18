@@ -14,12 +14,26 @@ angular.module("ettoPupil")
               callback(data);
             })
             .error(function (data, status, headers, config) {
+              callback(data);
               console.dir(data);
             });
         },
+
+        saveNewUser: function (user, callback) {
+
+          $http.post("/api/v1/user/saveNewUser", user)
+            .success(function (data, status, headers, config) {
+              callback(data);
+            })
+            .error(function (data, status, headers, config) {
+              callback(data);
+              console.dir(data);
+            });
+        },
+
         inviteUser: function (data, callback) {
 
-          $http.post("/api/v1/user/invite_user", data)
+          $http.post("/api/v1/user/inviteUser", data)
             .success(function (data, status, headers, config) {
               callback(data);
             })

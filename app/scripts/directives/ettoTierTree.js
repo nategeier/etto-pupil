@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .directive("yaTree", function () {
+  .directive("ettoTree", function () {
 
     return {
       restrict: "A",
@@ -12,7 +12,7 @@ angular.module("ettoPupil")
 
         var repeatExpr, childExpr, rootExpr, childrenExpr, branchExpr;
 
-        repeatExpr = tAttrs.yaTree.match(/^(.*) in ((?:.*\.)?(.*)) at (.*)$/);
+        repeatExpr = tAttrs.ettoTree.match(/^(.*) in ((?:.*\.)?(.*)) at (.*)$/);
         childExpr = repeatExpr[1];
         rootExpr = repeatExpr[2];
         childrenExpr = repeatExpr[3];
@@ -62,7 +62,7 @@ angular.module("ettoPupil")
                     branch: clone.find(branchExpr)[0]
                   };
 
-                  // This had to happen during transclusion so inherited 
+                  // This had to happen during transclusion so inherited
                   // controllers, among other things, work properly
                   parentNode.insertBefore(cached.element, cursor);
 
@@ -71,8 +71,8 @@ angular.module("ettoPupil")
                 // Iterate the children at the current level
                 for (i = 0; i < n; i++) {
 
-                  // We will compare the cached element to the element in 
-                  // at the destination index. If it does not match, then 
+                  // We will compare the cached element to the element in
+                  // at the destination index. If it does not match, then
                   // the cached element is being moved into this position.
                   cursor = parentNode.childNodes[i];
 
@@ -83,7 +83,7 @@ angular.module("ettoPupil")
                   cached = lookup(child);
 
                   // If the parentScope no longer matches, we've moved.
-                  // We'll have to transclude again so that scopes 
+                  // We'll have to transclude again so that scopes
                   // and controllers are properly inherited
                   if (cached && cached.parentScope !== parentScope) {
                     cache.push(cached);
@@ -104,7 +104,7 @@ angular.module("ettoPupil")
                   // Lets's set some scope values
                   childScope = cached.scope;
 
-                  // Store the current depth on the scope in case you want 
+                  // Store the current depth on the scope in case you want
                   // to use it (for good or evil, no judgment).
                   childScope.$depth = depth;
 
@@ -118,7 +118,7 @@ angular.module("ettoPupil")
                   // the old cache at the end of the walk.
                   currentCache.push(cached);
 
-                  // If the child has children of its own, recurse 'em.             
+                  // If the child has children of its own, recurse 'em.
                   grandchildren = child[childrenExpr];
                   if (grandchildren && grandchildren.length) {
                     walk(grandchildren, cached.branch, childScope, depth + 1);

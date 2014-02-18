@@ -40,6 +40,7 @@ angular.module("ettoPupil")
       }, function () {
         // Are we in edit mode? If so, send back a new course.
         if ($route.current.controller === "CourseEditCtrl") {
+
           var newCourse = new Course({
             _id: $route.current.params.courseId,
             blocks: [{

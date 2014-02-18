@@ -7,8 +7,6 @@
  */
 
 .report-holder{
-  width: 100%;
-  min-height: 140px;
   color: $etto-darkblue;
   padding: 10px;
 
@@ -41,4 +39,10 @@
 hr {
  color:$etto-darkgrey;
  background-color:$etto-darkgrey;
+}
+
+.report-progress {
+  p {
+    color: $etto-greyblue;
+  }
 }
