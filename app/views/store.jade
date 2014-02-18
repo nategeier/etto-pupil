@@ -25,9 +25,8 @@ etto-logged-in-nav
                   img.img-responsive(src='/images/courses/thumbs/course_2.jpg')
               .row
                 .col-md-7
-                  h4 {{course.title}}
-                  p {{course.subtitle}}
-                  p(style="font-size:10px;") {{course._id}}
+                  h5 {{course.title}}
+                  h6 {{course.subtitle}}
                 .col-md-5
                   h5 ${{course.priceWithEmps}}
                   a.btn.btn-primary.btn-xs.w100(etto-purchase-course, href="#", ng-click='purchaseCourse(course)') Purchase

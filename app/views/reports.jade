@@ -81,10 +81,10 @@ etto-logged-in-nav
             a(href = "/settings/{{user._id}}")
               .pad20
                 .row
-                  .col-xs-3
+                  .col-xs-4
                     img.img-circle.user-thumb(ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
                     i.fa.fa-user.fa-3x.center-block(ng-show="!user.avatarUrl")
-                  .col-xs-9
+                  .col-xs-8
                     div(ng-show="user.name")
                       h5.cap-first {{user.name}}
                     div(ng-show="!user.name")

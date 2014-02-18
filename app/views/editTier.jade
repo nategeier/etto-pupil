@@ -1,34 +1,35 @@
 etto-logged-in-nav
 .container
   .col-md-12
-    h2 Edit Tier
-    .col-sm-4.col-md-4
-
+    .col-sm-12.col-md-12
       form(role='form', ng-submit="updateTier()")
-        h4 Details
-        .form-group.col-sm-8.col-md-8
-          label.col-sm-2.control-label(for='title') Title
-          input#title.form-control(type='text', placeholder='name', ng-model="tier.title")
-        .form-group.col-sm-4.col-md-4
-          label.col-sm-2.control-label(for='internalId') Id
-          input#internalId.form-control(type='text', placeholder='optional', ng-model="tier.internalId")
-
-        .form-group
-          input.btn.btn-primary.btn-sm.pull-right(type='submit', value="Update Tier")
+        h3 Edit Tier
+        .form-group.col-sm-9.col-md-9
+          .col-sm-2
+            label.control-label(for='title1') Title
+          .col-sm-10
+            input#title1.form-control(type='text', placeholder='name', ng-model="tier.title", ng-change="updateTier()")
+        .form-group.col-sm-3.col-md-3
+          .col-sm-2
+            label.control-label(for='internalId') Id
+          .col-sm-10
+            input#internalId.form-control(type='text', placeholder='optional', ng-model="tier.internalId", ng-change="updateTier()")
+        hr
         .alert.alert-success(ng-show="saved")
           p saved
       .clearfix
+    .col-sm-4.col-md-4
       h4 Users
       div(ng-repeat="user in users")
         .course-holder(sink-in)
           a(href = "/settings/{{user._id}}")
             .pad20
               .row
-                .col-xs-3
+                .col-xs-4
                   img.img-circle.user-thumb(ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
                   i.fa.fa-user.fa-3x.center-block(ng-show="!user.avatarUrl")
-                .col-xs-9
-                  h4.cap-first.pull-right  {{user.name}}
+                .col-xs-8
+                  h5.cap-first  {{user.name}}
 
 
 
@@ -64,5 +65,5 @@ etto-logged-in-nav
                 small Add To all Lower
                 input(type="checkbox", ng-model="course.ison")
           td
-            button.btn.btn-default.btn-xs(type="button", ng-click="addCourse(course)", ) add course
+            button.btn.btn-default.btn-xs(type="button", ng-click="addCourse(course)") add course
 
