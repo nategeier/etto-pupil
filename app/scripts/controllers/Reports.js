@@ -27,10 +27,9 @@ angular.module("ettoPupil")
         Tiers.findTier($scope.parentID, function (results) {
           $scope.currentTier = results;
 
-          async.map(results._children, function (tierId, callback) {
+          async.map(results._children, function (tierId) {
             Tiers.tierReport(tierId, function (results) {
               $scope.children.push(results);
-              callback(results);
             });
 
           });

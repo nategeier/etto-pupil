@@ -20,6 +20,8 @@ module.exports = function (config) {
       "app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js",
       "app/bower_components/angular-touch/angular-touch.js",
       "app/bower_components/angular-mocks/angular-mocks.js",
+      "app/bower_components/angular-loading-bar/src/loading-bar.js",
+
       "app/scripts/*.js",
       "app/scripts/**/*.js",
 
