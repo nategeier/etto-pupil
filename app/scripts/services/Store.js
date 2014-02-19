@@ -25,9 +25,19 @@ angular.module("ettoPupil")
               console.dir(data);
             });
         },
-        findCard: function (id, callback) {
+        findCards: function (id, callback) {
 
-          $http.get("/api/v1/store/findCard/" + id)
+          $http.get("/api/v1/store/findCards/" + id)
+            .success(function (data, status, headers, config) {
+              callback(data);
+            })
+            .error(function (data, status, headers, config) {
+              console.dir(data);
+            });
+        },
+        deleteCards: function (url, callback) {
+
+          $http.get("/api/v1/store/deleteCards/" + url)
             .success(function (data, status, headers, config) {
               callback(data);
             })

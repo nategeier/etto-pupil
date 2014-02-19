@@ -35,7 +35,11 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
         })
         .when("/billing/:userID", {
           templateUrl: "/views/billing.html",
-          controller: "SettingsCtrl"
+          controller: "BillingCtrl"
+        })
+        .when("/payments/:userID", {
+          templateUrl: "/views/payments.html",
+          controller: "PaymentsCtrl"
         })
         .when("/session/destroy", {
           controller: "LogoutCtrl",

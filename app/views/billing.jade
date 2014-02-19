@@ -7,20 +7,25 @@ etto-logged-in-nav
       etto-settings-nav
 
     .col-sm-10.col-md-10
+      .col-md-5
+        h5 Number of Employees
+      .col-md-7
+      ul.nav.nav-tabs
+        li(ng-click="show(subscriptionType._id)", ng-repeat="subscriptionType in subscriptionTypes", ng-class="{active: onSubscription === subscriptionType._id}")
+          a(href="#") {{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}}
+      br
 
-      .col-sm-12.col-md-12(ng-show="editUser.auth.canPurchase")
-        h3 {{credit._company.title}} Credits = {{credit.credits}}
-        table.table.table-bordered
+      div(ng-repeat="subscriptionType in subscriptionTypes")
+        table.table.table-no-border(ng-show="onSubscription === subscriptionType._id")
           tr
-            th Amount
-            th Course
-            th Purchased by
-            th Date
-          tr(ng-repeat="purchase in credit.purchased")
-            td ${{purchase.amount}}
-            td {{purchase._course.title}}
-            td {{purchase.purchaser.name}}
-            td {{purchase.date}}
+            th Private Courses
+            th Price
+            th Purchase
+          tr(ng-repeat="subscription in subscriptionType.subscriptions", ng-animate="'animate'")
+            td {{subscription.courseRange.low}} - {{subscription.courseRange.high}}
+            td ${{subscription.price}}
+            td
+              button.btn.btn-sm.btn-default(type="button") Purchase
 
 
 

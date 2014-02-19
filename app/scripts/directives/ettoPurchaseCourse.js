@@ -18,9 +18,9 @@ angular.module("ettoPupil")
             var user = $scope.user;
             var onTiers = $scope.onTiers;
 
-            Store.findCard($scope.user._id, function (customer) {
-
-              if (customer === "null") {
+            Store.findCards($scope.user._tier._company, function (customer) {
+              console.log(customer)
+              if (customer === "204") {
                 customer = null;
               }
 
@@ -59,7 +59,13 @@ angular.module("ettoPupil")
                     };
 
                     Store.purchase(order, function (responce) {
-                      $modalInstance.close(responce);
+                      console.log("responce--------", responce);
+                      if (responce.message) {
+                        $scope.err = responce.message;
+                      } else {
+                        $modalInstance.close(responce);
+                      }
+
                     });
                   };
                 }

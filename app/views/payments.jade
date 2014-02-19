@@ -1,0 +1,26 @@
+etto-logged-in-nav
+.container
+  .col-md-12
+    h1 Billing
+
+    .col-sm-2.col-md-2
+      etto-settings-nav
+
+    .col-sm-10.col-md-10
+      .col-sm-12.col-md-12
+        h3 {{credit._company.title}} Credits = {{credit.credits}}
+        table.table.table-bordered
+          tr
+            th Amount
+            th Course
+            th Purchased by
+            th Date
+          tr(ng-repeat="purchase in credit.purchased")
+            td ${{purchase.amount}}
+            td {{purchase._course.title}}
+            td {{purchase.purchaser.name}}
+            td {{purchase.date}}
+
+
+
+
