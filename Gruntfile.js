@@ -34,27 +34,37 @@ module.exports = function (grunt) {
     watch: {
       jade: {
         files: ["<%= yeoman.app %>/*.jade", "<%= yeoman.app %>/views/**/{,*/}*.jade", "<%= yeoman.app %>/view/{,*/}*.jade"],
-        tasks: ["jade:dist"]
+        tasks: ["jade:dist"],
+        spawn: false,
       },
       coffee: {
         files: ["<%= yeoman.app %>/scripts/{,*/}*.coffee"],
-        tasks: ["coffee:dist"]
+        tasks: ["coffee:dist"],
+        spawn: false,
       },
       coffeeTest: {
         files: ["test/spec/{,*/}*.coffee"],
-        tasks: ["coffee:test"]
+        tasks: ["coffee:test"],
+        spawn: false,
       },
-      compass: {
+      //compass: {
+      //files: ["<%= yeoman.app %>/styles/{,*/}*.{scss,sass}"],
+      //tasks: ["compass:server", "autoprefixer"]
+      //},
+      sass: {
         files: ["<%= yeoman.app %>/styles/{,*/}*.{scss,sass}"],
-        tasks: ["compass:server", "autoprefixer"]
+        tasks: ["sass:server", "autoprefixer"],
+        spawn: false,
       },
       styles: {
         files: ["<%= yeoman.app %>/styles/{,*/}*.css"],
-        tasks: ["copy:styles", "autoprefixer"]
+        tasks: ["copy:styles", "autoprefixer"],
+        spawn: false,
       },
       livereload: {
         options: {
-          livereload: LIVERELOAD_PORT
+          livereload: LIVERELOAD_PORT,
+          spawn: false,
         },
         files: [
           "<%= yeoman.app %>/index.html",
@@ -66,7 +76,8 @@ module.exports = function (grunt) {
       },
       dox: {
         options: {
-          livereload: LIVERELOAD_PORT + 1
+          livereload: LIVERELOAD_PORT + 1,
+          spawn: false,
         },
         files: [
           "<%= yeoman.app %>/scripts/**/*.js",
@@ -254,6 +265,31 @@ module.exports = function (grunt) {
         }
       }
     },
+    sass: {
+      options: {
+        includePaths: [
+          "<%= yeoman.app %>/bower_components",
+        ],
+      },
+      server: {
+        files: {
+          ".tmp/styles/main.css": "<%= yeoman.app %>/styles/main.scss",
+        },
+        options: {
+          outputStyle: "compressed",
+          sourceComments: "map",
+          sourceMap: "./app/styles/main.css.map",
+        },
+      },
+      dist: {
+        files: {
+          ".tmp/styles/main.css": "<%= yeoman.app %>/styles/main.scss",
+        },
+        options: {
+          outputStyle: "compressed",
+        },
+      },
+    },
     // not used since Uglify task does concat,
     // but still available if needed
     /*concat: {
@@ -396,24 +432,37 @@ module.exports = function (grunt) {
     concurrent: {
       server: [
         "coffee:dist",
-        "compass:server",
+        "sass:server",
         "copy:sass",
         "copy:styles",
-        "jade:dist"
+        "jade:dist",
       ],
       test: [
         "coffee",
-        "compass",
-        "copy:styles"
+        "sass",
+        "copy:styles",
       ],
       dist: [
         "coffee",
-        "compass:dist",
+        "sass:dist",
         "copy:styles",
         "imagemin",
         "svgmin",
-        "htmlmin"
-      ]
+        "htmlmin",
+      ],
+      serverwatch: {
+        options: {
+          logConcurrentOutput: true,
+        },
+        tasks: [
+          "watch:jade",
+          "watch:coffee",
+          "watch:coffeeTest",
+          "watch:sass",
+          "watch:styles",
+          "watch:livereload",
+        ],
+      },
     },
     karma: {
       unit: {
@@ -489,9 +538,8 @@ module.exports = function (grunt) {
       "concurrent:server",
       "autoprefixer",
       "connect:livereload",
-      "jade",
       "open",
-      "watch"
+      "concurrent:serverwatch",
     ]);
   });
 
