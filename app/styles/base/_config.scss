@@ -16,13 +16,13 @@
 
 // Golden Ratio
 // -------------------------
-@function golden(){
-  @return 1/2 + sqrt(5) / 2
-};
+//@function golden() {
+//  @return 1/2 + sqrt(5) / 2;
+//}
 
 
-
-$ratio: golden();
+//$ratio: golden();
+$ratio: 1.61803;
 
 //
 // Override Default Bootstrap Variables
