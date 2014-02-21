@@ -25,6 +25,15 @@ angular.module("ettoPupil")
               console.dir(data);
             });
         },
+        createRecipient: function (recipient, callback) {
+          $http.post("/api/v1/store/createRecipient", recipient)
+            .success(function (data, status, headers, config) {
+              callback(data);
+            })
+            .error(function (data, status, headers, config) {
+              console.dir(data);
+            });
+        },
         findCards: function (id, callback) {
 
           $http.get("/api/v1/store/findCards/" + id)

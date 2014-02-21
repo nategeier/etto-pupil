@@ -20,7 +20,7 @@ angular.module("ettoPupil")
             });
             modal.result.then(function (course) {
 
-              course._creators = [$scope.user._id];
+              course._creator = $scope.user._tier._company;
 
               CourseMetaChange.create(course, function (data) {
 
