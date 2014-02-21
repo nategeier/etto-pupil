@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .factory("Users", ["$http",
-    function ($http) {
+  .factory("Users", ["$http", "$resource",
+    function ($http, $resource) {
       var User;
 
       User = {
@@ -17,6 +17,26 @@ angular.module("ettoPupil")
               callback(data);
               console.dir(data);
             });
+        },
+
+        listUsersCreatedCourses: function (id, callback) {
+          var Courses = $resource("/api/v1/user/listUsersCreatedCourses/:id", {
+            id: id
+          });
+
+          Courses.query(function (results) {
+            callback(results);
+          });
+        },
+
+        listUsersCourses: function (id, callback) {
+          var Courses = $resource("/api/v1/user/listUsersCourses/:id", {
+            id: id
+          });
+
+          Courses.query(function (results) {
+            callback(results);
+          });
         },
 
         saveNewUser: function (user, callback) {

@@ -1,23 +1,24 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("BillingCtrl", ["$scope", "$routeParams", "Users", "$resource",
-    function ($scope, $routeParams, Users, $resource) {
+  .controller("BillingCtrl", ["$scope", "$routeParams", "Users", "$resource", "Payment", "Tier",
+    function ($scope, $routeParams, Users, $resource, Payment, Tier) {
 
-      var id = $routeParams.userID;
-
-      $scope.show = function (num) {
-        $scope.onSubscription = num;
+      $scope.show = function (id) {
+        $scope.onSubscription = id;
       };
 
-      Users.fullDetails(id, function (user) {
+      Payment.subscriptions(function (results) {
+        $scope.subscriptionTypes = results;
+        $scope.onSubscription = $scope.subscriptionTypes[0]._id;
+      });
 
-        var Subscriptions = $resource("/api/v1/store/getSubscriptions");
+      Users.fullDetails($routeParams.userID, function (user) {
 
-        Subscriptions.query(function (results) {
-          $scope.subscriptionTypes = results;
-          $scope.onSubscription = $scope.subscriptionTypes[0]._id;
+        Tier.findTier(user._tier._company, function (results) {
+          $scope.currentSubscription = results._subscription;
         });
+
       });
     }
   ]);

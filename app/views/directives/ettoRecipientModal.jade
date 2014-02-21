@@ -1,0 +1,21 @@
+
+.modal-header
+  button.close( type="button" )
+  h2.modal-title Enable Incoming Payments
+.modal-body
+  form(ng-submit="handlePurchase()")
+    .form-group.col-md-6
+      select.form-control( type="text", ng-model="recipient.type", placeholder="type", required )
+        option(value="individual") Individual
+        option(value="corporation") Corporation
+    .form-group.col-md-6
+      input.form-control( type="text", ng-model="recipient.routing_number", placeholder="routing_number", autocomplete="on", required)
+
+    .form-group.col-md-12
+      input.form-control( type="text", ng-model="recipient.account_number", placeholder="account_number", required )
+
+    .btn-group.col-md-12
+      button.btn.btn-default( type="button", ng-click="handleCancil()") Cancel
+      input.btn.btn-success( type="submit", value="Purchase")
+
+    .clearfix

@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .directive("ettoPurchaseCourse", [
+  .directive("ettoPurchase", [
 
     function () {
 
@@ -9,7 +9,7 @@ angular.module("ettoPupil")
         restrict: "AE",
         controller: function ($scope, $modal, Store, $location) {
 
-          $scope.purchaseCourse = function (course) {
+          $scope.purchase = function (course, subscription) {
 
             if (course) {
               $scope.listAllOnTiers();
@@ -19,17 +19,20 @@ angular.module("ettoPupil")
             var onTiers = $scope.onTiers;
 
             Store.findCards($scope.user._tier._company, function (customer) {
-              console.log(customer)
               if (customer === "204") {
                 customer = null;
               }
 
               var modal = $modal.open({
-                templateUrl: "/views/directives/ettoPurchaseCourseModal.html",
+                templateUrl: "/views/directives/ettoPurchaseModal.html",
                 controller: function ($scope, $modalInstance) {
-                  $scope.selCourse = course;
+
                   if (course) {
                     $scope.addedCredits = course.priceWithEmps;
+                    $scope.selCourse = course;
+                  } else if (subscription) {
+                    $scope.addedCredits = subscription.price;
+                    $scope.subscription = subscription;
                   }
 
                   $scope.customer = customer;
@@ -47,25 +50,21 @@ angular.module("ettoPupil")
                       courseId = course._id;
                     }
 
-                    //credits = addedCredits;
-                    console.log(addedCredits);
-
                     var order = {
                       user: user,
                       card: card,
                       tiers: onTiers,
                       courseId: courseId,
+                      subscription: subscription,
                       addedCredits: addedCredits
                     };
 
                     Store.purchase(order, function (responce) {
-                      console.log("responce--------", responce);
                       if (responce.message) {
                         $scope.err = responce.message;
                       } else {
                         $modalInstance.close(responce);
                       }
-
                     });
                   };
                 }

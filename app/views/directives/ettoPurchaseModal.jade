@@ -32,10 +32,11 @@
   div(ng-show="customer.active_card")
     .col-md-main.col-md-8.col-sm-8
       form(ng-submit="handlePurchase(card, addedCredits)")
-        .input-group
+        .input-group(ng-show="!subscription")
           span.input-group-addon $
           input.form-control(type="text", required, ng-model="addedCredits")
           span.input-group-addon .00
+        h2(ng-show="subscription") ${{addedCredits}}
         p {{ addedCredits }} Credits will be added to {{user._tier.title}}
         blockquote
           small Credits are only used when a user takes a course

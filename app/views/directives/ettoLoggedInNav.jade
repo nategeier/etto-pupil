@@ -36,9 +36,9 @@ nav.navbar.navbar-default( role="navigation", etto-session)
             li
               a( href="/api/v1/auth/logout", target="_self" ) Logout
             li
-              a( href="/billing/{{user._id}}", target="_self" ) Billing
+              a( href="/billing/{{user._id}}", target="_self" ) Subscriptions
             li
               a( href="/payments/{{user._id}}", target="_self" ) Payments
         li(ng-show="user.auth.canPurchase")
-          a.btn.btn-default.btn-xs.navbar-btn(etto-purchase-course, href="#", ng-click='purchaseCourse(course)')
+          a.btn.btn-default.btn-xs.navbar-btn(etto-purchase, href="#", ng-click='purchase(null, null)')
             small {{credit.credits}} Credits

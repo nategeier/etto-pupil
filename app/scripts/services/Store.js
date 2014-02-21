@@ -56,7 +56,7 @@ angular.module("ettoPupil")
             .error(function (data, status, headers, config) {
               callback(data);
             });
-        },
+        }
       };
     }
   ]);

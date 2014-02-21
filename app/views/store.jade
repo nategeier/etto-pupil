@@ -29,7 +29,7 @@ etto-logged-in-nav
                   h6 {{course.subtitle}}
                 .col-md-5
                   h5 ${{course.priceWithEmps}}
-                  a.btn.btn-primary.btn-xs.w100(etto-purchase-course, href="#", ng-click='purchaseCourse(course)') Purchase
+                  a.btn.btn-primary.btn-xs.w100(etto-purchase, href="#", ng-click='purchase(course, null)') Purchase
                   a.btn.btn-default.btn-xs.w100(href="/course/view/{{ course._id }}")  Demo
 
     .col-xs-12.col-sm-3.col-md-3.aside

@@ -2,11 +2,11 @@ etto-logged-in-nav
 
 .container
   .row
-    .col-sm-4.col-md-4.col-sm-4
+    .col-md-6.col-sm-6
       h2.cap-first {{currentTier.title}}
       a.btn.btn-default.btn-xs(href="/tier/edit/{{ currentTier._id }}")
         i.fa.fa-edit Edit
-    .col-md-8.col-md-8.col-sm-8
+    .col-md-6.col-sm-6
       .statBox
         .col-md-4
           p2 {{tierReport.totalUsers}}
@@ -24,8 +24,8 @@ etto-logged-in-nav
 
 
     .col-sm-12.col-md-12
-      .col-xs-12.col-sm-12.col-md-4
-        h3 Tiers
+      .col-xs-12.col-sm-12.col-md-6()
+        h4 Tiers
         etto-add-tier
         div(ng-show="!children[0]")
           p No tiers have been added yet
@@ -49,9 +49,9 @@ etto-logged-in-nav
                         p.dark-grey Users
               .clearfix
 
-      .col-xs-12.col-sm-6.col-md-4.report-progress
+      .col-xs-12.col-sm-6.col-md-3.report-progress
         .col-md-12
-          h3 Reports
+          h4 Reports
 
         .col-md-12
           h4.pull-left Overall
@@ -71,9 +71,9 @@ etto-logged-in-nav
             .clearfix
 
 
-      .col-xs-12.col-sm-6.col-md-4
-        h3(ng-show="currentTier._children[0]") Managers
-        h3(ng-show="!currentTier._children[0]") Users
+      .col-xs-12.col-sm-6.col-md-3
+        h4(ng-show="currentTier._children[0]") Managers
+        h4(ng-show="!currentTier._children[0]") Users
         etto-invite-user-modal
         .clearfix
         div(ng-repeat= 'user in users')
