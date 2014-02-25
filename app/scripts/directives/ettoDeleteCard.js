@@ -12,7 +12,7 @@ angular.module("ettoPupil")
           $scope.deleteCard = function (companyId, cardId) {
             console.log("daetete", companyId, cardId);
 
-            var Card = $resource('/api/v1/store/deleteCard/:companyId', {
+            var Card = $resource("/api/v1/store/deleteCard/:companyId", {
               companyId: companyId,
               cardId: cardId
             });
@@ -22,7 +22,7 @@ angular.module("ettoPupil")
               cardId: cardId
             }, function (u, getResponseHeaders) {
               console.log("responce", u);
-              $scope.success = "Deleted"
+              $scope.success = "Deleted";
               $scope.customer.active_card = null;
 
             });

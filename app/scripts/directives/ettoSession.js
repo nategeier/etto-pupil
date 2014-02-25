@@ -13,7 +13,6 @@ angular.module("ettoPupil")
 
             if (scope.user.auth.canPurchase) {
               Store.findCredit(scope.user._tier._company, function (results) {
-                console.log("credit", results.credits)
                 scope.credits = results.credits;
               });
             }
