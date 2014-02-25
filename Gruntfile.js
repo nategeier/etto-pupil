@@ -34,7 +34,7 @@ module.exports = function (grunt) {
     watch: {
       jade: {
         files: ["<%= yeoman.app %>/*.jade", "<%= yeoman.app %>/views/**/{,*/}*.jade", "<%= yeoman.app %>/view/{,*/}*.jade"],
-        tasks: ["jade:dist"],
+        tasks: ["newer:jade:dist"],
         spawn: false,
       },
       coffee: {
