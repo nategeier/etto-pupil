@@ -29,18 +29,13 @@ angular.module("ettoPupil")
 
       $scope.openCourse = function (course) {
 
-        async.waterfall([
-
-            function (callback) {
-              Record.createRecord(course._id, $scope.user._id, $scope._tier._company._id, function (results) {
-                $location.path("/course/view/" + course._id);
-              });
-            }
-          ],
-          function (err, results) {
+        Record.create(course._id, $scope.user._id, function (results) {
+          if (results.err) {
+            $scope.err = results.err;
+          } else {
             $location.path("/course/view/" + course._id);
-          })
-
+          }
+        });
       };
 
       $scope.removeCourse = function (id) {

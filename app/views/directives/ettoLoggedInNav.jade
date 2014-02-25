@@ -41,4 +41,4 @@ nav.navbar.navbar-default( role="navigation", etto-session)
               a( href="/payments/{{user._id}}", target="_self" ) Payments
         li(ng-show="user.auth.canPurchase")
           a.btn.btn-default.btn-xs.navbar-btn(etto-purchase, href="#", ng-click='purchase(null, null)')
-            small {{credit.credits}} Credits
+            small {{credits}} Credits

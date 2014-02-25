@@ -4,14 +4,13 @@ angular.module("ettoPupil")
   .factory("Record", ["$resource",
     function ($resource) {
       return {
-        createRecord: function (courseId, userId, companyId, callback) {
-          var Record = $resource("/api/v1/record/create/:id", {
+        create: function (courseId, userId, callback) {
+          var Record = $resource("/api/v1/record/create/:userId", {
             courseId: courseId,
-            userId: userId,
-            companyId: companyId
+            userId: userId
           });
 
-          Record.query(function (results) {
+          Record.get(function (results) {
             callback(results);
           });
         }

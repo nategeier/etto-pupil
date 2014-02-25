@@ -13,6 +13,8 @@ etto-verify-modal(redirect-to='/etto')
     .col-md-9.col-sm-9.col-md-9(ng-show="usersCourses[0]")
       h3 Courses for my Users
       .row
+        .alert.alert-danger(ng-show="err")
+          p {{err}}
         div(ng-repeat='course in usersCourses')
           .col-md-4.col-sm-4
             .course-holder(sink-in, ng-click="openCourse(course)")
