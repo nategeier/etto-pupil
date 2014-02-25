@@ -10,6 +10,13 @@ angular.module("ettoPupil")
           Subscriptions.query(function (results) {
             callback(results);
           });
+        },
+        updateNewSubscription: function (callback) {
+          var Subscriptions = $resource("/api/v1/store/updateNewSubscription");
+
+          Subscriptions.query(function (results) {
+            callback(results);
+          });
         }
       };
     }

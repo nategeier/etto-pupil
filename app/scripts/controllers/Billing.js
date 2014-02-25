@@ -7,6 +7,11 @@ angular.module("ettoPupil")
       $scope.show = function (id) {
         $scope.onSubscription = id;
       };
+      /*
+      Payment.updateNewSubscription(function (argument) {
+        console.log("updated")
+      });
+      */
 
       Payment.subscriptions(function (results) {
         $scope.subscriptionTypes = results;
