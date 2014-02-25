@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("HomeCtrl", ["$scope", "$compile", "Session", "CourseList", "CourseMetaChange", "Wire",
-    function ($scope, $compile, Session, CourseList, CourseMetaChange, Wire) {
+  .controller("HomeCtrl", ["$scope", "CourseMetaChange", "Users", "Tier", "$location", "Record",
+    function ($scope, CourseMetaChange, Users, Tier, $location, Record) {
 
       $scope.$watch("user", function () {
         if ($scope.user) {
@@ -12,15 +12,30 @@ angular.module("ettoPupil")
 
       $scope.listUsersCreatedCourses = function () {
 
-        Wire.get("user/listUsersCreatedCourses/" + $scope.user._id, function (data) {
+        Users.listUsersCreatedCourses($scope.user._tier._company, function (data) {
           $scope.courses = data;
         });
 
         if ($scope.user._tier) {
-          Wire.get("course/listTiersCourses/" + $scope.user._tier._id, function (courses) {
-            $scope.tiersCourses = courses;
+          Users.listUsersCourses($scope.user._id, function (courses) {
+            $scope.usersCourses = courses;
+          });
+
+          Tier.findTier($scope.user._tier._company, function (company) {
+            $scope.compnay = company;
           });
         }
+      };
+
+      $scope.openCourse = function (course) {
+
+        Record.create(course._id, $scope.user._id, function (results) {
+          if (results.err) {
+            $scope.err = results.err;
+          } else {
+            $location.path("/course/view/" + course._id);
+          }
+        });
       };
 
       $scope.removeCourse = function (id) {

@@ -47,3 +47,14 @@
 .w100 {
   width: 100%;
 }
+
+.navbar-fixed-top{
+  border-bottom: 3px solid $etto-accentblue;
+}
+
+
+.table-no-border>thead>tr>th,
+.table-no-border>tbody>tr>th,
+.table-no-border>tfoot>tr>th {
+  border-top: none;
+}

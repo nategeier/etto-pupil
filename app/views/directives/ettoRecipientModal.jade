@@ -1,0 +1,25 @@
+
+.modal-header
+  button.close( type="button" )
+  h2.modal-title Incoming Payments
+.modal-body
+  form(ng-submit="createRecipient()")
+
+    .form-group.col-md-12
+      input.form-control( type="text", ng-model="recipient.name", placeholder="Full Legal Name", required )
+    .form-group.col-md-6
+      select.form-control(ng-model="recipient.type", ng-options="typeOption.value for typeOption in typeOptions")
+        option(value="") Type of account
+    .form-group.col-md-6
+      input.form-control( type="text", ng-model="recipient.bank_account.routing_number", placeholder="Routing Number", autocomplete="on", required)
+
+    .form-group.col-md-12
+      input.form-control( type="text", ng-model="recipient.bank_account.account_number", placeholder="Account Number", required )
+
+    .btn-group.col-md-12
+      button.btn.btn-default( type="button", ng-click="handleCancil()") Cancel
+      input.btn.btn-success( type="submit", value="Purchase")
+    .btn-group.col-md-12
+      .alert.alert-danger(ng-show="err")
+        p {{err}}
+    .clearfix

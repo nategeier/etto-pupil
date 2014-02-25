@@ -25,13 +25,17 @@ etto-logged-in-nav
                   img.img-responsive(src='/images/courses/thumbs/course_2.jpg')
               .row
                 .col-md-7
-                  h4 {{course.title}}
-                  p {{course.subtitle}}
-                  p(style="font-size:10px;") {{course._id}}
+                  h5 {{course.title}}
+                  h6 {{course.subtitle}}
+
                 .col-md-5
-                  h5 ${{course.priceWithEmps}}
-                  a.btn.btn-primary.btn-xs.w100(etto-purchase-course, href="#", ng-click='purchaseCourse(course)') Purchase
-                  a.btn.btn-default.btn-xs.w100(href="/course/view/{{ course._id }}")  Demo
+                  h4 ${{course.priceWithEmps}}
+                  small ${{course.price}}/user
+                .col-md-12
+                  .btn-group
+                    a.btn.btn-primary.btn-xs(etto-purchase, href="#", ng-click='purchase(course, null)') Purchase
+                    a.btn.btn-default.btn-xs(href="/course/view/{{ course._id }}")  Demo
+
 
     .col-xs-12.col-sm-3.col-md-3.aside
       h3 {{currentTier.title}}

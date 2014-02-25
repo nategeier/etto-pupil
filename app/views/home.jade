@@ -6,26 +6,33 @@ etto-verify-modal(redirect-to='/etto')
   .container
     .row
       h2 Start creating, taking, and sharing courses
-      p Welcome <i>{{user._tier.title}}</i> Team
+      p Welcome <i>{{compnay.title}}</i> Team
 
 .container
   .row
-    .col-md-9.col-sm-9.col-md-9(ng-show="tiersCourses[0]")
+    .col-md-9.col-sm-9.col-md-9(ng-show="usersCourses[0]")
       h3 Courses for my Users
       .row
-        div(ng-repeat='course in tiersCourses')
+        .alert.alert-danger(ng-show="err")
+          p {{err}}
+        div(ng-repeat='course in usersCourses')
           .col-md-4.col-sm-4
-            .course-holder(sink-in)
-              a(href="/course/view/{{ course._id }}")
-                .row
-                  .col-xs-12
-                    img.img-responsive(src='/images/courses/thumbs/course_2.jpg')
-                  .col-xs-12
-                    h4 {{course.title}}
-                    p {{course.subtitle}}
-                    .progress
-                      .progress-bar(role="progressbar", aria-valuenow="28", aria-valuemin="0", aria-valuemax="100", style="width: 28%;")
-    .col-md-9.col-sm-9.col-md-9(ng-show="!tiersCourses[0]")
+            .course-holder(sink-in, ng-click="openCourse(course)")
+              small {{ course._id }}
+              .row
+                .col-xs-12
+                  img.img-responsive(src='/images/courses/thumbs/course_2.jpg')
+                .col-xs-12
+                  h4 {{course.title}}
+                  p {{course.subtitle}}
+                  .progress(ng-show="!course._record")
+                    .progress-bar(role="progressbar", aria-valuenow="1", aria-valuemin="0", aria-valuemax="100", style="width: 1%;")
+                  .progress(ng-show="course._record")
+                    .progress-bar(role="progressbar", aria-valuenow="{{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}%;")
+
+
+
+    .col-md-9.col-sm-9.col-md-9(ng-show="!usersCourses[0]")
       .col-md-6.col-sm-6.col-md-6
         h3 Lets get you started...
         p 1. <a href="/levels/{{user._tier._id}}">Set up your company structure </a> by adding tiers, then click the tier and add more tiers within tiers

@@ -4,35 +4,40 @@
   h2.modal-title Purchase Credits
 .modal-body
 
-  form(ng-submit="handlePurchase(card, addedCredits)", ng-show="!customer")
-    .form-group.col-md-main.col-md-8.col-sm-8
+  form(ng-submit="handlePurchase(card, addedCredits)", ng-show="!customer.active_card")
+    .form-group.col-md-main.col-md-12.col-sm-12
       .input-group
         span.input-group-addon $
         input.form-control(type="text", required, ng-model="addedCredits")
         span.input-group-addon .00
 
-    .form-group
+    .form-group.col-md-12
       input.form-control( type="text", ng-model="card.number", placeholder="number", autocomplete="on", required)
-    .form-group
+    .form-group.col-md-4
       input.form-control( type="text", ng-model="card.exp_month", placeholder="exp_month", required )
-    .form-group
-      input.form-control( type="text", ng-model="card.exp_year", placeholder="exp_year", required )
-    .form-group
+    .form-group.col-md-4
+      input.form-control( type="text", ng-model="card.exp_year", placeholder="exp year", required )
+    .form-group.col-md-4
       input.form-control( type="text", ng-model="card.cvc", placeholder="cvc", required )
 
-    .form-group
-      .btn-group
-        button.btn.btn-default( type="button", ng-click="handleCancil()") Cancel
-        input.btn.btn-success( type="submit", value="Purchase")
+    .btn-group.col-md-5
+      button.btn.btn-default( type="button", ng-click="handleCancil()") Cancel
+      input.btn.btn-success( type="submit", value="Purchase")
+    .col-md-7
+      .alert.alert-danger(ng-show="err")
+        p {{err}}
 
-  div(ng-show="customer")
+    .clearfix
+
+  div(ng-show="customer.active_card")
     .col-md-main.col-md-8.col-sm-8
       form(ng-submit="handlePurchase(card, addedCredits)")
-        .input-group
+        .input-group(ng-show="!subscription")
           span.input-group-addon $
           input.form-control(type="text", required, ng-model="addedCredits")
           span.input-group-addon .00
-        p {{addedCredits }} Credits will be added to {{user._tier.title}}
+        h2(ng-show="subscription") ${{addedCredits}}
+        p {{ addedCredits }} Credits will be added to {{user._tier.title}}
         blockquote
           small Credits are only used when a user takes a course
 
@@ -46,8 +51,11 @@
     .col-md-main.col-md-4.col-sm-4
       i.fa.fa-credit-card.fa-2x.pull-left
       h4 Card on file
-      hr
-      p **** **** **** {{customer.active_card.last4}}
-      p {{customer.active_card.type}}
+      div(ng-show="!success")
+        p **** **** **** {{customer.active_card.last4}}
+        p {{customer.active_card.type}}
+        button.btn.btn-default.btn-xs(etto-delete-card, ng-click="deleteCard(user._tier._company, customer.active_card.id)") Delete Card
+      .alert.alert-success(ng-show="success")
+        p {{success}}
     .clearfix
 
