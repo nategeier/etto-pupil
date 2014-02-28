@@ -2,6 +2,7 @@
 
 angular.module("ettoPupil")
   .directive("ettoRecipientModal", [
+
     function () {
       return {
         restrict: "AE",
