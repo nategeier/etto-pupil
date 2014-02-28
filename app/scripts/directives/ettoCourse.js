@@ -27,6 +27,9 @@ angular.module("ettoPupil")
           }, {
             name: "youtube",
             humanized: "You Tube",
+          }, {
+            name: "image",
+            humanized: "Image",
           }];
           $scope.newBlocktype = $scope.blocktypes[0];
 
