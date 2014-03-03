@@ -5,9 +5,19 @@ h1.page-title
 #nav
   .section
     &.active
-      padding-top: 0 !important;
+      padding-top 0 !important
       .title
         background #ddd
+
+    &.seperator
+      background #bbb
+      .title
+        padding 0.3em 0.6em
+        background #bbb
+        border 0
+        border-bottom 1px solid #888
+        &:hover
+          background #bbb
 
     .title
       background-color #eee
@@ -38,7 +48,6 @@ code
   position relative
   padding-bottom 1.5em
   margin-bottom 2em
-  border-bottom 1px solid #ddd
 
   pre
     padding 1em !important
