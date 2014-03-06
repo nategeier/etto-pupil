@@ -72,7 +72,7 @@ $border-radius-small: 0px;
 // Import Bootstrap
 // Leave both @imports for ease of switching, but only use one at a time
 // -------------------------
-//@import "bootstrap-sass/lib/bootstrap.scss"
+//@import "bootstrap-sass/vendor/assets/stylesheets/bootstrap.scss";
 @import "_bootstrap";
 
 
