@@ -38,7 +38,7 @@ module.exports = function (config) {
     preprocessors: {
       "test/**/*.coffee": "coffee",
       "app/views/**/*.jade": ["ng-html2js"],
-      "*.js": ["coverage"]
+      "app/scripts/**/*.js": ["coverage"]
     },
 
     ngHtml2JsPreprocessor: {
@@ -70,6 +70,6 @@ module.exports = function (config) {
     // if true, it capture browsers, run tests and exit
     singleRun: false,
 
-    reporters: ["progress"]
+    reporters: ["progress", "coverage"]
   });
 };
