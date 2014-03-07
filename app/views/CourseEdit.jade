@@ -13,9 +13,11 @@ etto-logged-in-nav
         button.btn.btn-default(ng-click="addBlock(newBlocktype.name)")
           i.fa.fa-plus
       .etto-toolbox-blocktools
+      a(href="#", editable-text="user.name") {{ user.name || 'empty' }}
+      hr
+      
+      .btn.btn-defaut(ng-click="showContentents()") click
 
     .col-sm-9.etto-course-container
       etto-course( edit='edit',
-                   course='course',
-                   ng-swipe-left='nextBlock()',
-                   ng-swipe-right='prevBlock()' )
+                   course='course' )

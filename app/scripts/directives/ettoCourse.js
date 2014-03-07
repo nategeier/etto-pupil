@@ -16,8 +16,8 @@ angular.module("ettoPupil")
             name: "title",
             humanized: "Title",
           }, {
-            name: "text",
-            humanized: "Text",
+            name: "text-and-image",
+            humanized: "Text And Image",
           }, {
             name: "three-up",
             humanized: "Three Up",
@@ -70,7 +70,7 @@ angular.module("ettoPupil")
             var key = e.keyCode;
 
             if (!$scope.editing) {
-              if (key === KEY_ENTER || key === KEY_RIGHT) {
+              if (key === KEY_RIGHT) {
                 $scope.nextBlock();
               } else if (key === KEY_LEFT) {
                 $scope.prevBlock();
