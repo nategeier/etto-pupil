@@ -13,19 +13,5 @@ angular.module("ettoPupil")
         // TODO: Understand why saving relinks Blocks
         angular.element(".etto-toolbox-blocktools").empty();
       });
-
-      /*
-      $scope.showContentents = function () {
-        console.log('wtf', editor.getElement("previewer").body.innerHTML);
-        $scope.boogy = editor.getElement("previewer").body.innerHTML;
-        //console.log(editor.getElement("editor").body.innerHTML); // Returns the editor's content
-      };
-
-      editor.emit("update", function () {
-        $scope.boogy = editor.getElement("previewer").body.innerHTML;
-        console.log('Editor was removed', $scope.boogy);
-      });
-      */
-
     }
   ]);

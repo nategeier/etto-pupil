@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngSanitize", "xeditable", "ngTouch", "ui.bootstrap", "chieffancypants.loadingBar"])
+angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "ui.bootstrap", "chieffancypants.loadingBar"])
   .config(["$routeProvider", "$locationProvider",
     function ($routeProvider, $locationProvider) {
       $locationProvider.html5Mode(true).hashPrefix("#");
@@ -67,6 +67,4 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngSanitize",
           redirectTo: "/etto"
         });
     }
-  ]).run(function (editableOptions, editableThemes) {
-    editableOptions.theme = "bs3";
-  });
+  ]);
