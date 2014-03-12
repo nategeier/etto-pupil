@@ -101,7 +101,11 @@ angular.module("ettoPupil")
       var addBlock = function (blocktype, index) {
         var newBlock = {
           type: blocktype,
-          data: {},
+          data: {
+            title: "title",
+            text: "Add Text",
+            url: "/images/courses/default/basic.png"
+          },
         };
 
         if (index !== undefined) {
