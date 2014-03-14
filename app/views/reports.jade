@@ -86,7 +86,7 @@ etto-logged-in-nav
                     i.fa.fa-user.fa-3x.center-block(ng-show="!user.avatarUrl")
                   .col-xs-8
                     div(ng-show="user.name")
-                      h5.cap-first {{user.name}}
+                      h5.cap-first.pull-right {{user.name}}
                     div(ng-show="!user.name")
-                      h5.cap-first {{user.email[0]}}
+                      h5.cap-first.pull-right {{user.email[0]}}
                       small.text-warning Pending

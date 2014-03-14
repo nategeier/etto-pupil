@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "ui.bootstrap", "chieffancypants.loadingBar"])
+angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "ui.bootstrap", "angularFileUpload", "chieffancypants.loadingBar"])
   .config(["$routeProvider", "$locationProvider",
     function ($routeProvider, $locationProvider) {
       $locationProvider.html5Mode(true).hashPrefix("#");

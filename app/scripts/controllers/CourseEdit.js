@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("CourseEditCtrl", ["$scope", "course",
-    function ($scope, course) {
+  .controller("CourseEditCtrl", ["$scope", "course", '$upload',
+    function ($scope, course, $upload) {
       $scope.course = course;
 
       $scope.$on("course-save", function () {

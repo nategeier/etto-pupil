@@ -16,9 +16,6 @@ angular.module("ettoPupil")
             name: "title",
             humanized: "Title",
           }, {
-            name: "text-and-image",
-            humanized: "Text And Image",
-          }, {
             name: "three-up",
             humanized: "Three Up",
           }, {
@@ -38,8 +35,11 @@ angular.module("ettoPupil")
 
           // Controller Methods
           $scope.addBlock = function (blocktype) {
+            console.log('add it')
             var newBlockId = CoursePlayer.addBlock(blocktype, CoursePlayer.currentBlock() + 1);
+            console.log('run it')
             CoursePlayer.switchToBlock(newBlockId);
+            console.log('play it')
           };
 
           $scope.removeBlock = function (index) {

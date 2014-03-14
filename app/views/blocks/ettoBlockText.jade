@@ -1,8 +1,7 @@
 .row
   h1(editable-text="block.data.title", buttons="no", blur="submit", e-style="font-size: 44px; height: 84px;") {{ block.data.title}}
   .col-md-7
-    div(ng-bind-html="block.data.text", editable-textarea="block.data.text", buttons="no", blur="submit", e-rows="7", e-cols="40")
-    //div(ng-bind-html="block.data.text", contenteditable="true")
+    div(editable-textarea="block.data.text", buttons="no", blur="submit", e-rows="7", e-cols="40") {{block.data.text}}
   .col-md-5
     etto-image( url="{{ block.data.url }}" )
     a(href="#", editable-text="block.data.url", buttons="no", blur="submit") {{block.data.url}}
