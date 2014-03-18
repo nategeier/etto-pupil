@@ -1,2 +1,6 @@
 .row
+  .col-md-10.col-md-offset-1
+    p(editable-text="block.data.code", buttons="no", blur="submit") {{ block.data.code || 'Youtube ID'}}
   etto-youtube.col-md-10.col-md-offset-1( code="{{ block.data.code }}" )
+
+

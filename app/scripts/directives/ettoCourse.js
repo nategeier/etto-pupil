@@ -16,9 +16,6 @@ angular.module("ettoPupil")
             name: "title",
             humanized: "Title",
           }, {
-            name: "text-and-image",
-            humanized: "Text And Image",
-          }, {
             name: "three-up",
             humanized: "Three Up",
           }, {

@@ -7,7 +7,7 @@ angular.module("ettoPupil")
       return {
         //templateUrl: "/views/directives/ettoLoginBtns.html",
         restrict: "AE",
-        controller: function ($scope, $modal, Session, $location) {
+        controller: function ($scope, $modal, Session, $location, $route) {
           $scope.login = function () {
 
             var modal = $modal.open({
@@ -17,11 +17,10 @@ angular.module("ettoPupil")
                 $scope.handleLogin = function (user) {
 
                   Session.authenticate(user, function (data) {
-
                     if (data.message) {
                       $scope.err = data;
                     } else {
-                      $location.path("/etto");
+
                       $modalInstance.close(user);
                     }
                   });
@@ -29,7 +28,13 @@ angular.module("ettoPupil")
               }
             });
             modal.result.then(function (user) {
-
+              var redir = "/etto";
+              if ($location.path() === redir) {
+                $route.reload();
+              } else {
+                $location.path(redir);
+              }
+              //$location.path("/etto");
             });
           };
         },

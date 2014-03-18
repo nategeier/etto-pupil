@@ -4,7 +4,7 @@
   h2.modal-title Purchase Credits
 .modal-body
 
-  form(ng-submit="handlePurchase(card, addedCredits)", ng-show="!customer.active_card")
+  form(ng-submit="handlePurchase(card, addedCredits)", ng-show="!customer.cards.data[0]")
     .form-group.col-md-main.col-md-12.col-sm-12
       .input-group
         span.input-group-addon $
@@ -29,9 +29,9 @@
 
     .clearfix
 
-  div(ng-show="customer.active_card")
+  div(ng-show="customer.cards.data[0]")
     .col-md-main.col-md-8.col-sm-8
-      form(ng-submit="handlePurchase(card, addedCredits)")
+      form(ng-submit="handlePurchase(customer.cards.data[0], addedCredits)")
         .input-group(ng-show="!subscription")
           span.input-group-addon $
           input.form-control(type="text", required, ng-model="addedCredits")
@@ -52,8 +52,8 @@
       i.fa.fa-credit-card.fa-2x.pull-left
       h4 Card on file
       div(ng-show="!success")
-        p **** **** **** {{customer.active_card.last4}}
-        p {{customer.active_card.type}}
+        p **** **** **** {{customer.cards.data[0].last4}}
+        p {{customer.cards.data[0].type}}
         button.btn.btn-default.btn-xs(etto-delete-card, ng-click="deleteCard(user._tier._company, customer.active_card.id)") Delete Card
       .alert.alert-success(ng-show="success")
         p {{success}}

@@ -17,12 +17,35 @@
     width: 100%;
     margin-bottom: 10px;
   }
+ 
 }
+
+.report-btns .report-btn{
+  width:100%;
+  background-color:#fff;
+  text-align: center;
+  padding:10px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-style: solid;
+  border-color: $etto-darkgrey;
+  border-width:1px;
+}
+
+.report-btns .report-btn:hover{
+  background-color: $etto-greyblue;
+  color: #fff;
+}
+
+
+
 .report-holder:hover{
   cursor: pointer;
 }
 
-
+.stat{
+  border-right: 1px solid #eee;
+}
 
 .aside{
   //background-color: $etto-mildblue;

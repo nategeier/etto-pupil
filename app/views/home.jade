@@ -18,7 +18,6 @@ etto-verify-modal(redirect-to='/etto')
         div(ng-repeat='course in usersCourses')
           .col-md-4.col-sm-4
             .course-holder(sink-in, ng-click="openCourse(course)")
-              small {{ course._id }}
               .row
                 .col-xs-12
                   img.img-responsive(src='/images/courses/thumbs/course_2.jpg')

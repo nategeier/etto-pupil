@@ -2,22 +2,35 @@ etto-logged-in-nav
 
 .container-full
   .row
+    etto-choose-block
     .col-sm-3.etto-toolbox
+      .col-sm-12.etto-top-toolbar
+        
+
       .etto-toolbox-toolbar
         button.save.btn.btn-primary(ng-click="saveCourse()")
           i.fa.fa-save
+
         .etto-toolbox-title.clearfix
           h4.pull-left {{ course.title }}
       .etto-toolbox-newblock.clearfix
-        select.form-control(ng-model="newBlocktype", ng-options="bt.humanized for bt in blocktypes")
-        button.btn.btn-default(ng-click="addBlock(newBlocktype.name)")
+        button.btn.btn-default(ng-click="showOptions()")
           i.fa.fa-plus
       .etto-toolbox-blocktools
-      a(href="#", editable-text="user.name") {{ user.name || 'empty' }}
-      hr
-      
-      .btn.btn-defaut(ng-click="showContentents()") click
+
+
+      etto-file-upload
+        input(type='text', ng-model='myModelObj')
+        input(type='file', ng-file-select='onFileSelect($files)')
+        input(type='file', ng-file-select='onFileSelect($files)', multiple='multiple')
+        div(ng-file-drop='onFileSelect($files)', ng-file-drag-over-class='optional-css-class', ng-show='dropSupported') drop files here
+        div(ng-file-drop-available='dropSupported=true', ng-show='!dropSupported') HTML5 Drop File is not supported!
+
+        button(ng-click='upload.abort()') Cancel Upload
+
 
     .col-sm-9.etto-course-container
       etto-course( edit='edit',
-                   course='course' )
+                   course='course',
+                   ng-swipe-left='nextBlock()',
+                   ng-swipe-right='prevBlock()')
