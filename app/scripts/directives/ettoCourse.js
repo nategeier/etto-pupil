@@ -35,11 +35,8 @@ angular.module("ettoPupil")
 
           // Controller Methods
           $scope.addBlock = function (blocktype) {
-            console.log('add it')
             var newBlockId = CoursePlayer.addBlock(blocktype, CoursePlayer.currentBlock() + 1);
-            console.log('run it')
             CoursePlayer.switchToBlock(newBlockId);
-            console.log('play it')
           };
 
           $scope.removeBlock = function (index) {

@@ -23,6 +23,8 @@ angular.module("ettoPupil")
                 customer = null;
               }
 
+              console.log(customer);
+
               var modal = $modal.open({
                 templateUrl: "/views/directives/ettoPurchaseModal.html",
                 controller: function ($scope, $modalInstance) {
@@ -70,7 +72,9 @@ angular.module("ettoPupil")
                 }
               });
               modal.result.then(function (responce) {
-                $location.path("/etto");
+
+                $scope.updateSession();
+                //$location.path("/etto");
               });
             });
           };

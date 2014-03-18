@@ -1,0 +1,5 @@
+
+div(ng-repeat="bt in blocktypes")
+  .col-md-6
+    a(href="#", ng-click="chose(bt.name)")
+      img.template-thumb(src="/images/courses/blocks/templates/{{bt.name}}.jpg")

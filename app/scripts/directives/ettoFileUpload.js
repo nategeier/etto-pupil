@@ -26,9 +26,9 @@ angular.module("ettoPupil")
                     $scope.upload = $upload.upload({
                       url: url, //upload.php script, node.js route, or servlet url
                       method: "PUT",
-                      headers: {
+                      /*headers: {
                         "Content-Type": file.type,
-                      },
+                      },*/
                       //withCredentials: true,
                       data: {
                         myObj: $scope.myModelObj

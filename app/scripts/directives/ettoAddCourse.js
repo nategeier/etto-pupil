@@ -9,13 +9,30 @@ angular.module("ettoPupil")
         restrict: "AE",
         controller: function ($scope, $modal, CourseMetaChange) {
           $scope.addCourse = function () {
+
+            var user = $scope.user;
+
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoAddCourseModal.html",
-              controller: function ($scope, $modalInstance) {
+              controller: function ($scope, $modalInstance, Payment, $location) {
+
+                $scope.user = user;
+
+                Payment.checkCanAddCourse(user._tier._company, function (result) {
+                  $scope.subscriptionGood = result.isGood;
+                });
+
                 $scope.course = {};
                 $scope.handleLogin = function () {
                   $modalInstance.close($scope.course);
                 };
+
+                $scope.linkSubscription = function () {
+
+                  $modalInstance.close();
+                  $location.path("/subscription/" + user._id);
+                };
+
               }
             });
             modal.result.then(function (course) {

@@ -6,7 +6,7 @@ angular.module("ettoPupil")
       var User;
 
       User = {
-
+        //
         updateUsersTier: function (tier, callback) {
 
           $http.post("/api/v1/user/update_users_tier", tier)

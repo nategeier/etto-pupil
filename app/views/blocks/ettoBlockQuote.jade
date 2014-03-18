@@ -1,4 +1,6 @@
 .row
-  blockquote
-    p {{ block.data.quote }}
-    footer {{ block.data.cite }}
+  .col-md-10.col-md-offset-1
+    blockquote
+      div(editable-textarea="block.data.quote", e-rows="7", e-cols="40", buttons="no", blur="submit")
+        pre.quote {{ block.data.quote || "quote"}}
+      footer(e-style="", editable-text="block.data.cite", e-rows="7", e-cols="40", buttons="no", blur="submit") {{ block.data.cite || "author"}}

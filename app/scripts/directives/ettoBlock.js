@@ -26,7 +26,6 @@ angular.module("ettoPupil")
 
           if ($scope.$parent.editing) {
             editTemplate = "<div class='etto-course-block-edit-container' ng-show='isCurrentBlock( $index )'>" +
-              "<ng-include src='blockTemplateEdit'></ng-include>" +
               "<button class='remove btn btn-primary' ng-click='removeBlock()'><i class='fa fa-minus'></i></button>" +
               "</div>";
             editEl = $compile(editTemplate)($scope);

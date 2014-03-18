@@ -8,7 +8,6 @@ angular.module("ettoPupil")
           var S3Url = $resource("/api/v1/asset/s3Url");
 
           S3Url.get(function (results) {
-            console.log('res----', results)
             callback(results);
           });
         }

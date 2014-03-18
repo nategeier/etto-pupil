@@ -1,23 +1,36 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .directive("ettoSession", ["Session", "Store",
+  .directive("ettoSession", ["Store",
 
-    function (Session, Store) {
+    function (Store) {
       return {
         restrict: "EA",
-        link: function (scope, element, attrs) {
-          Session.getSession(function (data) {
-            Session.treatSession(data);
-            scope.user = data;
 
-            if (scope.user.auth.canPurchase) {
-              Store.findCredit(scope.user._tier._company, function (results) {
-                scope.credits = results.credits;
-              });
-            }
+        controller: function ($scope, Session) {
 
+          $scope.$on("401", function () {
+            $scope.login();
           });
+
+          $scope.updateSession = function () {
+            Session.getSession(function (data) {
+              //Session.treatSession(data);
+              $scope.user = data;
+
+              if ($scope.user && $scope.user.auth.canPurchase) {
+                Store.findCredit($scope.user._tier._company, function (results) {
+                  $scope.credits = results.credits;
+                });
+              }
+            });
+          };
+
+          $scope.updateSession();
+
+        },
+        link: function (scope, element, attrs) {
+
         }
       };
     }

@@ -21,6 +21,7 @@ module.exports = function (config) {
       "app/bower_components/angular-touch/angular-touch.js",
       "app/bower_components/angular-mocks/angular-mocks.js",
       "app/bower_components/angular-loading-bar/src/loading-bar.js",
+      "app/bower_components/ng-file-upload/angular-file-upload.min.js",
 
       "app/scripts/*.js",
       "app/scripts/**/*.js",

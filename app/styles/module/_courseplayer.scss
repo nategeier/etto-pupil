@@ -12,6 +12,11 @@
  *
  *    <a class="btn btn-default">Thing</a>
  */
+
+
+.template-thumb{
+  margin-bottom: 2px;
+}
 .etto-course-container {
   padding-bottom: 2.67em;
 }
@@ -74,7 +79,19 @@
 
 etto-course {
 
-  color: $etto-tan;
+  pre{
+    padding-left:20px;
+    color: $etto-greyblue;
+  }
+
+  pre.sub-head{
+    text-align: center;
+  }
+
+  pre.quote{
+    font-size: 3em;
+    color: $etto-accentblue;
+  }
 
   > div {
     margin-top: 1em;
@@ -93,7 +110,7 @@ etto-course {
   }
 
   blockquote {
-    border-left-color: $etto-tan;
+    border-left-color: $etto-accentblue;
     p {
       font-size: 3em;
     }
@@ -101,6 +118,7 @@ etto-course {
     footer {
       text-align: right;
       font-size: 2em;
+      color:  $etto-greyblue;
     }
 
     footer:before {

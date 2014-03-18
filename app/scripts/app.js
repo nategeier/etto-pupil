@@ -1,8 +1,10 @@
 "use strict";
 
-angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "ui.bootstrap", "angularFileUpload", "chieffancypants.loadingBar"])
-  .config(["$routeProvider", "$locationProvider",
-    function ($routeProvider, $locationProvider) {
+angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "ui.bootstrap", "xeditable", "angularFileUpload", "chieffancypants.loadingBar"])
+  .config(["$routeProvider", "$locationProvider", "$httpProvider",
+    function ($routeProvider, $locationProvider, $httpProvider) {
+      $httpProvider.interceptors.push("httpInterceptor");
+
       $locationProvider.html5Mode(true).hashPrefix("#");
       $routeProvider
         .when("/", {
@@ -21,6 +23,11 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
           templateUrl: "/views/editTier.html",
           controller: "TierCtrl"
         })
+        .when("/401", {
+          templateUrl: "/views/editTier.html",
+          controller: "TierCtrl"
+
+        })
         .when("/store/:tierID", {
           templateUrl: "/views/store.html",
           controller: "StoreCtrl"
@@ -33,9 +40,9 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
           templateUrl: "/views/settings.html",
           controller: "SettingsCtrl"
         })
-        .when("/billing/:userID", {
-          templateUrl: "/views/billing.html",
-          controller: "BillingCtrl"
+        .when("/subscription/:userID", {
+          templateUrl: "/views/Subscription.html",
+          controller: "SubscriptionCtrl"
         })
         .when("/payments/:userID", {
           templateUrl: "/views/payments.html",
@@ -67,4 +74,6 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
           redirectTo: "/etto"
         });
     }
-  ]);
+  ]).run(function (editableOptions) {
+    editableOptions.theme = "bs3"; // bootstrap3 theme. Can be also 'bs2', 'default'
+  });

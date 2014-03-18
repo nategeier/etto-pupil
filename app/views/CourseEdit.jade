@@ -2,16 +2,10 @@ etto-logged-in-nav
 
 .container-full
   .row
-
+    etto-choose-block
     .col-sm-3.etto-toolbox
       .col-sm-12.etto-top-toolbar
-        .btn-group
-          button.btn.btn-default(type = "button")
-            i.fa.fa-bold
-           button.btn.btn-default(type = "button")
-            i.fa.fa-italic
-          button.btn.btn-default(type = "button")
-            i.fa.fa-list-alt
+        
 
       .etto-toolbox-toolbar
         button.save.btn.btn-primary(ng-click="saveCourse()")
@@ -20,11 +14,9 @@ etto-logged-in-nav
         .etto-toolbox-title.clearfix
           h4.pull-left {{ course.title }}
       .etto-toolbox-newblock.clearfix
-        select.form-control(ng-model="newBlocktype", ng-options="bt.humanized for bt in blocktypes")
-        button.btn.btn-default(ng-click="addBlock(newBlocktype.name)")
+        button.btn.btn-default(ng-click="showOptions()")
           i.fa.fa-plus
       .etto-toolbox-blocktools
-
 
 
       etto-file-upload
@@ -36,9 +28,9 @@ etto-logged-in-nav
 
         button(ng-click='upload.abort()') Cancel Upload
 
-      
-      div(text-angular, ng-model="htmlVariable")
 
     .col-sm-9.etto-course-container
       etto-course( edit='edit',
-                   course='course' )
+                   course='course',
+                   ng-swipe-left='nextBlock()',
+                   ng-swipe-right='prevBlock()')
