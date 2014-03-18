@@ -23,11 +23,6 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
           templateUrl: "/views/editTier.html",
           controller: "TierCtrl"
         })
-        .when("/401", {
-          templateUrl: "/views/editTier.html",
-          controller: "TierCtrl"
-
-        })
         .when("/store/:tierID", {
           templateUrl: "/views/store.html",
           controller: "StoreCtrl"
