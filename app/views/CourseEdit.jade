@@ -8,18 +8,21 @@ etto-logged-in-nav
         
 
       .etto-toolbox-toolbar
-        button.save.btn.btn-primary(ng-click="saveCourse()")
-          i.fa.fa-save
+        .etto-toolbox-newblock.clearfix
+          button.btn.btn-default(ng-click="showOptions()")
+            i.fa.fa-plus
+          button.btn.btn-danger(ng-click='removeBlock()')
+            i.fa.fa-minus
+          button.btn.btn-success(ng-click="saveCourse()")
+            i.fa.fa-save
 
         .etto-toolbox-title.clearfix
           h4.pull-left {{ course.title }}
-      .etto-toolbox-newblock.clearfix
-        button.btn.btn-default(ng-click="showOptions()")
-          i.fa.fa-plus
+      
       .etto-toolbox-blocktools
 
 
-      etto-file-upload
+      //etto-file-upload
         input(type='text', ng-model='myModelObj')
         input(type='file', ng-file-select='onFileSelect($files)')
         input(type='file', ng-file-select='onFileSelect($files)', multiple='multiple')
@@ -31,6 +34,4 @@ etto-logged-in-nav
 
     .col-sm-9.etto-course-container
       etto-course( edit='edit',
-                   course='course',
-                   ng-swipe-left='nextBlock()',
-                   ng-swipe-right='prevBlock()')
+                   course='course')

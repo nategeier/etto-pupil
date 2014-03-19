@@ -27,7 +27,11 @@ angular.module("ettoPupil")
           }, {
             name: "image",
             humanized: "Image",
+          }, {
+            name: "quiz",
+            humanized: "Quiz",
           }];
+
           $scope.newBlocktype = $scope.blocktypes[0];
 
           // Start the course!

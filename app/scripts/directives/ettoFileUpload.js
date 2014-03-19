@@ -17,19 +17,18 @@ angular.module("ettoPupil")
                   });
                 },
                 function (url, callback) {
-
+                  /*
                   for (var i = 0; i < $files.length; i++) {
 
-                    $scope.uploadRightAway = true;
-
+                    $scope.uploadRightAway = true;`
                     var file = $files[i];
                     $scope.upload = $upload.upload({
                       url: url, //upload.php script, node.js route, or servlet url
                       method: "PUT",
-                      /*headers: {
+                      headers: {
                         "Content-Type": file.type,
-                      },*/
-                      //withCredentials: true,
+                      },
+                      withCredentials: true,
                       data: {
                         myObj: $scope.myModelObj
                       },
@@ -38,7 +37,7 @@ angular.module("ettoPupil")
                       console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
                     }).error(function (data, status, headers, config) {
                       // file is uploaded successfully
-                      console.log("fail-----", data, status, headers, config);
+                      console.log("fail-----", file.type, data, status, headers, config);
 
                     }).success(function (data, status, headers, config) {
                       // file is uploaded successfully
@@ -47,6 +46,7 @@ angular.module("ettoPupil")
                     //.error(...)
                     //.then(success, error, progress); 
                   }
+                  */
 
                 }
               ],

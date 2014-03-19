@@ -1,0 +1,27 @@
+/*
+ * Quiz
+ * ============================================================================
+ *
+ * It holds courses. Keeps 'em in check.
+ *
+ */
+
+.question{
+  border:1px solid $etto-darkgrey;
+  padding:20px;
+  margin-bottom: 20px;
+
+  h4{
+  	text-align: center;
+  }
+}
+
+.question.incorrect{
+	background-color:red;
+}
+
+
+.question.correct{
+  background-color:green;
+}
+

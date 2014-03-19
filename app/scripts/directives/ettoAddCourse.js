@@ -18,9 +18,13 @@ angular.module("ettoPupil")
 
                 $scope.user = user;
 
-                Payment.checkCanAddCourse(user._tier._company, function (result) {
-                  $scope.subscriptionGood = result.isGood;
-                });
+                if ($scope.createdCourses && $scope.createdCourses.length > 1) {
+                  Payment.checkCanAddCourse(user._tier._company, function (result) {
+                    $scope.subscriptionGood = result.isGood;
+                  });
+                } else {
+                  $scope.subscriptionGood = true;
+                }
 
                 $scope.course = {};
                 $scope.handleLogin = function () {

@@ -25,9 +25,7 @@ angular.module("ettoPupil")
           $scope.blockTemplateEdit = pathBase + "Edit.html";
 
           if ($scope.$parent.editing) {
-            editTemplate = "<div class='etto-course-block-edit-container' ng-show='isCurrentBlock( $index )'>" +
-              "<button class='remove btn btn-primary' ng-click='removeBlock()'><i class='fa fa-minus'></i></button>" +
-              "</div>";
+            editTemplate = "<div class='etto-course-block-edit-container' ng-show='isCurrentBlock( $index )'></div>";
             editEl = $compile(editTemplate)($scope);
             angular.element(".etto-toolbox-blocktools").append(editEl);
           }

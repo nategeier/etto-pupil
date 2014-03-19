@@ -5,6 +5,8 @@ angular.module("ettoPupil")
     function ($scope, course, $upload) {
       $scope.course = course;
 
+      $scope.isEditing = true;
+
       $scope.$on("course-save", function () {
         // TODO: Validate course before update
         $scope.course.$update();
