@@ -13,7 +13,7 @@ angular.module("ettoPupil")
 
           $scope.alphabet = BlockQuiz.alphabet;
 
-      $scope.addAnswer = function (questions, index) {
+          $scope.addAnswer = function (questions, index) {
             questions[index].answers.push(BlockQuiz.getQuestion().answers[0]);
           };
 
@@ -55,7 +55,6 @@ angular.module("ettoPupil")
             }
 
           };
-
         },
 
         link: function postLink(scope, element, attrs) {}

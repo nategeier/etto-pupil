@@ -16,8 +16,6 @@ angular.module("ettoPupil")
       */
       $scope.cancelSubscription = function () {
         Payment.cancelSubscription($scope.user._tier._company, $scope.currentSubscription, function (results) {
-
-          conosle.log("results", results)
           $scope.subscriptionTypes = results;
           $scope.onSubscription = $scope.subscriptionTypes[0]._id;
           $scope.resetSubscription();
