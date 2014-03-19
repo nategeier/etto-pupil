@@ -13,7 +13,7 @@ angular.module("ettoPupil")
 
           $scope.alphabet = BlockQuiz.alphabet;
 
-          $scope.addAnswer = function (questions, index) {
+      $scope.addAnswer = function (questions, index) {
             questions[index].answers.push(BlockQuiz.getQuestion().answers[0]);
           };
 
@@ -50,7 +50,6 @@ angular.module("ettoPupil")
             for (var i = 0; i < incorrectQuestions.length; i++) {
               $(incorrectQuestions[i]).addClass("incorrect");
             }
-
             if (!incorrectQuestions[0]) {
               $scope.nextBlock();
             }
