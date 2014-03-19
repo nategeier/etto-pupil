@@ -9,9 +9,9 @@
  */
 
 angular.module("ettoPupil")
-  .factory("CoursePlayer", [
+  .factory("CoursePlayer", ["BlockQuiz",
 
-    function () {
+    function (BlockQuiz) {
       var onBlock = 0;
 
       var course = {
@@ -99,10 +99,20 @@ angular.module("ettoPupil")
        * Add a new block to the end of the course or, if provided, the index
        */
       var addBlock = function (blocktype, index) {
+
         var newBlock = {
           type: blocktype,
           data: {},
         };
+
+        switch (blocktype) {
+        case "quiz":
+          newBlock.data.questions = [BlockQuiz.getQuestion()];
+          break;
+
+        default:
+
+        }
 
         if (index !== undefined) {
           course.blocks.splice(index, 0, newBlock);

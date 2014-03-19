@@ -45,7 +45,7 @@ etto-verify-modal(redirect-to='/etto')
       etto-add-course(redirect-to='/etto')
       hr
       .clearfix
-      div(ng-repeat='course in courses')
+      div(ng-repeat='course in createdCourses')
         .course-holder(sink-in)
           a(href="/course/view/{{ course._id }}")
             .col-md-10
