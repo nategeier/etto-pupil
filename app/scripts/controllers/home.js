@@ -13,7 +13,7 @@ angular.module("ettoPupil")
       $scope.listUsersCreatedCourses = function () {
 
         Users.listUsersCreatedCourses($scope.user._tier._company, function (data) {
-          $scope.courses = data;
+          $scope.createdCourses = data;
         });
 
         if ($scope.user._tier) {

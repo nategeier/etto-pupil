@@ -11,6 +11,7 @@ angular.module("ettoPupil")
           $scope.addCourse = function () {
 
             var user = $scope.user;
+            var createdCourses = $scope.createdCourses;
 
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoAddCourseModal.html",
@@ -18,9 +19,14 @@ angular.module("ettoPupil")
 
                 $scope.user = user;
 
-                Payment.checkCanAddCourse(user._tier._company, function (result) {
-                  $scope.subscriptionGood = result.isGood;
-                });
+                if (createdCourses && createdCourses.length >= 1) {
+
+                  Payment.checkCanAddCourse(user._tier._company, function (result) {
+                    $scope.subscriptionGood = result.isGood;
+                  });
+                } else {
+                  $scope.subscriptionGood = true;
+                }
 
                 $scope.course = {};
                 $scope.handleLogin = function () {

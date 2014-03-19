@@ -23,8 +23,6 @@ angular.module("ettoPupil")
                 customer = null;
               }
 
-              console.log(customer);
-
               var modal = $modal.open({
                 templateUrl: "/views/directives/ettoPurchaseModal.html",
                 controller: function ($scope, $modalInstance) {
@@ -65,14 +63,16 @@ angular.module("ettoPupil")
                       if (responce.message) {
                         $scope.err = responce.message;
                       } else {
-                        $modalInstance.close(responce);
+                        $modalInstance.close(order);
                       }
                     });
                   };
                 }
               });
-              modal.result.then(function (responce) {
-
+              modal.result.then(function (order) {
+                if (order.subscription) {
+                  $scope.resetSubscription();
+                }
                 $scope.updateSession();
                 //$location.path("/etto");
               });
