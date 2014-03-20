@@ -147,6 +147,22 @@ angular.module("ettoPupil")
         return blocksInCourse();
       };
 
+      /**
+       * Swap two blocks
+       */
+      var swapBlocks = function (a, b) {
+        if (a < 0 || b < 0 ||
+          a > blocksInCourse() - 1 || b > blocksInCourse() - 1) {
+          return false;
+        }
+
+        var tmp = course.blocks[a];
+        course.blocks[a] = course.blocks[b];
+        course.blocks[b] = tmp;
+
+        return true;
+      };
+
       var CoursePlayer = {
         play: play,
         blocksInCourse: blocksInCourse,
@@ -159,6 +175,7 @@ angular.module("ettoPupil")
         switchToBlock: switchToBlock,
         addBlock: addBlock,
         removeBlock: removeBlock,
+        swapBlocks: swapBlocks,
       };
 
       return CoursePlayer;

@@ -68,7 +68,7 @@ describe "Service: CoursePlayer", ->
       CoursePlayer.play { blocks: [ {} ] }
       expect( CoursePlayer.currentBlock() ).toBe 0
 
-  describe "editing functions", ->
+  describe "adding blocks", ->
     it "should be able to add a new block to the end of a course and return its index", ->
       returnVal = CoursePlayer.addBlock('text')
       expect( CoursePlayer.blocksInCourse() ).toBe 4
@@ -79,9 +79,38 @@ describe "Service: CoursePlayer", ->
       expect( CoursePlayer.blocksInCourse() ).toBe 4
       expect( returnVal ).toBe 1
 
+  describe "removing blocks", ->
     it "should be able to remove a block and return how many are left", ->
       returnVal = CoursePlayer.removeBlock(1)
       expect( CoursePlayer.blocksInCourse() ).toBe 2
       expect( returnVal ).toBe 2
       expect( testCourse ).toEqual
         blocks: [ { type: "title", data: {} }, { type: "quote", data: {} } ]
+
+  describe "swapping blocks", ->
+    it "should be able to swap two blocks", ->
+      returnVal = CoursePlayer.swapBlocks 1, 2
+      expect( returnVal ).toBe true
+      expect( testCourse ).toEqual
+        blocks: [
+          { type: "title", data: {} },
+          { type: "quote", data: {} },
+          { type: "text", data: {} } ]
+
+    it "should return false when swapped blocks are invalid", ->
+      returnVal = CoursePlayer.swapBlocks -1, 2
+      expect( returnVal ).toBe false
+      expect( testCourse ).toEqual
+        blocks: [
+          { type: "title", data: {} },
+          { type: "text", data: {} },
+          { type: "quote", data: {} } ]
+
+    it "should return false when swapped blocks are invalid", ->
+      returnVal = CoursePlayer.swapBlocks 1, 3
+      expect( returnVal ).toBe false
+      expect( testCourse ).toEqual
+        blocks: [
+          { type: "title", data: {} },
+          { type: "text", data: {} },
+          { type: "quote", data: {} } ]
