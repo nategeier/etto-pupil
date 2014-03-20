@@ -3,12 +3,18 @@ describe "Directive: ettoCourse", ->
 
   beforeEach module "ettoPupil",
                     "/views/directives/ettoCourse.html",
-                    "/views/blocks/ettoBlockUndefined.html"
+                    "/views/blocks/ettoBlockUndefined.html",
+                    "/views/blocks/ettoBlockTitle.html",
+                    "/views/blocks/ettoBlockText.html",
+                    "/views/blocks/ettoBlockQuote.html"
 
   beforeEach inject ( $rootScope, $compile, $httpBackend ) ->
     scope = $rootScope.$new()
-    scope.course = { blocks: [ {}, {}, {} ] }
-
+    scope.course =
+      blocks: [
+        { type: "title", data: {} },
+        { type: "text", data: {} },
+        { type: "quote", data: {} } ]
     element = angular.element "<etto-course></etto-course>"
     element = $compile( element ) scope
 
@@ -39,3 +45,9 @@ describe "Directive: ettoCourse", ->
     scope.$digest()
     expect( scope.isCurrentBlock( 0 ) ).toBe true
 
+  it "should be able to swap two Blocks", ->
+    scope.$digest()
+    expect( scope.swapBlocks ).toBeDefined()
+    scope.swapBlocks(1, 2)
+    expect( scope.course.blocks[1].type ).toEqual "quote"
+    expect( scope.course.blocks[2].type ).toEqual "text"

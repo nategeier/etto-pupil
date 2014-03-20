@@ -38,6 +38,10 @@ angular.module("ettoPupil")
           CoursePlayer.play($scope.course);
 
           // Controller Methods
+          $scope.currentBlock = function () {
+            return CoursePlayer.currentBlock();
+          };
+
           $scope.addBlock = function (blocktype) {
             var newBlockId = CoursePlayer.addBlock(blocktype, CoursePlayer.currentBlock() + 1);
             CoursePlayer.switchToBlock(newBlockId);
@@ -45,6 +49,10 @@ angular.module("ettoPupil")
 
           $scope.removeBlock = function (index) {
             CoursePlayer.removeBlock(CoursePlayer.currentBlock());
+          };
+
+          $scope.swapBlocks = function (a, b) {
+            return CoursePlayer.swapBlocks(a, b);
           };
 
           $scope.saveCourse = function () {
