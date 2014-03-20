@@ -9,9 +9,9 @@
  */
 
 angular.module("ettoPupil")
-  .factory("CoursePlayer", ["BlockQuiz",
+  .factory("CoursePlayer", ["BlockQuiz", "Record",
 
-    function (BlockQuiz) {
+    function (BlockQuiz, Record) {
       var onBlock = 0;
 
       var course = {
@@ -26,6 +26,7 @@ angular.module("ettoPupil")
       var play = function (newCourse) {
         course = newCourse;
         onBlock = 0;
+
       };
 
       /**
@@ -84,6 +85,22 @@ angular.module("ettoPupil")
       };
 
       /**
+       * updateBookmark
+       *
+       * @param {course}
+       */
+      var updateBookmark = function (record, callback) {
+        var currBlock = Number(onBlock) + 1;
+
+        if (Number(record.progress.bookmark) < currBlock) {
+          Record.updateBookmark(record._id, currBlock, course.blocks.length, function (record) {
+            callback(record);
+          });
+        }
+
+      };
+
+      /**
        * Switch to the next block in the active course.
        */
       var switchToBlock = function (block) {
@@ -138,6 +155,7 @@ angular.module("ettoPupil")
         isCurrentBlock: isCurrentBlock,
         prevBlock: prevBlock,
         nextBlock: nextBlock,
+        updateBookmark: updateBookmark,
         switchToBlock: switchToBlock,
         addBlock: addBlock,
         removeBlock: removeBlock,

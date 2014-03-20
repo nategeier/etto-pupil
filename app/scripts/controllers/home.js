@@ -28,14 +28,17 @@ angular.module("ettoPupil")
       };
 
       $scope.openCourse = function (course) {
-
+        $location.path("/course/view/" + course._id);
+        /*
         Record.create(course._id, $scope.user._id, function (results) {
+          console.log(results)
           if (results.err) {
             $scope.err = results.err;
           } else {
             $location.path("/course/view/" + course._id);
           }
         });
+        */
       };
 
       $scope.removeCourse = function (id) {
