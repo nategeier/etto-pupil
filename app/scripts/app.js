@@ -15,7 +15,7 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
           templateUrl: "/views/home.html",
           controller: "HomeCtrl"
         })
-        .when("/levels/:parentID", {
+        .when("/report/:parentID", {
           templateUrl: "/views/reports.html",
           controller: "ReportsCtrl"
         })

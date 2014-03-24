@@ -1,17 +1,17 @@
-.row
+.row.quiz-block
   .col-md-10.col-md-offset-1
     etto-block-quiz
-      h1 Quiz
+      h1 {{course.title}} Quiz
       div(ng-show="isEditing")
         div(ng-repeat = "q in block.data.questions track by $index")
-          .question.col-md-6
+          .question.col-md-10col-md-offset-1
             button.btn.btn-danger.btn-sm.pull-right(ng-click="deleteQuestion(block.data.questions, $index)") X
             h4(editable-text="q.question", buttons="no", blur="submit", ng-show="isEditing") {{$index + 1}}. {{ q.question || "author"}}
             .clearfix
             
             table.table.table-no-border
               tr(ng-repeat = "a in q.answers track by $index")
-                td(editable-text="a.answer", buttons="no", blur="submit")  {{alphabet[$index]}}) {{ a.answer || "author"}}
+                td(editable-text="a.answer", buttons="no", blur="submit")  {{alphabet[$index]}} ) {{ a.answer || "author"}}
                 td
                   .checkbox
                     lable Correct
@@ -19,15 +19,17 @@
                 td
                   button.btn.btn-danger.btn-sm(ng-click="deleteAnswer(q.answers, $index)") X
             button.btn.btn-default.btn-sm(ng-click="addAnswer(block.data.questions, $index)") Add answer
-        button.btn.btn-success.btn-sm(ng-click="addQuestion(block.data.questions)") Add question
+        .col-md-10.col-md-offset-1
+          button.btn.btn-success.btn-sm(ng-click="addQuestion(block.data.questions)") Add question
       
       div(ng-show="!isEditing")
         div(ng-repeat = "q in block.data.questions track by $index")
-          .question.col-md-6(id="question{{$index}}")
+          .question.col-md-10.col-md-offset-1(id="question{{$index}}")
             h4 {{$index + 1}}. {{q.question}}
             div(ng-repeat = "a in q.answers track by $index")
               .btn.btn-default.w100(ng-click="checkAnswer(a.correct, $parent.$index)")
                 .radio
-                  label {{alphabet[$index]}}) {{a.answer}}
+                  label {{alphabet[$index]}} ) {{a.answer}}
                     input(type="radio", name="q{{$parent.$index}}")
-        button.btn.btn-success.w100(ng-click="evaluate()") Evaluate
+        .col-md-6.col-md-offset-3
+          button.btn.btn-success.w100(ng-click="evaluate()") Evaluate

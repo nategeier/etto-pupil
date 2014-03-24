@@ -1,21 +1,25 @@
-etto-logged-in-nav
 
 .container-full
   .row
     etto-choose-block
-    .col-sm-3.etto-toolbox
-      .etto-toolbox-toolbar
-        button.btn.btn-default(ng-click="showOptions()")
-          i.fa.fa-plus
-        button.btn.btn-danger(ng-click='removeBlock()')
-          i.fa.fa-minus
-        button.btn.btn-primary(ng-click='swapBlocks(currentBlock(), currentBlock() + 1)')
-          i.fa.fa-refresh
-        button.btn.btn-success(ng-click="saveCourse()")
-          i.fa.fa-save
+    .col-sm-3.col-md-2.etto-toolbox
+      h3(editable-text="course.title", buttons="no", blur="submit") {{course.title}}
+      p(editable-text="course.subtitle", buttons="no", blur="submit") {{course.subtitle}}
+      a.exit-course(href="/etto") X
 
-      .etto-toolbox-title
-        h4 {{ course.title }}
+      .panel.panel-default
+        .panel-body
+          button.btn.btn-primary(ng-click='swapBlocks(currentBlock(), currentBlock() + 1)')
+            i.fa.fa-refresh
+          button.btn.btn-success(ng-click="saveCourse()")
+            i.fa.fa-save
+          button.btn.btn-default(ng-click="showOptions()")
+            i.fa.fa-plus
+          button.btn.btn-danger(ng-click='removeBlock()')
+            i.fa.fa-minus
+        .panel-heading Current State
+        .panel-body
+          select.form-control(ng-model="course.status", ng-options="status for status in statuses")
       
       //etto-file-upload
         input(type='text', ng-model='myModelObj')
@@ -26,6 +30,6 @@ etto-logged-in-nav
 
         button(ng-click='upload.abort()') Cancel Upload
 
-    .col-sm-9.etto-course-container
+    .col-sm-9.col-md-10.etto-course-container
       etto-course( edit='edit',
                    course='course')

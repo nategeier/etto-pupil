@@ -2,42 +2,43 @@ etto-logged-in-nav
 
 .container
   .row
-    .col-md-8
+    .col-xs-12.col-md-8
 
-      .col-md-5
+      .col-xs-12.col-sm-5.col-md-5
         h2 {{currentTier.title}}
-      .col-md-7.report-btns
-        .col-md-4
+      hr
+      .col-xs-12.col-sm-7.col-md-7.report-btns
+        .col-xs-4.col-sm-4.col-md-4
           .report-btn(etto-add-tier, ng-click="addTier()")
             i.fa.fa-sitemap.fa-3x
             br
             small Add Tiers
-        .col-md-4
+        .col-xs-4.col-sm-4.col-md-4
           .report-btn(etto-invite-user-modal, ng-click="inviteUser()")
             i.fa.fa-user.fa-3x
             br
             small Add Users
-        .col-md-4
+        .col-xs-4.col-sm-4.col-md-4
           .report-btn
             a(href="/tier/edit/{{ currentTier._id }}") 
               i.fa.fa-edit.fa-3x
               br
               small Edit Tier
 
-      .statBox.col-md-12.col-sm-12
-        .col-md-3.stat
+      .statBox.col-xs-12.col-md-12.col-sm-12
+        .col-xs-3.col-sm-3.col-md-3.stat.statholder
           p2 {{tierReport.totalUsers}}
           br
           small.dark-grey Total Users
-        .col-md-3.stat
+        .col-xs-3.col-sm-3.col-md-3.stat.statholder
           p2 {{tierReport.courses.length}}
           br
           small.dark-grey Total Courses
-        .col-md-3.stat
+        .col-xs-3.col-sm-3.col-md-3.stat.statholder
           p2 {{tierReport.totalTaken}}
           br
           small.dark-grey Completed
-        .col-md-3999
+        .col-xs-3.col-sm-3.col-md-3.statholder
           p2 {{tierReport.totalProgress}}%
           br
           small.dark-grey Overall
@@ -50,15 +51,12 @@ etto-logged-in-nav
         div(ng-show="children[0]")
           div(ng-repeat= 'tier in children')
             .col-xs-12.col-sm-6.col-md-6
-              .course-holder(sink-in, ng-click ="viewChildren('/levels/{{tier._id}}')")
+              .course-holder(sink-in, ng-click ="viewChildren('/report/{{tier._id}}')")
                 .pad20
                   .row
-                    .col-md-9
+                    .col-md-12
                       h4 {{tier.title}}
                       p {{tier.totalUsers}} users
-                    .col-md-3
-                      a.btn.btn-default.btn-xs(href="/tier/edit/{{ tier._id }}")
-                        i.fa.fa-edit
                     .col-md-12
                       .progress
                         .progress-bar(role="progressbar", aria-valuenow="{{(tier.totalTaken/tier.totalToTake) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(tier.totalTaken/tier.totalToTake) * 100}}%;")

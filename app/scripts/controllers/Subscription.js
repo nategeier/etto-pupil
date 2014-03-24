@@ -9,11 +9,11 @@ angular.module("ettoPupil")
       $scope.show = function (id) {
         $scope.onSubscription = id;
       };
-
+      /*
       Payment.updateNewSubscription(function (argument) {
         console.log("updated");
       });
-
+      */
       $scope.cancelSubscription = function () {
         Payment.cancelSubscription($scope.user._tier._company, $scope.currentSubscription, function (results) {
           $scope.subscriptionTypes = results;
