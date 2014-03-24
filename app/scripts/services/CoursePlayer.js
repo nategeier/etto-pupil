@@ -26,7 +26,6 @@ angular.module("ettoPupil")
       var play = function (newCourse) {
         course = newCourse;
         onBlock = 0;
-
       };
 
       /**
@@ -82,22 +81,6 @@ angular.module("ettoPupil")
         if (!onLastBlock()) {
           onBlock++;
         }
-      };
-
-      /**
-       * updateBookmark
-       *
-       * @param {course}
-       */
-      var updateBookmark = function (record, callback) {
-        var currBlock = Number(onBlock) + 1;
-
-        if (Number(record.progress.bookmark) < currBlock) {
-          Record.updateBookmark(record._id, currBlock, course.blocks.length, function (record) {
-            callback(record);
-          });
-        }
-
       };
 
       /**
@@ -171,7 +154,6 @@ angular.module("ettoPupil")
         isCurrentBlock: isCurrentBlock,
         prevBlock: prevBlock,
         nextBlock: nextBlock,
-        updateBookmark: updateBookmark,
         switchToBlock: switchToBlock,
         addBlock: addBlock,
         removeBlock: removeBlock,

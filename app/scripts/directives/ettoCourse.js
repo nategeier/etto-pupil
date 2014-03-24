@@ -78,9 +78,8 @@ angular.module("ettoPupil")
             CoursePlayer.nextBlock();
 
             if (!$scope.editing) {
-              CoursePlayer.updateBookmark($scope.record, function (record) {
-                $scope.record = record;
-              });
+              var currBlock = Number(CoursePlayer.currentBlock()) + 1;
+              Record.updateBookmark($scope.record._id, currBlock, CoursePlayer.blocksInCourse());
             }
           };
 

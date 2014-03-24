@@ -15,7 +15,7 @@ angular.module("ettoPupil")
           });
         },
 
-        updateBookmark: function (id, bookmark, totalBlocks, callback) {
+        updateBookmark: function (id, bookmark, totalBlocks) {
           var Record = $resource("/api/v1/record/updateBookmark/:id", {
             id: id,
             bookmark: bookmark,
@@ -23,7 +23,7 @@ angular.module("ettoPupil")
           });
 
           Record.get(function (results) {
-            callback(results);
+            //callback(results);
           });
         }
       };
