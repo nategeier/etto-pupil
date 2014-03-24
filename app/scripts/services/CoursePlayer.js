@@ -9,9 +9,9 @@
  */
 
 angular.module("ettoPupil")
-  .factory("CoursePlayer", ["BlockQuiz",
+  .factory("CoursePlayer", ["BlockQuiz", "Record",
 
-    function (BlockQuiz) {
+    function (BlockQuiz, Record) {
       var onBlock = 0;
 
       var course = {

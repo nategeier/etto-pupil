@@ -1,14 +1,16 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .directive("ettoCourse", ["CoursePlayer",
-    function (CoursePlayer) {
+  .directive("ettoCourse", ["CoursePlayer", "Record",
+    function (CoursePlayer, Record) {
       return {
         templateUrl: "/views/directives/ettoCourse.html",
         restrict: "E",
         controller: function ($scope, $document, $attrs) {
           // Are we in edit mode?
           $scope.editing = $attrs.edit !== undefined;
+
+          $scope.record = {};
 
           // Setup blocktype info
           // TODO: Should be refactored somewhere else. Service?
@@ -35,7 +37,16 @@ angular.module("ettoPupil")
           $scope.newBlocktype = $scope.blocktypes[0];
 
           // Start the course!
+
           CoursePlayer.play($scope.course);
+
+          $scope.$watch("user", function () {
+            if ($scope.user) {
+              Record.create($scope.course._id, $scope.user._id, function (record) {
+                $scope.record = record;
+              });
+            }
+          });
 
           // Controller Methods
           $scope.currentBlock = function () {
@@ -65,6 +76,11 @@ angular.module("ettoPupil")
 
           $scope.nextBlock = function () {
             CoursePlayer.nextBlock();
+
+            if (!$scope.editing) {
+              var currBlock = Number(CoursePlayer.currentBlock()) + 1;
+              Record.updateBookmark($scope.record._id, currBlock, CoursePlayer.blocksInCourse());
+            }
           };
 
           $scope.prevBlock = function () {
