@@ -6,22 +6,33 @@
  *
  */
 
+
+
+
 .question{
   border:1px solid $etto-darkgrey;
   padding:20px;
   margin-bottom: 20px;
+  background-color:rgba(255,255,255,.9);
 
   h4{
-  	text-align: center;
+    text-align: center;
   }
 }
 
 .question.incorrect{
-	background-color:red;
+  background-color:red;
 }
 
 
 .question.correct{
   background-color:green;
+}
+
+.quiz-block{
+  padding-bottom:40px;
+  height:100%;
+  background-repeat:repeat;
+  background-image:url('/images/courses/patterns/tree_bark.png');
 }
 

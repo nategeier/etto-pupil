@@ -16,3 +16,28 @@
     height: 5px;
   }
 }
+
+
+.exit-course{
+  position:fixed;
+  top:15px;
+  right: 15px;
+  z-index: 100;
+  padding:10px;
+  padding-top:5px;
+  padding-bottom:5px;
+  border:1px solid $etto-darkgrey;
+  background-color:#fff;
+}
+
+
+.exit-course:hover{
+  background-color: $etto-darkgrey;
+}
+
+
+.edit-btns{
+  background-color:#fff;
+  padding:5px;
+  border:1px solid $etto-darkgrey;
+}
