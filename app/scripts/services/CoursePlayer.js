@@ -24,6 +24,7 @@ angular.module("ettoPupil")
        * @param {course} newCourse The new course object to start playing.
        */
       var play = function (newCourse) {
+
         course = newCourse;
         onBlock = 0;
       };
@@ -131,6 +132,17 @@ angular.module("ettoPupil")
       };
 
       /**
+       * Remove the block at the passed index and return how many are left
+       */
+      var animateBlock = function (block, from) {
+        var str = String(block);
+        TweenMax.from($(str), 0.6, {
+          opacity: 0.1,
+          x: 300
+        });
+      };
+
+      /**
        * Swap two blocks
        */
       var swapBlocks = function (a, b) {
@@ -157,6 +169,7 @@ angular.module("ettoPupil")
         switchToBlock: switchToBlock,
         addBlock: addBlock,
         removeBlock: removeBlock,
+        animateBlock: animateBlock,
         swapBlocks: swapBlocks,
       };
 
