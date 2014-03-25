@@ -9,7 +9,6 @@
 .course-holder{
   color: $etto-darkblue;
   cursor: pointer;
-  padding: 10px;
 
 
   .progress {
@@ -40,4 +39,19 @@
   background-color:#fff;
   padding:5px;
   border:1px solid $etto-darkgrey;
+}
+
+
+.stars{
+  padding-bottom:40px;
+  height:100%;
+  background-repeat:repeat;
+  background-image:url('/images/courses/patterns/stardust.png');
+
+}
+.course-progress{
+  position:fixed;
+  width:100%;
+  top:0px;
+  z-index: 130;
 }
