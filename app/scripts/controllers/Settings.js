@@ -13,6 +13,10 @@ angular.module("ettoPupil")
         });
       });
 
+      Users.listUserCoursesRecords(id, function (records) {
+        $scope.userRecords = records;
+      });
+
       $scope.updateUser = function () {
         $scope.saved = null;
         Users.update($scope.editUser, function (user) {

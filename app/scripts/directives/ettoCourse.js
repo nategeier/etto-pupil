@@ -50,6 +50,7 @@ angular.module("ettoPupil")
           }
 
           $scope.$watch("user", function () {
+
             if ($scope.user) {
               Record.create($scope.course._id, $scope.user._id, function (record) {
                 $scope.record = record;

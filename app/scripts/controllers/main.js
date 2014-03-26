@@ -1,6 +1,14 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("MainCtrl", ["$scope", "$http", "$location", "Session",
-    function ($scope, $http, $location, Session) {}
+  .controller("MainCtrl", ["$scope", "$location", "Session",
+    function ($scope, $location, Session) {
+
+      Session.getSession(function (data) {
+        if (data) {
+          $location.path("/etto");
+        }
+      });
+
+    }
   ]);

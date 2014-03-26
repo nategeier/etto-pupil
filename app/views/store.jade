@@ -38,9 +38,10 @@ etto-logged-in-nav
 
 
     .col-xs-12.col-sm-3.col-md-3.side-panel
-      h3 {{currentTier.title}}
-      p Total Users {{totUsers}}
-      hr
+      .modal-header
+        h4.modal-title {{currentTier.title}}
+        p Course for {{totUsers}} users
+
       div.tree(ng-cloak='ng-cloak')
         .live
           ol
