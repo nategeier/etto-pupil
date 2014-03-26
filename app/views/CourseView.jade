@@ -1,6 +1,7 @@
-etto-logged-in-nav
-
+.progress.course-progress(etto-session)
+  .progress-bar(role="progressbar", aria-valuenow="((currentBlock() + 1)/blocksInCourse()) * 100", aria-valuemin="0", aria-valuemax="100", style="width: {{((currentBlock() + 1)/blocksInCourse()) * 100}}%;")
 .container-full
+  a.exit-course(href="/etto") X
   .row
     .col-xs-12.etto-course-container
       etto-course( course='course',

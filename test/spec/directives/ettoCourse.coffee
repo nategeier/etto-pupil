@@ -6,7 +6,8 @@ describe "Directive: ettoCourse", ->
                     "/views/blocks/ettoBlockUndefined.html",
                     "/views/blocks/ettoBlockTitle.html",
                     "/views/blocks/ettoBlockText.html",
-                    "/views/blocks/ettoBlockQuote.html"
+                    "/views/blocks/ettoBlockQuote.html",
+                    "/views/blocks/ettoBlockFinished.html"
 
   beforeEach inject ( $rootScope, $compile, $httpBackend ) ->
     scope = $rootScope.$new()
@@ -31,7 +32,7 @@ describe "Directive: ettoCourse", ->
 
   it "should know there are three blocks in the mock course", ->
     scope.$digest()
-    expect( element.scope().course.blocks.length ).toBe( 3 )
+    expect( element.scope().course.blocks.length ).toBe( 4 )
 
   it "should go to the next block", ->
     scope.$digest()

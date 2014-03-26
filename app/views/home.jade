@@ -40,19 +40,19 @@ etto-verify-modal(redirect-to='/etto')
       img.img-responsive(src='/images/site/thumbs/new.jpg')
 
   .col-xs-12.col-sm-3.col-md-3.side-panel
-    h3 Company Courses
+    .modal-header
+      h4.modal-title Company Courses
     etto-add-course(redirect-to='/etto')
     .clearfix
     div(ng-repeat='course in createdCourses')
       .course-holder(sink-in)
-        a(href="/course/view/{{ course._id }}")
+        a(href="/course/edit/{{ course._id }}") 
+          button.close.btn.btn-default.btn-xs.pull-right(type="button", aria-hidden="true", ng-click='removeCourse(course._id)') &times;
           .col-md-10
-            h4 {{course.title}}
-            p {{course.subtitle}}
-          .col-md-2
-            button.close.btn.btn-default.btn-xs.pull-right(type="button", aria-hidden="true", ng-click='removeCourse(course._id)') &times;
-            a.btn.btn-default.btn-xs(href="/course/edit/{{ course._id }}")
-              i.fa.fa-edit
-        .clearfix
+            h5 {{course.title}}
+
+
+
+          .clearfix
 
 

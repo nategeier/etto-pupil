@@ -9,6 +9,8 @@ angular.module("ettoPupil")
         templateUrl: "/views/directives/ettoSettingsNav.html",
         link: function (scope, element, attrs) {
 
+          $("#" + attrs.active).addClass("active");
+
         }
       };
     }

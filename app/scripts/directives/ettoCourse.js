@@ -40,7 +40,17 @@ angular.module("ettoPupil")
 
           CoursePlayer.play($scope.course);
 
+          if (!$scope.editing) {
+            $scope.course.blocks.push({
+              type: "finished",
+              data: {
+                title: "all done"
+              }
+            });
+          }
+
           $scope.$watch("user", function () {
+
             if ($scope.user) {
               Record.create($scope.course._id, $scope.user._id, function (record) {
                 $scope.record = record;
@@ -51,6 +61,10 @@ angular.module("ettoPupil")
           // Controller Methods
           $scope.currentBlock = function () {
             return CoursePlayer.currentBlock();
+          };
+
+          $scope.blocksInCourse = function () {
+            return CoursePlayer.blocksInCourse();
           };
 
           $scope.addBlock = function (blocktype) {
@@ -75,8 +89,8 @@ angular.module("ettoPupil")
           };
 
           $scope.nextBlock = function () {
-            CoursePlayer.nextBlock();
 
+            CoursePlayer.nextBlock();
             if (!$scope.editing) {
               var currBlock = Number(CoursePlayer.currentBlock()) + 1;
               Record.updateBookmark($scope.record._id, currBlock, CoursePlayer.blocksInCourse());

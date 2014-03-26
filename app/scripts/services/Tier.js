@@ -21,7 +21,18 @@ angular.module("ettoPupil")
           Courses.query(function (results) {
             callback(results);
           });
+        },
+
+        searchTiers: function (text, callback) {
+          var Tiers = $resource("/api/v1/tier/searchTiers/:text", {
+            text: text
+          });
+
+          Tiers.query(function (results) {
+            callback(results);
+          });
         }
+
       };
     }
   ]);

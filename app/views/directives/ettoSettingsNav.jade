@@ -1,4 +1,7 @@
-.btn-group-vertical
-  a.btn.btn-default(href="/settings/{{user._id}}") Settings
-  a.btn.btn-default(href="/subscription/{{user._id}}") Subscriptions
-  a.btn.btn-default(href="/payments/{{user._id}}") Payments
+ul.nav.nav-tabs
+  li#settings
+    a(href="/settings/{{user._id}}") Settings
+  li#subscription
+    a(href="/subscription/{{user._id}}") Subscriptions
+  li#payments
+    a(href="/payments/{{user._id}}") Payments

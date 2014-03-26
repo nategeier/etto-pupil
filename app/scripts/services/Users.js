@@ -15,7 +15,6 @@ angular.module("ettoPupil")
             })
             .error(function (data, status, headers, config) {
               callback(data);
-              console.dir(data);
             });
         },
 
@@ -35,6 +34,26 @@ angular.module("ettoPupil")
           });
 
           Courses.query(function (results) {
+            callback(results);
+          });
+        },
+
+        listUserCoursesRecords: function (id, callback) {
+          var Courses = $resource("/api/v1/user/listUserCoursesRecords/:id", {
+            id: id
+          });
+
+          Courses.query(function (results) {
+            callback(results);
+          });
+        },
+
+        searchUser: function (text, callback) {
+          var Search = $resource("/api/v1/user/searchUser/:text", {
+            text: text
+          });
+
+          Search.query(function (results) {
             callback(results);
           });
         },

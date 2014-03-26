@@ -13,15 +13,36 @@ angular.module("ettoPupil")
         });
       });
 
+      Users.listUserCoursesRecords(id, function (records) {
+        $scope.userRecords = records;
+      });
+
       $scope.updateUser = function () {
         $scope.saved = null;
         Users.update($scope.editUser, function (user) {
           $scope.saved = "true";
 
+          $scope.updateSession($scope.user._id, $scope.editUser._id);
+        });
+      };
+
+      $scope.updateUserTier = function (id, title) {
+        $scope.saved = null;
+        $scope.editUser._tier._id = id;
+
+        Users.update($scope.editUser, function (user) {
+          $scope.editUser._tier.title = title;
+          $scope.saved = "true";
+          $scope.updateSession($scope.user._id, $scope.editUser._id);
+        });
+      };
+
+      $scope.updateSession = function (userId, editUserId) {
+        if (userId === editUserId) {
           Session.updateSession(user, function (data) {
             $scope.user = data;
           });
-        });
+        }
       };
     }
   ]);
