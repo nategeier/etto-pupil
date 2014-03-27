@@ -15,6 +15,17 @@ angular.module("ettoPupil")
           });
         },
 
+        userOverallProgress: function (userId, tierId, done) {
+          var Record = $resource("/api/v1/record/userOverallProgress/:userId", {
+            userId: userId,
+            tierId: tierId
+          });
+
+          Record.get(function (results) {
+            done(results);
+          });
+        },
+
         updateBookmark: function (id, bookmark, totalBlocks) {
           var Record = $resource("/api/v1/record/updateBookmark/:id", {
             id: id,

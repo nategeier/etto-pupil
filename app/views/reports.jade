@@ -123,15 +123,20 @@ etto-logged-in-nav
       div(ng-repeat= 'user in users')
         .user-box
           a(href = "/settings/{{user._id}}")
-            .pad20
-              .row
-                .col-xs-4
-                  img.img-circle.user-thumb(ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
-                  i.fa.fa-user.fa-3x.center-block(ng-show="!user.avatarUrl")
-                .col-xs-8
-                  h5.cap-first.pull-right(ng-show="user.name") {{user.name}}
+
+            .row
+              .col-xs-4
+                img.img-circle.user-thumb(height="80", ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
+                i.fa.fa-user.fa-3x.center-block(ng-show="!user.avatarUrl")
+              .col-xs-8
+                .col-xs-12
+                  h5.cap-first.pull-right(ng-show="user.name") {{user.name}} {{user.overallPercent}}
                   div(ng-show="!user.name")
                     h5.cap-first.pull-right {{user.email[0]}}
                     small.text-warning Pending
+                .col-xs-12
+                  .progress
+                    .progress-bar(role="progressbar", aria-valuenow="{{user.overallPercent}}", aria-valuemin="0", aria-valuemax="100", style="width: {{user.overallPercent}}%;")
 
-      
+
+                      
