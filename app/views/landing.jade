@@ -6,70 +6,63 @@ etto-not-logged-in-nav
       .col-xs-12.col-sm-6.col-md-6
         h3 Start creating, taking, tracking, <br>and sharing courses
         h4 Launching early 2014
-
-
 .container
   .row
-    .col-xs-12.col-sm-6.col-md-4
-      .register.ng-scope
-        h1 Enroll
-        p Sign up to follow our progress
-        .err
-          | {{err}}
-        etto-new-brand
-    .col-xs-12.col-sm-6.col-md-8
-      .col-md-6.no-pad
-        .course-holder
-          img.img-responsive(src='/images/site/thumbs/view1.jpg')
-      .col-md-6.no-pad
-        .course-holder
-          img.img-responsive(src='/images/site/thumbs/view4.jpg')
-      .col-md-6.no-pad
-        .course-holder
-          img.img-responsive(src='/images/site/thumbs/view3.jpg')
-      .col-md-6.no-pad
-        .course-holder
-          img.img-responsive(src='/images/site/thumbs/view2.jpg')
-
-
-  .row
-    hr
-    h2.centerTxt Create a custom structure to your company
-    hr
+    h2.text-center Create a custom company structure
     .col-xs-12.col-sm-4.col-md-4
-      .course-holder
-        img.img-responsive(src='/images/site/thumbs/old.jpg')
-        h4 Old way
-        p Tracking employees course completion in a large company structure can be impossible with any other out of the-box solution.
+
+      img.img-responsive(src='/images/site/thumbs/old.jpg')
+      h4 Old way
+      p Tracking employee courses in a large company structure can be impossible with any other out of the-box solution.
     .col-xs-12.col-sm-4.col-md-4
-      .course-holder
-        img.img-responsive(src='/images/site/thumbs/new.jpg')
-        h4 Coursetto way
-        p Create your company organization tree anyway you like, even place managers in charge of a single branch to view only that branches employee progress. Also dedicate courses to specific job titles. Valet employees do not need to learn how to make a bed.
+      img.img-responsive(src='/images/site/thumbs/new.jpg')
+      h4 Coursetto way
+      p Create your company organization tree anyway you like and place managers to create micro taining envirnments
 
     .col-xs-12.col-sm-4.col-md-4
-      .course-holder
-        img.img-responsive(src='/images/site/thumbs/small.jpg')
-        h4 Small businesses
-        p The system was designed to be affordable according to company size, benefiting smaller companies an entrance to the learning and training world.
-  .row
-    hr
-    h2.centerTxt Content Creation
-    hr
-    .col-xs-12.col-sm-8.col-md-8
-      .course-holder
-        embed.img-responsive(height='380', src="/images/svg/map.svg", type="image/svg+xml")
+      img.img-responsive(src='/images/site/thumbs/small.jpg')
+      h4 Graphs!
+      p Track all your lower tiers. Set mangers to higher tier and deligate training.
 
-    .col-xs-12.col-sm-4.col-md-4
-      h1 Course Store
-      p A single store connects content creators, bloggers, and industries leaders to large and small scale companies and opens the door to single users who want to learn.
-      p A content creator sets their own price for a particular course they created or sets a subscription base. If a user or company loves a certain content creators materials, they are able to pay a monthly subscription set by the creator for unlimited access.
-      h4 Important Note
-      p Companies can create their own content to not only delegate to their own specific employees, but also send to the course store generating revenue from their own SOP's. Or if your course is brand specific, set the course to private.
+.row.reverse-bkd
+  .container
 
+    h2.text-center Content Creation
+    .col-md-6
+      img.img-responsive(src='/images/landing/demo1.jpg')
+      img.img-responsive(src='/images/landing/demo2.jpg')
+      img.img-responsive(src='/images/landing/demo3.jpg')
+    .col-xs-12.col-sm-4.col-md-6
+      h4 Anyone can create courses
+      p Allow anyone in your company to create and manage courses making custom content a breeze on desktop or mobile.
+      p You can always restrict anyones access to disble creating, puchasing and managing of users.
 
+      h4 Content Creation Subscription Pricing
+      p Price based on numebr of employees you have
+      .col-sm-12.col-md-12
+        ul.nav.nav-tabs
+          li(ng-click="show(subscriptionType._id)", ng-repeat="subscriptionType in subscriptionTypes", ng-class="{active: onSubscription === subscriptionType._id}")
+            a(href="#")
+              p {{subscriptionType.title}} ({{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}})
+        div(ng-repeat="subscriptionType in subscriptionTypes")
+          table.table.table-no-border(ng-show="onSubscription === subscriptionType._id", style="background-color:#fff;")
+            tr
+              th Private Courses
+              th Price
+            tr(ng-repeat="subscription in subscriptionType.subscriptions", ng-animate="'animate'")
+              td {{subscription.courseRange.low}} - {{subscription.courseRange.high}}
+              td ${{subscription.price}}/mo
+.row
+  .container
+    h2.text-center Course Marketplace
+    .col-md-6
+      h4 No subscription neccessary
+      p No time to build a course and just need something standard such as a sexual harrassement course? Then head over to the course marketplace.
+      img.img-responsive(src='/images/landing/market.jpg')
 
-
-
-
-
+    .col-md-6 
+      .col-md-6 
+        h4  Course Distribution
+        p  Your company structure is on the right. Watch your price flucutate as you turn off departments that dont need to take the course.  The price is just an estimate of credits needed to be purchesed. Credits are only used when a user actually takes a course. Users get an unlimted amount of times to take a course. Once purchesed the course will appear for any "on" departments.
+      .col-md-6
+        img.img-responsive(src='/images/landing/tiers.jpg')

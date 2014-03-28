@@ -9,7 +9,8 @@ angular.module("ettoPupil")
       $scope.parentID = $routeParams.tierID;
 
       $scope.listCourses = function () {
-        CourseList.listAll(function (data) {
+
+        CourseList.storeCourses(function (data) {
           $scope.courses = data;
         });
       };

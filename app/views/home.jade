@@ -11,22 +11,22 @@ etto-verify-modal(redirect-to='/etto')
 .container
   .col-md-9.col-sm-9.col-md-9(ng-show="usersCourses[0]")
     .row
+      .col-md-12
+        h2.modal-title Library
       .alert.alert-danger(ng-show="err")
         p {{err}}
       div(ng-repeat='course in usersCourses')
         .col-md-4.col-sm-4
-          .course-holder(sink-in, ng-click="openCourse(course)")
-            .row
-              .col-xs-12(style="")
-                img.img-responsive.user-course-thumb(src="/images/courses/thumbs/course_2.jpg")
-                img.img-responsive.badge.col-xs-3(src="/images/courses/badges/default.png", ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks && course._record.progress.totalBlocks !== 1")
-              .col-xs-12
-                h4 {{course.title}}
-                p {{course.subtitle}}
-                .progress(ng-show="!course._record")
-                  .progress-bar(role="progressbar", aria-valuenow="1", aria-valuemin="0", aria-valuemax="100", style="width: 1%;")
-                .progress(ng-show="course._record")
-                  .progress-bar(ng-show="course._record.progress.totalBlocks > 1", role="progressbar", aria-valuenow="{{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}%;")
+          .course-holder.row(sink-in, ng-click="openCourse(course)")
+            img.img-responsive.user-course-thumb(src="/images/courses/thumbs/course_2.jpg")
+            img.img-responsive.badge.col-xs-3(src="/images/courses/badges/default.png", ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks && course._record.progress.totalBlocks !== 1")
+
+            h4 {{course.title}}
+            p {{course.subtitle}}
+            .progress(ng-show="!course._record")
+              .progress-bar(role="progressbar", aria-valuenow="1", aria-valuemin="0", aria-valuemax="100", style="width: 1%;")
+            .progress(ng-show="course._record")
+              .progress-bar(ng-show="course._record.progress.totalBlocks > 1", role="progressbar", aria-valuenow="{{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}%;")
 
 
 
@@ -41,18 +41,17 @@ etto-verify-modal(redirect-to='/etto')
 
   .col-xs-12.col-sm-3.col-md-3.side-panel
     .modal-header
-      h4.modal-title Company Courses
+      h4.modal-title Composed Courses
     etto-add-course(redirect-to='/etto')
     .clearfix
     div(ng-repeat='course in createdCourses')
-      .course-holder(sink-in)
-        a(href="/course/edit/{{ course._id }}") 
-          button.close.btn.btn-default.btn-xs.pull-right(type="button", aria-hidden="true", ng-click='removeCourse(course._id)') &times;
-          .col-md-10
-            h5 {{course.title}}
+      a.col-md-10(href="/course/edit/{{ course._id }}", sink-in) 
+        h5 {{course.title}}
+      .col-md-2
+        button.btn.btn-danger(etto-remove-course, type="button", ng-click='removeCourse(course._id, course.title)')
+          i.fa.fa-trash-o
 
 
-
-          .clearfix
+        .clearfix
 
 
