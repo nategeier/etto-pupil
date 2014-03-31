@@ -1,9 +1,20 @@
 .side-panel{
   background-color:#fff; 
   border:1px solid $etto-darkgrey;
-  margin-top: 10px;
   padding:0;
   h4{
     color: #fff;
   }
+}
+
+.left-side{
+  padding-left:30px;
+}
+
+.reverse-bkd{
+  background-color: $etto-grey;
+  border-top:1px solid $etto-darkgrey;
+  border-bottom:1px solid $etto-darkgrey;
+  padding-bottom:20px;
+  margin-bottom:20px;
 }

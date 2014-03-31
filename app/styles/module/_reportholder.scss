@@ -6,6 +6,22 @@
  *
  */
 
+.report-head{
+  background-color: #cbd8dd;
+}
+
+.tier-holder{
+  height:380px;
+  
+  .tier-box{
+    padding:10px;
+  }
+
+  .tier-box:hover{
+    cursor: pointer;
+  }
+}
+
 .report-holder{
   color: $etto-darkblue;
   padding: 10px;
@@ -33,12 +49,11 @@
 
 
 .report-btns .report-btn{
-  width:100%;
+  margin-top:10px;
   background-color:#fff;
   text-align: center;
-  padding:10px;
+  padding:5px;
   cursor: pointer;
-  margin-top: 10px;
   border-style: solid;
   border-color: $etto-darkgrey;
   border-width:1px;

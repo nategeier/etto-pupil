@@ -7,6 +7,16 @@ angular.module("ettoPupil")
 
       Courses = {
 
+        storeCourses: function (callback) {
+          $http.get("/api/v1/store/storeCourses")
+            .success(function (data, status, headers, config) {
+              callback(data);
+            })
+            .error(function (data, status, headers, config) {
+              console.dir(data);
+            });
+        },
+
         listAll: function (callback) {
           $http.get("/api/v1/course")
             .success(function (data, status, headers, config) {

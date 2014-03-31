@@ -31,15 +31,5 @@ angular.module("ettoPupil")
         $location.path("/course/view/" + course._id);
       };
 
-      $scope.removeCourse = function (id) {
-
-        var course = {
-          id: id
-        };
-
-        CourseMetaChange.removeCourse(course, function (data) {
-          $scope.listUsersCreatedCourses();
-        });
-      };
     }
   ]);

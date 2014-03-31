@@ -1,0 +1,32 @@
+.modal-header
+  button.close( type="button" )
+  h2.modal-title Launch Course
+
+.modal-body
+  .form-group
+    h4 Testing
+    .radio
+      label Only managers can view and change
+        input(type= "radio", name="status", ng-model="course.status", value = "testing") 
+    h4 Private
+    .radio
+      label Let managers add and remove this course
+        input(type= "radio", name="status", ng-model="course.status", value = "private") 
+    h4 Open Market
+    .radio
+      label Sell & share with the world
+        input(type= "radio", name="status", ng-model="course.status", value = "live") 
+    div(ng-show="course.status === 'live'")
+      .alert.alert-warning Price cannot be changed after the course is sent to the market.
+      .input-group
+        span.input-group-addon Price $
+        input.form-control(ng-disabled ="{{course.price !== 0}}", type="number", placeholder="Price", ng-model="course.price")
+        span.input-group-addon .00
+
+
+
+
+  button.btn.btn-primary(ng-show="course.status !== 'live'", ng-click="saveSettings()") Change Status
+  button.btn.btn-primary(ng-show="course.status === 'live'", ng-click="saveSettings()") Send to OpenMarket
+
+  button.btn.btn-default(ng-click="cancel()") Cancel
