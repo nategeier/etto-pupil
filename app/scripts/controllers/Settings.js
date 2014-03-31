@@ -21,8 +21,7 @@ angular.module("ettoPupil")
         $scope.saved = null;
         Users.update($scope.editUser, function (user) {
           $scope.saved = "true";
-
-          $scope.updateSession($scope.user._id, $scope.editUser._id);
+          $scope.updateSessionSettings($scope.user._id, $scope.editUser._id);
         });
       };
 
@@ -33,13 +32,17 @@ angular.module("ettoPupil")
         Users.update($scope.editUser, function (user) {
           $scope.editUser._tier.title = title;
           $scope.saved = "true";
-          $scope.updateSession($scope.user._id, $scope.editUser._id);
+          $scope.updateSessionSettings($scope.user._id, $scope.editUser._id);
         });
       };
 
-      $scope.updateSession = function (userId, editUserId) {
+      $scope.updateSessionSettings = function (userId, editUserId) {
+
+        console.log(userId, editUserId)
         if (userId === editUserId) {
-          Session.updateSession(user, function (data) {
+          Session.updateSession($scope.user, function (data) {
+
+            console.log("update-----", data)
             $scope.user = data;
           });
         }

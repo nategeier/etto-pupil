@@ -33,8 +33,6 @@ angular.module("ettoPupil")
 
                     $scope.newUser._tier = tier._id;
 
-                    console.log($scope.newUser);
-
                     Users.saveNewUser($scope.newUser, function (data) {
                       if (data.err) {
                         $scope.err = data.err;
