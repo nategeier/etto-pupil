@@ -5,7 +5,7 @@ angular.module("ettoPupil")
 
     function () {
       return {
-    template: "<a class='btn btn-success btn-sm top-logout-btn' href='#' ng-click='addCourse()'><i class='fa fa-pencil'></i> Create Course</a>",
+        template: "<a class='btn btn-success btn-sm top-logout-btn' href='#' ng-click='addCourse()'><i class='fa fa-pencil'></i> Create Course</a>",
         restrict: "AE",
         controller: function ($scope, $modal, CourseMetaChange, $location) {
           $scope.addCourse = function () {
@@ -47,8 +47,6 @@ angular.module("ettoPupil")
               course._creator = $scope.user._tier._company;
 
               CourseMetaChange.create(course, function (data) {
-
-                console.log(data)
 
                 if (data) {
                   //  $scope.listUsersCreatedCourses();

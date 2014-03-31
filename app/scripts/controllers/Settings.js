@@ -38,11 +38,8 @@ angular.module("ettoPupil")
 
       $scope.updateSessionSettings = function (userId, editUserId) {
 
-        console.log(userId, editUserId)
         if (userId === editUserId) {
           Session.updateSession($scope.user, function (data) {
-
-            console.log("update-----", data)
             $scope.user = data;
           });
         }

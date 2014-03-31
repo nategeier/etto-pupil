@@ -10,7 +10,7 @@ angular.module("ettoPupil")
           $scope.removeCourse = function (id, title) {
 
             var modal = $modal.open({
-          templateUrl: "/views/directives/ettoRemoveCourseModal.html",
+              temp9010lateUrl: "/views/directives/ettoRemoveCourseModal.html",
               controller: function ($scope, $modalInstance, Payment, $location) {
 
                 $scope.courseTitle = title;
