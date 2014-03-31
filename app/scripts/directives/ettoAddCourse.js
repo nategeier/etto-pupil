@@ -7,7 +7,7 @@ angular.module("ettoPupil")
       return {
         template: "<a class='btn btn-success btn-sm top-logout-btn' href='#' ng-click='addCourse()'><i class='fa fa-pencil'></i> Create Course</a>",
         restrict: "AE",
-        controller: function ($scope, $modal, CourseMetaChange) {
+        controller: function ($scope, $modal, CourseMetaChange, $location) {
           $scope.addCourse = function () {
 
             var user = $scope.user;
@@ -29,7 +29,8 @@ angular.module("ettoPupil")
                 }
 
                 $scope.course = {};
-                $scope.handleLogin = function () {
+                $scope.createCourse = function () {
+
                   $modalInstance.close($scope.course);
                 };
 
@@ -48,8 +49,10 @@ angular.module("ettoPupil")
               CourseMetaChange.create(course, function (data) {
 
                 if (data) {
-                  $scope.listUsersCreatedCourses();
+                  //  $scope.listUsersCreatedCourses();
                 }
+                $location.path("/course/edit/" + data._id);
+
               });
             });
           };

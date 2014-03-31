@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .factory("Session", ["$http", "$compile", "$document", "$modal", "$location", "$log",
-    function ($http, $compile, $document, $modal, $location, $log) {
+  .factory("Session", ["$http", "$compile", "$document", "$modal", "$location", "$log", "$resource",
+    function ($http, $compile, $document, $modal, $location, $log, $resource) {
 
       var Session;
 
@@ -44,8 +44,14 @@ angular.module("ettoPupil")
               console.dir(data);
             });
         },
-        destroySession: function () {
-          return $http.get("/api/v1/auth/destroy");
+        destroySession: function (callback) {
+
+          var Logout = $resource("/api/v1/auth/logout");
+
+          Logout.get(function (results) {
+            callback(results);
+          });
+
         },
 
         loginModal: function () {
