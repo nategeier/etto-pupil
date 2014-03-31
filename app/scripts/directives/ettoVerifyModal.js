@@ -10,8 +10,9 @@ angular.module("ettoPupil")
         restrict: "AE",
         controller: function ($scope, $modal, Tiers, $location, Users, Session) {
           var user = null;
+
           $scope.$watch("user", function () {
-            if ($scope.user && !$scope.user._tier) {
+            if ($scope.user && $scope.user.isBeta && !$scope.user._tier) {
               user = $scope.user;
               $scope.register();
             }
