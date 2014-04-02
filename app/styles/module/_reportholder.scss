@@ -7,14 +7,20 @@
  */
 
 .report-head{
-  background-color: #cbd8dd;
+
 }
 
 .tier-holder{
   height:380px;
   
   .tier-box{
+    background-color: #fff;
     padding:10px;
+    margin-right: 2px;
+    margin-top: 2px;
+    border-style: solid;
+    border-color: $etto-grey;
+    border-width:1px;
   }
 
   .tier-box:hover{
@@ -35,23 +41,15 @@
   }
 }
 
-.user-box{
-  background-color:#fff;
-  padding:10px;
-}
-
-
-.user-box:hover{
-  background-color:$etto-greyblue;
-  color:#fff;
-}
-
 
 
 .report-btns .report-btn{
   margin-top:10px;
-  background-color:#fff;
-  text-align: center;
+  margin-right:0px;
+  margin-left:0px;
+  background-color: #fff;
+  text-align: 
+  center;
   padding:5px;
   cursor: pointer;
   border-style: solid;
@@ -71,11 +69,19 @@
 }
 
 .stat{
-  border-right: 1px solid #eee;
+  border-right: 1px solid #fff;
 }
 
 .statholder{
-  background-color:#fff;
+  .statTxt{
+    color: $etto-mildblue;
+  }
+
+  small{
+    color: $etto-greyblue;
+  }
+
+
 }
 
 .aside{

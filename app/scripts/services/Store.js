@@ -1,9 +1,18 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .factory("Store", ["$http",
-    function ($http) {
+  .factory("Store", ["$http", "$resource",
+    function ($http, $resource) {
       return {
+        payments: function (id, callback) {
+          var Credit = $resource("/api/v1/store/findCredit/:id", {
+            id: id
+          });
+
+          Credit.get(function (u, getResponseHeaders) {
+            callback(u);
+          });
+        },
         courseStore: function (callback) {
           $http({
             method: "GET",

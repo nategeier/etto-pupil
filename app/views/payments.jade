@@ -2,22 +2,30 @@ etto-logged-in-nav
 .container
   .col-md-12
     etto-settings-nav(active="payments")
-    h1 Billing
+    h1 Billing Credits = {{credit.credits}}
+    .col-sm-12.col-md-4
+      h3 Used
+      table.table.table-bordered
+        tr
+          th Course
+          th Amount Used
+        tr(ng-repeat="course in usedCredit.courses")
+          td {{course.title}}
+          td ${{course.used}}
 
-    .col-sm-10.col-md-10
-      .col-sm-12.col-md-12
-        h3 {{credit._company.title}} Credits = {{credit.credits}}
-        table.table.table-bordered
-          tr
-            th Amount
-            th Course
-            th Purchased by
-            th Date
-          tr(ng-repeat="purchase in credit.purchased")
-            td ${{purchase.amount}}
-            td {{purchase._course.title}}
-            td {{purchase.purchaser.name}}
-            td {{purchase.date}}
+    .col-sm-12.col-md-8
+      h3 Purchases
+      table.table.table-bordered
+        tr
+          th Course
+          th Purchaser
+          th Company Credits
+          th Date
+        tr(ng-repeat="purchase in purchases")
+          td ${{purchase.credits}}
+          td {{purchase.purchaser.name}}
+          td {{purchase.companyCredits}}
+          td {{purchase.date}}
 
 
 

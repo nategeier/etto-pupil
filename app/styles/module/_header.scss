@@ -16,6 +16,23 @@
   }
 }
 
+.nopad{
+  margin:0;
+  padding:0;
+  color: $etto-accentblue;
+}
+
+
+.leaderboard{
+  /*height:312px;*/
+  background-color: $etto-lightblue;
+  margin-bottom: 20px;
+}
+
+.main-sized-img{
+  position: relative;
+  z-index: -1;
+}
 
 .main-img{
   background-image: url("/images/site/opener2.jpg");
