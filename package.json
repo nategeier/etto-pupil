@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "dependencies": {
-    "angular-file-upload": "0.0.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -52,7 +51,8 @@
     "sassdown": "https://github.com/randallagordon/sassdown/tarball/coursetto-alt",
     "grunt-dox": "https://github.com/randallagordon/grunt-dox/tarball/coursetto",
     "grunt-newer": "~0.6.1",
-    "grunt-sass": "~0.10.0"
+    "grunt-sass": "~0.10.0",
+    "grunt-throttle": "^0.1.0"
   },
   "engines": {
     "node": ">=0.8.0"

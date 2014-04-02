@@ -1,4 +1,5 @@
-# etto-pupil
+etto-pupil
+================================================================================
 
 ### Temporary Manual Deployment Steps
 
@@ -19,3 +20,28 @@ $ sudo rm /usr/share/nginx/html/etto-pupil -rf
 $ sudo cp -r dist /usr/share/nginx/html/etto-pupil/
 ```
 
+Grunt Tasks
+--------------------------------------------------------------------------------
+
+### Default
+
+Main test/integration command
+
+### Serve
+
+    grunt serve
+
+### Throttling for UX testing
+
+Testing dev environment:
+
+```sh
+grunt serve:throttle
+```
+
+Testing dist:
+
+```sh
+$ grunt build
+$ grunt serve:throttledist
+```
