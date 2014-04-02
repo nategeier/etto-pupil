@@ -26,7 +26,6 @@ etto-logged-in-nav
             button.close.pull-right(type="button", aria-hidden="true", ng-click="removeCourse(course._id)") &times;
             p.pull-right  {{course.completed.length}}/{{course.completed.length + course.notCompleted.length}}
 
-
           .clearfix
           .col-md-12
             .progress
@@ -59,3 +58,4 @@ etto-logged-in-nav
               .col-xs-8
                 h5.cap-first(ng-show="user.name")  {{user.name}}
                 h5.cap-first(ng-show="!user.name")  {{user.email[0]}}
+

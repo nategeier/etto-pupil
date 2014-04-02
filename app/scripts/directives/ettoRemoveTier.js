@@ -1,19 +1,21 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .directive("ettoRemoveCourse", [
+  .directive("ettoRemoveTier", [
 
     function () {
       return {
         restrict: "AE",
-        controller: function ($scope, $modal, CourseMetaChange) {
-          $scope.removeCourse = function (id, title) {
+        controller: function ($scope, $modal, Tiers, $location) {
+          $scope.removeTier = function (tier) {
 
             var modal = $modal.open({
-              templateUrl: "/views/directives/ettoRemoveCourseModal.html",
-              controller: function ($scope, $modalInstance, Payment, $location) {
 
-                $scope.courseTitle = title;
+              templateUrl: "/views/directives/ettoRemoveTierModal.html",
+              controller: function ($scope, $modalInstance, Payment) {
+
+                $scope.tier = tier;
+
                 $scope.isSureRemove = function () {
                   $modalInstance.close(true);
                 };
@@ -26,13 +28,10 @@ angular.module("ettoPupil")
             });
             modal.result.then(function (didRemove) {
 
-              var course = {
-                id: id
-              };
-
               if (didRemove) {
-                CourseMetaChange.removeCourse(course, function (data) {
-                  $scope.listUsersCreatedCourses();
+                Tiers.removeTier(tier, function (data) {
+                  //$scope.listUsersCreatedCourses();
+                  $scope.reset();
                 });
               }
 

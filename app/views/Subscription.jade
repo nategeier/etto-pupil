@@ -5,35 +5,31 @@ etto-logged-in-nav
     h1 Subscription
 
 
-    .col-sm-10.col-md-10
-      
-      .col-md-5
-        h5 (Number of Employees)
-      .col-md-7
-      ul.nav.nav-tabs
-        li(ng-click="show(subscriptionType._id)", ng-repeat="subscriptionType in subscriptionTypes", ng-class="{active: onSubscription === subscriptionType._id}")
-          a(href="#")
-            p {{subscriptionType.title}} ({{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}})
-      br
+    h5 (Number of Employees in your system)
+    ul.nav.nav-tabs
+      li(ng-click="show(subscriptionType._id)", ng-repeat="subscriptionType in subscriptionTypes", ng-class="{active: onSubscription === subscriptionType._id}")
+        a(href="#")
+          p {{subscriptionType.title}} ({{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}})
 
-      div(ng-repeat="subscriptionType in subscriptionTypes")
-        table.table.table-no-border(ng-show="onSubscription === subscriptionType._id")
-          tr
-            th Private Courses
-            th Price
-            th Purchase
-          tr(ng-repeat="subscription in subscriptionType.subscriptions", ng-animate="'animate'")
-            td {{subscription.courseRange.low}} - {{subscription.courseRange.high}}
-            td ${{subscription.price}}/mo
-            td
 
-              i.fa.fa-check-square-o.fa-2x(ng-show="subscription._id === currentSubscription")
-              button.btn.btn-sm.btn-default(etto-purchase, type="button", ng-click='purchase(null, {_id:subscription._id, price:subscription.price})', ng-show="subscription._id !== currentSubscription") Purchase
+    div(ng-repeat="subscriptionType in subscriptionTypes")
+      table.table.table-no-border(ng-show="onSubscription === subscriptionType._id")
+        tr
+          th Private Courses
+          th Price
+          th Purchase
+        tr(ng-repeat="subscription in subscriptionType.subscriptions", ng-animate="'animate'")
+          td {{subscription.courseRange.low}} - {{subscription.courseRange.high}}
+          td ${{subscription.price}}/mo
+          td
 
-      .col-md-12
-        .btn-group.pull-right
-          button.btn.btn-sm.btn-default(etto-recipient-modal, ng-click="addRecipient()") Pull Payment
-          button.btn.btn-sm.btn-default(etto-recipient-modal, ng-click="cancelSubscription()") Cancel Subscription
+            i.fa.fa-check-square-o.fa-2x(ng-show="subscription._id === currentSubscription")
+            button.btn.btn-sm.btn-default(etto-purchase, type="button", ng-click='purchase(null, {_id:subscription._id, price:subscription.price})', ng-show="subscription._id !== currentSubscription") Purchase
+
+    .col-md-12
+      .btn-group.pull-right
+        button.btn.btn-sm.btn-default(etto-recipient-modal, ng-click="addRecipient()") Pull Payment
+        button.btn.btn-sm.btn-default(etto-recipient-modal, ng-click="cancelSubscription()") Cancel Subscription
 
 
 

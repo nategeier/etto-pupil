@@ -23,6 +23,10 @@ angular.module("ettoPupil")
                   }
                 };
 
+                $scope.cancel = function (newUser) {
+                  $modalInstance.close();
+                };
+
                 $scope.inviteUser = function (newUser) {
 
                   newUser._tier = _tier;
@@ -35,7 +39,6 @@ angular.module("ettoPupil")
                       $modalInstance.close();
                     }
                   });
-
                 };
               }
             });
