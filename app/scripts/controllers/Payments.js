@@ -13,7 +13,6 @@ angular.module("ettoPupil")
         });
 
         Payment.companyPurchases(user._tier._company, function (results) {
-          console.log(results)
           $scope.purchases = results;
         });
 
