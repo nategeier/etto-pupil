@@ -1,0 +1,21 @@
+.modal-header
+  button.close( type="button" )
+  h2.modal-title Asset Library
+.modal-body
+  .etto-assetlibrary
+    .etto-assetlibrary__list
+      .etto-assetlibrary__asset(ng-repeat="asset in assets")
+        img(src="{{ asset.url }}")
+
+    form.etto-assetlibrary__uploader(ng-submit="close()")
+      div(ng-show="err")
+        .alert.alert-danger {{ err.message }}
+
+      .form-group
+        label Upload File(s)
+        input.form-control(type="file", ng-file-select="onFileSelect($files)", multiple)
+
+      .uploading-files(ng-repeat="file in files")
+        .progress
+          .progress-bar(role="progressbar", style="width: {{ file.progress }}%;") {{ file.name }}
+          button.btn(ng-click="abort($index)", ng-show="file.progress !== 100") Abort

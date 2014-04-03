@@ -1,0 +1,34 @@
+/*
+ * Asset Library
+ * ============================================================================
+ */
+
+/* .etto-assetlibrary
+ * ----------------------------------------------------------------------------
+ *
+ * Allows the user to select and use assets which they have uploaded, as well
+ * as upload new assets.
+ *
+ * Here's a sample button for now:
+ *
+ *    <a class="btn btn-default">Thing</a>
+ */
+
+.etto-assetlibrary {
+}
+
+.etto-assetlibrary__list {
+  @include clearfix;
+
+  margin-bottom: 1rem;
+
+  .etto-assetlibrary__asset {
+    float: left;
+    padding-right: 8px;
+    padding-bottom: 8px;
+  }
+
+  .etto-assetlibrary__asset:nth-child(4n) {
+    padding-right: 0;
+  }
+}
