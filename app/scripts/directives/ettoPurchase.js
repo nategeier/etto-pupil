@@ -18,7 +18,8 @@ angular.module("ettoPupil")
             if ($scope.credits <= course.priceWithEmps) {
               $scope.purchase(course, null);
             } else {
-              console.log("add it")
+              console.log("add it");
+              //--- Still working on this loading next push
             }
 
           };
@@ -28,7 +29,6 @@ angular.module("ettoPupil")
             if (course) {
               $scope.listAllOnTiers();
               course.added = true;
-              console.log("added")
             }
 
             var user = $scope.user;

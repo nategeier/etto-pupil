@@ -272,15 +272,11 @@ angular.module("ettoPupil")
               }
               callback(null, null);
             }, function (err, results) {
-              console.log("finished children----")
               //----Nothing called back
             });
-          } else {
-            console.log("no children----", tier.title)
           }
         }
         recursiveFindOnTiers($scope.data);
-        console.log("tiers----", $scope.data)
       };
 
       var setPrice = function () {

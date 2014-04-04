@@ -18,13 +18,13 @@ angular.module("ettoPupil")
       };
 
       TweenMax.from($("#title"), 0.6, {
-        delay: .3,
+        delay: 0.3,
         opacity: 0,
         y: 20
       });
 
       TweenMax.from($("#subtite"), 0.6, {
-        delay: .6,
+        delay: 0.6,
         opacity: 0,
         y: 20
       });
