@@ -33,7 +33,7 @@ etto-logged-in-nav
         img.img-circle.user-thumb(src= "{{editUser.avatarUrl}}")
         i.fa.fa-user.fa-3x.center-block(ng-show="!editUser.avatarUrl")
 
-        button.btn.btn-success(etto-asset-library-modal, ng-click='showAssetLibrary()')
+        button.btn.btn-success(etto-asset-library-modal, ng-click='updateAvatar()')
           i.fa.fa-camera
 
         .checkbox

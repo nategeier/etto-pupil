@@ -9,26 +9,33 @@
  * Allows the user to select and use assets which they have uploaded, as well
  * as upload new assets.
  *
- * Here's a sample button for now:
- *
- *    <a class="btn btn-default">Thing</a>
+ *    <button etto-asset-library-modal, ng-click="showAssetLibrary()" class="btn btn-success"><i class="fa fa-camera"></i></button>
  */
 
+$assetBorderWidth: (14rem / 16);
+$assetLibraryPadding: $assetBorderWidth / 1.25;
+
 .etto-assetlibrary {
+  padding: $assetLibraryPadding;
 }
 
-.etto-assetlibrary__list {
+.etto-assetlibrary__assetlist {
   @include clearfix;
-
-  margin-bottom: 1rem;
 
   .etto-assetlibrary__asset {
     float: left;
-    padding-right: 8px;
-    padding-bottom: 8px;
-  }
+    border: $assetBorderWidth solid rgba(255, 255, 255, 0);
+    width: 25%;
 
-  .etto-assetlibrary__asset:nth-child(4n) {
-    padding-right: 0;
+    img {
+      @include img-responsive;
+      width: 100%;
+      height: 12.5rem;
+    }
   }
+}
+
+.etto-assetlibrary__uploader {
+  border-top: 1px solid $etto-mediumgrey;
+  padding: $assetLibraryPadding * 2  $assetLibraryPadding;
 }

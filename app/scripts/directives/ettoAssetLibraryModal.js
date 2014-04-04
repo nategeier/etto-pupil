@@ -7,14 +7,21 @@ angular.module("ettoPupil")
       return {
         restrict: "AE",
         controller: function ($scope, $modal, $rootScope, $http, $upload) {
-          $scope.showAssetLibrary = function () {
+          $scope.showAssetLibrary = function (done) {
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoAssetLibraryModal.html",
               windowClass: "app-modal-large",
               controller: function ($scope, $modalInstance, Asset) {
-                $scope.assets = Asset.query({}, function (assets) {
-                  console.dir(assets);
-                });
+                $scope.assets = Asset.query({});
+
+                $scope.selectAsset = function (id) {
+                  $scope.assets.forEach(function (asset) {
+                    if (asset._id === id) {
+                      $modalInstance.close(asset);
+                    }
+                  });
+                };
+
                 $scope.uploadData = [];
 
                 $scope.onFileSelect = function ($files) {
@@ -67,8 +74,8 @@ angular.module("ettoPupil")
               }
             });
 
-            modal.result.then(function (fileObj) {
-              console.dir("fileObj", fileObj);
+            modal.result.then(function (asset) {
+              done(asset);
             });
           };
         },

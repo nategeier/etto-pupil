@@ -1,21 +1,25 @@
 .modal-header
-  button.close( type="button" )
+  button.close(type="button") &times;
   h2.modal-title Asset Library
-.modal-body
-  .etto-assetlibrary
-    .etto-assetlibrary__list
+.modal-body.etto-assetlibrary
+  form.etto-assetlibrary__picker(ng-submit="selectAsset(selectedAsset)")
+    .etto-assetlibrary__assetlist
       .etto-assetlibrary__asset(ng-repeat="asset in assets")
         img(src="{{ asset.url }}")
+        input(type="radio", value="{{ asset._id }}", ng-model="$parent.selectedAsset")
+    .modal-footer
+      input.btn.btn-primary( type="submit", value="Select")
+      input.btn.btn-default( type="submit", data-dismiss="modal", value="Cancel")
 
-    form.etto-assetlibrary__uploader(ng-submit="close()")
-      div(ng-show="err")
-        .alert.alert-danger {{ err.message }}
+  form.etto-assetlibrary__uploader()
+    div(ng-show="err")
+      .alert.alert-danger {{ err.message }}
 
-      .form-group
-        label Upload File(s)
-        input.form-control(type="file", ng-file-select="onFileSelect($files)", multiple)
+    .form-group
+      label Upload File(s)
+      input.form-control(type="file", ng-file-select="onFileSelect($files)", multiple)
 
-      .uploading-files(ng-repeat="file in files")
-        .progress
-          .progress-bar(role="progressbar", style="width: {{ file.progress }}%;") {{ file.name }}
-          button.btn(ng-click="abort($index)", ng-show="file.progress !== 100") Abort
+    .uploading-files(ng-repeat="file in files")
+      .progress
+        .progress-bar(role="progressbar", style="width: {{ file.progress }}%;") {{ file.name }}
+      button.btn(ng-click="abort($index)", ng-show="file.progress !== 100") Abort
