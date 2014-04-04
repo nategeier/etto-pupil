@@ -65,7 +65,7 @@ angular.module("ettoPupil")
 
           element.bind("mouseout", function () {
             TweenMax.to(element, tranTime, {
-              backgroundColor: "none",
+              backgroundColor: "#fff",
               color: "#889ba4"
             });
 

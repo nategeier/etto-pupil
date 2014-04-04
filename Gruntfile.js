@@ -1,6 +1,7 @@
 // Generated on 2013-10-21 using generator-angular 0.4.0
 "use strict";
 var LIVERELOAD_PORT = 35730;
+var SERVER_PORT = 4210;
 var lrSnippet = require("connect-livereload")({
   port: LIVERELOAD_PORT
 });
@@ -112,7 +113,7 @@ module.exports = function (grunt) {
     },
     connect: {
       options: {
-        port: 4210,
+        port: SERVER_PORT,
         // Change this to "0.0.0.0" to access the server from outside.
         hostname: "0.0.0.0"
       },
@@ -133,6 +134,28 @@ module.exports = function (grunt) {
             return [
               mountFolder(connect, ".tmp"),
               mountFolder(connect, "test")
+            ];
+          }
+        }
+      },
+      throttle: {
+        options: {
+          port: SERVER_PORT + 1,
+          middleware: function (connect) {
+            return [
+              lrSnippet,
+              mountFolder(connect, ".tmp"),
+              mountFolder(connect, yeomanConfig.app)
+            ];
+          }
+        },
+      },
+      throttledist: {
+        options: {
+          port: SERVER_PORT + 1,
+          middleware: function (connect) {
+            return [
+              mountFolder(connect, yeomanConfig.dist)
             ];
           }
         }
@@ -517,12 +540,26 @@ module.exports = function (grunt) {
         src: ["app/scripts/"],
         dest: "docs"
       }
+    },
+    throttle: {
+      default: {
+        remote_host: "localhost",
+        remote_port: SERVER_PORT + 1,
+        local_host: "0.0.0.0",
+        local_port: SERVER_PORT,
+        downstream: grunt.option("down") * 1024 || 100 * 1024,
+        upstream: grunt.option("up") * 1024 ||  10 * 1024,
+      }
     }
   });
 
   grunt.registerTask("serve", function (target) {
     if (target === "dist") {
       return grunt.task.run(["build", "open", "connect:dist:keepalive"]);
+    }
+
+    if (target === "throttledist") {
+      return grunt.task.run(["throttle", "connect:throttledist:keepalive"]);
     }
 
     if (target === "dox") {
@@ -533,14 +570,22 @@ module.exports = function (grunt) {
       return grunt.task.run(["styleguide", "connect:styleguide:keepalive"]);
     }
 
-    grunt.task.run([
+    var tasks = [
       "clean:server",
       "concurrent:server",
       "autoprefixer",
-      "connect:livereload",
       "open",
       "concurrent:serverwatch",
-    ]);
+    ];
+
+    if (target === "throttle") {
+      tasks.unshift("throttle");
+      tasks.unshift("connect:throttle");
+    } else {
+      tasks.unshift("connect:livereload");
+    }
+
+    grunt.task.run(tasks);
   });
 
   grunt.registerTask("test", [

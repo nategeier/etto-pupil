@@ -9,8 +9,6 @@ angular.module("ettoPupil")
         controller: function ($scope, $modal) {
           $scope.showOptions = function () {
 
-            console.log("is on")
-
             var blocktypes = $scope.blocktypes;
 
             var modal = $modal.open({

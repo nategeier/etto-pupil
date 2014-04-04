@@ -9,7 +9,7 @@
 .course-holder{
   color: $etto-darkblue;
   cursor: pointer;
-
+  border:1px solid #eee;
   padding:5px;
 
   .edit-btn{
@@ -31,6 +31,12 @@
 }
 
 
+.course-deck{
+  .course{
+    padding:5px;
+
+  }
+}
 .exit-course{
   position:fixed;
   top:15px;

@@ -2,13 +2,11 @@
   button.close( type="button" )
   h2.modal-title Create a Course
 .modal-body
-  form(ng-submit="handleLogin()", ng-show="subscriptionGood === true")
+  form(ng-submit="createCourse()", ng-show="subscriptionGood === true")
     .form-group
       input.form-control( type="text", ng-model="course.title", placeholder="title", autocomplete="on", required )
     .form-group
       input.form-control( type="text", ng-model="course.subtitle", placeholder="subTitle", required )
-    .form-group
-      input.form-control( type="text", ng-model="course.price", placeholder="price", required )
     .form-group
       input.btn.btn-primary( type="submit", value="Create")
   div(ng-show="subscriptionGood === false")

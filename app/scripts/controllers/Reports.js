@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("ReportsCtrl", ["$scope", "Tiers", "$routeParams", "$location", "Users",
-    function ($scope, Tiers, $routeParams, $location, Users) {
+  .controller("ReportsCtrl", ["$scope", "Tiers", "$routeParams", "$location", "Users", "Record",
+    function ($scope, Tiers, $routeParams, $location, Users, Record) {
 
       $scope.viewChildren = function (link) {
         $location.path(link);
@@ -17,6 +17,14 @@ angular.module("ettoPupil")
       $scope.listUsers = function () {
         Users.listUsersInTier($scope.parentID, function (users) {
           $scope.users = users;
+
+          async.map($scope.users, function (user) {
+            Record.userOverallProgress(user._id, user._tier, function (result) {
+              user.overallPercent = Number(result.overallPercent);
+              console.log("progress", result);
+            });
+
+          });
         });
       };
 
@@ -38,7 +46,6 @@ angular.module("ettoPupil")
         Tiers.tierReport($scope.parentID, function (results) {
           $scope.tierReport = results;
         });
-
       };
 
       $scope.add = function (newTier) {

@@ -9,31 +9,48 @@ angular.module("ettoPupil")
       $scope.show = function (id) {
         $scope.onSubscription = id;
       };
-      /*
-      Payment.updateNewSubscription(function (argument) {
-        console.log("updated");
-      });
-      */
+
       $scope.cancelSubscription = function () {
-        Payment.cancelSubscription($scope.user._tier._company, $scope.currentSubscription, function (results) {
-          $scope.subscriptionTypes = results;
+        Payment.cancelSubscription($scope.user._tier._company, $scope.user._tier.stripePlan, function (results) {
           $scope.onSubscription = $scope.subscriptionTypes[0]._id;
+          $scope.currentSubscription = null;
           $scope.resetSubscription();
         });
       };
 
       $scope.resetSubscription = function () {
 
-        Payment.subscriptions(function (results) {
-          $scope.subscriptionTypes = results;
-          $scope.onSubscription = $scope.subscriptionTypes[0]._id;
-        });
+        async.parallel([
 
-        Users.fullDetails($routeParams.userID, function (user) {
-          Tier.findTier(user._tier._company, function (results) {
-            $scope.currentSubscription = results._subscription;
+            function (callback) {
+              Payment.subscriptions(function (results) {
+                $scope.subscriptionTypes = results;
+                $scope.onSubscription = $scope.subscriptionTypes[0]._id;
+                callback(null, results);
+              });
+
+            },
+            function (callback) {
+              Users.fullDetails($routeParams.userID, function (user) {
+                Tier.findTier(user._tier._company, function (results) {
+                  $scope.currentSubscription = results._subscription;
+                  callback(null);
+                });
+              });
+
+            }
+          ],
+          function (err, results) {
+            //--- Set default opened tab
+            async.map(results[0], function (subscriptionType) {
+              async.map(subscriptionType.subscriptions, function (subscription) {
+                if ($scope.currentSubscription === subscription._id) {
+                  $scope.onSubscription = subscriptionType._id;
+                }
+              });
+            });
+
           });
-        });
 
       };
 

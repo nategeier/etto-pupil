@@ -11,18 +11,29 @@ angular.module("ettoPupil")
             callback(results);
           });
         },
-        updateNewSubscription: function (callback) {
-          var Subscriptions = $resource("/api/v1/store/updateNewSubscription");
-          Subscriptions.query(function (results) {
-            callback(results);
-          });
-        },
         cancelSubscription: function (companyId, subscriptionId, callback) {
           var Subscriptions = $resource("/api/v1/store/cancelSubscription/:companyId", {
             companyId: companyId,
             subscriptionId: subscriptionId
           });
-          Subscriptions.query(function (results) {
+          Subscriptions.get(function (results) {
+            callback(results);
+          });
+        },
+        companyPurchases: function (companyId, callback) {
+          var Purchases = $resource("/api/v1/credit/companyPurchases/:id", {
+            id: companyId
+          });
+          Purchases.query(function (results) {
+            callback(results);
+          });
+        },
+
+        companyCreditsUsed: function (companyId, callback) {
+          var Used = $resource("/api/v1/credit/companyCreditsUsed/:id", {
+            id: companyId
+          });
+          Used.get(function (results) {
             callback(results);
           });
         },

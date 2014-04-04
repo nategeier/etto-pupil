@@ -10,6 +10,7 @@
     .col-md-12
       .alert.alert-danger(ng-show="err")
         p {{err}}
+      h4 User will automatically be registered for this tear and will have control only over all lower tiers
       .form-group
         input.form-control( type="text", ng-model="newUser.email", placeholder="email", required )
     .col-md-6
@@ -37,5 +38,6 @@
     .col-md-12
       .form-group
         input.btn.btn-primary( type="submit", value="Send Invite")
+        .btn.btn-default( ng-click="cancel()") Cancel
     .clearfix
 

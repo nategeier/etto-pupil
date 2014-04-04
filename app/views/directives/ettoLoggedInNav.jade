@@ -1,3 +1,4 @@
+
 nav.navbar.navbar-default( role="navigation", etto-session)
   .navbar-header
     etto-login-modal
@@ -14,17 +15,22 @@ nav.navbar.navbar-default( role="navigation", etto-session)
   #etto-navbar.collapse.navbar-collapse
     ul.nav.navbar-nav
       li
-        a.navbar-btn( href="/etto" ) Home
+        a.navbar-btn( href="/etto" )
+          i.fa.fa-home.fa-2x
+          small home
       li.divider
       li(ng-show= "user.auth.canGetCourses")
-        a.navbar-btn( href="/store/{{user._tier._id}}" ) Store
+        a.navbar-btn( href="/store/{{user._tier._id}}" )
+          i.fa.fa-ticket.fa-2x
+          small market
       li.divider
       li(ng-show= "user.auth.canInvite")
-        a.navbar-btn( href="/report/{{user._tier._id}}" ) Reports
+        a.navbar-btn( href="/report/{{user._tier._id}}" )
+          i.fa.fa-bar-chart-o.fa-2x(style="margin-right:5px")
+          small reports
 
     .navbar-right
       ul.nav.navbar-nav
-
         li.dropdown
           a(data-toggle="dropdown", href="#")
             i.fa.fa-cog.fa-2x.pull-left
@@ -33,7 +39,7 @@ nav.navbar.navbar-default( role="navigation", etto-session)
             li
               a( href="/settings/{{user._id}}" ) Settings
             li
-              a( href="/api/v1/auth/logout", target="_self" ) Logout
+              a( href="#", ng-click="destroySession('/')" ) Logout
             li
               a( href="/subscription/{{user._id}}", target="_self" ) Subscriptions
             li
