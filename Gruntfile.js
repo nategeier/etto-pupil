@@ -548,7 +548,7 @@ module.exports = function (grunt) {
         local_host: "0.0.0.0",
         local_port: SERVER_PORT,
         downstream: grunt.option("down") * 1024 || 100 * 1024,
-        upstream: grunt.option("up") * 1024 ||  10 * 1024,
+        upstream: grunt.option("up") * 1024 || 10 * 1024,
       }
     }
   });
