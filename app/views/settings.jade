@@ -2,10 +2,10 @@ etto-logged-in-nav
 .container
   .col-md-12
     etto-settings-nav(active="settings")
-      
+
     h1 Settings
 
-  
+
     form(role='form', ng-submit="updateUser()")
       .col-sm-7.col-md-7.col-lg-5
         .form-group
@@ -32,6 +32,9 @@ etto-logged-in-nav
       .col-sm-5.col-md-5.col-lg-4.aside
         img.img-circle.user-thumb(src= "{{editUser.avatarUrl}}")
         i.fa.fa-user.fa-3x.center-block(ng-show="!editUser.avatarUrl")
+
+        button.btn.btn-success(etto-asset-library-modal, ng-click='updateAvatar()')
+          i.fa.fa-camera
 
         .checkbox
           label
@@ -65,7 +68,7 @@ etto-logged-in-nav
           small Date taken {{record.started}}
           .progress
             .progress-bar(role="progressbar", aria-valuenow="{{(record.progress.bookmark/record.progress.totalBlocks) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(record.progress.bookmark/record.progress.totalBlocks) * 100}}%;")
-                      
+
 
 
 
