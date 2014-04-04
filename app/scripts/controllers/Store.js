@@ -8,6 +8,11 @@ angular.module("ettoPupil")
       $scope.onTiers = [];
       $scope.parentID = $routeParams.tierID;
 
+      TweenMax.from($("#head-img"), 1, {
+        opacity: 0,
+        x: -50
+      });
+
       $scope.listCourses = function () {
 
         CourseList.storeCourses(function (data) {
@@ -250,26 +255,32 @@ angular.module("ettoPupil")
                 if (child.children && child.children[0]) {
                   hasAddedChildren = true;
                 }
+                var isMinimized = child.minimized;
 
-                if (child.minimized === undefined) {
-                  child.minimized = true;
+                if (isMinimized === undefined) {
+                  isMinimized = true;
                 }
 
                 $scope.onTiers.push({
                   hasChildren: hasChildren,
                   hasAddedChildren: hasAddedChildren,
-                  minimized: child.minimized,
+                  minimized: isMinimized,
                   _id: child._id
                 });
+
                 recursiveFindOnTiers(child);
               }
               callback(null, null);
             }, function (err, results) {
+              console.log("finished children----")
               //----Nothing called back
             });
+          } else {
+            console.log("no children----", tier.title)
           }
         }
         recursiveFindOnTiers($scope.data);
+        console.log("tiers----", $scope.data)
       };
 
       var setPrice = function () {

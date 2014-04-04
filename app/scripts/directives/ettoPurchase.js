@@ -7,12 +7,28 @@ angular.module("ettoPupil")
 
       return {
         restrict: "AE",
-        controller: function ($scope, $modal, Store, $location) {
+        controller: function ($scope, $modal, Store) {
+
+          $scope.addToLibrary = function (course) {
+
+            //---- Isssue to deal with later on, may run in async not adding all on tiers before going to the server
+            $scope.listAllOnTiers();
+            course.added = true;
+
+            if ($scope.credits <= course.priceWithEmps) {
+              $scope.purchase(course, null);
+            } else {
+              console.log("add it")
+            }
+
+          };
 
           $scope.purchase = function (course, subscription) {
 
             if (course) {
               $scope.listAllOnTiers();
+              course.added = true;
+              console.log("added")
             }
 
             var user = $scope.user;
@@ -74,7 +90,6 @@ angular.module("ettoPupil")
                   $scope.resetSubscription();
                 }
                 $scope.updateSession();
-                //$location.path("/etto");
               });
             });
           };

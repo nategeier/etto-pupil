@@ -6,6 +6,14 @@
  *
  */
 
+ body{
+  background-color: #fff;
+ }
+
+
+
+
+
 .header{
   background-color: $etto-greyblue;
   color: $etto-accentblue;
@@ -16,6 +24,28 @@
   }
 }
 
+
+.animate-enter {
+  -webkit-transition: 3s linear all; /* Chrome */
+  transition: 3s linear all;
+  opacity: 0;
+}
+ 
+.animate-enter.animate-enter-active {
+  opacity: 1;
+}
+
+
+
+.main-holder{
+  padding-right:10px;
+}
+
+.left-holder{
+  background-color: $etto-lightblue;
+  margin-bottom: 0;
+}
+
 .nopad{
   margin:0;
   padding:0;
@@ -24,9 +54,13 @@
 
 
 .leaderboard{
-  /*height:312px;*/
-  background-color: $etto-lightblue;
+  background-color: $etto-grey;
   margin-bottom: 20px;
+  background-repeat:repeat;
+  background-image:url('/images/patterns/dimension.png');
+  h3{
+    color: $etto-turquoise;
+  }
 }
 
 .main-sized-img{
