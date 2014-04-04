@@ -15,15 +15,11 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-   <link rel="stylesheet" href="/bower_components/angular-xeditable/dist/css/xeditable.css">
+  <link rel="stylesheet" href="/bower_components/angular-xeditable/dist/css/xeditable.css">
   <!-- build:css(.tmp) styles/main.css -->
-
   <link rel="stylesheet" href="/styles/main.css">
   <!-- endbuild -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato">
- 
-
-
 </head>
 
 <body ng-app="ettoPupil">
@@ -37,7 +33,6 @@
     <![endif]-->
 
   <!-- Add your site or application content here -->
-
 
   <div ng-view=""></div>
 
@@ -71,7 +66,7 @@
   <script src="/bower_components/bootstrap-sass/dist/js/bootstrap.js"></script>
   <script src="/bower_components/greensock/src/minified/TweenMax.min.js"></script>
   <script src="/bower_components/async/lib/async.js"></script>
-  <script src="/bower_components/underscore/underscore-min.js"></script>
+  <script src="/bower_components/lodash/dist/lodash.min.js"></script>
   <!-- endbuild -->
 
   <!-- build:js scripts/modules.js -->
@@ -85,9 +80,9 @@
   <script src="/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
   <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
   <script src="/bower_components/angular-loading-bar/src/loading-bar.js"></script>
+  <script src="/bower_components/ng-file-upload/angular-file-upload-shim.min.js"></script>
   <script src="/bower_components/ng-file-upload/angular-file-upload.min.js"></script>
   <script src="/bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
-
   <!-- endbuild -->
 
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -126,7 +121,7 @@
   <script src="/scripts/directives/ettoAddCredits.js"></script>
   <script src="/scripts/directives/ettoDeleteCard.js"></script>
   <script src="/scripts/directives/ettoRecipientModal.js"></script>
-  <script src="/scripts/directives/ettoFileUpload.js"></script>
+  <script src="/scripts/directives/ettoAssetLibraryModal.js"></script>
   <script src="/scripts/directives/ettoSearchUser.js"></script>
   <script src="/scripts/directives/ettoSearchTiers.js"></script>
   <script src="/scripts/directives/ettoRemoveCourse.js"></script>
@@ -136,9 +131,6 @@
   <script src="/scripts/directives/course/ettoChooseBlock.js"></script>
   <script src="/scripts/directives/course/ettoBlockQuiz.js"></script>
   <script src="/scripts/directives/course/ettoCourseStatus.js"></script>
-  
-
-
 
   <script src="/scripts/services/Wire.js"></script>
   <script src="/scripts/services/Session.js"></script>
@@ -156,7 +148,7 @@
   <script src="/scripts/services/Asset.js"></script>
   <script src="/scripts/services/httpInterceptor.js"></script>
   <script src="/scripts/services/BlockQuiz.js"></script>
-  
+
   <!-- endbuild -->
 
   <script type="text/javascript">

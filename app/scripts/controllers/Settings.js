@@ -44,5 +44,12 @@ angular.module("ettoPupil")
           });
         }
       };
+
+      $scope.updateAvatar = function () {
+        $scope.showAssetLibrary(function (asset) {
+          $scope.editUser.avatarUrl = asset.url;
+          $scope.updateUser();
+        });
+      };
     }
   ]);
