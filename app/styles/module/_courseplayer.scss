@@ -30,8 +30,11 @@
   padding-top:5px;
 }
 
+.course-edit-container{
+  background-color: $etto-grey;
+}
+
 .etto-toolbox {
-  border-right: #e7e7e7 1px solid;
 
   button.save, button.remove {
     position: absolute;

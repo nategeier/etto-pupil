@@ -18,7 +18,7 @@ etto-logged-in-nav
           .course-holder(sink-in, ng-class="course.added ? 'closed-course' : 'open-course'")
             .row
               .col-xs-12
-                img.img-responsive(src='/images/courses/thumbs/course_2.jpg')
+                img.img-responsive(src="{{course.thumb}}")
             .row
               .col-md-7
                 h5 {{course.title}}
