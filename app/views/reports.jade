@@ -28,20 +28,16 @@ etto-logged-in-nav
       .row
         .statBox.col-xs-12.col-md-12.col-sm-12
           .col-xs-6.col-sm-3.col-md-3.stat.statholder
-            p2.statTxt {{tierReport.totalUsers}}
-            br
+            .statTxt {{tierReport.totalUsers}}
             small.dark-grey Total Users
           .col-xs-6.col-sm-3.col-md-3.stat.statholder
-            p2.statTxt {{tierReport.courses.length}}
-            br
+            .statTxt {{tierReport.courses.length}}
             small.dark-grey Total Courses
           .col-xs-6.col-sm-3.col-md-3.stat.statholder
-            p2.statTxt {{tierReport.totalTaken}}
-            br
+            .statTxt {{tierReport.totalTaken}}
             small.dark-grey Completed
           .col-xs-6col-sm-3.col-md-3.statholder
-            p2.statTxt {{tierReport.totalProgress}}%
-            br
+            .statTxt {{tierReport.totalProgress}}%
             small.dark-grey Overall
           .clearfix
       .row(ng-show="children[0]")

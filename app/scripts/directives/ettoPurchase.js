@@ -7,28 +7,38 @@ angular.module("ettoPupil")
 
       return {
         restrict: "AE",
-        controller: function ($scope, $modal, Store) {
+        controller: function ($scope, $modal, Store, Tiers) {
+
+          $scope.distributeCourseToTiers = function (course) {
+
+            var obj = {
+              courseId: course._id,
+              tiers: $scope.onTiers
+            };
+
+            Tiers.distributeCourseToTiers(obj, function (results) {
+              course.added = true;
+            });
+
+          };
 
           $scope.addToLibrary = function (course) {
 
-            //---- Isssue to deal with later on, may run in async not adding all on tiers before going to the server
             $scope.listAllOnTiers();
-            course.added = true;
 
             if ($scope.credits <= course.priceWithEmps) {
+              //--- Not enough credits, purchase more
               $scope.purchase(course, null);
             } else {
-              console.log("add it");
-              //--- Still working on this loading next push
+              //--- Enough credits, distribute to tiers
+              $scope.distributeCourseToTiers(course);
             }
-
           };
 
           $scope.purchase = function (course, subscription) {
 
             if (course) {
               $scope.listAllOnTiers();
-              course.added = true;
             }
 
             var user = $scope.user;
@@ -89,6 +99,11 @@ angular.module("ettoPupil")
                 if (order.subscription) {
                   $scope.resetSubscription();
                 }
+
+                if (course) {
+                  $scope.distributeCourseToTiers(course);
+                }
+
                 $scope.updateSession();
               });
             });

@@ -78,22 +78,22 @@
 
 .statholder{
   .statTxt{
+    font-size: 1.5em;
     color: #fff;
+    margin-bottom:0;
+    padding:0;
   }
 
   small{
     color: #fff;
+    padding-bottom:10px;
   }
-
-
 }
 
 .aside{
-  //background-color: $etto-mildblue;
   border-left-style: solid;
   border-color: $etto-darkgrey;
   border-width:1px;
-
 }
 
 .aside h3, .aside h4{

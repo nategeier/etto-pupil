@@ -16,6 +16,17 @@ angular.module("ettoPupil")
             });
         },
 
+        updateLeaderboard: function (tier, callback) {
+
+          $http.post("/api/v1/tier/updateLeaderboard", tier)
+            .success(function (data, status, headers, config) {
+              callback(data);
+            })
+            .error(function (data, status, headers, config) {
+              console.dir(data);
+            });
+        },
+
         addTier: function (newTier, callback) {
           $http.post("/api/v1/tier/add", newTier).success(function (data) {
             callback(data);
@@ -37,6 +48,9 @@ angular.module("ettoPupil")
           });
         },
 
+        distributeCourseToTiers: function (obj) {
+          $http.post("/api/v1/tier/distributeCourseToTiers", obj);
+        },
         tierReport: function (id, callback) {
           $http.get("/api/v1/record/tierReport/" + id).success(function (data) {
             callback(data);
