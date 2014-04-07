@@ -13,6 +13,7 @@ angular.module("ettoPupil")
             callback(results);
           });
         },
+
         listTiersCourses: function (id, callback) {
           var Courses = $resource("/api/v1/course/listTiersCourses/:id", {
             id: id

@@ -1,7 +1,7 @@
 etto-logged-in-nav
 .container-full
   .row
-    .col-xs-12.col-md-9
+    .left-holder.col-xs-12.col-md-9
       .row
         .report-head.col-md-12
           .row
@@ -9,45 +9,40 @@ etto-logged-in-nav
               h2 {{currentTier.title}}
               
             .col-xs-12.col-sm-7.col-md-7.report-btns
-              .row
-                .col-xs-4.col-sm-4.col-md-4.nopad
-                  .report-btn(etto-add-tier, ng-click="addTier()")
-                    i.fa.fa-sitemap.fa-2x
+              .col-xs-4.col-sm-4.col-md-4.nopad
+                .report-btn(etto-add-tier, ng-click="addTier()")
+                  i.fa.fa-sitemap.fa-2x
+                  br
+                  small Add Tiers
+              .col-xs-4.col-sm-4.col-md-4.nopad
+                .report-btn(etto-invite-user-modal, ng-click="inviteUser()")
+                  i.fa.fa-user.fa-2x
+                  br
+                  small Add Users
+              .col-xs-4.col-sm-4.col-md-4.nopad
+                .report-btn
+                  a(href="/tier/edit/{{ currentTier._id }}") 
+                    i.fa.fa-edit.fa-2x
                     br
-                    small Add Tiers
-                .col-xs-4.col-sm-4.col-md-4.nopad
-                  .report-btn(etto-invite-user-modal, ng-click="inviteUser()")
-                    i.fa.fa-user.fa-2x
-                    br
-                    small Add Users
-                .col-xs-4.col-sm-4.col-md-4.nopad
-                  .report-btn
-                    a(href="/tier/edit/{{ currentTier._id }}") 
-                      i.fa.fa-edit.fa-2x
-                      br
-                      small Edit Tier
+                    small Edit Tier
       .row
         .statBox.col-xs-12.col-md-12.col-sm-12
           .col-xs-6.col-sm-3.col-md-3.stat.statholder
-            p2.statTxt {{tierReport.totalUsers}}
-            br
+            .statTxt {{tierReport.totalUsers}}
             small.dark-grey Total Users
           .col-xs-6.col-sm-3.col-md-3.stat.statholder
-            p2.statTxt {{tierReport.courses.length}}
-            br
+            .statTxt {{tierReport.courses.length}}
             small.dark-grey Total Courses
           .col-xs-6.col-sm-3.col-md-3.stat.statholder
-            p2.statTxt {{tierReport.totalTaken}}
-            br
+            .statTxt {{tierReport.totalTaken}}
             small.dark-grey Completed
           .col-xs-6col-sm-3.col-md-3.statholder
-            p2.statTxt {{tierReport.totalProgress}}%
-            br
+            .statTxt {{tierReport.totalProgress}}%
             small.dark-grey Overall
           .clearfix
       .row(ng-show="children[0]")
         .col-md-12.tier-holder
-          div(ng-repeat= 'tier in children')
+          div(class="animate-repeat", ng-repeat= 'tier in children')
             .col-xs-12.col-sm-6.col-md-6.col-lg-4
               button.close.aria-hidden(type="button", ng-click="removeTier(tier)", etto-remove-tier) &times;
               .row
@@ -55,21 +50,17 @@ etto-logged-in-nav
                 .tier-box(sink-in, ng-click ="viewChildren('/report/{{tier._id}}')")
                   .pad20
                     .row
-                      .col-md-9
+                      .col-md-10
                         h4 {{tier.title}}
                         small # {{tier.internalId}}
-                      .col-md-3
-                        .col-md-6
-                          p {{tier.totalUsers}}
-                        .col-md-6
-                          i.fa.fa-user
-                          
-
+                      .col-md-2.pull-left
+                        p.pull-left {{tier.totalUsers}}
+                        i.fa.fa-user
                           
                       .col-md-12
                         .progress
                           .progress-bar(role="progressbar", aria-valuenow="{{(tier.totalTaken/tier.totalToTake) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(tier.totalTaken/tier.totalToTake) * 100}}%;")
-                      .clearfix
+        .clearfix
       .row(ng-show="!children[0]")
         .col-md-12
           div(ng-repeat= 'user in users')

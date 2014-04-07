@@ -3,8 +3,6 @@ etto-logged-in-nav
   .col-md-12
     etto-settings-nav(active="subscription")
     h1 Subscription
-
-
     h5 (Number of Employees in your system)
     ul.nav.nav-tabs
       li(ng-click="show(subscriptionType._id)", ng-repeat="subscriptionType in subscriptionTypes", ng-class="{active: onSubscription === subscriptionType._id}")
@@ -28,7 +26,7 @@ etto-logged-in-nav
 
     .col-md-12
       .btn-group.pull-right
-        button.btn.btn-sm.btn-default(etto-recipient-modal, ng-click="addRecipient()") Pull Payment
+        //button.btn.btn-sm.btn-default(etto-recipient-modal, ng-click="addRecipient()") Pull Payment
         button.btn.btn-sm.btn-default(etto-recipient-modal, ng-click="cancelSubscription()") Cancel Subscription
 
 

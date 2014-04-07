@@ -18,13 +18,13 @@ angular.module("ettoPupil")
         Users.listUsersInTier($scope.parentID, function (users) {
           $scope.users = users;
 
-          async.map($scope.users, function (user) {
-            Record.userOverallProgress(user._id, user._tier, function (result) {
-              user.overallPercent = Number(result.overallPercent);
-              console.log("progress", result);
+          if ($scope.users && $scope.users[0]) {
+            async.map($scope.users, function (user) {
+              Record.userOverallProgress(user._id, user._tier, function (result) {
+                user.overallPercent = Number(result.overallPercent);
+              });
             });
-
-          });
+          }
         });
       };
 
@@ -34,13 +34,14 @@ angular.module("ettoPupil")
 
         Tiers.findTier($scope.parentID, function (results) {
           $scope.currentTier = results;
-
-          async.map(results._children, function (tierId) {
-            Tiers.tierReport(tierId, function (results) {
-              $scope.children.push(results);
+          if (results._children && results._children[0]) {
+            async.map(results._children, function (tierId) {
+              Tiers.tierReport(tierId, function (results) {
+                $scope.children.push(results);
+              });
             });
+          }
 
-          });
         });
 
         Tiers.tierReport($scope.parentID, function (results) {

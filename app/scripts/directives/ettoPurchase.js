@@ -7,7 +7,33 @@ angular.module("ettoPupil")
 
       return {
         restrict: "AE",
-        controller: function ($scope, $modal, Store, $location) {
+        controller: function ($scope, $modal, Store, Tiers) {
+
+          $scope.distributeCourseToTiers = function (course) {
+
+            var obj = {
+              courseId: course._id,
+              tiers: $scope.onTiers
+            };
+
+            Tiers.distributeCourseToTiers(obj, function (results) {
+              course.added = true;
+            });
+
+          };
+
+          $scope.addToLibrary = function (course) {
+
+            $scope.listAllOnTiers();
+
+            if ($scope.credits <= course.priceWithEmps) {
+              //--- Not enough credits, purchase more
+              $scope.purchase(course, null);
+            } else {
+              //--- Enough credits, distribute to tiers
+              $scope.distributeCourseToTiers(course);
+            }
+          };
 
           $scope.purchase = function (course, subscription) {
 
@@ -73,8 +99,12 @@ angular.module("ettoPupil")
                 if (order.subscription) {
                   $scope.resetSubscription();
                 }
+
+                if (course) {
+                  $scope.distributeCourseToTiers(course);
+                }
+
                 $scope.updateSession();
-                //$location.path("/etto");
               });
             });
           };

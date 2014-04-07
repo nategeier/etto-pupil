@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .factory("CourseList", ["$http", "$compile", "$document", "$modal", "$location",
-    function ($http, $compile, $document, $modal, $location) {
+  .factory("CourseList", ["$http", "$compile", "$document", "$modal", "$location", "$resource",
+    function ($http, $compile, $document, $modal, $location, $resource) {
       var Courses;
 
       Courses = {
@@ -44,6 +44,15 @@ angular.module("ettoPupil")
             .error(function (data, status, headers, config) {
               console.dir(data);
             });
+        },
+        listCompanyCourses: function (tierId, done) {
+          var Courses = $resource("/api/v1/course/listCompanyCourses/:id", {
+            id: tierId
+          });
+
+          Courses.query(function (results) {
+            done(results);
+          });
         }
       };
       return Courses;

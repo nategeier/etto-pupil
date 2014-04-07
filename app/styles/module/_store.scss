@@ -18,6 +18,12 @@
 }
 
 
+.closed-course{
+  -webkit-transition: 1s linear all; /* Chrome */
+  transition: 1s linear all;
+  opacity: 0.3;
+}
+
 .off-bar:hover , .on-bar:hover{
   cursor: pointer;
 }

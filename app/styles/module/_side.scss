@@ -1,9 +1,7 @@
 .side-panel{
   background-color: #fff;
   padding:0;
-  h4{
-    color: #fff;
-  }
+
 }
 
 .reverse-bkd{
@@ -12,4 +10,15 @@
   border-bottom:1px solid $etto-darkgrey;
   padding-bottom:20px;
   margin-bottom:20px;
+}
+
+
+.pocket{
+  border-style:solid;
+  border-color:$etto-darkgrey;
+  border-top-width:0px;
+  border-right-width:1px;
+  border-bottom-width:1px;
+  border-left-width:1px;
+
 }

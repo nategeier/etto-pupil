@@ -8,9 +8,12 @@
 
 .course-holder{
   color: $etto-darkblue;
+  background-color: #fff;
   cursor: pointer;
   border:1px solid #eee;
   padding:5px;
+  margin-bottom: 10px;
+  margin-left: 10px;
 
   .edit-btn{
     margin-top: 20px;

@@ -10,7 +10,8 @@ angular.module("ettoPupil")
         Tiers.findTier($scope.tierID, function (results) {
           $scope.tier = results;
 
-          CourseList.listTiersCourses(results._company, function (courses) {
+          //---Company courses
+          CourseList.listCompanyCourses(results._company, function (courses) {
 
             async.map(courses, function (course, callback) {
                 course.ison = false;

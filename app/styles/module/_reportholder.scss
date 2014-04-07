@@ -7,12 +7,16 @@
  */
 
 .report-head{
-
+  background-color: $etto-grey;
+  background-repeat:repeat;
+  background-image:url('/images/patterns/dimension.png');
 }
 
 .tier-holder{
-  height:380px;
-  
+  padding-bottom:20px;
+  p{
+    margin-right:10px;
+  }
   .tier-box{
     background-color: #fff;
     padding:10px;
@@ -69,27 +73,27 @@
 }
 
 .stat{
-  border-right: 1px solid #fff;
+  border-right: 1px solid $etto-darkblue;
 }
 
 .statholder{
   .statTxt{
-    color: $etto-mildblue;
+    font-size: 1.5em;
+    color: #fff;
+    margin-bottom:0;
+    padding:0;
   }
 
   small{
-    color: $etto-greyblue;
+    color: #fff;
+    padding-bottom:10px;
   }
-
-
 }
 
 .aside{
-  //background-color: $etto-mildblue;
   border-left-style: solid;
   border-color: $etto-darkgrey;
   border-width:1px;
-
 }
 
 .aside h3, .aside h4{
