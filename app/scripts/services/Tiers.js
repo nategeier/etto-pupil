@@ -48,8 +48,10 @@ angular.module("ettoPupil")
           });
         },
 
-        distributeCourseToTiers: function (obj) {
-          $http.post("/api/v1/tier/distributeCourseToTiers", obj);
+        distributeCourseToTiers: function (obj, callback) {
+          $http.post("/api/v1/tier/distributeCourseToTiers", obj).success(function (data) {
+            callback(data);
+          });
         },
         tierReport: function (id, callback) {
           $http.get("/api/v1/record/tierReport/" + id).success(function (data) {
