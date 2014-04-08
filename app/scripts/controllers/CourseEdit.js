@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("CourseEditCtrl", ["$scope", "course", "$upload",
-    function ($scope, course, $upload) {
+  .controller("CourseEditCtrl", ["$scope", "course",
+    function ($scope, course) {
       $scope.course = course;
 
       $scope.isEditing = true;
@@ -18,18 +18,5 @@ angular.module("ettoPupil")
         angular.element(".etto-toolbox-blocktools").empty();
       });
 
-      $scope.updateThumb = function () {
-        $scope.showAssetLibrary(function (asset) {
-          $scope.course.thumb = asset.url;
-          $scope.saveCourse();
-        });
-      };
-
-      $scope.updateBlock = function (block, name) {
-        $scope.showAssetLibrary(function (asset) {
-          block.data[name] = asset.url;
-          $scope.saveCourse();
-        });
-      };
     }
   ]);
