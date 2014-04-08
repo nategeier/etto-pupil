@@ -26,7 +26,6 @@ angular.module("ettoPupil")
       };
 
       $scope.updateBlock = function (block, name) {
-        console.log(name)
         $scope.showAssetLibrary(function (asset) {
           block.data[name] = asset.url;
           $scope.saveCourse();
