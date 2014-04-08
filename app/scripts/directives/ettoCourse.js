@@ -109,11 +109,12 @@ angular.module("ettoPupil")
 
           // Setup handlers for alternative input methods
           $document.keydown(function (e) {
+            var KEY_RIGHT = 39,
+              KEY_LEFT = 37;
+            var key = e.keyCode;
+
             if (!$scope.editing) {
-              var KEY_ENTER = 13,
-                KEY_RIGHT = 39,
-                KEY_LEFT = 37;
-              var key = e.keyCode;
+
               if (key === KEY_RIGHT) {
                 $scope.nextBlock();
               } else if (key === KEY_LEFT) {
