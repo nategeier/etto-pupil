@@ -11,10 +11,7 @@ etto-verify-modal(redirect-to='/etto')
               h3#title(editable-text="company.leaderboard.title", buttons="no", blur="submit", onaftersave="updateLeaderboard()") {{company.leaderboard.title}}
               h4#subtite(editable-text="company.leaderboard.subtitle", buttons="no", blur="submit", onaftersave="updateLeaderboard()") {{company.leaderboard.subtitle}}
           .col-sm-6.col-md-5#head-img
-            img.img-responsive.default-lg(src="{{company.leaderboard.imgUrl}}")
-            button.btn.btn-default.leaderboard-img-btn(etto-asset-library-modal, ng-click='updateMainImg()')
-              i.fa.fa-camera
-
+            img.img-responsive.default-lg(src="{{company.leaderboard.imgUrl}}", etto-asset-library-modal, ng-click='updateMainImg()')
       .main-holder(ng-show="usersCourses[0]")
         .alert.alert-danger(ng-show="err")
           p {{err}}

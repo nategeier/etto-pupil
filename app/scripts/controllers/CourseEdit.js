@@ -21,6 +21,15 @@ angular.module("ettoPupil")
       $scope.updateThumb = function () {
         $scope.showAssetLibrary(function (asset) {
           $scope.course.thumb = asset.url;
+          $scope.saveCourse();
+        });
+      };
+
+      $scope.updateBlock = function (block, name) {
+        console.log(name)
+        $scope.showAssetLibrary(function (asset) {
+          block.data[name] = asset.url;
+          $scope.saveCourse();
         });
       };
     }

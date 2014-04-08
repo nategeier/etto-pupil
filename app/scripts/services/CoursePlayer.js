@@ -111,6 +111,10 @@ angular.module("ettoPupil")
           newBlock.data.questions = [BlockQuiz.getQuestion()];
           break;
 
+        case "image":
+          newBlock.data.url = "/images/courses/default/image-block.jpg";
+          break;
+
         default:
 
         }

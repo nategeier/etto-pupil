@@ -1,5 +1,9 @@
 .row.slide
-  h1(editable-text="block.data.title", buttons="no", blur="submit") {{ block.data.title || 'title'}}
-  hr
-  div#elemt(href="#", editable-textarea="block.data.subtitle", e-rows="12", e-cols="40", buttons="no", blur="submit") 
-    pre.sub-head {{ block.data.subtitle || 'subtitle'}}
+  .col-md-8.col-md-offset-2.title-holder(style="background-color:white;")
+    .col-md-4
+      img.img-responsive.default-lg.img-uploadable(src="{{ block.data.url || course.thumb}}", etto-asset-library-modal, ng-click='updateBlock(block)')
+    .clearfix
+    .col-md-8
+      h1(editable-text="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.title || 'title'}}
+      div(href="#", editable-textarea="block.data.subtitle", e-rows="12", e-cols="40", buttons="no", blur="submit", onaftersave="saveCourse()") 
+        pre.sub-head {{ block.data.subtitle || 'subtitle'}}

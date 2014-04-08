@@ -35,6 +35,10 @@ $assetLibraryPadding: $assetBorderWidth / 1.25;
   }
 }
 
+.img-uploadable{
+  cursor: pointer
+}
+
 .etto-assetlibrary__uploader {
   border-top: 1px solid $etto-mediumgrey;
   padding: $assetLibraryPadding * 2  $assetLibraryPadding;

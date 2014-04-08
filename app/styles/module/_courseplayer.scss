@@ -83,12 +83,10 @@
 etto-course {
 
   pre{
-    padding-left:20px;
     color: $etto-greyblue;
   }
 
   pre.sub-head{
-    text-align: center;
     font-size: 2em;
   }
 
@@ -105,8 +103,10 @@ etto-course {
     color: $etto-darkblue;
     margin-bottom: 0;
     margin-top: 0;
-    padding: 0.33em 1.33rem 0.67em;
-    text-align: center;
+  }
+
+  h4.sub-head{
+    color: $etto-darkgrey;
   }
 
   h2{
