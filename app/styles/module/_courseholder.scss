@@ -6,6 +6,13 @@
  *
  */
 
+ .show-video{
+  padding-bottom:40px;
+  height:100%;
+  background-repeat:repeat;
+  background-image:url('/images/courses/patterns/stardust.png');
+}
+
 .course-holder{
   color: $etto-darkblue;
   background-color: #fff;
@@ -65,13 +72,8 @@
 }
 
 
-.stars{
-  padding-bottom:40px;
-  height:100%;
-  background-repeat:repeat;
-  background-image:url('/images/courses/patterns/stardust.png');
 
-}
+
 .course-progress{
   position:fixed;
   width:100%;

@@ -5,4 +5,4 @@
   div(href="#", editable-textarea="block.data.copy", e-rows="12", e-cols="40", buttons="no", blur="submit", onaftersave="saveCourse()") 
     pre {{ block.data.copy || 'copy'}}
 .col-lg-5
-  img.img-responsive.img-uploadable(src="{{ block.data.url }}", etto-image, etto-asset-library-modal, ng-click="updateBlock(block, 'url')")
+  img.img-responsive.img-uploadable(src="{{ block.data.url || '/images/courses/default/image-block.jpg' }}", etto-image, etto-asset-library-modal, ng-click="updateBlock(block, 'url')")

@@ -10,14 +10,18 @@ angular.module("ettoPupil")
 
           $scope.updateLeaderboard = function () {
 
-            var tier = {
-              _id: $scope.user._tier._company,
-              leaderboard: $scope.company.leaderboard,
-              logo: $scope.company.logo
-            };
-            Tiers.updateLeaderboard(tier, function (results) {
-              ///Saved
-            });
+            console.log($scope.user.auth);
+
+            if ($scope.user.auth.canEditCompany) {
+              var tier = {
+                _id: $scope.user._tier._company,
+                leaderboard: $scope.company.leaderboard,
+                logo: $scope.company.logo
+              };
+              Tiers.updateLeaderboard(tier, function (results) {
+                ///Saved
+              });
+            }
           };
 
           $scope.updateMainImg = function () {
