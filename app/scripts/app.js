@@ -50,6 +50,15 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
           controller: "LogoutCtrl",
           templateUrl: "/views/home.html"
         })
+        .when("/course/demo/:courseId", {
+          templateUrl: "/views/CourseView.html",
+          controller: "CourseDemoCtrl",
+          resolve: {
+            course: function (CourseLoader) {
+              return new CourseLoader();
+            }
+          }
+        })
         .when("/course/view/:courseId", {
           templateUrl: "/views/CourseView.html",
           controller: "CourseViewCtrl",

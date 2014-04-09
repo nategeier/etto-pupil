@@ -23,14 +23,13 @@ etto-logged-in-nav
               .col-md-7
                 h5 {{course.title}}
                 h6 {{course.subtitle}}
-
               .col-md-5
                 h4 ${{course.priceWithEmps}}
                 small ${{course.price}}/user
               .col-md-12
                 .btn-group
                   a.btn.btn-primary.btn-xs(etto-purchase, href="#", ng-click='addToLibrary(course)') Add to Tiers
-                  a.btn.btn-default.btn-xs(href="/course/view/{{ course._id }}")  Demo
+                  a.btn.btn-default.btn-xs(href="/course/demo/{{ course._id }}")  Demo
       .clearfix
     .col-md-3.nopad
       .side-panel
