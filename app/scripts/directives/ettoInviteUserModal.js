@@ -13,14 +13,13 @@ angular.module("ettoPupil")
           $scope.inviteUser = function () {
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoInviteUserModal.html",
-              controller: function ($scope, $modalInstance) {
-                $scope.newUser = {
-                  auth: {
-                    canPurchase: false,
-                    canGetCourses: true,
-                    canCreateCourses: true,
-                    canInvite: true
-                  }
+              controller: function ($scope, $modalInstance, Invite) {
+
+                $scope.newUser = Invite.defaultUser;
+                $scope.newUser.emails = [""];
+
+                $scope.addEmail = function () {
+                  $scope.newUser.emails.unshift("");
                 };
 
                 $scope.cancel = function (newUser) {
@@ -32,18 +31,17 @@ angular.module("ettoPupil")
                   newUser._tier = _tier;
 
                   Users.inviteUser(newUser, function (data) {
-                    if (data.err) {
-                      $scope.err = data.err;
+                    if (data.rejected && data.rejected[0]) {
+                      $scope.err = "The folloing emails were rejected: " + data.rejected;
                     } else {
-
                       $modalInstance.close();
                     }
                   });
+
                 };
               }
             });
             modal.result.then(function () {
-
               $scope.listUsers();
             });
 

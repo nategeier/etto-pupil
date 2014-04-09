@@ -1,5 +1,5 @@
 
-.container-full.course-edit-container
+.container-full.etto-course-editor
   .row
     etto-choose-block
     .col-sm-3.col-md-2.etto-toolbox
@@ -19,7 +19,7 @@
             i.fa.fa-minus
         .panel-heading Current State: {{course.status}}
         .panel-body
-          img.img-responsive.default-lg.img-uploadable(src="{{course.thumb}}", etto-asset-library-modal, ng-click='updateThumb()')
+          img.img-responsive.default-lg.img-uploadable(src="{{course.thumb}}", etto-asset-library-modal, etto-image, ng-click='updateThumb()')
           hr
           button.btn.btn-default.w100(etto-course-status, ng-click="changeStatus()")
             i.fa.fa-rocket 

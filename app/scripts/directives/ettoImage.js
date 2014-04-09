@@ -1,16 +1,28 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .directive("ettoImage", ["$sce",
-    function ($sce) {
+  .directive("ettoImage", [
+
+    function () {
       return {
-        restrict: "E",
-        scope: {
-          url: "@"
+        restrict: "AE",
+        controller: function ($scope) {
+          $scope.updateThumb = function () {
+            $scope.showAssetLibrary(function (asset) {
+              $scope.course.thumb = asset.url;
+              $scope.saveCourse();
+            });
+          };
+
+          $scope.updateBlock = function (block, name) {
+            $scope.showAssetLibrary(function (asset) {
+              block.data[name] = asset.url;
+              $scope.saveCourse();
+            });
+          };
         },
-        template: "<img src='{{ trustedUrl }}' class='img-responsive'>",
         link: function (scope, element, attrs) {
-          scope.trustedUrl = $sce.trustAsResourceUrl(scope.url);
+
         }
       };
     }
