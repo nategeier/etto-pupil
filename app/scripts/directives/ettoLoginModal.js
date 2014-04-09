@@ -14,6 +14,11 @@ angular.module("ettoPupil")
               templateUrl: "/views/directives/ettoLoginModal.html",
               controller: function ($scope, $modalInstance) {
                 $scope.user = {};
+
+                $scope.cancel = function () {
+                  $modalInstance.close();
+                };
+
                 $scope.handleLogin = function (user) {
 
                   Session.authenticate(user, function (data) {
@@ -28,11 +33,15 @@ angular.module("ettoPupil")
               }
             });
             modal.result.then(function (user) {
+
               var redir = "/etto";
-              if ($location.path() === redir) {
-                $route.reload();
-              } else {
-                $location.path(redir);
+
+              if (user) {
+                if ($location.path() === redir) {
+                  $route.reload();
+                } else {
+                  $location.path(redir);
+                }
               }
               //$location.path("/etto");
             });

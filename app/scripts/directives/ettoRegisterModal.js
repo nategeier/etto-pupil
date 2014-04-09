@@ -23,6 +23,10 @@ angular.module("ettoPupil")
                   password: ""
                 };
 
+                $scope.cancel = function () {
+                  $modalInstance.close();
+                };
+
                 $scope.handleLogin = function () {
 
                   var newTier = {
@@ -30,9 +34,7 @@ angular.module("ettoPupil")
                   };
 
                   Tiers.createCompany(newTier, function (tier) {
-
                     $scope.newUser._tier = tier._id;
-
                     Users.saveNewUser($scope.newUser, function (data) {
                       if (data.err) {
                         $scope.err = data.err;
@@ -41,17 +43,16 @@ angular.module("ettoPupil")
                       }
                     });
                   });
-
                 };
               }
             });
             modal.result.then(function (user) {
-
-              Session.updateSession(user, function (data) {
-                $scope.user = data;
-                $location.path("/etto");
-              });
-
+              if (user) {
+                Session.updateSession(user, function (data) {
+                  $scope.user = data;
+                  $location.path("/etto");
+                });
+              }
             });
 
           };

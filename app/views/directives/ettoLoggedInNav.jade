@@ -1,5 +1,5 @@
 
-nav.navbar.navbar-default( role="navigation", etto-session)
+nav.navbar.navbar-default( role="navigation", etto-session, etto-update-company)
   .navbar-header
     etto-login-modal
     button.navbar-toggle( data-toggle="collapse", data-target="#etto-navbar" )
@@ -8,9 +8,10 @@ nav.navbar.navbar-default( role="navigation", etto-session)
       .icon-bar
       .icon-bar
     a.navbar-brand( href="/etto" )
-      span
-        img.logo(src="/images/site/logo.png")
-      span.logo-name Coursetto
+      span.logo
+        img(ng-if="user.auth.canPurchase", src="{{company.logo}}", etto-asset-library-modal, ng-click='updateLogo()', height="65")
+        img(ng-if="!user.auth.canPurchase", src="{{company.logo}}", height="65")
+      span.logo-name {{ company.title || 'Coursetto'}}
 
   #etto-navbar.collapse.navbar-collapse
     ul.nav.navbar-nav

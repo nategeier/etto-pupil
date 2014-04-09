@@ -10,7 +10,8 @@
         input.form-control( type="text", ng-model="user.username", placeholder="Enter your email address...", autocomplete="on", required )
       .form-group
         input.form-control( type="password", ng-model="user.password", placeholder="Enter your password...", required )
-      input.btn.btn-primary.pull-left( type="submit", value="Login")
+      input.btn.btn-primary.pull-left.btn-sm( type="submit", value="Login")
+      button.btn.btn-default.btn-sm( type="button", ng-click="cancel()") Cancel
 
   .col-md-4.col-sm-4.col-md-4
     .btn-group.pull-right.sign-on-btns
