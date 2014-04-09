@@ -1,0 +1,13 @@
+.col-lg-12
+  h1(editable-text="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.title || 'title'}}
+  h2(editable-text="block.data.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.subtitle || 'subtitle'}}
+
+.clearfix
+hr
+
+.col-lg-4
+  img.img-responsive.img-uploadable(src="{{ block.data.img1 || '/images/courses/default/image-block.jpg'}}", etto-asset-library-modal, ng-click="updateBlock(block, 'img1')")
+.col-lg-4
+  img.img-responsive.img-uploadable(src="{{ block.data.img2 || '/images/courses/default/image-block.jpg'}}", etto-asset-library-modal, ng-click="updateBlock(block, 'img2')")
+.col-lg-4
+  img.img-responsive.img-uploadable(src="{{ block.data.img3 || '/images/courses/default/image-block.jpg'}}", etto-asset-library-modal, ng-click="updateBlock(block, 'img3')")

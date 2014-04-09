@@ -19,12 +19,12 @@ etto-logged-in-nav
                   i.fa.fa-user.fa-2x
                   br
                   small Add Users
-              .col-xs-4.col-sm-4.col-md-4.nopad
+              a.col-xs-4.col-sm-4.col-md-4.nopad(href="/tier/edit/{{ currentTier._id }}") 
                 .report-btn
-                  a(href="/tier/edit/{{ currentTier._id }}") 
-                    i.fa.fa-edit.fa-2x
-                    br
-                    small Edit Tier
+                  
+                  i.fa.fa-edit.fa-2x
+                  br
+                  small Edit Tier
       .row
         .statBox.col-xs-12.col-md-12.col-sm-12
           .col-xs-6.col-sm-3.col-md-3.stat.statholder

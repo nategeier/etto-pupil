@@ -1,0 +1,14 @@
+.row.slide
+  .col-md-10.col-md-offset-1
+    .panel.panel-default
+      .panel-heading
+        h1(editable-text="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.title || 'Word'}}
+        h4.sub-head(editable-text="block.data.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.subtitle || 'an·nun·ci·a·tion'}}
+      .panel-body
+        div(editable-textarea="block.data.text", e-rows="7", e-cols="40", buttons="no", blur="submit")
+          pre.quote {{ block.data.text || "Definition"}}
+        .pull-right
+          a.btn.btn-default(ng-show="!editing && block.data.cite", href="{{block.data.cite}}", target="_blank")
+            small {{ block.data.cite}}
+          div(ng-show="editing", editable-text="block.data.cite", buttons="no", blur="submit", href="block.data.cite", onaftersave="saveCourse()")
+            small {{ block.data.cite || "Cite"}}

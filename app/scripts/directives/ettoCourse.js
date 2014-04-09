@@ -32,6 +32,12 @@ angular.module("ettoPupil")
           }, {
             name: "quiz",
             humanized: "Quiz",
+          }, {
+            name: "three-images",
+            humanized: "Images",
+          }, {
+            name: "define",
+            humanized: "Define",
           }];
 
           $scope.newBlocktype = $scope.blocktypes[0];
@@ -103,12 +109,12 @@ angular.module("ettoPupil")
 
           // Setup handlers for alternative input methods
           $document.keydown(function (e) {
-            var KEY_ENTER = 13,
-              KEY_RIGHT = 39,
+            var KEY_RIGHT = 39,
               KEY_LEFT = 37;
             var key = e.keyCode;
 
             if (!$scope.editing) {
+
               if (key === KEY_RIGHT) {
                 $scope.nextBlock();
               } else if (key === KEY_LEFT) {

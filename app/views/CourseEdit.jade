@@ -1,5 +1,5 @@
 
-.container-full
+.container-full.course-edit-container
   .row
     etto-choose-block
     .col-sm-3.col-md-2.etto-toolbox
@@ -19,18 +19,12 @@
             i.fa.fa-minus
         .panel-heading Current State: {{course.status}}
         .panel-body
+          img.img-responsive.default-lg.img-uploadable(src="{{course.thumb}}", etto-asset-library-modal, ng-click='updateThumb()')
+          hr
           button.btn.btn-default.w100(etto-course-status, ng-click="changeStatus()")
             i.fa.fa-rocket 
             span ... Launch Course
-      
-      //etto-file-upload
-        input(type='text', ng-model='myModelObj')
-        input(type='file', ng-file-select='onFileSelect($files)')
-        input(type='file', ng-file-select='onFileSelect($files)', multiple='multiple')
-        div(ng-file-drop='onFileSelect($files)', ng-file-drag-over-class='optional-css-class', ng-show='dropSupported') drop files here
-        div(ng-file-drop-available='dropSupported=true', ng-show='!dropSupported') HTML5 Drop File is not supported!
-
-        button(ng-click='upload.abort()') Cancel Upload
+        
 
     .col-sm-9.col-md-10.etto-course-container
       etto-course( edit='edit',
