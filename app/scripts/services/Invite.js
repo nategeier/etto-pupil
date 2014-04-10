@@ -17,7 +17,8 @@ angular.module("ettoPupil")
         canPurchase: false,
         canGetCourses: true,
         canCreateCourses: true,
-        canInvite: true
+        canInvite: true,
+        canEditCompany: false
       };
 
       var defaultUser = {
