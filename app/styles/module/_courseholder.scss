@@ -6,12 +6,7 @@
  *
  */
 
- .show-video{
-  padding-bottom:40px;
-  height:100%;
-  background-repeat:repeat;
-  background-image:url('/images/courses/patterns/stardust.png');
-}
+
 
 .course-holder{
   color: $etto-darkblue;
@@ -21,6 +16,7 @@
   padding:5px;
   margin-bottom: 10px;
   margin-left: 10px;
+  min-height: 300px;
 
   .edit-btn{
     margin-top: 20px;

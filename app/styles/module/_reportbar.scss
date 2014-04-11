@@ -17,11 +17,11 @@
 .fillBar{
   width: 100%;
   height: 100%;
-  background-color: $etto-accentblue;
+  background-color: $etto-mildblue;
 }
 .statBox{
   text-align: center;
-  background-color: $etto-accentblue;
+  background-color: $etto-mildblue;
 
   margin-bottom: 10px;
 }
@@ -37,7 +37,7 @@
 
 etto-tier-graph div{
   font: 10px sans-serif;
-  background-color: $etto-accentblue;
+  background-color: $etto-mildblue;
   text-align: right;
   padding: 3px;
   margin: 1px;
@@ -58,7 +58,7 @@ etto-overall-tier-graph div{
 
 etto-progress-bar div{
   font: 10px sans-serif;
-  background-color: $etto-accentblue;
+  background-color: $etto-mildblue;
   text-align: right;
   padding: 3px;
   margin: 1px;

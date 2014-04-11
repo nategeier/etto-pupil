@@ -29,7 +29,7 @@ angular.module("ettoPupil")
 
       $scope.listUsersCreatedCourses = function () {
 
-        Users.listUsersCreatedCourses($scope.user._tier._company, function (data) {
+        Tier.listCompanyCreatedCourses($scope.user._tier._company, function (data) {
           $scope.createdCourses = data;
         });
 
@@ -37,7 +37,6 @@ angular.module("ettoPupil")
           Users.listUsersCourses($scope.user._id, function (courses) {
             $scope.usersCourses = courses;
           });
-
         }
       };
 

@@ -8,14 +8,14 @@ angular.module("ettoPupil")
         restrict: "AE",
         controller: function ($scope) {
           $scope.updateThumb = function () {
-            $scope.showAssetLibrary(function (asset) {
+            $scope.showAssetLibrary(390, 200, function (asset) {
               $scope.course.thumb = asset.url;
               $scope.saveCourse();
             });
           };
 
-          $scope.updateBlock = function (block, name) {
-            $scope.showAssetLibrary(function (asset) {
+          $scope.updateBlock = function (block, name, w, h) {
+            $scope.showAssetLibrary(w, h, function (asset) {
               block.data[name] = asset.url;
               $scope.saveCourse();
             });

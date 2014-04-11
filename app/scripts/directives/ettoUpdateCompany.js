@@ -10,8 +10,6 @@ angular.module("ettoPupil")
 
           $scope.updateLeaderboard = function () {
 
-            console.log($scope.user.auth);
-
             if ($scope.user.auth.canEditCompany) {
               var tier = {
                 _id: $scope.user._tier._company,
@@ -25,19 +23,18 @@ angular.module("ettoPupil")
           };
 
           $scope.updateMainImg = function () {
-            $scope.showAssetLibrary(function (asset) {
+            $scope.showAssetLibrary(400, 200, function (asset) {
               $scope.company.leaderboard.imgUrl = asset.url;
               $scope.updateLeaderboard();
             });
           };
 
           $scope.updateLogo = function () {
-            $scope.showAssetLibrary(function (asset) {
+            $scope.showAssetLibrary(55, 55, function (asset) {
               $scope.company.logo = asset.url;
               $scope.updateLeaderboard();
             });
           };
-
         },
         link: function (scope, element, attrs) {
 

@@ -3,7 +3,12 @@
 .container-full
   a.exit-course(href="/etto") X
   .row
-    .col-xs-12.etto-course-container
+    .col-xs-12.etto-course-container(ng-if="err")
+      .container
+
+        h1.bg-danger Sorry
+        h1 {{err}}
+    .col-xs-12.etto-course-container(ng-if="!err")
       etto-course( course='course',
                    ng-swipe-left='nextBlock()',
                    ng-swipe-right='prevBlock()' )

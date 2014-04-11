@@ -35,7 +35,6 @@ etto-verify-modal(redirect-to='/etto')
     .col-sm-12.col-md-3.nopad(ng-show="user.auth.canCreateCourses")
       .side-panel
         .modal-header
-          
           .col-xs-2.col-sm-2.col-md-2
             etto-add-course
           .col-xs-10.col-sm-10.col-md-10
@@ -49,7 +48,7 @@ etto-verify-modal(redirect-to='/etto')
                   i.fa.fa-trash-o
                 a(href="/course/edit/{{ course._id }}")
                   .row
-                    .col-xs-5.col-sm-5.col-md-5
+                    .col-xs-5.col-sm-5.col-md-12.col-lg-5
                       img.img-responsive(src="{{course.thumb}}")
 
                     .col-xs-7.col-sm-7.col-md-7
