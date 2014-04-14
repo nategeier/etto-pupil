@@ -608,7 +608,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask("styleguide", [
     "clean:styleguide",
-    "compass:dist",
+    "sass:dist",
     "copy:styleguide",
     "sassdown"
   ]);
