@@ -29,6 +29,15 @@ angular.module("ettoPupil")
           });
         },
 
+        companyRecieved: function (companyId, callback) {
+          var Payment = $resource("/api/v1/credit/companyRecieved/:id", {
+            id: companyId
+          });
+          Payment.query(function (results) {
+            callback(results);
+          });
+        },
+
         companyCreditsUsed: function (companyId, callback) {
           var Used = $resource("/api/v1/credit/companyCreditsUsed/:id", {
             id: companyId

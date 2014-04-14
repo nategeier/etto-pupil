@@ -18,16 +18,6 @@ angular.module("ettoPupil")
             });
         },
 
-        listUsersCreatedCourses: function (id, callback) {
-          var Courses = $resource("/api/v1/user/listUsersCreatedCourses/:id", {
-            id: id
-          });
-
-          Courses.query(function (results) {
-            callback(results);
-          });
-        },
-
         listUsersCourses: function (id, callback) {
           var Courses = $resource("/api/v1/user/listUsersCourses/:id", {
             id: id

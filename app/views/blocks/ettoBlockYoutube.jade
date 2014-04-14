@@ -1,6 +1,22 @@
-.row.stars
-  .col-md-10.col-md-offset-1.col-lg-6.col-lg-offset-3
-    p slider_{{currentBlock()}}
-    p(editable-text="block.data.code", buttons="no", blur="submit") {{ block.data.code || 'Enter Youtube ID'}}
-    etto-youtube( code="{{ block.data.code }}" )
-
+.container
+  .row(ng-class="block.data.youtube || block.data.vimeo ? 'show-video' : 'none'")
+    div(ng-show="!block.data.youtube && !block.data.vimeo")
+      hr
+      .col-md-6
+        img.img-responsive(src="/images/logos/youtube.jpg")
+        p(editable-text="block.data.youtube", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.youtube || 'Enter Youtube ID'}}
+        hr
+        small Example:
+        br
+        img(src="/images/courses/misc/youtube_id.jpg")
+      .col-md-6
+        img.img-responsive(src="/images/logos/vimeo.jpg")
+        p(editable-text="block.data.vimeo", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.vimeo || 'Enter Vimeo ID'}}
+        hr
+        small Example:
+        br
+        img(src="/images/courses/misc/vimeo_id.jpg")
+      hr
+    .col-md-10.col-md-offset-1.col-lg-6.col-lg-offset-3
+      etto-youtube(ng-show="block.data.youtube", code="{{ block.data.youtube }}" )
+      etto-vimeo(ng-show="block.data.vimeo", vimeo="{{ block.data.vimeo }}" )

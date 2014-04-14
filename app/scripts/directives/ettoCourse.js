@@ -10,8 +10,6 @@ angular.module("ettoPupil")
           // Are we in edit mode?
           $scope.editing = $attrs.edit !== undefined;
 
-          $scope.record = {};
-
           // Setup blocktype info
           // TODO: Should be refactored somewhere else. Service?
           $scope.blocktypes = [{
