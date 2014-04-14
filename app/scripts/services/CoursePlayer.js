@@ -170,7 +170,7 @@ angular.module("ettoPupil")
         addBlock: addBlock,
         removeBlock: removeBlock,
         animateBlock: animateBlock,
-        swapBlocks: swapBlocks,
+        swapBlocks: swapBlocks
       };
 
       return CoursePlayer;

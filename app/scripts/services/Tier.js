@@ -24,6 +24,16 @@ angular.module("ettoPupil")
           });
         },
 
+        listCompanyCreatedCourses: function (id, callback) {
+          var Courses = $resource("/api/v1/course/listCompanyCreatedCourses/:id", {
+            id: id
+          });
+
+          Courses.query(function (results) {
+            callback(results);
+          });
+        },
+
         searchTiers: function (text, callback) {
           var Tiers = $resource("/api/v1/tier/searchTiers/:text", {
             text: text

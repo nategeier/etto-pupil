@@ -1,32 +1,51 @@
 etto-logged-in-nav
-.container
-  .col-md-12
-    etto-settings-nav(active="payments")
-    h1 Billing Credits = {{credit.credits}}
-    .col-sm-12.col-md-4
-      h3 Used
-      table.table.table-bordered
-        tr
-          th Course
-          th Amount Used
-        tr(ng-repeat="course in usedCredit.courses")
-          td {{course.title}}
-          td ${{course.used}}
 
-    .col-sm-12.col-md-8
-      h3 Purchases
-      table.table.table-bordered
-        tr
-          th Course
-          th Purchaser
-          th Company Credits
-          th Date
-        tr(ng-repeat="purchase in purchases")
-          td ${{purchase.credits}}
-          td {{purchase.purchaser.name}}
-          td {{purchase.companyCredits}}
-          td {{purchase.date}}
+.container-full
+  .row
+    .col-md-12
+      etto-settings-nav(active="payments")
 
+      h1 Billing Credits = {{credit.credits}}
+      .col-sm-12.col-md-6
+        h3 Used
+        table.table.table-bordered
+          tr
+            th Course
+            th Amount Used
+          tr(ng-repeat="course in usedCredit.courses")
+            td {{course.title}}
+            td ${{course.used}}
+        h3 Recieved
+        table.table.table-bordered
+          tr
+            th Course
+            th Payed
+            th Purchaser
+            th Company Credits
+            th Date
+          tr(ng-repeat="payment in payments")
+            td ${{payment._course.title}}
+            td ${{payment.credits}}
+            td {{payment._company}}
+            td {{payment.companyCredits}}
+            td {{payment.createdAt}}
+
+
+      .col-sm-12.col-md-6
+        h3 Purchases
+        table.table.table-bordered
+          tr
+            th Credits
+            th Purchaser
+            th Company Credits
+            th Date
+          tr(ng-repeat="purchase in purchases")
+            td ${{purchase.credits}}
+            td {{purchase.purchaser.name}}
+            td {{purchase.companyCredits}}
+            td {{purchase.date}}
+
+      
 
 
 

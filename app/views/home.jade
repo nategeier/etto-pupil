@@ -8,8 +8,8 @@ etto-verify-modal(redirect-to='/etto')
         .row
           .col-xs-12.col-sm-6.col-md-7
             .col-md-12
-              h3#title(editable-text="company.leaderboard.title", buttons="no", blur="submit", onaftersave="updateLeaderboard()") {{company.leaderboard.title}}
-              h4#subtite(editable-text="company.leaderboard.subtitle", buttons="no", blur="submit", onaftersave="updateLeaderboard()") {{company.leaderboard.subtitle}}
+              h3#title(e-style="min-width: 500px;", editable-text="company.leaderboard.title", buttons="no", blur="submit", onaftersave="updateLeaderboard()") {{company.leaderboard.title}}
+              h4#subtite(e-style="min-width: 500px;", editable-text="company.leaderboard.subtitle", buttons="no", blur="submit", onaftersave="updateLeaderboard()") {{company.leaderboard.subtitle}}
           .col-sm-6.col-md-5#head-img
             img.img-responsive.default-lg(src="{{company.leaderboard.imgUrl}}", etto-asset-library-modal, ng-click='updateMainImg()')
       .main-holder(ng-show="usersCourses[0]")
@@ -35,7 +35,6 @@ etto-verify-modal(redirect-to='/etto')
     .col-sm-12.col-md-3.nopad(ng-show="user.auth.canCreateCourses")
       .side-panel
         .modal-header
-          
           .col-xs-2.col-sm-2.col-md-2
             etto-add-course
           .col-xs-10.col-sm-10.col-md-10
@@ -49,8 +48,8 @@ etto-verify-modal(redirect-to='/etto')
                   i.fa.fa-trash-o
                 a(href="/course/edit/{{ course._id }}")
                   .row
-                    .col-xs-5.col-sm-5.col-md-5
-                      img.img-responsive.user-course-thumb(src="{{course.thumb}}")
+                    .col-xs-5.col-sm-5.col-md-12.col-lg-5
+                      img.img-responsive(src="{{course.thumb}}")
 
                     .col-xs-7.col-sm-7.col-md-7
                       h5 {{course.title}}

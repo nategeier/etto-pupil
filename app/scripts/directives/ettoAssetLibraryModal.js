@@ -7,12 +7,15 @@ angular.module("ettoPupil")
       return {
         restrict: "AE",
         controller: function ($scope, $modal, $rootScope, $http, $upload) {
-          $scope.showAssetLibrary = function (done) {
+          $scope.showAssetLibrary = function (w, h, done) {
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoAssetLibraryModal.html",
               windowClass: "app-modal-large",
               controller: function ($scope, $modalInstance, Asset) {
                 $scope.assets = Asset.query({});
+
+                $scope.suggestedWidth = w;
+                $scope.suggestedHeight = h;
 
                 $scope.selectAsset = function (id) {
                   $scope.assets.forEach(function (asset) {

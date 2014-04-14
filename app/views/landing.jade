@@ -43,7 +43,9 @@ etto-not-logged-in-nav
         ul.nav.nav-tabs
           li(ng-click="show(subscriptionType._id)", ng-repeat="subscriptionType in subscriptionTypes", ng-class="{active: onSubscription === subscriptionType._id}")
             a(href="#")
-              p {{subscriptionType.title}} ({{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}})
+              small {{subscriptionType.title}}
+              br
+              small {{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}}
         div(ng-repeat="subscriptionType in subscriptionTypes")
           table.table.table-no-border(ng-show="onSubscription === subscriptionType._id", style="background-color:#fff;")
             tr

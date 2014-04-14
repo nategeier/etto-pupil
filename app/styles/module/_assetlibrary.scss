@@ -17,11 +17,14 @@ $assetLibraryPadding: $assetBorderWidth / 1.25;
 
 .etto-assetlibrary {
   padding: $assetLibraryPadding;
+  
+
 }
 
 .etto-assetlibrary__assetlist {
   @include clearfix;
-
+  height:350px;
+  overflow:scroll;
   .etto-assetlibrary__asset {
     float: left;
     border: $assetBorderWidth solid rgba(255, 255, 255, 0);

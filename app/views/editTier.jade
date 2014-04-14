@@ -1,60 +1,61 @@
 etto-logged-in-nav
-.container
-  .col-sm-12.col-md-12
-    form(role='form', ng-submit="updateTier()")
-      h3 Edit Tier
-      .form-group.col-sm-9.col-md-9
-        input#title1.form-control(type='text', placeholder='name', ng-model="tier.title", ng-change="updateTier()")
-      .form-group.col-sm-3.col-md-3
-        input#internalId.form-control(type='text', placeholder='id optional', ng-model="tier.internalId", ng-change="updateTier()")
-      hr
-      .alert.alert-success(ng-show="saved")
-        p saved
+.container-full
+  .row
+    hyp.col-sm-12.col-md-12
+      form(role='form', ng-submit="updateTier()")
+        h3 Edit Tier
+        .form-group.col-sm-9.col-md-9
+          input#title1.form-control(type='text', placeholder='name', ng-model="tier.title", ng-change="updateTier()")
+        .form-group.col-sm-3.col-md-3
+          input#internalId.form-control(type='text', placeholder='id optional', ng-model="tier.internalId", ng-change="updateTier()")
+        hr
+        .alert.alert-success(ng-show="saved")
+          p saved
 
-  .col-md-4
-    h4 {{tier.title}} Courses
-    h4.pull-left Overall
-    h4.pull-right  {{tierReport.totalTaken}}/{{tierReport.totalToTake}}
-    .clearfix
-    .col-md-12
-      .progress
-        .progress-bar(role="progressbar", aria-valuenow="{{(tierReport.totalTaken/tierReport.totalToTake) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(tierReport.totalTaken/tierReport.totalToTake) * 100}}%;")
-      div(ng-repeat="course in tierReport.courses")
-        .col-md-12
-          p.pull-left {{course.title}}
-          button.close.pull-right(type="button", aria-hidden="true", ng-click="removeCourse(course._id)") &times;
-          p.pull-right  {{course.completed.length}}/{{course.completed.length + course.notCompleted.length}}
+    .col-md-4
+      h4 {{tier.title}} Courses
+      h4.pull-left Overall
+      h4.pull-right  {{tierReport.totalTaken}}/{{tierReport.totalToTake}}
+      .clearfix
+      .col-md-12
+        .progress
+          .progress-bar(role="progressbar", aria-valuenow="{{(tierReport.totalTaken/tierReport.totalToTake) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(tierReport.totalTaken/tierReport.totalToTake) * 100}}%;")
+        div(ng-repeat="course in tierReport.courses")
+          .col-md-12
+            p.pull-left {{course.title}}
+            button.close.pull-right(type="button", aria-hidden="true", ng-click="removeCourse(course._id)") &times;
+            p.pull-right  {{course.completed.length}}/{{course.completed.length + course.notCompleted.length}}
 
-        .clearfix
-        .col-md-12
-          .progress
-            .progress-bar(role="progressbar", aria-valuenow="{{(course.completed.length/(course.completed.length + course.notCompleted.length)) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(course.completed.length/(course.completed.length + course.notCompleted.length)) * 100}}%;")
-        .clearfix
-  .col-md-5
-    h4 Companies courses
-    table.table-condensed
-      tr
-        th Course
-        th Add to all lower tiers
-      tr(ng-repeat="course in companyCourses")
-        td {{course.title}}
-        td
-          .checkbox
-            input(type="checkbox", ng-model="course.ison")
-        td
-          button.btn.btn-default.btn-xs(type="button", ng-click="addCourse(course)") add course
+          .clearfix
+          .col-md-12
+            .progress
+              .progress-bar(role="progressbar", aria-valuenow="{{(course.completed.length/(course.completed.length + course.notCompleted.length)) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(course.completed.length/(course.completed.length + course.notCompleted.length)) * 100}}%;")
+          .clearfix
+    .col-md-5
+      h4 Companies courses
+      table.table-condensed
+        tr
+          th Course
+          th Add to all lower tiers
+        tr(ng-repeat="course in companyCourses")
+          td {{course.title}}
+          td
+            .checkbox
+              input(type="checkbox", ng-model="course.ison")
+          td
+            button.btn.btn-default.btn-xs(type="button", ng-click="addCourse(course)") add course
 
-  .col-md-3.side-panel
-    .modal-header
-      h4.modal-title Users
-    div(ng-repeat="user in users")
-      .course-holder(sink-in)
-        a(href = "/settings/{{user._id}}")
-          .row
-            .col-xs-4
-              img.img-circle.user-thumb(ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
-              i.fa.fa-user.fa-3x.center-block(ng-show="!user.avatarUrl")
-            .col-xs-8
-              h5.cap-first(ng-show="user.name")  {{user.name}}
-              h5.cap-first(ng-show="!user.name")  {{user.email[0]}}
+    .col-md-3.side-panel
+      .modal-header
+        h4.modal-title Users
+      div(ng-repeat="user in users")
+        .course-holder(sink-in)
+          a(href = "/settings/{{user._id}}")
+            .row
+              .col-xs-4
+                img.img-circle.user-thumb(ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
+                i.fa.fa-user.fa-3x.center-block(ng-show="!user.avatarUrl")
+              .col-xs-8
+                h5.cap-first(ng-show="user.name")  {{user.name}}
+                h5.cap-first(ng-show="!user.name")  {{user.email[0]}}
 

@@ -20,6 +20,10 @@ angular.module("ettoPupil")
           $scope.usedCredit = results;
         });
 
+        Payment.companyRecieved(user._tier._company, function (results) {
+          $scope.payments = results;
+        });
+
       });
     }
   ]);
