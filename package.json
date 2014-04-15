@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "dependencies": {
+    "node-static": "^0.7.3"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -57,6 +58,8 @@
     "node": ">=0.8.0"
   },
   "scripts": {
+    "start": "./node_modules/node-static/bin/cli.js",
     "test": "grunt test"
-  }
+  },
+  "subdomain": "pupil"
 }
