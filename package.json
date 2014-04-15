@@ -61,5 +61,9 @@
     "start": "./node_modules/node-static/bin/cli.js dist",
     "test": "grunt test"
   },
-  "subdomain": "pupil"
+  "subdomain": "pupil",
+  "domains": [
+    "coursetto.com",
+    "www.coursetto.com"
+  ]
 }
