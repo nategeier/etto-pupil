@@ -32,7 +32,7 @@ angular.module("ettoPupil")
 
                   Users.inviteUser(newUser, function (data) {
                     if (data.rejected && data.rejected[0]) {
-                      $scope.err = "The folloing emails were rejected: " + data.rejected;
+                      $scope.err = "The following emails were rejected: " + data.rejected;
                     } else {
                       $modalInstance.close();
                     }
