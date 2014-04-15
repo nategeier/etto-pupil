@@ -58,7 +58,7 @@
     "node": ">=0.8.0"
   },
   "scripts": {
-    "start": "./node_modules/node-static/bin/cli.js",
+    "start": "./node_modules/node-static/bin/cli.js dist",
     "test": "grunt test"
   },
   "subdomain": "pupil"
