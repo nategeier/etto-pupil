@@ -20,10 +20,10 @@ etto-verify-modal(redirect-to='/etto')
             .course-holder(sink-in, ng-click="openCourse(course)")
               img.img-responsive.user-course-thumb(src="{{course.thumb}}")
               .row 
-                .col-xs-9
+                .col-xs-12
                   h4 {{course.title}}
                   p {{course.subtitle}}
-                div(ng-show="course._record")
+                //div(ng-show="course._record")
                   img.img-responsive.col-md-3(src="/images/courses/badges/default.png", ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks && course._record.progress.totalBlocks !== 1")
 
               .progress(ng-show="!course._record")
