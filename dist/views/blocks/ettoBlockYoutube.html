@@ -3,13 +3,13 @@
   <div ng-class="block.data.youtube || block.data.vimeo ? 'show-video' : 'none'" class="row">
     <div ng-show="!block.data.youtube &amp;&amp; !block.data.vimeo">
       <hr/>
-      <div class="col-md-6"><img src="/images/logos/2d8856d2.youtube.jpg" class="img-responsive"/>
+      <div class="col-md-6"><img src="/images/logos/youtube.jpg" class="img-responsive"/>
         <p editable-text="block.data.youtube" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.youtube || 'Enter Youtube ID'}}</p>
-        <hr/><small>Example:</small><br/><img src="/images/courses/misc/ec45c85e.youtube_id.jpg"/>
+        <hr/><small>Example:</small><br/><img src="/images/courses/misc/youtube_id.jpg"/>
       </div>
-      <div class="col-md-6"><img src="/images/logos/7476d771.vimeo.jpg" class="img-responsive"/>
+      <div class="col-md-6"><img src="/images/logos/vimeo.jpg" class="img-responsive"/>
         <p editable-text="block.data.vimeo" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.vimeo || 'Enter Vimeo ID'}}</p>
-        <hr/><small>Example:</small><br/><img src="/images/courses/misc/2e50e2a5.vimeo_id.jpg"/>
+        <hr/><small>Example:</small><br/><img src="/images/courses/misc/vimeo_id.jpg"/>
       </div>
       <hr/>
     </div>
