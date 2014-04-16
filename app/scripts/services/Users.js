@@ -9,7 +9,7 @@ angular.module("ettoPupil")
         //
         updateUsersTier: function (tier, callback) {
 
-          $http.post("/api/v1/user/update_users_tier", tier)
+          $http.post("https://archimedes.jit.su/user/update_users_tier", tier)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -19,7 +19,7 @@ angular.module("ettoPupil")
         },
 
         listUsersCourses: function (id, callback) {
-          var Courses = $resource("/api/v1/user/listUsersCourses/:id", {
+          var Courses = $resource("https://archimedes.jit.su/user/listUsersCourses/:id", {
             id: id
           });
 
@@ -29,7 +29,7 @@ angular.module("ettoPupil")
         },
 
         listUserCoursesRecords: function (id, callback) {
-          var Courses = $resource("/api/v1/user/listUserCoursesRecords/:id", {
+          var Courses = $resource("https://archimedes.jit.su/user/listUserCoursesRecords/:id", {
             id: id
           });
 
@@ -39,7 +39,7 @@ angular.module("ettoPupil")
         },
 
         searchUser: function (text, callback) {
-          var Search = $resource("/api/v1/user/searchUser/:text", {
+          var Search = $resource("https://archimedes.jit.su/user/searchUser/:text", {
             text: text
           });
 
@@ -50,7 +50,7 @@ angular.module("ettoPupil")
 
         saveNewUser: function (user, callback) {
 
-          $http.post("/api/v1/user/saveNewUser", user)
+          $http.post("https://archimedes.jit.su/user/saveNewUser", user)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -62,7 +62,7 @@ angular.module("ettoPupil")
 
         inviteUser: function (data, callback) {
 
-          $http.post("/api/v1/user/inviteUser", data)
+          $http.post("https://archimedes.jit.su/user/inviteUser", data)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -73,7 +73,7 @@ angular.module("ettoPupil")
 
         listUsersInTier: function (id, callback) {
 
-          $http.get("/api/v1/user/listUsersInTier/" + id)
+          $http.get("https://archimedes.jit.su/user/listUsersInTier/" + id)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -84,7 +84,7 @@ angular.module("ettoPupil")
 
         fullDetails: function (id, callback) {
 
-          $http.get("/api/v1/user/fullDetails/" + id)
+          $http.get("https://archimedes.jit.su/user/fullDetails/" + id)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -94,7 +94,7 @@ angular.module("ettoPupil")
         },
         update: function (user, callback) {
 
-          $http.post("/api/v1/user/update", user)
+          $http.post("https://archimedes.jit.su/user/update", user)
             .success(function (data, status, headers, config) {
               callback(data);
             })

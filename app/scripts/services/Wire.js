@@ -9,7 +9,7 @@ angular.module("ettoPupil")
 
         get: function (endUrl, callback) {
 
-          $http.get("/api/v1/" + endUrl)
+          $http.get("https://archimedes.jit.su/" + endUrl)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -19,7 +19,7 @@ angular.module("ettoPupil")
         },
 
         post: function (url, obj, callback) {
-          $http.post("/api/v1/" + url, obj)
+          $http.post("https://archimedes.jit.su/" + url, obj)
             .success(function (data, status, headers, config) {
               callback(data);
             })

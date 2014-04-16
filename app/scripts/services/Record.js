@@ -5,7 +5,7 @@ angular.module("ettoPupil")
     function ($resource) {
       return {
         create: function (courseId, userId, callback) {
-          var Record = $resource("/api/v1/record/create/:userId", {
+          var Record = $resource("https://archimedes.jit.su/record/create/:userId", {
             courseId: courseId,
             userId: userId
           });
@@ -16,7 +16,7 @@ angular.module("ettoPupil")
         },
 
         userOverallProgress: function (userId, tierId, done) {
-          var Record = $resource("/api/v1/record/userOverallProgress/:userId", {
+          var Record = $resource("https://archimedes.jit.su/record/userOverallProgress/:userId", {
             userId: userId,
             tierId: tierId
           });
@@ -27,7 +27,7 @@ angular.module("ettoPupil")
         },
 
         updateBookmark: function (id, bookmark, totalBlocks) {
-          var Record = $resource("/api/v1/record/updateBookmark/:id", {
+          var Record = $resource("https://archimedes.jit.su/record/updateBookmark/:id", {
             id: id,
             bookmark: bookmark,
             totalBlocks: totalBlocks

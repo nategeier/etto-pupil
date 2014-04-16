@@ -12,7 +12,7 @@ angular.module("ettoPupil")
           $scope.deleteCard = function (companyId, cardId) {
             console.log("daetete", companyId, cardId);
 
-            var Card = $resource("/api/v1/store/deleteCard/:companyId", {
+            var Card = $resource("https://archimedes.jit.su/store/deleteCard/:companyId", {
               companyId: companyId,
               cardId: cardId
             });

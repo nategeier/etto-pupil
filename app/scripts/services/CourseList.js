@@ -8,7 +8,7 @@ angular.module("ettoPupil")
       Courses = {
 
         storeCourses: function (callback) {
-          $http.get("/api/v1/store/storeCourses")
+          $http.get("https://archimedes.jit.su/store/storeCourses")
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -18,7 +18,7 @@ angular.module("ettoPupil")
         },
 
         listAll: function (callback) {
-          $http.get("/api/v1/course")
+          $http.get("https://archimedes.jit.su/course")
             .success(function (data, status, headers, config) {
               //user = data.user;
               callback(data);
@@ -28,7 +28,7 @@ angular.module("ettoPupil")
             });
         },
         listUsersCreatedCourses: function (id, callback) {
-          $http.get("/api/v1/user/listUsersCreatedCourses/" + id)
+          $http.get("https://archimedes.jit.su/user/listUsersCreatedCourses/" + id)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -37,7 +37,7 @@ angular.module("ettoPupil")
             });
         },
         listTiersCourses: function (tierId, callback) {
-          $http.get("/api/v1/course/listTiersCourses/" + tierId)
+          $http.get("https://archimedes.jit.su/course/listTiersCourses/" + tierId)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -46,7 +46,7 @@ angular.module("ettoPupil")
             });
         },
         listCompanyCourses: function (tierId, done) {
-          var Courses = $resource("/api/v1/course/listCompanyCourses/:id", {
+          var Courses = $resource("https://archimedes.jit.su/course/listCompanyCourses/:id", {
             id: tierId
           });
 

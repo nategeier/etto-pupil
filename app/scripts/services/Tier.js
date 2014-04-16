@@ -5,7 +5,7 @@ angular.module("ettoPupil")
     function ($resource) {
       return {
         findTier: function (id, callback) {
-          var FindTier = $resource("/api/v1/tier/:id", {
+          var FindTier = $resource("https://archimedes.jit.su/tier/:id", {
             id: id
           });
 
@@ -15,7 +15,7 @@ angular.module("ettoPupil")
         },
 
         listTiersCourses: function (id, callback) {
-          var Courses = $resource("/api/v1/course/listTiersCourses/:id", {
+          var Courses = $resource("https://archimedes.jit.su/course/listTiersCourses/:id", {
             id: id
           });
 
@@ -25,7 +25,7 @@ angular.module("ettoPupil")
         },
 
         listCompanyCreatedCourses: function (id, callback) {
-          var Courses = $resource("/api/v1/course/listCompanyCreatedCourses/:id", {
+          var Courses = $resource("https://archimedes.jit.su/course/listCompanyCreatedCourses/:id", {
             id: id
           });
 
@@ -35,7 +35,7 @@ angular.module("ettoPupil")
         },
 
         searchTiers: function (text, callback) {
-          var Tiers = $resource("/api/v1/tier/searchTiers/:text", {
+          var Tiers = $resource("https://archimedes.jit.su/tier/searchTiers/:text", {
             text: text
           });
 

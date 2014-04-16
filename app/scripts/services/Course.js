@@ -16,7 +16,7 @@ angular.module("ettoPupil")
  */
 .factory("Course", ["$resource",
   function ($resource) {
-    return $resource("/api/v1/course", {}, {
+    return $resource("https://archimedes.jit.su/course", {}, {
       update: {
         method: "PUT"
       }

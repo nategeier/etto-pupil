@@ -3,7 +3,7 @@
 angular.module("ettoPupil")
   .factory("BlockType", ["$resource",
     function ($resource) {
-      return $resource("/api/v1/blocktype", {}, {
+      return $resource("https://archimedes.jit.su/blocktype", {}, {
         update: {
           method: "PUT"
         }
