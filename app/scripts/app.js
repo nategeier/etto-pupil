@@ -3,6 +3,7 @@
 angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "ui.bootstrap", "xeditable", "angularFileUpload", "chieffancypants.loadingBar"])
   .config(["$routeProvider", "$locationProvider", "$httpProvider",
     function ($routeProvider, $locationProvider, $httpProvider) {
+      $httpProvider.defaults.withCredentials = true;
       $httpProvider.interceptors.push("httpInterceptor");
 
       $locationProvider.html5Mode(true).hashPrefix("#");
