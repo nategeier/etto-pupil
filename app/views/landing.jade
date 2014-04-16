@@ -2,43 +2,45 @@ etto-not-logged-in-nav
 
 .header.main-img
   .container
-    .row(style='text-align:left;')
-      .col-xs-12.col-sm-6.col-md-6
-        h3 Start creating, taking, tracking, <br>and sharing courses
-        h4 Launching early 2014
+    .row
+      .col-xs-6.col-sm-6.col-md-8
+        h3(style="color:#889ba4;") Start creating, taking, tracking, <br>and sharing courses
+        a.btn.btn-default.btn-sm(href="mailto:nate@coursetto.com") Request a beta code
+      .col-xs-6.col-sm-6.col-md-4
+        iframe.img-responsive(style="height:240px;margin-top:20px;", width="418", height="498", src="//www.youtube.com/embed/YWp3GysKbY8?showinfo=0&controls=2", frameborder="0", allowfullscreen)
 .container
   .row
     h2.text-center Create a custom company structure
     .col-xs-12.col-sm-4.col-md-4
-
-      img.img-responsive(src='/images/site/thumbs/old.jpg')
+      img.img-responsive(src='/images/landing/old.jpg')
       h4 Old way
       p Tracking employee courses in a large company structure can be impossible with any other out of the-box solution.
     .col-xs-12.col-sm-4.col-md-4
-      img.img-responsive(src='/images/site/thumbs/new.jpg')
+      img.img-responsive(src='/images/landing/new.jpg')
       h4 Coursetto way
-      p Create your company organization tree anyway you like and place managers to create micro taining envirnments
+      p Create your company organization tree anyway you like and place managers to create micro training environments.
 
     .col-xs-12.col-sm-4.col-md-4
-      img.img-responsive(src='/images/site/thumbs/small.jpg')
+      img.img-responsive(src='/images/landing/small.jpg')
       h4 Graphs!
       p Track all your lower tiers. Set mangers to higher tier and deligate training.
 
 .row.reverse-bkd
   .container
 
-    h2.text-center Content Creation
-    .col-md-6
+    h2.text-center Course Creation
+    p.text-center Pay per private courses your company creates
+    .col-sm-12.col-md-6
       img.img-responsive(src='/images/landing/demo1.jpg')
       img.img-responsive(src='/images/landing/demo2.jpg')
       img.img-responsive(src='/images/landing/demo3.jpg')
-    .col-xs-12.col-sm-4.col-md-6
+    .col-xs-12.col-sm-12.col-md-6
       h4 Anyone can create courses
       p Allow anyone in your company to create and manage courses making custom content a breeze on desktop or mobile.
-      p You can always restrict anyones access to disble creating, puchasing and managing of users.
+      p You can always restrict anyones access to disable creating, purchasing and managing of users.
 
-      h4 Content Creation Subscription Pricing
-      p Price based on numebr of employees you have
+      h4 Subscriptions
+      p Price is based on number of employees enrolled
       .col-sm-12.col-md-12
         ul.nav.nav-tabs
           li(ng-click="show(subscriptionType._id)", ng-repeat="subscriptionType in subscriptionTypes", ng-class="{active: onSubscription === subscriptionType._id}")
@@ -57,14 +59,15 @@ etto-not-logged-in-nav
 .row
   .container
     h2.text-center Course Marketplace
+    p.text-center Pay per user course taken
     .col-md-6
-      h4 No subscription neccessary
-      p No time to build a course and just need something standard such as a sexual harrassement course? Then head over to the course marketplace.
+      h4 No subscription necessary
+      p No time to build a course and just need something standard? Then head over to the course marketplace.
       img.img-responsive(src='/images/landing/market.jpg')
 
-    .col-md-6 
-      .col-md-6 
+    .col-sm-12.col-md-6 
+      .col-sm-6.col-md-6 
         h4  Course Distribution
-        p  Your company structure is on the right. Watch your price flucutate as you turn off departments that dont need to take the course.  The price is just an estimate of credits needed to be purchesed. Credits are only used when a user actually takes a course. Users get an unlimted amount of times to take a course. Once purchesed the course will appear for any "on" departments.
-      .col-md-6
+        p Your company structure is on the right. Watch your price fluctuate as you turn off departments that do not need to take the course you are adding. The price is just an estimate of credits needed to be purchased. Credits are only used when a user actually takes a course. Users get an unlimited amount of times to take a course. Once purchased the course will appear for any "on" departments.
+      .col-sm-6.col-md-6
         img.img-responsive(src='/images/landing/tiers.jpg')
