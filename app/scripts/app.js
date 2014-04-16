@@ -84,7 +84,10 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
   ]).run(function ($rootScope, editableOptions) {
     editableOptions.theme = "bs3"; // bootstrap3 theme. Can be also 'bs2', 'default'
     $rootScope.config = {
-      "apiVer": "v1",
+      "api": {
+        "server": "https://archimedes.jit.su/",
+        "version": "",
+      },
       "aws": {
         "bucket": "etto-archimedes-test"
       }

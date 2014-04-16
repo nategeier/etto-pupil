@@ -14,7 +14,7 @@ angular.module("ettoPupil")
         },
 
         authenticate: function (user, callback) {
-          $http.post("/api/v1/auth/local", user)
+          $http.post("https://archimedes.jit.su/auth/local", user)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -26,7 +26,7 @@ angular.module("ettoPupil")
         getSession: function (callback) {
           $http({
             method: "GET",
-            url: "/api/v1/auth/getSession"
+            url: "https://archimedes.jit.su/auth/getSession"
           })
             .success(function (data, status, headers, config) {
               callback(data);
@@ -36,7 +36,7 @@ angular.module("ettoPupil")
           });
         },
         updateSession: function (user, callback) {
-          $http.post("/api/v1/auth/updateSession", user)
+          $http.post("https://archimedes.jit.su/auth/updateSession", user)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -46,7 +46,7 @@ angular.module("ettoPupil")
         },
         destroySession: function (callback) {
 
-          var Logout = $resource("/api/v1/auth/logout");
+          var Logout = $resource("https://archimedes.jit.su/auth/logout");
 
           Logout.get(function (results) {
             callback(results);
