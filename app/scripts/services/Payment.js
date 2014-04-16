@@ -5,14 +5,14 @@ angular.module("ettoPupil")
     function ($resource) {
       return {
         subscriptions: function (callback) {
-          var Subscriptions = $resource("/api/v1/store/getSubscriptions");
+          var Subscriptions = $resource("https://archimedes.jit.su/store/getSubscriptions");
 
           Subscriptions.query(function (results) {
             callback(results);
           });
         },
         cancelSubscription: function (companyId, subscriptionId, callback) {
-          var Subscriptions = $resource("/api/v1/store/cancelSubscription/:companyId", {
+          var Subscriptions = $resource("https://archimedes.jit.su/store/cancelSubscription/:companyId", {
             companyId: companyId,
             subscriptionId: subscriptionId
           });
@@ -21,7 +21,7 @@ angular.module("ettoPupil")
           });
         },
         companyPurchases: function (companyId, callback) {
-          var Purchases = $resource("/api/v1/credit/companyPurchases/:id", {
+          var Purchases = $resource("https://archimedes.jit.su/credit/companyPurchases/:id", {
             id: companyId
           });
           Purchases.query(function (results) {
@@ -30,7 +30,7 @@ angular.module("ettoPupil")
         },
 
         companyRecieved: function (companyId, callback) {
-          var Payment = $resource("/api/v1/credit/companyRecieved/:id", {
+          var Payment = $resource("https://archimedes.jit.su/credit/companyRecieved/:id", {
             id: companyId
           });
           Payment.query(function (results) {
@@ -39,7 +39,7 @@ angular.module("ettoPupil")
         },
 
         companyCreditsUsed: function (companyId, callback) {
-          var Used = $resource("/api/v1/credit/companyCreditsUsed/:id", {
+          var Used = $resource("https://archimedes.jit.su/credit/companyCreditsUsed/:id", {
             id: companyId
           });
           Used.get(function (results) {
@@ -48,7 +48,7 @@ angular.module("ettoPupil")
         },
 
         checkCanAddCourse: function (companyId, callback) {
-          var Subscriptions = $resource("/api/v1/store/checkCanAddCourse/:companyId", {
+          var Subscriptions = $resource("https://archimedes.jit.su/store/checkCanAddCourse/:companyId", {
             companyId: companyId
           });
           Subscriptions.get(function (results) {
