@@ -9,7 +9,6 @@ var fileServer = new nodeStatic.Server("./dist", {
 
 require("http").createServer(function (request, response) {
   request.addListener("end", function () {
-    console.dir(request.headers);
     if (request.headers && request.headers.host === "www.coursetto.com") {
       response.writeHead(301, { "Location": "//coursetto.com" + request.url });
       response.end();
@@ -18,7 +17,8 @@ require("http").createServer(function (request, response) {
 
     fileServer.serve(request, response, function (e, res) {
       if (e && (e.status === 404)) { // If the file wasn't found
-        fileServer.serveFile("/index.html", 404, {}, request, response);
+        // TODO: Only serve index for appropriate routes
+        fileServer.serveFile("/index.html", 200, {}, request, response);
       }
     });
   }).resume();
