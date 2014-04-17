@@ -8,7 +8,6 @@ lib-cov
 *.dat
 *.out
 *.pid
-*.gz
 
 pids
 logs

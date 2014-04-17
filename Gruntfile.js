@@ -550,6 +550,17 @@ module.exports = function (grunt) {
         downstream: grunt.option("down") * 1024 || 100 * 1024,
         upstream: grunt.option("up") * 1024 || 10 * 1024,
       }
+    },
+    compress: {
+      main: {
+        options: {
+          mode: "gzip",
+        },
+        expand: true,
+        cwd: "dist/",
+        src: ["**/*"],
+        dest: "dist/",
+      }
     }
   });
 
@@ -626,7 +637,8 @@ module.exports = function (grunt) {
     "cssmin",
     "uglify",
     "rev",
-    "usemin"
+    "usemin",
+    "compress",
   ]);
 
   grunt.registerTask("default", [

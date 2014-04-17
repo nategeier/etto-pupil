@@ -87,8 +87,13 @@ $navbar-margin-bottom: 0;
 // --------------------------------------------------
 
 // Tell FontAwesome where to find the font files
-$fa-font-path: "/bower_components/font-awesome/fonts";
+//$fa-font-path: "/bower_components/font-awesome/fonts";
+$fa-font-path:        "//netdna.bootstrapcdn.com/font-awesome/4.0.3/fonts" !default; // for referencing Bootstrap CDN font files directly
 
 // Import FontAwesome
 // -------------------------
 @import "font-awesome/scss/font-awesome.scss";
+
+// Import XEditable
+// -------------------------
+@import "angular-xeditable/dist/css/xeditable.css";
