@@ -90,7 +90,7 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
         "version": "",
       },
       "aws": {
-        "bucket": "etto-archimedes-test"
+        "bucket": "etto-production"
       }
     };
   });
