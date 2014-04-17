@@ -34,12 +34,11 @@ angular.module("ettoPupil")
                   $files.forEach(function (file, i) {
                     var asset = new Asset();
                     asset.getS3Policy(file.type, function () {
-                      console.log("$scope.user._tier._company", $scope.user._tier._company);
                       $scope.upload[i] = $upload.upload({
                         url: "https://" + $rootScope.config.aws.bucket + ".s3.amazonaws.com/",
                         method: "POST",
                         data: {
-                          "key": "assets/" + $scope.user._tier._company + "/" + Math.round(Math.random() * 10000) + "$$" + file.name,
+                          "key": "assets/" + Math.round(Math.random() * 10000) + "$$" + file.name,
                           "acl": "public-read",
                           "Content-Type": file.type,
                           "AWSAccessKeyId": asset.s3.AWSAccessKeyId,
