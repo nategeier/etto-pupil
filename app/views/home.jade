@@ -19,7 +19,7 @@ etto-verify-modal(redirect-to='/etto')
           .nopad(ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-md-4 col-lg-3' : 'col-sm-6 col-md-3 col-lg-2'")
             .course-holder(sink-in, ng-click="openCourse(course)")
               img.img-responsive.user-course-thumb(src="{{course.thumb}}")
-              img.img-responsive(style="position:absolute; top:5px; right:15px;", src="/images/courses/badges/default.png", ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks && course._record.progress.totalBlocks !== 1")
+              img.img-responsive.badge(src="/images/courses/badges/default.png", ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks && course._record.progress.totalBlocks !== 1")
               .row 
                 .col-xs-12
                   h4 {{course.title}}
