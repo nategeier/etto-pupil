@@ -1,8 +1,9 @@
 
 div
   etto-block( ng-repeat="block in course.blocks",
+              class="block",
               ng-show="isCurrentBlock( $index )",
-              block="block" )
+              block="block")
 
 .etto-course-prev-block( ng-click="prevBlock()" )
   i.fa.fa-3x.fa-arrow-circle-left
