@@ -36,31 +36,32 @@ etto-logged-in-nav
       button.btn.btn-success(etto-asset-library-modal, ng-click='updateAvatar()')
         i.fa.fa-camera
 
-      .checkbox
-        label
-          input(type='checkbox', ng-model="editUser.auth.canEditCompany", ng-change="updateUser()")
-          | Can Edit Company Appearance
+      div(ng-if="user._id !== editUser._id")
+        .checkbox
+          label
+            input(type='checkbox', ng-model="editUser.auth.canEditCompany", ng-change="updateUser()")
+            | Can Edit Company Appearance
 
-      .checkbox
-        label
-          input(type='checkbox', ng-model="editUser.auth.canPurchase", ng-change="updateUser()")
-          | Can Purchase
-      .checkbox
-        label
-          input(type='checkbox', ng-model="editUser.auth.canGetCourses", ng-change="updateUser()")
-          | Can Get Courses
-      .checkbox
-        label
-          input(type='checkbox', ng-model="editUser.auth.canCreateCourses", ng-change="updateUser()")
-          | Can Create Courses
-      .checkbox
-        label
-          input(type='checkbox', ng-model="editUser.auth.canInvite", ng-change="updateUser()")
-          | Can Invite Users to {{editUser._tier.title}}
-      .checkbox
-        label
-          input(type='checkbox', ng-model="editUser.enabled", ng-change="updateUser()")
-          | Is Enabled
+        .checkbox
+          label
+            input(type='checkbox', ng-model="editUser.auth.canPurchase", ng-change="updateUser()")
+            | Can Purchase
+        .checkbox
+          label
+            input(type='checkbox', ng-model="editUser.auth.canGetCourses", ng-change="updateUser()")
+            | Can Get Courses
+        .checkbox
+          label
+            input(type='checkbox', ng-model="editUser.auth.canCreateCourses", ng-change="updateUser()")
+            | Can Create Courses
+        .checkbox
+          label
+            input(type='checkbox', ng-model="editUser.auth.canInvite", ng-change="updateUser()")
+            | Can Invite Users to {{editUser._tier.title}}
+        .checkbox
+          label
+            input(type='checkbox', ng-model="editUser.enabled", ng-change="updateUser()")
+            | Is Enabled
       .col-sm-12.col-md-12
         .alert.alert-success(ng-show="saved")
           p saved

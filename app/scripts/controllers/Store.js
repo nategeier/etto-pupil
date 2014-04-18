@@ -10,7 +10,7 @@ angular.module("ettoPupil")
 
       TweenMax.from($("#head-img"), 1, {
         opacity: 0,
-        x: -50
+        x: 50
       });
 
       $scope.listCourses = function () {
