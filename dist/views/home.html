@@ -21,14 +21,12 @@
         </div>
         <div ng-repeat="course in usersCourses" class="animate-repeat">
           <div ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-md-4 col-lg-3' : 'col-sm-6 col-md-3 col-lg-2'" class="nopad">
-            <div sink-in="sink-in" ng-click="openCourse(course)" class="course-holder"><img src="{{course.thumb}}" class="img-responsive user-course-thumb"/>
+            <div sink-in="sink-in" ng-click="openCourse(course)" class="course-holder"><img src="{{course.thumb}}" class="img-responsive user-course-thumb"/><img src="/images/courses/badges/default.png" ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks &amp;&amp; course._record.progress.totalBlocks !== 1" class="img-responsive badge"/>
               <div class="row"> 
                 <div class="col-xs-12">
                   <h4>{{course.title}}</h4>
                   <p>{{course.subtitle}}</p>
                 </div>
-                <!--div(ng-show="course._record")<img src="/images/courses/badges/default.png" ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks &amp;&amp; course._record.progress.totalBlocks !== 1" class="img-responsive col-md-3"/>
-                -->
               </div>
               <div ng-show="!course._record" class="progress">
                 <div role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 1%;" class="progress-bar"></div>
