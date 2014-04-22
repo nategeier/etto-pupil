@@ -8,7 +8,6 @@ lib-cov
 *.dat
 *.out
 *.pid
-*.gz
 
 pids
 logs
@@ -41,7 +40,6 @@ Session.vim
 .tmp
 karma_html
 coverage
-dist
 .sass-cache
 docs
 styleguide

@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .factory("Session", ["$http", "$compile", "$document", "$modal", "$location", "$log", "$resource",
-    function ($http, $compile, $document, $modal, $location, $log, $resource) {
+  .factory("Session", ["$http", "$compile", "$document", "$modal", "$location", "$log", "$resource", "Endpoint",
+    function ($http, $compile, $document, $modal, $location, $log, $resource, Endpoint) {
 
       var Session;
 
@@ -14,7 +14,7 @@ angular.module("ettoPupil")
         },
 
         authenticate: function (user, callback) {
-          $http.post("/api/v1/auth/local", user)
+          $http.post(Endpoint("auth", "local"), user)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -26,7 +26,7 @@ angular.module("ettoPupil")
         getSession: function (callback) {
           $http({
             method: "GET",
-            url: "/api/v1/auth/getSession"
+            url: Endpoint("auth", "getSession"),
           })
             .success(function (data, status, headers, config) {
               callback(data);
@@ -36,7 +36,7 @@ angular.module("ettoPupil")
           });
         },
         updateSession: function (user, callback) {
-          $http.post("/api/v1/auth/updateSession", user)
+          $http.post("auth", "updateSession", user)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -46,7 +46,7 @@ angular.module("ettoPupil")
         },
         destroySession: function (callback) {
 
-          var Logout = $resource("/api/v1/auth/logout");
+          var Logout = $resource(Endpoint("auth", "logout"));
 
           Logout.get(function (results) {
             callback(results);

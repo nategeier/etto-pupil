@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+"use strict";
+
+var nodeStatic = require("node-static");
+
+var fileServer = new nodeStatic.Server("./dist", {
+  gzip: true
+});
+
+require("http").createServer(function (request, response) {
+  request.addListener("end", function () {
+    if (request.headers && request.headers.host === "www.coursetto.com") {
+      response.writeHead(301, { "Location": "//coursetto.com" + request.url });
+      response.end();
+      return;
+    }
+
+    fileServer.serve(request, response, function (e, res) {
+      if (e && (e.status === 404)) { // If the file wasn't found
+        // TODO: Only serve index for appropriate routes
+        fileServer.serveFile("/index.html", 200, {}, request, response);
+      }
+    });
+  }).resume();
+}).listen(process.env.PORT || 8080);

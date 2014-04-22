@@ -1,0 +1,37 @@
+
+<etto-logged-in-nav></etto-logged-in-nav>
+<div class="container-full">
+  <div class="row">
+    <div class="col-md-12">
+      <etto-settings-nav active="subscription"></etto-settings-nav>
+      <h1>Subscription</h1>
+      <h5>(Number of Employees in your system)</h5>
+      <ul class="nav nav-tabs">
+        <li ng-click="show(subscriptionType._id)" ng-repeat="subscriptionType in subscriptionTypes" ng-class="{active: onSubscription === subscriptionType._id}"><a href="#">
+            <p>{{subscriptionType.title}} ({{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}})</p></a></li>
+      </ul>
+      <div ng-repeat="subscriptionType in subscriptionTypes">
+        <table ng-show="onSubscription === subscriptionType._id" class="table table-no-border">
+          <tr>
+            <th>Private Courses</th>
+            <th>Price</th>
+            <th>Purchase</th>
+          </tr>
+          <tr ng-repeat="subscription in subscriptionType.subscriptions" ng-animate="'animate'">
+            <td>{{subscription.courseRange.low}} - {{subscription.courseRange.high}}</td>
+            <td>${{subscription.price}}/mo</td>
+            <td><i ng-show="subscription._id === currentSubscription" class="fa fa-check-square-o fa-2x"></i>
+              <button etto-purchase="etto-purchase" type="button" ng-click="purchase(null, {_id:subscription._id, price:subscription.price})" ng-show="subscription._id !== currentSubscription" class="btn btn-sm btn-default">Purchase</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-12">
+        <div class="btn-group pull-right">
+          <!--button.btn.btn-sm.btn-default(etto-recipient-modal, ng-click="addRecipient()") Pull Payment-->
+          <button etto-recipient-modal="etto-recipient-modal" ng-click="cancelSubscription()" class="btn btn-sm btn-default">Cancel Subscription</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
