@@ -1,0 +1,21 @@
+
+<div class="container">
+  <div ng-class="block.data.youtube || block.data.vimeo ? 'show-video' : 'none'" class="row">
+    <div ng-show="!block.data.youtube &amp;&amp; !block.data.vimeo">
+      <hr/>
+      <div class="col-md-6"><img src="/images/logos/youtube.jpg" class="img-responsive"/>
+        <p editable-text="block.data.youtube" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.youtube || 'Enter Youtube ID'}}</p>
+        <hr/><small>Example:</small><br/><img src="/images/courses/misc/youtube_id.jpg"/>
+      </div>
+      <div class="col-md-6"><img src="/images/logos/vimeo.jpg" class="img-responsive"/>
+        <p editable-text="block.data.vimeo" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.vimeo || 'Enter Vimeo ID'}}</p>
+        <hr/><small>Example:</small><br/><img src="/images/courses/misc/vimeo_id.jpg"/>
+      </div>
+      <hr/>
+    </div>
+    <div class="col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
+      <etto-youtube ng-show="block.data.youtube" code="{{ block.data.youtube }}"></etto-youtube>
+      <etto-vimeo ng-show="block.data.vimeo" vimeo="{{ block.data.vimeo }}"></etto-vimeo>
+    </div>
+  </div>
+</div>

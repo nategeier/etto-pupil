@@ -1,0 +1,76 @@
+
+<etto-logged-in-nav></etto-logged-in-nav>
+<div class="container-full">
+  <div class="row">
+    <div class="left-holder col-md-9 nopad">
+      <div class="leaderboard main-holder">
+        <div class="row">
+          <div id="head-img" class="col-sm-6 col-md-6 col-lg-5"><img src="/images/leaderboard/market/default-lg.jpg" class="img-responsive pull-left default-lg"/></div>
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-7">
+            <h3>Start creating, taking, and sharing courses</h3>
+            <input type="text" ng-model="searchCourse" placeholder="Search Courses" class="form-control"/>
+          </div>
+        </div>
+      </div>
+      <div ng-show="err" class="alert alert-danger">
+        <p>{{err}}</p>
+      </div>
+      <div ng-repeat="course in courses | filter:searchCourse" class="main-holder animate-repeat">
+        <div class="col-sm-6 col-md-4 col-lg-3 nopad">
+          <div sink-in="sink-in" ng-class="course.added ? 'closed-course' : 'open-course'" class="course-holder">
+            <div class="row">
+              <div class="col-xs-12"><img src="{{course.thumb}}" class="img-responsive"/></div>
+            </div>
+            <div class="row">
+              <div class="col-md-7">
+                <h5>{{course.title}}</h5>
+                <h6>{{course.subtitle}}</h6>
+              </div>
+              <div class="col-md-5">
+                <h4>${{course.priceWithEmps}}</h4><small>${{course.price}}/user</small>
+              </div>
+              <div class="col-md-12">
+                <div class="btn-group"><a etto-purchase="etto-purchase" href="#" ng-click="addToLibrary(course)" class="btn btn-primary btn-xs">Add to Tiers</a><a href="/course/demo/{{ course._id }}" class="btn btn-default btn-xs"> Demo</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="col-md-3 nopad">
+      <div class="side-panel">
+        <div class="modal-header">
+          <h4 class="modal-title">{{currentTier.title}}</h4>
+          <p>Course for {{totUsers}} users</p>
+        </div>
+        <div class="col-md-12">
+          <h5 class="ison">BLUE Tiers will receive added course</h5>
+          <h5 class="isoff">GREY Tiers will NOT receive added course</h5>
+          <hr/>
+        </div>
+        <div ng-cloak="ng-cloak" class="tree">
+          <div class="live">
+            <ol>
+              <li etto-tree="child in data.children at ol" ng-class="{minimized:child.minimized}">
+                <div ng-class="{isoff: child.isoff, ison: !child.isoff}">
+                  <div ng-click="toggleMinimized(child)" ng-switch="child.minimized" on="child.minimized" class="toggle"><i ng-show="child._children" ng-switch-when="false" class="fa fa-sort-asc fa-2x pull-left"></i><i ng-show="child._children" ng-switch-default="ng-switch-default" class="fa fa-caret-right fa-2x pull-left"></i></div>
+                  <div ng-click="toggleIsOn(child)" class="tree-btn">
+                    <div ng-show="!child._children[0]" style="width:20px; height:30px;" class="pull-left"></div>
+                    <p class="pull-left">{{child.title}}</p>
+                    <div style="width:40px" class="pull-right"><i style="padding-top:5px" class="fa fa-user pull pull-left"></i>
+                      <p>{{child.dynamicTotalUsers}}</p>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                </div>
+                <ol ng-class="{pregnant:child.children.length}"></ol>
+                <div class="clearfix"></div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

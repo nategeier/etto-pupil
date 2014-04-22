@@ -17,7 +17,7 @@ angular.module("ettoPupil")
 .factory("Asset", ["$rootScope", "$resource", "$http",
   function ($rootScope, $resource, $http) {
     var resourceName = "asset";
-    var resourceBase = "/" + ["api", $rootScope.config.apiVer, resourceName].join("/");
+    var resourceBase = $rootScope.config.api.server + [$rootScope.config.api.version, resourceName].join("/");
 
     var Asset = $resource(resourceBase, {}, {
       update: {

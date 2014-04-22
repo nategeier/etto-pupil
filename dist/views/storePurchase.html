@@ -1,0 +1,28 @@
+
+<etto-logged-in-nav></etto-logged-in-nav>
+<div class="header main-img">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="centerTxt">Course Market</h2>
+      <p class="centerTxt">Purchase or upload a new course</p>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="row openHolder radial-box">
+    <h3>Purchase Course</h3>
+    <div class="col-md-main col-md-8">
+      <div class="rownter">
+        <div class="col-md-5 register col-md-centered">
+          <div class="err">
+            <h3>{{course.courseTitle}}</h3>
+            <p>{{course.price}}</p>
+            <etto-enter-card ng-show="!customer"></etto-enter-card>
+            <etto-show-card ng-show="customer"></etto-show-card>
+            <input type="submit" value="Add card" class="button small right"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

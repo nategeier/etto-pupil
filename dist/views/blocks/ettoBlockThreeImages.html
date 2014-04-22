@@ -1,0 +1,10 @@
+
+<div class="col-lg-12">
+  <h1 editable-text="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()">{{block.data.title || 'title'}}</h1>
+  <h2 editable-text="block.data.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()">{{block.data.subtitle || 'subtitle'}}</h2>
+</div>
+<div class="clearfix"></div>
+<hr/>
+<div class="col-lg-4"><img src="{{ block.data.img1 || '/images/courses/default/image-block.jpg'}}" etto-image="etto-image" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateBlock(block, 'img1', 400, 300)" class="img-responsive img-uploadable"/></div>
+<div class="col-lg-4"><img src="{{ block.data.img2 || '/images/courses/default/image-block.jpg'}}" etto-image="etto-image" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateBlock(block, 'img2', 400, 300)" class="img-responsive img-uploadable"/></div>
+<div class="col-lg-4"><img src="{{ block.data.img3 || '/images/courses/default/image-block.jpg'}}" etto-image="etto-image" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateBlock(block, 'img3', 400, 300)" class="img-responsive img-uploadable"/></div>
