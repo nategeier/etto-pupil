@@ -25,11 +25,15 @@ nav.navbar.navbar-default( role="navigation", etto-session, etto-update-company)
           i.fa.fa-ticket.fa-2x
           small market
       li.divider
+      li(ng-show= "user.auth.canCreateCourses")
+        a.navbar-btn(href="#", etto-add-course, ng-click='addCourse()')
+          i.fa.fa-flask.fa-2x(style="margin-right:5px")
+          small + course
       li(ng-show= "user.auth.canInvite")
         a.navbar-btn( href="/report/{{user._tier._id}}" )
           i.fa.fa-bar-chart-o.fa-2x(style="margin-right:5px")
           small reports
-
+      
     .navbar-right
       ul.nav.navbar-nav
         li.dropdown

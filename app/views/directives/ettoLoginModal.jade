@@ -1,26 +1,31 @@
 .modal-header
-  button.close( type="button" )
-  h2.modal-title Login
+  .row
+    .col-sm-4.col-md-8
+      h2.modal-title Login
+    .col-sm-4.col-md-4
+      .btn-group.sign-on-btns
+        a.btn.btn-default(href='/api/v1/auth/github/', target="_self")
+          i.fa.fa-github-square.fa-2x
+        a.btn.btn-default(href='/api/v1/auth/facebook/', target="_self")
+          i.fa.fa-facebook.fa-2x
+        a.btn.btn-default(href='/api/v1/auth/google/', target="_self")
+          i.fa.fa-google-plus-square.fa-2x
 .modal-body
-  .col-md-8.col-sm-8col-md-8
-    form(ng-submit="handleLogin(user)")
+  form(ng-submit="handleLogin(user)")
+    .col-md-12  
       div(ng-show="err")
         .alert.alert-danger {{err.message}}
       .form-group
         input.form-control( type="text", ng-model="user.username", placeholder="Enter your email address...", autocomplete="on", required )
       .form-group
         input.form-control( type="password", ng-model="user.password", placeholder="Enter your password...", required )
-      input.btn.btn-primary.pull-left.btn-sm( type="submit", value="Login")
-      button.btn.btn-default.btn-sm( type="button", ng-click="cancel()") Cancel
+    .col-md-4
+      input.btn.btn-success.btn-sm( type="submit", value="Login")
+    .btn-group.col-md-8
+      .pull-right
+        button.btn.btn-default.btn-xs( type="button", ng-click="cancel()") Cancel
+        button.btn.btn-default.btn-xs( type="button", ng-click="sendForgotPw()") Forgot Password
 
-  .col-md-4.col-sm-4.col-md-4
-    .btn-group.pull-right.sign-on-btns
-      a.btn.btn-default(href='/api/v1/auth/github/', target="_self")
-        i.fa.fa-github-square.fa-2x
-      a.btn.btn-default(href='/api/v1/auth/facebook/', target="_self")
-        i.fa.fa-facebook.fa-2x
-      a.btn.btn-default(href='/api/v1/auth/google/', target="_self")
-        i.fa.fa-google-plus-square.fa-2x
 
 
   .clearfix

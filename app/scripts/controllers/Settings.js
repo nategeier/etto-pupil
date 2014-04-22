@@ -6,6 +6,18 @@ angular.module("ettoPupil")
 
       var id = $routeParams.userID;
 
+      $scope.addEmail = function () {
+        $scope.editUser.emails.push(null);
+      };
+
+      $scope.removeEmail = function (index) {
+
+        if (index > -1 && $scope.editUser.emails.length > 1) {
+          $scope.editUser.emails.splice(index, 1);
+        }
+        $scope.updateUser();
+      };
+
       Users.fullDetails(id, function (user) {
         $scope.editUser = user;
         Store.findCredit(user._tier._company, function (credit) {
@@ -19,6 +31,11 @@ angular.module("ettoPupil")
 
       $scope.updateUser = function () {
         $scope.saved = null;
+
+        $scope.editUser.emails = $scope.editUser.emails.filter(function (e) {
+          return e;
+        });
+
         Users.update($scope.editUser, function (user) {
           $scope.saved = "true";
           $scope.updateSessionSettings($scope.user._id, $scope.editUser._id);
