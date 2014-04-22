@@ -3,9 +3,9 @@ etto-logged-in-nav
 .col-md-12
   etto-settings-nav(active="settings")
   
-
+  h1 Settings
   .col-sm-7.col-md-7.col-lg-5.pocket
-    h1 Settings
+    
     .col-md-6
       p(editable-text="editUser.name", buttons="no", blur="submit", onaftersave="updateUser()") {{editUser.name || 'name'}}
       p Username {{editUser.username}}

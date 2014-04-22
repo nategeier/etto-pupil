@@ -5,9 +5,9 @@ angular.module("ettoPupil")
 
     function () {
       return {
-        //templateUrl: "/views/directives/ettoLoginBtns.html",
         restrict: "AE",
-        controller: function ($scope, $modal, Session, $location, $route) {
+        controller: function ($scope, $modal, Session, $location, $route, Security) {
+
           $scope.login = function () {
 
             var modal = $modal.open({
@@ -19,13 +19,24 @@ angular.module("ettoPupil")
                   $modalInstance.close();
                 };
 
+                $scope.sendForgotPw = function () {
+                  if (!$scope.user.username || $scope.user.username === "") {
+                    $scope.err = {};
+                    $scope.err.message = "Please enter your email";
+                  } else {
+                    Security.sendForgotPw($scope.user.username, function (results) {
+                      $scope.err = {};
+                      $scope.err.message = "Sent reset instructions to " + $scope.user.username;
+                    });
+                  }
+                };
+
                 $scope.handleLogin = function (user) {
 
                   Session.authenticate(user, function (data) {
                     if (data.message) {
                       $scope.err = data;
                     } else {
-
                       $modalInstance.close(user);
                     }
                   });
@@ -43,7 +54,6 @@ angular.module("ettoPupil")
                   $location.path(redir);
                 }
               }
-              //$location.path("/etto");
             });
           };
         },

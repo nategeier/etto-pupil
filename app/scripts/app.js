@@ -14,6 +14,9 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
         .when("/beta", {
           templateUrl: "/views/beta.html"
         })
+        .when("/reset/:code", {
+          templateUrl: "/views/resetPassword.html"
+        })
         .when("/etto", {
           templateUrl: "/views/home.html",
           controller: "HomeCtrl"
