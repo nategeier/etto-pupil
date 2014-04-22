@@ -1,14 +1,14 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .factory("CourseList", ["$http", "$compile", "$document", "$modal", "$location", "$resource",
-    function ($http, $compile, $document, $modal, $location, $resource) {
+  .factory("CourseList", ["$http", "$compile", "$document", "$modal", "$location", "$resource", "Endpoint",
+    function ($http, $compile, $document, $modal, $location, $resource, Endpoint) {
       var Courses;
 
       Courses = {
 
         storeCourses: function (callback) {
-          $http.get("/api/v1/store/storeCourses")
+          $http.get(Endpoint("store", "storeCourses"))
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -18,7 +18,7 @@ angular.module("ettoPupil")
         },
 
         listAll: function (callback) {
-          $http.get("/api/v1/course")
+          $http.get(Endpoint("course"))
             .success(function (data, status, headers, config) {
               //user = data.user;
               callback(data);
@@ -28,7 +28,7 @@ angular.module("ettoPupil")
             });
         },
         listUsersCreatedCourses: function (id, callback) {
-          $http.get("/api/v1/user/listUsersCreatedCourses/" + id)
+          $http.get(Endpoint("user", "listUsersCreatedCourses/") + id)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -37,7 +37,7 @@ angular.module("ettoPupil")
             });
         },
         listTiersCourses: function (tierId, callback) {
-          $http.get("/api/v1/course/listTiersCourses/" + tierId)
+          $http.get(Endpoint("course", "listTiersCourses/") + tierId)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -46,7 +46,7 @@ angular.module("ettoPupil")
             });
         },
         listCompanyCourses: function (tierId, done) {
-          var Courses = $resource("/api/v1/course/listCompanyCourses/:id", {
+          var Courses = $resource(Endpoint("course", "listCompanyCourses/") + "/:id", {
             id: tierId
           });
 

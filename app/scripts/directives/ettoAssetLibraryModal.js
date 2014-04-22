@@ -38,7 +38,7 @@ angular.module("ettoPupil")
                         url: "https://" + $rootScope.config.aws.bucket + ".s3.amazonaws.com/",
                         method: "POST",
                         data: {
-                          "key": "s3UploadExample/" + Math.round(Math.random() * 10000) + "$$" + file.name,
+                          "key": "assets/" + Math.round(Math.random() * 10000) + "$$" + file.name,
                           "acl": "public-read",
                           "Content-Type": file.type,
                           "AWSAccessKeyId": asset.s3.AWSAccessKeyId,

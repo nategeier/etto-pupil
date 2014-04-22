@@ -3,6 +3,7 @@
 angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "ui.bootstrap", "xeditable", "angularFileUpload", "chieffancypants.loadingBar"])
   .config(["$routeProvider", "$locationProvider", "$httpProvider",
     function ($routeProvider, $locationProvider, $httpProvider) {
+      $httpProvider.defaults.withCredentials = true;
       $httpProvider.interceptors.push("httpInterceptor");
 
       $locationProvider.html5Mode(true).hashPrefix("#");
@@ -84,9 +85,12 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
   ]).run(function ($rootScope, editableOptions) {
     editableOptions.theme = "bs3"; // bootstrap3 theme. Can be also 'bs2', 'default'
     $rootScope.config = {
-      "apiVer": "v1",
+      "api": {
+        "server": "https://archimedes.jit.su",
+        "version": "",
+      },
       "aws": {
-        "bucket": "etto-archimedes-test"
+        "bucket": "etto-production"
       }
     };
   });

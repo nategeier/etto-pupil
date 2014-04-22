@@ -1,0 +1,74 @@
+
+<etto-logged-in-nav></etto-logged-in-nav>
+<etto-verify-modal redirect-to="/etto"></etto-verify-modal>
+<div class="container-full">
+  <div class="row">
+    <div ng-class="user.auth.canCreateCourses ? 'col-md-9' : 'col-md-12'" class="left-holder col-sm-12 nopad">
+      <div etto-update-company="etto-update-company" class="leaderboard">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-7">
+            <div class="col-md-12">
+              <h3 id="title" editable-text="company.leaderboard.title" buttons="no" blur="submit" onaftersave="updateLeaderboard()">{{company.leaderboard.title}}</h3>
+              <h4 id="subtite" editable-text="company.leaderboard.subtitle" buttons="no" blur="submit" onaftersave="updateLeaderboard()">{{company.leaderboard.subtitle}}</h4>
+            </div>
+          </div>
+          <div id="head-img" class="col-sm-6 col-md-5"><img src="{{company.leaderboard.imgUrl}}" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateMainImg()" class="img-responsive default-lg"/></div>
+        </div>
+      </div>
+      <div ng-show="usersCourses[0]" class="main-holder">
+        <div ng-show="err" class="alert alert-danger">
+          <p>{{err}}</p>
+        </div>
+        <div ng-repeat="course in usersCourses" class="animate-repeat">
+          <div ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-md-4 col-lg-3' : 'col-sm-6 col-md-3 col-lg-2'" class="nopad">
+            <div sink-in="sink-in" ng-click="openCourse(course)" class="course-holder"><img src="{{course.thumb}}" class="img-responsive user-course-thumb"/><img src="/images/courses/badges/default.png" ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks &amp;&amp; course._record.progress.totalBlocks !== 1" class="img-responsive badge"/>
+              <div class="row"> 
+                <div class="col-xs-12">
+                  <h4>{{course.title}}</h4>
+                  <p>{{course.subtitle}}</p>
+                </div>
+              </div>
+              <div ng-show="!course._record" class="progress">
+                <div role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 1%;" class="progress-bar"></div>
+              </div>
+              <div ng-show="course._record" class="progress">
+                <div ng-show="course._record.progress.totalBlocks &gt; 1" role="progressbar" aria-valuenow="{{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}%;" class="progress-bar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div ng-show="!usersCourses[0]" etto-on-boarding="etto-on-boarding" class="col-md-9 col-sm-9 col-md-9"></div>
+    </div>
+    <div ng-show="user.auth.canCreateCourses" class="col-sm-12 col-md-3 nopad">
+      <div class="side-panel">
+        <div class="modal-header">
+          <div class="col-xs-2 col-sm-2 col-md-2">
+            <etto-add-course></etto-add-course>
+          </div>
+          <div class="col-xs-10 col-sm-10 col-md-10">
+            <h4 class="modal-title">Composed Courses</h4>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+          <div class="course-deck">
+            <div ng-repeat="course in createdCourses">
+              <div sink-in="sink-in" class="course">
+                <button etto-remove-course="etto-remove-course" type="button" ng-click="removeCourse(course._id, course.title)" class="close aria-hidden pull-right"><i class="fa fa-trash-o"></i></button><a href="/course/edit/{{ course._id }}">
+                  <div class="row">
+                    <div class="col-xs-5 col-sm-5 col-md-5"><img src="{{course.thumb}}" class="img-responsive user-course-thumb"/></div>
+                    <div class="col-xs-7 col-sm-7 col-md-7">
+                      <h5>{{course.title}}</h5>
+                    </div>
+                  </div></a>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

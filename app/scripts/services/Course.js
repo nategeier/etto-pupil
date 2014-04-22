@@ -14,9 +14,9 @@ angular.module("ettoPupil")
  *
  * @param {course} newCourse Optional new course information.
  */
-.factory("Course", ["$resource",
-  function ($resource) {
-    return $resource("/api/v1/course", {}, {
+.factory("Course", ["$resource", "Endpoint",
+  function ($resource, Endpoint) {
+    return $resource(Endpoint("course"), {}, {
       update: {
         method: "PUT"
       }
