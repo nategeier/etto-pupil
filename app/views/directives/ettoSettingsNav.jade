@@ -1,4 +1,4 @@
-ul.nav.nav-tabs.nav-settings
+ul.nav.nav-tabs.nav-settings(ng-if="user.auth.canPurchase")
   li#settings
     a(href="/settings/{{user._id}}") Settings
   li#subscription

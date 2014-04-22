@@ -3,12 +3,14 @@ etto-not-logged-in-nav
 .header.main-img
   .container
     .row
-      .col-xs-12.col-sm-6.col-md-8
-        h3(style="color:#889ba4;") Start creating, taking, tracking, <br>and sharing courses
-        a.btn.btn-default.btn-sm(href="mailto:nate@coursetto.com") Request a beta code
-      .col-xs-12.col-sm-6.col-md-4
-        iframe.img-responsive(style="height:240px;margin-top:20px;", src="//www.youtube.com/embed/YWp3GysKbY8?showinfo=0&controls=2", frameborder="0", allowfullscreen)
-  .clearfix
+      .col-xs-12.col-sm-6.col-md-7
+        .col-md-12.main-image-message
+          h3 Start creating, taking, tracking, and sharing corperate training courses
+          p.hidden-xs Coursetto is a mobile ready, sharable, learning management system that empowers you or anyone else in your company to create, purchase, distribute, and track online training.
+          a.btn.btn-default.btn-sm(href="mailto:nate@coursetto.com") Request a beta code
+      .col-xs-12.col-sm-6.col-md-5
+        iframe.img-responsive.pull-right(style="height:200px;margin-top:20px;", src="//www.youtube.com/embed/YWp3GysKbY8?showinfo=0&controls=2", frameborder="0", allowfullscreen)
+
 .container
   .row
     h2.text-center Create a custom company structure
@@ -26,9 +28,8 @@ etto-not-logged-in-nav
       h4 Graphs!
       p Track all your lower tiers. Set mangers to higher tier and deligate training.
 
-.row.reverse-bkd
+.reverse-bkd
   .container
-
     h2.text-center Course Creation
     p.text-center Pay per private courses your company creates
     .col-sm-12.col-md-6
@@ -57,18 +58,18 @@ etto-not-logged-in-nav
             tr(ng-repeat="subscription in subscriptionType.subscriptions", ng-animate="'animate'")
               td {{subscription.courseRange.low}} - {{subscription.courseRange.high}}
               td ${{subscription.price}}/mo
-.row
-  .container
-    h2.text-center Course Marketplace
-    p.text-center Pay per user course taken
-    .col-md-6
-      h4 No subscription necessary
-      p No time to build a course and just need something standard? Then head over to the course marketplace.
-      img.img-responsive(src='/images/landing/market.jpg')
 
-    .col-sm-12.col-md-6 
-      .col-sm-6.col-md-6 
-        h4  Course Distribution
-        p Your company structure is on the right. Watch your price fluctuate as you turn off departments that do not need to take the course you are adding. The price is just an estimate of credits needed to be purchased. Credits are only used when a user actually takes a course. Users get an unlimited amount of times to take a course. Once purchased the course will appear for any "on" departments.
-      .col-sm-6.col-md-6
-        img.img-responsive(src='/images/landing/tiers.jpg')
+.container
+  h2.text-center Course Marketplace
+  p.text-center Pay per user course taken
+  .col-md-6
+    h4 No subscription necessary
+    p No time to build a course and just need something standard? Then head over to the course marketplace.
+    img.img-responsive(src='/images/landing/market.jpg')
+
+  .col-sm-12.col-md-6 
+    .col-sm-6.col-md-6 
+      h4  Course Distribution
+      p Your company structure is on the right. Watch your price fluctuate as you turn off departments that do not need to take the course you are adding. The price is just an estimate of credits needed to be purchased. Credits are only used when a user actually takes a course. Users get an unlimited amount of times to take a course. Once purchased the course will appear for any "on" departments.
+    .col-sm-6.col-md-6
+      img.img-responsive(src='/images/landing/tiers.jpg')
