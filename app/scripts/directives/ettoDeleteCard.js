@@ -7,12 +7,10 @@ angular.module("ettoPupil")
       return {
 
         restrict: "AE",
-        controller: function ($scope, $modal, Store) {
+        controller: function ($scope, $modal, Store, Endpoint) {
 
           $scope.deleteCard = function (companyId, cardId) {
-            console.log("daetete", companyId, cardId);
-
-            var Card = $resource("https://archimedes.jit.su/store/deleteCard/:companyId", {
+            var Card = $resource(Endpoint("store", "deleteCard") + "/:companyId", {
               companyId: companyId,
               cardId: cardId
             });
@@ -21,14 +19,10 @@ angular.module("ettoPupil")
               companyId: companyId,
               cardId: cardId
             }, function (u, getResponseHeaders) {
-              console.log("responce", u);
               $scope.success = "Deleted";
               $scope.customer.active_card = null;
 
             });
-
-            //Store.deleteCard("companyId=" + companyId + "")
-
           };
         },
         link: function postLink(scope, element, attrs) {

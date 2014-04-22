@@ -1,18 +1,18 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .factory("Payment", ["$resource",
-    function ($resource) {
+  .factory("Payment", ["$resource", "Endpoint",
+    function ($resource, Endpoint) {
       return {
         subscriptions: function (callback) {
-          var Subscriptions = $resource("https://archimedes.jit.su/store/getSubscriptions");
+          var Subscriptions = $resource(Endpoint("store", "getSubscriptions"));
 
           Subscriptions.query(function (results) {
             callback(results);
           });
         },
         cancelSubscription: function (companyId, subscriptionId, callback) {
-          var Subscriptions = $resource("https://archimedes.jit.su/store/cancelSubscription/:companyId", {
+          var Subscriptions = $resource(Endpoint("store", "cancelSubscription") + "/:companyId", {
             companyId: companyId,
             subscriptionId: subscriptionId
           });
@@ -21,7 +21,7 @@ angular.module("ettoPupil")
           });
         },
         companyPurchases: function (companyId, callback) {
-          var Purchases = $resource("https://archimedes.jit.su/credit/companyPurchases/:id", {
+          var Purchases = $resource(Endpoint("credit", "companyPurchases") + "/:id", {
             id: companyId
           });
           Purchases.query(function (results) {
@@ -30,7 +30,7 @@ angular.module("ettoPupil")
         },
 
         companyRecieved: function (companyId, callback) {
-          var Payment = $resource("https://archimedes.jit.su/credit/companyRecieved/:id", {
+          var Payment = $resource(Endpoint("credit", "companyRecieved") + "/:id", {
             id: companyId
           });
           Payment.query(function (results) {
@@ -39,7 +39,7 @@ angular.module("ettoPupil")
         },
 
         companyCreditsUsed: function (companyId, callback) {
-          var Used = $resource("https://archimedes.jit.su/credit/companyCreditsUsed/:id", {
+          var Used = $resource(Endpoint("credit", "companyCreditsUsed") + "/:id", {
             id: companyId
           });
           Used.get(function (results) {
@@ -48,7 +48,7 @@ angular.module("ettoPupil")
         },
 
         checkCanAddCourse: function (companyId, callback) {
-          var Subscriptions = $resource("https://archimedes.jit.su/store/checkCanAddCourse/:companyId", {
+          var Subscriptions = $resource(Endpoint("store", "checkCanAddCourse") + "/:companyId", {
             companyId: companyId
           });
           Subscriptions.get(function (results) {

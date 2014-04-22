@@ -1,11 +1,11 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .factory("Store", ["$http", "$resource",
-    function ($http, $resource) {
+  .factory("Store", ["$http", "$resource", "Endpoint",
+    function ($http, $resource, Endpoint) {
       return {
         payments: function (id, callback) {
-          var Credit = $resource("https://archimedes.jit.su/store/findCredit/:id", {
+          var Credit = $resource(Endpoint("store", "findCredit") + "/:id", {
             id: id
           });
 
@@ -16,7 +16,7 @@ angular.module("ettoPupil")
         courseStore: function (callback) {
           $http({
             method: "GET",
-            url: "https://archimedes.jit.su/store/course_store"
+            url: Endpoint("store", "course_store"),
           })
             .success(function (data, status, headers, config) {
               callback(data);
@@ -26,7 +26,7 @@ angular.module("ettoPupil")
             });
         },
         purchase: function (order, callback) {
-          $http.post("https://archimedes.jit.su/store/purchase", order)
+          $http.post(Endpoint("store", "purchase"), order)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -35,7 +35,7 @@ angular.module("ettoPupil")
             });
         },
         createRecipient: function (recipient, callback) {
-          $http.post("https://archimedes.jit.su/store/createRecipient", recipient)
+          $http.post(Endpoint("store", "createRecipient"), recipient)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -45,7 +45,7 @@ angular.module("ettoPupil")
         },
         findCards: function (id, callback) {
 
-          $http.get("https://archimedes.jit.su/store/findCards/" + id)
+          $http.get(Endpoint("store", "findCards/") + id)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -55,7 +55,7 @@ angular.module("ettoPupil")
         },
         deleteCards: function (url, callback) {
 
-          $http.get("https://archimedes.jit.su/store/deleteCards/" + url)
+          $http.get(Endpoint("store", "deleteCards/") + url)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -66,7 +66,7 @@ angular.module("ettoPupil")
         findCredit: function (id, callback) {
           $http({
             method: "GET",
-            url: "https://archimedes.jit.su/store/findCredit/" + id
+            url: Endpoint("store", "findCredit/") + id
           })
             .success(function (data, status, headers, config) {
               callback(data);

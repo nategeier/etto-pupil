@@ -1,13 +1,13 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .factory("CourseMetaChange", ["$http", "$location",
-    function ($http) {
+  .factory("CourseMetaChange", ["$http", "Endpoint",
+    function ($http, Endpoint) {
       var CourseMetaChange;
 
       CourseMetaChange = {
         create: function (newCourse, callback) {
-          $http.post("https://archimedes.jit.su/course", newCourse)
+          $http.post(Endpoint("course"), newCourse)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -17,7 +17,7 @@ angular.module("ettoPupil")
         },
 
         removeCourse: function (course, callback) {
-          $http.post("https://archimedes.jit.su/course/destroy", course)
+          $http.post(Endpoint("course", "destroy"), course)
             .success(function (data, status, headers, config) {
               callback(data);
             })

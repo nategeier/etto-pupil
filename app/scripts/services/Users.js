@@ -1,15 +1,14 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .factory("Users", ["$http", "$resource",
-    function ($http, $resource) {
+  .factory("Users", ["$http", "$resource", "Endpoint",
+    function ($http, $resource, Endpoint) {
       var User;
 
       User = {
-        //
         updateUsersTier: function (tier, callback) {
 
-          $http.post("https://archimedes.jit.su/user/update_users_tier", tier)
+          $http.post(Endpoint("user", "update_users_tier"), tier)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -19,7 +18,7 @@ angular.module("ettoPupil")
         },
 
         listUsersCourses: function (id, callback) {
-          var Courses = $resource("https://archimedes.jit.su/user/listUsersCourses/:id", {
+          var Courses = $resource(Endpoint("user", "listUsersCourses") + "/:id", {
             id: id
           });
 
@@ -29,7 +28,7 @@ angular.module("ettoPupil")
         },
 
         listUserCoursesRecords: function (id, callback) {
-          var Courses = $resource("https://archimedes.jit.su/user/listUserCoursesRecords/:id", {
+          var Courses = $resource(Endpoint("user", "listUserCoursesRecords") + "/:id", {
             id: id
           });
 
@@ -39,7 +38,7 @@ angular.module("ettoPupil")
         },
 
         searchUser: function (text, callback) {
-          var Search = $resource("https://archimedes.jit.su/user/searchUser/:text", {
+          var Search = $resource(Endpoint("user", "searchUser") + "/:text", {
             text: text
           });
 
@@ -50,7 +49,7 @@ angular.module("ettoPupil")
 
         saveNewUser: function (user, callback) {
 
-          $http.post("https://archimedes.jit.su/user/saveNewUser", user)
+          $http.post(Endpoint("user", "saveNewUser"), user)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -62,7 +61,7 @@ angular.module("ettoPupil")
 
         inviteUser: function (data, callback) {
 
-          $http.post("https://archimedes.jit.su/user/inviteUser", data)
+          $http.post(Endpoint("user", "inviteUser"), data)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -73,7 +72,7 @@ angular.module("ettoPupil")
 
         listUsersInTier: function (id, callback) {
 
-          $http.get("https://archimedes.jit.su/user/listUsersInTier/" + id)
+          $http.get(Endpoint("user", "listUsersInTier/") + id)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -84,7 +83,7 @@ angular.module("ettoPupil")
 
         fullDetails: function (id, callback) {
 
-          $http.get("https://archimedes.jit.su/user/fullDetails/" + id)
+          $http.get(Endpoint("user", "fullDetails/") + id)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -94,7 +93,7 @@ angular.module("ettoPupil")
         },
         update: function (user, callback) {
 
-          $http.post("https://archimedes.jit.su/user/update", user)
+          $http.post(Endpoint("user", "update"), user)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -104,8 +103,6 @@ angular.module("ettoPupil")
         }
 
       };
-
-      //$rootScope.login = function() { Session.loginModal(); };
 
       return User;
     }

@@ -1,9 +1,9 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .factory("BlockType", ["$resource",
-    function ($resource) {
-      return $resource("https://archimedes.jit.su/blocktype", {}, {
+  .factory("BlockType", ["$resource", "Endpoint",
+    function ($resource, Endpoint) {
+      return $resource(Endpoint("blocktype"), {}, {
         update: {
           method: "PUT"
         }
