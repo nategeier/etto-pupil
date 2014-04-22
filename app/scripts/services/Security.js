@@ -1,14 +1,14 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .factory("Security", ["$http", "$resource",
-    function ($http, $resource) {
+  .factory("Security", ["$http", "$resource", "Endpoint",
+    function ($http, $resource, Endpoint) {
       var Security;
 
       Security = {
 
         sendForgotPw: function (email, callback) {
-          var sendEmail = $resource("/api/v1/user/sendForgotPw/:email", {
+          var sendEmail = $resource(Endpoint("user", "sendForgotPw") + "/:email", {
             email: email
           });
 
@@ -17,7 +17,7 @@ angular.module("ettoPupil")
           });
         },
         verifyPasswordReset: function (code, callback) {
-          var verifyPasswordReset = $resource("/api/v1/user/verifyPasswordReset/:code", {
+          var verifyPasswordReset = $resource(Endpoint("user", "verifyPasswordReset") + "/:code", {
             code: code
           });
 
@@ -27,7 +27,7 @@ angular.module("ettoPupil")
         },
         updatePassword: function (user, callback) {
 
-          $http.post("/api/v1/user/updatePassword", user)
+          $http.post(Endpoint("user", "updatePassword"), user)
             .success(function (data, status, headers, config) {
               callback(data);
             })
@@ -37,8 +37,6 @@ angular.module("ettoPupil")
         }
 
       };
-
-      //$rootScope.login = function() { Session.loginModal(); };
 
       return Security;
     }
