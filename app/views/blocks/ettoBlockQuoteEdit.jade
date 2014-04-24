@@ -1,3 +1,6 @@
-h3 Quotation
-textarea.form-control( type="text", rows="6", ng-model="block.data.quote" )
-input.form-control( type="text", ng-model="block.data.cite" )
+.row.slide
+  .col-md-10.col-md-offset-1
+    blockquote
+      div(editable-textarea="block.data.quote", e-rows="7", e-cols="40", buttons="no", blur="submit", onaftersave="saveCourse()")
+        pre.quote {{ block.data.quote || "quote"}}
+      footer(e-style="", editable-text="block.data.cite", e-rows="7", e-cols="40", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.cite || "author"}}

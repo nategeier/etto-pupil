@@ -5,7 +5,7 @@ describe "Directive: ettoCourse", ->
                     "/views/directives/ettoCourse.html",
                     "/views/blocks/ettoBlockUndefined.html",
                     "/views/blocks/ettoBlockTitle.html",
-                    "/views/blocks/ettoBlockText.html",
+                    "/views/blocks/ettoBlockQuiz.html",
                     "/views/blocks/ettoBlockQuote.html",
                     "/views/blocks/ettoBlockFinished.html"
 
@@ -14,7 +14,7 @@ describe "Directive: ettoCourse", ->
     scope.course =
       blocks: [
         { type: "title", data: {} },
-        { type: "text", data: {} },
+        { type: "quiz", data: {} },
         { type: "quote", data: {} } ]
     element = angular.element "<etto-course></etto-course>"
     element = $compile( element ) scope
@@ -51,4 +51,4 @@ describe "Directive: ettoCourse", ->
     expect( scope.swapBlocks ).toBeDefined()
     scope.swapBlocks(1, 2)
     expect( scope.course.blocks[1].type ).toEqual "quote"
-    expect( scope.course.blocks[2].type ).toEqual "text"
+    expect( scope.course.blocks[2].type ).toEqual "quiz"

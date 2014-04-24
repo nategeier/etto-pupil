@@ -18,6 +18,11 @@
   margin-left: 10px;
   min-height: 300px;
 
+
+  .course-thumb{
+    max-height: 150px;
+  }
+
   .edit-btn{
     margin-top: 20px;
     color:$etto-darkblue;
@@ -35,6 +40,15 @@
     height: 5px;
   }
 }
+
+.store .course-holder{
+  min-height:360px;
+}
+
+.home .course-holder{
+  min-height:360px;
+}
+
 
 
 .course-deck{

@@ -22,8 +22,8 @@ angular.module("ettoPupil")
             name: "quote",
             humanized: "Quote",
           }, {
-            name: "youtube",
-            humanized: "You Tube",
+            name: "video",
+            humanized: "Video",
           }, {
             name: "image",
             humanized: "Image",
@@ -32,6 +32,9 @@ angular.module("ettoPupil")
             humanized: "Quiz",
           }, {
             name: "three-images",
+            humanized: "Images",
+          }, {
+            name: "four-images",
             humanized: "Images",
           }, {
             name: "define",

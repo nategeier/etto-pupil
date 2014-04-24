@@ -1,4 +1,14 @@
-h3 Basic Text - Three Areas
-textarea.form-control( type="text", rows="6", ng-model="block.data.text1" )
-textarea.form-control( type="text", rows="6", ng-model="block.data.text2" )
-textarea.form-control( type="text", rows="6", ng-model="block.data.text3" )
+
+h1(editable-text="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.title || 'title'}}
+h2(editable-text="block.data.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.subtitle || 'subtitle'}}
+
+.col-lg-4
+  div(href="#", editable-textarea="block.data.copy1", e-rows="12", e-cols="40", buttons="no", blur="submit", onaftersave="saveCourse()") 
+    pre {{ block.data.copy1 || 'copy'}}
+.col-lg-4
+  div(href="#", editable-textarea="block.data.copy2", e-rows="12", e-cols="40", buttons="no", blur="submit", onaftersave="saveCourse()") 
+    pre {{ block.data.copy2 || 'copy'}}
+
+.col-lg-4
+  div(href="#", editable-textarea="block.data.copy3", e-rows="12", e-cols="40", buttons="no", blur="submit", onaftersave="saveCourse()") 
+    pre {{ block.data.copy3 || 'copy'}}
