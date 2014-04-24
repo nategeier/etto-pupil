@@ -25,11 +25,11 @@ angular.module("ettoPupil")
       }
     });
 
-    Asset.prototype.getS3Policy = function (mimetype, done) {
+    Asset.prototype.getS3Policy = function (fileObj, done) {
       var self = this;
 
       $http
-        .get(resourceBase + "/getS3Policy?mimeType=" + mimetype)
+        .get(resourceBase + "/getS3Policy?fileName=" + fileObj.name + "&mimeType=" + fileObj.type)
         .success(function (response) {
           self.s3 = response;
           done(response);
