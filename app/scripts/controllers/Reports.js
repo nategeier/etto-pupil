@@ -14,6 +14,10 @@ angular.module("ettoPupil")
         $scope.parentID = null;
       }
 
+      $scope.showCourseReportToggle = function () {
+        $scope.showCourseReport = !$scope.showCourseReport;
+      };
+
       $scope.listUsers = function () {
         Users.listUsersInTier($scope.parentID, function (users) {
           $scope.users = users;
