@@ -18,8 +18,6 @@
   }
 }
 
-.main-image-message{
-}
 
 .leaderboard-img-btn{
   position:absolute;
@@ -37,6 +35,17 @@
   opacity: 1;
 }
 
+.main-image-message{
+  padding:20px;
+}
+
+.main-image-message p, .main-image-message h3{
+  color:#fff;
+  
+}
+.main-image-message h3{
+  margin-top:0;
+}
 
 
 .main-holder{

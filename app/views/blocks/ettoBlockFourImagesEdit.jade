@@ -1,0 +1,19 @@
+
+.row
+  .container
+    .col-md-4.col-lg-6
+      img.img-responsive.img-uploadable(src="{{ block.data.img1 || '/images/courses/default/image-block1.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlock(block, 'img1', 400, 300)")
+      h4(editable-text="block.data.img1Head", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.img1Head || 'title'}}
+      pre(editable-textarea="block.data.img1Copy", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.img1Copy || 'copy'}}
+    .col-md-4.col-lg-6
+      img.img-responsive.img-uploadable(src="{{ block.data.img2 || '/images/courses/default/image-block2.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlock(block, 'img2', 400, 300)")
+      h4(editable-text="block.data.img2Head", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.img2Head || 'title'}}
+      pre(editable-textarea="block.data.img2Copy", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.img2Copy || 'copy'}}
+    .col-md-4.col-lg-6
+      img.img-responsive.img-uploadable(src="{{ block.data.img3 || '/images/courses/default/image-block2.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlock(block, 'img3', 400, 300)")
+      h4(editable-text="block.data.img3Head", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.img3Head || 'title'}}
+      pre(editable-textarea="block.data.img3Copy", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.img3Copy || 'copy'}}
+    .col-md-4.col-lg-6
+      img.img-responsive.img-uploadable(src="{{ block.data.img4 || '/images/courses/default/image-block3.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlock(block, 'img4', 400, 300)")
+      h4(editable-text="block.data.img3Head", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.img3Head || 'title'}}
+      pre(editable-textarea="block.data.img3Copy", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.img3Copy || 'copy'}}
