@@ -1,0 +1,57 @@
+
+<etto-logged-in-nav></etto-logged-in-nav>
+<div class="container-full">
+  <div class="row">
+    <div class="col-md-12">
+      <etto-settings-nav active="payments"></etto-settings-nav>
+      <h1>Billing Credits = {{credit.credits}}</h1>
+      <div class="col-sm-12 col-md-6">
+        <h3>Used</h3>
+        <table class="table table-bordered">
+          <tr>
+            <th>Course</th>
+            <th>Amount Used</th>
+          </tr>
+          <tr ng-repeat="course in usedCredit.courses">
+            <td>{{course.title}}</td>
+            <td>${{course.used}}</td>
+          </tr>
+        </table>
+        <h3>Recieved</h3>
+        <table class="table table-bordered">
+          <tr>
+            <th>Course</th>
+            <th>Payed</th>
+            <th>Purchaser</th>
+            <th>Company Credits</th>
+            <th>Date</th>
+          </tr>
+          <tr ng-repeat="payment in payments">
+            <td>${{payment._course.title}}</td>
+            <td>${{payment.credits}}</td>
+            <td>{{payment._company}}</td>
+            <td>{{payment.companyCredits}}</td>
+            <td>{{payment.createdAt}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <h3>Purchases</h3>
+        <table class="table table-bordered">
+          <tr>
+            <th>Credits</th>
+            <th>Purchaser</th>
+            <th>Company Credits</th>
+            <th>Date</th>
+          </tr>
+          <tr ng-repeat="purchase in purchases">
+            <td>${{purchase.credits}}</td>
+            <td>{{purchase.purchaser.name}}</td>
+            <td>{{purchase.companyCredits}}</td>
+            <td>{{purchase.date}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

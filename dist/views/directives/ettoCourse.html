@@ -1,0 +1,6 @@
+
+<div>
+  <etto-block ng-repeat="block in course.blocks" ng-show="isCurrentBlock( $index )" block="block" class="block"></etto-block>
+</div>
+<div ng-click="prevBlock()" class="etto-course-prev-block"><i class="fa fa-3x fa-arrow-circle-left"></i></div>
+<div ng-click="nextBlock()" class="etto-course-next-block"><i class="fa fa-3x fa-arrow-circle-right"></i></div>

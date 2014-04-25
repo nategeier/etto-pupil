@@ -1,0 +1,36 @@
+
+<div class="modal-header">
+  <div class="row">
+    <div class="col-sm-4 col-md-8">
+      <h2 class="modal-title">Login</h2>
+    </div>
+    <div class="col-sm-4 col-md-4">
+      <div class="btn-group sign-on-btns"><a href="/api/v1/auth/github/" target="_self" class="btn btn-default"><i class="fa fa-github-square fa-2x"></i></a><a href="/api/v1/auth/facebook/" target="_self" class="btn btn-default"><i class="fa fa-facebook fa-2x"></i></a><a href="/api/v1/auth/google/" target="_self" class="btn btn-default"><i class="fa fa-google-plus-square fa-2x"></i></a></div>
+    </div>
+  </div>
+</div>
+<div class="modal-body">
+  <form ng-submit="handleLogin(user)">
+    <div class="col-md-12"> 
+      <div ng-show="err">
+        <div class="alert alert-danger">{{err.message}}</div>
+      </div>
+      <div class="form-group">
+        <input type="text" ng-model="user.username" placeholder="Enter your email address..." autocomplete="on" required="required" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <input type="password" ng-model="user.password" placeholder="Enter your password..." required="required" class="form-control"/>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <input type="submit" value="Login" class="btn btn-success btn-sm"/>
+    </div>
+    <div class="btn-group col-md-8">
+      <div class="pull-right">
+        <button type="button" ng-click="cancel()" class="btn btn-default btn-xs">Cancel</button>
+        <button type="button" ng-click="sendForgotPw()" class="btn btn-default btn-xs">Forgot Password</button>
+      </div>
+    </div>
+  </form>
+  <div class="clearfix"></div>
+</div>

@@ -81,6 +81,17 @@ angular.module("ettoPupil")
             });
         },
 
+        inviteDetails: function (id, callback) {
+
+          $http.get(Endpoint("user", "inviteDetails/") + id)
+            .success(function (data, status, headers, config) {
+              callback(data);
+            })
+            .error(function (data, status, headers, config) {
+              console.dir(data);
+            });
+        },
+
         fullDetails: function (id, callback) {
 
           $http.get(Endpoint("user", "fullDetails/") + id)

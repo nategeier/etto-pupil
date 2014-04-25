@@ -24,6 +24,16 @@ angular.module("ettoPupil")
           });
         },
 
+        getCompany: function (id, callback) {
+          var Company = $resource(Endpoint("tier", "getCompany") + "/:id", {
+            id: id
+          });
+
+          Company.get(function (results) {
+            callback(results);
+          });
+        },
+
         listCompanyCreatedCourses: function (id, callback) {
           var Courses = $resource(Endpoint("course", "listCompanyCreatedCourses") + "/:id", {
             id: id
