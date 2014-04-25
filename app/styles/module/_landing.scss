@@ -1,0 +1,23 @@
+.etto-landing {
+  .main-image-message {
+    & h3, p {
+      text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+    }
+  }
+}
+
+.etto-landing__socialmedia {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+
+  & a i {
+    color: #fff;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+    margin-right: 10px;
+  }
+}
+
+.etto-landing__youtube-demo {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.75);
+}

@@ -1,63 +1,61 @@
 etto-not-logged-in-nav
 
-.header.main-img
+.header.main-img.etto-landing
   .container
     .row
       div.hidden-xs(style="height:30px;")
       .col-xs-12.col-sm-6.col-md-6
         .col-md-12
           .main-image-message
-            h3 Start creating, taking, tracking, and sharing corperate training courses
+            h3 Start creating, taking, tracking, and sharing corporate training courses.
             p.hidden-xs Coursetto is a mobile ready, sharable, learning management system that empowers you or anyone else in your company to create, purchase, distribute, and track online training.
             a.btn.btn-default.btn-sm(href="mailto:nate@coursetto.com") Request a beta code
-            
 
       .col-md-2
       .col-xs-12.col-sm-6.col-md-4
-        iframe.img-responsive.etto-demo-youtube(style="min-height:200px;max-height:400px;",width="1270", height="728", src="//www.youtube.com/embed/YWp3GysKbY8?showinfo=0&controls=2", frameborder="0", allowfullscreen)
-  .btn-group.social-media.hidden-xs
+        iframe.img-responsive.etto-landing__youtube-demo(style="min-height:200px;max-height:400px;",width="1270", height="728", src="//www.youtube.com/embed/LVb8QrEBgJw?showinfo=0&controls=2", frameborder="0", allowfullscreen)
+  .btn-group.hidden-xs.etto-landing__socialmedia
     a(href="https://twitter.com/Coursetto")
-      i.fa.fa-twitter.social-btn.fa-2x
+      i.fa.fa-twitter.fa-2x
     a(href="https://www.youtube.com/user/coursetto")
-      i.fa.fa-youtube-play.social-btn.fa-2x
+      i.fa.fa-youtube-play.fa-2x
     a(href="https://www.linkedin.com/company/5153924?trk=prof-0-ovw-curr_pos")
-      i.fa.fa-linkedin.social-btn.fa-2x
+      i.fa.fa-linkedin.fa-2x
     a(href="https://www.facebook.com/coursetto")
-      i.fa.fa-facebook.social-btn.fa-2x
+      i.fa.fa-facebook.fa-2x
     a(href="mailto:admin@coursetto.com")
-      i.fa.fa-envelope.social-btn.fa-2x
+      i.fa.fa-envelope.fa-2x
+
 .container
   .row
     h2.text-center Create a custom company structure
     .col-xs-12.col-sm-4.col-md-4
       img.img-responsive(src='/images/landing/old.jpg')
-      h4 Old way
-      p Tracking employee courses in a large company structure can be impossible with any other out of the-box solution.
+      h4 The Old Way
+      p Tracking employee course progress in a large company structure can be difficult with other out-of-the-box solutions.
     .col-xs-12.col-sm-4.col-md-4
       img.img-responsive(src='/images/landing/new.jpg')
-      h4 Coursetto way
-      p Create your company organization tree anyway you like and place managers to create micro training environments.
-
+      h4 The Coursetto Way
+      p Create your company's organization tree any way you need. Place managers in charge of their own tier to create micro training environments.
     .col-xs-12.col-sm-4.col-md-4
       img.img-responsive(src='/images/landing/small.jpg')
-      h4 Graphs!
-      p Track all your lower tiers. Set mangers to higher tier and delegate training.
+      h4 And You Get Graphs!
+      p Assign managers and employees to their own tiers and delegate training. Then track progress across all tiers.
 
 .reverse-bkd
   .container
     h2.text-center Course Creation
-    p.text-center Pay per private courses your company creates
     .col-sm-12.col-md-6
       img.img-responsive(src='/images/landing/demo1.jpg')
       img.img-responsive(src='/images/landing/demo2.jpg')
       img.img-responsive(src='/images/landing/demo3.jpg')
     .col-xs-12.col-sm-12.col-md-6
-      h4 Anyone can create courses
-      p Allow anyone in your company to create and manage courses making custom content a breeze on desktop or mobile.
-      p You can always restrict anyones access to disable creating, purchasing and managing of users.
+      h4 Anyone Can Create Courses
+      p Allow anyone in your company to create and manage courses, or restrict permissions where appropriate.
+      p Creating custom content is a breeze on desktop and mobile.
 
       h4 Subscriptions
-      p Price is based on number of employees enrolled
+      p Pricing is based on number of employees enrolled and the number of private courses you need to distribute:
       .col-sm-12.col-md-12
         ul.nav.nav-tabs
           li(ng-click="show(subscriptionType._id)", ng-repeat="subscriptionType in subscriptionTypes", ng-class="{active: onSubscription === subscriptionType._id}")
