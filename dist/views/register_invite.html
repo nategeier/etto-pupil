@@ -1,0 +1,43 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"><img src="/images/site/logo-large.png" class="img-responsive"/></div>
+    <div class="col-md-8">
+      <div class="modal-header">
+        <button type="button" class="close"></button>
+        <h2 class="modal-title">Register</h2>
+      </div>
+      <div class="modal-body">
+        <div class="col-sm-8 col-md-8">
+          <p>{{inviteUser._id}}</p>
+          <div ng-show="err" class="alert alert-danger">
+            <p>{{err}}</p>
+          </div>
+          <form ng-submit="confirmUser()" novalidate="novalidate" class="css-form">
+            <div class="form-group">
+              <input type="text" ng-model="newUser.name" placeholder="name" autocomplete="on" required="required" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <input type="email" ng-model="newUser.emails[0]" placeholder="email" autocomplete="on" required="required" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <input type="text" ng-model="newUser.username" placeholder="username" autocomplete="on" required="required" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <input type="password" ng-model="newUser.password" placeholder="password" autocomplete="on" required="required" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Create" class="btn btn-primary"/>
+            </div>
+          </form>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <p>Or use single sign on</p>
+          <div class="btn-group-vertical btn-group-justified sign-on-btns"><a href="/api/v1/auth/github/?userId={{newUser._id}}" target="_self" class="btn btn-default"><i class="fa fa-github-square fa-2x"></i></a><a href="/api/v1/auth/facebook/" target="_self" class="btn btn-default"><i class="fa fa-facebook fa-2x"></i></a><a href="/api/v1/auth/google/" target="_self" class="btn btn-default"><i class="fa fa-google-plus-square fa-2x"></i></a></div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>

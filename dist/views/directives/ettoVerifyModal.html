@@ -1,0 +1,31 @@
+
+<div class="modal-header">
+  <button type="button" class="close"></button>
+  <h2 class="modal-title">Almost Done...</h2>
+</div>
+<div class="modal-body">
+  <div ng-show="err" class="alert alert-danger">
+    <p>{{err}}</p>
+  </div>
+  <form ng-submit="handleLogin(user)" novalidate="novalidate" class="css-form">
+    <div class="form-group">
+      <input type="text" ng-model="user.tier.title" placeholder="Company Name" autocomplete="on" required="required" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <input type="text" ng-model="user.name" placeholder="name" autocomplete="on" required="required" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <input type="email" ng-model="user.emails" placeholder="email" autocomplete="on" required="required" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <input type="text" ng-model="user.username" placeholder="username" autocomplete="on" required="required" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <input type="password" ng-model="user.password" placeholder="password" autocomplete="on" required="required" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Create" class="btn btn-primary"/>
+    </div>
+  </form>
+</div>
+<4></4>

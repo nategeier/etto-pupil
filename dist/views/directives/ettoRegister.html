@@ -1,0 +1,42 @@
+
+<div class="modal-header">
+  <button type="button" class="close"></button>
+  <h2 class="modal-title">Register</h2>
+</div>
+<div class="modal-body">
+  <div class="col-md-8">
+    <div ng-show="err" class="alert alert-danger">
+      <p>{{err}}</p>
+    </div>
+    <form ng-submit="handleLogin()" novalidate="novalidate" class="css-form">
+      <div class="form-group">
+        <input type="text" ng-model="newUser.code" placeholder="Beta Code" autocomplete="on" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <input type="text" ng-model="newUser.tierTitle" placeholder="Company Name" autocomplete="on" required="required" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <input type="text" ng-model="newUser.name" placeholder="name" autocomplete="on" required="required" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <input type="email" ng-model="newUser.emails" placeholder="email" autocomplete="on" required="required" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <input type="text" ng-model="newUser.username" placeholder="username" autocomplete="on" required="required" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <input type="password" ng-model="newUser.password" placeholder="password" autocomplete="on" required="required" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary btn-sm"/>
+        <button type="button" ng-click="cancel()" class="btn btn-default btn-sm">Cancel</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <h4>Beta Mode</h4>
+    <p>If you dont have a code you can create an account without a code and we'll get back to you soon.</p>
+  </div>
+  <div class="clearfix"></div>
+</div>

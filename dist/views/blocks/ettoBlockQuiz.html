@@ -1,0 +1,24 @@
+
+<div class="row quiz-block">
+  <div class="col-md-10 col-md-offset-1">
+    <div ng-show="!isEditing">
+      <div ng-repeat="q in block.data.questions track by $index">
+        <div id="question{{$index}}" class="question col-md-10 col-md-offset-1">
+          <h4>{{$index + 1}}. {{q.question}}</h4>
+          <div ng-repeat="a in q.answers track by $index">
+            <div ng-click="checkAnswer(a.correct, $parent.$index)" class="btn btn-default w100">
+              <div class="radio">
+                <label>{{alphabet[$index]}} ) {{a.answer}}
+                  <input type="radio" name="q{{$parent.$index}}"/>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-md-offset-3">
+        <button ng-click="evaluate()" class="btn btn-success w100">Evaluate</button>
+      </div>
+    </div>
+  </div>
+</div>

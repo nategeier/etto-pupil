@@ -1,0 +1,85 @@
+
+<etto-logged-in-nav></etto-logged-in-nav>
+<div class="col-md-12">
+  <etto-settings-nav active="settings"></etto-settings-nav>
+  <h1>Settings</h1>
+  <div class="col-sm-7 col-md-7 col-lg-5 pocket">
+    <div class="col-md-6">
+      <p editable-text="editUser.name" buttons="no" blur="submit" onaftersave="updateUser()">{{editUser.name || 'name'}}</p>
+      <p>Username {{editUser.username}}</p>
+      <p>Location: {{editUser._tier.title}}</p>
+      <h4>Change Tier</h4>
+      <div class="input-group">
+        <input etto-search-tiers="etto-search-tiers" type="text" ng-model="tierSearch" placeholder="Search title or Internal ID" ng-change="searchTiers()" class="form-control"/>
+        <div class="input-group-btn">
+          <button class="btn btn-default"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+      <div ng-repeat="tier in foundTiers">
+        <button ng-click="updateUserTier(tier._id, tier.title)" class="btn btn-default w100">{{tier.title}} {{tier.internalId}}</button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Emails:</h4>
+      <div ng-repeat="email in editUser.emails">
+        <p type="email" editable-text="editUser.emails[$index]" buttons="no" blur="submit" onaftersave="updateUser()">{{editUser.emails[$index] || 'email'}}
+          <button ng-click="removeEmail($index)" class="btn btn-warning btn-xs">X</button>
+        </p>
+      </div>
+      <button ng-click="addEmail()" class="btn btn-default btn-sm">Add Email</button>
+    </div>
+  </div>
+  <div class="col-sm-5 col-md-5 col-lg-3"><img src="{{editUser.avatarUrl}}" class="img-circle user-thumb"/><i ng-show="!editUser.avatarUrl" class="fa fa-user fa-3x center-block"></i>
+    <button etto-asset-library-modal="etto-asset-library-modal" ng-click="updateAvatar()" class="btn btn-success"><i class="fa fa-camera"></i></button>
+    <div ng-if="user._id !== editUser._id">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="editUser.auth.canEditCompany" ng-change="updateUser()"/>Can Edit Company Appearance
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="editUser.auth.canPurchase" ng-change="updateUser()"/>Can Purchase
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="editUser.auth.canGetCourses" ng-change="updateUser()"/>Can Get Courses
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="editUser.auth.canCreateCourses" ng-change="updateUser()"/>Can Create Courses
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="editUser.auth.canInvite" ng-change="updateUser()"/>Can Invite Users to {{editUser._tier.title}}
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="editUser.enabled" ng-change="updateUser()"/>Is Enabled
+        </label>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12">
+      <div ng-show="saved" class="alert alert-success">
+        <p>saved</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 side-panel">
+    <div class="modal-header">
+      <h4 class="modal-title">Course Records</h4>
+    </div>
+    <p ng-show="!userRecords[0]">-- {{editUser.name}} has not taken any courses yet.</p>
+    <div ng-repeat="record in userRecords">
+      <h4>{{record._course.title}}</h4><small>Date taken {{record.started}}</small>
+      <div class="progress">
+        <div role="progressbar" aria-valuenow="{{(record.progress.bookmark/record.progress.totalBlocks) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{(record.progress.bookmark/record.progress.totalBlocks) * 100}}%;" class="progress-bar"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clearfix"></div>

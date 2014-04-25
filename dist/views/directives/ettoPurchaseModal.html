@@ -1,0 +1,66 @@
+
+<div class="modal-header">
+  <button type="button" class="close"></button>
+  <h2 class="modal-title">Purchase Credits</h2>
+</div>
+<div class="modal-body">
+  <form ng-submit="handlePurchase(card, addedCredits)" ng-show="!customer.cards.data[0]">
+    <div class="form-group col-md-main col-md-12 col-sm-12">
+      <div class="input-group"><span class="input-group-addon">$</span>
+        <input type="text" required="required" ng-model="addedCredits" class="form-control"/><span class="input-group-addon">.00</span>
+      </div>
+    </div>
+    <div class="form-group col-md-12">
+      <input type="text" ng-model="card.number" placeholder="number" autocomplete="on" required="required" class="form-control"/>
+    </div>
+    <div class="form-group col-md-4">
+      <input type="text" ng-model="card.exp_month" placeholder="exp_month" required="required" class="form-control"/>
+    </div>
+    <div class="form-group col-md-4">
+      <input type="text" ng-model="card.exp_year" placeholder="exp year" required="required" class="form-control"/>
+    </div>
+    <div class="form-group col-md-4">
+      <input type="text" ng-model="card.cvc" placeholder="cvc" required="required" class="form-control"/>
+    </div>
+    <div class="btn-group col-md-5">
+      <button type="button" ng-click="handleCancil()" class="btn btn-default">Cancel</button>
+      <input type="submit" value="Purchase" class="btn btn-success"/>
+    </div>
+    <div class="col-md-7">
+      <div ng-show="err" class="alert alert-danger">
+        <p>{{err}}</p>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </form>
+  <div ng-show="customer.cards.data[0]">
+    <div class="col-md-main col-md-8 col-sm-8">
+      <form ng-submit="handlePurchase(customer.cards.data[0], addedCredits)">
+        <div ng-show="!subscription" class="input-group"><span class="input-group-addon">$</span>
+          <input type="text" required="required" ng-model="addedCredits" class="form-control"/><span class="input-group-addon">.00</span>
+        </div>
+        <h2 ng-show="subscription">${{addedCredits}}</h2>
+        <p>{{ addedCredits }} Credits will be added to {{user._tier.title}}</p>
+        <blockquote><small>Credits are only used when a user takes a course</small></blockquote>
+        <div class="form-group">
+          <div class="btn-group">
+            <input type="submit" value="Purchase" class="btn btn-success btn-sm"/>
+            <button type="button" ng-click="handleCancil()" class="btn btn-default btn-sm">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-main col-md-4 col-sm-4"><i class="fa fa-credit-card fa-2x pull-left"></i>
+      <h4>Card on file</h4>
+      <div ng-show="!success">
+        <p>**** **** **** {{customer.cards.data[0].last4}}</p>
+        <p>{{customer.cards.data[0].type}}</p>
+        <button etto-delete-card="etto-delete-card" ng-click="deleteCard(user._tier._company, customer.active_card.id)" class="btn btn-default btn-xs">Delete Card</button>
+      </div>
+      <div ng-show="success" class="alert alert-success">
+        <p>{{success}}</p>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
