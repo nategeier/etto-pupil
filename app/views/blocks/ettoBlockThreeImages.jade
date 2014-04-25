@@ -1,13 +1,18 @@
-.col-lg-12
-  h1(editable-text="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.title || 'title'}}
-  h2(editable-text="block.data.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.subtitle || 'subtitle'}}
-
-.clearfix
+.row
+  .col-lg-12
+    h1 {{block.data.title }}
+    h2 {{block.data.subtitle }}
 hr
-
-.col-lg-4
-  img.img-responsive.img-uploadable(src="{{ block.data.img1 || '/images/courses/default/image-block.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlock(block, 'img1', 400, 300)")
-.col-lg-4
-  img.img-responsive.img-uploadable(src="{{ block.data.img2 || '/images/courses/default/image-block.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlock(block, 'img2', 400, 300)")
-.col-lg-4
-  img.img-responsive.img-uploadable(src="{{ block.data.img3 || '/images/courses/default/image-block.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlock(block, 'img3', 400, 300)")
+.row
+  .col-md-4.col-lg-4
+    img.img-responsive(src="{{ block.data.img1 || '/images/courses/default/image-block1.jpg'}}")
+    h4 {{block.data.img1Head }}
+    pre {{block.data.img1Copy }}
+  .col-md-4.col-lg-4
+    img.img-responsive(src="{{ block.data.img2 || '/images/courses/default/image-block2.jpg'}}")
+    h4 {{block.data.img2Head }}
+    pre {{block.data.img2Copy }}
+  .col-md-4.col-lg-4
+    img.img-responsive(src="{{ block.data.img3 || '/images/courses/default/image-block3.jpg'}}")
+    h4 {{block.data.img3Head }}
+    pre {{block.data.img3Copy }}

@@ -6,17 +6,17 @@
 <div class="modal-body">
   <form ng-submit="createCourse()" ng-show="subscriptionGood === true">
     <div class="form-group">
-      <input type="text" ng-model="course.title" placeholder="title" autocomplete="on" required="required" class="form-control"/>
+      <input type="text" ng-model="course.title" placeholder="title" autocomplete="on" required="required" maxlength="40" class="form-control"/>
     </div>
     <div class="form-group">
-      <input type="text" ng-model="course.subtitle" placeholder="subTitle" required="required" class="form-control"/>
+      <input type="text" ng-model="course.subtitle" placeholder="subTitle" required="required" maxlength="40" class="form-control"/>
     </div>
     <div class="form-group">
-      <input type="submit" value="Create" class="btn btn-primary"/>
+      <input type="submit" value="Create" class="btn btn-default"/>
     </div>
   </form>
   <div ng-show="subscriptionGood === false">
     <p>Looks like you need a higher subscription to create another course.</p>
-    <button type="button" ng-click="linkSubscription()" class="btn btn-primary">Subscriptions</button>
+    <button type="button" ng-click="linkSubscription()" class="btn btn-default">Subscriptions</button>
   </div>
 </div>

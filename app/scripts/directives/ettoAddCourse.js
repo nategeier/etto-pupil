@@ -10,7 +10,7 @@ angular.module("ettoPupil")
           $scope.addCourse = function () {
 
             var user = $scope.user;
-            var createdCourses = $scope.createdCourses;
+            //var createdCourses = $scope.createdCourses;
 
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoAddCourseModal.html",
@@ -18,16 +18,12 @@ angular.module("ettoPupil")
 
                 $scope.user = user;
 
-                if (createdCourses && createdCourses.length >= 1) {
-
-                  Payment.checkCanAddCourse(user._tier._company, function (result) {
-                    $scope.subscriptionGood = result.isGood;
-                  });
-                } else {
-                  $scope.subscriptionGood = true;
-                }
+                Payment.checkCanAddCourse(user._tier._company, function (result) {
+                  $scope.subscriptionGood = result.isGood;
+                });
 
                 $scope.course = {};
+
                 $scope.createCourse = function () {
 
                   $modalInstance.close($scope.course);
@@ -47,9 +43,6 @@ angular.module("ettoPupil")
 
               CourseMetaChange.create(course, function (data) {
 
-                if (data) {
-                  //  $scope.listUsersCreatedCourses();
-                }
                 $location.path("/course/edit/" + data._id);
 
               });

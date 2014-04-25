@@ -2,11 +2,11 @@ describe "Directive: ettoBlock", ->
   scope = element = httpBackend = null
 
   beforeEach module "ettoPupil",
-                    "/views/blocks/ettoBlockText.html"
+                    "/views/blocks/ettoBlockQuiz.html"
 
   beforeEach inject ( $rootScope, $compile, $httpBackend ) ->
     scope = $rootScope.$new()
-    scope.block = { type: "text", data: { text: "Test" } }
+    scope.block = { type: "quiz", data: { text: "Test" } }
 
     element = angular.element "<etto-block></etto-block>"
     element = $compile( element ) scope
@@ -19,4 +19,4 @@ describe "Directive: ettoBlock", ->
 
   it "set blockTemplate properly", ->
     scope.$digest()
-    expect( element.scope().blockTemplate ).toBe "/views/blocks/ettoBlockText.html"
+    expect( element.scope().blockTemplate ).toBe "/views/blocks/ettoBlockQuiz.html"

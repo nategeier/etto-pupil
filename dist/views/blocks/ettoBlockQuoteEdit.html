@@ -1,4 +1,11 @@
 
-<h3>Quotation</h3>
-<textarea type="text" rows="6" ng-model="block.data.quote" class="form-control"></textarea>
-<input type="text" ng-model="block.data.cite" class="form-control"/>
+<div class="row slide">
+  <div class="col-md-10 col-md-offset-1">
+    <blockquote>
+      <div editable-textarea="block.data.quote" e-rows="7" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()">
+        <pre class="quote">{{ block.data.quote || "quote"}}</pre>
+      </div>
+      <footer e-style="" editable-text="block.data.cite" e-rows="7" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.cite || "author"}}</footer>
+    </blockquote>
+  </div>
+</div>

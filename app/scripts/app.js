@@ -86,14 +86,33 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
         });
     }
   ]).run(function ($rootScope, editableOptions) {
+    var environment = "production";
+
+    // Production
+    if (environment === "production") {
+      $rootScope.config = {
+        "api": {
+          "server": "https://archimedes.jit.su",
+          "version": ""
+        },
+        "aws": {
+          "bucket": "etto-production"
+        }
+      };
+    }
+
+    // Development
+    if (environment === "development") {
+      $rootScope.config = {
+        "api": {
+          "server": "/",
+          "version": "api/v1"
+        },
+        "aws": {
+          "bucket": "etto-archimedes-test"
+        }
+      };
+    }
+
     editableOptions.theme = "bs3"; // bootstrap3 theme. Can be also 'bs2', 'default'
-    $rootScope.config = {
-      "api": {
-        "server": "https://archimedes.jit.su",
-        "version": "",
-      },
-      "aws": {
-        "bucket": "etto-production"
-      }
-    };
   });

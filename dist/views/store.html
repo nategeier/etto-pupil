@@ -1,17 +1,17 @@
 
 <etto-logged-in-nav></etto-logged-in-nav>
-<div class="container-full">
+<div class="container-full store">
   <div class="row">
     <div class="left-holder col-md-9 nopad">
       <div class="leaderboard">
         <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-7">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <div class="col-xs-12">
-              <h3>Add a course to the right people</h3>
+              <h4>Add a course to the right people</h4>
               <input type="text" ng-model="searchCourse" placeholder="Search Courses" class="form-control"/>
             </div>
           </div>
-          <div id="head-img" class="col-sm-6 col-md-6 col-lg-5"><img src="/images/leaderboard/market/default-lg.jpg" class="img-responsive pull-left default-lg"/></div>
+          <div id="head-img" class="col-sm-6 col-md-6 col-lg-6 hidden-xs"><img src="/images/leaderboard/market/default-lg.jpg" class="img-responsive pull-left default-lg"/></div>
         </div>
       </div>
       <div ng-show="err" class="alert alert-danger">
@@ -21,7 +21,7 @@
         <div class="col-sm-6 col-md-4 col-lg-3 nopad">
           <div sink-in="sink-in" ng-class="course.added ? 'closed-course' : 'open-course'" class="course-holder">
             <div class="row">
-              <div class="col-xs-12"><img src="{{course.thumb}}" class="img-responsive"/></div>
+              <div class="col-xs-12"><img src="{{course.thumb}}" class="img-responsive course-thumb"/></div>
             </div>
             <div class="row">
               <div class="col-md-7">

@@ -1,7 +1,7 @@
 
 <etto-logged-in-nav></etto-logged-in-nav>
 <etto-verify-modal redirect-to="/etto"></etto-verify-modal>
-<div class="container-full">
+<div class="container-full home">
   <div class="row">
     <div ng-class="user.auth.canCreateCourses ? 'col-md-9' : 'col-md-12'" class="left-holder col-sm-12 nopad">
       <div etto-update-company="etto-update-company" class="leaderboard">
@@ -21,7 +21,8 @@
         </div>
         <div ng-repeat="course in usersCourses" class="animate-repeat">
           <div ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-md-4 col-lg-3' : 'col-sm-6 col-md-3 col-lg-2'" class="nopad">
-            <div sink-in="sink-in" ng-click="openCourse(course)" class="course-holder"><img src="{{course.thumb}}" class="img-responsive user-course-thumb"/><img src="/images/courses/badges/default.png" ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks &amp;&amp; course._record.progress.totalBlocks !== 1" class="img-responsive badge"/>
+            <div sink-in="sink-in" ng-click="openCourse(course)" class="course-holder"><img src="{{course.thumb}}" class="img-responsive course-thumb"/>
+              <div ng-if="course._record"><img src="/images/courses/badges/default.png" ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks &amp;&amp; course._record.progress.totalBlocks !== 1" class="img-responsive badge"/></div>
               <div class="row"> 
                 <div class="col-xs-12">
                   <h4>{{course.title}}</h4>
