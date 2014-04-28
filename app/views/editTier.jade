@@ -49,7 +49,7 @@ etto-logged-in-nav
       .modal-header
         h4.modal-title Users
       div(ng-repeat="user in users")
-        .course-holder(sink-in)
+        div(sink-in)
           a(href = "/settings/{{user._id}}")
             .row
               .col-xs-4
