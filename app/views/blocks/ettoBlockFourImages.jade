@@ -1,14 +1,21 @@
-
 .row
-  .col-md-4.col-lg-4
+  .col-lg-12
+    h1 {{block.data.title }}
+    h2 {{block.data.subtitle }}
+.row
+  .col-sm-6.col-md-6.col-lg-6(ng-if="block.data.img1")
     img.img-responsive(src="{{ block.data.img1 || '/images/courses/default/image-block1.jpg'}}")
     h4 {{block.data.img1Head }}
     pre {{block.data.img1Copy }}
-  .col-md-4.col-lg-4
+  .col-sm-6.col-md-6.col-lg-6(ng-if="block.data.img2")
     img.img-responsive(src="{{ block.data.img2 || '/images/courses/default/image-block2.jpg'}}")
     h4 {{block.data.img2Head }}
     pre {{block.data.img2Copy }}
-  .col-md-4.col-lg-4
+  .col-sm-6.col-md-6.col-lg-6(ng-if="block.data.img3")
     img.img-responsive(src="{{ block.data.img3 || '/images/courses/default/image-block3.jpg'}}")
+    h4 {{block.data.img3Head }}
+    pre {{block.data.img3Copy }}
+  .col-sm-6.col-md-6.col-lg-6(ng-if="block.data.img4")
+    img.img-responsive(src="{{ block.data.img4 || '/images/courses/default/image-block3.jpg'}}")
     h4 {{block.data.img3Head }}
     pre {{block.data.img3Copy }}

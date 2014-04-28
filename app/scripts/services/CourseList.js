@@ -46,7 +46,7 @@ angular.module("ettoPupil")
             });
         },
         listCompanyCourses: function (tierId, done) {
-          var Courses = $resource(Endpoint("course", "listCompanyCourses/") + "/:id", {
+          var Courses = $resource(Endpoint("course", "listCompanyCourses/") + ":id", {
             id: tierId
           });
 

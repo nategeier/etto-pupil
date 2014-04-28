@@ -67,7 +67,7 @@
         <h4 class="modal-title">Users</h4>
       </div>
       <div ng-repeat="user in users">
-        <div sink-in="sink-in" class="course-holder"><a href="/settings/{{user._id}}">
+        <div sink-in="sink-in"><a href="/settings/{{user._id}}">
             <div class="row">
               <div class="col-xs-4"><img ng-show="user.avatarUrl" src="{{user.avatarUrl}}" class="img-circle user-thumb"/><i ng-show="!user.avatarUrl" class="fa fa-user fa-3x center-block"></i></div>
               <div class="col-xs-8">

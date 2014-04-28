@@ -11,12 +11,12 @@
   </div>
   <div id="etto-navbar" class="collapse navbar-collapse">
     <ul class="nav navbar-nav">
-      <li><a href="/etto" class="navbar-btn"><i class="fa fa-home fa-2x"></i><small>home</small></a></li>
+      <li><a href="/etto" class="navbar-btn"><i class="fa fa-home"></i><small>home</small></a></li>
       <li class="divider"></li>
-      <li ng-show="user.auth.canGetCourses"><a href="/store/{{user._tier._id}}" class="navbar-btn"><i class="fa fa-ticket fa-2x"></i><small>market</small></a></li>
+      <li ng-show="user.auth.canGetCourses"><a href="/store/{{user._tier._id}}" class="navbar-btn"><i class="fa fa-ticket"></i><small>market</small></a></li>
       <li class="divider"></li>
-      <li ng-show="user.auth.canCreateCourses"><a href="#" etto-add-course="etto-add-course" ng-click="addCourse()" class="navbar-btn"><i style="margin-right:5px" class="fa fa-flask fa-2x"></i><small>+ course</small></a></li>
-      <li ng-show="user.auth.canInvite"><a href="/report/{{user._tier._id}}" class="navbar-btn"><i style="margin-right:5px" class="fa fa-bar-chart-o fa-2x"></i><small>reports</small></a></li>
+      <li ng-show="user.auth.canCreateCourses"><a href="#" etto-add-course="etto-add-course" ng-click="addCourse()" class="navbar-btn"><i style="margin-right:5px" class="fa fa-flask"></i><small>+ course</small></a></li>
+      <li ng-show="user.auth.canInvite"><a href="/report/{{user._tier._id}}" class="navbar-btn"><i style="margin-right:5px" class="fa fa-bar-chart-o"></i><small>reports</small></a></li>
     </ul>
     <div class="navbar-right">
       <ul class="nav navbar-nav">
