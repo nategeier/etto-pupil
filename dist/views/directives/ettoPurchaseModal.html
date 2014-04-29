@@ -55,7 +55,7 @@
       <div ng-show="!success">
         <p>**** **** **** {{customer.cards.data[0].last4}}</p>
         <p>{{customer.cards.data[0].type}}</p>
-        <button etto-delete-card="etto-delete-card" ng-click="deleteCard(user._tier._company, customer.active_card.id)" class="btn btn-default btn-xs">Delete Card</button>
+        <button etto-delete-card="etto-delete-card" ng-click="deleteCard(user._tier._company, customer.cards.data[0].id)" class="btn btn-default btn-xs">Delete Card</button>
       </div>
       <div ng-show="success" class="alert alert-success">
         <p>{{success}}</p>

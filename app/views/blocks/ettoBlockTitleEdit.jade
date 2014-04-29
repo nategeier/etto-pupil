@@ -1,7 +1,7 @@
 .row.slide
   .col-md-8.col-md-offset-2.title-holder(style="background-color:white;")
     .col-md-4
-      img.img-responsive.default-lg.img-uploadable(src="{{ block.data.url || course.thumb}}", etto-image, etto-asset-library-modal, ng-click="updateBlock(block, 'url', 390, 200)")
+      img.img-responsive.default-lg.img-uploadable(src="{{ block.data.url || course.thumb}}", etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'url', 390, 200)")
     .clearfix
     .col-md-8
       h1(editable-text="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.title || 'title'}}

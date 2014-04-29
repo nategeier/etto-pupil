@@ -53,7 +53,7 @@
       div(ng-show="!success")
         p **** **** **** {{customer.cards.data[0].last4}}
         p {{customer.cards.data[0].type}}
-        button.btn.btn-default.btn-xs(etto-delete-card, ng-click="deleteCard(user._tier._company, customer.active_card.id)") Delete Card
+        button.btn.btn-default.btn-xs(etto-delete-card, ng-click="deleteCard(user._tier._company, customer.cards.data[0].id)") Delete Card
       .alert.alert-success(ng-show="success")
         p {{success}}
     .clearfix
