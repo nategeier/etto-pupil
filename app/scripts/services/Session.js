@@ -36,7 +36,7 @@ angular.module("ettoPupil")
           });
         },
         updateSession: function (user, callback) {
-          $http.post("auth", "updateSession", user)
+          $http.post(Endpoint("auth", "updateSession"), user)
             .success(function (data, status, headers, config) {
               callback(data);
             })

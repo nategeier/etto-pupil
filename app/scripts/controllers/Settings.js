@@ -37,6 +37,7 @@ angular.module("ettoPupil")
         });
 
         Users.update($scope.editUser, function (user) {
+          console.log("user------", user);
           $scope.saved = "true";
           $scope.updateSessionSettings($scope.user._id, $scope.editUser._id);
         });

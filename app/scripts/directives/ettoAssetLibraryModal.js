@@ -25,6 +25,10 @@ angular.module("ettoPupil")
                   });
                 };
 
+                $scope.cancel = function () {
+                  $modalInstance.close();
+                };
+
                 $scope.uploadData = [];
 
                 $scope.onFileSelect = function ($files) {

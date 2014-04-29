@@ -16,7 +16,7 @@
       div(ng-show="err")
         .alert.alert-danger {{err.message}}
       .form-group
-        input.form-control( type="text", ng-model="user.username", placeholder="Enter your email address...", autocomplete="on", required )
+        input.form-control( autocapitalize="off", type="text", ng-model="user.username", placeholder="Enter your email address...", autocomplete="on", required )
       .form-group
         input.form-control( type="password", ng-model="user.password", placeholder="Enter your password...", required )
     .col-md-4

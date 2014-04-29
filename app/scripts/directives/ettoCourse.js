@@ -72,6 +72,7 @@ angular.module("ettoPupil")
 
           $scope.removeBlock = function (index) {
             CoursePlayer.removeBlock(CoursePlayer.currentBlock());
+            $scope.saveCourse();
           };
 
           $scope.swapBlocks = function (a, b) {
@@ -93,10 +94,16 @@ angular.module("ettoPupil")
               var currBlock = Number(CoursePlayer.currentBlock()) + 1;
               Record.updateBookmark($scope.record._id, currBlock, CoursePlayer.blocksInCourse());
             }
+            $scope.scrollTop();
           };
 
           $scope.prevBlock = function () {
             CoursePlayer.prevBlock();
+            $scope.scrollTop();
+          };
+
+          $scope.scrollTop = function () {
+            $("html,body").scrollTop(0);
           };
 
           // Setup handlers for alternative input methods
