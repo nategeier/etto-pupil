@@ -20,7 +20,7 @@ angular.module("ettoPupil")
               cardId: cardId
             }, function (u, getResponseHeaders) {
               $scope.success = "Deleted";
-              $scope.customer.active_card = null;
+              $scope.customer.cards.data = [];
 
             });
           };
