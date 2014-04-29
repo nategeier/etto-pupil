@@ -46,7 +46,8 @@ angular.module("ettoPupil")
             }
           };
 
-          $scope.evaluate = function (questions, index) {
+          $scope.evaluate = function () {
+
             for (var i = 0; i < incorrectQuestions.length; i++) {
               $(incorrectQuestions[i]).addClass("incorrect");
             }

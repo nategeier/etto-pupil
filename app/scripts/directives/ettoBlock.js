@@ -17,14 +17,15 @@ angular.module("ettoPupil")
           };
         },
         link: function postLink($scope, $element, $attrs) {
-          var editTemplate, editEl;
+          var editTemplate = null;
+          var editEl = null;
 
           // Set the blockTemplate based off $scope's block.type
           var pathBase = "/views/blocks/" + $.camelCase("etto-block-" + $scope.block.type);
           $scope.blockTemplate = pathBase + ".html";
           $scope.blockTemplateEdit = pathBase + "Edit.html";
 
-          $scope.blockTemplate.typeOf = "blockTemplate";
+          //$scope.blockTemplate.typeOf = "blockTemplate";
 
           if ($scope.$parent.editing) {
             $scope.blockTemplate = pathBase + "Edit.html";

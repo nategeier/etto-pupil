@@ -14,7 +14,8 @@ angular.module("ettoPupil")
             });
           };
 
-          $scope.updateBlock = function (block, name, w, h) {
+          $scope.updateBlockImage = function (block, name, w, h) {
+
             $scope.showAssetLibrary(w, h, function (asset) {
               block.data[name] = asset.url;
               $scope.saveCourse();

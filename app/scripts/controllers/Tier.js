@@ -38,7 +38,7 @@ angular.module("ettoPupil")
         });
       };
 
-      $scope.addCourse = function (course) {
+      $scope.addCourseToTier = function (course) {
         Tiers.addCourseToTier($scope.tierID, course._id, course.ison, function (results) {
           $scope.tierReport = [];
           $scope.reset();
