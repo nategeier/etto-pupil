@@ -26,7 +26,7 @@ angular.module("ettoPupil")
 
             $scope.listAllOnTiers();
 
-            if ($scope.credits <= course.priceWithEmps) {
+            if ($scope.credits <= course.priceWithEmps && course.price !== 0) {
               //--- Not enough credits, purchase more
               $scope.purchase(course, null);
             } else {

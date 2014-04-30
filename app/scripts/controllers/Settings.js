@@ -37,7 +37,6 @@ angular.module("ettoPupil")
         });
 
         Users.update($scope.editUser, function (user) {
-          console.log("user------", user);
           $scope.saved = "true";
           $scope.updateSessionSettings($scope.user._id, $scope.editUser._id);
         });
@@ -64,7 +63,7 @@ angular.module("ettoPupil")
       };
 
       $scope.updateAvatar = function () {
-        $scope.showAssetLibrary(function (asset) {
+        $scope.showAssetLibrary(200, 200, function (asset) {
           $scope.editUser.avatarUrl = asset.url;
           $scope.updateUser();
         });
