@@ -26,7 +26,7 @@ angular.module("ettoPupil")
                 };
 
                 $scope.cancel = function () {
-                  $modalInstance.close();
+                  $modalInstance.dismiss("cancel");
                 };
 
                 $scope.uploadData = [];
