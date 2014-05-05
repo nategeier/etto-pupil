@@ -17,21 +17,17 @@ nav.navbar.navbar-default( role="navigation", etto-session, etto-update-company)
     ul.nav.navbar-nav
       li
         a.navbar-btn( href="/etto" )
-          i.fa.fa-home
           small home
       li.divider
       li(ng-show= "user.auth.canGetCourses")
         a.navbar-btn( href="/store/{{user._tier._id}}" )
-          i.fa.fa-ticket
           small market
       li.divider
       li(ng-show= "user.auth.canCreateCourses")
         a.navbar-btn(href="#", etto-add-course, ng-click='addCourse()')
-          i.fa.fa-flask(style="margin-right:5px")
-          small + course
+          small create course
       li(ng-show= "user.auth.canInvite")
         a.navbar-btn( href="/report/{{user._tier._id}}" )
-          i.fa.fa-bar-chart-o(style="margin-right:5px")
           small reports
       
     .navbar-right

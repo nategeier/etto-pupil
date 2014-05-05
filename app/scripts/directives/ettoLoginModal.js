@@ -19,18 +19,6 @@ angular.module("ettoPupil")
                   $modalInstance.close();
                 };
 
-                $scope.sendForgotPw = function () {
-                  if (!$scope.user.username || $scope.user.username === "") {
-                    $scope.err = {};
-                    $scope.err.message = "Please enter your email";
-                  } else {
-                    Security.sendForgotPw($scope.user.username, function (results) {
-                      $scope.err = {};
-                      $scope.err.message = "Sent reset instructions to " + $scope.user.username;
-                    });
-                  }
-                };
-
                 $scope.handleLogin = function (user) {
 
                   Session.authenticate(user, function (data) {

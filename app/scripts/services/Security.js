@@ -8,13 +8,17 @@ angular.module("ettoPupil")
       Security = {
 
         sendForgotPw: function (email, callback) {
-          var sendEmail = $resource(Endpoint("user", "sendForgotPw") + "/:email", {
+          var user = {
             email: email
-          });
+          };
 
-          sendEmail.get(function (results) {
-            callback(results);
-          });
+          $http.post(Endpoint("user", "sendForgotPw"), user)
+            .success(function (data, status, headers, config) {
+              callback(data);
+            })
+            .error(function (data, status, headers, config) {
+              console.dir(data);
+            });
         },
         verifyPasswordReset: function (code, callback) {
           var verifyPasswordReset = $resource(Endpoint("user", "verifyPasswordReset") + "/:code", {

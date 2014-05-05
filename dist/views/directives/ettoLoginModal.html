@@ -11,26 +11,18 @@
 </div>
 <div class="modal-body">
   <form ng-submit="handleLogin(user)">
-    <div class="col-md-12"> 
-      <div ng-show="err">
-        <div class="alert alert-danger">{{err.message}}</div>
-      </div>
-      <div class="form-group">
-        <input autocapitalize="off" type="text" ng-model="user.username" placeholder="Enter your email address..." autocomplete="on" required="required" class="form-control"/>
-      </div>
-      <div class="form-group">
-        <input type="password" ng-model="user.password" placeholder="Enter your password..." required="required" class="form-control"/>
-      </div>
+    <div ng-show="err">
+      <div class="alert alert-danger">{{err.message}}</div>
     </div>
-    <div class="col-md-4">
-      <input type="submit" value="Login" class="btn btn-success btn-sm"/>
+    <div class="form-group">
+      <input autocapitalize="off" type="text" ng-model="user.username" placeholder="Email or username..." autocomplete="on" required="required" class="form-control"/>
     </div>
-    <div class="btn-group col-md-8">
-      <div class="pull-right">
-        <button type="button" ng-click="cancel()" class="btn btn-default btn-xs">Cancel</button>
-        <button type="button" ng-click="sendForgotPw()" class="btn btn-default btn-xs">Forgot Password</button>
-      </div>
+    <div class="form-group">
+      <input type="password" ng-model="user.password" placeholder="Enter your password..." required="required" class="form-control"/>
     </div>
+    <input type="submit" value="Login" class="btn btn-success btn-sm"/>
+    <hr/><a href="#" ng-click="cancel()" class="btn btn-default btn-xs">Cancel</a>
+    <etto-send-forgot-password></etto-send-forgot-password>
   </form>
   <div class="clearfix"></div>
 </div>
