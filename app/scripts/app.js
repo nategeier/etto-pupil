@@ -86,7 +86,7 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
         });
     }
   ]).run(function ($rootScope, editableOptions) {
-    var environment = "production";
+    var environment = "development";
 
     // Production
     if (environment === "production") {

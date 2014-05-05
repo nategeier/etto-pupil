@@ -12,19 +12,17 @@
           i.fa.fa-google-plus-square.fa-2x
 .modal-body
   form(ng-submit="handleLogin(user)")
-    .col-md-12  
-      div(ng-show="err")
-        .alert.alert-danger {{err.message}}
-      .form-group
-        input.form-control( autocapitalize="off", type="text", ng-model="user.username", placeholder="Enter your email address...", autocomplete="on", required )
-      .form-group
-        input.form-control( type="password", ng-model="user.password", placeholder="Enter your password...", required )
-    .col-md-4
-      input.btn.btn-success.btn-sm( type="submit", value="Login")
-    .btn-group.col-md-8
-      .pull-right
-        button.btn.btn-default.btn-xs( type="button", ng-click="cancel()") Cancel
-        button.btn.btn-default.btn-xs( type="button", ng-click="sendForgotPw()") Forgot Password
+    div(ng-show="err")
+      .alert.alert-danger {{err.message}}
+    .form-group
+      input.form-control( autocapitalize="off", type="text", ng-model="user.username", placeholder="Email or username...", autocomplete="on", required )
+    .form-group
+      input.form-control( type="password", ng-model="user.password", placeholder="Enter your password...", required )
+    
+    input.btn.btn-success.btn-sm(type="submit", value="Login")
+    hr
+    a.btn.btn-default.btn-xs( href="#", ng-click="cancel()") Cancel
+    etto-send-forgot-password
 
 
 

@@ -18,7 +18,6 @@ angular.module("ettoPupil")
               controller: function ($scope, $modalInstance) {
 
                 $scope.newCredits = Number(credit.credits);
-
                 $scope.credit = credit;
 
                 $scope.handleCedits = function () {
