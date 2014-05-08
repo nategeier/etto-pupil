@@ -47,6 +47,7 @@ angular.module("ettoPupil")
 
           CoursePlayer.play($scope.course);
 
+          //--- Sets last frome "you win! to user"
           if (!$scope.editing) {
             $scope.course.blocks.push({
               type: "finished",
@@ -90,7 +91,7 @@ angular.module("ettoPupil")
           $scope.nextBlock = function () {
 
             CoursePlayer.nextBlock();
-            if (!$scope.editing) {
+            if (!$scope.editing && !$scope.isDemo) {
               var currBlock = Number(CoursePlayer.currentBlock()) + 1;
               Record.updateBookmark($scope.record._id, currBlock, CoursePlayer.blocksInCourse());
             }
