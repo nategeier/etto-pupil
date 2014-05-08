@@ -11,10 +11,9 @@ angular.module("ettoPupil")
             callback(results);
           });
         },
-        cancelSubscription: function (companyId, subscriptionId, callback) {
+        cancelSubscription: function (companyId, callback) {
           var Subscriptions = $resource(Endpoint("store", "cancelSubscription") + "/:companyId", {
-            companyId: companyId,
-            subscriptionId: subscriptionId
+            companyId: companyId
           });
           Subscriptions.get(function (results) {
             callback(results);
