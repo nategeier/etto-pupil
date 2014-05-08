@@ -1,88 +1,117 @@
 etto-not-logged-in-nav
 
-.header.main-img.etto-landing
+.etto-landing
+  .header.main-img
+    .container
+      .row
+        div.hidden-xs(style="height:30px;")
+        .col-xs-12.col-sm-6.col-md-6
+          .col-md-12
+            .main-image-message
+              h3 Start creating, taking, tracking, and sharing corporate training courses.
+              p.hidden-xs Coursetto is a mobile ready, sharable, learning management system that empowers you or anyone else in your company to create, purchase, distribute, and track online training.
+              a.btn.btn-default.btn-sm(href="mailto:nate@coursetto.com") Request a beta code
+
+        .col-md-2
+        .col-xs-12.col-sm-6.col-md-4
+          iframe.img-responsive.etto-landing__youtube-demo(style="min-height:200px;max-height:400px;",width="1270", height="728", src="//www.youtube.com/embed/LVb8QrEBgJw?showinfo=0&controls=2", frameborder="0", allowfullscreen)
+    .btn-group.hidden-xs.etto-landing__socialmedia
+      a(href="https://twitter.com/Coursetto")
+        i.fa.fa-twitter.fa-2x
+      a(href="https://www.youtube.com/user/coursetto")
+        i.fa.fa-youtube-play.fa-2x
+      a(href="https://www.linkedin.com/company/5153924?trk=prof-0-ovw-curr_pos")
+        i.fa.fa-linkedin.fa-2x
+      a(href="https://www.facebook.com/coursetto")
+        i.fa.fa-facebook.fa-2x
+      a(href="mailto:admin@coursetto.com")
+        i.fa.fa-envelope.fa-2x
+
   .container
     .row
-      div.hidden-xs(style="height:30px;")
-      .col-xs-12.col-sm-6.col-md-6
-        .col-md-12
-          .main-image-message
-            h3 Start creating, taking, tracking, and sharing corporate training courses.
-            p.hidden-xs Coursetto is a mobile ready, sharable, learning management system that empowers you or anyone else in your company to create, purchase, distribute, and track online training.
-            a.btn.btn-default.btn-sm(href="mailto:nate@coursetto.com") Request a beta code
+      h2.text-center Create a custom company structure
+      .col-xs-12.col-sm-4.col-md-4
+        img.img-responsive(src='/images/landing/old.jpg')
+        h4 The Old Way
+        p Tracking employee course progress in a large company structure can be difficult with other out-of-the-box solutions.
+      .col-xs-12.col-sm-4.col-md-4
+        img.img-responsive(src='/images/landing/new.jpg')
+        h4 The Coursetto Way
+        p Create your company's organization tree any way you need. Place managers in charge of their own tier to create micro training environments.
+      .col-xs-12.col-sm-4.col-md-4
+        img.img-responsive(src='/images/landing/small.jpg')
+        h4 And You Get Graphs!
+        p Assign managers and employees to their own tiers and delegate training. Then track progress across all tiers.
 
-      .col-md-2
-      .col-xs-12.col-sm-6.col-md-4
-        iframe.img-responsive.etto-landing__youtube-demo(style="min-height:200px;max-height:400px;",width="1270", height="728", src="//www.youtube.com/embed/LVb8QrEBgJw?showinfo=0&controls=2", frameborder="0", allowfullscreen)
-  .btn-group.hidden-xs.etto-landing__socialmedia
-    a(href="https://twitter.com/Coursetto")
-      i.fa.fa-twitter.fa-2x
-    a(href="https://www.youtube.com/user/coursetto")
-      i.fa.fa-youtube-play.fa-2x
-    a(href="https://www.linkedin.com/company/5153924?trk=prof-0-ovw-curr_pos")
-      i.fa.fa-linkedin.fa-2x
-    a(href="https://www.facebook.com/coursetto")
-      i.fa.fa-facebook.fa-2x
-    a(href="mailto:admin@coursetto.com")
-      i.fa.fa-envelope.fa-2x
+  .reverse-bkd
+    .container
+      h2.text-center Course Creation
+      .col-sm-12.col-md-6
+        img.img-responsive(src='/images/landing/demo1.jpg')
+        img.img-responsive(src='/images/landing/demo2.jpg')
+        img.img-responsive(src='/images/landing/demo3.jpg')
+      .col-xs-12.col-sm-12.col-md-6
+        h4 Anyone Can Create Courses
+        p Allow anyone in your company to create and manage courses, or restrict permissions where appropriate.
+        p Creating custom content is a breeze on desktop and mobile.
 
-.container
-  .row
-    h2.text-center Create a custom company structure
-    .col-xs-12.col-sm-4.col-md-4
-      img.img-responsive(src='/images/landing/old.jpg')
-      h4 The Old Way
-      p Tracking employee course progress in a large company structure can be difficult with other out-of-the-box solutions.
-    .col-xs-12.col-sm-4.col-md-4
-      img.img-responsive(src='/images/landing/new.jpg')
-      h4 The Coursetto Way
-      p Create your company's organization tree any way you need. Place managers in charge of their own tier to create micro training environments.
-    .col-xs-12.col-sm-4.col-md-4
-      img.img-responsive(src='/images/landing/small.jpg')
-      h4 And You Get Graphs!
-      p Assign managers and employees to their own tiers and delegate training. Then track progress across all tiers.
+        h4 Subscriptions
+        p Pricing is based on number of employees enrolled and the number of private courses you need to distribute:
+        .col-sm-12.col-md-12
+          ul.nav.nav-tabs
+            li(ng-click="show(subscriptionType._id)", ng-repeat="subscriptionType in subscriptionTypes", ng-class="{active: onSubscription === subscriptionType._id}")
+              a(href="#")
+                small {{subscriptionType.title}}
+                br
+                small {{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}}
+          div(ng-repeat="subscriptionType in subscriptionTypes")
+            table.table.table-no-border(ng-show="onSubscription === subscriptionType._id", style="background-color:#fff;")
+              tr
+                th Private Courses
+                th Price
+              tr(ng-repeat="subscription in subscriptionType.subscriptions", ng-animate="'animate'")
+                td {{subscription.courseRange.low}} - {{subscription.courseRange.high}}
+                td ${{subscription.price}}/mo
 
-.reverse-bkd
   .container
-    h2.text-center Course Creation
-    .col-sm-12.col-md-6
-      img.img-responsive(src='/images/landing/demo1.jpg')
-      img.img-responsive(src='/images/landing/demo2.jpg')
-      img.img-responsive(src='/images/landing/demo3.jpg')
-    .col-xs-12.col-sm-12.col-md-6
-      h4 Anyone Can Create Courses
-      p Allow anyone in your company to create and manage courses, or restrict permissions where appropriate.
-      p Creating custom content is a breeze on desktop and mobile.
+    .row
+      h2.text-center Course Marketplace
+      p.text-center Pay per user course taken
+      .col-md-6
+        h4 No subscription necessary
+        p No time to build a course and just need something standard? Then head over to the course marketplace.
+        p
+          img.img-responsive(src='/images/landing/market.jpg')
 
-      h4 Subscriptions
-      p Pricing is based on number of employees enrolled and the number of private courses you need to distribute:
-      .col-sm-12.col-md-12
-        ul.nav.nav-tabs
-          li(ng-click="show(subscriptionType._id)", ng-repeat="subscriptionType in subscriptionTypes", ng-class="{active: onSubscription === subscriptionType._id}")
-            a(href="#")
-              small {{subscriptionType.title}}
-              br
-              small {{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}}
-        div(ng-repeat="subscriptionType in subscriptionTypes")
-          table.table.table-no-border(ng-show="onSubscription === subscriptionType._id", style="background-color:#fff;")
-            tr
-              th Private Courses
-              th Price
-            tr(ng-repeat="subscription in subscriptionType.subscriptions", ng-animate="'animate'")
-              td {{subscription.courseRange.low}} - {{subscription.courseRange.high}}
-              td ${{subscription.price}}/mo
+      .col-sm-12.col-md-6
+        .row
+          .col-sm-9.col-md-6
+            h4  Course Distribution
+            p Your company structure is on the right. Watch your price fluctuate as you turn off departments that do not need to take the course you are adding. The price is just an estimate of credits needed to be purchased. Credits are only used when a user actually takes a course. Users get an unlimited amount of times to take a course. Once purchased the course will appear for any "on" departments.
+          .col-sm-3.col-md-6
+            p
+              img.img-responsive(src='/images/landing/tiers.jpg')
 
-.container
-  h2.text-center Course Marketplace
-  p.text-center Pay per user course taken
-  .col-md-6
-    h4 No subscription necessary
-    p No time to build a course and just need something standard? Then head over to the course marketplace.
-    img.img-responsive(src='/images/landing/market.jpg')
-
-  .col-sm-12.col-md-6
-    .col-sm-6.col-md-6
-      h4  Course Distribution
-      p Your company structure is on the right. Watch your price fluctuate as you turn off departments that do not need to take the course you are adding. The price is just an estimate of credits needed to be purchased. Credits are only used when a user actually takes a course. Users get an unlimited amount of times to take a course. Once purchased the course will appear for any "on" departments.
-    .col-sm-6.col-md-6
-      img.img-responsive(src='/images/landing/tiers.jpg')
+  .reverse-bkd
+    .container
+      .row
+        h2.text-center The Coursetto Team
+        .col-sm-4
+          img.img-responsive(src="https://www.gravatar.com/avatar/a197153b753ca03e837a6deba12486b1?s=300")
+          h3 Nate Geier
+          h4 CEO
+          p
+            a(href="mailto:nate@coursetto.com")
+              i.fa.fa-envelope
+              |  nate@coursetto.com
+        .col-sm-4
+          img.img-responsive(src="https://www.gravatar.com/avatar/a895de9f0021b3a08b654fe2efe43e97?s=300")
+          h3 Randall A. Gordon
+          h4 CTO
+          p
+            a(href="mailto:randall@coursetto.com")
+              i.fa.fa-envelope
+              |  randall@coursetto.com
+        .col-sm-4
+          iframe.etto-landing__youtube-demo(style="min-height:200px;max-height:300px;", src="//www.youtube.com/embed/_ttYI79UIm8?showinfo=0&controls=2", frameborder="0", allowfullscreen)
+          h4 All About Coursetto

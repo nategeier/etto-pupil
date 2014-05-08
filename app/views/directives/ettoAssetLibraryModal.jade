@@ -14,7 +14,8 @@
 
       .form-group
         label Upload File(s)
-        input.form-control(type="file", ng-file-select="onFileSelect($files)", multiple)
+        .btn.btn-primary
+          input.form-control(type="file", ng-file-select="onFileSelect($files)", multiple)
 
       .uploading-files(ng-repeat="file in files")
         .progress

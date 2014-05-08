@@ -5,6 +5,8 @@ angular.module("ettoPupil")
     function ($scope, $compile, course, $location, $timeout) {
       $scope.course = course;
 
+      $scope.isDemo = true;
+
       //--- Changed view if they are still on that initial page every 2 min
       var startLocation = $location.path();
 

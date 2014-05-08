@@ -1,84 +1,114 @@
 
 <etto-not-logged-in-nav></etto-not-logged-in-nav>
-<div class="header main-img etto-landing">
+<div class="etto-landing">
+  <div class="header main-img">
+    <div class="container">
+      <div class="row">
+        <div style="height:30px;" class="hidden-xs"></div>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="col-md-12">
+            <div class="main-image-message">
+              <h3>Start creating, taking, tracking, and sharing corporate training courses.</h3>
+              <p class="hidden-xs">Coursetto is a mobile ready, sharable, learning management system that empowers you or anyone else in your company to create, purchase, distribute, and track online training.</p><a href="mailto:nate@coursetto.com" class="btn btn-default btn-sm">Request a beta code</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <iframe style="min-height:200px;max-height:400px;" width="1270" height="728" src="//www.youtube.com/embed/LVb8QrEBgJw?showinfo=0&amp;controls=2" frameborder="0" allowfullscreen="allowfullscreen" class="img-responsive etto-landing__youtube-demo"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="btn-group hidden-xs etto-landing__socialmedia"><a href="https://twitter.com/Coursetto"><i class="fa fa-twitter fa-2x"></i></a><a href="https://www.youtube.com/user/coursetto"><i class="fa fa-youtube-play fa-2x"></i></a><a href="https://www.linkedin.com/company/5153924?trk=prof-0-ovw-curr_pos"><i class="fa fa-linkedin fa-2x"></i></a><a href="https://www.facebook.com/coursetto"><i class="fa fa-facebook fa-2x"></i></a><a href="mailto:admin@coursetto.com"><i class="fa fa-envelope fa-2x"></i></a></div>
+  </div>
   <div class="container">
     <div class="row">
-      <div style="height:30px;" class="hidden-xs"></div>
-      <div class="col-xs-12 col-sm-6 col-md-6">
-        <div class="col-md-12">
-          <div class="main-image-message">
-            <h3>Start creating, taking, tracking, and sharing corporate training courses.</h3>
-            <p class="hidden-xs">Coursetto is a mobile ready, sharable, learning management system that empowers you or anyone else in your company to create, purchase, distribute, and track online training.</p><a href="mailto:nate@coursetto.com" class="btn btn-default btn-sm">Request a beta code</a>
+      <h2 class="text-center">Create a custom company structure</h2>
+      <div class="col-xs-12 col-sm-4 col-md-4"><img src="/images/landing/old.jpg" class="img-responsive"/>
+        <h4>The Old Way</h4>
+        <p>Tracking employee course progress in a large company structure can be difficult with other out-of-the-box solutions.</p>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4"><img src="/images/landing/new.jpg" class="img-responsive"/>
+        <h4>The Coursetto Way</h4>
+        <p>Create your company's organization tree any way you need. Place managers in charge of their own tier to create micro training environments.</p>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4"><img src="/images/landing/small.jpg" class="img-responsive"/>
+        <h4>And You Get Graphs!</h4>
+        <p>Assign managers and employees to their own tiers and delegate training. Then track progress across all tiers.</p>
+      </div>
+    </div>
+  </div>
+  <div class="reverse-bkd">
+    <div class="container">
+      <h2 class="text-center">Course Creation</h2>
+      <div class="col-sm-12 col-md-6"><img src="/images/landing/demo1.jpg" class="img-responsive"/><img src="/images/landing/demo2.jpg" class="img-responsive"/><img src="/images/landing/demo3.jpg" class="img-responsive"/></div>
+      <div class="col-xs-12 col-sm-12 col-md-6">
+        <h4>Anyone Can Create Courses</h4>
+        <p>Allow anyone in your company to create and manage courses, or restrict permissions where appropriate.</p>
+        <p>Creating custom content is a breeze on desktop and mobile.</p>
+        <h4>Subscriptions</h4>
+        <p>Pricing is based on number of employees enrolled and the number of private courses you need to distribute:</p>
+        <div class="col-sm-12 col-md-12">
+          <ul class="nav nav-tabs">
+            <li ng-click="show(subscriptionType._id)" ng-repeat="subscriptionType in subscriptionTypes" ng-class="{active: onSubscription === subscriptionType._id}"><a href="#"><small>{{subscriptionType.title}}</small><br/><small>{{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}}</small></a></li>
+          </ul>
+          <div ng-repeat="subscriptionType in subscriptionTypes">
+            <table ng-show="onSubscription === subscriptionType._id" style="background-color:#fff;" class="table table-no-border">
+              <tr>
+                <th>Private Courses</th>
+                <th>Price</th>
+              </tr>
+              <tr ng-repeat="subscription in subscriptionType.subscriptions" ng-animate="'animate'">
+                <td>{{subscription.courseRange.low}} - {{subscription.courseRange.high}}</td>
+                <td>${{subscription.price}}/mo</td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
-      <div class="col-md-2"></div>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <iframe style="min-height:200px;max-height:400px;" width="1270" height="728" src="//www.youtube.com/embed/LVb8QrEBgJw?showinfo=0&amp;controls=2" frameborder="0" allowfullscreen="allowfullscreen" class="img-responsive etto-landing__youtube-demo"></iframe>
-      </div>
     </div>
   </div>
-  <div class="btn-group hidden-xs etto-landing__socialmedia"><a href="https://twitter.com/Coursetto"><i class="fa fa-twitter fa-2x"></i></a><a href="https://www.youtube.com/user/coursetto"><i class="fa fa-youtube-play fa-2x"></i></a><a href="https://www.linkedin.com/company/5153924?trk=prof-0-ovw-curr_pos"><i class="fa fa-linkedin fa-2x"></i></a><a href="https://www.facebook.com/coursetto"><i class="fa fa-facebook fa-2x"></i></a><a href="mailto:admin@coursetto.com"><i class="fa fa-envelope fa-2x"></i></a></div>
-</div>
-<div class="container">
-  <div class="row">
-    <h2 class="text-center">Create a custom company structure</h2>
-    <div class="col-xs-12 col-sm-4 col-md-4"><img src="/images/landing/old.jpg" class="img-responsive"/>
-      <h4>The Old Way</h4>
-      <p>Tracking employee course progress in a large company structure can be difficult with other out-of-the-box solutions.</p>
-    </div>
-    <div class="col-xs-12 col-sm-4 col-md-4"><img src="/images/landing/new.jpg" class="img-responsive"/>
-      <h4>The Coursetto Way</h4>
-      <p>Create your company's organization tree any way you need. Place managers in charge of their own tier to create micro training environments.</p>
-    </div>
-    <div class="col-xs-12 col-sm-4 col-md-4"><img src="/images/landing/small.jpg" class="img-responsive"/>
-      <h4>And You Get Graphs!</h4>
-      <p>Assign managers and employees to their own tiers and delegate training. Then track progress across all tiers.</p>
-    </div>
-  </div>
-</div>
-<div class="reverse-bkd">
   <div class="container">
-    <h2 class="text-center">Course Creation</h2>
-    <div class="col-sm-12 col-md-6"><img src="/images/landing/demo1.jpg" class="img-responsive"/><img src="/images/landing/demo2.jpg" class="img-responsive"/><img src="/images/landing/demo3.jpg" class="img-responsive"/></div>
-    <div class="col-xs-12 col-sm-12 col-md-6">
-      <h4>Anyone Can Create Courses</h4>
-      <p>Allow anyone in your company to create and manage courses, or restrict permissions where appropriate.</p>
-      <p>Creating custom content is a breeze on desktop and mobile.</p>
-      <h4>Subscriptions</h4>
-      <p>Pricing is based on number of employees enrolled and the number of private courses you need to distribute:</p>
-      <div class="col-sm-12 col-md-12">
-        <ul class="nav nav-tabs">
-          <li ng-click="show(subscriptionType._id)" ng-repeat="subscriptionType in subscriptionTypes" ng-class="{active: onSubscription === subscriptionType._id}"><a href="#"><small>{{subscriptionType.title}}</small><br/><small>{{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}}</small></a></li>
-        </ul>
-        <div ng-repeat="subscriptionType in subscriptionTypes">
-          <table ng-show="onSubscription === subscriptionType._id" style="background-color:#fff;" class="table table-no-border">
-            <tr>
-              <th>Private Courses</th>
-              <th>Price</th>
-            </tr>
-            <tr ng-repeat="subscription in subscriptionType.subscriptions" ng-animate="'animate'">
-              <td>{{subscription.courseRange.low}} - {{subscription.courseRange.high}}</td>
-              <td>${{subscription.price}}/mo</td>
-            </tr>
-          </table>
+    <div class="row">
+      <h2 class="text-center">Course Marketplace</h2>
+      <p class="text-center">Pay per user course taken</p>
+      <div class="col-md-6">
+        <h4>No subscription necessary</h4>
+        <p>No time to build a course and just need something standard? Then head over to the course marketplace.</p>
+        <p><img src="/images/landing/market.jpg" class="img-responsive"/></p>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="row">
+          <div class="col-sm-9 col-md-6">
+            <h4> Course Distribution</h4>
+            <p>Your company structure is on the right. Watch your price fluctuate as you turn off departments that do not need to take the course you are adding. The price is just an estimate of credits needed to be purchased. Credits are only used when a user actually takes a course. Users get an unlimited amount of times to take a course. Once purchased the course will appear for any "on" departments.</p>
+          </div>
+          <div class="col-sm-3 col-md-6">
+            <p><img src="/images/landing/tiers.jpg" class="img-responsive"/></p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="container">
-  <h2 class="text-center">Course Marketplace</h2>
-  <p class="text-center">Pay per user course taken</p>
-  <div class="col-md-6">
-    <h4>No subscription necessary</h4>
-    <p>No time to build a course and just need something standard? Then head over to the course marketplace.</p><img src="/images/landing/market.jpg" class="img-responsive"/>
-  </div>
-  <div class="col-sm-12 col-md-6">
-    <div class="col-sm-6 col-md-6">
-      <h4> Course Distribution</h4>
-      <p>Your company structure is on the right. Watch your price fluctuate as you turn off departments that do not need to take the course you are adding. The price is just an estimate of credits needed to be purchased. Credits are only used when a user actually takes a course. Users get an unlimited amount of times to take a course. Once purchased the course will appear for any "on" departments.</p>
+  <div class="reverse-bkd">
+    <div class="container">
+      <div class="row">
+        <h2 class="text-center">The Coursetto Team</h2>
+        <div class="col-sm-4"><img src="https://www.gravatar.com/avatar/a197153b753ca03e837a6deba12486b1?s=300" class="img-responsive"/>
+          <h3>Nate Geier</h3>
+          <h4>CEO</h4>
+          <p><a href="mailto:nate@coursetto.com"><i class="fa fa-envelope"></i> nate@coursetto.com</a></p>
+        </div>
+        <div class="col-sm-4"><img src="https://www.gravatar.com/avatar/a895de9f0021b3a08b654fe2efe43e97?s=300" class="img-responsive"/>
+          <h3>Randall A. Gordon</h3>
+          <h4>CTO</h4>
+          <p><a href="mailto:randall@coursetto.com"><i class="fa fa-envelope"></i> randall@coursetto.com</a></p>
+        </div>
+        <div class="col-sm-4">
+          <iframe style="min-height:200px;max-height:300px;" src="//www.youtube.com/embed/_ttYI79UIm8?showinfo=0&amp;controls=2" frameborder="0" allowfullscreen="allowfullscreen" class="etto-landing__youtube-demo"></iframe>
+          <h4>All About Coursetto</h4>
+        </div>
+      </div>
     </div>
-    <div class="col-sm-6 col-md-6"><img src="/images/landing/tiers.jpg" class="img-responsive"/></div>
   </div>
 </div>
