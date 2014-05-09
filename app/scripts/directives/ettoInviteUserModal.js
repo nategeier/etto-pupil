@@ -11,12 +11,15 @@ angular.module("ettoPupil")
           var _tier = $scope.parentID;
 
           $scope.inviteUser = function () {
+
+            var user = $scope.user;
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoInviteUserModal.html",
               controller: function ($scope, $modalInstance, Invite) {
 
                 $scope.newUser = Invite.defaultUser;
                 $scope.newUser.emails = [""];
+                $scope.user = user;
 
                 $scope.addEmail = function () {
                   $scope.newUser.emails.unshift("");

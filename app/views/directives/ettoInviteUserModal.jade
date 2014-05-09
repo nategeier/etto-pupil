@@ -19,26 +19,25 @@
 
       div(ng-repeat="email in newUser.emails track by $index")
         input.form-control( type="email", ng-model="newUser.emails[$index]", placeholder="email" )
-      
     .col-md-6
-      .checkbox
+      .checkbox(ng-if="user.auth.canEditCompany")
         label
           input(type='checkbox', ng-model="newUser.auth.canEditCompany")
           small Can edit company view
-      .checkbox
+      .checkbox(ng-if="user.auth.canPurchase")
         label
           input(type='checkbox', ng-model="newUser.auth.canPurchase")
           small Can purchase credits and courses
-      .checkbox
+      .checkbox(ng-if="user.auth.canGetCourses")
         label
           input(type='checkbox', ng-model="newUser.auth.canGetCourses")
           small Can add/remove courses
     .col-md-6
-      .checkbox
+      .checkbox(ng-if="user.auth.canCreateCourses")
         label
           input(type='checkbox', ng-model="newUser.auth.canCreateCourses")
           small Can create courses
-      .checkbox
+      .checkbox(ng-if="user.auth.canInvite")
         label
           input(type='checkbox', ng-model="newUser.auth.canInvite")
           small Can invite other users {{editUser._tier.title}}

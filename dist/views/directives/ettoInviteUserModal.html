@@ -26,29 +26,29 @@
       </div>
     </div>
     <div class="col-md-6">
-      <div class="checkbox">
+      <div ng-if="user.auth.canEditCompany" class="checkbox">
         <label>
           <input type="checkbox" ng-model="newUser.auth.canEditCompany"/><small>Can edit company view</small>
         </label>
       </div>
-      <div class="checkbox">
+      <div ng-if="user.auth.canPurchase" class="checkbox">
         <label>
           <input type="checkbox" ng-model="newUser.auth.canPurchase"/><small>Can purchase credits and courses</small>
         </label>
       </div>
-      <div class="checkbox">
+      <div ng-if="user.auth.canGetCourses" class="checkbox">
         <label>
           <input type="checkbox" ng-model="newUser.auth.canGetCourses"/><small>Can add/remove courses</small>
         </label>
       </div>
     </div>
     <div class="col-md-6">
-      <div class="checkbox">
+      <div ng-if="user.auth.canCreateCourses" class="checkbox">
         <label>
           <input type="checkbox" ng-model="newUser.auth.canCreateCourses"/><small>Can create courses</small>
         </label>
       </div>
-      <div class="checkbox">
+      <div ng-if="user.auth.canInvite" class="checkbox">
         <label>
           <input type="checkbox" ng-model="newUser.auth.canInvite"/><small>Can invite other users {{editUser._tier.title}}</small>
         </label>
