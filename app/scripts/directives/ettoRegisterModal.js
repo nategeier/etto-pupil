@@ -9,39 +9,44 @@ angular.module("ettoPupil")
         restrict: "AE",
         controller: function ($scope, $modal, Tiers, $location, Users, Session) {
 
-          $scope.register = function (user) {
+          $scope.register = function () {
 
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoRegister.html",
               controller: function ($scope, $modalInstance) {
 
-                $scope.newUser = {
-                  tierTitle: "",
-                  name: "",
-                  email: [],
-                  username: "",
-                  password: ""
-                };
-
                 $scope.cancel = function () {
                   $modalInstance.close();
                 };
 
-                $scope.handleLogin = function () {
+                $scope.handleLogin = function (newUser) {
 
+                  if (!newUser.tierTitle || !newUser.name || !newUser.emails || !newUser.username || !newUser.password) {
+                    $scope.err = "Please fill out all of the information";
+                  } else {
+                    $scope.newUser = newUser;
+                    crateCompany();
+                  }
+                };
+
+                var crateCompany = function () {
                   var newTier = {
                     title: $scope.newUser.tierTitle
                   };
 
                   Tiers.createCompany(newTier, function (tier) {
-                    $scope.newUser._tier = tier._id;
-                    Users.saveNewUser($scope.newUser, function (data) {
-                      if (data.err) {
-                        $scope.err = data.err;
-                      } else {
-                        $modalInstance.close(data);
-                      }
-                    });
+                    createUser(tier);
+                  });
+                };
+
+                var createUser = function (tier) {
+                  $scope.newUser._tier = tier._id;
+                  Users.saveNewUser($scope.newUser, function (data) {
+                    if (data.err) {
+                      $scope.err = data.err;
+                    } else {
+                      $modalInstance.close(data);
+                    }
                   });
                 };
               }
@@ -54,7 +59,6 @@ angular.module("ettoPupil")
                 });
               }
             });
-
           };
         },
         link: function postLink(scope, element, attrs) {

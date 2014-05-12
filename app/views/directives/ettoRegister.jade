@@ -7,7 +7,7 @@
   .col-md-8
     .alert.alert-danger(ng-show="err")
       p {{err}}
-    form(ng-submit="handleLogin()", novalidate, class="css-form")
+    form(ng-submit="handleLogin(newUser)", novalidate, class="css-form")
       .form-group
         input.form-control( type="text", ng-model="newUser.code", placeholder="Beta Code", autocomplete="on" )
       .form-group
@@ -17,9 +17,9 @@
       .form-group
         input.form-control( type="email", ng-model="newUser.emails", placeholder="email", autocomplete="on", required )
       .form-group
-        input.form-control( autocapitalize="off", type="text", ng-model="newUser.username", placeholder="username", autocomplete="on", required )
+        input.form-control( autocapitalize="off", type="text", ng-model="newUser.username", placeholder="username", required )
       .form-group
-        input.form-control( type="password", ng-model="newUser.password", placeholder="password", autocomplete="on", required )
+        input.form-control( type="password", ng-model="newUser.password", placeholder="password", required )
       .form-group
         input.btn.btn-primary.btn-sm( type="submit", value="Create" )
         button.btn.btn-default.btn-sm( type="button", ng-click="cancel()") Cancel
