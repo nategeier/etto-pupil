@@ -11,8 +11,7 @@ angular.module("ettoPupil")
       };
 
       $scope.cancelSubscription = function () {
-        Payment.cancelSubscription($scope.user._tier._company, $scope.user._tier.stripePlan, function (results) {
-          $scope.onSubscription = $scope.subscriptionTypes[0]._id;
+        Payment.cancelSubscription($scope.user._tier._company, function (results) {
           $scope.currentSubscription = null;
           $scope.resetSubscription();
         });
