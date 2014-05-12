@@ -4,7 +4,7 @@ etto-logged-in-nav
   etto-settings-nav(active="settings")
   
   h1 Settings
-  .col-sm-7.col-md-7.col-lg-5.pocket
+  .col-sm-12.col-md-5.pocket
     
     .col-md-6
       p(editable-text="editUser.name", buttons="no", blur="submit", onaftersave="updateUser()") {{editUser.name || 'name'}}
@@ -26,7 +26,7 @@ etto-logged-in-nav
          button.btn.btn-warning.btn-xs(ng-click="removeEmail($index)") X
       button.btn.btn-default.btn-sm(ng-click="addEmail()") Add Email
 
-  .col-sm-5.col-md-5.col-lg-3
+  .col-sm-12.col-md-3
 
     img.img-circle.user-thumb(src= "{{editUser.avatarUrl}}")
     i.fa.fa-user.fa-3x.center-block(ng-show="!editUser.avatarUrl")
@@ -35,28 +35,28 @@ etto-logged-in-nav
       i.fa.fa-camera
 
     div(ng-if="user._id !== editUser._id")
-      .checkbox
+      .checkbox(ng-if="user.auth.canEditCompany")
         label
-          input(type='checkbox', ng-model="editUser.auth.canEditCompany", ng-change="updateUser()")
+          input( type='checkbox', ng-model="editUser.auth.canEditCompany", ng-change="updateUser()")
           | Can Edit Company Appearance
 
-      .checkbox
+      .checkbox(ng-if="user.auth.canPurchase")
         label
           input(type='checkbox', ng-model="editUser.auth.canPurchase", ng-change="updateUser()")
           | Can Purchase
-      .checkbox
+      .checkbox(ng-if="user.auth.canGetCourses")
         label
           input(type='checkbox', ng-model="editUser.auth.canGetCourses", ng-change="updateUser()")
           | Can Get Courses
-      .checkbox
+      .checkbox(ng-if="user.auth.canCreateCourses")
         label
           input(type='checkbox', ng-model="editUser.auth.canCreateCourses", ng-change="updateUser()")
           | Can Create Courses
-      .checkbox
+      .checkbox(ng-if="user.auth.canInvite")
         label
           input(type='checkbox', ng-model="editUser.auth.canInvite", ng-change="updateUser()")
           | Can Invite Users to {{editUser._tier.title}}
-      .checkbox
+      .checkbox(ng-if="user.enabled")
         label
           input(type='checkbox', ng-model="editUser.enabled", ng-change="updateUser()")
           | Is Enabled
@@ -64,7 +64,7 @@ etto-logged-in-nav
       .alert.alert-success(ng-show="saved")
         p saved
 
-  .col-lg-4.side-panel
+  .col-sm-12.col-md-4.side-panel
     .modal-header
       h4.modal-title Course Records
     p(ng-show="!userRecords[0]") -- {{editUser.name}} has not taken any courses yet.

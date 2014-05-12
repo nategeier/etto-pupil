@@ -3,7 +3,7 @@
 <div class="col-md-12">
   <etto-settings-nav active="settings"></etto-settings-nav>
   <h1>Settings</h1>
-  <div class="col-sm-7 col-md-7 col-lg-5 pocket">
+  <div class="col-sm-12 col-md-5 pocket">
     <div class="col-md-6">
       <p editable-text="editUser.name" buttons="no" blur="submit" onaftersave="updateUser()">{{editUser.name || 'name'}}</p>
       <p>Username {{editUser.username}}</p>
@@ -29,35 +29,35 @@
       <button ng-click="addEmail()" class="btn btn-default btn-sm">Add Email</button>
     </div>
   </div>
-  <div class="col-sm-5 col-md-5 col-lg-3"><img src="{{editUser.avatarUrl}}" class="img-circle user-thumb"/><i ng-show="!editUser.avatarUrl" class="fa fa-user fa-3x center-block"></i>
+  <div class="col-sm-12 col-md-3"><img src="{{editUser.avatarUrl}}" class="img-circle user-thumb"/><i ng-show="!editUser.avatarUrl" class="fa fa-user fa-3x center-block"></i>
     <button etto-asset-library-modal="etto-asset-library-modal" ng-click="updateAvatar()" class="btn btn-success"><i class="fa fa-camera"></i></button>
     <div ng-if="user._id !== editUser._id">
-      <div class="checkbox">
+      <div ng-if="user.auth.canEditCompany" class="checkbox">
         <label>
           <input type="checkbox" ng-model="editUser.auth.canEditCompany" ng-change="updateUser()"/>Can Edit Company Appearance
         </label>
       </div>
-      <div class="checkbox">
+      <div ng-if="user.auth.canPurchase" class="checkbox">
         <label>
           <input type="checkbox" ng-model="editUser.auth.canPurchase" ng-change="updateUser()"/>Can Purchase
         </label>
       </div>
-      <div class="checkbox">
+      <div ng-if="user.auth.canGetCourses" class="checkbox">
         <label>
           <input type="checkbox" ng-model="editUser.auth.canGetCourses" ng-change="updateUser()"/>Can Get Courses
         </label>
       </div>
-      <div class="checkbox">
+      <div ng-if="user.auth.canCreateCourses" class="checkbox">
         <label>
           <input type="checkbox" ng-model="editUser.auth.canCreateCourses" ng-change="updateUser()"/>Can Create Courses
         </label>
       </div>
-      <div class="checkbox">
+      <div ng-if="user.auth.canInvite" class="checkbox">
         <label>
           <input type="checkbox" ng-model="editUser.auth.canInvite" ng-change="updateUser()"/>Can Invite Users to {{editUser._tier.title}}
         </label>
       </div>
-      <div class="checkbox">
+      <div ng-if="user.enabled" class="checkbox">
         <label>
           <input type="checkbox" ng-model="editUser.enabled" ng-change="updateUser()"/>Is Enabled
         </label>
@@ -69,7 +69,7 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-4 side-panel">
+  <div class="col-sm-12 col-md-4 side-panel">
     <div class="modal-header">
       <h4 class="modal-title">Course Records</h4>
     </div>
