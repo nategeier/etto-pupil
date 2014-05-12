@@ -1,6 +1,8 @@
 etto-pupil
 ================================================================================
 
+![Codeship](https://www.codeship.io/projects/26d1d2d0-aea9-0131-570d-3aef0687d72b/status)
+
 ### Temporary Manual Deployment Steps
 
 ```sh
