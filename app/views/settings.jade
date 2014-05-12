@@ -5,6 +5,7 @@ etto-logged-in-nav
   
   h1 Settings
   .col-sm-12.col-md-5.pocket
+
     
     .col-md-6
       p(editable-text="editUser.name", buttons="no", blur="submit", onaftersave="updateUser()") {{editUser.name || 'name'}}
@@ -63,6 +64,8 @@ etto-logged-in-nav
     .col-sm-12.col-md-12
       .alert.alert-success(ng-show="saved")
         p saved
+      .alert.alert-danger(ng-show="err")
+        p {{err}}
 
   .col-sm-12.col-md-4.side-panel
     .modal-header
