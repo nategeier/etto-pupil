@@ -15,6 +15,10 @@
         <div class="panel-heading">Current State: {{course.status}}</div>
         <div class="panel-body"><img src="{{course.thumb}}" etto-asset-library-modal="etto-asset-library-modal" etto-image="etto-image" ng-click="updateThumb()" class="img-responsive default-lg img-uploadable"/>
           <hr/>
+          <div href="#" editable-textarea="course.meta.keywords" e-rows="5" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()"> 
+            <pre>{{ course.meta.keywords || 'keywords'}}</pre>
+          </div>
+          <hr/>
           <button etto-course-status="etto-course-status" ng-click="changeStatus()" class="btn btn-default w100"><i class="fa fa-rocket"> </i><span>Launch</span></button>
         </div>
       </div>

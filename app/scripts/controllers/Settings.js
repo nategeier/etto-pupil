@@ -36,9 +36,14 @@ angular.module("ettoPupil")
           return e;
         });
 
-        Users.update($scope.editUser, function (user) {
-          $scope.saved = "true";
-          $scope.updateSessionSettings($scope.user._id, $scope.editUser._id);
+        Users.update($scope.editUser, function (data) {
+          if (data.err) {
+            $scope.err = data.err;
+          } else {
+            $scope.saved = "true";
+            $scope.updateSessionSettings($scope.user._id, $scope.editUser._id);
+          }
+
         });
       };
 
