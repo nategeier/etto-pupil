@@ -92,7 +92,7 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
     if (environment === "production") {
       $rootScope.config = {
         "api": {
-          "server": "https://archimedes.jit.su",
+          "server": "https://api.coursetto.com",
           "version": ""
         },
         "aws": {
