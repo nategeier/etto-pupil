@@ -8,7 +8,7 @@ etto-not-logged-in-nav
         .col-xs-12.col-sm-6.col-md-6
           .col-md-12
             .main-image-message
-              h3 Start creating, taking, tracking, and sharing corporate training courses.
+              h3.hidden-xs Start creating, taking, tracking, and sharing corporate training courses.
               p.hidden-xs Coursetto is a mobile ready, sharable, learning management system that empowers you or anyone else in your company to create, purchase, distribute, and track online training.
               a.btn.btn-default.btn-sm(href="mailto:nate@coursetto.com") Request a beta code
 
@@ -27,23 +27,8 @@ etto-not-logged-in-nav
       a(href="mailto:admin@coursetto.com")
         i.fa.fa-envelope.fa-2x
 
-  .container
-    .row
-      h2.text-center Create a custom company structure
-      .col-xs-12.col-sm-4.col-md-4
-        img.img-responsive(src='/images/landing/old.jpg')
-        h4 The Old Way
-        p Tracking employee course progress in a large company structure can be difficult with other out-of-the-box solutions.
-      .col-xs-12.col-sm-4.col-md-4
-        img.img-responsive(src='/images/landing/new.jpg')
-        h4 The Coursetto Way
-        p Create your company's organization tree any way you need. Place managers in charge of their own tier to create micro training environments.
-      .col-xs-12.col-sm-4.col-md-4
-        img.img-responsive(src='/images/landing/small.jpg')
-        h4 And You Get Graphs!
-        p Assign managers and employees to their own tiers and delegate training. Then track progress across all tiers.
-
-  .reverse-bkd
+  
+  .reverse-bkd.section
     .container
       h2.text-center Course Creation
       .col-sm-12.col-md-6
@@ -72,27 +57,44 @@ etto-not-logged-in-nav
               tr(ng-repeat="subscription in subscriptionType.subscriptions", ng-animate="'animate'")
                 td {{subscription.courseRange.low}} - {{subscription.courseRange.high}}
                 td ${{subscription.price}}/mo
+  .section
+    .container
+      .row
+        h2.text-center Create a custom company structure
+        .col-xs-12.col-sm-4.col-md-4
+          img.img-responsive(src='/images/landing/old.jpg')
+          h4 The Old Way
+          p Tracking employee course progress in a large company structure can be difficult with other out-of-the-box solutions.
+        .col-xs-12.col-sm-4.col-md-4
+          img.img-responsive(src='/images/landing/new.jpg')
+          h4 The Coursetto Way
+          p Create your company's organization tree any way you need. Place managers in charge of their own tier to create micro training environments.
+        .col-xs-12.col-sm-4.col-md-4
+          img.img-responsive(src='/images/landing/small.jpg')
+          h4 And You Get Graphs!
+          p Assign managers and employees to their own tiers and delegate training. Then track progress across all tiers.
+  
+  .reverse-bkd.section
+    .container
+      .row
+        h2.text-center Course Marketplace
+        p.text-center Pay per user course taken
+        .col-md-6
+          h4 No subscription necessary
+          p No time to build a course and just need something standard? Then head over to the course marketplace.
+          p
+            img.img-responsive(src='/images/landing/market.jpg')
 
-  .container
-    .row
-      h2.text-center Course Marketplace
-      p.text-center Pay per user course taken
-      .col-md-6
-        h4 No subscription necessary
-        p No time to build a course and just need something standard? Then head over to the course marketplace.
-        p
-          img.img-responsive(src='/images/landing/market.jpg')
+        .col-sm-12.col-md-6
+          .row
+            .col-sm-9.col-md-6
+              h4  Course Distribution
+              p Your company structure is on the right. Watch your price fluctuate as you turn off departments that do not need to take the course you are adding. The price is just an estimate of credits needed to be purchased. Credits are only used when a user actually takes a course. Users get an unlimited amount of times to take a course. Once purchased the course will appear for any "on" departments.
+            .col-sm-3.col-md-6
+              p
+                img.img-responsive(src='/images/landing/tiers.jpg')
 
-      .col-sm-12.col-md-6
-        .row
-          .col-sm-9.col-md-6
-            h4  Course Distribution
-            p Your company structure is on the right. Watch your price fluctuate as you turn off departments that do not need to take the course you are adding. The price is just an estimate of credits needed to be purchased. Credits are only used when a user actually takes a course. Users get an unlimited amount of times to take a course. Once purchased the course will appear for any "on" departments.
-          .col-sm-3.col-md-6
-            p
-              img.img-responsive(src='/images/landing/tiers.jpg')
-
-  .reverse-bkd
+  .section
     .container
       .row
         h2.text-center The Coursetto Team

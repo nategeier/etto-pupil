@@ -1,24 +1,25 @@
+
 .row.quiz-block
-  .col-md-10.col-md-offset-1
-    etto-block-quiz
-      h1(editable-text="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.title || course.title + " Quiz"}} 
-      hr
-      div(ng-show="isEditing")
-        div(ng-repeat = "q in block.data.questions track by $index")
-          .question.col-md-10.col-md-offset-1
-            button.btn.btn-danger.btn-sm.pull-right(ng-click="deleteQuestion(block.data.questions, $index)") X
-            h4(editable-text="q.question", buttons="no", blur="submit", onaftersave="saveCourse()", ng-show="isEditing") {{$index + 1}}. {{ q.question || "author"}}
-            .clearfix
-            
-            table.table.table-no-border
-              tr(ng-repeat = "a in q.answers track by $index")
-                td(editable-text="a.answer", buttons="no", blur="submit", onaftersave="saveCourse()")  {{alphabet[$index]}} ) {{ a.answer || "author"}}
-                td
-                  .checkbox
-                    lable Correct
-                      input(type="checkbox", ng-model = "a.correct", ng-change="saveCourse()") 
-                td
-                  button.btn.btn-danger.btn-sm(ng-click="deleteAnswer(q.answers, $index)") X
-            button.btn.btn-default.btn-sm(ng-click="addAnswer(block.data.questions, $index)") Add answer
-        .col-md-10.col-md-offset-1
-          button.btn.btn-success.btn-sm(ng-click="addQuestion(block.data.questions)") Add question
+
+  etto-block-quiz
+  h1(editable-text="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.title || course.title + " Quiz"}} 
+  
+  .question.panel.panel-default(ng-repeat = "q in block.data.questions track by $index")
+    .close.btn.btn-defult(ng-click="deleteQuestion(block.data.questions, $index)") &times;
+    
+    .panel-heading
+      h4(e-style="width:500px;", editable-text="q.question", buttons="no", blur="submit", onaftersave="saveCourse()", ng-show="isEditing") {{$index + 1}}. {{ q.question || "author"}}
+    
+    .panel-body
+      div(ng-repeat = "a in q.answers track by $index")
+        .close.btn.btn-defult(ng-click="deleteAnswer(q.answers, $index)") &times;
+        .row
+          .col-md-8
+            p(editable-textarea="a.answer", e-rows="3", e-cols="70", buttons="no", blur="submit", onaftersave="saveCourse()")  {{alphabet[$index]}} ) {{ a.answer || "author"}}
+          .col-md-2
+            .checkbox
+              lable Correct
+                input(type="checkbox", ng-model = "a.correct", ng-change="saveCourse()")
+
+      button.btn.btn-default.btn-sm(ng-click="addAnswer(block.data.questions, $index)") New answer
+  button.btn.btn-success.btn-sm(ng-click="addQuestion(block.data.questions)") Add question

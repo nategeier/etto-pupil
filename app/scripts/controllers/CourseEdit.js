@@ -18,5 +18,9 @@ angular.module("ettoPupil")
         angular.element(".etto-toolbox-blocktools").empty();
       });
 
+      $scope.toggleBar = function () {
+        $(".etto-toolbox").hide()
+      }
+
     }
   ]);

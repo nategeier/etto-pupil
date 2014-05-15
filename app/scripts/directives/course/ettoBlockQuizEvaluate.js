@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .directive("ettoBlockQuiz", [
+  .directive("ettoBlockQuizEvaluate", [
 
     function () {
       return {
@@ -9,39 +9,30 @@ angular.module("ettoPupil")
         controller: function ($scope, $document, $attrs, BlockQuiz) {
 
           var incorrectQuestions = [];
-          var totalQuestions = 0;
 
           $scope.alphabet = BlockQuiz.alphabet;
 
-          $scope.addAnswer = function (questions, index) {
-            questions[index].answers.push(BlockQuiz.getQuestion().answers[0]);
-          };
+          var correctNum = 0;
 
-          $scope.addQuestion = function (questions) {
-            questions.push(BlockQuiz.getQuestion());
-          };
+          $scope.checkAnswer = function (answers, answer, index) {
 
-          $scope.deleteAnswer = function (answers, index) {
-            BlockQuiz.deleteAnswer(answers, index);
-          };
+            for (var i = 0; i < answers.length; i++) {
+              if (answer === answers[i]) {
+                answers[i].selected = true;
+              } else {
+                answers[i].selected = false;
+              }
+            }
 
-          $scope.deleteQuestion = function (questions, index) {
-            BlockQuiz.deleteQuestion(questions, index);
-          };
-
-          $scope.checkAnswer = function (correct, index) {
-
-            $(incorrectQuestions[qIndex]).addClass("chosen");
             var id = "#question" + index;
             var qIndex = _.indexOf(incorrectQuestions, id);
 
-            console.log($(".question").length);
-
-            if (correct === false) {
+            if (answer.correct === false) {
               if (qIndex === -1) {
                 incorrectQuestions.push(id);
               }
             } else {
+              correctNum++;
               if (qIndex !== -1) {
                 $(incorrectQuestions[qIndex]).removeClass("incorrect");
                 incorrectQuestions.splice(qIndex, 1);
@@ -50,19 +41,20 @@ angular.module("ettoPupil")
           };
 
           $scope.evaluate = function () {
-            var totalQuestions;
 
             for (var i = 0; i < incorrectQuestions.length; i++) {
               $(incorrectQuestions[i]).addClass("incorrect");
             }
-            if (!incorrectQuestions[0]) {
+            if (!incorrectQuestions[0] && correctNum >= $(".question").length) {
               $scope.nextBlock();
             }
 
           };
         },
 
-        link: function postLink(scope, element, attrs) {}
+        link: function postLink(scope, element, attrs) {
+
+        }
 
       };
     }
