@@ -35,8 +35,6 @@ angular.module("ettoPupil")
             var id = "#question" + index;
             var qIndex = _.indexOf(incorrectQuestions, id);
 
-            console.log($(".question").length);
-
             if (correct === false) {
               if (qIndex === -1) {
                 incorrectQuestions.push(id);
