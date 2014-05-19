@@ -29,7 +29,7 @@ nav.navbar.navbar-default( role="navigation", etto-session, etto-update-company)
       li(ng-show= "user.auth.canInvite")
         a.navbar-btn( href="/report/{{user._tier._id}}" )
           small reports
-      
+
     .navbar-right
       ul.nav.navbar-nav
         li.dropdown
@@ -40,11 +40,13 @@ nav.navbar.navbar-default( role="navigation", etto-session, etto-update-company)
             li
               a( href="/settings/{{user._id}}" ) Settings
             li
-              a( href="#", ng-click="destroySession('/')" ) Logout
-            li
               a( href="/subscription/{{user._id}}", ng-show= "user.auth.canPurchase") Subscriptions
             li
               a( href="/payments/{{user._id}}", ng-show= "user.auth.canPurchase") Payments
+            li
+              a( href="/assets" ) Asset Library
+            li
+              a( href="#", ng-click="destroySession('/')" ) Logout
         li(ng-show="user.auth.canPurchase")
           a.btn.btn-default.btn-xs.navbar-btn(etto-purchase, href="#", ng-click='purchase(null, null)')
             small {{credits}} Credits

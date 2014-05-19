@@ -51,11 +51,19 @@ angular.module("ettoPupil")
   function (Asset, $route, $q) {
     return function () {
       var delay = $q.defer();
-      Asset.get({
-        id: $route.current.params.assetId
-      }, function (asset) {
-        delay.resolve(asset);
-      }, function () {});
+
+      if ($route.current.params.assetId) {
+        Asset.get({
+          id: $route.current.params.assetId
+        }, function (asset) {
+          delay.resolve(asset);
+        }, function () {});
+      } else {
+        Asset.query({}, function (assets) {
+          delay.resolve(assets);
+        }, function () {});
+      }
+
       return delay.promise;
     };
   }
