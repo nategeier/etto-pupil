@@ -1,8 +1,19 @@
 .etto-landing {
   .main-image-message {
     & h3, p {
-      text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+      text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.50);
     }
+  }
+  .section{
+    padding-bottom:20px;
+  }
+
+  .reverse-bkd{
+    background-color: $etto-grey;
+    border-top:1px solid $etto-darkgrey;
+    border-bottom:1px solid $etto-darkgrey;
+    padding-bottom:20px;
+    margin-bottom:20px;
   }
 }
 
@@ -13,12 +24,12 @@
 
   & a i {
     color: #fff;
-    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33);
     margin-right: 10px;
   }
 }
 
 .etto-landing__youtube-demo,
 .etto-landing img {
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.33);
 }

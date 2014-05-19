@@ -89,8 +89,13 @@ angular.module("ettoPupil")
           };
 
           $scope.nextBlock = function () {
+            //--- No more slides so show options to create a new slide on next button click if in editiing
+            if (CoursePlayer.currentBlock() === (CoursePlayer.blocksInCourse() - 1) && $scope.editing) {
+              $scope.showOptions();
+            } else {
+              CoursePlayer.nextBlock();
+            }
 
-            CoursePlayer.nextBlock();
             if (!$scope.editing && !$scope.isDemo) {
               var currBlock = Number(CoursePlayer.currentBlock()) + 1;
               Record.updateBookmark($scope.record._id, currBlock, CoursePlayer.blocksInCourse());
