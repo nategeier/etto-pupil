@@ -14,12 +14,12 @@ angular.module("ettoPupil")
  *
  * @param {asset} newAsset Optional new asset information.
  */
-.factory("Asset", ["$rootScope", "$resource", "$http",
-  function ($rootScope, $resource, $http) {
+.factory("Asset", ["$rootScope", "$resource", "$http", "Endpoint",
+  function ($rootScope, $resource, $http, Endpoint) {
     var resourceName = "asset";
     var resourceBase = $rootScope.config.api.server + [$rootScope.config.api.version, resourceName].join("/");
 
-    var Asset = $resource(resourceBase, {}, {
+    var Asset = $resource(Endpoint("asset", ":_id"), { _id: "@_id" }, {
       update: {
         method: "PUT"
       }
