@@ -14,27 +14,58 @@
 
 $assetBorderWidth: (14rem / 16);
 $assetLibraryPadding: $assetBorderWidth / 1.25;
+$assetHeight: 12.5rem;
 
 .etto-assetlibrary {
   padding: $assetLibraryPadding;
-  
-
 }
 
 .etto-assetlibrary__assetlist {
   @include clearfix;
-  height:350px;
-  overflow:scroll;
+  height: 32rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+
   .etto-assetlibrary__asset {
     float: left;
     border: $assetBorderWidth solid rgba(255, 255, 255, 0);
     width: 25%;
+    position: relative;
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.3);
+      color: white;
+      height: $assetHeight;
+      padding: $assetHeight / 3 0;
+      position: absolute;
+      text-align: center;
+      text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+      visibility: hidden;
+      width: 100%;
+
+      i {
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 50%;
+        width: 1em;
+        box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+        padding: 0em 0.015em 0em 0em;
+      }
+    }
 
     img {
       @include img-responsive;
       width: 100%;
-      height: 12.5rem;
+      height: $assetHeight;
     }
+
+    &:hover {
+      cursor: pointer;
+
+      .overlay {
+        visibility: visible;
+      }
+    }
+
   }
 }
 
