@@ -19,7 +19,9 @@ angular.module("ettoPupil")
     var resourceName = "asset";
     var resourceBase = $rootScope.config.api.server + [$rootScope.config.api.version, resourceName].join("/");
 
-    var Asset = $resource(Endpoint("asset", ":_id"), { _id: "@_id" }, {
+    var Asset = $resource(Endpoint("asset", ":_id"), {
+      _id: "@_id"
+    }, {
       update: {
         method: "PUT"
       }
