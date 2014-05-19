@@ -25,6 +25,11 @@ angular.module("ettoPupil")
                   });
                 };
 
+                $scope.deleteAsset = function (index) {
+                  $scope.assets[index].$delete();
+                  $scope.assets.splice(index, 1);
+                };
+
                 $scope.cancel = function () {
                   $modalInstance.dismiss("cancel");
                 };

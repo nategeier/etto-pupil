@@ -1,0 +1,24 @@
+
+<etto-logged-in-nav></etto-logged-in-nav>
+<div class="container-full">
+  <div class="row">
+    <div class="col-xs-12">
+      <etto-settings-nav active="assetlibrary"></etto-settings-nav>
+      <h1>Asset Library</h1>
+      <div class="etto-assetlibrary etto-assetlibrary--settings">
+        <div class="etto-assetlibrary__picker">
+          <div class="etto-assetlibrary__assetlist">
+            <div ng-repeat="asset in assets" ng-click="selectAsset(asset._id)" class="etto-assetlibrary__asset">
+              <div class="overlay"><i class="fa fa-3x fa-check-circle-o"></i></div><img src="{{ asset.url }}"/><i ng-click="deleteAsset($index)" class="fa fa-2x fa-trash-o"></i>
+            </div>
+          </div>
+          <form class="etto-assetlibrary__uploader">
+            <div ng-show="err">
+              <div class="alert alert-danger">{{ err.message }}</div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

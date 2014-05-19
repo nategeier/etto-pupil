@@ -7,7 +7,10 @@
 <div class="modal-body etto-assetlibrary">
   <div class="etto-assetlibrary__picker">
     <div class="etto-assetlibrary__assetlist">
-      <div ng-repeat="asset in assets" class="etto-assetlibrary__asset"><img src="{{ asset.url }}" ng-click="selectAsset(asset._id)"/></div>
+      <div ng-repeat="asset in assets" ng-click="selectAsset(asset._id)" class="etto-assetlibrary__asset">
+        <div class="overlay"><i class="fa fa-3x fa-check-circle-o"></i>
+        </div><img src="{{ asset.url }}"/>
+      </div>
     </div>
     <form class="etto-assetlibrary__uploader">
       <div ng-show="err">

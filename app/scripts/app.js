@@ -81,6 +81,15 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
             }
           }
         })
+        .when("/assets", {
+          templateUrl: "/views/AssetLibrary.html",
+          controller: "AssetLibrary",
+          resolve: {
+            assets: function (AssetLoader) {
+              return new AssetLoader();
+            }
+          }
+        })
         .otherwise({
           redirectTo: "/etto"
         });

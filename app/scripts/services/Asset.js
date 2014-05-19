@@ -14,12 +14,14 @@ angular.module("ettoPupil")
  *
  * @param {asset} newAsset Optional new asset information.
  */
-.factory("Asset", ["$rootScope", "$resource", "$http",
-  function ($rootScope, $resource, $http) {
+.factory("Asset", ["$rootScope", "$resource", "$http", "Endpoint",
+  function ($rootScope, $resource, $http, Endpoint) {
     var resourceName = "asset";
     var resourceBase = $rootScope.config.api.server + [$rootScope.config.api.version, resourceName].join("/");
 
-    var Asset = $resource(resourceBase, {}, {
+    var Asset = $resource(Endpoint("asset", ":_id"), {
+      _id: "@_id"
+    }, {
       update: {
         method: "PUT"
       }
@@ -49,11 +51,19 @@ angular.module("ettoPupil")
   function (Asset, $route, $q) {
     return function () {
       var delay = $q.defer();
-      Asset.get({
-        id: $route.current.params.assetId
-      }, function (asset) {
-        delay.resolve(asset);
-      }, function () {});
+
+      if ($route.current.params.assetId) {
+        Asset.get({
+          id: $route.current.params.assetId
+        }, function (asset) {
+          delay.resolve(asset);
+        }, function () {});
+      } else {
+        Asset.query({}, function (assets) {
+          delay.resolve(assets);
+        }, function () {});
+      }
+
       return delay.promise;
     };
   }
