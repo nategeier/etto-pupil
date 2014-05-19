@@ -1,11 +1,15 @@
 .row.quiz-block(etto-block-quiz)
   .col-md-10.col-md-offset-1
+    h3 {{block.data.title}}
     div(ng-repeat = "q in block.data.questions track by $index")
       .question(id="question{{$index}}")
         h4 {{$index + 1}}. {{q.question}}
         div(ng-repeat = "a in q.answers track by $index")
-          .btn.btn-default.w100(ng-click="checkAnswer(a.correct, $parent.$index)")
-            .radio
-              label {{alphabet[$index]}} ) {{a.answer}}
-                input(type="radio", name="q{{$parent.$index}}")
-    button.btn.btn-success.w100(ng-click="evaluate()") Evaluate
+          .btn.w100(ng-class="!a.selected ? 'btn-default' : 'btn-primary'", ng-click="checkAnswer(q.answers, a, $parent.$index)") {{alphabet[$index]}} ) {{a.answer}}
+          
+    div(ng-show="err")
+      .alert.alert-danger {{err.message}}
+    button.btn.btn-success.w100(ng-click="evaluate()") Finished
+
+
+
