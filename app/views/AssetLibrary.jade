@@ -1,0 +1,30 @@
+etto-logged-in-nav
+
+.container-full
+  .row
+    .col-xs-12
+      etto-settings-nav(active="assetlibrary")
+
+      h1 Asset Library
+      .etto-assetlibrary.etto-assetlibrary--settings
+        .etto-assetlibrary__picker
+          .etto-assetlibrary__assetlist
+            .etto-assetlibrary__asset(ng-repeat="asset in assets", ng-click="selectAsset(asset._id)")
+              .overlay
+                i.fa.fa-3x.fa-check-circle-o
+              img(src="{{ asset.url }}")
+              i.fa.fa-2x.fa-trash-o(ng-click="deleteAsset($index)")
+
+          form.etto-assetlibrary__uploader()
+            div(ng-show="err")
+              .alert.alert-danger {{ err.message }}
+
+            //-.form-group
+              //-label Upload File(s)
+              //-.btn.btn-primary
+                //-input.form-control(type="file", ng-file-select="onFileSelect($files)", multiple)
+
+            //-.uploading-files(ng-repeat="file in files")
+              //-.progress
+                //-.progress-bar(role="progressbar", style="width: {{ file.progress }}%;") {{ file.name }}
+              //-button.btn(ng-click="abort($index)", ng-show="file.progress !== 100") Abort

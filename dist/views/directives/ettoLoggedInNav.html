@@ -23,9 +23,10 @@
         <li class="dropdown"><a data-toggle="dropdown" href="#"><i class="fa fa-cog fa-2x pull-left"></i><small>{{user.name}}</small></a>
           <ul role="menu" aria-labelledby="dLabel" class="dropdown-menu">
             <li><a href="/settings/{{user._id}}">Settings</a></li>
-            <li><a href="#" ng-click="destroySession('/')">Logout</a></li>
             <li><a href="/subscription/{{user._id}}" ng-show="user.auth.canPurchase">Subscriptions</a></li>
             <li><a href="/payments/{{user._id}}" ng-show="user.auth.canPurchase">Payments</a></li>
+            <li><a href="/assets">Asset Library</a></li>
+            <li><a href="#" ng-click="destroySession('/')">Logout</a></li>
           </ul>
         </li>
         <li ng-show="user.auth.canPurchase"><a etto-purchase="etto-purchase" href="#" ng-click="purchase(null, null)" class="btn btn-default btn-xs navbar-btn"><small>{{credits}} Credits</small></a></li>
