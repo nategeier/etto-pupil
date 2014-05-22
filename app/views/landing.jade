@@ -5,16 +5,16 @@ etto-not-logged-in-nav
     .container
       .row
         div.hidden-xs(style="height:30px;")
-        .col-xs-12.col-sm-6.col-md-6
+        .col-xs-12
           .col-md-12
             .main-image-message
-              h3.hidden-xs Start creating, taking, tracking, and sharing corporate training courses.
-              p.hidden-xs Coursetto is a mobile ready, sharable, learning management system that empowers you or anyone else in your company to create, purchase, distribute, and track online training.
-              a.btn.btn-default.btn-sm(href="mailto:nate@coursetto.com") Request a beta code
-
-        .col-md-2
-        .col-xs-12.col-sm-6.col-md-4
-          iframe.img-responsive.etto-landing__youtube-demo(style="min-height:200px;max-height:400px;",width="1270", height="728", src="//www.youtube.com/embed/LVb8QrEBgJw?showinfo=0&controls=2", frameborder="0", allowfullscreen)
+              h3 Start creating, taking, tracking, and sharing corporate training courses.
+              .row
+                .col-md-6.hidden-xs
+                  p Coursetto is a mobile ready, sharable, learning management system that empowers you or anyone else in your company to create, purchase, distribute, and track online training.
+                .col-md-6
+                  a.btn.btn-default.btn-sm(href="mailto:nate@coursetto.com") Request a beta code
+        
     .btn-group.hidden-xs.etto-landing__socialmedia
       a(href="https://twitter.com/Coursetto")
         i.fa.fa-twitter.fa-2x
@@ -26,8 +26,19 @@ etto-not-logged-in-nav
         i.fa.fa-facebook.fa-2x
       a(href="mailto:admin@coursetto.com")
         i.fa.fa-envelope.fa-2x
-
-  
+  .section
+    .container
+      .row
+        .col-sm-6.col-md-4
+          img.img-responsive(src="/images/landing/promo1.jpg")
+          br
+        .col-sm-6.col-md-4
+          img.img-responsive(src="/images/landing/promo.jpg")
+          br
+        .col-sm-6.col-md-4
+          iframe.img-responsive.etto-landing__youtube-demo(style="min-height:200px;max-height:500px;", width="1270", height="728",src="//www.youtube.com/embed/kVrUNKg6qsk?showinfo=0&controls=2&thumbnail=high", frameborder="0", allowfullscreen)
+          br
+          a.w100.btn.btn-default(href="mailto:hello@coursetto.com") Request Demo
   .reverse-bkd.section
     .container
       h2.text-center Course Creation
