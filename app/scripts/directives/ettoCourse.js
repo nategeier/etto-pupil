@@ -77,7 +77,7 @@ angular.module("ettoPupil")
           };
 
           $scope.swapBlocks = function (a, b) {
-            var returnObj = CoursePlayer.swapBlocks(a, b)
+            var returnObj = CoursePlayer.swapBlocks(a, b);
             $scope.saveCourse();
             return returnObj;
           };

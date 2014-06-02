@@ -5,7 +5,7 @@
  * It holds the fort down at the bottom of each page.
  *
  */
- body > footer {
+.footer {
   background-color: $etto-darkblue;
   border-top: darken($etto-darkblue, 2%) 1px solid;
   min-height: 200px;
