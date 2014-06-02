@@ -7,9 +7,12 @@
       <p editable-text="course.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()">{{course.subtitle}}</p><a href="/etto" class="exit-course">X</a>
       <div class="panel panel-default">
         <div class="panel-body">
+          <button ng-click="showOptions()" class="btn btn-success"><i class="fa fa-plus"></i>
+            <div ng-if="blocksInCourse() === 0">
+              <p>New slide</p>
+            </div>
+          </button>
           <button ng-click="swapBlocks(currentBlock(), currentBlock() + 1)" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
-          <button ng-click="saveCourse()" class="btn btn-success"><i class="fa fa-save"></i></button>
-          <button ng-click="showOptions()" class="btn btn-default"><i class="fa fa-plus"></i></button>
           <button ng-click="removeBlock()" class="btn btn-danger"><i class="fa fa-minus"></i></button>
         </div>
         <div class="panel-heading">Current State: {{course.status}}</div>

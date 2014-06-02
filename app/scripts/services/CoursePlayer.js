@@ -154,7 +154,6 @@ angular.module("ettoPupil")
         var tmp = course.blocks[a];
         course.blocks[a] = course.blocks[b];
         course.blocks[b] = tmp;
-
         return true;
       };
 
