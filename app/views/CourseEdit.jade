@@ -8,12 +8,13 @@
       a.exit-course(href="/etto") X
       .panel.panel-default
         .panel-body
+          
+          button.btn.btn-success(ng-click="showOptions()")
+            i.fa.fa-plus
+            div(ng-if="blocksInCourse() === 0")
+              p New slide
           button.btn.btn-primary(ng-click='swapBlocks(currentBlock(), currentBlock() + 1)')
             i.fa.fa-refresh
-          button.btn.btn-success(ng-click="saveCourse()")
-            i.fa.fa-save
-          button.btn.btn-default(ng-click="showOptions()")
-            i.fa.fa-plus
           button.btn.btn-danger(ng-click='removeBlock()')
             i.fa.fa-minus
         .panel-heading Current State: {{course.status}}
