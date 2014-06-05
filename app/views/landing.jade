@@ -1,4 +1,4 @@
-etto-not-logged-in-nav
+etto-not-logged-in-nav(etto-register-modal)
 
 .etto-landing
   .header.main-img
@@ -6,16 +6,17 @@ etto-not-logged-in-nav
       .row
         div.hidden-xs(style="height:30px;")
         .col-xs-12
-          .col-md-12
+          .col-sm-8.col-md-8
             .main-image-message
               h3 Start creating, taking, tracking, and sharing corporate training courses.
               .row
                 .col-md-6.hidden-xs
                   p Coursetto is a mobile ready, sharable, learning management system that empowers you or anyone else in your company to create, purchase, distribute, and track online training.
-                .col-md-6
-                  a.btn.btn-default.btn-sm(href="mailto:nate@coursetto.com") Request a beta code
+          .col-sm-4.hidden-xs
+            img.img-responsive(src="/images/landing/computers.png") 
         
     .btn-group.hidden-xs.etto-landing__socialmedia
+
       a(href="https://twitter.com/Coursetto")
         i.fa.fa-twitter.fa-2x
       a(href="https://www.youtube.com/user/coursetto")
@@ -29,49 +30,59 @@ etto-not-logged-in-nav
   .section
     .container
       .row
-        .col-sm-6.col-md-4
+        a.col-sm-6.col-md-4(href="#", ng-click='register()')
           img.img-responsive(src="/images/landing/promo1.jpg")
           br
-        .col-sm-6.col-md-4
+        a.col-md-4.hidden-sm.hidden-xs(href="#", ng-click='register()')
           img.img-responsive(src="/images/landing/promo.jpg")
           br
         .col-sm-6.col-md-4
           iframe.img-responsive.etto-landing__youtube-demo(style="min-height:200px;", width="1270", height="728",src="//www.youtube.com/embed/kVrUNKg6qsk?showinfo=0&controls=2&thumbnail=high&html5=1", frameborder="0", allowfullscreen)
           br
-          a.w100.btn.btn-default(href="mailto:hello@coursetto.com") Request Demo
+          a.w100.btn.btn-success(href="#", ng-click='register()') Register
   .reverse-bkd.section
     .container
       h2.text-center Course Creation
-      .col-sm-12.col-md-6
-        img.img-responsive(src='/images/landing/demo1.jpg')
-        img.img-responsive(src='/images/landing/demo2.jpg')
-        img.img-responsive(src='/images/landing/demo3.jpg')
-      .col-xs-12.col-sm-12.col-md-6
-        h4 Anyone Can Create Courses
-        p Allow anyone in your company to create and manage courses, or restrict permissions where appropriate.
-        p Creating custom content is a breeze on desktop and mobile.
+      .row
+        .col-sm-12.col-md-6
+          img.img-responsive(src='/images/landing/demo1.jpg')
+          img.img-responsive(src='/images/landing/demo2.jpg')
+          img.img-responsive(src='/images/landing/demo3.jpg')
+        .col-xs-12.col-sm-12.col-md-6
+          
+          .row
+            .col-xs-4
+              img.img-responsive(src='/images/landing/person1.jpg')
+            .col-xs-4
+              img.img-responsive(src='/images/landing/person2.jpg')
+            .col-xs-4
+              img.img-responsive(src='/images/landing/person3.jpg')
 
-        h4 Subscriptions
-        p Pricing is based on number of employees enrolled and the number of private courses you need to distribute:
-        .col-sm-12.col-md-12
-          ul.nav.nav-tabs
-            li(ng-click="show(subscriptionType._id)", ng-repeat="subscriptionType in subscriptionTypes", ng-class="{active: onSubscription === subscriptionType._id}")
-              a(href="#")
-                small {{subscriptionType.title}}
-                br
-                small {{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}}
-          div(ng-repeat="subscriptionType in subscriptionTypes")
-            table.table.table-no-border(ng-show="onSubscription === subscriptionType._id", style="background-color:#fff;")
-              tr
-                th Private Courses
-                th Price
-              tr(ng-repeat="subscription in subscriptionType.subscriptions", ng-animate="'animate'")
-                td {{subscription.courseRange.low}} - {{subscription.courseRange.high}}
-                td ${{subscription.price}}/mo
+          h4 Anyone Can Create Courses
+          p Allow anyone in your company to create and curate courses, or restrict permissions where appropriate.
+          p Creating custom content is a breeze on desktop and mobile.
+
+          h4 Subscriptions
+          p Pricing is based on number of employees enrolled and the number of private courses you need to distribute:
+          .col-sm-12.col-md-12
+            ul.nav.nav-tabs
+              li(ng-click="show(subscriptionType._id)", ng-repeat="subscriptionType in subscriptionTypes", ng-class="{active: onSubscription === subscriptionType._id}")
+                a(href="#")
+                  small {{subscriptionType.title}}
+                  br
+                  small {{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}}
+            div(ng-repeat="subscriptionType in subscriptionTypes")
+              table.table.table-no-border(ng-show="onSubscription === subscriptionType._id", style="background-color:#fff;")
+                tr
+                  th Private Courses
+                  th Price
+                tr(ng-repeat="subscription in subscriptionType.subscriptions", ng-animate="'animate'")
+                  td {{subscription.courseRange.low}} - {{subscription.courseRange.high}}
+                  td ${{subscription.price}}/mo
   .section
     .container
       .row
-        h2.text-center Create a custom company structure
+        h2.text-center Create a Custom Company Structure
         .col-xs-12.col-sm-4.col-md-4
           img.img-responsive(src='/images/landing/old.jpg')
           h4 The Old Way
@@ -104,8 +115,13 @@ etto-not-logged-in-nav
             .col-sm-3.col-md-6
               p
                 img.img-responsive(src='/images/landing/tiers.jpg')
-
   .section
+    .container
+      .row
+        h2.text-center Set Your Company Branding
+        .col-xs-12
+          img.img-responsive(src='/images/landing/white-label.jpg')
+  .reverse-bkd.section
     .container
       .row
         h2.text-center The Coursetto Team
@@ -114,7 +130,7 @@ etto-not-logged-in-nav
           h3 Nate Geier
           h4 CEO
           p
-            a(href="mailto:nate@coursetto.com")
+            a.btn.btn-primary(href="mailto:nate@coursetto.com")
               i.fa.fa-envelope
               |  nate@coursetto.com
         .col-sm-4
@@ -122,9 +138,11 @@ etto-not-logged-in-nav
           h3 Randall A. Gordon
           h4 CTO
           p
-            a(href="mailto:randall@coursetto.com")
+            a.btn.btn-primary(href="mailto:randall@coursetto.com")
               i.fa.fa-envelope
               |  randall@coursetto.com
         .col-sm-4
           iframe.etto-landing__youtube-demo(style="min-height:200px;max-height:300px;", src="//www.youtube.com/embed/Usu18v7Ja2A?showinfo=0&controls=2", frameborder="0", allowfullscreen)
           h4 All About Coursetto
+          br
+          a.btn.btn-success(href="#", ng-click='register()') Register

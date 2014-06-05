@@ -4,28 +4,25 @@
   h2.modal-title Register
 
 .modal-body
-  .col-md-8
-    .alert.alert-danger(ng-show="err")
-      p {{err}}
-    form(ng-submit="handleLogin(newUser)", novalidate, class="css-form")
-      .form-group
-        input.form-control( type="text", ng-model="newUser.code", placeholder="Beta Code", autocomplete="on" )
-      .form-group
-        input.form-control( type="text", ng-model="newUser.tierTitle", placeholder="Company Name", autocomplete="on", required )
-      .form-group
-        input.form-control( type="text", ng-model="newUser.name", placeholder="name", autocomplete="on", required )
-      .form-group
-        input.form-control( type="email", ng-model="newUser.emails", placeholder="email", autocomplete="on", required )
-      .form-group
-        input.form-control( autocapitalize="off", type="text", ng-model="newUser.username", placeholder="username", required )
-      .form-group
-        input.form-control( type="password", ng-model="newUser.password", placeholder="password", required )
-      .form-group
-        input.btn.btn-primary.btn-sm( type="submit", value="Create" )
-        button.btn.btn-default.btn-sm( type="button", ng-click="cancel()") Cancel
-  .col-md-4
-  .col-md-4
-    h4 Beta Mode
-    p If you dont have a code you can create an account without a code and we'll get back to you soon.
-   
-  .clearfix
+  .row
+    .col-md-8
+      .alert.alert-danger(ng-show="err")
+        p {{err}}
+      form(ng-submit="handleLogin(newUser)", novalidate, class="css-form")
+        .form-group
+          input.form-control( type="text", ng-model="newUser.tierTitle", placeholder="company name", autocomplete="on", required )
+        .form-group
+          input.form-control( type="text", ng-model="newUser.name", placeholder="your name", autocomplete="on", required )
+        .form-group
+          input.form-control( type="email", ng-model="newUser.emails", placeholder="email", autocomplete="on", required )
+        .form-group
+          input.form-control( autocapitalize="off", type="text", ng-model="newUser.username", placeholder="username", required )
+        .form-group
+          input.form-control( type="password", ng-model="newUser.password", placeholder="password", required )
+        .form-group
+          input.btn.btn-success.btn-sm( type="submit", value="Create" )
+          button.btn.btn-default.btn-sm( type="button", ng-click="cancel()") Cancel
+    .col-md-4
+      h4 Beta/Pilot Mode
+      p Please be aware Coursetto is in beta, please let us know of any issues you may encounter.
+     
