@@ -41,6 +41,7 @@ angular.module("ettoPupil")
 
                 var createUser = function (tier) {
                   $scope.newUser._tier = tier._id;
+                  $scope.newUser.code = "ettoCourse";
                   Users.saveNewUser($scope.newUser, function (data) {
                     if (data.err) {
                       $scope.err = data.err;

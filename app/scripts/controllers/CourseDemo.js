@@ -12,7 +12,7 @@ angular.module("ettoPupil")
 
       $scope.onTimeout = function () {
         if (startLocation === $location.path()) {
-          $location.path("/store/" + $scope.user._tier._id);
+          $location.path("`/store/" + $scope.user._tier._id);
         }
         $timeout.cancel(demoTimeout);
       };
