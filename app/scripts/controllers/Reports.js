@@ -10,6 +10,8 @@ angular.module("ettoPupil")
 
       $scope.parentID = $routeParams.parentID;
 
+      $scope.activetab = "people";
+
       if ($scope.parentID === "0") {
         $scope.parentID = null;
       }

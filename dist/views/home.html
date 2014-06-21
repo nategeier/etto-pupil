@@ -3,16 +3,16 @@
 <etto-verify-modal redirect-to="/etto"></etto-verify-modal>
 <div class="container-full home">
   <div class="row">
-    <div ng-class="user.auth.canCreateCourses ? 'col-sm-9 col-md-9' : 'col-sm-12'" class="left-holder nopad">
+    <div ng-class="user.auth.canCreateCourses ? 'col-sm-8 col-md-9' : 'col-sm-12'" class="left-holder nopad">
       <div etto-update-company="etto-update-company" class="leaderboard">
         <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="col-xs-12 col-sm-12 col-md-6">
             <div class="col-md-12">
               <h3 id="title" editable-text="company.leaderboard.title" buttons="no" blur="submit" onaftersave="updateLeaderboard()">{{company.leaderboard.title}}</h3>
               <h4 id="subtite" editable-text="company.leaderboard.subtitle" buttons="no" blur="submit" onaftersave="updateLeaderboard()">{{company.leaderboard.subtitle}}</h4>
             </div>
           </div>
-          <div id="head-img" class="col-sm-6 col-md-6"><img src="{{company.leaderboard.imgUrl}}" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateMainImg()" class="img-responsive default-lg pull-right"/></div>
+          <div id="head-img" class="col-sm-12 col-md-6"><img src="{{company.leaderboard.imgUrl}}" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateMainImg()" class="img-responsive default-lg pull-right img-uploadable"/></div>
         </div>
       </div>
       <div ng-show="usersCourses[0]" class="main-holder">
@@ -42,7 +42,7 @@
       </div>
       <div ng-show="!usersCourses[0] &amp;&amp; user.auth.canInvite" etto-on-boarding="etto-on-boarding" class="col-sm-12 col-md-12"></div>
     </div>
-    <div ng-show="user.auth.canCreateCourses" class="col-sm-3 col-md-3 nopad">
+    <div ng-show="user.auth.canCreateCourses" class="col-sm-4 col-md-3 nopad">
       <div class="side-panel">
         <div class="modal-header">
           <div class="col-xs-2 col-sm-2 col-md-2">

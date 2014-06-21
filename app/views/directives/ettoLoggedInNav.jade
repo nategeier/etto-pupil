@@ -15,20 +15,20 @@ nav.navbar.navbar-default( role="navigation", etto-session, etto-update-company)
 
   #etto-navbar.collapse.navbar-collapse
     ul.nav.navbar-nav
-      li
+      li(ng-class="{active: activetab === 'home'}")
         a.navbar-btn( href="/etto" )
-          small home
+          small Home
       li.divider
-      li(ng-show= "user.auth.canGetCourses")
+      li(ng-show= "user.auth.canGetCourses", ng-class="{active: activetab === 'market'}")
         a.navbar-btn( href="/store/{{user._tier._id}}" )
-          small market
+          small Market
       li.divider
-      li(ng-show= "user.auth.canCreateCourses")
+      li(ng-show= "user.auth.canCreateCourses", ng-class="{active: activetab === 'create'}")
         a.navbar-btn(href="#", etto-add-course, ng-click='addCourse()')
-          small create course
-      li(ng-show= "user.auth.canInvite")
+          small Create Course
+      li(ng-show= "user.auth.canInvite", ng-class="{active: activetab === 'people'}")
         a.navbar-btn( href="/report/{{user._tier._id}}" )
-          small reports
+          small People
 
     .navbar-right
       ul.nav.navbar-nav
