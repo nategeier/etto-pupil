@@ -8,23 +8,21 @@ etto-logged-in-nav
             a.col-xs-12.col-sm-5.col-md-5(href="/tier/edit/{{ currentTier._id }}")
               h2 {{currentTier.title}}
               
-            .col-xs-12.col-sm-7.col-md-7.report-btns
-              .col-xs-4.col-sm-4.col-md-4.nopad
-                .report-btn(etto-add-tier, ng-click="addTier()")
-                  i.fa.fa-sitemap.fa-2x
-                  br
-                  small Add Tiers
-              .col-xs-4.col-sm-4.col-md-4.nopad
-                .report-btn(etto-invite-user-modal, ng-click="inviteUser()")
-                  i.fa.fa-user.fa-2x
-                  br
-                  small Add Users
-              a.col-xs-4.col-sm-4.col-md-4.nopad(href="/tier/edit/{{ currentTier._id }}") 
-                .report-btn
-                  
-                  i.fa.fa-edit.fa-2x
-                  br
-                  small Edit Tier
+            .col-xs-12.col-sm-7.col-md-7
+              .etto-report-btns
+                .btn-group
+                  .btn.btn-default(etto-add-tier, ng-click="addTier()")
+                    i.fa.fa-sitemap.fa-2x
+                    br
+                    small Add Tiers
+                  .btn.btn-default(etto-invite-user-modal, ng-click="inviteUser()")
+                    i.fa.fa-user.fa-2x
+                    br
+                    small Add Users
+                  a.btn.btn-default(href="/tier/edit/{{ currentTier._id }}") 
+                    i.fa.fa-edit.fa-2x
+                    br
+                    small Edit Tier
       .row
         .statBox.col-xs-12.col-md-12.col-sm-12
           .col-xs-6.col-sm-3.col-md-3.stat.statholder
@@ -79,7 +77,7 @@ etto-logged-in-nav
                         .progress-bar(role="progressbar", aria-valuenow="{{user.overallPercent}}", aria-valuemin="0", aria-valuemax="100", style="width: {{user.overallPercent}}%;")
 
 
-    .col-xs-12.col-sm-12.col-md-3.report-progress.side-panel
+    .col-xs-12.col-sm-6.col-md-3.report-progress.side-panel
       .modal-header
         h4.modal-title Course Report
       .col-md-12

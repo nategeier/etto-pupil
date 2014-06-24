@@ -7,14 +7,13 @@
         <div class="report-head col-md-12">
           <div class="row"><a href="/tier/edit/{{ currentTier._id }}" class="col-xs-12 col-sm-5 col-md-5">
               <h2>{{currentTier.title}}</h2></a>
-            <div class="col-xs-12 col-sm-7 col-md-7 report-btns">
-              <div class="col-xs-4 col-sm-4 col-md-4 nopad">
-                <div etto-add-tier="etto-add-tier" ng-click="addTier()" class="report-btn"><i class="fa fa-sitemap fa-2x"></i><br/><small>Add Tiers</small></div>
+            <div class="col-xs-12 col-sm-7 col-md-7">
+              <div class="etto-report-btns">
+                <div class="btn-group">
+                  <div etto-add-tier="etto-add-tier" ng-click="addTier()" class="btn btn-default"><i class="fa fa-sitemap fa-2x"></i><br/><small>Add Tiers</small></div>
+                  <div etto-invite-user-modal="etto-invite-user-modal" ng-click="inviteUser()" class="btn btn-default"><i class="fa fa-user fa-2x"></i><br/><small>Add Users</small></div><a href="/tier/edit/{{ currentTier._id }}" class="btn btn-default"> <i class="fa fa-edit fa-2x"></i><br/><small>Edit Tier</small></a>
+                </div>
               </div>
-              <div class="col-xs-4 col-sm-4 col-md-4 nopad">
-                <div etto-invite-user-modal="etto-invite-user-modal" ng-click="inviteUser()" class="report-btn"><i class="fa fa-user fa-2x"></i><br/><small>Add Users</small></div>
-              </div><a href="/tier/edit/{{ currentTier._id }}" class="col-xs-4 col-sm-4 col-md-4 nopad"> 
-                <div class="report-btn"><i class="fa fa-edit fa-2x"></i><br/><small>Edit Tier</small></div></a>
             </div>
           </div>
         </div>
@@ -88,7 +87,7 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-3 report-progress side-panel">
+    <div class="col-xs-12 col-sm-6 col-md-3 report-progress side-panel">
       <div class="modal-header">
         <h4 class="modal-title">Course Report</h4>
       </div>
