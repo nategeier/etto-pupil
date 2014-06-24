@@ -2,12 +2,12 @@
 div
   etto-block( ng-repeat="block in course.blocks",
               class="block",
-              ng-show="isCurrentBlock( $index )",
+              ng-if="isCurrentBlock( $index )",
               block="block")
 
 .etto-course-prev-block( ng-click="prevBlock()" )
   i.fa.fa-3x.fa-arrow-circle-left
-.etto-course-next-block( ng-click="nextBlock()" )
+.etto-course-next-block( ng-click="nextBlock()", ng-show="locked === false || !locked")
   i.fa.fa-3x.fa-arrow-circle-right
 
 

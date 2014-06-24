@@ -13,7 +13,7 @@ angular.module("ettoPupil")
 
     function (BlockQuiz, Record) {
       var onBlock = 0;
-
+      var locked = false;
       var course = {
         blocks: []
       };
@@ -27,6 +27,19 @@ angular.module("ettoPupil")
 
         course = newCourse;
         onBlock = 0;
+      };
+
+      var unlock = function () {
+        locked = false;
+      };
+
+      var lock = function () {
+        locked = true;
+      };
+
+      var currentlyLocked = function () {
+        //locked = true;
+        return locked;
       };
 
       /**
@@ -108,6 +121,7 @@ angular.module("ettoPupil")
 
         switch (blocktype) {
         case "quiz":
+
           newBlock.data.questions = [BlockQuiz.getQuestion()];
           break;
 
@@ -132,17 +146,6 @@ angular.module("ettoPupil")
       };
 
       /**
-       * Remove the block at the passed index and return how many are left
-       */
-      var animateBlock = function (block, from) {
-        var str = String(block);
-        TweenMax.from($(str), 0.6, {
-          opacity: 0.1,
-          x: 300
-        });
-      };
-
-      /**
        * Swap two blocks
        */
       var swapBlocks = function (a, b) {
@@ -160,6 +163,9 @@ angular.module("ettoPupil")
 
       var CoursePlayer = {
         play: play,
+        currentlyLocked: currentlyLocked,
+        unlock: unlock,
+        lock: lock,
         blocksInCourse: blocksInCourse,
         currentBlock: currentBlock,
         onLastBlock: onLastBlock,
@@ -169,7 +175,6 @@ angular.module("ettoPupil")
         switchToBlock: switchToBlock,
         addBlock: addBlock,
         removeBlock: removeBlock,
-        animateBlock: animateBlock,
         swapBlocks: swapBlocks
       };
 

@@ -1,83 +1,89 @@
 etto-logged-in-nav
 
-.col-md-12
-  etto-settings-nav(active="settings")
-  
-  h1 Settings
-  .col-sm-12.col-md-5.pocket
+.container-full
+  .row
+    .col-sm-6.col-md-6
+      h1 Settings
+      .col-sm-12.col-md-12
+        .alert.alert-success(ng-show="saved")
+          p saved
+        .alert.alert-danger(ng-show="err")
+          p {{err}}
+      
+      .col-md-6
+        .etto-x-input-box
+          p(editable-text="editUser.name", buttons="no", blur="submit", onaftersave="updateUser()") {{editUser.name || 'name'}}
+        p Username {{editUser.username}}
+        p Location: {{editUser._tier.title}}
+        
+        h4 Emails:
+        div(ng-repeat='email in editUser.emails')
+          .row
+            .col-md-10
+              .etto-x-input-box
+                p(type='email', editable-text="editUser.emails[$index]", buttons="no", blur="submit", onaftersave="updateUser()") {{editUser.emails[$index] || 'email'}}
+            .col-md-2
+              button.btn.btn-warning.btn-xs(ng-click="removeEmail($index)") X
+        br
+        button.btn.btn-success.btn-xs(ng-click="addEmail()") Add Email
 
-    
-    .col-md-6
-      p(editable-text="editUser.name", buttons="no", blur="submit", onaftersave="updateUser()") {{editUser.name || 'name'}}
-      p Username {{editUser.username}}
-      p Location: {{editUser._tier.title}}
-      h4 Change Tier
-      .input-group
-        input.form-control(etto-search-tiers, type="text", ng-model="tierSearch", placeholder="Search title or Internal ID", ng-change="searchTiers()")
-        .input-group-btn
-          button.btn.btn-default
-            i.fa.fa-search
+      .col-md-6
+        h4 Change Tier
+        .input-group
+          input.form-control(etto-search-tiers, type="text", ng-model="tierSearch", placeholder="Search title or Internal ID", ng-change="searchTiers()")
+          .input-group-btn
+            button.btn.btn-default
+              i.fa.fa-search
 
-      div(ng-repeat="tier in foundTiers")
-        button.btn.btn-default.w100(ng-click="updateUserTier(tier._id, tier.title)") {{tier.title}} {{tier.internalId}}
-    .col-md-6
-      h4 Emails:
-      div(ng-repeat='email in editUser.emails')
-        p(type='email', editable-text="editUser.emails[$index]", buttons="no", blur="submit", onaftersave="updateUser()") {{editUser.emails[$index] || 'email'}}
-         button.btn.btn-warning.btn-xs(ng-click="removeEmail($index)") X
-      button.btn.btn-default.btn-sm(ng-click="addEmail()") Add Email
+        div(ng-repeat="tier in foundTiers")
+          button.btn.btn-default.w100(ng-click="updateUserTier(tier._id, tier.title)") {{tier.title}} {{tier.internalId}}
+        
+        hr
+        img.img-circle.user-thumb(src= "{{editUser.avatarUrl}}")
+        i.fa.fa-user.fa-3x.center-block(ng-show="!editUser.avatarUrl")
 
-  .col-sm-12.col-md-3
+        button.btn.btn-success(etto-asset-library-modal, ng-click='updateAvatar()')
+          i.fa.fa-camera
 
-    img.img-circle.user-thumb(src= "{{editUser.avatarUrl}}")
-    i.fa.fa-user.fa-3x.center-block(ng-show="!editUser.avatarUrl")
+        div(ng-if="user._id !== editUser._id")
+          .checkbox(ng-if="user.auth.canEditCompany")
+            label
+              input( type='checkbox', ng-model="editUser.auth.canEditCompany", ng-change="updateUser()")
+              | Can Edit Company Appearance
 
-    button.btn.btn-success(etto-asset-library-modal, ng-click='updateAvatar()')
-      i.fa.fa-camera
+          .checkbox(ng-if="user.auth.canPurchase")
+            label
+              input(type='checkbox', ng-model="editUser.auth.canPurchase", ng-change="updateUser()")
+              | Can Purchase
+          .checkbox(ng-if="user.auth.canGetCourses")
+            label
+              input(type='checkbox', ng-model="editUser.auth.canGetCourses", ng-change="updateUser()")
+              | Can Get Courses
+          .checkbox(ng-if="user.auth.canCreateCourses")
+            label
+              input(type='checkbox', ng-model="editUser.auth.canCreateCourses", ng-change="updateUser()")
+              | Can Create Courses
+          .checkbox(ng-if="user.auth.canInvite")
+            label
+              input(type='checkbox', ng-model="editUser.auth.canInvite", ng-change="updateUser()")
+              | Can Invite Users to {{editUser._tier.title}}
+          .checkbox(ng-if="user.enabled")
+            label
+              input(type='checkbox', ng-model="editUser.enabled", ng-change="updateUser()")
+              | Is Enabled
+      
 
-    div(ng-if="user._id !== editUser._id")
-      .checkbox(ng-if="user.auth.canEditCompany")
-        label
-          input( type='checkbox', ng-model="editUser.auth.canEditCompany", ng-change="updateUser()")
-          | Can Edit Company Appearance
-
-      .checkbox(ng-if="user.auth.canPurchase")
-        label
-          input(type='checkbox', ng-model="editUser.auth.canPurchase", ng-change="updateUser()")
-          | Can Purchase
-      .checkbox(ng-if="user.auth.canGetCourses")
-        label
-          input(type='checkbox', ng-model="editUser.auth.canGetCourses", ng-change="updateUser()")
-          | Can Get Courses
-      .checkbox(ng-if="user.auth.canCreateCourses")
-        label
-          input(type='checkbox', ng-model="editUser.auth.canCreateCourses", ng-change="updateUser()")
-          | Can Create Courses
-      .checkbox(ng-if="user.auth.canInvite")
-        label
-          input(type='checkbox', ng-model="editUser.auth.canInvite", ng-change="updateUser()")
-          | Can Invite Users to {{editUser._tier.title}}
-      .checkbox(ng-if="user.enabled")
-        label
-          input(type='checkbox', ng-model="editUser.enabled", ng-change="updateUser()")
-          | Is Enabled
-    .col-sm-12.col-md-12
-      .alert.alert-success(ng-show="saved")
-        p saved
-      .alert.alert-danger(ng-show="err")
-        p {{err}}
-
-  .col-sm-12.col-md-4.side-panel
-    .modal-header
-      h4.modal-title Course Records
-    p(ng-show="!userRecords[0]") -- {{editUser.name}} has not taken any courses yet.
-    div(ng-repeat="record in userRecords")
-      h4 {{record._course.title}}
-      small Date taken {{record.started}}
-      .progress
-        .progress-bar(role="progressbar", aria-valuenow="{{(record.progress.bookmark/record.progress.totalBlocks) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(record.progress.bookmark/record.progress.totalBlocks) * 100}}%;")
-                    
-.clearfix
+    .col-sm-6.col-md-6.nopad
+      .modal-header
+        h4.modal-title Course Records
+      p(ng-show="!userRecords[0]") -- {{editUser.name}} has not taken any courses yet.
+      div(ng-repeat="record in userRecords")
+        .col-sm-6
+          h4 {{record._course.title}}
+          small Date taken {{record.started}}
+          .progress
+            .progress-bar(role="progressbar", aria-valuenow="{{(record.progress.bookmark/record.progress.totalBlocks) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(record.progress.bookmark/record.progress.totalBlocks) * 100}}%;")
+                      
 
 
 

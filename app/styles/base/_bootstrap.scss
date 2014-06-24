@@ -16,6 +16,7 @@
 
 @import "bootstrap-sass/lib/tables.scss";
 @import "bootstrap-sass/lib/input-groups.scss";
+@import "bootstrap-sass/lib/button-groups.scss";
 
 @import "bootstrap-sass/lib/_component-animations.scss";
 @import "bootstrap-sass/lib/_navs.scss";
@@ -25,9 +26,12 @@
 @import "bootstrap-sass/lib/_close.scss";
 
 @import "bootstrap-sass/lib/_modals.scss";
-
+@import "bootstrap-sass/lib/_list-group.scss";
 @import "bootstrap-sass/lib/_utilities.scss";
 @import "bootstrap-sass/lib/_responsive-utilities.scss";
+
+
+
 
 // Add a full-width container class...seems like this should be part of Bootstrap.
 .container-full{
@@ -45,23 +49,11 @@
 }
 
 
-/*
-.btn-group-vertical .btn{
-  width:100%;
-}
-*/
 .w100 {
   width: 100%;
 }
 
 .navbar-fixed-top{
   border-bottom: 3px solid $etto-mildblue;
-}
-
-
-.table-no-border>thead>tr>th,
-.table-no-border>tbody>tr>th,
-.table-no-border>tfoot>tr>th {
-  border-top: none;
 }
 

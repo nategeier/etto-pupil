@@ -21,7 +21,7 @@
         </div>
         <div ng-repeat="course in usersCourses" class="animate-repeat">
           <div ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-md-4 col-lg-3' : 'col-sm-6 col-md-3 col-lg-2'" class="nopad">
-            <div sink-in="sink-in" ng-click="openCourse(course)" class="course-holder"><img src="{{course.thumb}}" class="img-responsive course-thumb"/>
+            <div sink-in="sink-in" ng-click="openCourse(course)" class="course-holder"><img src="{{course.thumb}}" class="img-responsive course-thumb img-rounded"/>
               <div ng-if="course._record"><img src="/images/courses/badges/default.png" ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks &amp;&amp; course._record.progress.totalBlocks !== 1" class="img-responsive badge"/></div>
               <div class="row"> 
                 <div class="col-xs-12">
@@ -59,7 +59,7 @@
               <div sink-in="sink-in" class="course">
                 <button etto-remove-course="etto-remove-course" type="button" ng-click="removeCourse(course._id, course.title)" class="close aria-hidden pull-right"><i class="fa fa-trash-o"></i></button><a href="/course/edit/{{ course._id }}">
                   <div class="row">
-                    <div class="col-xs-5 col-sm-12 col-md-5"><img src="{{course.thumb}}" class="img-responsive user-course-thumb"/></div>
+                    <div class="col-xs-5 col-sm-12 col-md-5"><img src="{{course.thumb}}" class="img-responsive user-course-thumb img-rounded"/></div>
                     <div class="col-xs-7 col-sm-12 col-sm-7 col-md-7">
                       <h5>{{course.title}}</h5>
                     </div>

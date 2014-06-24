@@ -62,12 +62,18 @@ $line-height-base:       $ratio;
 
 $headings-line-height:   $line-height-base;
 
+
+$navbar-default-link-hover-color:          $etto-darkblue !default;
+$navbar-default-link-hover-bg:             lighten($etto-lightblue, 9.5%) !default;
+$navbar-default-link-active-color:         $etto-darkblue !default;
+$navbar-default-link-active-bg:            lighten($etto-lightblue, 6.5%) !default;
+
 // Components
 // -------------------------
 
-$border-radius-base: 0px;
-$border-radius-large: 0px;
-$border-radius-small: 0px;
+$border-radius-base: 4px;
+$border-radius-large: 4px;
+$border-radius-small: 4px;
 
 // Navbar
 // -------------------------
