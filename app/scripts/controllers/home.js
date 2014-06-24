@@ -10,6 +10,8 @@ angular.module("ettoPupil")
         }
       });
 
+      $scope.activetab = "home";
+
       TweenMax.from($("#title"), 0.6, {
         delay: 0.3,
         opacity: 0,

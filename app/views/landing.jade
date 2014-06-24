@@ -4,52 +4,37 @@ etto-not-logged-in-nav(etto-register-modal)
   .header.main-img
     .container
       .row
-        div.hidden-xs(style="height:30px;")
-        .col-xs-12
-          .col-sm-8.col-md-8
-            .main-image-message
-              h3 Start creating, taking, tracking, and sharing corporate training courses.
-              .row
-                .col-md-6.hidden-xs
-                  p Coursetto is a mobile ready, sharable, learning management system that empowers you or anyone else in your company to create, purchase, distribute, and track online training.
-          .col-sm-4.hidden-xs
-            img.img-responsive(src="/images/landing/computers.png") 
-        
-    .btn-group.hidden-xs.etto-landing__socialmedia
 
-      a(href="https://twitter.com/Coursetto")
-        i.fa.fa-twitter.fa-2x
-      a(href="https://www.youtube.com/user/coursetto")
-        i.fa.fa-youtube-play.fa-2x
-      a(href="https://www.linkedin.com/company/5153924?trk=prof-0-ovw-curr_pos")
-        i.fa.fa-linkedin.fa-2x
-      a(href="https://www.facebook.com/coursetto")
-        i.fa.fa-facebook.fa-2x
-      a(href="mailto:admin@coursetto.com")
-        i.fa.fa-envelope.fa-2x
+        .col-sm-7.main-image-message
+          
+          h3 Start creating, taking, tracking, and sharing corporate training courses.
+          .row
+            .col-sm-10
+              p Coursetto is a knowledge-sharing platform that empowers anyone in your company to create and curate courses for new and current hires.
+          .btn-group.etto-landing__socialmedia
+            a(href="https://twitter.com/Coursetto")
+              i.fa.fa-twitter.fa-2x
+            a(href="https://www.youtube.com/user/coursetto")
+              i.fa.fa-youtube-play.fa-2x
+            a(href="https://www.linkedin.com/company/5153924?trk=prof-0-ovw-curr_pos")
+              i.fa.fa-linkedin.fa-2x
+            a(href="https://www.facebook.com/coursetto")
+              i.fa.fa-facebook.fa-2x
+            a(href="mailto:admin@coursetto.com")
+              i.fa.fa-envelope.fa-2x
+        .col-sm-5.hidden-xs.section
+          img.img-responsive.pull-right(src="/images/landing/computers.png") 
+        
+      
+  
   .section
     .container
-      .row
-        a.col-sm-6.col-md-4(href="#", ng-click='register()')
-          img.img-responsive(src="/images/landing/promo1.jpg")
-          br
-        a.col-md-4.hidden-sm.hidden-xs(href="#", ng-click='register()')
-          img.img-responsive(src="/images/landing/promo.jpg")
-          br
-        .col-sm-6.col-md-4
-          iframe.img-responsive.etto-landing__youtube-demo(style="min-height:200px;", width="1270", height="728",src="//www.youtube.com/embed/kVrUNKg6qsk?showinfo=0&controls=2&thumbnail=high&html5=1", frameborder="0", allowfullscreen)
-          br
-          a.w100.btn.btn-success(href="#", ng-click='register()') Register
-  .reverse-bkd.section
-    .container
-      h2.text-center Course Creation
       .row
         .col-sm-12.col-md-6
           img.img-responsive(src='/images/landing/demo1.jpg')
           img.img-responsive(src='/images/landing/demo2.jpg')
           img.img-responsive(src='/images/landing/demo3.jpg')
         .col-xs-12.col-sm-12.col-md-6
-          
           .row
             .col-xs-4
               img.img-responsive(src='/images/landing/person1.jpg')
@@ -57,8 +42,7 @@ etto-not-logged-in-nav(etto-register-modal)
               img.img-responsive(src='/images/landing/person2.jpg')
             .col-xs-4
               img.img-responsive(src='/images/landing/person3.jpg')
-
-          h4 Anyone Can Create Courses
+          h2 Anyone Can Create Courses
           p Allow anyone in your company to create and curate courses, or restrict permissions where appropriate.
           p Creating custom content is a breeze on desktop and mobile.
 
@@ -79,6 +63,19 @@ etto-not-logged-in-nav(etto-register-modal)
                 tr(ng-repeat="subscription in subscriptionType.subscriptions", ng-animate="'animate'")
                   td {{subscription.courseRange.low}} - {{subscription.courseRange.high}}
                   td ${{subscription.price}}/mo
+  .reverse-bkd.section
+    .container
+      .row
+        a.col-sm-6.col-md-4(href="#", ng-click='register()')
+          img.img-responsive(src="/images/landing/promo1.jpg")
+          br
+        a.col-md-4.hidden-sm.hidden-xs(href="#", ng-click='register()')
+          img.img-responsive(src="/images/landing/promo.jpg")
+          br
+        .col-sm-6.col-md-4
+          iframe.img-responsive.etto-landing__youtube-demo(style="min-height:200px;", width="1270", height="728",src="//www.youtube.com/embed/kVrUNKg6qsk?showinfo=0&controls=2&thumbnail=high&html5=1", frameborder="0", allowfullscreen)
+          br
+          a.w100.btn.btn-success(href="#", ng-click='register()') Register
   .section
     .container
       .row
@@ -100,9 +97,9 @@ etto-not-logged-in-nav(etto-register-modal)
     .container
       .row
         h2.text-center Course Marketplace
-        p.text-center Pay per user course taken
+        p.text-center 
         .col-md-6
-          h4 No subscription necessary
+          h4 No subscription necessary, pay per user course taken
           p No time to build a course and just need something standard? Then head over to the course marketplace.
           p
             img.img-responsive(src='/images/landing/market.jpg')
@@ -143,6 +140,6 @@ etto-not-logged-in-nav(etto-register-modal)
               |  randall@coursetto.com
         .col-sm-4
           iframe.etto-landing__youtube-demo(style="min-height:200px;max-height:300px;", src="//www.youtube.com/embed/Usu18v7Ja2A?showinfo=0&controls=2", frameborder="0", allowfullscreen)
-          h4 All About Coursetto
-          br
           a.btn.btn-success(href="#", ng-click='register()') Register
+          
+  

@@ -7,6 +7,7 @@ angular.module("ettoPupil")
       var totUsers = 0;
       $scope.onTiers = [];
       $scope.parentID = $routeParams.tierID;
+      $scope.activetab = "market";
 
       TweenMax.from($("#head-img"), 1, {
         opacity: 0,
