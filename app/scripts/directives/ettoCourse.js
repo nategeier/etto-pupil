@@ -92,12 +92,10 @@ angular.module("ettoPupil")
 
           $scope.lock = function () {
             CoursePlayer.lock();
-            $scope.locked = true;
           };
 
           $scope.unlock = function () {
             CoursePlayer.unlock();
-            $scope.locked = false;
           };
 
           $scope.nextBlock = function () {
@@ -114,7 +112,7 @@ angular.module("ettoPupil")
               }
             } else if (!$scope.isDemo) {
               //----- View mode, update bookmark and check if locked
-              if (CoursePlayer.currentlyLocked() === false) {
+              if (CoursePlayer.isLocked() === false) {
                 CoursePlayer.nextBlock();
                 var currBlock = Number(CoursePlayer.currentBlock()) + 1;
                 Record.updateBookmark($scope.record._id, currBlock, CoursePlayer.blocksInCourse());
@@ -128,8 +126,10 @@ angular.module("ettoPupil")
           };
 
           $scope.prevBlock = function () {
-            CoursePlayer.prevBlock();
-            $scope.scrollTop();
+            if (CoursePlayer.isLocked() === false) {
+              CoursePlayer.prevBlock();
+              $scope.scrollTop();
+            }
           };
 
           $scope.scrollTop = function () {

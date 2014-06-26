@@ -31,10 +31,15 @@ angular.module("ettoPupil")
           };
 
           $scope.setUpEvalArr = function (questions) {
-            $scope.lock();
-            async.map(questions, function (question) {
-              evaluations.push(false);
-            });
+            if (questions.passed && questions.passed === true) {
+
+            } else {
+              $scope.lock();
+              async.map(questions, function (question) {
+                evaluations.push(false);
+              });
+            }
+
           };
 
           $scope.scoreToPass = function (passable) {
@@ -75,8 +80,10 @@ angular.module("ettoPupil")
               if (passed === false) {
                 $scope.err = {};
                 $scope.err.message = "Looks like you have some incorrect or incomplete answers.";
+                questions.passed = false;
               } else {
                 $scope.err = null;
+                questions.passed = true;
                 $scope.unlock();
                 $scope.nextBlock();
 

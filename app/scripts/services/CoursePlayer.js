@@ -37,7 +37,7 @@ angular.module("ettoPupil")
         locked = true;
       };
 
-      var currentlyLocked = function () {
+      var isLocked = function () {
         //locked = true;
         return locked;
       };
@@ -163,7 +163,7 @@ angular.module("ettoPupil")
 
       var CoursePlayer = {
         play: play,
-        currentlyLocked: currentlyLocked,
+        isLocked: isLocked,
         unlock: unlock,
         lock: lock,
         blocksInCourse: blocksInCourse,

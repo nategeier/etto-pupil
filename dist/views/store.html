@@ -17,22 +17,24 @@
       <div ng-show="err" class="alert alert-danger">
         <p>{{err}}</p>
       </div>
-      <div ng-repeat="course in courses | filter:searchCourse" class="main-holder animate-repeat">
-        <div class="col-sm-6 col-md-4 col-lg-3 nopad">
-          <div sink-in="sink-in" ng-class="course.added ? 'closed-course' : 'open-course'" class="course-holder">
-            <div class="row">
-              <div class="col-xs-12"><img src="{{course.thumb}}" class="img-responsive course-thumb"/></div>
-            </div>
-            <div class="row">
-              <div class="col-md-7">
-                <h5>{{course.title}}</h5>
-                <h6>{{course.subtitle}}</h6>
+      <div class="etto-courses">
+        <div ng-repeat="course in courses | filter:searchCourse" class="main-holder animate-repeat">
+          <div class="col-sm-6 col-md-4 col-lg-3 nopad">
+            <div sink-in="sink-in" ng-class="course.added ? 'closed-course' : 'open-course'" class="course-holder">
+              <div class="row">
+                <div class="col-xs-12"><img src="{{course.thumb}}" class="img-responsive course-thumb"/></div>
               </div>
-              <div class="col-md-5">
-                <h4>${{course.priceWithEmps}}</h4><small>${{course.price}}/user</small>
-              </div>
-              <div class="col-md-12">
-                <div class="btn-group"><a etto-purchase="etto-purchase" href="#" ng-click="addToLibrary(course)" class="btn btn-primary btn-xs">Add to Tiers</a><a href="/course/demo/{{ course._id }}" class="btn btn-default btn-xs"> Demo</a></div>
+              <div class="row">
+                <div class="col-md-7">
+                  <h5>{{course.title}}</h5>
+                  <h6>{{course.subtitle}}</h6>
+                </div>
+                <div class="col-md-5">
+                  <h4>${{course.priceWithEmps}}</h4><small>${{course.price}}/user</small>
+                </div>
+                <div class="col-md-12">
+                  <div class="btn-group"><a etto-purchase="etto-purchase" href="#" ng-click="addToLibrary(course)" class="btn btn-primary btn-xs">Add to Tiers</a><a href="/course/demo/{{ course._id }}" class="btn btn-default btn-xs"> Demo</a></div>
+                </div>
               </div>
             </div>
           </div>

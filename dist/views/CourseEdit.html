@@ -3,8 +3,8 @@
   <div class="row">
     <etto-choose-block></etto-choose-block>
     <div ng-if="isEditing" class="col-sm-3 col-md-2 etto-toolbox">
-      <h3 editable-text="course.title" buttons="no" blur="submit" onaftersave="saveCourse()">{{course.title}}</h3>
-      <p editable-text="course.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()">{{course.subtitle}}</p><a href="/etto" class="exit-course">X</a>
+      <h3 editable-text="course.title" buttons="no" blur="submit" onaftersave="saveCourse()">{{course.title || 'Title'}} </h3>
+      <p editable-text="course.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()">{{course.subtitle || 'Description'}}</p><a href="/etto" class="exit-course">X</a>
       <div class="panel panel-default">
         <div class="panel-heading">
           <div class="panel-title">Slide Editor</div>

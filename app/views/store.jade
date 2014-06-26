@@ -14,23 +14,24 @@ etto-logged-in-nav
 
       .alert.alert-danger(ng-show="err")
         p {{err}}
-      .main-holder(class="animate-repeat", ng-repeat='course in courses | filter:searchCourse')
-        .col-sm-6.col-md-4.col-lg-3.nopad
-          .course-holder(sink-in, ng-class="course.added ? 'closed-course' : 'open-course'")
-            .row
-              .col-xs-12
-                img.img-responsive.course-thumb(src="{{course.thumb}}")
-            .row
-              .col-md-7
-                h5 {{course.title}}
-                h6 {{course.subtitle}}
-              .col-md-5
-                h4 ${{course.priceWithEmps}}
-                small ${{course.price}}/user
-              .col-md-12
-                .btn-group
-                  a.btn.btn-primary.btn-xs(etto-purchase, href="#", ng-click='addToLibrary(course)') Add to Tiers
-                  a.btn.btn-default.btn-xs(href="/course/demo/{{ course._id }}")  Demo
+      .etto-courses
+        .main-holder(class="animate-repeat", ng-repeat='course in courses | filter:searchCourse')
+          .col-sm-6.col-md-4.col-lg-3.nopad
+            .course-holder(sink-in, ng-class="course.added ? 'closed-course' : 'open-course'")
+              .row
+                .col-xs-12
+                  img.img-responsive.course-thumb(src="{{course.thumb}}")
+              .row
+                .col-md-7
+                  h5 {{course.title}}
+                  h6 {{course.subtitle}}
+                .col-md-5
+                  h4 ${{course.priceWithEmps}}
+                  small ${{course.price}}/user
+                .col-md-12
+                  .btn-group
+                    a.btn.btn-primary.btn-xs(etto-purchase, href="#", ng-click='addToLibrary(course)') Add to Tiers
+                    a.btn.btn-default.btn-xs(href="/course/demo/{{ course._id }}")  Demo
       .clearfix
     .col-md-3.nopad
       .side-panel
