@@ -1,30 +1,35 @@
 
 <div class="row quiz-block">
   <etto-block-quiz></etto-block-quiz>
-  <h1 editable-text="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.title || course.title + " Quiz"}} </h1>
-  <div ng-repeat="q in block.data.questions track by $index" class="question panel panel-default">
-    <div ng-click="deleteQuestion(block.data.questions, $index)" class="close btn btn-defult">&times;</div>
-    <div class="panel-heading">
-      <h4 e-style="width:500px;" editable-text="q.question" buttons="no" blur="submit" onaftersave="saveCourse()" ng-show="isEditing">{{$index + 1}}. {{ q.question || "author"}}</h4>
-    </div>
-    <div class="panel-body">
-      <div ng-repeat="a in q.answers track by $index">
-        <div ng-click="deleteAnswer(q.answers, $index)" class="close btn btn-defult">&times;</div>
-        <div class="row">
-          <div class="col-md-8">
-            <p editable-textarea="a.answer" e-rows="3" e-cols="70" buttons="no" blur="submit" onaftersave="saveCourse()"> {{alphabet[$index]}} ) {{ a.answer || "author"}}</p>
-          </div>
-          <div class="col-md-2">
-            <div class="checkbox">
-              <lable>Correct
-                <input type="checkbox" ng-model="a.correct" ng-change="saveCourse()"/>
-              </lable>
+  <div class="col-sm-12">
+    <div ng-repeat="q in block.data.questions track by $index" class="panel panel-default">
+      <div class="panel-heading">
+        <h4 e-style="width:500px;" editable-text="q.question" buttons="no" blur="submit" onaftersave="saveCourse()" ng-show="isEditing" class="panel-title">{{$index + 1}}. {{ q.question || "author"}}</h4>
+        <div ng-click="deleteQuestion(block.data.questions, $index)" class="close btn btn-defult">&times;</div>
+      </div>
+      <div class="list-group">
+        <div ng-repeat="a in q.answers track by $index" class="list-group-item">
+          <div class="row">
+            <div class="col-sm-8">
+              <p editable-textarea="a.answer" e-rows="3" e-cols="70" buttons="no" blur="submit" onaftersave="saveCourse()"> {{alphabet[$index]}} ) {{ a.answer || "author"}}</p>
+            </div>
+            <div class="col-sm-2">
+              <div class="checkbox">
+                <lable>Correct
+                  <input type="checkbox" ng-model="a.correct" ng-change="saveCourse()"/>
+                </lable>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div ng-click="deleteAnswer(q.answers, $index)" class="close btn btn-defult">&times;</div>
             </div>
           </div>
         </div>
+        <div class="list-group-item">
+          <button ng-click="addAnswer(block.data.questions, $index)" class="btn btn-default btn-sm">New Answer</button>
+        </div>
       </div>
-      <button ng-click="addAnswer(block.data.questions, $index)" class="btn btn-default btn-sm">New answer</button>
     </div>
+    <button ng-click="addQuestion(block.data.questions)" class="btn btn-success btn-sm">New Question</button>
   </div>
-  <button ng-click="addQuestion(block.data.questions)" class="btn btn-success btn-sm">Add question</button>
 </div>

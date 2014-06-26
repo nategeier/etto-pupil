@@ -1,18 +1,20 @@
 
 <div etto-block-quiz="etto-block-quiz" class="row quiz-block">
   <div class="col-md-10 col-md-offset-1">
-    <h3>{{block.data.title}}</h3>
+    <div ng-init="setUpEvalArr(block.data.questions)"></div>
+    <div ng-init="scoreToPass(block.data.passable)"></div>
     <div ng-repeat="q in block.data.questions track by $index">
-      <div id="question{{$index}}" class="question">
-        <h4>{{$index + 1}}. {{q.question}}</h4>
-        <div ng-repeat="a in q.answers track by $index">
-          <div ng-class="!a.selected ? 'btn-default' : 'btn-primary'" ng-click="checkAnswer(q.answers, a, $parent.$index)" class="btn w100">{{alphabet[$index]}} ) {{a.answer}}</div>
+      <div id="question{{$index}}" class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{$index + 1}}. {{q.question}}</h3>
         </div>
+        <div class="list-group"><a href="#" ng-if="q.incorrect" class="list-group-item list-group-item-success">Incorrect, please try again.</a><a href="#" ng-repeat="a in q.answers track by $index" ng-class="!a.selected ? 'not-active' : 'active'" class="list-group-item">
+            <div ng-click="checkAnswer(q.answers, a, $parent.$index)"> {{alphabet[$index]}} ) {{a.answer}}</div></a></div>
       </div>
     </div>
     <div ng-show="err">
       <div class="alert alert-danger">{{err.message}}</div>
     </div>
-    <button ng-click="evaluate()" class="btn btn-success w100">Finished</button>
+    <button ng-click="evaluate(block.data.questions)" class="btn btn-success">Evaluate</button>
   </div>
 </div>

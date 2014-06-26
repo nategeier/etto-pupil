@@ -2,33 +2,34 @@
 .container-full.etto-course-editor
   .row
     etto-choose-block
-    .col-sm-3.col-md-2.etto-toolbox
-      h3(editable-text="course.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{course.title}}
-      p(editable-text="course.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{course.subtitle}}
+    .col-sm-3.col-md-2.etto-toolbox(ng-if="isEditing")
+      h3(editable-text="course.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{course.title || 'Title'}} 
+      p(editable-text="course.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{course.subtitle || 'Description'}}
       a.exit-course(href="/etto") X
       .panel.panel-default
-        .panel-body
-          
-          button.btn.btn-success(ng-click="showOptions()")
-            i.fa.fa-plus
-            div(ng-if="blocksInCourse() === 0")
-              p New slide
-          button.btn.btn-primary(ng-click='swapBlocks(currentBlock(), currentBlock() + 1)')
-            i.fa.fa-refresh
-          button.btn.btn-danger(ng-click='removeBlock()')
-            i.fa.fa-minus
-        .panel-heading Current State: {{course.status}}
-        .panel-body
-          img.img-responsive.default-lg.img-uploadable(src="{{course.thumb}}", etto-asset-library-modal, etto-image, ng-click='updateThumb()')
-          hr
-          div(href="#", editable-textarea="course.meta.keywords", e-rows="5", e-cols="40", buttons="no", blur="submit", onaftersave="saveCourse()") 
-            pre {{ course.meta.keywords || 'keywords'}}
-          hr
-          button.btn.btn-default.w100(etto-course-status, ng-click="changeStatus()")
-            i.fa.fa-rocket 
-            span Launch
+        .panel-heading
+          .panel-title Slide Editor
+        .list-group
+          .list-group-item
+            .btn-group
+              button.btn.btn-success(ng-click="showOptions()")
+                i.fa.fa-plus
+              button.btn.btn-default(ng-click='swapBlocks(currentBlock(), currentBlock() + 1)')
+                i.fa.fa-refresh
+              button.btn.btn-danger(ng-click='removeBlock()')
+                i.fa.fa-minus
+          .list-group-item
+            p Current State: {{course.status}}
+          .list-group-item
+            img.img-responsive.default-lg.img-uploadable(src="{{course.thumb}}", etto-asset-library-modal, etto-image, ng-click='updateThumb()')
+          .list-group-item
+            div(href="#", editable-textarea="course.meta.keywords", e-rows="5", e-cols="40", buttons="no", blur="submit", onaftersave="saveCourse()") 
+              pre {{ course.meta.keywords || 'keywords'}}
+          .list-group-item
+            .btn-group
+              a.btn.btn-success(href="#", etto-course-status, ng-click="changeStatus()") Launch
+              a.btn.btn-default(href="/etto") Exit
         
-
-    .col-sm-9.col-md-10.etto-course-container
+    .etto-course-container(ng-class="isEditing ? 'col-sm-9 col-md-10' : 'col-sm-12'")
       etto-course( edit='edit',
                    course='course')

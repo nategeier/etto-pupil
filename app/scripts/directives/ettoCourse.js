@@ -90,24 +90,46 @@ angular.module("ettoPupil")
             return CoursePlayer.isCurrentBlock(block);
           };
 
+          $scope.lock = function () {
+            CoursePlayer.lock();
+          };
+
+          $scope.unlock = function () {
+            CoursePlayer.unlock();
+          };
+
           $scope.nextBlock = function () {
             //--- No more slides so show options to create a new slide on next button click if in editiing
-            if (CoursePlayer.currentBlock() === (CoursePlayer.blocksInCourse() - 1) && $scope.editing) {
-              $scope.showOptions();
-            } else {
-              CoursePlayer.nextBlock();
-            }
 
-            if (!$scope.editing && !$scope.isDemo) {
-              var currBlock = Number(CoursePlayer.currentBlock()) + 1;
-              Record.updateBookmark($scope.record._id, currBlock, CoursePlayer.blocksInCourse());
+            if ($scope.editing) {
+              //---- Editing free will
+              if (CoursePlayer.currentBlock() === (CoursePlayer.blocksInCourse() - 1)) {
+                //--- If no more blocks and they press right, show block template options
+                $scope.showOptions();
+              } else {
+                CoursePlayer.nextBlock();
+                $scope.scrollTop();
+              }
+            } else if (!$scope.isDemo) {
+              //----- View mode, update bookmark and check if locked
+              if (CoursePlayer.isLocked() === false) {
+                CoursePlayer.nextBlock();
+                var currBlock = Number(CoursePlayer.currentBlock()) + 1;
+                Record.updateBookmark($scope.record._id, currBlock, CoursePlayer.blocksInCourse());
+                $scope.scrollTop();
+              }
+            } else {
+              //----- Demo mode, carry on
+              CoursePlayer.nextBlock();
+              $scope.scrollTop();
             }
-            $scope.scrollTop();
           };
 
           $scope.prevBlock = function () {
-            CoursePlayer.prevBlock();
-            $scope.scrollTop();
+            if (CoursePlayer.isLocked() === false) {
+              CoursePlayer.prevBlock();
+              $scope.scrollTop();
+            }
           };
 
           $scope.scrollTop = function () {

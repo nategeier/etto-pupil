@@ -2,8 +2,10 @@
   .row
     .col-sm-12.col-md-7
       h3 Lets get you started...
-      p <a href="/report/{{user._tier._id}}">1. Set up your company structure </a> by adding tiers (Marketing, Sales, Engineers), then click a tier and add more branches underneath mimicking your companies organization tree.
-      p 2. Add employees and managers to the appropriate divisions, departments and branches you created.
-      p 3. <a href="/store/{{user._tier._id}}">Purchase </a>and or <a href="#", etto-add-course, ng-click='addCourse()'">create a course</a>, then delegate it to your appropriate tiers, or launch it to the open marketplace for other companies to purchase.
+      .row
+        .etto-instruction
+          p 1. <a href="/report/{{user._tier._id}}">Set up your company structure </a> by adding tiers (Marketing, Sales, Engineers), then click a tier and add more branches underneath mimicking your companies organization tree.
+          p 2. Add employees and managers to the appropriate divisions, departments and branches you created.
+          p 3. <a href="/store/{{user._tier._id}}">Purchase </a>and or <a href="#", etto-add-course, ng-click='addCourse()'">create a course</a>, then delegate it to your appropriate tiers, or launch it to the open marketplace for other companies to purchase.
     .col-sm-12.col-md-5
       img.img-responsive(src='/images/landing/new.jpg')

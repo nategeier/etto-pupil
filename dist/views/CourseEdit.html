@@ -2,31 +2,37 @@
 <div class="container-full etto-course-editor">
   <div class="row">
     <etto-choose-block></etto-choose-block>
-    <div class="col-sm-3 col-md-2 etto-toolbox">
-      <h3 editable-text="course.title" buttons="no" blur="submit" onaftersave="saveCourse()">{{course.title}}</h3>
-      <p editable-text="course.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()">{{course.subtitle}}</p><a href="/etto" class="exit-course">X</a>
+    <div ng-if="isEditing" class="col-sm-3 col-md-2 etto-toolbox">
+      <h3 editable-text="course.title" buttons="no" blur="submit" onaftersave="saveCourse()">{{course.title || 'Title'}} </h3>
+      <p editable-text="course.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()">{{course.subtitle || 'Description'}}</p><a href="/etto" class="exit-course">X</a>
       <div class="panel panel-default">
-        <div class="panel-body">
-          <button ng-click="showOptions()" class="btn btn-success"><i class="fa fa-plus"></i>
-            <div ng-if="blocksInCourse() === 0">
-              <p>New slide</p>
-            </div>
-          </button>
-          <button ng-click="swapBlocks(currentBlock(), currentBlock() + 1)" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
-          <button ng-click="removeBlock()" class="btn btn-danger"><i class="fa fa-minus"></i></button>
+        <div class="panel-heading">
+          <div class="panel-title">Slide Editor</div>
         </div>
-        <div class="panel-heading">Current State: {{course.status}}</div>
-        <div class="panel-body"><img src="{{course.thumb}}" etto-asset-library-modal="etto-asset-library-modal" etto-image="etto-image" ng-click="updateThumb()" class="img-responsive default-lg img-uploadable"/>
-          <hr/>
-          <div href="#" editable-textarea="course.meta.keywords" e-rows="5" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()"> 
-            <pre>{{ course.meta.keywords || 'keywords'}}</pre>
+        <div class="list-group">
+          <div class="list-group-item">
+            <div class="btn-group">
+              <button ng-click="showOptions()" class="btn btn-success"><i class="fa fa-plus"></i></button>
+              <button ng-click="swapBlocks(currentBlock(), currentBlock() + 1)" class="btn btn-default"><i class="fa fa-refresh"></i></button>
+              <button ng-click="removeBlock()" class="btn btn-danger"><i class="fa fa-minus"></i></button>
+            </div>
           </div>
-          <hr/>
-          <button etto-course-status="etto-course-status" ng-click="changeStatus()" class="btn btn-default w100"><i class="fa fa-rocket"> </i><span>Launch</span></button>
+          <div class="list-group-item">
+            <p>Current State: {{course.status}}</p>
+          </div>
+          <div class="list-group-item"><img src="{{course.thumb}}" etto-asset-library-modal="etto-asset-library-modal" etto-image="etto-image" ng-click="updateThumb()" class="img-responsive default-lg img-uploadable"/></div>
+          <div class="list-group-item">
+            <div href="#" editable-textarea="course.meta.keywords" e-rows="5" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()"> 
+              <pre>{{ course.meta.keywords || 'keywords'}}</pre>
+            </div>
+          </div>
+          <div class="list-group-item">
+            <div class="btn-group"><a href="#" etto-course-status="etto-course-status" ng-click="changeStatus()" class="btn btn-success">Launch</a><a href="/etto" class="btn btn-default">Exit</a></div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-9 col-md-10 etto-course-container">
+    <div ng-class="isEditing ? 'col-sm-9 col-md-10' : 'col-sm-12'" class="etto-course-container">
       <etto-course edit="edit" course="course"></etto-course>
     </div>
   </div>

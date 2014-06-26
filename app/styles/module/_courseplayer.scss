@@ -55,6 +55,12 @@
   position: absolute;
 }
 
+.etto-course-prev-block:hover, .etto-course-next-block:hover {
+  cursor: pointer;
+  color: $etto-darkblue;
+}
+
+
 .etto-course-prev-block {
   left: 0;
 }

@@ -8,8 +8,9 @@ angular.module("ettoPupil")
         restrict: "EA",
         controller: function ($scope, $document, $attrs, BlockQuiz) {
 
-          var incorrectQuestions = [];
+          var evaluations = [];
           var totalQuestions = 0;
+          var scoreToPass = 0;
 
           $scope.alphabet = BlockQuiz.alphabet;
 
@@ -29,7 +30,22 @@ angular.module("ettoPupil")
             BlockQuiz.deleteQuestion(questions, index);
           };
 
-          var incorrectQuestions = [];
+          $scope.setUpEvalArr = function (questions) {
+            if (questions.passed && questions.passed === true) {
+
+            } else {
+              $scope.lock();
+              async.map(questions, function (question) {
+                evaluations.push(false);
+              });
+            }
+
+          };
+
+          $scope.scoreToPass = function (passable) {
+            scoreToPass = passable;
+          };
+
           $scope.alphabet = BlockQuiz.alphabet;
           var correctNum = 0;
 
@@ -41,32 +57,38 @@ angular.module("ettoPupil")
                 answers[i].selected = false;
               }
             }
-
-            var id = "#question" + index;
-            var qIndex = _.indexOf(incorrectQuestions, id);
-            if (answer.correct === false || !answer.correct) {
-              if (qIndex === -1) {
-                incorrectQuestions.push(id);
-              }
-            } else {
-              correctNum++;
-              if (qIndex !== -1) {
-                $(incorrectQuestions[qIndex]).removeClass("incorrect");
-                incorrectQuestions.splice(qIndex, 1);
-              }
-            }
+            evaluations[index] = answer.correct;
           };
 
-          $scope.evaluate = function () {
-            for (var i = 0; i < incorrectQuestions.length; i++) {
-              $(incorrectQuestions[i]).addClass("incorrect");
-            }
-            if (!incorrectQuestions[0] && correctNum >= $(".question").length) {
-              $scope.nextBlock();
-            } else {
-              $scope.err = {};
-              $scope.err.message = "Looks like you have some incorrect or incomplete answers.";
-            }
+          $scope.evaluate = function (questions) {
+            var passed = true;
+            var index = 0;
+
+            async.mapSeries(evaluations, function (evaluate, done) {
+
+              if (evaluate === false) {
+                passed = false;
+                questions[index].incorrect = true;
+              } else {
+                questions[index].incorrect = false;
+              }
+
+              index++;
+              done(null);
+            }, function (err) {
+
+              if (passed === false) {
+                $scope.err = {};
+                $scope.err.message = "Looks like you have some incorrect or incomplete answers.";
+                questions.passed = false;
+              } else {
+                $scope.err = null;
+                questions.passed = true;
+                $scope.unlock();
+                $scope.nextBlock();
+
+              }
+            });
           };
         },
 
