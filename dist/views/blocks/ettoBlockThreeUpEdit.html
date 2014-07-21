@@ -1,18 +1,25 @@
 
 <h1 editable-text="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()">{{block.data.title || 'title'}}</h1>
 <h2 editable-text="block.data.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()">{{block.data.subtitle || 'subtitle'}}</h2>
-<div class="col-lg-4">
-  <div href="#" editable-textarea="block.data.copy1" e-rows="12" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()"> 
-    <pre>{{ block.data.copy1 || 'copy'}}</pre>
+<div class="row">
+  <div class="col-lg-4">
+    <div href="#" editable-textarea="block.data.copy1" e-rows="12" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()"> 
+      <pre>{{ block.data.copy1 || 'copy'}}</pre>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div href="#" editable-textarea="block.data.copy2" e-rows="12" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()"> 
+      <pre>{{ block.data.copy2 || 'copy'}}</pre>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div href="#" editable-textarea="block.data.copy3" e-rows="12" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()"> 
+      <pre>{{ block.data.copy3 || 'copy'}}</pre>
+    </div>
   </div>
 </div>
-<div class="col-lg-4">
-  <div href="#" editable-textarea="block.data.copy2" e-rows="12" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()"> 
-    <pre>{{ block.data.copy2 || 'copy'}}</pre>
-  </div>
-</div>
-<div class="col-lg-4">
-  <div href="#" editable-textarea="block.data.copy3" e-rows="12" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()"> 
-    <pre>{{ block.data.copy3 || 'copy'}}</pre>
+<div class="row">
+  <div class="col-sm-12">
+    <div etto-sound-edit="etto-sound-edit"></div>
   </div>
 </div>

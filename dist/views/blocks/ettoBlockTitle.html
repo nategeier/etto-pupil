@@ -1,13 +1,10 @@
 
-<div class="row slide">
-  <div style="background-color:white;" class="col-md-8 col-md-offset-2 title-holder">
-    <div class="col-md-4"><img src="{{ block.data.url || course.thumb}}" class="img-responsive default-lg img-uploadable"/></div>
-    <div class="clearfix"></div>
-    <div class="col-md-8">
-      <h1>{{ block.data.title}}</h1>
-      <div>
-        <pre class="sub-head">{{ block.data.subtitle}}</pre>
-      </div>
-    </div>
+<div class="row etto-title">
+  <div class="col-md-10 col-md-offset-1"><img src="{{ block.data.url || course.thumb}}" class="img-responsive etto-title-image"/>
+    <h1>{{ block.data.title || 'title'}}</h1>
+  </div>
+  <hr/>
+  <div class="col-sm-12">
+    <div etto-sound="etto-sound"></div>
   </div>
 </div>

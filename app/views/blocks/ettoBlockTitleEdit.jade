@@ -1,9 +1,8 @@
-.row.slide
-  .col-md-8.col-md-offset-2.title-holder(style="background-color:white;")
-    .col-md-4
-      img.img-responsive.default-lg.img-uploadable(src="{{ block.data.url || course.thumb}}", etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'url', 390, 200)")
-    .clearfix
-    .col-md-8
-      h1(editable-text="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.title || 'title'}}
-      div(href="#", editable-textarea="block.data.subtitle", e-rows="12", e-cols="40", buttons="no", blur="submit", onaftersave="saveCourse()") 
-        pre.sub-head {{ block.data.subtitle || 'subtitle'}}
+.row.etto-title
+  .col-md-12
+    img.img-responsive.img-uploadable.etto-title-image(src="{{ block.data.url || course.thumb}}", etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'url', 390, 200)")
+    h1(editable-text="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.title || 'title'}}
+
+.row  
+  .col-sm-12
+    div(etto-sound-edit)

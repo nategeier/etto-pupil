@@ -6,3 +6,7 @@
       pre {{ block.data.copy || 'copy'}}
   .col-sm-5
     img.img-responsive.img-uploadable(src="{{ block.data.url || '/images/courses/default/image-block.jpg' }}", etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'url', 400, 300)")
+
+.row
+  .col-sm-12
+    div(etto-sound-edit)

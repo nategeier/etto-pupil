@@ -5,7 +5,7 @@
     .col-sm-3.col-md-2.etto-toolbox(ng-if="isEditing")
       h3(editable-text="course.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{course.title || 'Title'}} 
       p(editable-text="course.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{course.subtitle || 'Description'}}
-      a.exit-course(href="/etto") X
+      
       .panel.panel-default
         .panel-heading
           .panel-title Slide Editor
@@ -18,8 +18,10 @@
                 i.fa.fa-refresh
               button.btn.btn-danger(ng-click='removeBlock()')
                 i.fa.fa-minus
+
           .list-group-item
             p Current State: {{course.status}}
+
           .list-group-item
             img.img-responsive.default-lg.img-uploadable(src="{{course.thumb}}", etto-asset-library-modal, etto-image, ng-click='updateThumb()')
           .list-group-item

@@ -4,7 +4,8 @@ describe "Integration - Directive: ettoCourse", ->
   beforeEach module "ettoPupil",
                     "/views/directives/ettoCourse.html",
                     "/views/blocks/ettoBlockUndefined.html",
-                    "/views/blocks/ettoBlockFinished.html"
+                    "/views/blocks/ettoBlockFinished.html",
+                    "/views/course/ettoSound.html"
 
   beforeEach inject ( $rootScope, $compile, $httpBackend ) ->
     scope = $rootScope.$new()
