@@ -28,7 +28,6 @@ angular.module("ettoPupil")
               maxheight: 120,
               color: "fff334"
             }, function (oEmbed) {
-              console.log(oEmbed)
               $("#etto-blocksound").append(oEmbed.html)
             });
           }
