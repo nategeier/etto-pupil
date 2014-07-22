@@ -38,7 +38,6 @@ angular.module("ettoPupil")
       };
 
       var isLocked = function () {
-        //locked = true;
         return locked;
       };
 

@@ -8,7 +8,13 @@
         .overlay
           i.fa.fa-3x.fa-check-circle-o
           //-i.fa.fa-trash-o(ng-click="deleteAsset($index)")
-        img(src="{{ asset.url }}")
+
+        
+        div(ng-if= "isImage(asset.url)")
+          img(ng-if= "isImage(asset.url)", ng-src="{{ asset.url }}") Not an image
+        div(ng-if= "isImage(asset.url) === false")
+          p {{fileName(asset.s3.key)}}
+
 
     form.etto-assetlibrary__uploader()
       div(ng-show="err")

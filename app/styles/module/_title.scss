@@ -1,0 +1,42 @@
+
+.etto-title{
+  .etto-title-image{
+    position: relative; 
+  }
+
+  h1, input{
+    color:#fff;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33);
+    background-color: $etto-grey-rgba;
+    padding-left: 20px;
+    padding-right: 20px;
+
+  }
+
+  @media(max-width: 480px) {
+    h1 {
+      font-size: 14pt;
+    }
+  }
+
+  input, h1{
+    position: absolute; 
+    top: 50px;
+    left:15px;
+  }
+
+  h1:hover{
+    color: $etto-turquoise;
+  }
+
+  .subtitle{
+
+  }
+
+  input{
+    background-color:rgba(255,255,255, 0.3);
+    border: 1px solid #fff;
+    height:50px;
+  }
+}
+

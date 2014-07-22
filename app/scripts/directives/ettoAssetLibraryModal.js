@@ -6,7 +6,7 @@ angular.module("ettoPupil")
     function () {
       return {
         restrict: "AE",
-        controller: function ($scope, $modal, $rootScope, $http, $upload) {
+        controller: function ($scope, $modal, $rootScope, $http, $upload, $q) {
           $scope.showAssetLibrary = function (w, h, done) {
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoAssetLibraryModal.html",
@@ -32,6 +32,14 @@ angular.module("ettoPupil")
 
                 $scope.cancel = function () {
                   $modalInstance.dismiss("cancel");
+                };
+
+                $scope.isImage = function (url) {
+                  return (url.match(/\.(jpeg|jpg|gif|png)$/) !== null);
+                };
+
+                $scope.fileName = function (url) {
+                  return url.substring(url.lastIndexOf("/") + 1);
                 };
 
                 $scope.uploadData = [];

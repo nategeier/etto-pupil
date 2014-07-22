@@ -8,7 +8,11 @@
     <div class="etto-assetlibrary__assetlist">
       <div ng-repeat="asset in assets" ng-click="selectAsset(asset._id)" class="etto-assetlibrary__asset">
         <div class="overlay"><i class="fa fa-3x fa-check-circle-o"></i>
-        </div><img src="{{ asset.url }}"/>
+        </div>
+        <div ng-if="isImage(asset.url)"><img ng-if="isImage(asset.url)" ng-src="{{ asset.url }}"/></div>
+        <div ng-if="isImage(asset.url) === false">
+          <p>{{fileName(asset.s3.key)}}</p>
+        </div>
       </div>
     </div>
     <form class="etto-assetlibrary__uploader">

@@ -23,3 +23,6 @@ hr
     img.img-responsive.img-uploadable(src="{{ block.data.img4 || '/images/courses/default/image-block3.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'img4', 400, 300)")
     h4(editable-text="block.data.img4Head", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.img4Head || 'title'}}
     pre(editable-textarea="block.data.img4Copy", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.img4Copy || 'copy'}}
+.row
+  .col-sm-12
+    div(etto-sound-edit)

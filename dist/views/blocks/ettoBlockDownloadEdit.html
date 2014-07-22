@@ -1,0 +1,17 @@
+
+<div class="row etto-download">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="dl-box">
+      <div class="row">
+        <div class="col-md-5"><img src="{{ block.data.img || '/images/courses/default/download-block.jpg'}}" etto-image="etto-image" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateBlockImage(block, 'img', 400, 300)" class="img-responsive img-uploadable"/></div>
+        <div class="col-md-7">
+          <h1 editable-text="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()" spellcheck="true">{{block.data.title || 'title'}}</h1>
+          <div href="#" editable-textarea="block.data.copy" e-rows="12" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()" spellcheck="true"> 
+            <pre>{{ block.data.copy || 'copy'}}</pre>
+          </div>
+          <div ng-if="!block.data.link" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateBlockImage(block, 'link', 400, 300)"><a href="{{block.data.link}}" download="download" class="btn btn-default">Upload File</a></div><a ng-if="block.data.link" href="{{block.data.link}}" download="download" class="btn btn-success"><i class="fa fa-cloud-download fa-2x">{{block.data.title}}</i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

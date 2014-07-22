@@ -2,7 +2,9 @@ describe "Directive: ettoBlock", ->
   scope = element = httpBackend = null
 
   beforeEach module "ettoPupil",
-                    "/views/blocks/ettoBlockDefine.html"
+                    "/views/blocks/ettoBlockDefine.html",
+                    "/views/course/ettoSound.html"
+
 
   beforeEach inject ( $rootScope, $compile, $httpBackend ) ->
     scope = $rootScope.$new()

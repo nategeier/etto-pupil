@@ -9,5 +9,13 @@ angular.module("ettoPupil")
         $scope.assets[index].$delete();
         $scope.assets.splice(index, 1);
       };
+
+      $scope.isImage = function (url) {
+        return (url.match(/\.(jpeg|jpg|gif|png)$/) !== null);
+      };
+
+      $scope.fileName = function (url) {
+        return url.substring(url.lastIndexOf("/") + 1);
+      };
     }
   ]);
