@@ -35,11 +35,11 @@ angular.module("ettoPupil")
                 };
 
                 $scope.isImage = function (url) {
-                  return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+                  return (url.match(/\.(jpeg|jpg|gif|png)$/) !== null);
                 };
 
                 $scope.fileName = function (url) {
-                  return url.substring(url.lastIndexOf('/') + 1);
+                  return url.substring(url.lastIndexOf("/") + 1);
                 };
 
                 $scope.uploadData = [];
