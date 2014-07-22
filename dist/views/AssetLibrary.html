@@ -3,13 +3,17 @@
 <div class="container-full">
   <div class="row">
     <div class="col-xs-12">
-      <etto-settings-nav active="assetlibrary"></etto-settings-nav>
       <h1>Asset Library</h1>
+      <hr/>
       <div class="etto-assetlibrary etto-assetlibrary--settings">
         <div class="etto-assetlibrary__picker">
           <div class="etto-assetlibrary__assetlist">
             <div ng-repeat="asset in assets" ng-click="selectAsset(asset._id)" class="etto-assetlibrary__asset">
-              <div class="overlay"><i class="fa fa-3x fa-check-circle-o"></i></div><img src="{{ asset.url }}"/><i ng-click="deleteAsset($index)" class="fa fa-2x fa-trash-o"></i>
+              <div class="overlay"><i class="fa fa-3x fa-check-circle-o"></i></div>
+              <div ng-if="isImage(asset.url)"><img ng-if="isImage(asset.url)" src="{{ asset.url }}"/></div>
+              <div ng-if="isImage(asset.url) === false">
+                <h4>{{fileName(asset.s3.key)}}</h4>
+              </div><i ng-click="deleteAsset($index)" class="fa fa-2x fa-trash-o"></i>
             </div>
           </div>
           <form class="etto-assetlibrary__uploader">

@@ -78,15 +78,15 @@ $assetHeight: 12.5rem;
     height: auto;
 
     .etto-assetlibrary__asset {
-      background: $etto-mildblue;
-      border: 0.5rem solid;
+      background: $etto-grey;
+      border: 0.1rem solid $etto-darkgrey;
       margin-right: 1.333%;
       margin-bottom: 1.333%;
       text-align: right;
       width: 24%;
 
       i {
-        color: $etto-grey;
+        color: $etto-greyblue;
         padding: 0.5rem 0.5rem 0rem 0rem;
       }
 

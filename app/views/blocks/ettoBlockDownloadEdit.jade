@@ -1,0 +1,16 @@
+.row.etto-download
+  .col-md-10.col-md-offset-1
+    .dl-box
+      .row
+        .col-md-5
+          img.img-responsive.img-uploadable(src="{{ block.data.img || '/images/courses/default/download-block.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'img', 400, 300)")
+          
+        .col-md-7
+          h1(editable-text="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()", spellcheck="true") {{block.data.title || 'title'}}
+          div(href="#", editable-textarea="block.data.copy", e-rows="12", e-cols="40", buttons="no", blur="submit", onaftersave="saveCourse()", spellcheck="true") 
+            pre {{ block.data.copy || 'copy'}}
+
+          div(ng-if="!block.data.link", etto-asset-library-modal, ng-click="updateBlockImage(block, 'link', 400, 300)")
+            a.btn.btn-default(href = "{{block.data.link}}", download) Upload File
+          a.btn.btn-success(ng-if="block.data.link", href = "{{block.data.link}}", download)
+            i.fa.fa-cloud-download.fa-2x {{block.data.title}}

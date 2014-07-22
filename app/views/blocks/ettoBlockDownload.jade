@@ -1,0 +1,16 @@
+.row.etto-download
+  .col-md-10.col-md-offset-1
+    .dl-box
+      .row
+        .col-md-5
+          img.img-responsive(src="{{ block.data.img || '/images/courses/default/download-block.jpg'}}")
+          
+        .col-md-7
+          h1(spellcheck="true") {{block.data.title || 'Downloadable Title'}}
+          div(href="#", spellcheck="true") 
+            pre {{ block.data.copy || 'Description of Download'}}
+
+          div(ng-if="!block.data.link")
+            a.btn.btn-default(href = "{{block.data.link}}", download) Upload File
+          a.btn.btn-success(ng-if="block.data.link", href = "{{block.data.link}}", download)
+            i.fa.fa-cloud-download.fa-2x {{block.data.title}}
