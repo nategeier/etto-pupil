@@ -23,7 +23,7 @@ module.exports = function (config) {
       "app/bower_components/angular-loading-bar/src/loading-bar.js",
       "app/bower_components/ng-file-upload/angular-file-upload.min.js",
       "app/bower_components/angular-xeditable/dist/js/xeditable.min.js",
-      "http://connect.soundcloud.com/sdk.js",
+      "app/vendor/soundcloud-sdk.js",
 
       "app/scripts/*.js",
       "app/scripts/**/*.js",
