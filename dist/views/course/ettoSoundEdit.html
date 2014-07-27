@@ -1,10 +1,10 @@
 
 <div class="etto-sound-editbox">
   <div ng-if="!block.data.soundurl"><a href="https://soundcloud.com" target="_blank" class="pull-left"><img height="42" src="/images/logos/soundcloud.png" class="etto-soundcloud-logo"/></a>
-    <button e-style="width:500px;" editable-text="block.data.soundurl" buttons="no" blur="submit" onaftersave="saveCourse()" class="btn btn-default img-responsive">{{ block.data.soundurl || "Soundcloud link"}}</button>
+    <p e-style="width:500px;" editable-text="block.data.soundurl" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.soundurl || "Soundcloud link, example: https://soundcloud.com/nate-geier/dv-religion"}}</p>
   </div>
   <div ng-if="block.data.soundurl"><a href="{{block.data.soundurl}}" target="_blank" class="pull-left"><img height="42" src="/images/logos/soundcloud.png" class="etto-soundcloud-logo"/></a>
-    <button e-style="width:500px;" editable-text="block.data.soundurl" buttons="no" blur="submit" onaftersave="saveCourse()" class="btn btn-default img-responsive">{{ block.data.soundurl || "Soundcloud link"}}</button>
+    <button e-style="width:500px;" editable-text="block.data.soundurl" buttons="no" blur="submit" onaftersave="saveCourse()" class="btn btn-default img-responsive">{{ block.data.soundurl || "Soundcloud link, example: https://soundcloud.com/nate-geier/dv-religion"}}</button>
     <div etto-sound="etto-sound"></div>
   </div>
 </div>

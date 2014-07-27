@@ -2,14 +2,14 @@
 div
   etto-block( ng-repeat="block in course.blocks",
               ng-if="isCurrentBlock( $index )",
-              class="block",
+              class="block block-if",
               block="block")
   
 
 a.exit-course.btn.btn-default(href="/etto", target="_self") X
-.etto-course-prev-block( ng-click="prevBlock()" )
+.etto-course-prev-block.img-rounded( ng-click="prevBlock()" )
   i.fa.fa-3x.fa-arrow-circle-left
-.etto-course-next-block( ng-click="nextBlock()")
+.etto-course-next-block.img-rounded( ng-click="nextBlock()")
   i.fa.fa-3x.fa-arrow-circle-right
 
 

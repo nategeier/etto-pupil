@@ -13,6 +13,30 @@
  *    <a class="btn btn-default">Thing</a>
  */
 
+.block-if {
+  padding:10px;
+  position:relative;
+  display: block;
+  
+
+}
+
+.block-if.ng-enter {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+
+
+.block-if.ng-enter,
+.block-if.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.block-if.ng-leave,
+.block-if.ng-enter.ng-enter-active {
+  opacity:1;
+}
 
 .template-thumb{
   border:1px solid $etto-darkgrey;
@@ -25,9 +49,6 @@
   .etto-course-container {
     min-height: 36em;
   }
-}
-.etto-top-toolbar{
-  padding-top:5px;
 }
 
 .etto-course-editor{
@@ -49,10 +70,11 @@
 }
 
 .etto-course-prev-block, .etto-course-next-block {
-  color: $etto-greyblue;
-  bottom: 0;
+  color: $etto-mildblue;
+  background-color:rgba(255,255,255, 0.6);
+  bottom: 5px;
   padding: 0.33em 0.67em;
-  position: absolute;
+  position: fixed;
 }
 
 .etto-course-prev-block:hover, .etto-course-next-block:hover {
@@ -62,11 +84,11 @@
 
 
 .etto-course-prev-block {
-  left: 0;
+  left: 5px;
 }
 
 .etto-course-next-block {
-  right: 0;
+  right: 5px;
 }
 
 // Temporary base styling

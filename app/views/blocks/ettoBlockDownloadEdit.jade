@@ -12,8 +12,8 @@
 
           div(ng-if="!block.data.link", etto-asset-library-modal, ng-click="updateBlockImage(block, 'link', 400, 300)")
             a.btn.btn-default(href = "{{block.data.link}}", download) Upload File
-          a.btn.btn-success(ng-if="block.data.link", href = "{{block.data.link}}", download)
-            i.fa.fa-cloud-download.fa-2x {{block.data.title}}
+          a.btn.btn-success.btn-lg(ng-if="block.data.link", href = "{{block.data.link}}", download)
+            i.pull-left.left.fa.fa-cloud-download.fa-2x } Download
     .row  
       .col-md-12
         div(etto-sound-edit)
