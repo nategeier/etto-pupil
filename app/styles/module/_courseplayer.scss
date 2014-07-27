@@ -13,30 +13,7 @@
  *    <a class="btn btn-default">Thing</a>
  */
 
-.block-if {
-  padding:10px;
-  position:relative;
-  display: block;
-  
 
-}
-
-.block-if.ng-enter {
-  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-}
-
-
-
-.block-if.ng-enter,
-.block-if.ng-leave.ng-leave-active {
-  opacity:0;
-}
-
-.block-if.ng-leave,
-.block-if.ng-enter.ng-enter-active {
-  opacity:1;
-}
 
 .template-thumb{
   border:1px solid $etto-darkgrey;
@@ -98,6 +75,30 @@
 }
 
 etto-course {
+
+
+  .block {
+    padding:10px;
+    position:relative;
+    display: block;
+  }
+
+  .block.ng-enter {
+    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  }
+
+
+
+  .block.ng-enter,
+  .block.ng-leave.ng-leave-active {
+    opacity:0;
+  }
+
+  .block.ng-leave,
+  .block.ng-enter.ng-enter-active {
+    opacity:1;
+  }
 
   pre{
     color: $etto-greyblue;
