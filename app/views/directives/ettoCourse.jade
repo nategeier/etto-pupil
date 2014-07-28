@@ -5,12 +5,14 @@ div
               class="block",
               block="block")
   
-
-a.exit-course.btn.btn-default(href="/etto", target="_self") X
-.etto-course-prev-block.img-rounded( ng-click="prevBlock()" )
-  i.fa.fa-3x.fa-arrow-circle-left
-.etto-course-next-block.img-rounded( ng-click="nextBlock()")
-  i.fa.fa-3x.fa-arrow-circle-right
+.etto-course-nav
+  .btn-group
+    a.btn.btn-default.btn-sm.etto-course-prev-block( href="#", ng-click="prevBlock()" )
+      i.fa.fa-2x.fa-arrow-circle-left
+    a.btn.btn-default.btn-sm.etto-course-next-block( href="#", ng-click="nextBlock()")
+      i.fa.fa-2x.fa-arrow-circle-right
+    a.btn.btn-default.btn-sm.etto-course-exit(href="/etto", target="_self")
+      i.fa.fa-2x.fa-times-circle
 
 
 

@@ -1,6 +1,7 @@
 
 <div>
   <etto-block ng-repeat="block in course.blocks" ng-if="isCurrentBlock( $index )" block="block" class="block"></etto-block>
-</div><a href="/etto" target="_self" class="exit-course btn btn-default">X</a>
-<div ng-click="prevBlock()" class="etto-course-prev-block img-rounded"><i class="fa fa-3x fa-arrow-circle-left"></i></div>
-<div ng-click="nextBlock()" class="etto-course-next-block img-rounded"><i class="fa fa-3x fa-arrow-circle-right"></i></div>
+</div>
+<div class="etto-course-nav">
+  <div class="btn-group"><a href="#" ng-click="prevBlock()" class="btn btn-default btn-sm etto-course-prev-block"><i class="fa fa-2x fa-arrow-circle-left"></i></a><a href="#" ng-click="nextBlock()" class="btn btn-default btn-sm etto-course-next-block"><i class="fa fa-2x fa-arrow-circle-right"></i></a><a href="/etto" target="_self" class="btn btn-default btn-sm etto-course-exit"><i class="fa fa-2x fa-times-circle"></i></a></div>
+</div>
