@@ -72,8 +72,11 @@
 
 
 .course-progress{
-  position:fixed;
+
   width:100%;
   top:0px;
   z-index: 130;
+  height:10px;
+  background-color: $etto-darkgrey;
+  margin-bottom: 2px;
 }

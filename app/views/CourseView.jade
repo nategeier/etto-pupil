@@ -1,14 +1,10 @@
-.progress.course-progress(etto-session)
-  .progress-bar(role="progressbar", aria-valuenow="((currentBlock() + 1)/blocksInCourse()) * 100", aria-valuemin="0", aria-valuemax="100", style="width: {{((currentBlock() + 1)/blocksInCourse()) * 100}}%;")
-.container-full
+
+.container-full(etto-session)
   .row
     .col-xs-12.etto-course-container(ng-if="err")
       .container
-
         h1.bg-danger Sorry
         h1 {{err}}
     .col-xs-12.etto-course-container(ng-if="!err")
-      etto-course( course='course',
-                   ng-swipe-left='nextBlock()',
-                   ng-swipe-right='prevBlock()')
+      etto-course( course='course')
 

@@ -19,7 +19,7 @@
   border:1px solid $etto-darkgrey;
 }
 .etto-course-container {
-  padding-bottom: 2.67em;
+  padding-bottom: 0;
 }
 
 @media all and (min-width: 60rem) {
@@ -58,25 +58,51 @@
 
 etto-course {
 
-  .etto-course-nav{
+  .etto-course-exit {
     position:fixed;
-    top:0px;
-    right: 15px;
+    top:4px;
+    right: 4px;
     z-index: 100;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.13);
+    color: #fff;
+    background-color: $etto-grey-rgba;
+    color: $etto-greyblue;
+    padding:4px;
+    text-align: center;
+  }
 
-    .etto-course-exit {
-      color: $etto-red;
-    }
+  .etto-course-prev-block, .etto-course-next-block {
+    color: #fff;
+    padding: 5px;
+    background-color: $etto-grey-rgba;
+    width:50%;
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 0;
 
-    .etto-course-prev-block, .etto-course-next-block {
-      color: $etto-mildblue;
-    }
+  }
 
-    .etto-course-prev-block:hover, .etto-course-next-block:hover {
-      color: $etto-darkblue;
+  .etto-course-prev-block:hover, .etto-course-next-block:hover {
+    color: #fff;
+    background-color: $etto-greyblue;
+  }
+
+
+  $etto-course-btn-padding : 20%;
+
+  .etto-course-prev-block{
+    float: left;
+    border-right: 1px solid #fff;
+    padding-left: $etto-course-btn-padding;
+  }
+  .etto-course-next-block{
+    float: right;
+    border-left: 1px solid #fff;
+    padding-right: $etto-course-btn-padding;
+    i {
+      float:right;
     }
   }
+  
 
 
   .block {
@@ -84,11 +110,13 @@ etto-course {
     padding-top: 30px;
     position:relative;
     display: block;
+    margin-bottom: 40px;
   }
 
   .block.ng-enter {
-    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.6s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.6s;
+
   }
 
 
@@ -96,11 +124,15 @@ etto-course {
   .block.ng-enter,
   .block.ng-leave.ng-leave-active {
     opacity:0;
+    margin-left: 5%;
+    width: 100%;
   }
 
   .block.ng-leave,
   .block.ng-enter.ng-enter-active {
     opacity:1;
+    margin-left: 0%;
+    width: 100%;
   }
 
   pre{

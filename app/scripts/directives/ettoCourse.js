@@ -103,7 +103,6 @@ angular.module("ettoPupil")
 
           $scope.nextBlock = function () {
             //--- No more slides so show options to create a new slide on next button click if in editiing
-
             if ($scope.editing) {
               //---- Editing free will
               if (CoursePlayer.currentBlock() === (CoursePlayer.blocksInCourse() - 1)) {

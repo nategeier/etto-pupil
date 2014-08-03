@@ -1,7 +1,8 @@
 
-<div class="row etto-title">
-  <div class="col-md-12"><img src="{{ block.data.url || '/images/courses/default/title.jpg'}}" etto-image="etto-image" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateBlockImage(block, 'url', 390, 200)" class="img-responsive img-uploadable etto-title-image"/>
-    <h1 editable-text="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.title || 'title'}}</h1>
+<div class="row etto-title"><img src="{{ block.data.url || '/images/courses/default/title.jpg'}}" etto-image="etto-image" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateBlockImage(block, 'url', 390, 200)" class="img-responsive img-uploadable etto-title-image"/>
+  <div class="title-text">
+    <h1 e-style="width: 600px;" editable-text="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.title || 'title'}}</h1>
+    <p e-style="width: 600px;" editable-text="block.data.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.subtitle || 'subtitle'}}</p>
   </div>
 </div>
 <div class="row"> 
