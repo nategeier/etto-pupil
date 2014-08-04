@@ -15,12 +15,10 @@ tmux new-window -t pupil:2 -n vim
 tmux new-window -t pupil:3 -n zsh
 
 # Create Panes
-tmux split-window -t pupil:servers
 tmux split-window -t pupil:vim
 
 # Run commands
 tmux send-keys -t pupil:servers.0 'c etto-pupil; grunt serve' C-m
-tmux send-keys -t pupil:servers.1 'c etto-sails' C-m
 tmux send-keys -t pupil:vim.0 'c etto-pupil; vim -S' C-m
 tmux send-keys -t pupil:vim.1 'c etto-pupil; karma start --auto-watch' C-m
 
