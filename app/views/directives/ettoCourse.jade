@@ -1,16 +1,23 @@
 
+.etto-course-exit.img-rounded
+  a.etto-course-exit(href="/etto", target="_self")
+    i.fa.fa-2x.fa-times-circle
+
 div
   etto-block( ng-repeat="block in course.blocks",
               ng-if="isCurrentBlock( $index )",
               class="block",
-              block="block")
-  
+              block="block",
+              ng-swipe-left='nextBlock()',
+              ng-swipe-right='prevBlock()')
 
-a.exit-course.btn.btn-default(href="/etto", target="_self") X
-.etto-course-prev-block( ng-click="prevBlock()" )
-  i.fa.fa-3x.fa-arrow-circle-left
-.etto-course-next-block( ng-click="nextBlock()")
-  i.fa.fa-3x.fa-arrow-circle-right
+.progress.course-progress
+  .progress-bar(role="progressbar", aria-valuenow="((currentBlock() + 1)/blocksInCourse()) * 100", aria-valuemin="0", aria-valuemax="100", style="width: {{((currentBlock() + 1)/blocksInCourse()) * 100}}%;")
+
+a.etto-course-prev-block( href="#", ng-click="prevBlock()" )
+  i.fa.fa-2x.fa-arrow-circle-left
+a.etto-course-next-block( href="#", ng-click="nextBlock()")
+  i.fa.fa-2x.fa-arrow-circle-right
 
 
 

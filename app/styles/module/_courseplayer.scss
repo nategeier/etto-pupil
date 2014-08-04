@@ -14,20 +14,18 @@
  */
 
 
+
 .template-thumb{
   border:1px solid $etto-darkgrey;
 }
 .etto-course-container {
-  padding-bottom: 2.67em;
+  padding-bottom: 0;
 }
 
 @media all and (min-width: 60rem) {
   .etto-course-container {
     min-height: 36em;
   }
-}
-.etto-top-toolbar{
-  padding-top:5px;
 }
 
 .etto-course-editor{
@@ -48,26 +46,9 @@
   }
 }
 
-.etto-course-prev-block, .etto-course-next-block {
-  color: $etto-greyblue;
-  bottom: 0;
-  padding: 0.33em 0.67em;
-  position: absolute;
-}
-
-.etto-course-prev-block:hover, .etto-course-next-block:hover {
-  cursor: pointer;
-  color: $etto-darkblue;
-}
 
 
-.etto-course-prev-block {
-  left: 0;
-}
 
-.etto-course-next-block {
-  right: 0;
-}
 
 // Temporary base styling
 // -------------------------
@@ -76,6 +57,83 @@
 }
 
 etto-course {
+
+  .etto-course-exit {
+    position:fixed;
+    top:4px;
+    right: 4px;
+    z-index: 100;
+    color: #fff;
+    background-color: $etto-grey-rgba;
+    color: $etto-greyblue;
+    padding:4px;
+    text-align: center;
+  }
+
+  .etto-course-prev-block, .etto-course-next-block {
+    color: #fff;
+    padding: 5px;
+    background-color: $etto-grey-rgba;
+    width:50%;
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 0;
+
+  }
+
+  .etto-course-prev-block:hover, .etto-course-next-block:hover {
+    color: #fff;
+    background-color: $etto-greyblue;
+  }
+
+
+  $etto-course-btn-padding : 20%;
+
+  .etto-course-prev-block{
+    float: left;
+    border-right: 1px solid #fff;
+    padding-left: $etto-course-btn-padding;
+  }
+  .etto-course-next-block{
+    float: right;
+    border-left: 1px solid #fff;
+    padding-right: $etto-course-btn-padding;
+    i {
+      float:right;
+    }
+  }
+  
+
+
+  .block {
+    padding:10px;
+    padding-top: 30px;
+    position:relative;
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  .block.ng-enter {
+    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.6s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.6s;
+
+  }
+
+
+
+  .block.ng-enter,
+  .block.ng-leave.ng-leave-active {
+    opacity:0;
+    margin-left: 5%;
+    width: 100%;
+  }
+
+  .block.ng-leave,
+  .block.ng-enter.ng-enter-active {
+    opacity:1;
+    margin-left: 0%;
+    width: 100%;
+  }
 
   pre{
     color: $etto-greyblue;
