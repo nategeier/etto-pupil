@@ -1,8 +1,9 @@
-describe "Integration - Directive: ettoCourse", ->
+describe "Integration - Directive: ettoCourseNav", ->
   scope = element = httpBackend = null
 
   beforeEach module "ettoPupil",
                     "/views/directives/ettoCourse.html",
+                    "/views/course/ettoCourseNav.html",
                     "/views/blocks/ettoBlockUndefined.html",
                     "/views/blocks/ettoBlockFinished.html",
                     "/views/course/ettoSound.html"
@@ -11,7 +12,7 @@ describe "Integration - Directive: ettoCourse", ->
     scope = $rootScope.$new()
     scope.course = { blocks: [ {}, {}, {} ] }
 
-    element = angular.element "<etto-course></etto-course>"
+    element = angular.element "<etto-course-nav></etto-course-nav>"
     element = $compile( element ) scope
 
     httpBackend = $httpBackend

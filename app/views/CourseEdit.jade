@@ -3,6 +3,7 @@
   .row
     etto-choose-block
     .col-sm-3.col-md-2.etto-toolbox(ng-if="isEditing")
+
       h3(editable-text="course.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{course.title || 'Title'}} 
       p(editable-text="course.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{course.subtitle || 'Description'}}
       
@@ -33,5 +34,12 @@
               a.btn.btn-default(href="/etto") Exit
         
     .etto-course-container(ng-class="isEditing ? 'col-sm-9 col-md-10' : 'col-sm-12'")
+
       etto-course( edit='edit',
                    course='course')
+
+      .etto-course-exit
+        a.etto-course-exit(href="/etto", target="_self")
+          i.fa.fa-2x.fa-times-circle
+  
+      etto-course-nav

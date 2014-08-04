@@ -5,6 +5,7 @@
 .modal-body
   p Are you sure you want to remove {{courseTitle}} course? 
   .alert.alert-warning All data in {{courseTitle}} will be removed.
-  button.btn.btn-primary(type="button", ng-click="isSureRemove()") Remove
-  button.btn.btn-default(type="button", ng-click="cancel()") Cancel
+  .btn-group
+    button.btn.btn-primary(type="button", ng-click="isSureRemove()") Remove
+    button.btn.btn-default(type="button", ng-click="cancel()") Cancel
 
