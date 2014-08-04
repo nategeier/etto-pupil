@@ -12,20 +12,31 @@
   background-color: $etto-grey;
   background-repeat:repeat;
   background-image:url('/images/patterns/cream_pixels.png');
+  position: relative;
+
+  h2{
+    margin-top:5px;
+  }
+  padding-right: 0;
+
 }
 
 .tier-holder{
   padding:15px;
+
+  
+  i.fa.fa-user {
+    text-align: center;
+    padding:15px;
+    margin-top: 15px;
+  }
+
   p{
     margin-right:10px;
   }
   .tier-box{
     background-color: #fff;
     padding:10px;
-
-    border-style: solid;
-    border-color: $etto-grey;
-    border-width:1px;
     margin:2px;
   }
 
@@ -36,7 +47,6 @@
 
 .report-holder{
   color: $etto-darkblue;
-  padding: 10px;
 
   .no-pad{
     padding: 0;
@@ -45,23 +55,31 @@
     width: 100%;
     margin-bottom: 10px;
   }
+  
 }
 
 
 
 .etto-report-btns{
-  margin-right:0px;
-  margin-left:0px;
-  text-align: center;
-  padding:15px;
-  i {
+
+  .report-btn{
+    padding-top: 30px;
+    width:33%;
+    position:relative;
+    height: 80px;
+    background-color: $etto-mildblue-rgba;
+    text-align: center;
+    float: left;
     color: $etto-mildblue;
+    margin-left: 1px;
   }
-  small {
-    color: $etto-mildblue;
-    padding-right:20px;
-    padding-left:20px;
+
+  .report-btn:hover{
+    cursor: pointer;
+    background-color: $etto-mildblue;
+    color: #fff;
   }
+
 
 }
 
