@@ -32,6 +32,7 @@
     padding-top:5px;
     padding-bottom:5px;
   }
+  
 
   .close{
     position:absolute; 
@@ -71,12 +72,3 @@
 
 
 
-.course-progress{
-
-  width:100%;
-  top:0px;
-  z-index: 130;
-  height:10px;
-  background-color: $etto-darkgrey;
-  margin-bottom: 2px;
-}
