@@ -1,16 +1,52 @@
 .etto-landing {
+  .etto-register-btn{
+
+    background-color:rgba(255,255,255,0.2);
+    color: #fff;
+    text-align: center;
+    border: 1px solid #fff;
+    margin-bottom: 30px;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.50);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.33);
+
+
+  }
+  .etto-course-creation-intro{
+    .course-compser{
+
+    }
+  }
+
+  .main-img{
+    position: relative;
+  }
   .main-image-message {
-    & h3, p {
+    padding-top:1%;
+    & h3, p, i, h4, h2 {
       text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.50);
+      text-align: center;
+      color: #fff;
+
     }
   }
 
   h2{
-    margin-top:0;
+    margin-top:30px;
   }
+
+  @media(max-width: 480px) {
+    h2 {
+      font-size: 18pt;
+      margin-top:30px;
+    }
+  }
+
   .section{
     padding-bottom:20px;
-    padding-top:20px;
+
+  }
+  .etto-promos{
+    padding-top:30px;
   }
 
   .reverse-bkd{
@@ -22,11 +58,14 @@
 }
 
 .etto-landing__socialmedia {
-
+  position:absolute;
+  bottom: 10px;
+  right: 10px;
   & a i {
     color: #fff;
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33);
     margin-right: 10px;
+
   }
 }
 

@@ -5,78 +5,70 @@ etto-not-logged-in-nav(etto-register-modal)
   .header.main-img
     .container
       .row
-
-        .col-sm-7.main-image-message
+        .col-sm-12.main-image-message
+          h2 A knowledge-sharing platform
+          p Empower anyone in a company to create, track, and share courses on any device.
+          button.btn.btn-default.etto-register-btn.col-sm-2.col-sm-offset-5.col-xs-10.col-xs-offset-1(ng-click='register()') Start now
           
-          h3 Start creating, taking, tracking, and sharing corporate training courses.
-          .row
-            .col-sm-10
-              p Coursetto is a knowledge-sharing platform that empowers anyone in your company to create and curate courses for new and current hires.
-          .btn-group.etto-landing__socialmedia
-            a(href="https://twitter.com/Coursetto")
-              i.fa.fa-twitter.fa-2x
-            a(href="https://www.youtube.com/user/coursetto")
-              i.fa.fa-youtube-play.fa-2x
-            a(href="https://www.linkedin.com/company/5153924?trk=prof-0-ovw-curr_pos")
-              i.fa.fa-linkedin.fa-2x
-            a(href="https://www.facebook.com/coursetto")
-              i.fa.fa-facebook.fa-2x
-            a(href="mailto:admin@coursetto.com")
-              i.fa.fa-envelope.fa-2x
-        .col-sm-5.hidden-xs.section
-          img.img-responsive.pull-right(src="/images/landing/computers.png") 
-        
-      
+      .etto-landing__socialmedia
+        a(href="https://twitter.com/Coursetto")
+          i.fa.fa-twitter.fa-2x
+        a(href="https://www.youtube.com/user/coursetto")
+          i.fa.fa-youtube-play.fa-2x
+        a(href="https://www.linkedin.com/company/5153924?trk=prof-0-ovw-curr_pos")
+          i.fa.fa-linkedin.fa-2x
+        a(href="https://www.facebook.com/coursetto")
+          i.fa.fa-facebook.fa-2x
+        a(href="mailto:admin@coursetto.com")
+          i.fa.fa-envelope.fa-2x
+
   
   .section
-    .container
+    .container.etto-course-creation-intro
       .row
-        .col-sm-12.col-md-6
+        .col-xs-12.col-sm-12.col-md-6
+          h2 Anyone Can Create Courses
+          p By allowing HR, legal counsel, and employees to create their own courses, Coursetto provides companies with a holistic catalogue of organizational policies and skills.
+          hr
+          .row
+            .col-xs-4
+              img.img-responsive.img-rounded(src='/images/landing/person1.jpg')
+            .col-xs-4
+              img.img-responsive.img-rounded(src='/images/landing/person2.jpg')
+            .col-xs-4
+              img.img-responsive.img-rounded(src='/images/landing/person3.jpg')
+          hr
+          h4 Creating custom content is a breeze on desktop and mobile.
+
+          ul
+            li Link video from YouTube or Vimeo
+            li Link voice over or any sound with SoundCloud
+            li Add images or animated gifs
+            li Create a quiz anywhere
+            li Track completion dates and progress
+            li Collaborative course building process
+
+        .col-sm-12.col-md-6.course-compser
+          h4 Use our responsive course composer 
+          p No design skills needed.
+
           img.img-responsive(src='/images/landing/demo1.jpg')
           img.img-responsive(src='/images/landing/demo2.jpg')
           img.img-responsive(src='/images/landing/demo3.jpg')
+          .clearfix
 
-        .col-xs-12.col-sm-12.col-md-6
-          .row
-            .col-xs-4
-              img.img-responsive(src='/images/landing/person1.jpg')
-            .col-xs-4
-              img.img-responsive(src='/images/landing/person2.jpg')
-            .col-xs-4
-              img.img-responsive(src='/images/landing/person3.jpg')
-
-          h2 Anyone Can Create Courses
-          p Allow anyone in your company to create and curate courses, or restrict permissions where appropriate.
-          p Creating custom content is a breeze on desktop and mobile.
-
-          h4 Subscriptions
-          p Pricing is based on number of employees enrolled and the number of private courses you need to distribute:
-          .col-sm-12.col-md-12
-            ul.nav.nav-tabs
-              li(ng-click="show(subscriptionType._id)", ng-repeat="subscriptionType in subscriptionTypes", ng-class="{active: onSubscription === subscriptionType._id}")
-                a(href="#")
-                  small {{subscriptionType.title}}
-                  br
-                  small {{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}}
-            div(ng-repeat="subscriptionType in subscriptionTypes")
-              table.table.table-no-border(ng-show="onSubscription === subscriptionType._id", style="background-color:#fff;")
-                tr
-                  th Private Courses
-                  th Price
-                tr(ng-repeat="subscription in subscriptionType.subscriptions", ng-animate="'animate'")
-                  td {{subscription.courseRange.low}} - {{subscription.courseRange.high}}
-                  td ${{subscription.price}}/mo
+        
   .reverse-bkd.section
-    .container
+    .container.etto-promos
       .row
         a.col-sm-6.col-md-4(href="#", ng-click='register()')
-          img.img-responsive(src="/images/landing/promo1.jpg")
+          img.img-responsive.img-rounded(src="/images/landing/promo1.jpg")
           br
         a.col-md-4.hidden-sm.hidden-xs(href="#", ng-click='register()')
-          img.img-responsive(src="/images/landing/promo.jpg")
+          img.img-responsive.img-rounded(src="/images/landing/promo.jpg")
           br
         .col-sm-6.col-md-4
-          iframe.img-responsive.etto-landing__youtube-demo(style="min-height:200px;", width="1270", height="728",src="//www.youtube.com/embed/kVrUNKg6qsk?showinfo=0&controls=2&thumbnail=high&html5=1", frameborder="0", allowfullscreen)
+          iframe.img-responsive.etto-landing__youtube-demo.img-rounded(style="min-height:200px;", width="1270", height="728",src="//www.youtube.com/embed/kVrUNKg6qsk?showinfo=0&controls=2&thumbnail=high&html5=1", frameborder="0", allowfullscreen)
           br
           a.w100.btn.btn-success(href="#", ng-click='register()') Register
   .section
@@ -84,15 +76,15 @@ etto-not-logged-in-nav(etto-register-modal)
       .row
         h2.text-center Create a Custom Company Structure
         .col-xs-12.col-sm-4.col-md-4
-          img.img-responsive(src='/images/landing/old.jpg')
+          img.img-responsive.img-rounded(src='/images/landing/old.jpg')
           h4 The Old Way
           p Tracking employee course progress in a large company structure can be difficult with other out-of-the-box solutions.
         .col-xs-12.col-sm-4.col-md-4
-          img.img-responsive(src='/images/landing/new.jpg')
+          img.img-responsive.img-rounded(src='/images/landing/new.jpg')
           h4 The Coursetto Way
           p Create your company's organization tree any way you need. Place managers in charge of their own tier to create micro training environments.
         .col-xs-12.col-sm-4.col-md-4
-          img.img-responsive(src='/images/landing/small.jpg')
+          img.img-responsive.img-rounded(src='/images/landing/small.jpg')
           h4 And You Get Graphs!
           p Assign managers and employees to their own tiers and delegate training. Then track progress across all tiers.
   
@@ -102,43 +94,61 @@ etto-not-logged-in-nav(etto-register-modal)
         h2.text-center Course Marketplace
         p.text-center 
         .col-md-6
-          h4 No subscription necessary, pay per user course taken
-          p No time to build a course and just need something standard? Then head over to the course marketplace.
-          p
-            img.img-responsive(src='/images/landing/market.jpg')
-
+          img.img-responsive.img-rounded(src='/images/landing/expert.jpg')
+          h4 Experts: Get Paid to Teach What You Know
+          p Do you know a lot about a topic that could help a business grow? Are you an expert at sales, leadership, marketing, graphic design, or another topic? Start creating courses with Coursetto and you can earn money while teaching others what you know!
+          p Just set your own price and launch it to the marketplace.
         .col-sm-12.col-md-6
-          .row
-            .col-sm-9.col-md-6
-              h4  Course Distribution
-              p Your company structure is on the right. Watch your price fluctuate as you turn off departments that do not need to take the course you are adding. The price is just an estimate of credits needed to be purchased. Credits are only used when a user actually takes a course. Users get an unlimited amount of times to take a course. Once purchased the course will appear for any "on" departments.
-            .col-sm-3.col-md-6
-              img.img-responsive(src='/images/landing/tiers.jpg')
+          img.img-responsive.img-rounded(src='/images/landing/connections.jpg')
+          h4 Companies: Purchase Pre-existing Courses
+          ul
+            li Purchase standard compliance courses
+            li Distribute a standard course to the correct positions
+            li Share your training with your industry and stop reinventing the wheel. It helped with the open source community.
+
+
   .section
     .container
       .row
         h2.text-center Set Your Company Branding
         .col-xs-12
-          img.img-responsive(src='/images/landing/white-label.jpg')
+          img.img-responsive.img-rounded(src='/images/landing/white-label.jpg')
   .reverse-bkd.section
     .container
       .row
-        h2.text-center The Coursetto Team
-        .col-sm-4
-          img.img-responsive(src="https://www.gravatar.com/avatar/a197153b753ca03e837a6deba12486b1?s=300")
-          h3 Nate Geier
-          h4 CEO          
-          a.btn.btn-primary(href="mailto:nate@coursetto.com")
-            i.fa.fa-envelope | nate@coursetto.com
-        .col-sm-4
-          img.img-responsive(src="https://www.gravatar.com/avatar/a895de9f0021b3a08b654fe2efe43e97?s=300")
-          h3 Randall A. Gordon
-          h4 CTO
-          a.btn.btn-primary(href="mailto:randall@coursetto.com")
-            i.fa.fa-envelope | randall@coursetto.com
-        .col-sm-4
-          iframe.img-responsive(style="min-height:200px;max-height:400px;", src="//www.youtube.com/embed/Usu18v7Ja2A?showinfo=0&controls=2", frameborder="0", allowfullscreen)
-          hr
-          a.btn.btn-success(href="#", ng-click='register()') Register
-          
-  
+        .col-sm-12
+          h2.text-center The Coursetto Team
+          .row
+            .col-sm-3
+              img.img-responsive.img-rounded(src="https://www.gravatar.com/avatar/a197153b753ca03e837a6deba12486b1?s=300")
+              h3 Nate Geier
+              h4 CEO          
+              a.btn.btn-primary(href="mailto:nate@coursetto.com")
+                i.fa.fa-envelope | nate@coursetto.com
+            .col-sm-3
+              img.img-responsive.img-rounded(src="https://www.gravatar.com/avatar/a895de9f0021b3a08b654fe2efe43e97?s=300")
+              h3 Randall A. Gordon
+              h4 CTO
+              a.btn.btn-primary(href="mailto:randall@coursetto.com")
+                i.fa.fa-envelope | randall@coursetto.com
+            a.col-sm-3(href= "http://www.bizjournals.com/portland/print-edition/2014/06/20/training-made-easy.html", target="_blank")
+              img.img-responsive.img-rounded(src="/images/landing/press.jpg")
+              h3 Press
+              h4 Portland Business Journal
+            .col-sm-3
+              h3 Advisors:
+              .row
+                .col-sm-4
+                  img.img-responsive.img-rounded(src="/images/landing/ryan.jpg")
+                .col-sm-8
+                  h4 Ryan Carson
+                  p CEO Treehouse
+
+              .row
+                .col-sm-4
+                  img.img-responsive.img-rounded(src="/images/landing/david.jpg")
+                .col-sm-8
+                  h4 David Nelsen
+                  p Last venture was Giftango, Sold to InComm
+
+

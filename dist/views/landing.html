@@ -4,60 +4,51 @@
   <div class="header main-img">
     <div class="container">
       <div class="row">
-        <div class="col-sm-7 main-image-message">
-          <h3>Start creating, taking, tracking, and sharing corporate training courses.</h3>
-          <div class="row">
-            <div class="col-sm-10">
-              <p>Coursetto is a knowledge-sharing platform that empowers anyone in your company to create and curate courses for new and current hires.</p>
-            </div>
-          </div>
-          <div class="btn-group etto-landing__socialmedia"><a href="https://twitter.com/Coursetto"><i class="fa fa-twitter fa-2x"></i></a><a href="https://www.youtube.com/user/coursetto"><i class="fa fa-youtube-play fa-2x"></i></a><a href="https://www.linkedin.com/company/5153924?trk=prof-0-ovw-curr_pos"><i class="fa fa-linkedin fa-2x"></i></a><a href="https://www.facebook.com/coursetto"><i class="fa fa-facebook fa-2x"></i></a><a href="mailto:admin@coursetto.com"><i class="fa fa-envelope fa-2x"></i></a></div>
+        <div class="col-sm-12 main-image-message">
+          <h2>A knowledge-sharing platform</h2>
+          <p>Empower anyone in a company to create, track, and share courses on any device.</p>
+          <button ng-click="register()" class="btn btn-default etto-register-btn col-sm-2 col-sm-offset-5 col-xs-10 col-xs-offset-1">Start now</button>
         </div>
-        <div class="col-sm-5 hidden-xs section"><img src="/images/landing/computers.png" class="img-responsive pull-right"/></div>
       </div>
+      <div class="etto-landing__socialmedia"><a href="https://twitter.com/Coursetto"><i class="fa fa-twitter fa-2x"></i></a><a href="https://www.youtube.com/user/coursetto"><i class="fa fa-youtube-play fa-2x"></i></a><a href="https://www.linkedin.com/company/5153924?trk=prof-0-ovw-curr_pos"><i class="fa fa-linkedin fa-2x"></i></a><a href="https://www.facebook.com/coursetto"><i class="fa fa-facebook fa-2x"></i></a><a href="mailto:admin@coursetto.com"><i class="fa fa-envelope fa-2x"></i></a></div>
     </div>
   </div>
   <div class="section">
-    <div class="container">
+    <div class="container etto-course-creation-intro">
       <div class="row">
-        <div class="col-sm-12 col-md-6"><img src="/images/landing/demo1.jpg" class="img-responsive"/><img src="/images/landing/demo2.jpg" class="img-responsive"/><img src="/images/landing/demo3.jpg" class="img-responsive"/></div>
         <div class="col-xs-12 col-sm-12 col-md-6">
-          <div class="row">
-            <div class="col-xs-4"><img src="/images/landing/person1.jpg" class="img-responsive"/></div>
-            <div class="col-xs-4"><img src="/images/landing/person2.jpg" class="img-responsive"/></div>
-            <div class="col-xs-4"><img src="/images/landing/person3.jpg" class="img-responsive"/></div>
-          </div>
           <h2>Anyone Can Create Courses</h2>
-          <p>Allow anyone in your company to create and curate courses, or restrict permissions where appropriate.</p>
-          <p>Creating custom content is a breeze on desktop and mobile.</p>
-          <h4>Subscriptions</h4>
-          <p>Pricing is based on number of employees enrolled and the number of private courses you need to distribute:</p>
-          <div class="col-sm-12 col-md-12">
-            <ul class="nav nav-tabs">
-              <li ng-click="show(subscriptionType._id)" ng-repeat="subscriptionType in subscriptionTypes" ng-class="{active: onSubscription === subscriptionType._id}"><a href="#"><small>{{subscriptionType.title}}</small><br/><small>{{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}}</small></a></li>
-            </ul>
-            <div ng-repeat="subscriptionType in subscriptionTypes">
-              <table ng-show="onSubscription === subscriptionType._id" style="background-color:#fff;" class="table table-no-border">
-                <tr>
-                  <th>Private Courses</th>
-                  <th>Price</th>
-                </tr>
-                <tr ng-repeat="subscription in subscriptionType.subscriptions" ng-animate="'animate'">
-                  <td>{{subscription.courseRange.low}} - {{subscription.courseRange.high}}</td>
-                  <td>${{subscription.price}}/mo</td>
-                </tr>
-              </table>
-            </div>
+          <p>By allowing HR, legal counsel, and employees to create their own courses, Coursetto provides companies with a holistic catalogue of organizational policies and skills.</p>
+          <hr/>
+          <div class="row">
+            <div class="col-xs-4"><img src="/images/landing/person1.jpg" class="img-responsive img-rounded"/></div>
+            <div class="col-xs-4"><img src="/images/landing/person2.jpg" class="img-responsive img-rounded"/></div>
+            <div class="col-xs-4"><img src="/images/landing/person3.jpg" class="img-responsive img-rounded"/></div>
           </div>
+          <hr/>
+          <h4>Creating custom content is a breeze on desktop and mobile.</h4>
+          <ul>
+            <li>Link video from YouTube or Vimeo</li>
+            <li>Link voice over or any sound with SoundCloud</li>
+            <li>Add images or animated gifs</li>
+            <li>Create a quiz anywhere</li>
+            <li>Track completion dates and progress</li>
+            <li>Collaborative course building process</li>
+          </ul>
+        </div>
+        <div class="col-sm-12 col-md-6 course-compser">
+          <h4>Use our responsive course composer </h4>
+          <p>No design skills needed.</p><img src="/images/landing/demo1.jpg" class="img-responsive"/><img src="/images/landing/demo2.jpg" class="img-responsive"/><img src="/images/landing/demo3.jpg" class="img-responsive"/>
+          <div class="clearfix"></div>
         </div>
       </div>
     </div>
   </div>
   <div class="reverse-bkd section">
-    <div class="container">
-      <div class="row"><a href="#" ng-click="register()" class="col-sm-6 col-md-4"><img src="/images/landing/promo1.jpg" class="img-responsive"/><br/></a><a href="#" ng-click="register()" class="col-md-4 hidden-sm hidden-xs"><img src="/images/landing/promo.jpg" class="img-responsive"/><br/></a>
+    <div class="container etto-promos">
+      <div class="row"><a href="#" ng-click="register()" class="col-sm-6 col-md-4"><img src="/images/landing/promo1.jpg" class="img-responsive img-rounded"/><br/></a><a href="#" ng-click="register()" class="col-md-4 hidden-sm hidden-xs"><img src="/images/landing/promo.jpg" class="img-responsive img-rounded"/><br/></a>
         <div class="col-sm-6 col-md-4">
-          <iframe style="min-height:200px;" width="1270" height="728" src="//www.youtube.com/embed/kVrUNKg6qsk?showinfo=0&amp;controls=2&amp;thumbnail=high&amp;html5=1" frameborder="0" allowfullscreen="allowfullscreen" class="img-responsive etto-landing__youtube-demo"></iframe><br/><a href="#" ng-click="register()" class="w100 btn btn-success">Register</a>
+          <iframe style="min-height:200px;" width="1270" height="728" src="//www.youtube.com/embed/kVrUNKg6qsk?showinfo=0&amp;controls=2&amp;thumbnail=high&amp;html5=1" frameborder="0" allowfullscreen="allowfullscreen" class="img-responsive etto-landing__youtube-demo img-rounded"></iframe><br/><a href="#" ng-click="register()" class="w100 btn btn-success">Register</a>
         </div>
       </div>
     </div>
@@ -66,15 +57,15 @@
     <div class="container">
       <div class="row">
         <h2 class="text-center">Create a Custom Company Structure</h2>
-        <div class="col-xs-12 col-sm-4 col-md-4"><img src="/images/landing/old.jpg" class="img-responsive"/>
+        <div class="col-xs-12 col-sm-4 col-md-4"><img src="/images/landing/old.jpg" class="img-responsive img-rounded"/>
           <h4>The Old Way</h4>
           <p>Tracking employee course progress in a large company structure can be difficult with other out-of-the-box solutions.</p>
         </div>
-        <div class="col-xs-12 col-sm-4 col-md-4"><img src="/images/landing/new.jpg" class="img-responsive"/>
+        <div class="col-xs-12 col-sm-4 col-md-4"><img src="/images/landing/new.jpg" class="img-responsive img-rounded"/>
           <h4>The Coursetto Way</h4>
           <p>Create your company's organization tree any way you need. Place managers in charge of their own tier to create micro training environments.</p>
         </div>
-        <div class="col-xs-12 col-sm-4 col-md-4"><img src="/images/landing/small.jpg" class="img-responsive"/>
+        <div class="col-xs-12 col-sm-4 col-md-4"><img src="/images/landing/small.jpg" class="img-responsive img-rounded"/>
           <h4>And You Get Graphs!</h4>
           <p>Assign managers and employees to their own tiers and delegate training. Then track progress across all tiers.</p>
         </div>
@@ -86,19 +77,18 @@
       <div class="row">
         <h2 class="text-center">Course Marketplace</h2>
         <p class="text-center"> </p>
-        <div class="col-md-6">
-          <h4>No subscription necessary, pay per user course taken</h4>
-          <p>No time to build a course and just need something standard? Then head over to the course marketplace.</p>
-          <p><img src="/images/landing/market.jpg" class="img-responsive"/></p>
+        <div class="col-md-6"><img src="/images/landing/expert.jpg" class="img-responsive img-rounded"/>
+          <h4>Experts: Get Paid to Teach What You Know</h4>
+          <p>Do you know a lot about a topic that could help a business grow? Are you an expert at sales, leadership, marketing, graphic design, or another topic? Start creating courses with Coursetto and you can earn money while teaching others what you know!</p>
+          <p>Just set your own price and launch it to the marketplace.</p>
         </div>
-        <div class="col-sm-12 col-md-6">
-          <div class="row">
-            <div class="col-sm-9 col-md-6">
-              <h4> Course Distribution</h4>
-              <p>Your company structure is on the right. Watch your price fluctuate as you turn off departments that do not need to take the course you are adding. The price is just an estimate of credits needed to be purchased. Credits are only used when a user actually takes a course. Users get an unlimited amount of times to take a course. Once purchased the course will appear for any "on" departments.</p>
-            </div>
-            <div class="col-sm-3 col-md-6"><img src="/images/landing/tiers.jpg" class="img-responsive"/></div>
-          </div>
+        <div class="col-sm-12 col-md-6"><img src="/images/landing/connections.jpg" class="img-responsive img-rounded"/>
+          <h4>Companies: Purchase Pre-existing Courses</h4>
+          <ul>
+            <li>Purchase standard compliance courses</li>
+            <li>Distribute a standard course to the correct positions</li>
+            <li>Share your training with your industry and stop reinventing the wheel. It helped with the open source community.</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -107,25 +97,44 @@
     <div class="container">
       <div class="row">
         <h2 class="text-center">Set Your Company Branding</h2>
-        <div class="col-xs-12"><img src="/images/landing/white-label.jpg" class="img-responsive"/></div>
+        <div class="col-xs-12"><img src="/images/landing/white-label.jpg" class="img-responsive img-rounded"/></div>
       </div>
     </div>
   </div>
   <div class="reverse-bkd section">
     <div class="container">
       <div class="row">
-        <h2 class="text-center">The Coursetto Team</h2>
-        <div class="col-sm-4"><img src="https://www.gravatar.com/avatar/a197153b753ca03e837a6deba12486b1?s=300" class="img-responsive"/>
-          <h3>Nate Geier</h3>
-          <h4>CEO          </h4><a href="mailto:nate@coursetto.com" class="btn btn-primary"><i class="fa fa-envelope">| nate@coursetto.com</i></a>
-        </div>
-        <div class="col-sm-4"><img src="https://www.gravatar.com/avatar/a895de9f0021b3a08b654fe2efe43e97?s=300" class="img-responsive"/>
-          <h3>Randall A. Gordon</h3>
-          <h4>CTO</h4><a href="mailto:randall@coursetto.com" class="btn btn-primary"><i class="fa fa-envelope">| randall@coursetto.com</i></a>
-        </div>
-        <div class="col-sm-4">
-          <iframe style="min-height:200px;max-height:400px;" src="//www.youtube.com/embed/Usu18v7Ja2A?showinfo=0&amp;controls=2" frameborder="0" allowfullscreen="allowfullscreen" class="img-responsive"></iframe>
-          <hr/><a href="#" ng-click="register()" class="btn btn-success">Register</a>
+        <div class="col-sm-12">
+          <h2 class="text-center">The Coursetto Team</h2>
+          <div class="row">
+            <div class="col-sm-3"><img src="https://www.gravatar.com/avatar/a197153b753ca03e837a6deba12486b1?s=300" class="img-responsive img-rounded"/>
+              <h3>Nate Geier</h3>
+              <h4>CEO          </h4><a href="mailto:nate@coursetto.com" class="btn btn-primary"><i class="fa fa-envelope">| nate@coursetto.com</i></a>
+            </div>
+            <div class="col-sm-3"><img src="https://www.gravatar.com/avatar/a895de9f0021b3a08b654fe2efe43e97?s=300" class="img-responsive img-rounded"/>
+              <h3>Randall A. Gordon</h3>
+              <h4>CTO</h4><a href="mailto:randall@coursetto.com" class="btn btn-primary"><i class="fa fa-envelope">| randall@coursetto.com</i></a>
+            </div><a href="http://www.bizjournals.com/portland/print-edition/2014/06/20/training-made-easy.html" target="_blank" class="col-sm-3"><img src="/images/landing/press.jpg" class="img-responsive img-rounded"/>
+              <h3>Press</h3>
+              <h4>Portland Business Journal</h4></a>
+            <div class="col-sm-3">
+              <h3>Advisors:</h3>
+              <div class="row">
+                <div class="col-sm-4"><img src="/images/landing/ryan.jpg" class="img-responsive img-rounded"/></div>
+                <div class="col-sm-8">
+                  <h4>Ryan Carson</h4>
+                  <p>CEO Treehouse</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4"><img src="/images/landing/david.jpg" class="img-responsive img-rounded"/></div>
+                <div class="col-sm-8">
+                  <h4>David Nelsen</h4>
+                  <p>Last venture was Giftango, Sold to InComm</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
