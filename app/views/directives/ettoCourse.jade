@@ -5,9 +5,7 @@ div
   etto-block( ng-repeat="block in course.blocks",
               ng-if="isCurrentBlock( $index )",
               class="block",
-              block="block",
-              ng-swipe-left='nextBlock()',
-              ng-swipe-right='prevBlock()')
+              block="block")
 
   
 
