@@ -117,7 +117,6 @@ angular.module("ettoPupil")
         "Shadows Into Light Two"
       ];
 
-
       return Fonts;
 
     }

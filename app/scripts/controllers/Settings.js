@@ -10,8 +10,6 @@ angular.module("ettoPupil")
         $scope.editUser.emails.push(null);
       };
 
-
-
       $scope.setCourseTime = function (takenTime) {
 
         console.log("takenTime", takenTime);
@@ -19,7 +17,6 @@ angular.module("ettoPupil")
 
         console.log(now._d);
         return now._d;
-
 
       };
 
