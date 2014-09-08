@@ -7,7 +7,7 @@ angular.module("ettoPupil")
       return {
         restrict: "EA",
 
-        controller: function ($scope, Session, Tier) {
+        controller: function ($scope, Session, Tier, WhiteLabel) {
 
           $scope.$on("401", function () {
             $scope.login();
@@ -26,7 +26,6 @@ angular.module("ettoPupil")
 
               if (!$scope.user.isBeta) {
                 $scope.destroySession("/beta");
-
               } else if ($scope.user) {
                 Store.findCredit($scope.user._tier._company, function (results) {
                   $scope.credits = results.credits;
@@ -34,6 +33,10 @@ angular.module("ettoPupil")
 
                 Tier.findTier($scope.user._tier._company, function (company) {
                   $scope.company = company;
+                  if (company.colors) {
+                    WhiteLabel.setColors(company.colors);
+                    WhiteLabel.setFonts(company.font);
+                  }
                 });
               }
 

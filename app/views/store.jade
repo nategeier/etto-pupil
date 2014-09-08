@@ -1,13 +1,13 @@
 etto-logged-in-nav
-
-.container-full.store
+etto-verify-modal(redirect-to='/etto')
+.container-full.etto-bgcolor-secondary
   .row
-    .left-holder.col-md-9.nopad
-      .leaderboard
+    .col-md-9.nopad
+      .leaderboard.etto-bgcolor-light
         .row
           .col-xs-12.col-sm-6.col-md-6.col-lg-6
             .col-xs-12
-              h4 Add a course to the right people
+              h4.etto-color-primary Add the right course to the right people
               input.form-control(type='text', ng-model='searchCourse', placeholder='Search Courses')
           .col-sm-6.col-md-6.col-lg-6#head-img.hidden-xs
             img.img-responsive.pull-right.default-lg(src="/images/leaderboard/market/default-lg.jpg")
@@ -17,28 +17,28 @@ etto-logged-in-nav
       .etto-courses
         .main-holder(class="animate-repeat", ng-repeat='course in courses | filter:searchCourse')
           .col-sm-6.col-md-4.col-lg-3.nopad
-            .course-holder(sink-in, ng-class="course.added ? 'closed-course' : 'open-course'")
+            .etto-course-holder.etto-bgcolor-light(ng-class="course.added ? 'closed-course' : 'open-course'")
               .row
                 .col-xs-12
                   img.img-responsive.course-thumb(src="{{course.thumb}}")
               .row
                 .col-md-7
-                  h5 {{course.title}}
-                  h6 {{course.subtitle}}
+                  h5.etto-color-primary {{course.title}}
+                  h6.etto-color-secondary {{course.subtitle}}
                 .col-md-5
-                  h4 ${{course.priceWithEmps}}
+                  h4.etto-color-primary ${{course.priceWithEmps}}
                   small ${{course.price}}/user
                 .col-md-12
                   .btn-group
                     a.btn.btn-primary.btn-xs(etto-purchase, href="#", ng-click='addToLibrary(course)') Add to Tiers
                     a.btn.btn-default.btn-xs(href="/course/demo/{{ course._id }}")  Demo
-      .clearfix
     .col-md-3.nopad
-      .side-panel
-        .modal-header
-          h4.modal-title {{currentTier.title}}
-          p Course for {{totUsers}} users
-        .col-md-12
+      .panel.panel-default.etto-bgcolor-light
+        .panel-heading.etto-bgcolor-accent
+          h2.etto-color-primary {{currentTier.title}}
+          p.etto-color-primary Course for {{totUsers}} users
+
+        .panel-body.etto-bgcolor-white
           h5.ison BLUE Tiers will receive added course
           h5.isoff GREY Tiers will NOT receive added course
           hr
@@ -61,3 +61,4 @@ etto-logged-in-nav
                     .clearfix
                 ol(ng-class='{pregnant:child.children.length}')
                 .clearfix
+etto-footer

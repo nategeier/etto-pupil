@@ -9,8 +9,7 @@ nav.navbar.navbar-default( role="navigation", etto-session, etto-update-company)
       .icon-bar
     a.navbar-brand( href="/etto" )
       span.logo
-        img(ng-if="user.auth.canPurchase", src="{{company.logo}}", etto-asset-library-modal, ng-click='updateLogo()', height="65")
-        img(ng-if="!user.auth.canPurchase", src="{{company.logo}}", height="65")
+        img(src="{{company.logo}}", height="65")
       span.logo-name {{ company.title || 'Coursetto'}}
 
   #etto-navbar.collapse.navbar-collapse
@@ -39,6 +38,8 @@ nav.navbar.navbar-default( role="navigation", etto-session, etto-update-company)
           ul(class="dropdown-menu", role="menu", aria-labelledby="dLabel")
             li
               a( href="/settings/{{user._id}}" ) Settings
+            li
+              a( href="/company/{{user._tier._company}}" ) Company
             li
               a( href="/subscription/{{user._id}}", ng-show= "user.auth.canPurchase") Subscriptions
             li

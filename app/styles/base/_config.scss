@@ -11,98 +11,70 @@
 //
 // Variables
 // --------------------------------------------------
-
 @import "colors";
-
 // Golden Ratio
 // -------------------------
 //@function golden() {
 //  @return 1/2 + sqrt(5) / 2;
 //}
-
-
 //$ratio: golden();
-$ratio: 1.61803;
-
+$ratio:1.61803;
 //
 // Override Default Bootstrap Variables
 // --------------------------------------------------
-
 // Brand colors
 // -------------------------
-
-$brand-primary: $etto-mildblue;
+ $brand-primary:$etto-mildblue;
 //$brand-success: #5cb85c
 //$brand-warning: #f0ad4e
 //$brand-danger:  #d9534f
-$brand-info:    $etto-mildblue;
-
+$brand-info:$etto-mildblue;
 // Scaffolding
 // -------------------------
-
-$body-bg:    #ffffff;
-$text-color: $etto-mildblue;
-
+ $body-bg:#ffffff;
+ $text-color:$etto-mildblue;
 // Links
 // -------------------------
-
-$link-color:       $etto-mildblue;
-$link-hover-color: darken($link-color, 15%);
-
+ $link-color:$etto-mildblue;
+ $link-hover-color:darken($link-color, 15%);
 // Typography
 // -------------------------
-
-$font-family-sans-serif: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-family-serif:      Georgia, "Times New Roman", Times, serif;
-$font-family-monospace:  Monaco, Menlo, Consolas, "Courier New", monospace;
-$font-family-base:       $font-family-sans-serif;
-
-$font-size-base:         16px;
-$line-height-base:       $ratio;
-
-$headings-line-height:   $line-height-base;
-
-
-$navbar-default-link-hover-color:          $etto-darkblue !default;
-$navbar-default-link-hover-bg:             lighten($etto-lightblue, 9.5%) !default;
-$navbar-default-link-active-color:         $etto-darkblue !default;
-$navbar-default-link-active-bg:            lighten($etto-lightblue, 6.5%) !default;
-
+ $font-family-sans-serif:Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+ $font-family-serif:Georgia, "Times New Roman", Times, serif;
+ $font-family-monospace:Monaco, Menlo, Consolas, "Courier New", monospace;
+ $font-family-base:$font-family-sans-serif;
+ 
+ $font-size-base:16px;
+ $line-height-base:$ratio;
+ $headings-line-height:$line-height-base;
+ $navbar-default-link-hover-color:$etto-darkblue !default;
+ $navbar-default-link-hover-bg:lighten($etto-lightblue, 9.5%) !default;
+ $navbar-default-link-active-color:$etto-darkblue !default;
+ $navbar-default-link-active-bg:lighten($etto-lightblue, 6.5%) !default;
 // Components
 // -------------------------
-
-$border-radius-base: 4px;
-$border-radius-large: 4px;
-$border-radius-small: 4px;
-
-
-$panel-border-radius:         0px;
-
+ $border-radius-base:4px;
+ $border-radius-large:4px;
+ $border-radius-small:4px;
+ $panel-border-radius:0px;
 // Navbar
 // -------------------------
-
 // Basics of a navbar
-$navbar-margin-bottom: 0;
-
+$navbar-margin-bottom:0;
 // Import Bootstrap
 // Leave both @imports for ease of switching, but only use one at a time
 // -------------------------
 //@import "bootstrap-sass/lib/bootstrap.scss"
 @import "_bootstrap";
-
-
 //
 // Override Default FontAwesome Variables
 // --------------------------------------------------
-
 // Tell FontAwesome where to find the font files
 //$fa-font-path: "/bower_components/font-awesome/fonts";
-$fa-font-path:        "//netdna.bootstrapcdn.com/font-awesome/4.0.3/fonts" !default; // for referencing Bootstrap CDN font files directly
-
+$fa-font-path:"//netdna.bootstrapcdn.com/font-awesome/4.0.3/fonts" !default; // for referencing Bootstrap CDN font files directly
 // Import FontAwesome
 // -------------------------
 @import "font-awesome/scss/font-awesome.scss";
-
 // Import XEditable
 // -------------------------
 @import "../vendor/xeditable";

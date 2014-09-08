@@ -43,14 +43,17 @@
 .etto-course-nav {
 
   margin-bottom: 2px;
-  margin-top: 2px;
+  margin-top: 4px;
+
+
 
   .etto-course-prev-block, .etto-course-next-block {
-    color: #fff;
     padding: 5px;
-    background-color: $etto-greyblue;
     text-align: center;
     display: block;
+    width: 100%;
+
+    border: 1px solid #ffffff;
 
     i {
       text-align: center;
@@ -59,7 +62,7 @@
 
   .etto-course-prev-block:hover, .etto-course-next-block:hover {
     color: #fff;
-    background-color: $etto-mildblue;
+    opacity: 0.85;
   }
 
   .etto-course-prev-block {
@@ -75,22 +78,13 @@
 }
 
 .etto-course-editor{
-  background-color: $etto-grey;
-}
-
-.etto-toolbox {
-
-  button.save, button.remove {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-
-
-  .etto-toolbox-toolbar, .etto-toolbox-blocktools {
-    position: relative;
+  padding:0;
+  .panel{
+    margin:0;
+    padding:0;
   }
 }
+
 
 
 .etto-course-progress{
@@ -140,37 +134,8 @@ etto-course {
     width: 100%;
   }
 
-  pre{
-    color: $etto-greyblue;
-  }
 
-  pre.sub-head{
-    font-size: 2em;
-  }
-
-  pre.quote{
-    font-size: 2em;
-    color: $etto-mildblue;
-  }
-
-  > div {
-    margin-top: 1em;
-  }
-
-  h1, h2 {
-    color: $etto-darkblue;
-    margin-bottom: 0;
-    margin-top: 0;
-  }
-
-  h4.sub-head{
-    color: $etto-darkgrey;
-  }
-
-  h2{
-    font-size: 1em;
-  }
-
+  
   blockquote {
     border-left-color: $etto-mildblue;
     p {
@@ -180,7 +145,6 @@ etto-course {
     footer {
       text-align: right;
       font-size: 2em;
-      color:  $etto-greyblue;
     }
 
     footer:before {

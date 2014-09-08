@@ -1,13 +1,18 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("HomeCtrl", ["$scope", "CourseMetaChange", "Users", "Tier", "Tiers", "$location",
-    function ($scope, CourseMetaChange, Users, Tier, Tiers, $location) {
+  .controller("HomeCtrl", ["$scope", "$location", "CourseMetaChange", "Users", "Tier", "Tiers",
+    function ($scope, $location, CourseMetaChange, Users, Tier, Tiers) {
 
       $scope.$watch("user", function () {
         if ($scope.user) {
           $scope.listUsersCreatedCourses();
         }
+      });
+
+      TweenMax.from($("#head-img"), 1, {
+        delay: 0.6,
+        opacity: 0
       });
 
       $scope.activetab = "home";
@@ -22,11 +27,6 @@ angular.module("ettoPupil")
         delay: 0.6,
         opacity: 0,
         y: 20
-      });
-
-      TweenMax.from($(".side-panel"), 0.6, {
-        opacity: 0,
-        x: 150
       });
 
       $scope.listUsersCreatedCourses = function () {

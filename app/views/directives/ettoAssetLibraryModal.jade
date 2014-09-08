@@ -1,7 +1,7 @@
-.modal-header
+.modal-header.etto-bgcolor-primary
   button.close(type="button", ng-click="cancel()") &times;
   h2.modal-title Asset Library
-.modal-body.etto-assetlibrary
+.modal-body.etto-assetlibrary.etto-bgcolor-light
   .etto-assetlibrary__picker
     .etto-assetlibrary__assetlist
       .etto-assetlibrary__asset(ng-repeat="asset in assets", ng-click="selectAsset(asset._id)")

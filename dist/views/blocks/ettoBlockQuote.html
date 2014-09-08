@@ -1,16 +1,12 @@
 
-<div class="row">
-  <div class="col-md-10 col-md-offset-1">
-    <blockquote>
-      <div>
-        <pre class="quote">{{ block.data.quote}}</pre>
-      </div>
-      <footer>{{ block.data.cite}}</footer>
-    </blockquote>
+<div class="row etto-quote">
+  <div class="col-md-10 col-md-offset-1"><i class="fa fa-quote-left fa-4x pull-left etto-color-secondary"></i>
+    <div class="etto-quote-txt etto-color-primary">{{ block.data.quote}}</div><i class="fa fa-quote-right fa-4x pull-right etto-color-secondary"></i>
   </div>
-</div>
-<div class="row">
   <div class="col-md-10 col-md-offset-1">
-    <etto-sound></etto-sound>
+    <h3 class="pull-right etto-color-secondary">- {{ block.data.cite || "author"}}</h3>
+  </div>
+  <div class="col-md-10 col-md-offset-1">
+    <div etto-sound="etto-sound"></div>
   </div>
 </div>

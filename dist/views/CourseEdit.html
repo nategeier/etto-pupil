@@ -1,20 +1,18 @@
 
-<div class="container-full etto-course-editor">
+<div etto-choose-block="etto-choose-block" class="container-full etto-course-editor">
   <div class="row">
-    <etto-choose-block></etto-choose-block>
-    <div ng-if="isEditing" class="col-sm-3 col-md-2 etto-toolbox">
-      <h3 editable-text="course.title" buttons="no" blur="submit" onaftersave="saveCourse()">{{course.title || 'Title'}} </h3>
-      <p editable-text="course.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()">{{course.subtitle || 'Description'}}</p>
-      <div class="panel panel-default">
+    <div class="col-sm-3 col-md-2">
+      <div ng-if="isEditing" class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">Slide Editor</div>
+          <h4 editable-text="course.title" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-accent">{{course.title || 'Title'}} </h4>
+          <p editable-text="course.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-accent">{{course.subtitle || 'Description'}}</p>
         </div>
         <div class="list-group">
           <div class="list-group-item">
             <div class="btn-group">
-              <button ng-click="showOptions()" class="btn btn-success"><i class="fa fa-plus"></i></button>
+              <button ng-click="showOptions()" class="btn btn-success etto-bgcolor-primary"><i class="fa fa-plus"></i></button>
               <button ng-click="swapBlocks(currentBlock(), currentBlock() + 1)" class="btn btn-default"><i class="fa fa-refresh"></i></button>
-              <button ng-click="removeBlock()" class="btn btn-danger"><i class="fa fa-minus"></i></button>
+              <button ng-click="removeBlock()" class="btn btn-danger etto-bgcolor-accent"><i class="fa fa-minus etto-color-light"></i></button>
             </div>
           </div>
           <div class="list-group-item">
@@ -33,9 +31,22 @@
       </div>
     </div>
     <div ng-class="isEditing ? 'col-sm-9 col-md-10' : 'col-sm-12'" class="etto-course-container">
-      <etto-course edit="edit" course="course"></etto-course>
-      <div class="etto-course-exit"><a href="/etto" target="_self" class="etto-course-exit"><i class="fa fa-2x fa-times-circle"></i></a></div>
-      <etto-course-nav></etto-course-nav>
+      <div class="row"></div>
+      <div class="col-md-12">
+        <etto-course edit="edit" course="course"></etto-course>
+      </div>
+      <div class="col-md-12">
+        <div class="etto-course-exit"><a href="/etto" target="_self" class="etto-course-exit"><i class="fa fa-2x fa-times-circle"></i></a></div>
+      </div>
+      <div class="col-md-12">
+        <etto-course-nav ng-if="blocksInCourse() &gt;= 1"></etto-course-nav>
+        <div ng-if="blocksInCourse() === 0">
+          <h1 class="etto-color-primary">Welcome {{company.title}} course builder</h1>
+          <hr/>
+          <p class="etto-color-primary">To create a slide, press the plus button to the left and choose a template. We suggest a title for the first slide.</p>
+          <p class="etto-color-primary">Keep adding slides as you would any presentation.</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 
-<div etto-session="etto-session" class="container-full">
+<div class="container-full">
   <div class="row">
     <div ng-if="err" class="col-xs-12 etto-course-container">
       <div class="container">
@@ -8,9 +8,17 @@
       </div>
     </div>
     <div ng-if="!err" class="col-xs-12 etto-course-container">
-      <etto-course course="course"></etto-course>
-      <div class="etto-course-exit"><a href="/etto" target="_self" class="etto-course-exit"><i class="fa fa-2x fa-times-circle"></i></a></div>
-      <etto-course-nav></etto-course-nav>
+      <div class="row">
+        <div class="col-sm-12">
+          <etto-course course="course"></etto-course>
+        </div>
+        <div class="col-sm-12">
+          <div class="etto-course-exit"><a href="/etto" target="_self" class="etto-course-exit"><i class="etto-color-accent fa fa-2x fa-times-circle"></i></a></div>
+        </div>
+        <div class="col-sm-12">
+          <etto-course-nav></etto-course-nav>
+        </div>
+      </div>
     </div>
   </div>
 </div>

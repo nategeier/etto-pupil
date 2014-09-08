@@ -1,15 +1,15 @@
 
 <etto-logged-in-nav></etto-logged-in-nav>
 <etto-verify-modal redirect-to="/etto"></etto-verify-modal>
-<div class="container-full home">
+<div class="container-full etto-bgcolor-secondary">
   <div class="row">
-    <div ng-class="user.auth.canCreateCourses ? 'col-sm-8 col-md-9' : 'col-sm-12'" class="left-holder nopad">
-      <div etto-update-company="etto-update-company" class="leaderboard">
+    <div ng-class="user.auth.canCreateCourses ? 'col-sm-8 col-md-9' : 'col-sm-12'" class="nopad">
+      <div etto-update-company="etto-update-company" class="leaderboard etto-bgcolor-light">
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-6">
-            <div class="col-md-12">
-              <h3 id="title" editable-text="company.leaderboard.title" buttons="no" blur="submit" onaftersave="updateLeaderboard()">{{company.leaderboard.title}}</h3>
-              <h4 id="subtite" editable-text="company.leaderboard.subtitle" buttons="no" blur="submit" onaftersave="updateLeaderboard()">{{company.leaderboard.subtitle}}</h4>
+            <div class="col-sm-12">
+              <h3 id="title" editable-textarea="company.leaderboard.title" buttons="no" blur="submit" onaftersave="updateLeaderboard()" class="etto-color-primary">{{company.leaderboard.title}}</h3>
+              <h4 id="subtite" editable-textarea="company.leaderboard.subtitle" buttons="no" blur="submit" onaftersave="updateLeaderboard()" class="etto-color-secondary">{{company.leaderboard.subtitle}}</h4>
             </div>
           </div>
           <div id="head-img" class="col-sm-12 col-md-6"><img src="{{company.leaderboard.imgUrl}}" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateMainImg()" class="img-responsive default-lg pull-right img-uploadable"/></div>
@@ -22,21 +22,25 @@
           </div>
           <div class="row">
             <div class="col-xs-12">
-              <div ng-repeat="course in usersCourses | filter:searchCourse" class="animate-repeat">
+              <div etto-color="etto-color" ng-repeat="course in usersCourses | filter:searchCourse" class="animate-repeat">
                 <div ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-md-4 col-lg-3' : 'col-sm-6 col-md-3 col-lg-2'" class="nopad">
-                  <div sink-in="sink-in" ng-click="openCourse(course)" class="course-holder img-rounded"><img src="{{course.thumb}}" class="img-responsive course-thumb img-rounded"/>
-                    <div ng-if="course._record"><img src="/images/courses/badges/default.png" ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks &amp;&amp; course._record.progress.totalBlocks !== 1" class="img-responsive badge"/></div>
-                    <div class="row"> 
-                      <div class="col-xs-12">
-                        <h4>{{course.title}}</h4>
-                        <p>{{course.subtitle}}</p>
+                  <div ng-click="openCourse(course)" class="etto-course-holder etto-bgcolor-light img-rounded"><img src="{{course.thumb}}" class="img-responsive course-thumb img-rounded"/>
+                    <div ng-if="course._record">
+                      <div ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks &amp;&amp; course._record.progress.totalBlocks !== 1" class="etto-certificate etto-color-accent img-rounded"> 
+                        <div etto-certificate="etto-certificate"></div>
                       </div>
                     </div>
-                    <div ng-show="!course._record" class="progress">
-                      <div role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 1%;" class="progress-bar"></div>
+                    <div class="row"> 
+                      <div class="col-xs-12">
+                        <h4 class="etto-color-primary">{{course.title}}</h4>
+                        <p class="etto-color-secondary">{{course.subtitle}}</p>
+                      </div>
                     </div>
-                    <div ng-show="course._record" class="progress">
-                      <div ng-show="course._record.progress.totalBlocks &gt; 1" role="progressbar" aria-valuenow="{{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}%;" class="progress-bar"></div>
+                    <div ng-show="!course._record" class="progress etto-bgcolor-light">
+                      <div role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 1%;" class="progress-bar etto-bgcolor-accent"></div>
+                    </div>
+                    <div ng-show="course._record" class="progress etto-bgcolor-light">
+                      <div ng-show="course._record.progress.totalBlocks &gt; 1" role="progressbar" aria-valuenow="{{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}%;" class="progress-bar etto-bgcolor-accent"></div>
                     </div>
                   </div>
                 </div>
@@ -48,18 +52,23 @@
       <div ng-show="!usersCourses[0] &amp;&amp; user.auth.canInvite" etto-on-boarding="etto-on-boarding" class="col-sm-12 col-md-12"></div>
     </div>
     <div ng-show="user.auth.canCreateCourses" class="col-sm-4 col-md-3 nopad">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="modal-title">Composed Courses</h3>
+      <div class="panel etto-bgcolor-light">
+        <div class="panel-heading etto-bgcolor-light">
+          <h3 class="modal-title etto-color-primary">Composed Courses</h3>
           <input type="text" ng-model="searchComposedCourse" placeholder="Search Courses" class="form-control"/>
         </div>
         <div class="list-group">
-          <div ng-repeat="course in createdCourses | filter:searchComposedCourse">
-            <div sink-in="sink-in" class="etto-composed-course list-group-item"><a href="/course/edit/{{ course._id }}">
+          <div ng-if="!createdCourses[0]">
+            <div etto-add-course="etto-add-course" ng-click="addCourse()" class="list-group-item etto-bgcolor-light-hover">
+              <h4 class="etto-color-accent">Create a Course!</h4>
+            </div>
+          </div>
+          <div etto-color="etto-color" ng-repeat="course in createdCourses | filter:searchComposedCourse">
+            <div class="etto-composed-course list-group-item etto-bgcolor-light-hover"><a href="/course/edit/{{ course._id }}">
                 <div class="row">
                   <div class="col-xs-5 col-sm-5"><img src="{{course.thumb}}" class="img-responsive user-course-thumb img-rounded"/></div>
                   <div class="col-xs-7 col-sm-7">
-                    <h5>{{course.title}}</h5>
+                    <h5 class="etto-color-primary">{{course.title}}</h5>
                   </div>
                 </div></a>
               <button etto-remove-course="etto-remove-course" type="button" ng-click="removeCourse(course._id, course.title)" class="close aria-hidden pull-right delete-course"><i class="fa fa-trash-o"></i></button>

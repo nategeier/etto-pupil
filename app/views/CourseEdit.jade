@@ -1,24 +1,21 @@
 
-.container-full.etto-course-editor
+.container-full.etto-course-editor(etto-choose-block)
   .row
-    etto-choose-block
-    .col-sm-3.col-md-2.etto-toolbox(ng-if="isEditing")
-
-      h3(editable-text="course.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{course.title || 'Title'}} 
-      p(editable-text="course.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{course.subtitle || 'Description'}}
-      
-      .panel.panel-default
+    .col-sm-3.col-md-2
+      .panel.panel-default(ng-if="isEditing")
         .panel-heading
-          .panel-title Slide Editor
+          h4.etto-color-accent(editable-text="course.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{course.title || 'Title'}} 
+          p.etto-color-accent(editable-text="course.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{course.subtitle || 'Description'}}
+      
         .list-group
           .list-group-item
             .btn-group
-              button.btn.btn-success(ng-click="showOptions()")
+              button.btn.btn-success.etto-bgcolor-primary(ng-click="showOptions()")
                 i.fa.fa-plus
               button.btn.btn-default(ng-click='swapBlocks(currentBlock(), currentBlock() + 1)')
                 i.fa.fa-refresh
-              button.btn.btn-danger(ng-click='removeBlock()')
-                i.fa.fa-minus
+              button.btn.btn-danger.etto-bgcolor-accent(ng-click='removeBlock()')
+                i.fa.fa-minus.etto-color-light
 
           .list-group-item
             p Current State: {{course.status}}
@@ -32,14 +29,21 @@
             .btn-group
               a.btn.btn-success(href="#", etto-course-status, ng-click="changeStatus()") Launch
               a.btn.btn-default(href="/etto") Exit
-        
+          
     .etto-course-container(ng-class="isEditing ? 'col-sm-9 col-md-10' : 'col-sm-12'")
-
-      etto-course( edit='edit',
-                   course='course')
-
-      .etto-course-exit
-        a.etto-course-exit(href="/etto", target="_self")
-          i.fa.fa-2x.fa-times-circle
-  
-      etto-course-nav
+      .row
+      .col-md-12
+          etto-course( edit='edit',
+                     course='course')
+      .col-md-12
+        .etto-course-exit
+          a.etto-course-exit(href="/etto", target="_self")
+            i.fa.fa-2x.fa-times-circle
+    
+      .col-md-12
+        etto-course-nav(ng-if="blocksInCourse() >= 1")
+        div(ng-if="blocksInCourse() === 0")
+          h1.etto-color-primary Welcome {{company.title}} course builder
+          hr
+          p.etto-color-primary To create a slide, press the plus button to the left and choose a template. We suggest a title for the first slide.
+          p.etto-color-primary Keep adding slides as you would any presentation.

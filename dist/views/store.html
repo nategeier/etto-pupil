@@ -1,13 +1,14 @@
 
 <etto-logged-in-nav></etto-logged-in-nav>
-<div class="container-full store">
+<etto-verify-modal redirect-to="/etto"></etto-verify-modal>
+<div class="container-full etto-bgcolor-secondary">
   <div class="row">
-    <div class="left-holder col-md-9 nopad">
-      <div class="leaderboard">
+    <div class="col-md-9 nopad">
+      <div class="leaderboard etto-bgcolor-light">
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <div class="col-xs-12">
-              <h4>Add a course to the right people</h4>
+              <h4 class="etto-color-primary">Add the right course to the right people</h4>
               <input type="text" ng-model="searchCourse" placeholder="Search Courses" class="form-control"/>
             </div>
           </div>
@@ -20,17 +21,17 @@
       <div class="etto-courses">
         <div ng-repeat="course in courses | filter:searchCourse" class="main-holder animate-repeat">
           <div class="col-sm-6 col-md-4 col-lg-3 nopad">
-            <div sink-in="sink-in" ng-class="course.added ? 'closed-course' : 'open-course'" class="course-holder">
+            <div ng-class="course.added ? 'closed-course' : 'open-course'" class="etto-course-holder etto-bgcolor-light">
               <div class="row">
                 <div class="col-xs-12"><img src="{{course.thumb}}" class="img-responsive course-thumb"/></div>
               </div>
               <div class="row">
                 <div class="col-md-7">
-                  <h5>{{course.title}}</h5>
-                  <h6>{{course.subtitle}}</h6>
+                  <h5 class="etto-color-primary">{{course.title}}</h5>
+                  <h6 class="etto-color-secondary">{{course.subtitle}}</h6>
                 </div>
                 <div class="col-md-5">
-                  <h4>${{course.priceWithEmps}}</h4><small>${{course.price}}/user</small>
+                  <h4 class="etto-color-primary">${{course.priceWithEmps}}</h4><small>${{course.price}}/user</small>
                 </div>
                 <div class="col-md-12">
                   <div class="btn-group"><a etto-purchase="etto-purchase" href="#" ng-click="addToLibrary(course)" class="btn btn-primary btn-xs">Add to Tiers</a><a href="/course/demo/{{ course._id }}" class="btn btn-default btn-xs"> Demo</a></div>
@@ -40,15 +41,14 @@
           </div>
         </div>
       </div>
-      <div class="clearfix"></div>
     </div>
     <div class="col-md-3 nopad">
-      <div class="side-panel">
-        <div class="modal-header">
-          <h4 class="modal-title">{{currentTier.title}}</h4>
-          <p>Course for {{totUsers}} users</p>
+      <div class="panel panel-default etto-bgcolor-light">
+        <div class="panel-heading etto-bgcolor-accent">
+          <h2 class="etto-color-primary">{{currentTier.title}}</h2>
+          <p class="etto-color-primary">Course for {{totUsers}} users</p>
         </div>
-        <div class="col-md-12">
+        <div class="panel-body etto-bgcolor-white">
           <h5 class="ison">BLUE Tiers will receive added course</h5>
           <h5 class="isoff">GREY Tiers will NOT receive added course</h5>
           <hr/>
@@ -78,3 +78,4 @@
     </div>
   </div>
 </div>
+<etto-footer></etto-footer>

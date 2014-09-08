@@ -10,7 +10,7 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
       $routeProvider
         .when("/", {
           templateUrl: "/views/landing.html",
-          controller: "MainCtrl"
+          controller: "LandingCtrl"
         })
         .when("/beta", {
           templateUrl: "/views/beta.html"
@@ -21,6 +21,10 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
         .when("/etto", {
           templateUrl: "/views/home.html",
           controller: "HomeCtrl"
+        })
+        .when("/company/:companyId", {
+          templateUrl: "/views/company.html",
+          controller: "CompanyCtrl"
         })
         .when("/report/:parentID", {
           templateUrl: "/views/reports.html",
@@ -123,5 +127,5 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
       };
     }
 
-    editableOptions.theme = "bs3"; // bootstrap3 theme. Can be also 'bs2', 'default'
+    editableOptions.theme = "bs3";
   });

@@ -30,30 +30,19 @@
  *
  */
 
-.nav-settings{
-  margin-top:15px;
-  
+.nav-settings {
+  margin-top: 15px;
 }
-
-.navbar-header{
-  .logo{
-
-  }
-}
-
-
-.navbar-brand{
+.navbar-brand {
   margin: 5px 10px 5px;
   padding: 0;
-
-  > span > img{
-    margin-right:10px;
+  > span > img {
+    margin-right: 10px;
   }
-  span.logo-name{
+  span.logo-name {
     color: $etto-darkblue;
   }
-
 }
-.top-logout-btn{
+.top-logout-btn {
   margin-top: 8px;
 }

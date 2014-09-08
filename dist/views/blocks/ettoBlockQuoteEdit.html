@@ -1,12 +1,12 @@
 
-<div class="row slide">
+<div class="row etto-quote">
+  <div class="col-md-10 col-md-offset-1"><i class="fa fa-quote-left fa-4x pull-left etto-color-secondary"></i>
+    <div editable-textarea="block.data.quote" e-rows="7" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-quote-txt etto-color-primary">{{ block.data.quote || "Everything should be made as simple as possible, but not simpler."}}</div><i class="fa fa-quote-right fa-4x pull-right etto-color-secondary"></i>
+  </div>
   <div class="col-md-10 col-md-offset-1">
-    <blockquote>
-      <div editable-textarea="block.data.quote" e-rows="7" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()">
-        <pre class="quote">{{ block.data.quote || "quote"}}</pre>
-      </div>
-      <footer e-style="" editable-text="block.data.cite" e-rows="7" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.cite || "author"}}</footer>
-    </blockquote>
+    <h3 e-style="" editable-text="block.data.cite" e-rows="7" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()" class="pull-right etto-color-secondary">- {{ block.data.cite || "Albert Einstein"}}</h3>
+  </div>
+  <div class="col-md-10 col-md-offset-1">
     <div etto-sound-edit="etto-sound-edit"></div>
   </div>
 </div>

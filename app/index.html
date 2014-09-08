@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="/styles/main.css">
   <!-- endbuild -->
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato">
+  <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
 </head>
 
 <body ng-app="ettoPupil">
@@ -68,17 +69,6 @@
   <div ng-view=""></div>
   <!--<![endif]-->
 
-  <div class="footer">
-    <div class="btn-group">
-      <a class="btn-primary btn" href="https://twitter.com/Coursetto"><i class="fa fa-twitter fa-2x fa-fw"></i></a>
-      <a class="btn-primary btn" href="https://www.youtube.com/user/coursetto"><i class="fa fa-youtube-play fa-2x fa-fw"></i></a>
-      <a class="btn-primary btn" href="https://www.facebook.com/coursetto"><i class="fa fa-facebook fa-2x fa-fw"></i></a>
-      <a class="btn-primary btn" href="https://www.linkedin.com/company/coursetto"><i class="fa fa-linkedin fa-2x fa-fw"></i></a>
-      <a class="btn-primary btn" href="http://blog.coursetto.com/"><i class="fa fa-rss fa-2x fa-fw"></i></a>
-      <a class="btn-primary btn" href="mailto:hello@coursetto.com"><i class="fa fa-envelope fa-2x fa-fw"></i></a>
-    </div>
-    <p>&copy; 2014 Coursetto</p>
-  </div>
 
   <script src="/bower_components/jquery/jquery.js"></script>
   <script src="/bower_components/angular/angular.js"></script>
@@ -90,6 +80,7 @@
   <script src="/bower_components/greensock/src/minified/TweenMax.min.js"></script>
   <script src="/bower_components/async/lib/async.js"></script>
   <script src="/bower_components/lodash/dist/lodash.min.js"></script>
+  <script src="/bower_components/tinycolor/tinycolor.js"></script>
   <!-- endbuild -->
 
 
@@ -111,7 +102,8 @@
 
   <!-- build:js({.tmp,app}) /scripts/scripts.js -->
   <script src="/scripts/app.js"></script>
-  <script src="/scripts/controllers/main.js"></script>
+  <script src="/scripts/controllers/Landing.js"></script>
+  <script src="/scripts/controllers/Company.js"></script>
   <script src="/scripts/controllers/home.js"></script>
   <script src="/scripts/controllers/CourseDemo.js"></script>
   <script src="/scripts/controllers/CourseView.js"></script>
@@ -127,6 +119,7 @@
   <script src="/scripts/controllers/AssetLibrary.js"></script>
 
   <script src="/scripts/directives/ettoLoginModal.js"></script>
+  <script src="/scripts/directives/ettoCertificate.js"></script>
   <script src="/scripts/directives/ettoCourse.js"></script>
   <script src="/scripts/directives/ettoBlock.js"></script>
   <script src="/scripts/directives/ettoYoutube.js"></script>
@@ -165,6 +158,8 @@
   <script src="/scripts/directives/course/ettoSound.js"></script>
   <script src="/scripts/directives/course/ettoSoundEdit.js"></script>
 
+  <script src="/scripts/services/WhiteLabel.js"></script>
+  <script src="/scripts/services/Fonts.js"></script>
   <script src="/scripts/services/Endpoint.js"></script>
   <script src="/scripts/services/Session.js"></script>
   <script src="/scripts/services/Course.js"></script>

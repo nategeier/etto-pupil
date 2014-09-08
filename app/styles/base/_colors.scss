@@ -52,3 +52,11 @@ $etto-darkgrey: #dadada;
       text-shadow: 1px 1px 0px rgba(white, 0.8);
   }
 }
+.etto-lighter{
+  background-color: lighten( $etto-mildblue, 50% )
+  //background-color:rgba(white, 0.8);
+}
+
+.etto-color-dark{
+  color: #000;
+}

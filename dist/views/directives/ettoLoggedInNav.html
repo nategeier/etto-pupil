@@ -7,7 +7,7 @@
       <div class="icon-bar"></div>
       <div class="icon-bar"></div>
       <div class="icon-bar"></div>
-    </button><a href="/etto" class="navbar-brand"><span class="logo"><img ng-if="user.auth.canPurchase" src="{{company.logo}}" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateLogo()" height="65"/><img ng-if="!user.auth.canPurchase" src="{{company.logo}}" height="65"/></span><span class="logo-name">{{ company.title || 'Coursetto'}}</span></a>
+    </button><a href="/etto" class="navbar-brand"><span class="logo"><img src="{{company.logo}}" height="65"/></span><span class="logo-name">{{ company.title || 'Coursetto'}}</span></a>
   </div>
   <div id="etto-navbar" class="collapse navbar-collapse">
     <ul class="nav navbar-nav">
@@ -23,6 +23,7 @@
         <li class="dropdown"><a data-toggle="dropdown" href="#"><i class="fa fa-cog fa-2x pull-left"></i><small>{{user.name}}</small></a>
           <ul role="menu" aria-labelledby="dLabel" class="dropdown-menu">
             <li><a href="/settings/{{user._id}}">Settings</a></li>
+            <li><a href="/company/{{user._tier._company}}">Company</a></li>
             <li><a href="/subscription/{{user._id}}" ng-show="user.auth.canPurchase">Subscriptions</a></li>
             <li><a href="/payments/{{user._id}}" ng-show="user.auth.canPurchase">Payments</a></li>
             <li><a href="/assets">Asset Library</a></li>

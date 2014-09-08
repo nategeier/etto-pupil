@@ -4,22 +4,22 @@
   .col-md-12.col-lg-10.col-lg-offset-1
     .row
       .col-lg-12
-        h1 {{block.data.title }}
-        h2 {{block.data.subtitle }}
+        h1.etto-color-primary {{block.data.title }}
+        h3.etto-color-secondary {{block.data.subtitle }}
     hr
     .row
       .col-sm-4.col-md-4.col-lg-4
         img.img-responsive(src="{{ block.data.img1 || '/images/courses/default/image-block1.jpg'}}")
-        h4 {{block.data.img1Head }}
-        pre {{block.data.img1Copy }}
+        h4.etto-color-primary {{block.data.img1Head }}
+        pre.etto-color-dark {{block.data.img1Copy }}
       .col-sm-4.col-md-4.col-lg-4
         img.img-responsive(src="{{ block.data.img2 || '/images/courses/default/image-block2.jpg'}}")
-        h4 {{block.data.img2Head }}
-        pre {{block.data.img2Copy }}
+        h4.etto-color-primary {{block.data.img2Head }}
+        pre.etto-color-dark {{block.data.img2Copy }}
       .col-sm-4.col-md-4.col-lg-4
         img.img-responsive(src="{{ block.data.img3 || '/images/courses/default/image-block3.jpg'}}")
-        h4 {{block.data.img3Head }}
-        pre {{block.data.img3Copy }}
+        h4.etto-color-primary {{block.data.img3Head }}
+        pre.etto-color-dark {{block.data.img3Copy }}
   
     .row
       .col-sm-12

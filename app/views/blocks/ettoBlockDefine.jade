@@ -1,13 +1,13 @@
 .row
   .col-md-10.col-md-offset-1
     .panel.panel-default
-      .panel-heading
-        h1{{ block.data.title}}
-        h4.sub-head {{ block.data.subtitle}}
+      .panel-heading.etto-bgcolor-light
+        h1.etto-color-primary {{ block.data.title}}
+        h4.sub-head.etto-color-secondary {{ block.data.subtitle}}
       .panel-body
         div
-          pre.quote {{ block.data.text }}
+          pre.etto-color-primary {{ block.data.text }}
         .pull-right
-          a.btn.btn-default(href="{{block.data.cite}}", target="_blank")
+          a.etto-color-primary.btn.btn-default(href="{{block.data.cite}}", target="_blank")
             small {{ block.data.cite}}
     div(etto-sound)
