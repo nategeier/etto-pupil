@@ -10,8 +10,8 @@ angular.module("ettoPupil")
       $scope.activetab = "market";
 
       TweenMax.from($("#head-img"), 1, {
-        opacity: 0,
-        x: 50
+        delay: 0.3,
+        opacity: 0
       });
 
       $scope.listCourses = function () {

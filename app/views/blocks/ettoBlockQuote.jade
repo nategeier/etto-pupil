@@ -1,9 +1,11 @@
-.row
+.row.etto-quote
   .col-md-10.col-md-offset-1
-    blockquote
-      div
-        pre.quote {{ block.data.quote}}
-      footer {{ block.data.cite}}
-.row
+    i.fa.fa-quote-left.fa-4x.pull-left.etto-color-secondary
+    div.etto-quote-txt.etto-color-primary {{ block.data.quote}}
+    i.fa.fa-quote-right.fa-4x.pull-right.etto-color-secondary
   .col-md-10.col-md-offset-1
-    etto-sound
+    h3.pull-right.etto-color-secondary - {{ block.data.cite || "author"}}
+  .col-md-10.col-md-offset-1
+    div(etto-sound)
+    
+    

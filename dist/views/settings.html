@@ -2,9 +2,10 @@
 <etto-logged-in-nav></etto-logged-in-nav>
 <div class="container-full">
   <div class="row">
-    <div class="col-sm-6 col-md-6">
-      <h1>Settings</h1>
-      <div class="col-sm-12 col-md-12">
+    <div class="col-sm-4 panel panel-default nopad">
+      <div class="panel-heading">
+        <h3 class="etto-color-primary">Settings</h3>
+        <p class="etto-color-secondary">username: {{editUser.username}}</p>
         <div ng-show="saved" class="alert alert-success">
           <p>saved</p>
         </div>
@@ -12,84 +13,93 @@
           <p>{{err}}</p>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="etto-x-input-box">
-          <p editable-text="editUser.name" buttons="no" blur="submit" onaftersave="updateUser()">{{editUser.name || 'name'}}</p>
+      <div class="list-group">
+        <div class="list-group-item">
+          <div class="etto-x-input-box">
+            <p editable-text="editUser.name" buttons="no" blur="submit" onaftersave="updateUser()" class="etto-color-accent">{{editUser.name || 'name'}}</p>
+          </div>
         </div>
-        <p>Username {{editUser.username}}</p>
-        <p>Location: {{editUser._tier.title}}</p>
-        <h4>Emails:</h4>
-        <div ng-repeat="email in editUser.emails">
-          <div class="row">
-            <div class="col-md-10">
-              <div class="etto-x-input-box">
-                <p type="email" editable-text="editUser.emails[$index]" buttons="no" blur="submit" onaftersave="updateUser()">{{editUser.emails[$index] || 'email'}}</p>
+        <div class="list-group-item">
+          <h4 class="etto-color-primary">Emails:</h4>
+          <div ng-repeat="email in editUser.emails">
+            <div class="row">
+              <div class="col-md-10">
+                <div class="etto-x-input-box">
+                  <p type="email" editable-text="editUser.emails[$index]" buttons="no" blur="submit" onaftersave="updateUser()" class="etto-color-accent">{{editUser.emails[$index] || 'email'}}</p>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <button ng-show="editUser.emails.length &gt; 1" ng-click="removeEmail($index)" class="btn btn-warning btn-xs">X</button>
               </div>
             </div>
-            <div class="col-md-2">
-              <button ng-click="removeEmail($index)" class="btn btn-warning btn-xs">X</button>
+          </div>
+          <button ng-click="addEmail()" class="btn btn-success btn-xs">Add Email</button>
+        </div>
+        <div class="list-group-item">
+          <h4>Change Tier</h4>
+          <div class="input-group">
+            <input etto-search-tiers="etto-search-tiers" type="text" ng-model="tierSearch" placeholder="{{editUser._tier.title}}" ng-change="searchTiers()" class="form-control"/>
+            <div class="input-group-btn">
+              <button class="btn btn-default"><i class="fa fa-search"></i></button>
             </div>
           </div>
-        </div><br/>
-        <button ng-click="addEmail()" class="btn btn-success btn-xs">Add Email</button>
-      </div>
-      <div class="col-md-6">
-        <h4>Change Tier</h4>
-        <div class="input-group">
-          <input etto-search-tiers="etto-search-tiers" type="text" ng-model="tierSearch" placeholder="Search title or Internal ID" ng-change="searchTiers()" class="form-control"/>
-          <div class="input-group-btn">
-            <button class="btn btn-default"><i class="fa fa-search"></i></button>
+        </div>
+        <div class="list-group-item">
+          <div ng-repeat="tier in foundTiers">
+            <button ng-click="updateUserTier(tier._id, tier.title)" class="btn btn-default w100">{{tier.title}} {{tier.internalId}}</button>
           </div>
         </div>
-        <div ng-repeat="tier in foundTiers">
-          <button ng-click="updateUserTier(tier._id, tier.title)" class="btn btn-default w100">{{tier.title}} {{tier.internalId}}</button>
+        <div class="list-group-item"><img src="{{editUser.avatarUrl}}" class="img-circle user-thumb"/><i ng-show="!editUser.avatarUrl" class="fa fa-user fa-3x center-block"></i>
+          <button etto-asset-library-modal="etto-asset-library-modal" ng-click="updateAvatar()" class="btn btn-success"><i class="fa fa-camera"></i></button>
         </div>
-        <hr/><img src="{{editUser.avatarUrl}}" class="img-circle user-thumb"/><i ng-show="!editUser.avatarUrl" class="fa fa-user fa-3x center-block"></i>
-        <button etto-asset-library-modal="etto-asset-library-modal" ng-click="updateAvatar()" class="btn btn-success"><i class="fa fa-camera"></i></button>
-        <div ng-if="user._id !== editUser._id">
-          <div ng-if="user.auth.canEditCompany" class="checkbox">
-            <label>
-              <input type="checkbox" ng-model="editUser.auth.canEditCompany" ng-change="updateUser()"/>Can Edit Company Appearance
-            </label>
-          </div>
-          <div ng-if="user.auth.canPurchase" class="checkbox">
-            <label>
-              <input type="checkbox" ng-model="editUser.auth.canPurchase" ng-change="updateUser()"/>Can Purchase
-            </label>
-          </div>
-          <div ng-if="user.auth.canGetCourses" class="checkbox">
-            <label>
-              <input type="checkbox" ng-model="editUser.auth.canGetCourses" ng-change="updateUser()"/>Can Get Courses
-            </label>
-          </div>
-          <div ng-if="user.auth.canCreateCourses" class="checkbox">
-            <label>
-              <input type="checkbox" ng-model="editUser.auth.canCreateCourses" ng-change="updateUser()"/>Can Create Courses
-            </label>
-          </div>
-          <div ng-if="user.auth.canInvite" class="checkbox">
-            <label>
-              <input type="checkbox" ng-model="editUser.auth.canInvite" ng-change="updateUser()"/>Can Invite Users to {{editUser._tier.title}}
-            </label>
-          </div>
-          <div ng-if="user.enabled" class="checkbox">
-            <label>
-              <input type="checkbox" ng-model="editUser.enabled" ng-change="updateUser()"/>Is Enabled
-            </label>
+        <div class="list-group-item">
+          <div ng-if="user._id !== editUser._id">
+            <div ng-if="user.auth.canEditCompany" class="checkbox">
+              <label>
+                <input type="checkbox" ng-model="editUser.auth.canEditCompany" ng-change="updateUser()"/>Can Edit Company Appearance
+              </label>
+            </div>
+            <div ng-if="user.auth.canPurchase" class="checkbox">
+              <label>
+                <input type="checkbox" ng-model="editUser.auth.canPurchase" ng-change="updateUser()"/>Can Purchase
+              </label>
+            </div>
+            <div ng-if="user.auth.canGetCourses" class="checkbox">
+              <label>
+                <input type="checkbox" ng-model="editUser.auth.canGetCourses" ng-change="updateUser()"/>Can Get Courses
+              </label>
+            </div>
+            <div ng-if="user.auth.canCreateCourses" class="checkbox">
+              <label>
+                <input type="checkbox" ng-model="editUser.auth.canCreateCourses" ng-change="updateUser()"/>Can Create Courses
+              </label>
+            </div>
+            <div ng-if="user.auth.canInvite" class="checkbox">
+              <label>
+                <input type="checkbox" ng-model="editUser.auth.canInvite" ng-change="updateUser()"/>Can Invite Users to {{editUser._tier.title}}
+              </label>
+            </div>
+            <div ng-if="user.enabled" class="checkbox">
+              <label>
+                <input type="checkbox" ng-model="editUser.enabled" ng-change="updateUser()"/>Is Enabled
+              </label>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-6 col-md-6 nopad">
-      <div class="modal-header">
-        <h4 class="modal-title">Course Records</h4>
-      </div>
+    <div class="col-sm-8">
+      <h3 class="etto-color-primary">Course Records</h3><br/>
+      <input type="text" ng-model="searchRecords" placeholder="Search Courses" class="form-control"/><br/>
       <p ng-show="!userRecords[0]">-- {{editUser.name}} has not taken any courses yet.</p>
-      <div ng-repeat="record in userRecords">
-        <div class="col-sm-6">
-          <h4>{{record._course.title}}</h4><small>Date taken {{record.started}}</small>
-          <div class="progress">
-            <div role="progressbar" aria-valuenow="{{(record.progress.bookmark/record.progress.totalBlocks) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{(record.progress.bookmark/record.progress.totalBlocks) * 100}}%;" class="progress-bar"></div>
+      <div ng-repeat="record in userRecords | filter:searchRecords">
+        <div class="col-sm-6 nopad">
+          <div class="etto-course-report etto-bgcolor-light">
+            <h4 class="etto-color-primary">{{record._course.title}}</h4>
+            <p class="etto-color-secondary">{{record.started | date:'MM/dd/yyyy @ h:mma'}}</p>
+            <div class="progress etto-bgcolor-light">
+              <div role="progressbar" aria-valuenow="{{(record.progress.bookmark/record.progress.totalBlocks) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{(record.progress.bookmark/record.progress.totalBlocks) * 100}}%;" class="progress-bar etto-bgcolor-accent"></div>
+            </div>
           </div>
         </div>
       </div>

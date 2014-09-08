@@ -8,35 +8,30 @@
 
 @import "base/_config";
 @import "base/_typography";
-
-
 //@import "legacy"
-
 @import "module/_navbar";
 @import "module/_header";
 @import "module/_footer";
-
 //---- Blocks----
 @import "module/_download";
-@import "module/_title";
-@import "module/_video";
-@import "module/_sound";
-@import "module/_quiz";
-@import "module/_home";
-
+@import "module/_company";
+@import "module/_animate";
 @import "module/_assetlibrary";
 @import "module/_courseplayer";
 @import "module/_courseholder";
 @import "module/_coursethumb";
+@import "module/_home";
+@import "module/_quiz";
+@import "module/_quote";
+@import "module/_settings";
+@import "module/_sound";
+@import "module/_title";
+@import "module/_video";
 @import "module/_reportholder";
 @import "module/_store";
 @import "module/_forms";
 @import "module/_loadingBar";
-
-@import "module/_side";
 @import "module/_certificate";
-@import "module/_animate";
-
 @import "module/_images";
 @import "module/_landing";
 @import "module/_onboarding";

@@ -1,24 +1,16 @@
 .etto-onboarding-box{
 
   padding-bottom:20px;
-  h3{
-    color: $etto-mildblue;
-  }
 
-  p{
-    color: $etto-darkblue;
-  }
-
-  a{
-    color: $etto-turquoise;
-  }
 
   .etto-instruction{
-    background-color: #fff;
     padding:10px;
     margin-left:10px;
   }
-
-
-  
+  p{
+    padding:20px;
+  }
+  .etto-tier-visual{
+    border: 3px solid #ffffff;
+  }
 }

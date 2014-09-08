@@ -1,0 +1,31 @@
+etto-logged-in-nav
+
+.etto-company.etto-bgcolor-light
+  .container
+    .row
+      .col-sm-6.etto-color-light
+        h4.etto-color-primary Primary Color
+        .etto-bgcolor-primary.etto-color-input-box
+          h1.etto-color-light(editable-text="company.colors.primary", buttons="no", blur="submit", onaftersave="changeWhiteLabel()") {{ company.colors.primary || 'primary Color'}}
+
+        
+        h4.etto-color-secondary Secondary Color
+        .etto-bgcolor-secondary.etto-color-input-box
+          h1.etto-color-light(editable-text="company.colors.secondary", buttons="no", blur="submit", onaftersave="changeWhiteLabel()") {{ company.colors.secondary || 'secondary Color'}}
+
+        h4.etto-color-accent Accent
+        .etto-bgcolor-accent.etto-color-input-box
+          h1.etto-color-light(editable-text="company.colors.accent", buttons="no", blur="submit", onaftersave="changeWhiteLabel()") {{ company.colors.accent || 'accent Color'}}
+        
+        br
+        .etto-bgcolor-primary.etto-color-input-box.etto-light-example
+          h4.etto-color-light Light
+          h1.etto-bgcolor-light.etto-color-primary.etto-color-input-box(editable-text="company.colors.light", buttons="no", blur="submit", onaftersave="changeWhiteLabel()") {{ company.colors.light || 'accent Color'}}
+      .col-sm-6.etto-bgcolor-white.etto-company-info
+        h3 Logo
+        img(ng-if="user.auth.canPurchase", src="{{company.logo}}", etto-asset-library-modal, ng-click='updateLogo()', height="65")
+        
+        h3 Font
+        select(ng-change="changeWhiteLabel()", ng-model="company.font", ng-options="font for font in fonts")
+        h3 Main Image
+        img.img-responsive.default-lg.img-uploadable(src="{{company.leaderboard.imgUrl}}", etto-asset-library-modal, ng-click='updateMainImg()')

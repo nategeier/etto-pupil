@@ -20,7 +20,9 @@
     "greensock": "~1.11.1",
     "async": "~0.2.5",
     "bootstrap-sass": "~3.0.2",
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "tinycolor": "~1.0.0",
+    "moment": "~2.8.3"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.18",

@@ -10,6 +10,19 @@ angular.module("ettoPupil")
         $scope.editUser.emails.push(null);
       };
 
+
+
+      $scope.setCourseTime = function (takenTime) {
+
+        console.log("takenTime", takenTime);
+        var now = moment(takenTime);
+
+        console.log(now._d);
+        return now._d;
+
+
+      };
+
       $scope.removeEmail = function (index) {
 
         if (index > -1 && $scope.editUser.emails.length > 1) {

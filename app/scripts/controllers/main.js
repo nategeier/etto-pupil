@@ -18,6 +18,13 @@ angular.module("ettoPupil")
       Session.getSession(function (data) {
         if (data) {
           $location.path("/etto");
+        } else {
+          WebFont.load({
+            google: {
+              families: "lato"
+            }
+          });
+          $("<style> body, h1, h2, h3, h4, h5 { font-family: lato} </style>").appendTo("head");
         }
       });
 

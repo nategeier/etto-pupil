@@ -1,44 +1,44 @@
 etto-logged-in-nav
-.container-full
+.container-full.etto-bgcolor-secondary
   .row
-    .left-holder.col-xs-12.col-sm-7.col-md-8.col-lg-9
+    .col-xs-12.col-sm-7.col-md-8.col-lg-9
       .row
         .report-head.col-md-12
           .row
             a.col-xs-12.col-sm-5.col-md-5(href="/tier/edit/{{ currentTier._id }}")
-              h2 {{currentTier.title}}
+              h2.etto-color-primary {{currentTier.title}}
               
             .col-xs-12.col-sm-7.col-md-7.etto-report-btns
               .row
-                .report-btn.col-xs-4(etto-add-tier, ng-click="addTier()") Add Tier
-                .report-btn.col-xs-4(etto-invite-user-modal, ng-click="inviteUser()") Add Users
-                a.report-btn.col-xs-4(href="/tier/edit/{{ currentTier._id }}") Edit Tier
+                .etto-bgcolor-accent.etto-color-light.report-btn.col-xs-4(etto-add-tier, ng-click="addTier()") Add Tier
+                .etto-bgcolor-accent.etto-color-light.report-btn.col-xs-4(etto-invite-user-modal, ng-click="inviteUser()") Add Users
+                a.etto-bgcolor-accent.etto-color-light.report-btn.col-xs-4(href="/tier/edit/{{ currentTier._id }}") Edit Tier
 
             
       .row
-        .statBox.col-xs-12.col-md-12.col-sm-12
+        .statBox.col-xs-12.col-md-12.col-sm-12.etto-bgcolor-light.etto-color-primary
           .col-xs-6.col-sm-3.col-md-3.stat.statholder
             .statTxt {{tierReport.totalUsers}}
-            small.dark-grey Total Users
+            p Total Users
           .col-xs-6.col-sm-3.col-md-3.stat.statholder
             .statTxt {{tierReport.courses.length}}
-            small.dark-grey Total Courses
+            p Total Courses
           .col-xs-6.col-sm-3.col-md-3.stat.statholder
             .statTxt {{tierReport.totalTaken}}
-            small.dark-grey Completed
+            p Completed
           .col-xs-6col-sm-3.col-md-3.statholder
             .statTxt {{tierReport.totalProgress}}%
-            small.dark-grey Overall
+            p Overall
           .clearfix
       .row(ng-show="children[0]")
-        .tier-holder
+        .etto-tier-holder
           div(class="animate-repeat", ng-repeat= 'tier in children')
-            .col-xs-12.col-sm-6.col-md-6.col-lg-4
+            .col-xs-12.col-sm-6.col-md-6.col-lg-6
               button.close.aria-hidden(type="button", ng-click="removeTier(tier)", etto-remove-tier) &times;
               .row
-                .tier-box(sink-in, ng-click ="viewChildren('/report/{{tier._id}}')")
+                .etto-tier-box.img-rounded(ng-click ="viewChildren('/report/{{tier._id}}')")
                   .pad20
-                    .row
+                    .row.etto-color-primary
                       .col-md-10
                         h4 {{tier.title}}
                         small # {{tier.internalId}}
@@ -47,13 +47,15 @@ etto-logged-in-nav
                         i.fa.fa-user
                           
                       .col-md-12
-                        .progress
-                          .progress-bar(role="progressbar", aria-valuenow="{{(tier.totalTaken/tier.totalToTake) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(tier.totalTaken/tier.totalToTake) * 100}}%;")
-        
+                        .progress.etto-bgcolor-light
+                          .progress-bar.etto-bgcolor-accent(role="progressbar", aria-valuenow="{{(tier.totalTaken/tier.totalToTake) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(tier.totalTaken/tier.totalToTake) * 100}}%;")
+          
+
+
       .row(ng-show="!children[0]")
-        .tier-holder
-          div(class="animate-repeat", ng-repeat= 'user in users')
-            .tier-box.col-sm-6.col-md-4(sink-in)
+        .etto-tier-holder
+          div.col-sm-6.col-md-6(class="animate-repeat", ng-repeat= 'user in users')
+            .etto-tier-box
               a(href = "/settings/{{user._id}}")
                 .row
                   .col-xs-3
@@ -66,21 +68,21 @@ etto-logged-in-nav
                         h5 {{user.emails[0]}}
                         small Pending
                     .col-xs-12
-                      .progress
-                        .progress-bar(role="progressbar", aria-valuenow="{{user.overallPercent}}", aria-valuemin="0", aria-valuemax="100", style="width: {{user.overallPercent}}%;")
-
+                      .progress.etto-bgcolor-light
+                        .progress-bar.etto-bgcolor-accent(role="progressbar", aria-valuenow="{{user.overallPercent}}", aria-valuemin="0", aria-valuemax="100", style="width: {{user.overallPercent}}%;")
+          .clearfix
 
     .col-xs-12.col-sm-5.col-md-4.col-lg-3.panel.panel-default.nopad
-      .panel-heading
-        h3 Tier Info
+      .panel-heading.etto-bgcolor-light
+        h3.etto-color-primary Tier Info
       .list-group
         .list-group-item
           p.pull-left Overall
           p.pull-right  {{tierReport.totalTaken}}/{{tierReport.totalToTake}}
           .clearfix
         
-          .progress
-            .progress-bar(role="progressbar", aria-valuenow="{{(tierReport.totalTaken/tierReport.totalToTake) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(tierReport.totalTaken/tierReport.totalToTake) * 100}}%;")
+          .progress.etto-bgcolor-light
+            .progress-bar.etto-bgcolor-accent(role="progressbar", aria-valuenow="{{(tierReport.totalTaken/tierReport.totalToTake) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(tierReport.totalTaken/tierReport.totalToTake) * 100}}%;")
           a.btn.btn-sm.btn-default.w100(ng-if="!showCourseReport", href="#", ng-click="showCourseReportToggle()") Show all
           a.btn.btn-sm.btn-default.w100(ng-if="showCourseReport", href="#", ng-click="showCourseReportToggle()") Show less
 
@@ -91,8 +93,8 @@ etto-logged-in-nav
               p.pull-right  {{course.completed.length}}/{{course.completed.length + course.notCompleted.length}}
             .clearfix
             .col-md-12
-              .progress
-                .progress-bar(role="progressbar", aria-valuenow="{{(course.completed.length/(course.completed.length + course.notCompleted.length)) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(course.completed.length/(course.completed.length + course.notCompleted.length)) * 100}}%;")
+              .progress.etto-bgcolor-light
+                .progress-bar.etto-bgcolor-accent(role="progressbar", aria-valuenow="{{(course.completed.length/(course.completed.length + course.notCompleted.length)) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(course.completed.length/(course.completed.length + course.notCompleted.length)) * 100}}%;")
         div.list-group-item(ng-show="children[0]")
           
           .input-group
@@ -103,24 +105,28 @@ etto-logged-in-nav
             
           div(ng-repeat="user in foundUsers")
             a.btn.btn-default(href="/settings/{{user._id}}") {{user.name}}
-        .list-group-item
-          div(ng-repeat= 'user in users')
-            .row()
-              .col-md-12(sink-in)
-                a(href = "/settings/{{user._id}}")
-                  .row
-                    .col-xs-3
-                      img.img-circle.user-thumb(height="80", ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
-                      i.fa.fa-user.fa-3x.center-block(ng-show="!user.avatarUrl")
-                    .col-xs-9
-                      .col-xs-12
-                        h5.cap-first(ng-show="user.name") {{user.name}}
-                        div(ng-show="!user.name")
-                          h5 {{user.emails[0]}}
-                          small.text-warning Pending
-                      .col-xs-12
-                        .progress
-                          .progress-bar(role="progressbar", aria-valuenow="{{user.overallPercent}}", aria-valuemin="0", aria-valuemax="100", style="width: {{user.overallPercent}}%;")
+        
 
 
-                          
+        .list-group-item(ng-show="children[0]")
+          .list-group
+            div(ng-repeat= 'user in users')
+              .row()
+                .col-md-12.list-group-item.etto-bgcolor-light-hover
+                  a(href = "/settings/{{user._id}}")
+                    .row
+                      .col-xs-3
+                        img.img-circle.user-thumb(height="80", ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
+                        i.fa.fa-user.fa-3x.center-block.etto-color-primary(ng-show="!user.avatarUrl")
+                      .col-xs-9
+                        .col-xs-12
+                          h5.cap-first.etto-color-primary(ng-show="user.name") {{user.name}}
+                          div(ng-show="!user.name")
+                            h5.etto-color-primary {{user.emails[0]}}
+                            small.text-warning Pending
+                        .col-xs-12
+                          .progress.etto-bgcolor-light
+                            .progress-bar.etto-bgcolor-accent(role="progressbar", aria-valuenow="{{user.overallPercent}}", aria-valuemin="0", aria-valuemax="100", style="width: {{user.overallPercent}}%;")
+
+
+             

@@ -1,16 +1,20 @@
 
-.container-full(etto-session)
+.container-full
   .row
     .col-xs-12.etto-course-container(ng-if="err")
       .container
         h1.bg-danger Sorry
         h1 {{err}}
     .col-xs-12.etto-course-container(ng-if="!err")
-      etto-course( course='course')
+      .row
+        .col-sm-12
+          etto-course( course='course')
 
-      .etto-course-exit
-        a.etto-course-exit(href="/etto", target="_self")
-          i.fa.fa-2x.fa-times-circle
-      
-      etto-course-nav
+        .col-sm-12
+          .etto-course-exit
+            a.etto-course-exit(href="/etto", target="_self")
+              i.etto-color-accent.fa.fa-2x.fa-times-circle
+
+        .col-sm-12
+          etto-course-nav
 

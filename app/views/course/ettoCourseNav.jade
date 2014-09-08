@@ -1,12 +1,12 @@
-.progress.etto-course-progress
-  .progress-bar(role="progressbar", aria-valuenow="((currentBlock() + 1)/blocksInCourse()) * 100", aria-valuemin="0", aria-valuemax="100", style="width: {{((currentBlock() + 1)/blocksInCourse()) * 100}}%;")
+.progress.etto-course-progress.etto-bgcolor-secondary
+  .progress-bar.etto-bgcolor-primary(role="progressbar", aria-valuenow="((currentBlock() + 1)/blocksInCourse()) * 100", aria-valuemin="0", aria-valuemax="100", style="width: {{((currentBlock() + 1)/blocksInCourse()) * 100}}%;")
 
 
 .etto-course-nav
   .row
     .col-xs-6.nopad
-      a.etto-course-prev-block( href="#", ng-click="prevBlock()" )
+      a.etto-course-prev-block.etto-bgcolor-primary.etto-color-light( href="#", ng-click="prevBlock()" )
         i.fa.fa-2x.fa-arrow-circle-left
     .col-xs-6.nopad
-      a.etto-course-next-block( href="#", ng-click="nextBlock()")
+      a.etto-course-next-block.etto-bgcolor-primary.etto-color-light( href="#", ng-click="nextBlock()")
         i.fa.fa-2x.fa-arrow-circle-right

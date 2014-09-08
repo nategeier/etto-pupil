@@ -21,5 +21,5 @@
             img(src="/images/courses/misc/vimeo_id.jpg")
       hr
     .col-md-10.col-md-offset-1.col-lg-6.col-lg-offset-3
-      etto-youtube(ng-show="block.data.youtube", code="{{ block.data.youtube }}" )
-      etto-vimeo(ng-show="block.data.vimeo", vimeo="{{ block.data.vimeo }}" )
+      etto-youtube(ng-if="block.data.youtube", code="{{ block.data.youtube }}" )
+      etto-vimeo(ng-if="block.data.vimeo", vimeo="{{ block.data.vimeo }}" )

@@ -1,19 +1,20 @@
 .row.etto-download
   .col-md-10.col-md-offset-1
-    .dl-box
+    .dl-box.etto-bgcolor-light.img-rounded
       .row
         .col-md-5
           img.img-responsive.img-uploadable(src="{{ block.data.img || '/images/courses/default/download-block.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'img', 400, 300)")
           
         .col-md-7
-          h1(editable-text="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()", spellcheck="true") {{block.data.title || 'title'}}
+          h1.etto-color-primary(editable-text="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()", spellcheck="true") {{block.data.title || 'title'}}
           div(href="#", editable-textarea="block.data.copy", e-rows="12", e-cols="40", buttons="no", blur="submit", onaftersave="saveCourse()", spellcheck="true") 
-            pre {{ block.data.copy || 'copy'}}
+            pre.etto-color-secondary {{ block.data.copy || 'copy'}}
 
           div(ng-if="!block.data.link", etto-asset-library-modal, ng-click="updateBlockImage(block, 'link', 400, 300)")
-            a.btn.btn-default(href = "{{block.data.link}}", download) Upload File
-          a.btn.btn-success.btn-lg(ng-if="block.data.link", href = "{{block.data.link}}", download)
-            i.pull-left.left.fa.fa-cloud-download.fa-2x } Download
+            a.etto-bgcolor-accent.etto-color-light.btn.btn-default(href = "{{block.data.link}}", download) Upload File
+          a.etto-bgcolor-accent.etto-color-light.btn.btn-default(ng-if="block.data.link", href = "{{block.data.link}}", download) Download
+            i.pull-left.fa.fa-cloud-download.fa-2x 
+
     .row  
       .col-md-12
         div(etto-sound-edit)

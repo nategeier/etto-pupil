@@ -26,6 +26,16 @@ angular.module("ettoPupil")
               console.dir(data);
             });
         },
+        changeWhiteLabel: function (tier, callback) {
+
+          $http.post(Endpoint("tier", "changeWhiteLabel"), tier)
+            .success(function (data, status, headers, config) {
+              callback(data);
+            })
+            .error(function (data, status, headers, config) {
+              console.dir(data);
+            });
+        },
 
         addTier: function (newTier, callback) {
           $http.post(Endpoint("tier", "add"), newTier).success(function (data) {

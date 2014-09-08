@@ -41,11 +41,14 @@ angular.module("ettoPupil")
         Tiers.findTier($scope.parentID, function (results) {
           $scope.currentTier = results;
           if (results._children && results._children[0]) {
+
             async.map(results._children, function (tierId) {
               Tiers.tierReport(tierId, function (results) {
                 $scope.children.push(results);
               });
             });
+          } else {
+            $scope.showCourseReport = true;
           }
 
         });

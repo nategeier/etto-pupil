@@ -22,6 +22,10 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
           templateUrl: "/views/home.html",
           controller: "HomeCtrl"
         })
+        .when("/company/:companyId", {
+          templateUrl: "/views/company.html",
+          controller: "CompanyCtrl"
+        })
         .when("/report/:parentID", {
           templateUrl: "/views/reports.html",
           controller: "ReportsCtrl"
@@ -123,5 +127,5 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
       };
     }
 
-    editableOptions.theme = "bs3"; // bootstrap3 theme. Can be also 'bs2', 'default'
+    editableOptions.theme = "bs3";
   });
