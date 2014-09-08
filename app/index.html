@@ -7,23 +7,23 @@
 <!--<![endif]-->
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Coursetto</title>
-    <meta name="description" content="Empower anyone in your company to create, purchase, distribute, and track courses.">
-    <meta name="viewport" content="width=device-width">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/icons/coursetto-144.png">
-    <!-- build:css(.tmp) /styles/main.css -->
-    <link rel="stylesheet" href="/styles/main.css">
-
-    <!-- endbuild -->
-    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Coursetto</title>
+  <meta name="description" content="Empower anyone in your company to create, purchase, distribute, and track courses.">
+  <meta name="viewport" content="width=device-width">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/icons/coursetto-144.png">
+  <!-- build:css(.tmp) /styles/main.css -->
+  <link rel="stylesheet" href="/styles/main.css">
+  <!-- endbuild -->
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato">
+  <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
 </head>
 
 <body ng-app="ettoPupil">
-    <!--[if lt IE 10]>
+  <!--[if lt IE 10]>
     <nav role="navigation" class="navbar navbar-default">
       <div class="navbar-header">
         <a href="/" class="navbar-brand"><span><img src="/images/icons/coursetto-144.png" width="48" height="48"></span><span class="logo-name">Coursetto</span></a>
@@ -70,143 +70,126 @@
     <!--<![endif]-->
 
 
-    <script src="/bower_components/jquery/jquery.js"></script>
-    <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/jquery/jquery.js"></script>
+  <script src="/bower_components/angular/angular.js"></script>
 
-    <script src="https://connect.soundcloud.com/sdk.js"></script>
+  <script src="https://connect.soundcloud.com/sdk.js"></script>
 
-    <!-- build:js /scripts/plugins.js -->
-    <script src="/bower_components/bootstrap-sass/dist/js/bootstrap.js"></script>
-    <script src="/bower_components/greensock/src/minified/TweenMax.min.js"></script>
-    <script src="/bower_components/async/lib/async.js"></script>
-    <script src="/bower_components/lodash/dist/lodash.min.js"></script>
-    <script src="/bower_components/tinycolor/tinycolor.js"></script>
-
-
-    <!-- endbuild -->
+  <!-- build:js /scripts/plugins.js -->
+  <script src="/bower_components/bootstrap-sass/dist/js/bootstrap.js"></script>
+  <script src="/bower_components/greensock/src/minified/TweenMax.min.js"></script>
+  <script src="/bower_components/async/lib/async.js"></script>
+  <script src="/bower_components/lodash/dist/lodash.min.js"></script>
+  <script src="/bower_components/tinycolor/tinycolor.js"></script>
+  <!-- endbuild -->
 
 
-    <!-- build:js /scripts/modules.js -->
-    <script src="/bower_components/bootstrap-sass/js/tab.js"></script>
-    <script src="/bower_components/angular-route/angular-route.js"></script>
-    <script src="/bower_components/angular-resource/angular-resource.js"></script>
-    <script src="/bower_components/angular-animate/angular-animate.js"></script>
-    <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="/bower_components/angular-touch/angular-touch.js"></script>
-    <script src="/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
-    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="/bower_components/angular-loading-bar/src/loading-bar.js"></script>
+  <!-- build:js /scripts/modules.js -->
+  <script src="/bower_components/bootstrap-sass/js/tab.js"></script>
+  <script src="/bower_components/angular-route/angular-route.js"></script>
+  <script src="/bower_components/angular-resource/angular-resource.js"></script>
+  <script src="/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="/bower_components/angular-touch/angular-touch.js"></script>
+  <script src="/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+  <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/bower_components/angular-loading-bar/src/loading-bar.js"></script>
+  <script src="/bower_components/ng-file-upload/angular-file-upload-shim.min.js"></script>
+  <script src="/bower_components/ng-file-upload/angular-file-upload.min.js"></script>
+  <script src="/bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
+  <!-- endbuild -->
 
-    <script src="/bower_components/ng-file-upload/angular-file-upload-shim.min.js"></script>
-    <script src="/bower_components/ng-file-upload/angular-file-upload.min.js"></script>
-    <script src="/bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
-    <!-- endbuild -->
+  <!-- build:js({.tmp,app}) /scripts/scripts.js -->
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/controllers/Landing.js"></script>
+  <script src="/scripts/controllers/Company.js"></script>
+  <script src="/scripts/controllers/home.js"></script>
+  <script src="/scripts/controllers/CourseDemo.js"></script>
+  <script src="/scripts/controllers/CourseView.js"></script>
+  <script src="/scripts/controllers/CourseEdit.js"></script>
+  <script src="/scripts/controllers/Reports.js"></script>
+  <script src="/scripts/controllers/Store.js"></script>
+  <script src="/scripts/controllers/Logout.js"></script>
+  <script src="/scripts/controllers/Invite.js"></script>
+  <script src="/scripts/controllers/Settings.js"></script>
+  <script src="/scripts/controllers/Tier.js"></script>
+  <script src="/scripts/controllers/Payments.js"></script>
+  <script src="/scripts/controllers/Subscription.js"></script>
+  <script src="/scripts/controllers/AssetLibrary.js"></script>
 
-    <!-- build:js({.tmp,app}) /scripts/scripts.js -->
-    <script src="/scripts/app.js"></script>
-    <script src="/scripts/controllers/Landing.js"></script>
-    <script src="/scripts/controllers/Company.js"></script>
+  <script src="/scripts/directives/ettoLoginModal.js"></script>
+  <script src="/scripts/directives/ettoCourse.js"></script>
+  <script src="/scripts/directives/ettoBlock.js"></script>
+  <script src="/scripts/directives/ettoYoutube.js"></script>
+  <script src="/scripts/directives/ettoVimeo.js"></script>
+  <script src="/scripts/directives/ettoImage.js"></script>
+  <script src="/scripts/directives/ettoNotLoggedInNav.js"></script>
+  <script src="/scripts/directives/ettoLoggedInNav.js"></script>
+  <script src="/scripts/directives/ettoNewBrand.js"></script>
+  <script src="/scripts/directives/ettoMouseEvents.js"></script>
+  <script src="/scripts/directives/ettoAddCourse.js"></script>
+  <script src="/scripts/directives/ettoSession.js"></script>
+  <script src="/scripts/directives/ettoVerifyModal.js"></script>
+  <script src="/scripts/directives/ettoRegisterModal.js"></script>
+  <script src="/scripts/directives/ettoTierTree.js"></script>
+  <script src="/scripts/directives/ettoInviteUserModal.js"></script>
+  <script src="/scripts/directives/ettoPurchase.js"></script>
+  <script src="/scripts/directives/ettoSettingsNav.js"></script>
+  <script src="/scripts/directives/ettoAddTier.js"></script>
+  <script src="/scripts/directives/ettoAddCredits.js"></script>
+  <script src="/scripts/directives/ettoDeleteCard.js"></script>
+  <script src="/scripts/directives/ettoRecipientModal.js"></script>
+  <script src="/scripts/directives/ettoAssetLibraryModal.js"></script>
+  <script src="/scripts/directives/ettoSearchUser.js"></script>
+  <script src="/scripts/directives/ettoSearchTiers.js"></script>
+  <script src="/scripts/directives/ettoRemoveCourse.js"></script>
+  <script src="/scripts/directives/ettoOnBoarding.js"></script>
+  <script src="/scripts/directives/ettoRemoveTier.js"></script>
+  <script src="/scripts/directives/ettoUpdateCompany.js"></script>
+  <script src="/scripts/directives/ettoResetPassword.js"></script>
+  <script src="/scripts/directives/ettoSendForgotPassword.js"></script>
 
-    <script src="/scripts/controllers/home.js"></script>
-    <script src="/scripts/controllers/CourseDemo.js"></script>
-    <script src="/scripts/controllers/CourseView.js"></script>
-    <script src="/scripts/controllers/CourseEdit.js"></script>
-    <script src="/scripts/controllers/Reports.js"></script>
-    <script src="/scripts/controllers/Store.js"></script>
-    <script src="/scripts/controllers/Logout.js"></script>
-    <script src="/scripts/controllers/Invite.js"></script>
-    <script src="/scripts/controllers/Settings.js"></script>
-    <script src="/scripts/controllers/Tier.js"></script>
-    <script src="/scripts/controllers/Payments.js"></script>
-    <script src="/scripts/controllers/Subscription.js"></script>
-    <script src="/scripts/controllers/AssetLibrary.js"></script>
+  <script src="/scripts/directives/course/ettoCourseNav.js"></script>
+  <script src="/scripts/directives/course/ettoChooseBlock.js"></script>
+  <script src="/scripts/directives/course/ettoBlockQuiz.js"></script>
+  <script src="/scripts/directives/course/ettoCourseStatus.js"></script>
+  <script src="/scripts/directives/course/ettoSound.js"></script>
+  <script src="/scripts/directives/course/ettoSoundEdit.js"></script>
 
-    <script src="/scripts/directives/ettoLoginModal.js"></script>
-    <script src="/scripts/directives/ettoCertificate.js"></script>
+  <script src="/scripts/services/WhiteLabel.js"></script>
+  <script src="/scripts/services/Fonts.js"></script>
+  <script src="/scripts/services/Endpoint.js"></script>
+  <script src="/scripts/services/Session.js"></script>
+  <script src="/scripts/services/Course.js"></script>
+  <script src="/scripts/services/BlockType.js"></script>
+  <script src="/scripts/services/Store.js"></script>
+  <script src="/scripts/services/CoursePlayer.js"></script>
+  <script src="/scripts/services/CourseList.js"></script>
+  <script src="/scripts/services/CourseMetaChange.js"></script>
+  <script src="/scripts/services/Users.js"></script>
+  <script src="/scripts/services/Tiers.js"></script>
+  <script src="/scripts/services/Payment.js"></script>
+  <script src="/scripts/services/Tier.js"></script>
+  <script src="/scripts/services/Record.js"></script>
+  <script src="/scripts/services/Asset.js"></script>
+  <script src="/scripts/services/httpInterceptor.js"></script>
+  <script src="/scripts/services/BlockQuiz.js"></script>
+  <script src="/scripts/services/Invite.js"></script>
+  <script src="/scripts/services/Security.js"></script>
 
-    <script src="/scripts/directives/ettoCourse.js"></script>
-    <script src="/scripts/directives/ettoFooter.js"></script>
 
-    <script src="/scripts/directives/ettoBlock.js"></script>
-    <script src="/scripts/directives/ettoYoutube.js"></script>
-    <script src="/scripts/directives/ettoVimeo.js"></script>
-    <script src="/scripts/directives/ettoImage.js"></script>
-    <script src="/scripts/directives/ettoNotLoggedInNav.js"></script>
-    <script src="/scripts/directives/ettoLoggedInNav.js"></script>
-    <script src="/scripts/directives/ettoNewBrand.js"></script>
-    <script src="/scripts/directives/ettoMouseEvents.js"></script>
-    <script src="/scripts/directives/ettoAddCourse.js"></script>
-    <script src="/scripts/directives/ettoSession.js"></script>
-    <script src="/scripts/directives/ettoVerifyModal.js"></script>
-    <script src="/scripts/directives/ettoRegisterModal.js"></script>
-    <script src="/scripts/directives/ettoTierTree.js"></script>
-    <script src="/scripts/directives/ettoInviteUserModal.js"></script>
-    <script src="/scripts/directives/ettoPurchase.js"></script>
-    <script src="/scripts/directives/ettoSettingsNav.js"></script>
-    <script src="/scripts/directives/ettoAddTier.js"></script>
-    <script src="/scripts/directives/ettoAddCredits.js"></script>
-    <script src="/scripts/directives/ettoDeleteCard.js"></script>
-    <script src="/scripts/directives/ettoRecipientModal.js"></script>
-    <script src="/scripts/directives/ettoAssetLibraryModal.js"></script>
-    <script src="/scripts/directives/ettoSearchUser.js"></script>
-    <script src="/scripts/directives/ettoSearchTiers.js"></script>
-    <script src="/scripts/directives/ettoRemoveCourse.js"></script>
-    <script src="/scripts/directives/ettoOnBoarding.js"></script>
-    <script src="/scripts/directives/ettoRemoveTier.js"></script>
-    <script src="/scripts/directives/ettoUpdateCompany.js"></script>
-    <script src="/scripts/directives/ettoResetPassword.js"></script>
-    <script src="/scripts/directives/ettoSendForgotPassword.js"></script>
-
-    <script src="/scripts/directives/course/ettoCourseNav.js"></script>
-    <script src="/scripts/directives/course/ettoChooseBlock.js"></script>
-    <script src="/scripts/directives/course/ettoBlockQuiz.js"></script>
-    <script src="/scripts/directives/course/ettoCourseStatus.js"></script>
-    <script src="/scripts/directives/course/ettoSound.js"></script>
-    <script src="/scripts/directives/course/ettoSoundEdit.js"></script>
-
-    <script src="/scripts/services/WhiteLabel.js"></script>
-    <script src="/scripts/services/Fonts.js"></script>
-
-    <script src="/scripts/services/Endpoint.js"></script>
-    <script src="/scripts/services/Session.js"></script>
-    <script src="/scripts/services/Course.js"></script>
-    <script src="/scripts/services/BlockType.js"></script>
-    <script src="/scripts/services/Store.js"></script>
-    <script src="/scripts/services/CoursePlayer.js"></script>
-    <script src="/scripts/services/CourseList.js"></script>
-    <script src="/scripts/services/CourseMetaChange.js"></script>
-    <script src="/scripts/services/Users.js"></script>
-    <script src="/scripts/services/Tiers.js"></script>
-    <script src="/scripts/services/Payment.js"></script>
-    <script src="/scripts/services/Tier.js"></script>
-    <script src="/scripts/services/Record.js"></script>
-    <script src="/scripts/services/Asset.js"></script>
-    <script src="/scripts/services/httpInterceptor.js"></script>
-    <script src="/scripts/services/BlockQuiz.js"></script>
-    <script src="/scripts/services/Invite.js"></script>
-    <script src="/scripts/services/Security.js"></script>
-
-    <!-- endbuild -->
-
-    <script type="text/javascript">
-    (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
     ga('create', 'UA-48085582-1', {
-        'siteSpeedSampleRate': 100,
+      'siteSpeedSampleRate': 100,
     });
     ga('send', 'pageview');
-    </script>
+  </script>
 </body>
 
 </html>
