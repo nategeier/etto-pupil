@@ -10,7 +10,7 @@ describe "Directive: ettoCourse", ->
                     "/views/blocks/ettoBlockFinished.html",
                     "/views/course/ettoSound.html"
 
-  beforeEach inject ( $rootScope, $compile, $httpBackend ) ->
+  beforeEach inject ( $rootScope, $compile, $httpBackend, Endpoint ) ->
     scope = $rootScope.$new()
     scope.course =
       blocks: [
@@ -21,6 +21,7 @@ describe "Directive: ettoCourse", ->
     element = $compile( element ) scope
 
     httpBackend = $httpBackend
+    httpBackend.whenGET(Endpoint("auth/getSession")).respond {}
 
   afterEach ->
     httpBackend.verifyNoOutstandingExpectation
