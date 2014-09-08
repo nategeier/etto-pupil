@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("MainCtrl", ["$scope", "$location", "Session", "Payment",
-    function ($scope, $location, Session, Payment) {
+  .controller("LandingCtrl", ["$scope", "$location", "Session", "Payment", "WhiteLabel",
+    function ($scope, $location, Session, Payment, WhiteLabel) {
 
       $scope.currentSubscription = 0;
 
@@ -19,12 +19,7 @@ angular.module("ettoPupil")
         if (data) {
           $location.path("/etto");
         } else {
-          WebFont.load({
-            google: {
-              families: "lato"
-            }
-          });
-          $("<style> body, h1, h2, h3, h4, h5 { font-family: lato} </style>").appendTo("head");
+          WhiteLabel.setFonts("Lato");
         }
       });
 

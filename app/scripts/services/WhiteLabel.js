@@ -1,10 +1,10 @@
 "use strict";
 
 /**
- * Invite Service
+ * WhiteLabel Service
  * ============================================================================
  *
- * Creates AngularJS service "Color".
+ * Creates AngularJS service "WhiteLabel".
  *
  */
 
@@ -16,9 +16,13 @@ angular.module("ettoPupil")
       var colors = {};
       var font = "Lato";
 
-      var setColors = function (dbColors, dbFont) {
+      var setColors = function (dbColors) {
         colors = dbColors;
         this.giveColors();
+
+      };
+
+      var setFonts = function (dbFont) {
 
         font = dbFont;
 
@@ -49,6 +53,7 @@ angular.module("ettoPupil")
 
       var WhiteLabel = {
         setColors: setColors,
+        setFonts: setFonts,
         giveColors: giveColors
       };
 

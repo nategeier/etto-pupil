@@ -29,6 +29,8 @@ angular.module("ettoPupil")
         y: 20
       });
 
+      console.log("hello-- the---")
+
       $scope.listUsersCreatedCourses = function () {
 
         Tier.listCompanyCreatedCourses($scope.user._tier._company, function (data) {

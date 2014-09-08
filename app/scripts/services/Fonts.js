@@ -1,10 +1,10 @@
 "use strict";
 
 /**
- * Invite Service
+ * Font Service
  * ============================================================================
  *
- * Creates AngularJS service "Color".
+ * Creates AngularJS service "Font".
  *
  */
 

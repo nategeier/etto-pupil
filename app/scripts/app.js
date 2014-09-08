@@ -10,7 +10,7 @@ angular.module("ettoPupil", ["ngRoute", "ngResource", "ngAnimate", "ngTouch", "u
       $routeProvider
         .when("/", {
           templateUrl: "/views/landing.html",
-          controller: "MainCtrl"
+          controller: "LandingCtrl"
         })
         .when("/beta", {
           templateUrl: "/views/beta.html"

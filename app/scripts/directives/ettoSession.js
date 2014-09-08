@@ -34,8 +34,8 @@ angular.module("ettoPupil")
                 Tier.findTier($scope.user._tier._company, function (company) {
                   $scope.company = company;
                   if (company.colors) {
-                    WhiteLabel.setColors(company.colors, company.font);
-                    WhiteLabel.giveNavColors();
+                    WhiteLabel.setColors(company.colors);
+                    WhiteLabel.setFonts(company.font);
                   }
                 });
               }
@@ -43,7 +43,7 @@ angular.module("ettoPupil")
             });
           };
 
-          //$scope.updateSession();
+          $scope.updateSession();
 
         },
         link: function (scope, element, attrs) {

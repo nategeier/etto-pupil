@@ -17,7 +17,8 @@ angular.module("ettoPupil")
 
         Tiers.changeWhiteLabel(company);
 
-        WhiteLabel.setColors($scope.company.colors, $scope.company.font);
+        WhiteLabel.setColors($scope.company.colors);
+        WhiteLabel.setFonts($scope.company.font);
 
       };
     }
