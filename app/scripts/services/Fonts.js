@@ -20,7 +20,6 @@ angular.module("ettoPupil")
         "Oswald",
         "Lato",
         "Droid Sans",
-        "Open Sans Condensed",
         "PT Sans",
         "Roboto Condensed",
         "Source Sans Pro",
