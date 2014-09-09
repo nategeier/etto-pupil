@@ -15,10 +15,10 @@ angular.module("ettoPupil")
           font: $scope.company.font
         };
 
-        Tiers.changeWhiteLabel(company);
-
-        WhiteLabel.setColors($scope.company.colors);
-        WhiteLabel.setFonts($scope.company.font);
+        Tiers.changeWhiteLabel(company, function (data) {
+          WhiteLabel.setColors($scope.company.colors);
+          WhiteLabel.setFonts($scope.company.font);
+        });
 
       };
     }
