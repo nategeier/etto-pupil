@@ -117,6 +117,7 @@ angular.module("ettoPupil")
               if (CoursePlayer.isLocked() === false) {
                 CoursePlayer.nextBlock();
                 var currBlock = Number(CoursePlayer.currentBlock()) + 1;
+
                 Record.updateBookmark($scope.record._id, currBlock, CoursePlayer.blocksInCourse());
                 $scope.scrollTop();
               }
