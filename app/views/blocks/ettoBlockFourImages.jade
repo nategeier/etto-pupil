@@ -9,19 +9,19 @@
       .col-sm-6.col-md-6.col-lg-6(ng-if="block.data.img1")
         img.img-responsive(src="{{ block.data.img1 || '/images/courses/default/image-block1.jpg'}}")
         h4.etto-color-primary {{block.data.img1Head }}
-        pre.etto-color-dark {{block.data.img1Copy }}
+        pre.etto-color-dark(ng-bind-html="block.data.img1Copy | linky:'_blank'") 
       .col-sm-6.col-md-6.col-lg-6(ng-if="block.data.img2")
         img.img-responsive(src="{{ block.data.img2 || '/images/courses/default/image-block2.jpg'}}")
         h4.etto-color-primary {{block.data.img2Head }}
-        pre.etto-color-dark {{block.data.img2Copy }}
+        pre.etto-color-dark(ng-bind-html="block.data.img2Copy | linky:'_blank'") 
     .row
       .col-sm-6.col-md-6.col-lg-6(ng-if="block.data.img3")
         img.img-responsive(src="{{ block.data.img3 || '/images/courses/default/image-block3.jpg'}}")
         h4.etto-color-primary {{block.data.img3Head }}
-        pre.etto-color-dark {{block.data.img3Copy }}
+        pre.etto-color-dark(ng-bind-html="block.data.img3Copy | linky:'_blank'") 
       .col-sm-6.col-md-6.col-lg-6(ng-if="block.data.img4")
         img.img-responsive(src="{{ block.data.img4 || '/images/courses/default/image-block3.jpg'}}")
         h4.etto-color-primary {{block.data.img4Head }}
-        pre.etto-color-dark {{block.data.img4Copy }}
+        pre.etto-color-dark(ng-bind-html="block.data.img4Copy | linky:'_blank'") 
     .row
       div(etto-sound)

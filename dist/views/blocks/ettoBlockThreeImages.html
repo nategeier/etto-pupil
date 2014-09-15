@@ -11,15 +11,15 @@
     <div class="row">
       <div class="col-sm-4 col-md-4 col-lg-4"><img src="{{ block.data.img1 || '/images/courses/default/image-block1.jpg'}}" class="img-responsive"/>
         <h4 class="etto-color-primary">{{block.data.img1Head }}</h4>
-        <pre class="etto-color-dark">{{block.data.img1Copy }}</pre>
+        <pre ng-bind-html="block.data.img1Copy | linky:'_blank'" class="etto-color-dark"> </pre>
       </div>
       <div class="col-sm-4 col-md-4 col-lg-4"><img src="{{ block.data.img2 || '/images/courses/default/image-block2.jpg'}}" class="img-responsive"/>
         <h4 class="etto-color-primary">{{block.data.img2Head }}</h4>
-        <pre class="etto-color-dark">{{block.data.img2Copy }}</pre>
+        <pre ng-bind-html="block.data.img2Copy | linky:'_blank'" class="etto-color-dark"> </pre>
       </div>
       <div class="col-sm-4 col-md-4 col-lg-4"><img src="{{ block.data.img3 || '/images/courses/default/image-block3.jpg'}}" class="img-responsive"/>
         <h4 class="etto-color-primary">{{block.data.img3Head }}</h4>
-        <pre class="etto-color-dark">{{block.data.img3Copy }}</pre>
+        <pre ng-bind-html="block.data.img3Copy | linky:'_blank'" class="etto-color-dark"> </pre>
       </div>
     </div>
     <div class="row">

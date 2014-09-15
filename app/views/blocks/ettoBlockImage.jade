@@ -3,7 +3,7 @@
     h1.etto-color-primary {{ block.data.title }}
     h3.etto-color-secondary {{ block.data.subtitle }}
     div
-      pre.etto-color-dark {{ block.data.copy }}
+      pre.etto-color-dark(ng-bind-html="block.data.copy | linky:'_blank'") 
   .col-sm-5.col-lg-5
     img.img-responsive.img-uploadable(src="{{ block.data.url || '/images/courses/default/image-block.jpg' }}")
 

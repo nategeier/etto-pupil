@@ -4,7 +4,7 @@
   .col-sm-12
     .panel.panel-default(ng-repeat = "q in block.data.questions track by $index")
       .panel-heading.etto-bgcolor-light
-        h4.etto-color-primary.panel-title(e-style="width:500px;", editable-text="q.question", buttons="no", blur="submit", onaftersave="saveCourse()", ng-show="isEditing") {{$index + 1}}. {{ q.question || "author"}}
+        h4.etto-color-primary.panel-title(e-rows="3", e-cols="90", editable-textarea="q.question", buttons="no", blur="submit", onaftersave="saveCourse()", ng-show="isEditing") {{$index + 1}}. {{ q.question || "author"}}
         .close.btn.btn-defult(ng-click="deleteQuestion(block.data.questions, $index)") &times;
       
       .list-group

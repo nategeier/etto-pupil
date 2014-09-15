@@ -3,16 +3,16 @@
 <h3 class="etto-color-secondary">{{block.data.subtitle}}</h3>
 <div class="col-lg-4">
   <div>
-    <pre class="etto-color-dark">{{ block.data.copy1 }}</pre>
+    <pre ng-bind-html="block.data.copy1 | linky:'_blank'" class="etto-color-dark"> </pre>
   </div>
 </div>
 <div class="col-lg-4">
   <div>
-    <pre class="etto-color-dark">{{ block.data.copy2 }}</pre>
+    <pre ng-bind-html="block.data.copy2 | linky:'_blank'" class="etto-color-dark"> </pre>
   </div>
 </div>
 <div class="col-lg-4">
   <div>
-    <pre class="etto-color-dark">{{ block.data.copy3 }}</pre>
+    <pre ng-bind-html="block.data.copy3 | linky:'_blank'" class="etto-color-dark"> </pre>
   </div>
 </div>
