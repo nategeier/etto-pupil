@@ -21,5 +21,13 @@
   "html": {
     "indent_size": 2,
     "unformatted": ["script", "style"]
+  },
+  "css": {
+    "allowed_file_extensions": ["css"],
+    "indent_size": 2,
+    "end_with_newline": true,
+    "selector_separator_newline": false,
+    "max_preserve_newlines": 0
+
   }
 }
