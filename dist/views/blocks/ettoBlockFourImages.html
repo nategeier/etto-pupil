@@ -10,21 +10,21 @@
     <div class="row">
       <div ng-if="block.data.img1" class="col-sm-6 col-md-6 col-lg-6"><img src="{{ block.data.img1 || '/images/courses/default/image-block1.jpg'}}" class="img-responsive"/>
         <h4 class="etto-color-primary">{{block.data.img1Head }}</h4>
-        <pre class="etto-color-dark">{{block.data.img1Copy }}</pre>
+        <pre ng-bind-html="block.data.img1Copy | linky:'_blank'" class="etto-color-dark"> </pre>
       </div>
       <div ng-if="block.data.img2" class="col-sm-6 col-md-6 col-lg-6"><img src="{{ block.data.img2 || '/images/courses/default/image-block2.jpg'}}" class="img-responsive"/>
         <h4 class="etto-color-primary">{{block.data.img2Head }}</h4>
-        <pre class="etto-color-dark">{{block.data.img2Copy }}</pre>
+        <pre ng-bind-html="block.data.img2Copy | linky:'_blank'" class="etto-color-dark"> </pre>
       </div>
     </div>
     <div class="row">
       <div ng-if="block.data.img3" class="col-sm-6 col-md-6 col-lg-6"><img src="{{ block.data.img3 || '/images/courses/default/image-block3.jpg'}}" class="img-responsive"/>
         <h4 class="etto-color-primary">{{block.data.img3Head }}</h4>
-        <pre class="etto-color-dark">{{block.data.img3Copy }}</pre>
+        <pre ng-bind-html="block.data.img3Copy | linky:'_blank'" class="etto-color-dark"> </pre>
       </div>
       <div ng-if="block.data.img4" class="col-sm-6 col-md-6 col-lg-6"><img src="{{ block.data.img4 || '/images/courses/default/image-block3.jpg'}}" class="img-responsive"/>
         <h4 class="etto-color-primary">{{block.data.img4Head }}</h4>
-        <pre class="etto-color-dark">{{block.data.img4Copy }}</pre>
+        <pre ng-bind-html="block.data.img4Copy | linky:'_blank'" class="etto-color-dark"> </pre>
       </div>
     </div>
     <div class="row">

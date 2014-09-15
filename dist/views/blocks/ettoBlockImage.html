@@ -4,7 +4,7 @@
     <h1 class="etto-color-primary">{{ block.data.title }}</h1>
     <h3 class="etto-color-secondary">{{ block.data.subtitle }}</h3>
     <div>
-      <pre class="etto-color-dark">{{ block.data.copy }}</pre>
+      <pre ng-bind-html="block.data.copy | linky:'_blank'" class="etto-color-dark"> </pre>
     </div>
   </div>
   <div class="col-sm-5 col-lg-5"><img src="{{ block.data.url || '/images/courses/default/image-block.jpg' }}" class="img-responsive img-uploadable"/></div>

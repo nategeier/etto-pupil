@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("HomeCtrl", ["$scope", "$location", "CourseMetaChange", "Users", "Tier", "Tiers",
-    function ($scope, $location, CourseMetaChange, Users, Tier, Tiers) {
+  .controller("HomeCtrl", ["$scope", "$location", "CourseMetaChange", "Users", "Tier",
+    function ($scope, $location, CourseMetaChange, Users, Tier) {
 
       $scope.$watch("user", function () {
         if ($scope.user) {
