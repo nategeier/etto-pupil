@@ -17,6 +17,17 @@
 
 }
 
+.etto-question{
+  position: relative;
+  .close{
+
+    position: absolute;
+    background-color: #fff;
+    top:5px;
+    right:5px;
+  }
+}
+
 .question.incorrect{
   background-color:$etto-incorrect;
 }
@@ -29,8 +40,5 @@
 .quiz-block{
   padding-bottom:40px;
   padding-top:20px;
-  background-repeat:repeat;
-  background-image:url('/images/patterns/cream_pixels.png');
-
 }
 

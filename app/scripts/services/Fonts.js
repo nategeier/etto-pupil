@@ -15,7 +15,6 @@ angular.module("ettoPupil")
 
       var Fonts = [
         "Open Sans",
-        "Proxima Nova",
         "Roboto",
         "Oswald",
         "Lato",

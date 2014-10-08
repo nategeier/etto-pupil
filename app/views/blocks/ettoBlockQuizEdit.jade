@@ -2,26 +2,26 @@
 .row.quiz-block
   etto-block-quiz
   .col-sm-12
-    .panel.panel-default(ng-repeat = "q in block.data.questions track by $index")
-      .panel-heading.etto-bgcolor-light
-        h4.etto-color-primary.panel-title(e-rows="3", e-cols="90", editable-textarea="q.question", buttons="no", blur="submit", onaftersave="saveCourse()", ng-show="isEditing") {{$index + 1}}. {{ q.question || "author"}}
-        .close.btn.btn-defult(ng-click="deleteQuestion(block.data.questions, $index)") &times;
-      
-      .list-group
-        div.list-group-item(ng-repeat = "a in q.answers track by $index")
-          
-          .row
-            .col-sm-8
-              p.etto-color-dark(editable-textarea="a.answer", e-rows="3", e-cols="70", buttons="no", blur="submit", onaftersave="saveCourse()")  {{alphabet[$index]}} ) {{ a.answer || "author"}}
-            .col-sm-2
-              .checkbox.etto-color-secondary
-                lable Correct
-                  input(type="checkbox", ng-model = "a.correct", ng-change="saveCourse()")
-            .col-sm-2
-              .close.btn.btn-defult(ng-click="deleteAnswer(q.answers, $index)") &times;
-        .list-group-item
-          button.btn.btn-default.btn-sm.etto-color-primary(ng-click="addAnswer(block.data.questions, $index)") New Answer
-    
+    div(ng-repeat = "q in block.data.questions track by $index")
+      .panel.panel-default.etto-question
+        .panel-heading.etto-bgcolor-light
+          h4.etto-color-primary.panel-title(e-rows="3", e-cols="90", editable-textarea="q.question", buttons="no", blur="submit", onaftersave="saveCourse()", ng-show="isEditing") {{$index + 1}}. {{ q.question || "author"}}
+          .close.btn.btn-default(ng-click="deleteQuestion(block.data.questions, $index)") &times;
+        
+        .list-group
+          div.list-group-item(ng-repeat = "a in q.answers track by $index")
+            .row
+              .col-sm-8
+                p.etto-color-dark(editable-textarea="a.answer", e-rows="3", e-cols="70", buttons="no", blur="submit", onaftersave="saveCourse()")  {{alphabet[$index]}} ) {{ a.answer || "author"}}
+              .col-sm-2
+                .checkbox.etto-color-secondary
+                  lable Correct
+                    input(type="checkbox", ng-model = "a.correct", ng-change="saveCourse()")
+              .col-sm-2
+                .close.btn.btn-defult(ng-click="deleteAnswer(q.answers, $index)") &times;
+          .list-group-item
+            button.btn.btn-default.btn-sm.etto-color-primary(ng-click="addAnswer(block.data.questions, $index)") New Answer
+      br
   .col-sm-12
     hr
     button.btn.btn-success.btn-sm.w100(ng-click="addQuestion(block.data.questions)") New Question

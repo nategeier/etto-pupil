@@ -1,0 +1,23 @@
+
+.container
+  .col-md-7.col-md-offset-3.etto-loginpage
+    
+    .row
+      .col-sm-3
+        img.img-responsive(ng-src="{{company.logo}}")
+        br
+      .col-sm-9
+        h1.etto-color-primary {{company.title}} 
+        h4.etto-color-secondary Courses
+    hr
+    form(ng-submit="login()")
+      div(ng-show="err")
+        .alert.alert-danger {{err.message}}
+      .form-group
+        input.form-control( autocapitalize="off", type="text", ng-model="user.username", placeholder="Email or username...", autocomplete="on", required )
+      .form-group
+        input.form-control( type="password", ng-model="user.password", placeholder="Enter your password...", required )
+      
+      input.btn.btn-success.btn-sm(type="submit", value="Login")
+      hr
+      etto-send-forgot-password
