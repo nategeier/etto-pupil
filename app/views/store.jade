@@ -2,7 +2,7 @@ etto-logged-in-nav
 etto-verify-modal(redirect-to='/etto')
 .container-full.etto-bgcolor-secondary
   .row
-    .col-md-9.nopad
+    .col-sm-9.nopad
       .leaderboard.etto-bgcolor-light
         .row
           .col-xs-12.col-sm-6.col-md-6.col-lg-6
@@ -32,10 +32,10 @@ etto-verify-modal(redirect-to='/etto')
                   .btn-group
                     a.btn.btn-primary.btn-xs(etto-purchase, href="#", ng-click='addToLibrary(course)') Add to Tiers
                     a.btn.btn-default.btn-xs(href="/course/demo/{{ course._id }}")  Demo
-    .col-md-3.nopad
+    .col-sm-3.nopad
       .panel.panel-default.etto-bgcolor-light
         .panel-heading.etto-bgcolor-accent
-          h2.etto-color-primary {{currentTier.title}}
+          h3.etto-color-primary {{currentTier.title}}
           p.etto-color-primary Course for {{totUsers}} users
 
         .panel-body.etto-bgcolor-white

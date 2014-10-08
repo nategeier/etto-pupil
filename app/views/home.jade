@@ -3,7 +3,7 @@ etto-logged-in-nav
 etto-verify-modal(redirect-to='/etto')
 .container-full.etto-bgcolor-secondary
   .row
-    .nopad(ng-class="user.auth.canCreateCourses ? 'col-sm-8 col-md-9' : 'col-sm-12'")
+    .nopad(ng-class="user.auth.canCreateCourses ? 'col-md-12' : 'col-sm-12'")
       .leaderboard.etto-bgcolor-light(etto-update-company)
         .row
           .col-xs-12.col-sm-12.col-md-6
@@ -11,51 +11,51 @@ etto-verify-modal(redirect-to='/etto')
               h3.etto-color-primary#title(editable-textarea="company.leaderboard.title", buttons="no", blur="submit", onaftersave="updateLeaderboard()") {{company.leaderboard.title}}
               h4.etto-color-secondary#subtite(editable-textarea="company.leaderboard.subtitle", buttons="no", blur="submit", onaftersave="updateLeaderboard()") {{company.leaderboard.subtitle}}
           .col-sm-12.col-md-6#head-img
-            img.img-responsive.default-lg.pull-right.img-uploadable(src="{{company.leaderboard.imgUrl}}", etto-asset-library-modal, ng-click='updateMainImg()')
+            img.img-responsive.default-lg.pull-right.img-uploadable(style="width:100%;", src="{{company.leaderboard.imgUrl}}", etto-asset-library-modal, ng-click='updateMainImg()')
         
-      .etto-courses
+      .etto-courses.col-sm-8
         .main-holder(ng-show="usersCourses[0]")
           .alert.alert-danger(ng-show="err")
             p {{err}}
-          .row
-            .col-xs-12
-              div(etto-color, class="animate-repeat", ng-repeat='course in usersCourses | filter:searchCourse')
-                .nopad(ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-md-4 col-lg-3' : 'col-sm-6 col-md-3 col-lg-2'")
-                  .etto-course-holder.etto-bgcolor-light.img-rounded(ng-click="openCourse(course)")
-                    img.img-responsive.course-thumb.img-rounded(src="{{course.thumb}}")
-                    div(ng-if="course._record")
-                      div.etto-certificate.etto-color-accent.img-rounded(ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks && course._record.progress.totalBlocks !== 1") 
-                        div(etto-certificate)
-                    .row 
-                      .col-xs-12
-                        h4.etto-color-primary {{course.title}}
-                        p.etto-color-secondary {{course.subtitle}}
 
-                    .progress.etto-bgcolor-light(ng-show="!course._record")
-                      .progress-bar.etto-bgcolor-accent(role="progressbar", aria-valuenow="1", aria-valuemin="0", aria-valuemax="100", style="width: 1%;")
-                    .progress.etto-bgcolor-light(ng-show="course._record")
-                      .progress-bar.etto-bgcolor-accent(ng-show="course._record.progress.totalBlocks > 1", role="progressbar", aria-valuenow="{{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}%;")
+          div(etto-color, class="animate-repeat", ng-repeat='course in usersCourses | filter:searchCourse')
+            .nopad(ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-lg-4' : 'col-sm-6 col-md-3 col-lg-2'")
+              .etto-course-holder.etto-bgcolor-light.img-rounded(ng-click="openCourse(course)")
+                img.img-responsive.course-thumb.img-rounded(src="{{course.thumb}}")
+                div(ng-if="course._record")
+                  div.etto-certificate.etto-color-accent.img-rounded(ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks && course._record.progress.totalBlocks !== 1") 
+                    div(etto-certificate)
+                .row 
+                  .col-xs-12
+                    h4.etto-color-primary {{course.title}}
+                    p.etto-color-secondary {{course.subtitle}}
 
-      .col-sm-12.col-md-12(ng-show="!usersCourses[0] && user.auth.canInvite", etto-on-boarding)
+                .progress.etto-bgcolor-light(ng-show="!course._record")
+                  .progress-bar.etto-bgcolor-accent(role="progressbar", aria-valuenow="1", aria-valuemin="0", aria-valuemax="100", style="width: 1%;")
+                .progress.etto-bgcolor-light(ng-show="course._record")
+                  .progress-bar.etto-bgcolor-accent(ng-show="course._record.progress.totalBlocks > 1", role="progressbar", aria-valuenow="{{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}%;")
+
+      .col-sm-8(ng-show="!usersCourses[0] && user.auth.canInvite", etto-on-boarding)
     
-    .col-sm-4.col-md-3.nopad(ng-show="user.auth.canCreateCourses")
-      .panel.etto-bgcolor-light
-        .panel-heading.etto-bgcolor-light
-           h3.modal-title.etto-color-primary Composed Courses
-           input.form-control(type='text', ng-model='searchComposedCourse', placeholder='Search Courses')
-        .list-group
-          div(ng-if="!createdCourses[0]")
-            .list-group-item.etto-bgcolor-light-hover(etto-add-course, ng-click='addCourse()')
-              h4.etto-color-accent Create a Course!
-          div(etto-color, ng-repeat='course in createdCourses | filter:searchComposedCourse')
-            .etto-composed-course.list-group-item.etto-bgcolor-light-hover
-              a(href="/course/edit/{{ course._id }}")
-                .row
-                  .col-xs-5.col-sm-5
-                    img.img-responsive.user-course-thumb.img-rounded(src="{{course.thumb}}")
-                  .col-xs-7.col-sm-7
-                    h5.etto-color-primary {{course.title}}
-              button.close.aria-hidden.pull-right.delete-course(etto-remove-course, type="button", ng-click='removeCourse(course._id, course.title)')
-                i.fa.fa-trash-o
+      .col-sm-4.col-sm-4(ng-show="user.auth.canCreateCourses")
+        .panel.etto-bgcolor-light
+          .panel-heading.etto-bgcolor-lightgrey
+             h3.modal-title.etto-color-primary Composed Courses
+             input.form-control(type='text', ng-model='searchComposedCourse', placeholder='Search Courses')
+          .list-group
+            div(ng-if="!createdCourses[0]")
+              .list-group-item.etto-bgcolor-lightgrey.etto-bgcolor-light-hover(etto-add-course, ng-click='addCourse()')
+                h4.etto-color-accent Create a Course!
+            div(etto-color, ng-repeat='course in createdCourses | filter:searchComposedCourse')
+              .etto-composed-course.list-group-item
+                .etto-course-box
+                  a(href="/course/edit/{{ course._id }}")
+                    .row
+                      .col-xs-5.col-sm-5
+                        img.img-responsive.user-course-thumb.img-rounded(src="{{course.thumb}}")
+                      .col-xs-7.col-sm-7
+                        h5.etto-color-primary {{course.title}}
+                  button.close.aria-hidden.pull-right.delete-course(etto-remove-course, type="button", ng-click='removeCourse(course._id, course.title)')
+                    i.fa.fa-trash-o.etto-color-secondary
 
 

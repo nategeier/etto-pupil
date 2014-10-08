@@ -22,6 +22,10 @@ angular.module("ettoPupil", ["ngRoute", "ngSanitize", "ngResource", "ngAnimate",
           templateUrl: "/views/home.html",
           controller: "HomeCtrl"
         })
+        .when("/login/:companyId", {
+          templateUrl: "/views/loginPage.html",
+          controller: "LoginPageCtrl"
+        })
         .when("/company/:companyId", {
           templateUrl: "/views/company.html",
           controller: "CompanyCtrl"
