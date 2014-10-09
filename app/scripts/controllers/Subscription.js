@@ -36,17 +36,15 @@ angular.module("ettoPupil")
                   callback(null);
                 });
               });
-
             }
           ],
           function (err, results) {
             //--- Set default opened tab
+
             async.map(results[0], function (subscriptionType) {
-              async.map(subscriptionType.subscriptions, function (subscription) {
-                if ($scope.currentSubscription === subscription._id) {
-                  $scope.onSubscription = subscriptionType._id;
-                }
-              });
+              if ($scope.currentSubscription === subscriptionType._id) {
+                $scope.onSubscription = subscriptionType._id;
+              }
             });
 
           });
