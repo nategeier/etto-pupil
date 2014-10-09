@@ -86,7 +86,6 @@ angular.module("ettoPupil")
                     };
 
                     Store.purchase(order, function (responce) {
-                      console.log(responce)
                       if (responce.message) {
                         $scope.err = responce.message;
                       } else {
