@@ -11,12 +11,14 @@
         <input type="radio" name="status" ng-model="course.status" value="testing"/>
       </label>
     </div>
-    <h4>Private</h4>
+    <hr/>
+    <h4>Private (Internal use only)</h4>
     <div class="radio">
-      <label>Let managers add and remove this course
+      <label>Add the courses to the correct tier under "People > Edit Tier"
         <input type="radio" name="status" ng-model="course.status" value="private"/>
       </label>
     </div>
+    <hr/>
     <h4>Open Market</h4>
     <div class="radio">
       <label>Sell & share with the world
@@ -26,10 +28,11 @@
     <div ng-show="course.status === 'live'">
       <div class="alert alert-warning">Price cannot be changed after the course is sent to the market.</div>
       <div class="input-group"><span class="input-group-addon">Price $</span>
-        <input ng-disabled="{{course.price !== 0}}" type="number" placeholder="Price" ng-model="course.price" class="form-control"/><span class="input-group-addon">.00</span>
+        <input ng-disabled="{{course.price !== 0}}" type="number" placeholder="Price" ng-model="course.price" class="form-control"/>
       </div>
     </div>
   </div>
+  <hr/>
   <button ng-show="course.status !== 'live'" ng-click="saveSettings()" class="btn btn-primary">Change Status</button>
   <button ng-show="course.status === 'live'" ng-click="saveSettings()" class="btn btn-primary">Send to OpenMarket</button>
   <button ng-click="cancel()" class="btn btn-default">Cancel</button>
