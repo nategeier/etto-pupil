@@ -21,7 +21,10 @@
       <input type="password" ng-model="user.password" placeholder="Enter your password..." required="required" class="form-control"/>
     </div>
     <input type="submit" value="Login" class="btn btn-success btn-sm"/>
-    <hr/><a href="#" ng-click="cancel()" class="btn btn-default btn-xs">Cancel</a>
-    <etto-send-forgot-password></etto-send-forgot-password>
+    <hr/>
+    <div class="btn-group">
+      <div ng-click="cancel()" class="btn btn-default btn-sm">Cancel</div>
+      <etto-send-forgot-password></etto-send-forgot-password>
+    </div>
   </form>
 </div>

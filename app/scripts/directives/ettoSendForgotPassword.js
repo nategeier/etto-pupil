@@ -6,7 +6,7 @@ angular.module("ettoPupil")
     function () {
       return {
         restrict: "AE",
-        template: "<a class='btn btn-default btn-sm' href='#' ng-click='ettoSendForgotPassword()'>Forgot Password</a>",
+        template: "<div class='btn btn-default btn-sm' ng-click='ettoSendForgotPassword()'>Forgot Password</div>",
         controller: function ($scope, Security) {
 
           $scope.ettoSendForgotPassword = function () {
