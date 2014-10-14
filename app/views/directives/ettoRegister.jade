@@ -20,9 +20,10 @@
         .form-group
           input.form-control( type="password", ng-model="newUser.password", placeholder="password", required )
         .form-group
-          input.btn.btn-success.btn-sm( type="submit", value="Create" )
+          input.btn.btn-success.btn-sm( type="submit", value="I agree to the terms" )
           button.btn.btn-default.btn-sm( type="button", ng-click="cancel()") Cancel
     .col-md-4
       h4 Beta/Pilot Mode
       p Please be aware Coursetto is in beta, please let us know of any issues you may encounter.
+      a.btn.btn-default(href="/terms", target="_blank") Terms
      

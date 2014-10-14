@@ -12,6 +12,10 @@ angular.module("ettoPupil", ["ngRoute", "ngSanitize", "ngResource", "ngAnimate",
           templateUrl: "/views/landing.html",
           controller: "LandingCtrl"
         })
+        .when("/terms", {
+          templateUrl: "/views/terms.html",
+          controller: "TermsCtrl"
+        })
         .when("/beta", {
           templateUrl: "/views/beta.html"
         })
