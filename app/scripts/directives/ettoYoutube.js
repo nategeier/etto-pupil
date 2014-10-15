@@ -15,7 +15,7 @@ angular.module("ettoPupil")
           var code = scope.code;
 
           if (code.substring(0, 4) === "http") {
-            var parts = code.split('v=', 2);
+            var parts = code.split("v=", 2);
             code = parts[1];
           }
 

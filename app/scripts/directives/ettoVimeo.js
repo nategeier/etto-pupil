@@ -15,7 +15,7 @@ angular.module("ettoPupil")
           var code = scope.vimeo;
 
           if (code.substring(0, 4) === "http") {
-            var parts = code.split('.com/', 2);
+            var parts = code.split(".com/", 2);
             code = parts[1];
           }
 
