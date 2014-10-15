@@ -18,7 +18,6 @@ angular.module("ettoPupil")
             var parts = code.split(".com/", 2);
             code = parts[1];
           }
-
           scope.vimeoUrl = $sce.trustAsResourceUrl("//player.vimeo.com/video/" + code);
         }
 

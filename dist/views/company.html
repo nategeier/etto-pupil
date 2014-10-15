@@ -4,21 +4,23 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-6 etto-color-light">
+        <h4 class="etto-color-primary">Color input format accepts </h4>
+        <p class="etto-color-primary">#xxxxxx, rba(xxx, xxx, xxx), or rgba(xxx, xxx, xxx, 0.3)</p>
         <h4 class="etto-color-primary">Primary Color</h4>
         <div class="etto-bgcolor-primary etto-color-input-box">
-          <h1 editable-text="company.colors.primary" buttons="no" blur="submit" onaftersave="changeWhiteLabel()" class="etto-color-light">{{ company.colors.primary || 'primary Color'}}</h1>
+          <h1 editable-text="company.colors.primary" buttons="no" blur="submit" onaftersave="changeWhiteLabel()" class="etto-color-light">{{ company.colors.primary || 'Primary Color'}}</h1>
         </div>
         <h4 class="etto-color-secondary">Secondary Color</h4>
         <div class="etto-bgcolor-secondary etto-color-input-box">
-          <h1 editable-text="company.colors.secondary" buttons="no" blur="submit" onaftersave="changeWhiteLabel()" class="etto-color-light">{{ company.colors.secondary || 'secondary Color'}}</h1>
+          <h1 editable-text="company.colors.secondary" buttons="no" blur="submit" onaftersave="changeWhiteLabel()" class="etto-color-light">{{ company.colors.secondary || 'Secondary Color'}}</h1>
         </div>
         <h4 class="etto-color-accent">Accent</h4>
         <div class="etto-bgcolor-accent etto-color-input-box">
-          <h1 editable-text="company.colors.accent" buttons="no" blur="submit" onaftersave="changeWhiteLabel()" class="etto-color-light">{{ company.colors.accent || 'accent Color'}}</h1>
+          <h1 editable-text="company.colors.accent" buttons="no" blur="submit" onaftersave="changeWhiteLabel()" class="etto-color-light">{{ company.colors.accent || 'Accent Color'}}</h1>
         </div><br/>
         <div class="etto-bgcolor-primary etto-color-input-box etto-light-example">
           <h4 class="etto-color-light">Light</h4>
-          <h1 editable-text="company.colors.light" buttons="no" blur="submit" onaftersave="changeWhiteLabel()" class="etto-bgcolor-light etto-color-primary etto-color-input-box">{{ company.colors.light || 'accent Color'}}</h1>
+          <h1 editable-text="company.colors.light" buttons="no" blur="submit" onaftersave="changeWhiteLabel()" class="etto-bgcolor-light etto-color-primary etto-color-input-box">{{ company.colors.light || 'Accent Color'}}</h1>
         </div>
       </div>
       <div class="col-sm-6 etto-bgcolor-white etto-company-info">
