@@ -10,12 +10,15 @@
         .list-group
           .list-group-item
             .btn-group
-              button.btn.btn-success.etto-bgcolor-primary(ng-click="showOptions()")
+              button.btn.btn-success(ng-click="showOptions()")
                 i.fa.fa-plus
               button.btn.btn-default(ng-click='swapBlocks(currentBlock(), currentBlock() + 1)')
                 i.fa.fa-refresh
-              button.btn.btn-danger.etto-bgcolor-accent(ng-click='removeBlock()')
+              a.btn.btn-default(href="/course/view/{{course._id}}", target="_blank")
+                i.fa.fa-eye
+              button.btn.btn-danger(ng-click='removeBlock()')
                 i.fa.fa-minus.etto-color-light
+              
 
           .list-group-item
             p Current State: {{course.status}}
