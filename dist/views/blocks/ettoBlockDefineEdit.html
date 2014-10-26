@@ -7,7 +7,7 @@
         <h4 e-rows="3" e-cols="90" editable-textarea="block.data.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-secondary sub-head">{{ block.data.subtitle || 'an·nun·ci·a·tion'}}</h4>
       </div>
       <div class="panel-body">
-        <div e-rows="7" e-cols="40" editable-textarea="block.data.text" buttons="no" blur="submit">
+        <div e-rows="7" e-cols="40" editable-textarea="block.data.text" buttons="no" blur="submit" onaftersave="saveCourse()">
           <pre class="quote etto-color-primary">{{ block.data.text || "Definition"}}</pre>
         </div>
         <div class="pull-right">

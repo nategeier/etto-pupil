@@ -23,10 +23,11 @@ angular.module("ettoPupil")
        *
        * @param {course} newCourse The new course object to start playing.
        */
-      var play = function (newCourse) {
+      var play = function (newCourse, playBlock) {
 
         course = newCourse;
-        onBlock = 0;
+        console.log(playBlock);
+        onBlock = playBlock;
       };
 
       var unlock = function () {

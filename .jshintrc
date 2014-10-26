@@ -27,6 +27,7 @@
     "TweenMax": false,
     "d3": false,
     "EpicEditor": false,
-    "WebFont": false
+    "WebFont": false,
+    "io": false
   }
 }

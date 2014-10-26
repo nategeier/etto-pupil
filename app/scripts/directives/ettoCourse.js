@@ -48,7 +48,7 @@ angular.module("ettoPupil")
 
           // Start the course!
 
-          CoursePlayer.play($scope.course);
+          CoursePlayer.play($scope.course, 0);
 
           //--- Sets last frome "you win! to user"
           if (!$scope.editing) {
