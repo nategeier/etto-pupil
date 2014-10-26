@@ -26,15 +26,19 @@
                 <div class="col-xs-12"><img src="{{course.thumb}}" class="img-responsive course-thumb"/></div>
               </div>
               <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-12">
                   <h5 class="etto-color-primary">{{course.title}}</h5>
                   <h6 class="etto-color-secondary">{{course.subtitle}}</h6>
                 </div>
-                <div class="col-md-5">
-                  <h4 class="etto-color-primary">${{course.priceWithEmps}}</h4><small>${{course.price}}/user</small>
-                </div>
-                <div class="col-md-12">
-                  <div class="btn-group"><a etto-purchase="etto-purchase" href="#" ng-click="addToLibrary(course)" class="btn btn-primary btn-xs">Add to Tiers</a><a href="/course/demo/{{ course._id }}" class="btn btn-default btn-xs"> Demo</a></div>
+              </div>
+              <div class="etto-pricing etto-bg-color-light">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h4 class="etto-color-primary">${{course.priceWithEmps}}</h4><small>${{course.price}}/user</small>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="etto-bottom-btns">          <a etto-purchase="etto-purchase" href="#" ng-click="addToLibrary(course)" class="w100 btn btn-default btn-sm">Add</a><a href="/course/demo/{{ course._id }}" class="w100 btn btn-default btn-sm"> Demo</a></div>
+                  </div>
                 </div>
               </div>
             </div>
