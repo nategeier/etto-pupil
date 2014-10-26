@@ -31,25 +31,26 @@
       </div>
     </div>
     <div ng-class="isEditing ? 'col-sm-9 col-md-10' : 'col-sm-12'" class="etto-course-container">
-      <div class="row"></div>
-      <div class="col-md-12">
-        <etto-course edit="edit" course="course"></etto-course>
-      </div>
-      <div class="col-md-12">
-        <div class="etto-course-exit"><a href="/etto" target="_self" class="etto-course-exit"><i class="fa fa-2x fa-times-circle"></i></a></div>
-      </div>
-      <div class="col-md-12">
-        <etto-course-nav ng-if="blocksInCourse() &gt;= 1"></etto-course-nav>
-        <div ng-if="blocksInCourse() === 0">
-          <h1 class="etto-color-primary">Welcome {{company.title}} course builder</h1>
-          <hr/>
-          <div class="row">
-            <div class="col-md-6">
-              <h4 class="etto-color-primary">To create a block (slide), press the plus button to the left and choose a template. We suggest a title for the first block.</h4>
-              <p class="etto-color-primary">Keep adding blocks as you would any presentation.</p>
-            </div>
-            <div class="col-md-6">
-              <iframe style="min-height:300px; width: 100%;" width="1080" height="728" src="//www.youtube.com/embed/hc8qiJ0cjdI?showinfo=0&amp;controls=2&amp;thumbnail=high&amp;html5=1" frameborder="0" allowfullscreen="allowfullscreen" class="img-responsive etto-landing__youtube-demo img-rounded"></iframe>
+      <div class="row">
+        <div class="col-md-12">
+          <etto-course edit="edit" course="course"></etto-course>
+        </div>
+        <div class="col-md-12">
+          <div class="etto-course-exit"><a href="/etto" target="_self" class="etto-course-exit"><i class="fa fa-2x fa-times-circle"></i></a></div>
+        </div>
+        <div class="col-md-12">
+          <etto-course-nav ng-if="blocksInCourse() &gt;= 1"></etto-course-nav>
+          <div ng-if="blocksInCourse() === 0">
+            <h1 class="etto-color-primary">Welcome {{company.title}} course builder</h1>
+            <hr/>
+            <div class="row">
+              <div class="col-md-6">
+                <h4 class="etto-color-primary">To create a block (slide), press the plus button to the left and choose a template. We suggest a title for the first block.</h4>
+                <p class="etto-color-primary">Keep adding blocks as you would any presentation.</p>
+              </div>
+              <div class="col-md-6">
+                <iframe style="min-height:300px; width: 100%;" width="1080" height="728" src="//www.youtube.com/embed/hc8qiJ0cjdI?showinfo=0&amp;controls=2&amp;thumbnail=high&amp;html5=1" frameborder="0" allowfullscreen="allowfullscreen" class="img-responsive etto-landing__youtube-demo img-rounded"></iframe>
+              </div>
             </div>
           </div>
         </div>

@@ -35,21 +35,21 @@
           
     .etto-course-container(ng-class="isEditing ? 'col-sm-9 col-md-10' : 'col-sm-12'")
       .row
-      .col-md-12
-          etto-course( edit='edit',
-                     course='course')
-      .col-md-12
-        .etto-course-exit
-          a.etto-course-exit(href="/etto", target="_self")
-            i.fa.fa-2x.fa-times-circle
-      .col-md-12
-        etto-course-nav(ng-if="blocksInCourse() >= 1")
-        div(ng-if="blocksInCourse() === 0")
-          h1.etto-color-primary Welcome {{company.title}} course builder
-          hr
-          .row
-            .col-md-6
-              h4.etto-color-primary To create a block (slide), press the plus button to the left and choose a template. We suggest a title for the first block.
-              p.etto-color-primary Keep adding blocks as you would any presentation.
-            .col-md-6
-              iframe.img-responsive.etto-landing__youtube-demo.img-rounded(style="min-height:300px; width: 100%;", width="1080", height="728", src="//www.youtube.com/embed/hc8qiJ0cjdI?showinfo=0&controls=2&thumbnail=high&html5=1", frameborder="0", allowfullscreen)
+        .col-md-12
+            etto-course( edit='edit',
+                       course='course')
+        .col-md-12
+          .etto-course-exit
+            a.etto-course-exit(href="/etto", target="_self")
+              i.fa.fa-2x.fa-times-circle
+        .col-md-12
+          etto-course-nav(ng-if="blocksInCourse() >= 1")
+          div(ng-if="blocksInCourse() === 0")
+            h1.etto-color-primary Welcome {{company.title}} course builder
+            hr
+            .row
+              .col-md-6
+                h4.etto-color-primary To create a block (slide), press the plus button to the left and choose a template. We suggest a title for the first block.
+                p.etto-color-primary Keep adding blocks as you would any presentation.
+              .col-md-6
+                iframe.img-responsive.etto-landing__youtube-demo.img-rounded(style="min-height:300px; width: 100%;", width="1080", height="728", src="//www.youtube.com/embed/hc8qiJ0cjdI?showinfo=0&controls=2&thumbnail=high&html5=1", frameborder="0", allowfullscreen)
