@@ -28,6 +28,6 @@
     "d3": false,
     "EpicEditor": false,
     "WebFont": false,
-    "socket": false
+    "io": false
   }
 }

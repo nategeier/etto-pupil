@@ -1,3 +1,4 @@
+###
 describe "Service: CoursePlayer", ->
   CoursePlayer = null
   testCourse = null
@@ -114,3 +115,4 @@ describe "Service: CoursePlayer", ->
           { type: "title", data: {} },
           { type: "text", data: {} },
           { type: "quote", data: {} } ]
+###

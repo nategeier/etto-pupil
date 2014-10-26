@@ -11,7 +11,7 @@ angular.module("ettoPupil")
 
       var socket = io("https://api.coursetto.com");
 
-      socket.on('course updated: ' + $scope.course._id, function (data) {
+      socket.on("course updated: " + $scope.course._id, function (data) {
 
         console.log("EMIT UPDATE COURSE", data.title);
 
@@ -19,7 +19,7 @@ angular.module("ettoPupil")
           $scope.course = data;
           console.log("current cloc", CoursePlayer.currentBlock());
           CoursePlayer.play($scope.course, Number(CoursePlayer.currentBlock()));
-        })
+        });
       });
 
       $scope.$on("course-save", function () {
@@ -27,7 +27,7 @@ angular.module("ettoPupil")
 
         console.log("updated0000------");
 
-        socket.emit('updated course', $scope.course);
+        socket.emit("updated course", $scope.course);
 
         $scope.course.$update();
 
