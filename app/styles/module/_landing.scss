@@ -53,7 +53,7 @@
   }
 
   .reverse-bkd{
-    background-color: $etto-grey;
+    background-color: #f0f6f8;
     border-top:1px solid $etto-darkgrey;
     border-bottom:1px solid $etto-darkgrey;
     margin-bottom:20px;
@@ -73,7 +73,7 @@
 }
 
 .etto-landing__youtube-demo,
-.etto-landing img {
+.etto-landing img.drop-shadow {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.33);
 }
 

@@ -22,16 +22,18 @@ etto-verify-modal(redirect-to='/etto')
                 .col-xs-12
                   img.img-responsive.course-thumb(src="{{course.thumb}}")
               .row
-                .col-md-7
+                .col-md-12
                   h5.etto-color-primary {{course.title}}
                   h6.etto-color-secondary {{course.subtitle}}
-                .col-md-5
-                  h4.etto-color-primary ${{course.priceWithEmps}}
-                  small ${{course.price}}/user
-                .col-md-12
-                  .btn-group
-                    a.btn.btn-primary.btn-xs(etto-purchase, href="#", ng-click='addToLibrary(course)') Add to Tiers
-                    a.btn.btn-default.btn-xs(href="/course/demo/{{ course._id }}")  Demo
+              .etto-pricing.etto-bg-color-light
+                .row
+                  .col-md-6
+                    h4.etto-color-primary ${{course.priceWithEmps}}
+                    small ${{course.price}}/user
+                  .col-md-6
+                    .etto-bottom-btns           
+                      a.w100.btn.btn-default.btn-sm(etto-purchase, href="#", ng-click='addToLibrary(course)') Add
+                      a.w100.btn.btn-default.btn-sm(href="/course/demo/{{ course._id }}")  Demo
     .col-sm-3.nopad
       .panel.panel-default.etto-bgcolor-light
         .panel-heading.etto-bgcolor-accent
