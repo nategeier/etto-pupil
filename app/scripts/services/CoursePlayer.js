@@ -26,7 +26,6 @@ angular.module("ettoPupil")
       var play = function (newCourse, playBlock) {
 
         course = newCourse;
-        console.log(playBlock);
         onBlock = playBlock;
       };
 
