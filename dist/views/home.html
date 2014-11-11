@@ -15,13 +15,13 @@
           <div id="head-img" class="col-sm-12 col-md-6"><img style="width:100%;" src="{{company.leaderboard.imgUrl}}" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateMainImg()" class="img-responsive default-lg pull-right img-uploadable"/></div>
         </div>
       </div>
-      <div class="etto-courses col-sm-8">
+      <div ng-class="user.auth.canCreateCourses ? 'col-sm-8' : 'col-sm-12'" class="etto-courses">
         <div ng-show="usersCourses[0]" class="main-holder">
           <div ng-show="err" class="alert alert-danger">
             <p>{{err}}</p>
           </div>
           <div etto-color="etto-color" ng-repeat="course in usersCourses | filter:searchCourse" class="animate-repeat">
-            <div ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-lg-4' : 'col-sm-6 col-md-3 col-lg-2'" class="nopad">
+            <div ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-lg-4' : 'col-sm-6 col-md-4 col-lg-3'" class="nopad">
               <div ng-click="openCourse(course)" class="etto-course-holder etto-bgcolor-light img-rounded"><img src="{{course.thumb}}" class="img-responsive course-thumb img-rounded"/>
                 <div ng-if="course._record">
                   <div ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks &amp;&amp; course._record.progress.totalBlocks !== 1" class="etto-certificate etto-color-accent img-rounded"> 

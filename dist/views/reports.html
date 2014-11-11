@@ -50,7 +50,7 @@
                         <h4>{{tier.title}}</h4><small># {{tier.internalId}}</small>
                       </div>
                       <div class="col-md-2 pull-left">
-                        <p class="pull-left">{{tier.totalUsers}}</p><i class="fa fa-user"></i>
+                        <p class="pull-left">{{tier.totalUsers}}</p>
                       </div>
                       <div class="col-md-12">
                         <div class="progress etto-bgcolor-light">
@@ -93,6 +93,11 @@
     <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 panel panel-default nopad">
       <div class="panel-heading etto-bgcolor-light">
         <h4 class="etto-color-primary">Tier Info</h4>
+        <div ng-show="err" class="alert alert-danger alert-sm">Rejected Users, Check that they have work emails {{err}}</div>
+        <div etto-sync-bamboo="etto-sync-bamboo" ng-if="user.auth.canEditCompany" class="btn-group">
+          <button ng-click="syncBambooHR({{null}})" class="btn btn-default btn-sm">Sync BambooHR</button>
+          <button ng-click="syncBambooHR({{true}})" class="btn btn-default btn-sm"><i class="fa fa-edit"></i></button>
+        </div>
       </div>
       <div class="list-group">
         <div class="list-group-item">
