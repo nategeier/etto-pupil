@@ -1,0 +1,16 @@
+.modal-header.etto-bgcolor-primary
+  button.close( type="button" )
+  img(src="/images/logos/bamboo.png")
+.modal-body.etto-bgcolor-light
+  form(ng-submit="saveBambooKey(keys)")
+
+    .form-group.col-sm-12
+      nnp Divisions and Branches will populate with users from your company's BambooHR account. An email invite will be sent to any active employees who are not already in Coursetto.
+    .form-group.col-sm-12
+      .alert.alert-danger.alert-sm(ng-show= "err") {{err}}
+      input.form-control( type="text", ng-model="keys.bamboo.apikey", placeholder="API Key", autocomplete="on", required )
+    .form-group.col-sm-12
+      input.form-control( type="text", ng-model="keys.bamboo.subdomain", placeholder="Subdomain", required )
+    .form-group.col-sm-12.col-md-12
+      input.btn.btn-primary( type="submit", value="Sync to BambooHR")
+    .clearfix

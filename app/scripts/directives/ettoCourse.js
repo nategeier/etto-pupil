@@ -76,6 +76,9 @@ angular.module("ettoPupil")
 
           $scope.removeBlock = function (index) {
             CoursePlayer.removeBlock(CoursePlayer.currentBlock());
+            if (CoursePlayer.currentBlock() !== 0) {
+              CoursePlayer.switchToBlock(CoursePlayer.currentBlock() - 1);
+            }
             $scope.saveCourse();
           };
 

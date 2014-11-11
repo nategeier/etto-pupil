@@ -1,0 +1,22 @@
+
+<div class="modal-header etto-bgcolor-primary">
+  <button type="button" class="close"></button><img src="/images/logos/bamboo.png"/>
+</div>
+<div class="modal-body etto-bgcolor-light">
+  <form ng-submit="saveBambooKey(keys)">
+    <div class="form-group col-sm-12">
+      <nnp>Divisions and Branches will populate with users from your company's BambooHR account. An email invite will be sent to any active employees who are not already in Coursetto.</nnp>
+    </div>
+    <div class="form-group col-sm-12">
+      <div ng-show="err" class="alert alert-danger alert-sm">{{err}}</div>
+      <input type="text" ng-model="keys.bamboo.apikey" placeholder="API Key" autocomplete="on" required="required" class="form-control"/>
+    </div>
+    <div class="form-group col-sm-12">
+      <input type="text" ng-model="keys.bamboo.subdomain" placeholder="Subdomain" required="required" class="form-control"/>
+    </div>
+    <div class="form-group col-sm-12 col-md-12">
+      <input type="submit" value="Sync to BambooHR" class="btn btn-primary"/>
+    </div>
+    <div class="clearfix"></div>
+  </form>
+</div>

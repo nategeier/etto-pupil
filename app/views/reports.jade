@@ -7,6 +7,7 @@ etto-logged-in-nav
           .row
             a.col-xs-12.col-sm-5.col-md-5(href="/tier/edit/{{ currentTier._id }}")
               h2.etto-color-primary {{currentTier.title}}
+
               
             .col-xs-12.col-sm-7.col-md-7.etto-report-btns
               .row
@@ -44,7 +45,6 @@ etto-logged-in-nav
                         small # {{tier.internalId}}
                       .col-md-2.pull-left
                         p.pull-left {{tier.totalUsers}}
-                        i.fa.fa-user
                           
                       .col-md-12
                         .progress.etto-bgcolor-light
@@ -75,6 +75,12 @@ etto-logged-in-nav
     .col-xs-12.col-sm-5.col-md-4.col-lg-3.panel.panel-default.nopad
       .panel-heading.etto-bgcolor-light
         h4.etto-color-primary Tier Info
+        .alert.alert-danger.alert-sm(ng-show= "err") Rejected Users, Check that they have work emails {{err}}
+        .btn-group(etto-sync-bamboo, ng-if="user.auth.canEditCompany")
+          button.btn.btn-default.btn-sm(ng-click="syncBambooHR({{null}})") Sync BambooHR
+          button.btn.btn-default.btn-sm(ng-click="syncBambooHR({{true}})")
+            i.fa.fa-edit
+
       .list-group
         .list-group-item
           p.pull-left Overall

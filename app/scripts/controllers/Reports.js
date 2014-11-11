@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("ReportsCtrl", ["$scope", "Tiers", "$routeParams", "$location", "Users", "Record",
-    function ($scope, Tiers, $routeParams, $location, Users, Record) {
+  .controller("ReportsCtrl", ["$scope", "Tier", "Tiers", "$routeParams", "$location", "Users", "Record",
+    function ($scope, Tier, Tiers, $routeParams, $location, Users, Record) {
 
       $scope.viewChildren = function (link) {
         $location.path(link);

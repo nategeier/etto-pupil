@@ -12,11 +12,10 @@
       p {{err}}
     .row
       .col-md-9
-        h5 User will automatically be registered for this tear and will have control only over all lower tiers
+        h5 User will automatically be registered for this tiers and will have control only over all lower tiers
       .col-md-3
         .btn.btn-default.btn-sm(ng-click="addEmail()") Add Another
     .form-group
-
       div(ng-repeat="email in newUser.emails track by $index")
         input.form-control( type="email", ng-model="newUser.emails[$index]", placeholder="email" )
     .col-md-6

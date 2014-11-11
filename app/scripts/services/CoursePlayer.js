@@ -13,6 +13,7 @@ angular.module("ettoPupil")
 
     function (BlockQuiz, Record) {
       var onBlock = 0;
+      var lastEventBlock = 0;
       var locked = false;
       var course = {
         blocks: []
@@ -39,6 +40,20 @@ angular.module("ettoPupil")
 
       var isLocked = function () {
         return locked;
+      };
+
+      /**
+       * Returns the number of blocks in the active course.
+       *
+       * @return {Number}
+       */
+
+      var lastEvent = function (blocksChanged) {
+        lastEventBlock = blocksChanged;
+      };
+
+      var eventType = function () {
+        return lastEventBlock;
       };
 
       /**
@@ -84,6 +99,7 @@ angular.module("ettoPupil")
       var prevBlock = function () {
         if (onBlock > 0) {
           onBlock--;
+
         }
       };
 
@@ -93,6 +109,7 @@ angular.module("ettoPupil")
       var nextBlock = function () {
         if (!onLastBlock()) {
           onBlock++;
+
         }
       };
 
@@ -118,6 +135,8 @@ angular.module("ettoPupil")
           data: {},
         };
 
+        lastEvent(1);
+
         switch (blocktype) {
         case "quiz":
 
@@ -141,6 +160,7 @@ angular.module("ettoPupil")
        */
       var removeBlock = function (index) {
         course.blocks.splice(index, 1);
+        lastEvent(-1);
         return blocksInCourse();
       };
 
@@ -165,6 +185,8 @@ angular.module("ettoPupil")
         isLocked: isLocked,
         unlock: unlock,
         lock: lock,
+        eventType: eventType,
+        lastEvent: lastEvent,
         blocksInCourse: blocksInCourse,
         currentBlock: currentBlock,
         onLastBlock: onLastBlock,

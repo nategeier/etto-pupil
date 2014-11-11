@@ -26,6 +26,7 @@ angular.module("ettoPupil")
               console.dir(data);
             });
         },
+
         changeWhiteLabel: function (tier, callback) {
 
           $http.post(Endpoint("tier", "changeWhiteLabel"), tier)
@@ -96,6 +97,17 @@ angular.module("ettoPupil")
           $http.post(Endpoint("sessions", "invite_user"), newLevel).success(function (data) {
             callback(data);
           });
+        },
+
+        syncBambooHR: function (keys, callback) {
+          $http.post(Endpoint("tier", "syncBambooHR"), keys)
+            .success(function (data, status, headers, config) {
+              callback(null, data);
+            })
+            .error(function (data, status, headers, config) {
+              console.dir(data, null);
+              callback(data, null);
+            });
         }
       };
     }

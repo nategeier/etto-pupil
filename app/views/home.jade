@@ -13,13 +13,13 @@ etto-verify-modal(redirect-to='/etto')
           .col-sm-12.col-md-6#head-img
             img.img-responsive.default-lg.pull-right.img-uploadable(style="width:100%;", src="{{company.leaderboard.imgUrl}}", etto-asset-library-modal, ng-click='updateMainImg()')
         
-      .etto-courses.col-sm-8
+      .etto-courses(ng-class="user.auth.canCreateCourses ? 'col-sm-8' : 'col-sm-12'")
         .main-holder(ng-show="usersCourses[0]")
           .alert.alert-danger(ng-show="err")
             p {{err}}
 
           div(etto-color, class="animate-repeat", ng-repeat='course in usersCourses | filter:searchCourse')
-            .nopad(ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-lg-4' : 'col-sm-6 col-md-3 col-lg-2'")
+            .nopad(ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-lg-4' : 'col-sm-6 col-md-4 col-lg-3'")
               .etto-course-holder.etto-bgcolor-light.img-rounded(ng-click="openCourse(course)")
                 img.img-responsive.course-thumb.img-rounded(src="{{course.thumb}}")
                 div(ng-if="course._record")

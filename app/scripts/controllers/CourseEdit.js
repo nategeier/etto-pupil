@@ -16,17 +16,27 @@ angular.module("ettoPupil")
 
         $scope.$apply(function () {
           $scope.course = data;
-          CoursePlayer.play($scope.course, Number(CoursePlayer.currentBlock()));
+          var newCurrentBlock = Number(CoursePlayer.currentBlock());
+
+          if (data.blockedChanged < CoursePlayer.currentBlock()) {
+            newCurrentBlock = Number(CoursePlayer.currentBlock()) + data.eventType;
+          }
+
+          CoursePlayer.play($scope.course, newCurrentBlock);
+
         });
       });
 
       $scope.$on("course-save", function () {
         // TODO: Validate course before update
 
+        $scope.course.eventType = CoursePlayer.eventType();
+        $scope.course.blockedChanged = CoursePlayer.currentBlock();
+
         socket.emit("updated course", $scope.course);
 
         $scope.course.$update();
-
+        CoursePlayer.lastEvent(0);
         // Clear out the Toolbox
         // TODO: Understand why saving relinks Blocks
         angular.element(".etto-toolbox-blocktools").empty();

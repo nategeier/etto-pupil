@@ -79,7 +79,7 @@ angular.module("ettoPupil")
                           asset.s3 = parsedData;
 
                           asset.$save();
-                          $scope.assets.push(asset);
+                          $scope.assets.unshift(asset);
                         } else {
                           $scope.err = {
                             message: "Upload Failed"
