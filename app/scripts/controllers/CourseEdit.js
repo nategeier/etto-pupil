@@ -18,11 +18,12 @@ angular.module("ettoPupil")
           $scope.course = data;
           var newCurrentBlock = Number(CoursePlayer.currentBlock());
 
-          if (data.blockedChanged < CoursePlayer.currentBlock()) {
+          if (data.blockedChanged <= CoursePlayer.currentBlock() && CoursePlayer.currentBlock() >= 1) {
             newCurrentBlock = Number(CoursePlayer.currentBlock()) + data.eventType;
           }
 
           CoursePlayer.play($scope.course, newCurrentBlock);
+          CoursePlayer.lastEvent(0);
 
         });
       });
@@ -30,12 +31,14 @@ angular.module("ettoPupil")
       $scope.$on("course-save", function () {
         // TODO: Validate course before update
 
-        $scope.course.eventType = CoursePlayer.eventType();
-        $scope.course.blockedChanged = CoursePlayer.currentBlock();
+        var emmitedCourse = $scope.course;
 
-        socket.emit("updated course", $scope.course);
+        emmitedCourse.eventType = CoursePlayer.eventType();
+        emmitedCourse.blockedChanged = CoursePlayer.currentBlock();
+        socket.emit("updated course", emmitedCourse);
 
         $scope.course.$update();
+
         CoursePlayer.lastEvent(0);
         // Clear out the Toolbox
         // TODO: Understand why saving relinks Blocks
