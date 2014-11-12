@@ -52,8 +52,10 @@ angular.module("ettoPupil")
               } else if (results.rejected) {
                 $scope.err = results.rejected;
                 $scope.reset();
+                $scope.listUsers();
               } else {
                 $scope.reset();
+                $scope.listUsers();
               }
             });
           };

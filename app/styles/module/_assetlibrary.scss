@@ -19,6 +19,13 @@ $assetHeight: 12.5rem;
 .etto-assetlibrary {
   padding: $assetLibraryPadding;
 
+  .etto-dropzone{
+    height:70px;
+    text-align: center;
+  }
+
+
+
   .etto-assetlibrary__assetlist {
     @include clearfix;
     height: 32rem;

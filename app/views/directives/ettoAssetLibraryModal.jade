@@ -21,9 +21,8 @@
         .alert.alert-danger {{ err.message }}
 
       .form-group
-        label Upload File(s)
-        .btn.btn-primary
-          input.form-control(type="file", ng-file-select="onFileSelect($files)", multiple)
+        input.form-control.etto-dropzone(type="file", ng-file-select="onFileSelect($files)", multiple)
+          p drop files here
 
       .uploading-files(ng-repeat="file in files")
         .progress

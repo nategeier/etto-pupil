@@ -1,14 +1,16 @@
 
 .container
   .row
-
-    .col-md-12
-      .modal-header
-        button.close( type="button" )
-        h2.modal-title Register {{company.title}}
-
-      .modal-body
-        .col-sm-8.col-md-8
+    .col-md-7.col-md-offset-3.etto-loginpage
+      h2.modal-title.etto-color-primary {{company.title}}
+      p Guidebooks
+  hr
+  .row
+    .col-md-7.col-md-offset-3
+      .row
+        .col-sm-3
+          img.img-responsive(src="{{company.logo || '/images/site/logo-large.png'}}")
+        .col-sm-9
           p {{inviteUser._id}}
           .alert.alert-danger(ng-show="err")
             p {{err}}
@@ -22,10 +24,8 @@
             .form-group
               input.form-control( type="password", ng-model="newUser.password", placeholder="password", autocomplete="on", required )
             .form-group
-              input.btn.btn-primary( type="submit", value="Create" )
-        .col-sm-4.col-md-4
-          img.img-responsive(src="{{company.logo || '/images/site/logo-large.png'}}")
-        .clearfix
+              input.btn.btn-default( type="submit", value="Create" )
 
 
-  .clearfix
+
+
