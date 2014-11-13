@@ -10,10 +10,10 @@
         
           .list-group
             .list-group-item
-              .btn-group
+              .btn-group.etto-btns
                 button.btn.btn-success.btn-sm(ng-click="showOptions()")
                   i.fa.fa-plus
-                button.btn.btn-default.btn-sm(ng-click='swapBlocks(currentBlock(), currentBlock() + 1)')
+                button.btn.btn-default.btn-sm(ng-show="onLastBlock === false", ng-click="swapBlocks(currentBlock(), currentBlock() + 1)")
                   i.fa.fa-refresh
                 a.btn.btn-default.btn-sm(href="/course/view/{{course._id}}", target="_blank")
                   i.fa.fa-eye
@@ -21,9 +21,13 @@
                   i.fa.fa-minus.etto-color-light
                 
 
+            
+            .list-group-item
+              .row
+                .col-md-12
+                  etto-course-nav(ng-if="blocksInCourse() >= 1")
             .list-group-item
               p Current State: {{course.status}}
-
             .list-group-item
               img.img-responsive.default-lg.img-uploadable(src="{{course.thumb}}", etto-asset-library-modal, etto-image, ng-click='updateThumb()')
             .list-group-item
@@ -39,8 +43,7 @@
           .col-md-12          
             etto-course( edit='edit',
                        course='course')
-          .col-md-12  
-            etto-course-nav(ng-if="blocksInCourse() >= 1")
+          
 
 
         .etto-course-exit

@@ -6,11 +6,11 @@ angular.module("ettoPupil")
     function () {
       return {
         restrict: "EA",
-        controller: function ($scope, $document, $attrs, BlockQuiz) {
+        controller: function ($scope, $document, $attrs, BlockQuiz, CoursePlayer) {
 
           var evaluations = [];
-          var totalQuestions = 0;
           var scoreToPass = 0;
+          //$scope.lockedBlock = true;
 
           $scope.alphabet = BlockQuiz.alphabet;
 
@@ -35,6 +35,9 @@ angular.module("ettoPupil")
 
             } else {
               $scope.lock();
+
+              $scope.lockedBlock = true;
+
               async.map(questions, function (question) {
                 evaluations.push(false);
               });
@@ -44,9 +47,6 @@ angular.module("ettoPupil")
           $scope.scoreToPass = function (passable) {
             scoreToPass = passable;
           };
-
-          $scope.alphabet = BlockQuiz.alphabet;
-          var correctNum = 0;
 
           $scope.checkAnswer = function (answers, answer, index) {
             for (var i = 0; i < answers.length; i++) {

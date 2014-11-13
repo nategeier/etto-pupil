@@ -1,8 +1,8 @@
 
 <div class="row">
   <div class="col-sm-7 col-lg-7">
-    <h1 editable-text="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()" spellcheck="true" class="etto-color-primary">{{block.data.title || 'title'}}</h1>
-    <h3 editable-text="block.data.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()" spellcheck="true" class="etto-color-secondary">{{block.data.subtitle || 'subtitle'}}</h3>
+    <h1 e-rows="3" e-cols="90" editable-textarea="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()" spellcheck="true" class="etto-color-primary">{{block.data.title || 'title'}}</h1>
+    <h3 e-rows="3" e-cols="90" editable-textarea="block.data.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()" spellcheck="true" class="etto-color-secondary">{{block.data.subtitle || 'subtitle'}}</h3>
     <div href="#" editable-textarea="block.data.copy" e-rows="12" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()" spellcheck="true"> 
       <pre class="etto-color-dark">{{ block.data.copy || 'copy'}}</pre>
     </div>

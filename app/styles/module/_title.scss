@@ -1,6 +1,7 @@
 
 .etto-title {
 
+
   .etto-title-image {
     position: relative;
     background-color: #eee;
@@ -11,6 +12,16 @@
     display: block;
     margin: 0 auto;
   }
+
+  .etto-camera{
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    color:#fff;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding:10px;
+  }
+
 
   hr {
     display: block;

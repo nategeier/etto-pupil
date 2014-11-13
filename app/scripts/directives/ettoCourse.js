@@ -9,6 +9,7 @@ angular.module("ettoPupil")
         controller: function ($scope, $document, $attrs) {
           // Are we in edit mode?
           $scope.editing = $attrs.edit !== undefined;
+          $scope.onLastBlock = false;
 
           // Setup blocktype info
           // TODO: Should be refactored somewhere else. Service?
@@ -104,6 +105,10 @@ angular.module("ettoPupil")
             CoursePlayer.unlock();
           };
 
+          $scope.checkLocked = function () {
+            return CoursePlayer.isLocked();
+          };
+
           $scope.nextBlock = function () {
             //--- No more slides so show options to create a new slide on next button click if in editiing
             if ($scope.editing) {
@@ -111,13 +116,19 @@ angular.module("ettoPupil")
               if (CoursePlayer.currentBlock() === (CoursePlayer.blocksInCourse() - 1)) {
                 //--- If no more blocks and they press right, show block template options
                 $scope.showOptions();
+
               } else {
+                $scope.onLastBlock = false;
                 CoursePlayer.nextBlock();
                 $scope.scrollTop();
               }
+
+              $scope.onLastBlock = CoursePlayer.onLastBlock();
             } else if (!$scope.isDemo) {
               //----- View mode, update bookmark and check if locked
+
               if (CoursePlayer.isLocked() === false) {
+                $scope.locked = false;
                 CoursePlayer.nextBlock();
                 var currBlock = Number(CoursePlayer.currentBlock()) + 1;
 
@@ -135,6 +146,7 @@ angular.module("ettoPupil")
             if (CoursePlayer.isLocked() === false) {
               CoursePlayer.prevBlock();
               $scope.scrollTop();
+              $scope.onLastBlock = CoursePlayer.onLastBlock();
             }
           };
 

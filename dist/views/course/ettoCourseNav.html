@@ -1,10 +1,9 @@
 
-<div class="progress etto-course-progress etto-bgcolor-secondary">
-  <div role="progressbar" aria-valuenow="((currentBlock() + 1)/blocksInCourse()) * 100" aria-valuemin="0" aria-valuemax="100" style="width: {{((currentBlock() + 1)/blocksInCourse()) * 100}}%;" class="progress-bar etto-bgcolor-primary"></div>
-</div>
-<div class="etto-course-nav">
-  <div class="row">
-    <div class="col-xs-6 nopad"><a href="#" ng-click="prevBlock()" class="etto-course-prev-block etto-bgcolor-primary etto-color-light"><i class="fa fa-2x fa-arrow-circle-left"></i></a></div>
-    <div class="col-xs-6 nopad"><a href="#" ng-click="nextBlock()" class="etto-course-next-block etto-bgcolor-primary etto-color-light"><i class="fa fa-2x fa-arrow-circle-right"></i></a></div>
+<div class="etto-nav-positioning">
+  <div class="progress etto-course-progress etto-bgcolor-secondary">
+    <div role="progressbar" aria-valuenow="((currentBlock() + 1)/blocksInCourse()) * 100" aria-valuemin="0" aria-valuemax="100" style="width: {{((currentBlock() + 1)/blocksInCourse()) * 100}}%;" class="progress-bar etto-bgcolor-primary"></div>
+  </div>
+  <div class="etto-course-nav"><a href="#" ng-click="prevBlock()" class="etto-course-prev-block etto-bgcolor-primary etto-color-light pull-left"><i class="fa fa-2x fa-arrow-circle-left"></i></a><a href="#" ng-click="nextBlock()" class="etto-course-next-block etto-bgcolor-primary etto-color-light pull-left"><i class="fa fa-2x fa-sm fa-arrow-circle-right"></i></a>
+    <div class="clearfix"></div>
   </div>
 </div>

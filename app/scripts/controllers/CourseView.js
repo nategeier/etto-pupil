@@ -4,6 +4,9 @@ angular.module("ettoPupil")
   .controller("CourseViewCtrl", ["$scope", "$compile", "course", "Record",
     function ($scope, $compile, course, Record) {
       $scope.course = course;
+
+      $scope.lockedBlock = false;
+
       $scope.$watch("user", function () {
 
         if ($scope.user) {

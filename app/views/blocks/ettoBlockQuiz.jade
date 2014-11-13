@@ -8,10 +8,12 @@
           h3.panel-title.etto-color-primary {{$index + 1}}. {{q.question}}
         
         .list-group
-          a.list-group-item.list-group-item-success(href="#", ng-if="q.incorrect") Incorrect, please try again.
+          a.list-group-item.list-group-item-success(href="#", ng-if="q.incorrect")
+            .alert.alert-danger Incorrect, please try again.
           a.list-group-item(href="#", ng-repeat = "a in q.answers track by $index", ng-class="!a.selected ? 'not-active' : 'active'")
             div(ng-click="checkAnswer(q.answers, a, $parent.$index)")  {{alphabet[$index]}} ) {{a.answer}}
     div(ng-show="err")
+      hr
       .alert.alert-danger {{err.message}}
   .col-md-10.col-md-offset-1
     hr
