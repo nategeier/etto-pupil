@@ -15,6 +15,6 @@
             a.etto-course-exit(href="/etto", target="_self")
               i.etto-color-accent.fa.fa-2x.fa-times-circle
 
-        .col-sm-12
-          etto-course-nav
+        .col-sm-12()
+          etto-course-nav(ng-show="checkLocked() === false")
 

@@ -118,7 +118,8 @@ angular.module("ettoPupil", ["ngRoute", "ngSanitize", "ngResource", "ngAnimate",
         },
         "aws": {
           "bucket": "etto-production"
-        }
+        },
+        "socketUrl": "https://api.coursetto.com"
       };
     }
 
@@ -131,7 +132,8 @@ angular.module("ettoPupil", ["ngRoute", "ngSanitize", "ngResource", "ngAnimate",
         },
         "aws": {
           "bucket": "etto-archimedes-test"
-        }
+        },
+        "socketUrl": "http://localhost:4220"
       };
     }
 
