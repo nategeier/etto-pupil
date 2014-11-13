@@ -132,7 +132,7 @@ angular.module("ettoPupil")
 
         var newBlock = {
           type: blocktype,
-          data: {},
+          data: {}
         };
 
         lastEvent(1);
@@ -173,7 +173,7 @@ angular.module("ettoPupil")
           return false;
         }
 
-        lastEvent(null);
+        lastEvent(69);
 
         var tmp = course.blocks[a];
         course.blocks[a] = course.blocks[b];

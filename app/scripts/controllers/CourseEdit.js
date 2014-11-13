@@ -25,12 +25,12 @@ angular.module("ettoPupil")
           //--- Check the changed block is befor the editors current block, 
           //--- Change the users current block if a block was added, deleated or witched
           if (data.eventType && data.blockChanged <= CoursePlayer.currentBlock() && CoursePlayer.currentBlock() >= 1) {
-            //--- Event typye 1 = added, -1, slide deleated, null = blocks swapped
+            //--- Event typye 1 = added, -1, slide deleated, 69 = blocks swapped
             newCurrentBlock = Number(CoursePlayer.currentBlock()) + data.eventType;
           }
 
-          //--Blockes were swapped
-          if (!data.eventType) {
+          //--Blockes were swapped data.eventType === 69
+          if (data.eventType === 69) {
             if (data.blockChanged === Number(CoursePlayer.currentBlock()) - 1) {
               newCurrentBlock = Number(CoursePlayer.currentBlock()) - 1;
             }
