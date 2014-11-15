@@ -1,7 +1,9 @@
+
+
 .row.etto-title
   .etto-title-image
     img.img-responsive.title-img(src="{{ block.data.url || '/images/courses/default/title.jpg'}}")
-    .etto-camera.img-rounded.img-uploadable(etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'url', 390, 200)")
+    .etto-camera.img-rounded.img-uploadable.etto-img-shadow(etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'url', 390, 200)")
       i.fa.fa-camera.fa-3x
   .title-text
     h1(e-rows="3", e-cols="90", editable-textarea="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.title || 'title'}}

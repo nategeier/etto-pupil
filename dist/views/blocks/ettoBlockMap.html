@@ -1,0 +1,21 @@
+
+<div class="container">
+  <div class="etto-map">
+    <etto-block-map ng-init="startMap(block.data)"></etto-block-map>
+    <div class="row">
+      <div class="col-md-5">
+        <h1 class="etto color-primary">{{ block.data.title }}  </h1>
+        <p class="etto color-secondary">{{ block.data.copy }}</p>
+      </div>
+      <div class="col-md-7">
+        <leaflet bounds="bounds" center="center" markers="markers" class="etto-map-canvas etto-img-shadow"></leaflet>
+      </div>
+    </div>
+    <hr/>
+    <div class="row">
+      <div class="col-sm-12">
+        <div etto-sound="etto-sound"></div>
+      </div>
+    </div>
+  </div>
+</div>
