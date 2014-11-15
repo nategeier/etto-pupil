@@ -1,0 +1,21 @@
+
+.etto-map{
+  .etto-map-canvas{
+    height: 500px;
+    width:100%;
+    margin: 0; 
+    padding: 0;
+  }
+
+  @media(max-width: 480px) {
+    .etto-map-canvas{
+      height:300px;
+    }
+  }
+
+  .etto-map-legend{
+    padding:20px;
+    height:100%;
+    display: block;
+  }
+}

@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("ettoPupil", ["ngRoute", "ngSanitize", "ngResource", "ngAnimate", "ngTouch", "ui.bootstrap", "xeditable", "angularFileUpload", "chieffancypants.loadingBar"])
+angular.module("ettoPupil", ["ngRoute", "ngSanitize", "ngResource", "ngAnimate", "ngTouch", "ui.bootstrap", "xeditable", "angularFileUpload", "chieffancypants.loadingBar", "leaflet-directive"])
   .config(["$routeProvider", "$locationProvider", "$httpProvider",
     function ($routeProvider, $locationProvider, $httpProvider) {
       $httpProvider.defaults.withCredentials = true;

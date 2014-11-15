@@ -43,6 +43,9 @@ angular.module("ettoPupil")
           }, {
             name: "download",
             humanized: "Download",
+          }, {
+            name: "map",
+            humanized: "Map",
           }];
 
           $scope.newBlocktype = $scope.blocktypes[0];

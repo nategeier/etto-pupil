@@ -1,0 +1,23 @@
+
+<div class="container">
+  <div class="etto-map">
+    <etto-block-map ng-init="startMap(block.data)"></etto-block-map>
+    <div class="row">
+      <div class="col-md-5">
+        <h1 e-rows="3" e-cols="90" editable-textarea="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto color-primary">{{ block.data.title || 'title'}}  </h1>
+        <p editable-textarea="block.data.copy" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto color-secondary">{{ block.data.copy || 'Write something about this map'}}</p>
+        <hr/>
+        <button ng-click="addMarker()" class="btn btn-default btn-sm">Add Marker</button>
+        <button ng-click="saveCourse()" class="btn btn-default btn-sm">Save Current Map Settings</button>
+      </div>
+      <div class="col-md-7">
+        <leaflet bounds="bounds" center="center" markers="markers" class="etto-map-canvas etto-img-shadow"></leaflet>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div etto-sound-edit="etto-sound-edit"></div>
+      </div>
+    </div>
+  </div>
+</div>

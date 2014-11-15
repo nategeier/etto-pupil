@@ -20,6 +20,7 @@
   <!-- endbuild -->
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato">
   <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 </head>
 
 <body ng-app="ettoPupil">
@@ -74,6 +75,9 @@
   <script src="/bower_components/angular/angular.js"></script>
 
   <script src="https://connect.soundcloud.com/sdk.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGVbCUw6FBR_zdA4kJm60Kl_8cwljnjhU"></script>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
 
   <!-- build:js /scripts/plugins.js -->
   <script src="/bower_components/bootstrap-sass/dist/js/bootstrap.js"></script>
@@ -86,7 +90,7 @@
 
   <!-- build:js /scripts/modules.js -->
   <script src="/bower_components/socket.io-client/socket.io.js"></script>
-
+  <script src="/bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
   <script src="/bower_components/bootstrap-sass/js/tab.js"></script>
   <script src="/bower_components/angular-route/angular-route.js"></script>
   <script src="/bower_components/angular-resource/angular-resource.js"></script>
@@ -166,6 +170,7 @@
   <script src="/scripts/directives/course/ettoCourseStatus.js"></script>
   <script src="/scripts/directives/course/ettoSound.js"></script>
   <script src="/scripts/directives/course/ettoSoundEdit.js"></script>
+  <script src="/scripts/directives/course/ettoBlockMap.js"></script>
 
   <script src="/scripts/services/WhiteLabel.js"></script>
   <script src="/scripts/services/Key.js"></script>
