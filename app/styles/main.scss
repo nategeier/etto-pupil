@@ -8,6 +8,9 @@
 
 @import "base/_config";
 @import "base/_typography";
+
+@import "vendor/leaflet";
+
 //@import "legacy"
 @import "module/_navbar";
 @import "module/_header";
