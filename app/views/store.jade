@@ -1,40 +1,44 @@
 etto-logged-in-nav
 etto-verify-modal(redirect-to='/etto')
-.container-full.etto-bgcolor-secondary
+.container-full
   .row
-    .col-sm-9.nopad
-      .leaderboard.etto-bgcolor-light
-        .row
-          .col-xs-12.col-sm-6.col-md-6.col-lg-6
-            .col-xs-12
-              h4.etto-color-primary Add the right course to the right people
-              input.form-control(type='text', ng-model='searchCourse', placeholder='Search Courses')
-          .col-sm-6.col-md-6.col-lg-6#head-img.hidden-xs
-            img.img-responsive.pull-right.default-lg(src="/images/leaderboard/market/default-lg.jpg")
+    .col-sm-9
+      .row
+        .col-sm-7
+          h3.etto-color-primary Add the right course to the right people
+          p Turn off your any of you companies tiers who would not need to take the course you are about to add.
+        .col-sm-5
+          hr
+          input.form-control(type='text', ng-model='searchCourse', placeholder='Search Courses')
+          hr
+
 
       .alert.alert-danger(ng-show="err")
         p {{err}}
-      .etto-courses
-        .main-holder(class="animate-repeat", ng-repeat='course in courses | filter:searchCourse')
-          .col-sm-6.col-md-4.col-lg-3.nopad
-            .etto-course-holder.etto-bgcolor-light(ng-class="course.added ? 'closed-course' : 'open-course'")
-              .row
-                .col-xs-12
-                  img.img-responsive.course-thumb(src="{{course.thumb}}")
-              .row
-                .col-md-12
-                  h5.etto-color-primary {{course.title}}
-                  h6.etto-color-secondary {{course.subtitle}}
-              .etto-pricing.etto-bg-color-light
-                .row
-                  .col-md-6
-                    h4.etto-color-primary ${{course.priceWithEmps}}
-                    small ${{course.price}}/user
-                  .col-md-6
-                    .etto-bottom-btns           
-                      a.w100.btn.btn-default.btn-sm(etto-purchase, href="#", ng-click='addToLibrary(course)') Add
-                      a.w100.btn.btn-default.btn-sm(href="/course/demo/{{ course._id }}")  Demo
-    .col-sm-3.nopad
+
+      .etto-courses.etto-bgcolor-light
+        .row
+          .main-holder(class="animate-repeat", ng-repeat='course in courses | filter:searchCourse')
+            .col-sm-6.col-md-4.col-lg-3
+              .etto-course-holder(ng-class="course.added ? 'closed-course' : 'open-course'", style="border: 1px dashed {{company.colors.secondary}};")
+                .row.hidden-xs
+                  .col-xs-12
+                    img.img-responsive.course-thumb(src="{{course.thumb}}")
+                .row.etto-course-info
+                  .col-md-12
+                    h5.etto-color-primary {{course.title}}
+                    h6.etto-color-secondary {{course.subtitle}}
+                .etto-pricing
+                  .row
+                    .col-md-6
+                      h4.etto-color-primary ${{course.priceWithEmps}}
+                      small ${{course.price}}/user
+                    .col-md-6
+                      .etto-bottom-btns           
+                        a.w100.btn.btn-default.btn-sm(etto-purchase, href="#", ng-click='addToLibrary(course)') Add
+                        a.w100.btn.btn-default.btn-sm(href="/course/demo/{{ course._id }}")  Demo
+              hr.hidden-sm.hidden-md.hidden-lg
+    .col-sm-3.etto-pad-top
       .panel.panel-default.etto-bgcolor-light
         .panel-heading.etto-bgcolor-accent
           h3.etto-color-primary {{currentTier.title}}

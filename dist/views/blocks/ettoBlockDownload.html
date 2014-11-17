@@ -5,11 +5,13 @@
       <div class="row">
         <div class="col-md-5"><img src="{{ block.data.img || '/images/courses/default/download-block.jpg'}}" class="img-responsive"/></div>
         <div class="col-md-7">
-          <h1 spellcheck="true" class="etto-color-primary">{{block.data.title || 'Downloadable Title'}}</h1>
-          <div href="#" spellcheck="true"> 
-            <pre class="etto-color-secondary">{{ block.data.copy || 'Description of Download'}}</pre>
+          <div class="dl-txt">
+            <h1 spellcheck="true" class="etto-color-primary">{{block.data.title || 'Downloadable Title'}}</h1>
+            <div href="#" spellcheck="true"> 
+              <pre class="etto-color-secondary">{{ block.data.copy || 'Description of Download'}}</pre>
+            </div>
+            <div ng-if="!block.data.link"><a href="{{block.data.link}}" download="download" class="btn btn-default">Upload File</a></div><a ng-if="block.data.link" href="{{block.data.link}}" download="download" class="etto-bgcolor-accent etto-color-light btn btn-default">Download<i class="pull-left fa fa-cloud-download fa-2x"></i></a>
           </div>
-          <div ng-if="!block.data.link"><a href="{{block.data.link}}" download="download" class="btn btn-default">Upload File</a></div><a ng-if="block.data.link" href="{{block.data.link}}" download="download" class="etto-bgcolor-accent etto-color-light btn btn-default">Download<i class="pull-left fa fa-cloud-download fa-2x"></i></a>
         </div>
       </div>
     </div>

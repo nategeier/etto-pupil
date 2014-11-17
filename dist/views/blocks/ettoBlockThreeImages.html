@@ -1,34 +1,32 @@
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 col-lg-10 col-lg-offset-1">
-      <div class="row">
-        <div class="col-lg-12">
-          <h1 class="etto-color-primary">{{block.data.title }}</h1>
-          <h3 class="etto-color-secondary">{{block.data.subtitle }}</h3>
-        </div>
+<div class="row">
+  <div class="col-md-12 col-lg-10 col-lg-offset-1">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="etto-color-primary">{{block.data.title }}</h1>
+        <h3 class="etto-color-secondary">{{block.data.subtitle }}</h3>
       </div>
-      <hr/>
-      <div class="row">
-        <div class="col-sm-4 col-md-4 col-lg-4"><img src="{{ block.data.img1 || '/images/courses/default/image-block1.jpg'}}" class="img-responsive etto-img-shadow"/>
-          <h4 class="etto-color-primary">{{block.data.img1Head }}</h4>
-          <pre ng-bind-html="block.data.img1Copy | linky:'_blank'" class="etto-color-dark"> </pre>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4"><img src="{{ block.data.img2 || '/images/courses/default/image-block2.jpg'}}" class="img-responsive etto-img-shadow"/>
-          <h4 class="etto-color-primary">{{block.data.img2Head }}</h4>
-          <pre ng-bind-html="block.data.img2Copy | linky:'_blank'" class="etto-color-dark"> </pre>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4"><img src="{{ block.data.img3 || '/images/courses/default/image-block3.jpg'}}" class="img-responsive etto-img-shadow"/>
-          <h4 class="etto-color-primary">{{block.data.img3Head }}</h4>
-          <pre ng-bind-html="block.data.img3Copy | linky:'_blank'" class="etto-color-dark"> </pre>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <etto-sound></etto-sound>
-        </div>
-      </div>
-      <hr/>
     </div>
+    <hr/>
+    <div class="row">
+      <div class="col-sm-4 col-md-4 col-lg-4"><img src="{{ block.data.img1 || '/images/courses/default/image-block1.jpg'}}" class="img-responsive etto-img-shadow"/>
+        <h4 class="etto-color-primary">{{block.data.img1Head }}</h4>
+        <pre ng-bind-html="block.data.img1Copy | linky:'_blank'" class="etto-color-dark"> </pre>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4"><img src="{{ block.data.img2 || '/images/courses/default/image-block2.jpg'}}" class="img-responsive etto-img-shadow"/>
+        <h4 class="etto-color-primary">{{block.data.img2Head }}</h4>
+        <pre ng-bind-html="block.data.img2Copy | linky:'_blank'" class="etto-color-dark"> </pre>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4"><img src="{{ block.data.img3 || '/images/courses/default/image-block3.jpg'}}" class="img-responsive etto-img-shadow"/>
+        <h4 class="etto-color-primary">{{block.data.img3Head }}</h4>
+        <pre ng-bind-html="block.data.img3Copy | linky:'_blank'" class="etto-color-dark"> </pre>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <etto-sound></etto-sound>
+      </div>
+    </div>
+    <hr/>
   </div>
 </div>

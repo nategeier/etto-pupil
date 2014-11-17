@@ -1,20 +1,16 @@
 
 <div etto-color="etto-color" class="row slide">
-  <div class="col-md-10 col-md-offset-1">
-    <div class="panel panel-default">
-      <div class="panel-heading etto-bgcolor-light">
-        <h1 e-rows="3" e-cols="90" editable-textarea="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-primary">{{ block.data.title || 'Word'}}</h1>
-        <h4 e-rows="3" e-cols="90" editable-textarea="block.data.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-secondary sub-head">{{ block.data.subtitle || 'an·nun·ci·a·tion'}}</h4>
-      </div>
-      <div class="panel-body">
-        <div e-rows="7" e-cols="40" editable-textarea="block.data.text" buttons="no" blur="submit" onaftersave="saveCourse()">
-          <pre class="quote etto-color-primary">{{ block.data.text || "Definition"}}</pre>
-        </div>
-        <div class="pull-right">
-          <div ng-show="editing" editable-text="block.data.cite" buttons="no" blur="submit" href="block.data.cite" onaftersave="saveCourse()"><small>{{ block.data.cite || "Cite"}}</small></div>
-        </div>
-      </div>
+  <div class="panel panel-default">
+    <div class="panel-heading etto-bgcolor-light">
+      <h1 e-rows="3" e-cols="90" editable-textarea="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-primary">{{ block.data.title || 'Word'}}</h1>
+      <h4 e-rows="3" e-cols="90" editable-textarea="block.data.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-secondary sub-head">{{ block.data.subtitle || 'an·nun·ci·a·tion'}}</h4>
     </div>
-    <div etto-sound-edit="etto-sound-edit"></div>
+    <div class="panel-body">
+      <div e-rows="7" e-cols="40" editable-textarea="block.data.text" buttons="no" blur="submit" onaftersave="saveCourse()">
+        <pre class="quote etto-color-primary">{{ block.data.text || "Definition"}}</pre>
+      </div>
+      <div ng-show="editing" editable-text="block.data.cite" buttons="no" blur="submit" href="block.data.cite" onaftersave="saveCourse()"><small>{{ block.data.cite || "Cite"}}</small></div>
+    </div>
   </div>
+  <div etto-sound-edit="etto-sound-edit"></div>
 </div>

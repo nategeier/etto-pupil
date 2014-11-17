@@ -1,29 +1,27 @@
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 e-rows="3" e-cols="90" editable-textarea="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-primary">{{block.data.title || 'title'}}</h1>
-      <h4 e-rows="3" e-cols="90" editable-textarea="block.data.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-secondary">{{block.data.subtitle || 'subtitle'}}</h4>
-    </div>
+<div class="row">
+  <div class="col-lg-12">
+    <h1 e-rows="3" e-cols="90" editable-textarea="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-primary">{{block.data.title || 'title'}}</h1>
+    <h4 e-rows="3" e-cols="90" editable-textarea="block.data.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-secondary">{{block.data.subtitle || 'subtitle'}}</h4>
   </div>
-  <hr/>
-  <div class="row">
-    <div class="col-sm-4 col-md-4 col-lg-4"><img src="{{ block.data.img1 || '/images/courses/default/image-block1.jpg'}}" etto-image="etto-image" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateBlockImage(block, 'img1', 400, 300)" class="img-responsive img-uploadable etto-img-shadow"/>
-      <h4 e-rows="3" e-cols="90" editable-textarea="block.data.img1Head" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-primary">{{block.data.img1Head || 'title'}}</h4>
-      <pre e-rows="7" e-cols="40" editable-textarea="block.data.img1Copy" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-dark">{{block.data.img1Copy || 'copy'}}</pre>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4"><img src="{{ block.data.img2 || '/images/courses/default/image-block2.jpg'}}" etto-image="etto-image" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateBlockImage(block, 'img2', 400, 300)" class="img-responsive img-uploadable etto-img-shadow"/>
-      <h4 e-rows="3" e-cols="90" editable-textarea="block.data.img2Head" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-primary">{{block.data.img2Head || 'title'}}</h4>
-      <pre e-rows="7" e-cols="40" editable-textarea="block.data.img2Copy" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-dark">{{block.data.img2Copy || 'copy'}}</pre>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4"><img src="{{ block.data.img3 || '/images/courses/default/image-block3.jpg'}}" etto-image="etto-image" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateBlockImage(block, 'img3', 400, 300)" class="img-responsive img-uploadable etto-img-shadow"/>
-      <h4 e-rows="3" e-cols="90" editable-textarea="block.data.img3Head" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-primary">{{block.data.img3Head || 'title'}}</h4>
-      <pre e-rows="7" e-cols="40" editable-textarea="block.data.img3Copy" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-dark">{{block.data.img3Copy || 'copy'}}</pre>
-    </div>
+</div>
+<hr/>
+<div class="row">
+  <div class="col-sm-4 col-md-4 col-lg-4"><img src="{{ block.data.img1 || '/images/courses/default/image-block1.jpg'}}" etto-image="etto-image" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateBlockImage(block, 'img1', 400, 300)" class="img-responsive img-uploadable etto-img-shadow"/>
+    <h4 e-rows="3" e-cols="90" editable-textarea="block.data.img1Head" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-primary">{{block.data.img1Head || 'title'}}</h4>
+    <pre e-rows="7" e-cols="40" editable-textarea="block.data.img1Copy" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-dark">{{block.data.img1Copy || 'copy'}}</pre>
   </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <div etto-sound-edit="etto-sound-edit"></div>
-    </div>
+  <div class="col-sm-4 col-md-4 col-lg-4"><img src="{{ block.data.img2 || '/images/courses/default/image-block2.jpg'}}" etto-image="etto-image" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateBlockImage(block, 'img2', 400, 300)" class="img-responsive img-uploadable etto-img-shadow"/>
+    <h4 e-rows="3" e-cols="90" editable-textarea="block.data.img2Head" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-primary">{{block.data.img2Head || 'title'}}</h4>
+    <pre e-rows="7" e-cols="40" editable-textarea="block.data.img2Copy" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-dark">{{block.data.img2Copy || 'copy'}}</pre>
+  </div>
+  <div class="col-sm-4 col-md-4 col-lg-4"><img src="{{ block.data.img3 || '/images/courses/default/image-block3.jpg'}}" etto-image="etto-image" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateBlockImage(block, 'img3', 400, 300)" class="img-responsive img-uploadable etto-img-shadow"/>
+    <h4 e-rows="3" e-cols="90" editable-textarea="block.data.img3Head" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-primary">{{block.data.img3Head || 'title'}}</h4>
+    <pre e-rows="7" e-cols="40" editable-textarea="block.data.img3Copy" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-dark">{{block.data.img3Copy || 'copy'}}</pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div etto-sound-edit="etto-sound-edit"></div>
   </div>
 </div>

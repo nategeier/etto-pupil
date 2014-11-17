@@ -1,17 +1,23 @@
-.container
-  .etto-map
-    etto-block-map(ng-init="startMap(block.data)")
-    .row
-      .col-md-5
-        h1.etto.color-primary(e-rows="3", e-cols="90", editable-textarea="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.title || 'title'}}  
-        p.etto.color-secondary(editable-textarea="block.data.copy", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.copy || 'Write something about this map'}}
-        hr
-        
-        button.btn.btn-default.btn-sm(ng-click="addMarker()") Add Marker
-        button.btn.btn-default.btn-sm(ng-click="saveCourse()") Save Current Map Settings
-      .col-md-7
-        leaflet.etto-map-canvas.etto-img-shadow(bounds="bounds", center="center", markers="markers")
-    
-    .row
-      .col-sm-12
-        div(etto-sound-edit)
+
+.etto-map
+  etto-block-map(ng-init="startMap(block.data)")
+  .row
+    .col-md-5
+      h1.etto.color-primary(e-rows="3", e-cols="90", editable-textarea="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.title || 'title'}}  
+      p.etto.color-secondary(editable-textarea="block.data.copy", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.copy || 'Write something about this map'}}
+      hr
+      .btn-group
+        button.btn.btn-default.btn-sm.etto-color-primary(ng-click="addMarker()")
+          i.fa.fa-map-marker.fa-2x
+          p Plot Marker
+
+        button.btn.btn-default.btn-sm.etto-color-primary(ng-click="saveCourse()") 
+          i.fa.fa-2x.fa-floppy-o
+          p Save Map
+
+    .col-md-7
+      leaflet.etto-map-canvas.etto-img-shadow(bounds="bounds", center="center", markers="markers")
+  
+  .row
+    .col-sm-12
+      div(etto-sound-edit)

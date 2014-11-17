@@ -2,13 +2,14 @@
 h1.etto-color-primary {{block.data.title}}
 h3.etto-color-secondary {{block.data.subtitle}}
 
-.col-lg-4
-  div
-    pre.etto-color-dark(ng-bind-html="block.data.copy1 | linky:'_blank'") 
-.col-lg-4
-  div
-    pre.etto-color-dark(ng-bind-html="block.data.copy2 | linky:'_blank'") 
+.row
+  .col-lg-4
+    div
+      pre.etto-color-dark(ng-bind-html="block.data.copy1 | linky:'_blank'") 
+  .col-lg-4
+    div
+      pre.etto-color-dark(ng-bind-html="block.data.copy2 | linky:'_blank'") 
 
-.col-lg-4
-  div
-    pre.etto-color-dark(ng-bind-html="block.data.copy3 | linky:'_blank'") 
+  .col-lg-4
+    div
+      pre.etto-color-dark(ng-bind-html="block.data.copy3 | linky:'_blank'") 

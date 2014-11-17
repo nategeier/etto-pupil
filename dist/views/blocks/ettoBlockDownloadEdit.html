@@ -1,15 +1,17 @@
 
 <div class="row etto-download">
   <div class="col-md-10 col-md-offset-1">
-    <div class="dl-box etto-bgcolor-light img-rounded">
+    <div class="dl-box img-rounded">
       <div class="row">
-        <div class="col-md-5"><img src="{{ block.data.img || '/images/courses/default/download-block.jpg'}}" etto-image="etto-image" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateBlockImage(block, 'img', 400, 300)" class="img-responsive img-uploadable"/></div>
-        <div class="col-md-7">
-          <h1 editable-text="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()" spellcheck="true" class="etto-color-primary">{{block.data.title || 'title'}}</h1>
-          <div href="#" editable-textarea="block.data.copy" e-rows="12" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()" spellcheck="true"> 
-            <pre class="etto-color-secondary">{{ block.data.copy || 'copy'}}</pre>
+        <div class="col-sm-5"><img src="{{ block.data.img || '/images/courses/default/download-block.jpg'}}" etto-image="etto-image" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateBlockImage(block, 'img', 400, 300)" class="img-responsive img-uploadable"/></div>
+        <div class="col-sm-7">
+          <div class="dl-txt">
+            <h1 editable-text="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()" spellcheck="true" class="etto-color-primary">{{block.data.title || 'title'}}</h1>
+            <div href="#" editable-textarea="block.data.copy" e-rows="12" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()" spellcheck="true"> 
+              <pre class="etto-color-secondary">{{ block.data.copy || 'copy'}}</pre>
+            </div>
+            <div ng-if="!block.data.link" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateBlockImage(block, 'link', 400, 300)"><a href="{{block.data.link}}" download="download" class="etto-bgcolor-accent etto-color-light btn btn-default">Upload File</a></div><a ng-if="block.data.link" href="{{block.data.link}}" download="download" class="etto-bgcolor-accent etto-color-light btn btn-default">Download<i class="pull-left fa fa-cloud-download fa-2x"> </i></a>
           </div>
-          <div ng-if="!block.data.link" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateBlockImage(block, 'link', 400, 300)"><a href="{{block.data.link}}" download="download" class="etto-bgcolor-accent etto-color-light btn btn-default">Upload File</a></div><a ng-if="block.data.link" href="{{block.data.link}}" download="download" class="etto-bgcolor-accent etto-color-light btn btn-default">Download<i class="pull-left fa fa-cloud-download fa-2x"> </i></a>
         </div>
       </div>
     </div>
@@ -18,5 +20,6 @@
         <div etto-sound-edit="etto-sound-edit"></div>
       </div>
     </div>
+    <hr/>
   </div>
 </div>
