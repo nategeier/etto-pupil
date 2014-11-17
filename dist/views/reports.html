@@ -3,16 +3,12 @@
 <div class="container-full etto-bgcolor-secondary">
   <div class="row">
     <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
-      <div class="row">
-        <div class="report-head col-md-12">
-          <div class="row"><a href="/tier/edit/{{ currentTier._id }}" class="col-xs-12 col-sm-5 col-md-5">
-              <h2 class="etto-color-primary">{{currentTier.title}}</h2></a>
-            <div class="col-xs-12 col-sm-7 col-md-7 etto-report-btns">
-              <div class="row">
-                <div etto-add-tier="etto-add-tier" ng-click="addTier()" class="etto-bgcolor-accent etto-color-light report-btn col-xs-4">Add Tier</div>
-                <div etto-invite-user-modal="etto-invite-user-modal" ng-click="inviteUser()" class="etto-bgcolor-accent etto-color-light report-btn col-xs-4">Add Users</div><a href="/tier/edit/{{ currentTier._id }}" class="etto-bgcolor-accent etto-color-light report-btn col-xs-4">Edit Tier</a>
-              </div>
-            </div>
+      <div class="row report-head"><a href="/tier/edit/{{ currentTier._id }}" class="col-xs-12 col-sm-5 col-md-5">
+          <h2 class="etto-color-primary">{{currentTier.title}}</h2></a>
+        <div class="col-xs-12 col-sm-7 col-md-7 etto-report-btns">
+          <div class="row">
+            <div etto-add-tier="etto-add-tier" ng-click="addTier()" class="etto-bgcolor-accent etto-color-light report-btn col-xs-4">Add Tier</div>
+            <div etto-invite-user-modal="etto-invite-user-modal" ng-click="inviteUser()" class="etto-bgcolor-accent etto-color-light report-btn col-xs-4">Add Users</div><a href="/tier/edit/{{ currentTier._id }}" class="etto-bgcolor-accent etto-color-light report-btn col-xs-4">Edit Tier</a>
           </div>
         </div>
       </div>

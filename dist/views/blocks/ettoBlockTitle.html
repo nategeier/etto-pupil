@@ -1,12 +1,15 @@
 
-<div class="row etto-title"><img src="{{ block.data.url || '/images/courses/default/title.jpg'}}" class="img-responsive etto-title-image title-img"/>
+<div class="row etto-title">
+  <div class="etto-title-image"><img style="-webkit-filter: blur({{block.data.blur || 5}}px);" src="{{ block.data.url || '/images/courses/default/title.jpg'}}" class="img-responsive title-img"/></div>
   <div class="title-text">
-    <hr/>
-    <h1>{{ block.data.title}}</h1>
-    <hr/>
-    <h4>{{ block.data.subtitle }}</h4>
+    <div class="etto-main-txt">
+      <h1 class="etto-color-light">{{ block.data.title || 'Enter a title of the course or chapter'}}</h1>
+      <h4 class="etto-color-light">{{ block.data.subtitle || "And something to descibe the course a little deeper"}}</h4>
+    </div>
   </div>
 </div>
-<div class="row">
-  <div etto-sound="etto-sound"></div>
+<div class="row"> 
+  <div class="col-md-12">
+    <div etto-sound="etto-sound"></div>
+  </div>
 </div>

@@ -1,13 +1,14 @@
-.container
-  .row
-    .col-sm-7.col-lg-7
-      h1.etto-color-primary {{ block.data.title }}
-      h3.etto-color-secondary {{ block.data.subtitle }}
-      div
-        pre.etto-color-dark(ng-bind-html="block.data.copy | linky:'_blank'") 
-    .col-sm-5.col-lg-5
-      img.img-responsive.img-uploadable.etto-img-shadow(src="{{ block.data.url || '/images/courses/default/image-block.jpg' }}")
+.row
+  .col-xs-12.col-md-10.col-md-offset-1
+    .row
+      .col-sm-7.col-lg-7
+        h2.etto-color-primary {{ block.data.title }}
+        h3.etto-color-secondary {{ block.data.subtitle }}
+        div
+          pre.etto-color-dark(ng-bind-html="block.data.copy | linky:'_blank'") 
+      .col-sm-5.col-lg-5
+        img.img-responsive.img-uploadable.etto-img-shadow(src="{{ block.data.url || '/images/courses/default/image-block.jpg' }}")
 
-  .row
-    .col-sm-12
-      div(etto-sound)
+      .row
+        .col-sm-12
+          div(etto-sound)

@@ -83,11 +83,10 @@
 }
 
 .etto-course-editor{
-  padding:0;
-  position:relative;
-  height: 100%;
-  background-color: #eee;
-
+  padding-top:20px;
+  .panel{
+    margin-top: 20px;
+  }
   .etto-course-edit-btns{
     padding:5px;
     width:100%;
@@ -128,12 +127,12 @@ etto-course {
     padding-top: 0px;
     position:relative;
     display: block;
+    margin-bottom: 30px;
   }
 
   .block.ng-enter {
     -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.6s;
     transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.6s;
-
   }
 
 
@@ -152,6 +151,30 @@ etto-course {
     width: 100%;
   }
 
+  pre{
+    display:block;
+    overflow:hidden;
+  }
+
+  @media(max-width: 480px) {
+    pre{
+      font-size: 12px;
+    }
+
+    h1{
+      font-size: 25px;
+    }
+
+    h2{
+      font-size: 21px;
+    }
+
+    h3{
+      font-size: 18px;
+    }
+
+
+  }
 
   
   blockquote {

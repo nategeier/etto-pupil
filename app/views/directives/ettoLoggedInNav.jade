@@ -38,13 +38,13 @@ nav.navbar.navbar-default( role="navigation", etto-session, etto-update-company)
           ul(class="dropdown-menu", role="menu", aria-labelledby="dLabel")
             li
               a( href="/settings/{{user._id}}" ) Settings
-            li
+            li(ng-show="user.auth.canEditCompany")
               a( href="/company/{{user._tier._company}}" ) Company
-            li
+            li(ng-show="user.auth.canEditCompany")
               a( href="/subscription/{{user._id}}", ng-show= "user.auth.canPurchase") Subscriptions
-            li
+            li(ng-show="user.auth.canEditCompany")
               a( href="/payments/{{user._id}}", ng-show= "user.auth.canPurchase") Payments
-            li
+            li(ng-show="user.auth.canEditCompany")
               a( href="/assets" ) Asset Library
             li
               a( href="#", ng-click="destroySession('/')" ) Logout

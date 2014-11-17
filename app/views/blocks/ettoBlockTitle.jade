@@ -1,13 +1,15 @@
+
+
 .row.etto-title
-  
-  img.img-responsive.etto-title-image.title-img(src="{{ block.data.url || '/images/courses/default/title.jpg'}}")
+  .etto-title-image
+    img.img-responsive.title-img(style="-webkit-filter: blur({{block.data.blur || 5}}px);", src="{{ block.data.url || '/images/courses/default/title.jpg'}}")
+    
   .title-text
-    hr
-    h1 {{ block.data.title}}
-    hr
-    h4 {{ block.data.subtitle }}
-.row
-  div(etto-sound)
+    .etto-main-txt
+      h1.etto-color-light {{ block.data.title || 'Enter a title of the course or chapter'}}
+      h4.etto-color-light {{ block.data.subtitle || "And something to descibe the course a little deeper"}}
 
 
-
+.row  
+  .col-md-12
+    div(etto-sound)

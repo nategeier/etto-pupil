@@ -7,19 +7,31 @@
  */
 .etto-course-holder:hover {
   background-color: #ffffff;
-  border:4px solid rgba(255, 255, 255, 0.6);
 }
 
 
+.etto-courses{
+  padding-top:20px;
+}
 
+.etto-nav-view{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  z-index: 100;
+}
 
 .etto-course-holder{
 
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.23);
+
+  background-color:#ffffff;
+  padding:6px;
   position: relative;
   color: $etto-darkblue;
 
   cursor: pointer;
-  border:4px solid rgba(255, 255, 255, 0.3);
 
     /* Firefox 4, Safari 5, Opera 10, IE 9 */
         
@@ -29,17 +41,26 @@
   
 
 
-  padding:5px;
+  
   margin-bottom: 10px;
   margin-left: 10px;
   min-height: 390px;
 
+  @media(max-width: 480px) {
+    min-height: 20px;
+  }
+
+  .etto-course-info{
+    min-height: 150px;
+    padding:5px;
+  }
+
+
+
   .etto-pricing{
     background-color: #f0f6f8;
-    position:absolute;
     bottom: 5px;
-    width: 95%;
-    padding:5px;
+    padding:8px;
 
   }
 
@@ -47,7 +68,7 @@
   .course-thumb{
     max-height: 150px;
     background-color: $etto-darkblue;
-    width: 100%;
+    width:100%;
   }
 
   .edit-btn{

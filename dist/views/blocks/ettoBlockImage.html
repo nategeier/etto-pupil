@@ -1,18 +1,20 @@
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-7 col-lg-7">
-      <h1 class="etto-color-primary">{{ block.data.title }}</h1>
-      <h3 class="etto-color-secondary">{{ block.data.subtitle }}</h3>
-      <div>
-        <pre ng-bind-html="block.data.copy | linky:'_blank'" class="etto-color-dark"> </pre>
+<div class="row">
+  <div class="col-xs-12 col-md-10 col-md-offset-1">
+    <div class="row">
+      <div class="col-sm-7 col-lg-7">
+        <h2 class="etto-color-primary">{{ block.data.title }}</h2>
+        <h3 class="etto-color-secondary">{{ block.data.subtitle }}</h3>
+        <div>
+          <pre ng-bind-html="block.data.copy | linky:'_blank'" class="etto-color-dark"> </pre>
+        </div>
       </div>
-    </div>
-    <div class="col-sm-5 col-lg-5"><img src="{{ block.data.url || '/images/courses/default/image-block.jpg' }}" class="img-responsive img-uploadable etto-img-shadow"/></div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <div etto-sound="etto-sound"></div>
+      <div class="col-sm-5 col-lg-5"><img src="{{ block.data.url || '/images/courses/default/image-block.jpg' }}" class="img-responsive img-uploadable etto-img-shadow"/></div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div etto-sound="etto-sound"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
