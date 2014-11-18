@@ -6,6 +6,8 @@
       h1.etto.color-primary(e-rows="3", e-cols="90", editable-textarea="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.title || 'title'}}  
       p.etto.color-secondary(editable-textarea="block.data.copy", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.copy || 'Write something about this map'}}
       hr
+      input.form-control(type="text", ng-autocomplete, ng-model="something", ng-autocomplete, options="options", details="details")
+      hr
       .btn-group
         button.btn.btn-default.btn-sm.etto-color-primary(ng-click="addMarker()")
           i.fa.fa-map-marker.fa-2x
@@ -14,6 +16,8 @@
         button.btn.btn-default.btn-sm.etto-color-primary(ng-click="saveCourse()") 
           i.fa.fa-2x.fa-floppy-o
           p Save Map
+
+      
 
     .col-md-7
       leaflet.etto-map-canvas.etto-img-shadow(bounds="bounds", center="center", markers="markers")

@@ -6,6 +6,8 @@
       <h1 e-rows="3" e-cols="90" editable-textarea="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto color-primary">{{ block.data.title || 'title'}}  </h1>
       <p editable-textarea="block.data.copy" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto color-secondary">{{ block.data.copy || 'Write something about this map'}}</p>
       <hr/>
+      <input type="text" ng-autocomplete="ng-autocomplete" ng-model="something" options="options" details="details" class="form-control"/>
+      <hr/>
       <div class="btn-group">
         <button ng-click="addMarker()" class="btn btn-default btn-sm etto-color-primary"><i class="fa fa-map-marker fa-2x"></i>
           <p>Plot Marker</p>
