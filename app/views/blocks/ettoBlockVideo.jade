@@ -1,5 +1,7 @@
+.etto-dark-screen.etto-bgcolor-secondary
 
-.container.etto-video
-  .col-md-12.col-lg-10.col-lg-offset-1
-    etto-youtube(ng-show="block.data.youtube", code="{{ block.data.youtube }}" )
-    etto-vimeo(ng-show="block.data.vimeo", vimeo="{{ block.data.vimeo }}" )
+.row
+  .col-xs-12.col-md-10.col-md-offset-1.col-lg-8.col-lg-offset-2
+    .etto-video
+      etto-youtube(ng-show="block.data.youtube", code="{{ block.data.youtube }}" )
+      etto-vimeo(ng-show="block.data.vimeo", vimeo="{{ block.data.vimeo }}" )

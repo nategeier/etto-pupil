@@ -3,7 +3,7 @@
     .dl-box.img-rounded
       .row
         .col-sm-5
-          img.img-responsive.img-uploadable(src="{{ block.data.img || '/images/courses/default/download-block.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'img', 400, 300)")
+          img.img-responsive.img-uploadable(sink-in, src="{{ block.data.img || '/images/courses/default/download-block.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'img', 400, 300)")
           
         .col-sm-7
           .dl-txt

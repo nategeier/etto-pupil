@@ -6,7 +6,7 @@
       div(href="#", editable-textarea="block.data.copy", e-rows="12", e-cols="40", buttons="no", blur="submit", onaftersave="saveCourse()", spellcheck="true") 
         pre.etto-color-dark {{ block.data.copy || 'copy'}}
     .col-sm-6
-      img.img-responsive.img-uploadable.etto-img-shadow(src="{{ block.data.url || '/images/courses/default/image-block.jpg' }}", etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'url', 400, 300)")
+      img.img-responsive.img-uploadable.etto-img-shadow(sink-in, src="{{ block.data.url || '/images/courses/default/image-block.jpg' }}", etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'url', 400, 300)")
   hr
   .row
     .col-sm-12

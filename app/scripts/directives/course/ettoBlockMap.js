@@ -57,7 +57,6 @@ angular.module("ettoPupil")
           };
 
           $scope.addMarker = function () {
-
             $scope.markers.marker = {
               lat: $scope.center.lat,
               lng: $scope.center.lng,
@@ -65,6 +64,14 @@ angular.module("ettoPupil")
               draggable: true
             };
           };
+
+          $scope.$watch("details.geometry", function () {
+            if ($scope.details) {
+              $scope.center.lat = $scope.details.geometry.location.k;
+              $scope.center.lng = $scope.details.geometry.location.B;
+              $scope.addMarker();
+            }
+          });
 
           $scope.$watch("bounds", function () {
             editedBlock.bounds = [

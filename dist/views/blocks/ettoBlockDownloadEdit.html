@@ -3,7 +3,7 @@
   <div class="col-md-10 col-md-offset-1">
     <div class="dl-box img-rounded">
       <div class="row">
-        <div class="col-sm-5"><img src="{{ block.data.img || '/images/courses/default/download-block.jpg'}}" etto-image="etto-image" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateBlockImage(block, 'img', 400, 300)" class="img-responsive img-uploadable"/></div>
+        <div class="col-sm-5"><img sink-in="sink-in" src="{{ block.data.img || '/images/courses/default/download-block.jpg'}}" etto-image="etto-image" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateBlockImage(block, 'img', 400, 300)" class="img-responsive img-uploadable"/></div>
         <div class="col-sm-7">
           <div class="dl-txt">
             <h1 editable-text="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()" spellcheck="true" class="etto-color-primary">{{block.data.title || 'title'}}</h1>

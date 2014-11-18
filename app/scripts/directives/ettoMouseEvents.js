@@ -33,48 +33,20 @@ angular.module("ettoPupil")
 
         link: function postLink(scope, element, attrs) {
 
-          var tranTime = 0.3;
-
-          element.bind("mousedown", function () {
-            TweenMax.to(element, tranTime, {
-              backgroundColor: "#386b86"
-            });
-          });
-
-          element.bind("mouseup", function () {
-            TweenMax.to(element, tranTime, {
-              backgroundColor: "none"
-            });
-          });
+          var tranTime = 0.2;
 
           element.bind("mouseover", function () {
             TweenMax.to(element, tranTime, {
-              backgroundColor: "#889ba4",
-              color: "#fff"
-            });
-
-            TweenMax.to(element.find("h5"), tranTime, {
-              color: "#fff"
-            });
-
-            TweenMax.to(element.find("h4"), tranTime, {
-              color: "#fff"
+              scaleX: 0.95,
+              scaleY: 0.95
             });
 
           });
 
           element.bind("mouseout", function () {
             TweenMax.to(element, tranTime, {
-              backgroundColor: "#fff",
-              color: "#889ba4"
-            });
-
-            TweenMax.to(element.find("h5"), tranTime, {
-              color: "#889ba4"
-            });
-
-            TweenMax.to(element.find("h4"), tranTime, {
-              color: "#889ba4"
+              scaleX: 1,
+              scaleY: 1
             });
 
           });

@@ -1,7 +1,10 @@
 
-<div class="container etto-video">
-  <div class="col-md-12 col-lg-10 col-lg-offset-1">
-    <etto-youtube ng-show="block.data.youtube" code="{{ block.data.youtube }}"></etto-youtube>
-    <etto-vimeo ng-show="block.data.vimeo" vimeo="{{ block.data.vimeo }}"></etto-vimeo>
+<div class="etto-dark-screen etto-bgcolor-secondary"></div>
+<div class="row">
+  <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+    <div class="etto-video">
+      <etto-youtube ng-show="block.data.youtube" code="{{ block.data.youtube }}"></etto-youtube>
+      <etto-vimeo ng-show="block.data.vimeo" vimeo="{{ block.data.vimeo }}"></etto-vimeo>
+    </div>
   </div>
 </div>
