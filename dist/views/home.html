@@ -3,11 +3,13 @@
 <etto-verify-modal redirect-to="/etto"></etto-verify-modal>
 <div class="container-full">
   <div etto-update-company="etto-update-company" class="row">
-    <div class="col-sm-12 col-md-6 hidden-sm hidden-xs">
+    <div class="col-sm-12 col-md-5 hidden-sm hidden-xs">
       <h3 id="title" editable-textarea="company.leaderboard.title" buttons="no" blur="submit" onaftersave="updateLeaderboard()" class="etto-color-primary">{{company.leaderboard.title}}</h3>
       <h4 id="subtite" editable-textarea="company.leaderboard.subtitle" buttons="no" blur="submit" onaftersave="updateLeaderboard()" class="etto-color-secondary">{{company.leaderboard.subtitle}}</h4>
     </div>
-    <div class="col-sm-12 col-md-6"><img src="{{company.leaderboard.imgUrl}}" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateMainImg()" class="img-responsive img-uploadable etto-head-img"/></div>
+    <div class="col-sm-12 col-md-7">
+      <div style="background-image: url('{{company.leaderboard.imgUrl}}');" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateMainImg()" class="main-img-container img-uploadable"></div>
+    </div>
   </div>
   <div class="row etto-bgcolor-light">
     <div ng-class="user.auth.canCreateCourses ? 'col-sm-8' : 'col-sm-12'" class="etto-courses">

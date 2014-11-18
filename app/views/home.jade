@@ -3,11 +3,11 @@ etto-logged-in-nav
 etto-verify-modal(redirect-to='/etto')
 .container-full
   .row(etto-update-company)
-    .col-sm-12.col-md-6.hidden-sm.hidden-xs
+    .col-sm-12.col-md-5.hidden-sm.hidden-xs
       h3.etto-color-primary#title(editable-textarea="company.leaderboard.title", buttons="no", blur="submit", onaftersave="updateLeaderboard()") {{company.leaderboard.title}}
       h4.etto-color-secondary#subtite(editable-textarea="company.leaderboard.subtitle", buttons="no", blur="submit", onaftersave="updateLeaderboard()") {{company.leaderboard.subtitle}}
-    .col-sm-12.col-md-6
-      img.img-responsive.img-uploadable.etto-head-img(src="{{company.leaderboard.imgUrl}}", etto-asset-library-modal, ng-click='updateMainImg()')
+    .col-sm-12.col-md-7
+      .main-img-container.img-uploadable(style="background-image: url('{{company.leaderboard.imgUrl}}');", etto-asset-library-modal, ng-click='updateMainImg()')
 
   .row.etto-bgcolor-light
     .etto-courses(ng-class="user.auth.canCreateCourses ? 'col-sm-8' : 'col-sm-12'")
