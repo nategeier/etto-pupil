@@ -23,7 +23,7 @@ etto-verify-modal(redirect-to='/etto')
               .etto-course-holder(ng-class="course.added ? 'closed-course' : 'open-course'")
                 .row.hidden-xs
                   .col-xs-12
-                    img.img-responsive.course-thumb(src="{{course.thumb}}")
+                    .course-holder-img(style="background-image: url('{{course.thumb}}');")
                 .etto-padding.etto-course-info
                   h5.etto-color-primary {{course.title}}
                   h6.etto-color-secondary {{course.subtitle}}

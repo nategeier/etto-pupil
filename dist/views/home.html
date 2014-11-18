@@ -17,7 +17,8 @@
         </div>
         <div etto-color="etto-color" ng-repeat="course in usersCourses | filter:searchCourse" class="animate-repeat">
           <div ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-lg-4' : 'col-sm-6 col-md-4 col-lg-3'">
-            <div sink-in="sink-in" ng-click="openCourse(course)" class="etto-course-holder"><img src="{{course.thumb}}" class="img-responsive course-thumb hidden-xs"/>
+            <div sink-in="sink-in" ng-click="openCourse(course)" class="etto-course-holder">
+              <div style="background-image: url('{{course.thumb}}');" class="course-holder-img"></div>
               <div ng-if="course._record">
                 <div ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks &amp;&amp; course._record.progress.totalBlocks !== 1" class="etto-certificate etto-color-accent img-rounded etto-shadow-img"> 
                   <div etto-certificate="etto-certificate"></div>
