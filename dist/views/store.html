@@ -19,18 +19,16 @@
         <p>{{err}}</p>
       </div>
       <div class="etto-courses etto-bgcolor-light">
-        <div class="row">
+        <div class="row etto-padding">
           <div ng-repeat="course in courses | filter:searchCourse" class="main-holder animate-repeat">
             <div class="col-sm-6 col-md-4 col-lg-3">
-              <div ng-class="course.added ? 'closed-course' : 'open-course'" style="border: 1px dashed {{company.colors.secondary}};" class="etto-course-holder">
+              <div ng-class="course.added ? 'closed-course' : 'open-course'" class="etto-course-holder">
                 <div class="row hidden-xs">
                   <div class="col-xs-12"><img src="{{course.thumb}}" class="img-responsive course-thumb"/></div>
                 </div>
-                <div class="row etto-course-info">
-                  <div class="col-md-12">
-                    <h5 class="etto-color-primary">{{course.title}}</h5>
-                    <h6 class="etto-color-secondary">{{course.subtitle}}</h6>
-                  </div>
+                <div class="etto-padding etto-course-info">
+                  <h5 class="etto-color-primary">{{course.title}}</h5>
+                  <h6 class="etto-color-secondary">{{course.subtitle}}</h6>
                 </div>
                 <div class="etto-pricing">
                   <div class="row">

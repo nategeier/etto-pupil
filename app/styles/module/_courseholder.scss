@@ -22,12 +22,19 @@
   z-index: 100;
 }
 
+
+@media(min-width: 480px) {
+  .etto-course-holder{
+    margin-bottom: 0px;
+  }
+}
+
 .etto-course-holder{
 
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.23);
 
   background-color:#ffffff;
-  padding:6px;
+  
   position: relative;
   color: $etto-darkblue;
 
@@ -42,26 +49,25 @@
 
 
   
-  margin-bottom: 10px;
-  margin-left: 10px;
+
+  padding:0px;
   min-height: 390px;
+  margin-bottom: 20px;
 
   @media(max-width: 480px) {
     min-height: 20px;
   }
 
   .etto-course-info{
-    min-height: 150px;
-    padding:5px;
+    min-height: 160px;
+    padding-left:5px;
   }
 
 
 
   .etto-pricing{
-    background-color: #f0f6f8;
-    bottom: 5px;
+    background-color: #eeeeee;
     padding:8px;
-
   }
 
 

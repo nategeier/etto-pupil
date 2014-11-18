@@ -10,21 +10,21 @@
 
     .row
       .col-md-6
-        img.img-responsive.img-uploadable(src="{{ block.data.img1 || '/images/courses/default/image-block1.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'img1', 400, 300)")
+        img.img-responsive.img-uploadable(sink-in, src="{{ block.data.img1 || '/images/courses/default/image-block1.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'img1', 400, 300)")
         h4.etto-color-primary(e-rows="3", e-cols="90", editable-textarea="block.data.img1Head", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.img1Head || 'title'}}
         pre.etto-color-dark(e-rows="3", e-cols="90", editable-textarea="block.data.img1Copy", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.img1Copy || 'copy'}}
       .col-md-6
-        img.img-responsive.img-uploadable(src="{{ block.data.img2 || '/images/courses/default/image-block2.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'img2', 400, 300)")
+        img.img-responsive.img-uploadable(sink-in, src="{{ block.data.img2 || '/images/courses/default/image-block2.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'img2', 400, 300)")
         h4.etto-color-primary(e-rows="3", e-cols="90", editable-textarea="block.data.img2Head", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.img2Head || 'title'}}
         pre.etto-color-dark(e-rows="3", e-cols="90", editable-textarea="block.data.img2Copy", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.img2Copy || 'copy'}}
 
     .row
       .col-md-6
-        img.img-responsive.img-uploadable(src="{{ block.data.img3 || '/images/courses/default/image-block2.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'img3', 400, 300)")
+        img.img-responsive.img-uploadable(sink-in, src="{{ block.data.img3 || '/images/courses/default/image-block2.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'img3', 400, 300)")
         h4.etto-color-primary(e-rows="3", e-cols="90", editable-textarea="block.data.img3Head", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.img3Head || 'title'}}
         pre.etto-color-dark(editable-textarea="block.data.img3Copy", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.img3Copy || 'copy'}}
       .col-md-6
-        img.img-responsive.img-uploadable(src="{{ block.data.img4 || '/images/courses/default/image-block3.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'img4', 400, 300)")
+        img.img-responsive.img-uploadable(sink-in, src="{{ block.data.img4 || '/images/courses/default/image-block3.jpg'}}", etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'img4', 400, 300)")
         h4.etto-color-primary(e-rows="3", e-cols="90", editable-textarea="block.data.img4Head", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.img4Head || 'title'}}
         pre.etto-color-dark(e-rows="3", e-cols="90", editable-textarea="block.data.img4Copy", buttons="no", blur="submit", onaftersave="saveCourse()") {{block.data.img4Copy || 'copy'}}
     .row

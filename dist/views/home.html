@@ -17,23 +17,21 @@
         </div>
         <div etto-color="etto-color" ng-repeat="course in usersCourses | filter:searchCourse" class="animate-repeat">
           <div ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-lg-4' : 'col-sm-6 col-md-4 col-lg-3'">
-            <div ng-click="openCourse(course)" style="border: 1px dashed {{company.colors.secondary}};" class="etto-course-holder"><img src="{{course.thumb}}" class="img-responsive course-thumb hidden-xs"/>
+            <div sink-in="sink-in" ng-click="openCourse(course)" class="etto-course-holder"><img src="{{course.thumb}}" class="img-responsive course-thumb hidden-xs"/>
               <div ng-if="course._record">
                 <div ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks &amp;&amp; course._record.progress.totalBlocks !== 1" class="etto-certificate etto-color-accent img-rounded etto-shadow-img"> 
                   <div etto-certificate="etto-certificate"></div>
                 </div>
               </div>
-              <div class="row etto-course-info">
-                <div class="col-xs-12">
-                  <h4 class="etto-color-primary">{{course.title}}</h4>
-                  <p class="etto-color-secondary">{{course.subtitle}}</p>
+              <div class="etto-padding">
+                <h4 class="etto-color-primary">{{course.title}}</h4>
+                <div ng-show="!course._record" class="progress etto-bgcolor-light">
+                  <div role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 1%;" class="progress-bar etto-bgcolor-accent"></div>
                 </div>
-              </div>
-              <div ng-show="!course._record" class="progress etto-bgcolor-light">
-                <div role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 1%;" class="progress-bar etto-bgcolor-accent"></div>
-              </div>
-              <div ng-show="course._record" class="progress etto-bgcolor-light">
-                <div ng-show="course._record.progress.totalBlocks &gt; 1" role="progressbar" aria-valuenow="{{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}%;" class="progress-bar etto-bgcolor-accent"></div>
+                <div ng-show="course._record" class="progress etto-bgcolor-light">
+                  <div ng-show="course._record.progress.totalBlocks &gt; 1" role="progressbar" aria-valuenow="{{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}%;" class="progress-bar etto-bgcolor-accent"></div>
+                </div>
+                <p class="etto-color-secondary">{{course.subtitle}}</p>
               </div>
             </div>
           </div>
