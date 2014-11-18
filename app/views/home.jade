@@ -3,11 +3,11 @@ etto-logged-in-nav
 etto-verify-modal(redirect-to='/etto')
 .container-full
   .row(etto-update-company)
-    .col-sm-12.col-md-6.hidden-sm.hidden-xs
+    .col-sm-12.col-md-5.hidden-sm.hidden-xs
       h3.etto-color-primary#title(editable-textarea="company.leaderboard.title", buttons="no", blur="submit", onaftersave="updateLeaderboard()") {{company.leaderboard.title}}
       h4.etto-color-secondary#subtite(editable-textarea="company.leaderboard.subtitle", buttons="no", blur="submit", onaftersave="updateLeaderboard()") {{company.leaderboard.subtitle}}
-    .col-sm-12.col-md-6
-      img.img-responsive.img-uploadable.etto-head-img(src="{{company.leaderboard.imgUrl}}", etto-asset-library-modal, ng-click='updateMainImg()')
+    .col-sm-12.col-md-7
+      .main-img-container.img-uploadable(style="background-image: url('{{company.leaderboard.imgUrl}}');", etto-asset-library-modal, ng-click='updateMainImg()')
 
   .row.etto-bgcolor-light
     .etto-courses(ng-class="user.auth.canCreateCourses ? 'col-sm-8' : 'col-sm-12'")
@@ -18,7 +18,7 @@ etto-verify-modal(redirect-to='/etto')
         div(etto-color, class="animate-repeat", ng-repeat='course in usersCourses | filter:searchCourse')
           div(ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-lg-4' : 'col-sm-6 col-md-4 col-lg-3'")
             .etto-course-holder(sink-in, ng-click="openCourse(course)")
-              img.img-responsive.course-thumb.hidden-xs(src="{{course.thumb}}")
+              .course-holder-img(style="background-image: url('{{course.thumb}}');")
               div(ng-if="course._record")
                 div.etto-certificate.etto-color-accent.img-rounded.etto-shadow-img(ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks && course._record.progress.totalBlocks !== 1") 
                   div(etto-certificate)

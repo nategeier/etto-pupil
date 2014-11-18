@@ -24,7 +24,9 @@
             <div class="col-sm-6 col-md-4 col-lg-3">
               <div ng-class="course.added ? 'closed-course' : 'open-course'" class="etto-course-holder">
                 <div class="row hidden-xs">
-                  <div class="col-xs-12"><img src="{{course.thumb}}" class="img-responsive course-thumb"/></div>
+                  <div class="col-xs-12">
+                    <div style="background-image: url('{{course.thumb}}');" class="course-holder-img"></div>
+                  </div>
                 </div>
                 <div class="etto-padding etto-course-info">
                   <h5 class="etto-color-primary">{{course.title}}</h5>
