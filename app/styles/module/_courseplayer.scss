@@ -31,12 +31,14 @@
     background-color: $etto-white-rgba;
     color: $etto-greyblue;
     padding:4px;
+    padding-bottom: 0px;
     text-align: center;
   }
 
   .etto-course-exit:hover {
     background-color: #fff;
     color: $etto-mildblue;
+    cursor: pointer;
   }
 }
 
@@ -68,10 +70,6 @@
       opacity: 0.85;
     }
 
-    .etto-course-prev-block {
-
-    }
-
   }
 }
 
@@ -84,6 +82,7 @@
 
 .etto-course-editor{
   padding-top:20px;
+
   .panel{
     margin-top: 20px;
   }
@@ -118,8 +117,8 @@
 // Temporary base styling
 // -------------------------
 .etto-course-container {
-  background: #fff;
-  padding:40px;
+  background-color: #fff;
+
 }
 
 etto-course {

@@ -1,6 +1,11 @@
 .etto-composed-course {
   position: relative;
+  margin-top: 1px;
+  background-color: #ffffff;
 
+  h4{
+    color: #ffffff;
+  }
 
   .delete-course{
     position: absolute;
@@ -18,7 +23,6 @@
 
   .etto-course-box:hover{
     cursor: pointer;
-    background-color:#eee;
   }
 }
 

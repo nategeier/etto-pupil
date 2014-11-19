@@ -3,10 +3,10 @@ etto-logged-in-nav
 etto-verify-modal(redirect-to='/etto')
 .container-full
   .row(etto-update-company)
-    .col-sm-12.col-md-5.hidden-sm.hidden-xs
+    .col-sm-12.col-md-6.hidden-sm.hidden-xs
       h3.etto-color-primary#title(editable-textarea="company.leaderboard.title", buttons="no", blur="submit", onaftersave="updateLeaderboard()") {{company.leaderboard.title}}
       h4.etto-color-secondary#subtite(editable-textarea="company.leaderboard.subtitle", buttons="no", blur="submit", onaftersave="updateLeaderboard()") {{company.leaderboard.subtitle}}
-    .col-sm-12.col-md-7
+    .col-sm-12.col-md-6
       .main-img-container.img-uploadable(style="background-image: url('{{company.leaderboard.imgUrl}}');", etto-asset-library-modal, ng-click='updateMainImg()')
 
   .row.etto-bgcolor-light
@@ -35,22 +35,21 @@ etto-verify-modal(redirect-to='/etto')
         .panel.etto-bgcolor-light
           .panel-heading.etto-bgcolor-secondary
              h4.modal-title.etto-color-primary Composed Courses
-             br
              input.form-control(type='text', ng-model='searchComposedCourse', placeholder='Search Courses')
           .list-group
             div(ng-if="!createdCourses[0]")
               .list-group-item.etto-bgcolor-lightgrey.etto-bgcolor-light-hover(etto-add-course, ng-click='addCourse()')
-                h4.etto-color-accent Create a Course!
-            div(etto-color, ng-repeat='course in createdCourses | filter:searchComposedCourse')
-              .etto-composed-course.list-group-item
+                h4 Create a Course!
+            div(sink-in, etto-color, ng-repeat='course in createdCourses | filter:searchComposedCourse')
+              .etto-composed-course
                 .etto-course-box
                   a(href="/course/edit/{{ course._id }}")
                     .row
-                      .col-xs-5.col-sm-5
-                        img.img-responsive.user-course-thumb.img-rounded(src="{{course.thumb}}")
-                      .col-xs-7.col-sm-7
+                      .col-xs-5.col-sm-5.col-md-4
+                        .etto-side-thumb(style="background-image: url('{{course.thumb}}');")
+                      .col-xs-7.col-sm-7.col-md-8
                         h5.etto-color-primary {{course.title}}
-                  button.close.aria-hidden.pull-right.delete-course(etto-remove-course, type="button", ng-click='removeCourse(course._id, course.title)')
-                    i.fa.fa-trash-o.etto-color-secondary
+                  button.close.aria-hidden.pull-right.delete-course(etto-remove-course, type="button", ng-click='removeCourse(course._id, course.title)') &times;
+
 
 
