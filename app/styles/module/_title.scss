@@ -44,8 +44,20 @@
   .title-text {
     position: absolute;
     top: 15%;
-    left: 15px;
     width:100%;
+  }
+
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px) {
+    h1 {
+      font-size: 14pt;
+    }
+
+    h4 {
+      font-size: 12pt;
+    }
   }
 
   @media(max-width: 480px) {
@@ -58,7 +70,7 @@
     }
 
     .title-text {
-      top: 1%;
+      top: 3%;
       left: 8px;
     }
   }
