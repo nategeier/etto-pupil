@@ -9,8 +9,9 @@ etto-not-logged-in-nav(etto-register-modal)
           h2 A knowledge-sharing platform
           p Empower anyone in a company to create, track, and share courses on any device.
           button.btn.btn-default.etto-register-btn.col-sm-2.col-sm-offset-5.col-xs-10.col-xs-offset-1(ng-click='register()') Start now
+          button.btn.btn-default.etto-register-btn.col-sm-2.col-sm-offset-5.col-xs-10.col-xs-offset-1.hidden-md.hidden-lg(ng-click='login()') Login
 
-      .etto-landing__socialmedia
+      .etto-landing__socialmedia.hidden-xs
         a(href="https://twitter.com/Coursetto")
           i.fa.fa-twitter.fa-2x
         a(href="https://www.youtube.com/user/coursetto")
@@ -38,7 +39,23 @@ etto-not-logged-in-nav(etto-register-modal)
             .col-xs-4
               img.img-responsive.img-rounded(src='/images/landing/person3.jpg')
           hr
-          h4 Creating custom content is a breeze on desktop and mobile.
+          .row
+            .col-xs-4
+              img.img-responsive(src="/images/logos/youtube.jpg")
+            .col-xs-4
+              img.img-responsive(src="/images/logos/vimeo.jpg")
+            .col-xs-4
+              img.img-responsive(src="/images/logos/soundcloud.png")
+          br
+          .row
+            .col-xs-10.col-xs-offset-1
+              .row
+                .col-xs-8
+                  img.img-responsive(src="/images/logos/bamboo-green.png")
+                .col-xs-4
+                  img.img-responsive(src="/images/logos/gmaps.png")
+
+          h4 Coursetto Integrates with the Web
 
           ul
             li Link video from YouTube or Vimeo
@@ -47,6 +64,7 @@ etto-not-logged-in-nav(etto-register-modal)
             li Create a quiz anywhere
             li Track completion dates and progress
             li Collaborate and create courses together
+
 
         .col-sm-12.col-md-6.course-compser
           h4 Use our responsive course composer
@@ -121,39 +139,68 @@ etto-not-logged-in-nav(etto-register-modal)
           img.img-responsive.img-rounded.drop-shadow(src='/images/landing/white-label.jpg')
   .section
     .container
-      .row
-        .col-sm-12
-          h2.text-center The Coursetto Team
-          .row
-            .col-sm-3
-              img.img-responsive.img-rounded(src="https://www.gravatar.com/avatar/a197153b753ca03e837a6deba12486b1?s=300")
-              h3 Nate Geier
-              h4 CEO
-              a.btn.btn-primary(href="mailto:nate@coursetto.com") nate@coursetto.com
-            .col-sm-3
-              img.img-responsive.img-rounded(src="https://www.gravatar.com/avatar/a895de9f0021b3a08b654fe2efe43e97?s=300")
-              h3 Randall A. Gordon
-              h4 CTO
-              a.btn.btn-primary(href="mailto:randall@coursetto.com") randall@coursetto.com
-            a.col-sm-3(href= "http://www.bizjournals.com/portland/print-edition/2014/06/20/training-made-easy.html", target="_blank")
-              img.img-responsive.img-rounded(src="/images/landing/press.jpg")
-              h3 Press
-              h4 Portland Business Journal
-            .col-sm-3
-              h3 Advisors:
-              .row
-                .col-sm-4
-                  img.img-responsive.img-rounded(src="/images/landing/ryan.jpg")
-                .col-sm-8
-                  h4 Ryan Carson
-                  p CEO Treehouse
 
-              .row
-                .col-sm-4
-                  img.img-responsive.img-rounded(src="/images/landing/david.jpg")
-                .col-sm-8
-                  h4 David Nelsen
-                  p Last venture was Giftango, Sold to InComm
+      h2.text-center The Coursetto Team
+      .row
+        .col-sm-3
+          .etto-course-holder()
+            .course-holder-img.landing-thumb(style="background-image: url('https://www.gravatar.com/avatar/a197153b753ca03e837a6deba12486b1?s=500');")
+            .etto-padding
+              h4 Nate Geier
+              p CEO and Founder
+              a.btn.btn-default(href="mailto:nate@coursetto.com") nate@coursetto.com
+        .col-sm-3
+          .etto-course-holder()
+            .course-holder-img.landing-thumb(style="background-image: url('/images/landing/meris.jpg')")
+            .etto-padding
+              h4 Meris Gebhardt
+              p VP Business Development
+              a.btn.btn-default(href="mailto:meris@coursetto.com") meris@coursetto.com
+        .col-sm-3
+          .etto-course-holder()
+            .course-holder-img.landing-thumb(style="background-image: url('/images/landing/vera.jpg');")
+            .etto-padding
+              h4 Vera Klebleeva
+              p Strategy
+              a.btn.btn-default(href="mailto:vera@coursetto.com") vera@coursetto.com
+
+        .col-sm-3
+          .etto-course-holder
+            .course-holder-img.landing-thumb(style="background-image: url('https://www.gravatar.com/avatar/a895de9f0021b3a08b654fe2efe43e97?s=300');")
+            .etto-padding
+              h4 Randall A. Gordon
+              p Technical
+      .row
+        .col-sm-10.col-sm-offset-1
+          h3.text-center Advisors/Press
+          .row
+
+            .col-xs-6.col-sm-3
+              img.img-circle.img-responsive(src="/images/landing/ryan.jpg")
+              .etto-padding
+                h4 Ryan Carson
+                p CEO of <a href="http://teamtreehouse.com/">Treehouse</a>
+            .col-xs-6.col-sm-3
+              img.img-circle.img-responsive(src="/images/landing/david.jpg")
+              .etto-padding
+                h4 David Nelsen
+                p Last venture was Giftango, Sold to InComm 50mm+
+
+            .col-xs-6.col-sm-3
+              a(href= "http://www.bizjournals.com/portland/print-edition/2014/06/20/training-made-easy.html", target="_blank")
+                img.img-circle.img-responsive(src="/images/landing/press.jpg")
+                .etto-padding
+                  h4 Training made easy
+                  p Portland Business Journal
+
+            .col-xs-6.col-sm-3
+              a(href= "http://www.bizjournals.com/portland/blog/2014/10/are-education-software-companies-portland-s-next.html", target="_blank")
+                img.img-circle.img-responsive(src="/images/landing/ed-tech-avatar.jpg")
+                .etto-padding
+                  h4 Are education software companies Portland’s next tech cluster?
+                  p Portland Business Journal
+
+
 etto-footer
 
 

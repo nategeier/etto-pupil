@@ -42,12 +42,14 @@
       </div>
     </div>
     <div ng-show="!usersCourses[0] &amp;&amp; user.auth.canInvite &amp;&amp; user.auth.canCreateCourses" etto-on-boarding="etto-on-boarding" class="col-sm-8"></div>
-    <div class="etto-pad-top">
+    <div class="etto-pad-top etto-compsed-courses-holder">
       <div ng-show="user.auth.canCreateCourses" class="col-sm-4 col-sm-4">
         <div class="panel etto-bgcolor-light">
           <div class="panel-heading etto-bgcolor-secondary">
-            <h4 class="modal-title etto-color-primary">Composed Courses</h4>
-            <input type="text" ng-model="searchComposedCourse" placeholder="Search Courses" class="form-control"/>
+            <h4>Composed Courses</h4>
+            <div class="input-group"><span ng-click="addCourse()" class="input-group-addon">+</span>
+              <input type="text" ng-model="searchComposedCourse" placeholder="Search Courses" class="form-control"/>
+            </div>
           </div>
           <div class="list-group">
             <div ng-if="!createdCourses[0]">

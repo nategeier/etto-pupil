@@ -1,22 +1,40 @@
 
 <etto-logged-in-nav></etto-logged-in-nav>
-<div class="container-full etto-subscriptions">
-  <h1>Subscription</h1>
-  <h5>Based on the number of employees in your system.</h5>
+<div class="container etto-subscriptions">
+  <h1>Subscriptions</h1>
+  <p>Subscriptions are based on the number of employees in your system.</p>
+  <hr/>
   <div class="row">
-    <div ng-repeat="subscriptionType in subscriptionTypes" class="col-sm-4">
-      <div class="etto-subscription">
+    <div ng-repeat="subscriptionType in subscriptionTypes" class="col-sm-4">     
+      <div class="etto-subscription etto-bgcolor-light">
         <h4>{{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}} Employees</h4>
         <h1 class="etto-color-primary">${{subscriptionType.price | number:0}}/mo</h1>
         <div ng-show="subscriptionType._id === currentSubscription">
           <hr/><small>Current Subscription</small><br/><i class="fa fa-check-square-o fa-2x"></i>
+          <button ng-show="company._subscription &amp;&amp; subscriptionType._id === currentSubscription" etto-recipient-modal="etto-recipient-modal" ng-click="cancelSubscription()" class="btn btn-danger cancel-btn btn-sm pull-right">Cancel Subscription</button>
         </div>
         <button etto-purchase="etto-purchase" type="button" ng-click="purchase(null, {_id:subscriptionType._id, price:subscriptionType.price})" ng-show="subscriptionType._id !== currentSubscription" class="btn btn-sm btn-default">Purchase</button>
       </div>
     </div>
   </div>
   <hr/>
-  <div class="col-sm-12">
-    <button etto-recipient-modal="etto-recipient-modal" ng-click="cancelSubscription()" class="btn btn-danger cancel-btn">Cancel Subscription</button>
+  <h4 class="text-center">Call (541) 521-7967 if your company has 2,000+ Employees</h4>
+  <hr/>
+  <div class="row">
+    <div class="col-sm-6 etto-bgcolor-light">
+      <h4>Includes</h4>
+      <ul>
+        <li>Unlimited internal courses</li>
+        <li>Unlimited tiers</li>
+        <li>Cancel anytime</li>
+        <li>24 Hour support response time</li>
+      </ul>
+    </div>
+    <div class="col-sm-6">
+      <h1>Still Have Questions?</h1>
+      <p>We are here to answer, give us a call at (541) 521-7967</p>
+    </div>
   </div>
+  <hr/>
 </div>
+<etto-footer></etto-footer>
