@@ -1,11 +1,14 @@
 etto-logged-in-nav
-.container-full.etto-subscriptions
+.container.etto-subscriptions
 
-  h1 Subscription
-  h5 Based on the number of employees in your system.
+  h1 Subscriptions
+  p Subscriptions are based on the number of employees in your system.
+ 
+
+  hr
   .row
-    .col-sm-4(ng-repeat="subscriptionType in subscriptionTypes")
-      .etto-subscription
+    .col-sm-4(ng-repeat="subscriptionType in subscriptionTypes")      
+      .etto-subscription.etto-bgcolor-light
         h4 {{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}} Employees
         h1.etto-color-primary ${{subscriptionType.price | number:0}}/mo
         
@@ -14,11 +17,27 @@ etto-logged-in-nav
           small Current Subscription
           br
           i.fa.fa-check-square-o.fa-2x
+          button.btn.btn-danger.cancel-btn.btn-sm.pull-right(ng-show="company._subscription && subscriptionType._id === currentSubscription", etto-recipient-modal, ng-click="cancelSubscription()") Cancel Subscription
+
 
         button.btn.btn-sm.btn-default(etto-purchase, type="button", ng-click='purchase(null, {_id:subscriptionType._id, price:subscriptionType.price})', ng-show="subscriptionType._id !== currentSubscription") Purchase
-  hr
-  .col-sm-12
-    button.btn.btn-danger.cancel-btn(etto-recipient-modal, ng-click="cancelSubscription()") Cancel Subscription
 
+  hr
+  h4.text-center Call (541) 521-7967 if your company has 2,000+ Employees
+  hr
+  .row
+    .col-sm-6.etto-bgcolor-light
+      h4 Includes
+      ul
+        li Unlimited internal courses
+        li Unlimited tiers
+        li Cancel anytime
+        li 24 Hour support response time
+    .col-sm-6
+      h1 Still Have Questions?
+      p We are here to answer, give us a call at (541) 521-7967
+
+  hr
+etto-footer
 
 

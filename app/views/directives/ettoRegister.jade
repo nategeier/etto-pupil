@@ -1,29 +1,26 @@
 
 .modal-header
-  button.close( type="button" )
-  h2.modal-title Register
+  h2.modal-title Welcome
 
 .modal-body
   .row
-    .col-md-8
+    .col-md-12
       .alert.alert-danger(ng-show="err")
         p {{err}}
       form(ng-submit="handleLogin(newUser)", novalidate, class="css-form")
         .form-group
-          input.form-control( type="text", ng-model="newUser.tierTitle", placeholder="company name", autocomplete="on", required )
+          input.form-control( type="text", ng-model="newUser.tierTitle", placeholder="Company Name", autocomplete="on", required )
         .form-group
-          input.form-control( type="text", ng-model="newUser.name", placeholder="your name", autocomplete="on", required )
+          input.form-control( type="text", ng-model="newUser.name", placeholder="Your Name", autocomplete="on", required )
         .form-group
-          input.form-control( type="email", ng-model="newUser.emails", placeholder="email", autocomplete="on", required )
+          input.form-control( type="email", ng-model="newUser.emails", placeholder="Email", autocomplete="on", required )
         .form-group
-          input.form-control( autocapitalize="off", type="text", ng-model="newUser.username", placeholder="username", required )
+          input.form-control( autocapitalize="off", type="text", ng-model="newUser.username", placeholder="Username", required )
         .form-group
-          input.form-control( type="password", ng-model="newUser.password", placeholder="password", required )
+          input.form-control( type="password", ng-model="newUser.password", placeholder="Password", required )
         .form-group
           input.btn.btn-success.btn-sm( type="submit", value="I agree to the terms" )
+        .btn-group.pull-right
           button.btn.btn-default.btn-sm( type="button", ng-click="cancel()") Cancel
-    .col-md-4
-      h4 Beta/Pilot Mode
-      p Please be aware Coursetto is in beta, please let us know of any issues you may encounter.
-      a.btn.btn-default(href="/terms", target="_blank") Terms
+          a.btn.btn-default.btn-sm(href="/terms", target="_blank") Terms
      

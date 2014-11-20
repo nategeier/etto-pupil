@@ -28,9 +28,13 @@ nav.navbar.navbar-default( role="navigation", etto-session, etto-update-company)
       li(ng-show= "user.auth.canInvite", ng-class="{active: activetab === 'people'}")
         a.navbar-btn.img-rounded( href="/report/{{user._tier._id}}" )
           small.etto-color-primary People
+     
 
     .navbar-right
       ul.nav.navbar-nav
+        li
+          a( href="/subscription/{{user._id}}", ng-show= "!company._subscription && user.auth.canPurchase") 
+            p.etto-color-accent Buy Subscription
         li.dropdown
           a(data-toggle="dropdown", href="#")
             i.fa.fa-cog.fa-2x.pull-left

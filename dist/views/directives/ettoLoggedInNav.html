@@ -20,6 +20,8 @@
     </ul>
     <div class="navbar-right">
       <ul class="nav navbar-nav">
+        <li><a href="/subscription/{{user._id}}" ng-show="!company._subscription &amp;&amp; user.auth.canPurchase"> 
+            <p class="etto-color-accent">Buy Subscription</p></a></li>
         <li class="dropdown"><a data-toggle="dropdown" href="#"><i class="fa fa-cog fa-2x pull-left"></i><small>{{user.name}}</small></a>
           <ul role="menu" aria-labelledby="dLabel" class="dropdown-menu">
             <li><a href="/settings/{{user._id}}">Settings</a></li>
