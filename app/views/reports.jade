@@ -12,9 +12,12 @@ etto-logged-in-nav
 
             .col-xs-12.col-sm-12.col-md-7.etto-report-btns
               .row
-                .etto-bgcolor-accent.etto-color-light.report-btn.col-xs-4(etto-add-tier, ng-click="addTier()") Add Tier
-                .etto-bgcolor-accent.etto-color-light.report-btn.col-xs-4(etto-invite-user-modal, ng-click="inviteUser()") Add Users
-                a.etto-bgcolor-accent.etto-color-light.report-btn.col-xs-4(href="/tier/edit/{{ currentTier._id }}") Edit Tier
+                .col-xs-4.nopad
+                  .etto-bgcolor-accent.etto-color-light.report-btn(etto-add-tier, ng-click="addTier()") Add Tier
+                .col-xs-4.nopad
+                  .etto-bgcolor-accent.etto-color-light.report-btn.col-xs-4(etto-invite-user-modal, ng-click="inviteUser()") Add Users
+                .col-xs-4.nopad
+                  a.etto-bgcolor-accent.etto-color-light.report-btn.col-xs-4(href="/tier/edit/{{ currentTier._id }}") Edit Tier
 
               
           .row.etto-bgcolor-light.etto-color-primary.statBox
