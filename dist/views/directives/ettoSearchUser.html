@@ -1,0 +1,8 @@
+
+<div class="input-group">
+  <input type="text" ng-model="userSearch" placeholder="User full name or email" ng-change="searchUser()" class="form-control"/>
+  <div class="input-group-btn">
+    <button class="btn btn-default"><i class="fa fa-search"></i></button>
+  </div>
+</div>
+<div ng-repeat="user in foundUsers"><a href="/settings/{{user._id}}" class="btn btn-default">{{user.name}}, {{user.emails[0]}}</a></div>

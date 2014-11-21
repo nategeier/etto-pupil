@@ -42,7 +42,7 @@ etto-verify-modal(redirect-to='/etto')
           .list-group
             div(ng-if="!createdCourses[0]")
               .list-group-item.etto-bgcolor-lightgrey.etto-bgcolor-light-hover(etto-add-course, ng-click='addCourse()')
-                h4 Create a Course!
+                h2 Create a Course!
             div(sink-in, etto-color, ng-repeat='course in createdCourses | filter:searchComposedCourse')
               .etto-composed-course
                 .etto-course-box

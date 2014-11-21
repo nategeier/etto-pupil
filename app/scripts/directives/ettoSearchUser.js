@@ -6,11 +6,12 @@ angular.module("ettoPupil")
     function () {
       return {
         restrict: "EA",
+        templateUrl: "/views/directives/ettoSearchUser.html",
         controller: function ($scope, Users) {
 
           $scope.searchUser = function () {
 
-            Users.searchUser($scope.userSearch, function (results) {
+            Users.searchUser($scope.userSearch, $scope.currentTier._id, function (results) {
               $scope.foundUsers = results;
             });
           };

@@ -1,58 +1,61 @@
 etto-logged-in-nav
 .container-full.etto-bgcolor-secondary
-  .row
+  .row 
     .col-xs-12.col-sm-7.col-md-8.col-lg-9
+
       .row.report-head
-        
-        a.col-xs-12.col-sm-5.col-md-5(href="/tier/edit/{{ currentTier._id }}")
-          h2.etto-color-primary {{currentTier.title}}
-
+        .col-md-12
           
-        .col-xs-12.col-sm-7.col-md-7.etto-report-btns
           .row
-            .etto-bgcolor-accent.etto-color-light.report-btn.col-xs-4(etto-add-tier, ng-click="addTier()") Add Tier
-            .etto-bgcolor-accent.etto-color-light.report-btn.col-xs-4(etto-invite-user-modal, ng-click="inviteUser()") Add Users
-            a.etto-bgcolor-accent.etto-color-light.report-btn.col-xs-4(href="/tier/edit/{{ currentTier._id }}") Edit Tier
+            a.col-xs-12.col-sm-5.col-md-5(href="/tier/edit/{{ currentTier._id }}")
+              h2.etto-color-primary {{currentTier.title}}
 
-            
-      .row
-        .statBox.col-xs-12.col-md-12.col-sm-12.etto-bgcolor-light.etto-color-primary
-          .col-xs-6.col-sm-3.col-md-3.stat.statholder
-            .statTxt {{tierReport.totalUsers}}
-            p Total Users
-          .col-xs-6.col-sm-3.col-md-3.stat.statholder
-            .statTxt {{tierReport.courses.length}}
-            p Total Courses
-          .col-xs-6.col-sm-3.col-md-3.stat.statholder
-            .statTxt {{tierReport.totalTaken}}
-            p Completed
-          .col-xs-6col-sm-3.col-md-3.statholder
-            .statTxt {{tierReport.totalProgress}}%
-            p Overall
-          .clearfix
+            .col-xs-12.col-sm-12.col-md-7.etto-report-btns
+              .row
+                .etto-bgcolor-accent.etto-color-light.report-btn.col-xs-4(etto-add-tier, ng-click="addTier()") Add Tier
+                .etto-bgcolor-accent.etto-color-light.report-btn.col-xs-4(etto-invite-user-modal, ng-click="inviteUser()") Add Users
+                a.etto-bgcolor-accent.etto-color-light.report-btn.col-xs-4(href="/tier/edit/{{ currentTier._id }}") Edit Tier
+
+              
+          .row.etto-bgcolor-light.etto-color-primary.statBox
+
+            .col-xs-6.col-sm-3.col-md-3
+              .statTxt {{tierReport.totalUsers}}
+              p Total Users
+            .col-xs-6.col-sm-3.col-md-3
+              .statTxt {{tierReport.courses.length}}
+              p Total Courses
+            .col-xs-6.col-sm-3.col-md-3
+              .statTxt {{tierReport.totalTaken}}
+              p Completed
+            .col-xs-6.col-sm-3.col-md-3
+              .statTxt {{tierReport.totalProgress}}%
+              p Overall
+
       .row(ng-show="children[0]")
         .etto-tier-holder
           div(class="animate-repeat", ng-repeat= 'tier in children')
-            .col-xs-12.col-sm-6.col-md-6.col-lg-6
+            .col-sm-12.col-md-6.col-lg-6
               button.close.aria-hidden(type="button", ng-click="removeTier(tier)", etto-remove-tier) &times;
               .row
-                .etto-tier-box.img-rounded(ng-click ="viewChildren('/report/{{tier._id}}')")
-                  .pad20
-                    .row.etto-color-primary
-                      .col-md-10
-                        h4 {{tier.title}}
-                        small # {{tier.internalId}}
-                      .col-md-2.pull-left
-                        p.pull-left {{tier.totalUsers}}
-                          
-                      .col-md-12
-                        .progress.etto-bgcolor-light
-                          .progress-bar.etto-bgcolor-accent(role="progressbar", aria-valuenow="{{(tier.totalTaken/tier.totalToTake) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(tier.totalTaken/tier.totalToTake) * 100}}%;")
+                .etto-tier-box(ng-click ="viewChildren('/report/{{tier._id}}')")
+                  .row.etto-color-primary
+                    .col-md-10
+                      h4 {{tier.title}}
+                      small # {{tier.internalId}}
+                    .col-md-2.pull-left
+                      p.pull-left {{tier.totalUsers}}
+                        
+                    .col-md-12
+                      .progress.etto-bgcolor-light
+                        .progress-bar.etto-bgcolor-accent(role="progressbar", aria-valuenow="{{(tier.totalTaken/tier.totalToTake) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(tier.totalTaken/tier.totalToTake) * 100}}%;")
           
 
 
       .row(ng-show="!children[0]")
         .etto-tier-holder
+          etto-search-user
+          hr
           div.col-sm-6.col-md-6(class="animate-repeat", ng-repeat= 'user in users')
             .etto-tier-box
               a(href = "/settings/{{user._id}}")
@@ -71,7 +74,7 @@ etto-logged-in-nav
                         .progress-bar.etto-bgcolor-accent(role="progressbar", aria-valuenow="{{user.overallPercent}}", aria-valuemin="0", aria-valuemax="100", style="width: {{user.overallPercent}}%;")
           .clearfix
 
-    .col-xs-12.col-sm-5.col-md-4.col-lg-3.panel.panel-default.nopad
+    .col-xs-12.col-sm-5.col-md-4.col-lg-3.panel.panel-default
       .panel-heading.etto-bgcolor-light
         h4.etto-color-primary Tier Info
         .alert.alert-danger.alert-sm(ng-show= "err") Rejected Users, Check that they have work emails {{err}}
@@ -101,16 +104,8 @@ etto-logged-in-nav
               .progress.etto-bgcolor-light
                 .progress-bar.etto-bgcolor-accent(role="progressbar", aria-valuenow="{{(course.completed.length/(course.completed.length + course.notCompleted.length)) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(course.completed.length/(course.completed.length + course.notCompleted.length)) * 100}}%;")
         div.list-group-item(ng-show="children[0]")
+          etto-search-user
           
-          .input-group
-            input.form-control(etto-search-user, type="text", ng-model="userSearch", placeholder="User full name or email", ng-change="searchUser()")
-            .input-group-btn
-              button.btn.btn-default
-                i.fa.fa-search
-            
-          div(ng-repeat="user in foundUsers")
-            a.btn.btn-default(href="/settings/{{user._id}}") {{user.name}}
-        
 
 
         .list-group-item(ng-show="children[0]")

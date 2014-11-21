@@ -37,9 +37,10 @@ angular.module("ettoPupil")
           });
         },
 
-        searchUser: function (text, callback) {
-          var Search = $resource(Endpoint("user", "searchUser") + "/:text", {
-            text: text
+        searchUser: function (text, tierId, callback) {
+          var Search = $resource(Endpoint("user", "searchUser") + "/:text/:tierId", {
+            text: text,
+            tierId: tierId
           });
 
           Search.query(function (results) {
