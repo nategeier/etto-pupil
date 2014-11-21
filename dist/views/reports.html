@@ -1,57 +1,56 @@
 
 <etto-logged-in-nav></etto-logged-in-nav>
 <div class="container-full etto-bgcolor-secondary">
-  <div class="row">
+  <div class="row"> 
     <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
-      <div class="row report-head"><a href="/tier/edit/{{ currentTier._id }}" class="col-xs-12 col-sm-5 col-md-5">
-          <h2 class="etto-color-primary">{{currentTier.title}}</h2></a>
-        <div class="col-xs-12 col-sm-7 col-md-7 etto-report-btns">
-          <div class="row">
-            <div etto-add-tier="etto-add-tier" ng-click="addTier()" class="etto-bgcolor-accent etto-color-light report-btn col-xs-4">Add Tier</div>
-            <div etto-invite-user-modal="etto-invite-user-modal" ng-click="inviteUser()" class="etto-bgcolor-accent etto-color-light report-btn col-xs-4">Add Users</div><a href="/tier/edit/{{ currentTier._id }}" class="etto-bgcolor-accent etto-color-light report-btn col-xs-4">Edit Tier</a>
+      <div class="row report-head">
+        <div class="col-md-12">
+          <div class="row"><a href="/tier/edit/{{ currentTier._id }}" class="col-xs-12 col-sm-5 col-md-5">
+              <h2 class="etto-color-primary">{{currentTier.title}}</h2></a>
+            <div class="col-xs-12 col-sm-12 col-md-7 etto-report-btns">
+              <div class="row">
+                <div etto-add-tier="etto-add-tier" ng-click="addTier()" class="etto-bgcolor-accent etto-color-light report-btn col-xs-4">Add Tier</div>
+                <div etto-invite-user-modal="etto-invite-user-modal" ng-click="inviteUser()" class="etto-bgcolor-accent etto-color-light report-btn col-xs-4">Add Users</div><a href="/tier/edit/{{ currentTier._id }}" class="etto-bgcolor-accent etto-color-light report-btn col-xs-4">Edit Tier</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="statBox col-xs-12 col-md-12 col-sm-12 etto-bgcolor-light etto-color-primary">
-          <div class="col-xs-6 col-sm-3 col-md-3 stat statholder">
-            <div class="statTxt">{{tierReport.totalUsers}}</div>
-            <p>Total Users</p>
+          <div class="row etto-bgcolor-light etto-color-primary statBox">
+            <div class="col-xs-6 col-sm-3 col-md-3">
+              <div class="statTxt">{{tierReport.totalUsers}}</div>
+              <p>Total Users</p>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-3">
+              <div class="statTxt">{{tierReport.courses.length}}</div>
+              <p>Total Courses</p>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-3">
+              <div class="statTxt">{{tierReport.totalTaken}}</div>
+              <p>Completed</p>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-3">
+              <div class="statTxt">{{tierReport.totalProgress}}%</div>
+              <p>Overall</p>
+            </div>
           </div>
-          <div class="col-xs-6 col-sm-3 col-md-3 stat statholder">
-            <div class="statTxt">{{tierReport.courses.length}}</div>
-            <p>Total Courses</p>
-          </div>
-          <div class="col-xs-6 col-sm-3 col-md-3 stat statholder">
-            <div class="statTxt">{{tierReport.totalTaken}}</div>
-            <p>Completed</p>
-          </div>
-          <div class="col-xs-6col-sm-3 col-md-3 statholder">
-            <div class="statTxt">{{tierReport.totalProgress}}%</div>
-            <p>Overall</p>
-          </div>
-          <div class="clearfix"></div>
         </div>
       </div>
       <div ng-show="children[0]" class="row">
         <div class="etto-tier-holder">
           <div ng-repeat="tier in children" class="animate-repeat">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="col-sm-12 col-md-6 col-lg-6">
               <button type="button" ng-click="removeTier(tier)" etto-remove-tier="etto-remove-tier" class="close aria-hidden">&times;</button>
               <div class="row">
-                <div ng-click="viewChildren('/report/{{tier._id}}')" class="etto-tier-box img-rounded">
-                  <div class="pad20">
-                    <div class="row etto-color-primary">
-                      <div class="col-md-10">
-                        <h4>{{tier.title}}</h4><small># {{tier.internalId}}</small>
-                      </div>
-                      <div class="col-md-2 pull-left">
-                        <p class="pull-left">{{tier.totalUsers}}</p>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="progress etto-bgcolor-light">
-                          <div role="progressbar" aria-valuenow="{{(tier.totalTaken/tier.totalToTake) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{(tier.totalTaken/tier.totalToTake) * 100}}%;" class="progress-bar etto-bgcolor-accent"></div>
-                        </div>
+                <div ng-click="viewChildren('/report/{{tier._id}}')" class="etto-tier-box">
+                  <div class="row etto-color-primary">
+                    <div class="col-md-10">
+                      <h4>{{tier.title}}</h4><small># {{tier.internalId}}</small>
+                    </div>
+                    <div class="col-md-2 pull-left">
+                      <p class="pull-left">{{tier.totalUsers}}</p>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="progress etto-bgcolor-light">
+                        <div role="progressbar" aria-valuenow="{{(tier.totalTaken/tier.totalToTake) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{(tier.totalTaken/tier.totalToTake) * 100}}%;" class="progress-bar etto-bgcolor-accent"></div>
                       </div>
                     </div>
                   </div>
@@ -63,6 +62,8 @@
       </div>
       <div ng-show="!children[0]" class="row">
         <div class="etto-tier-holder">
+          <etto-search-user></etto-search-user>
+          <hr/>
           <div ng-repeat="user in users" class="col-sm-6 col-md-6 animate-repeat">
             <div class="etto-tier-box"><a href="/settings/{{user._id}}">
                 <div class="row">
@@ -86,7 +87,7 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 panel panel-default nopad">
+    <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 panel panel-default">
       <div class="panel-heading etto-bgcolor-light">
         <h4 class="etto-color-primary">Tier Info</h4>
         <div ng-show="err" class="alert alert-danger alert-sm">Rejected Users, Check that they have work emails {{err}}</div>
@@ -119,13 +120,7 @@
           </div>
         </div>
         <div ng-show="children[0]" class="list-group-item">
-          <div class="input-group">
-            <input etto-search-user="etto-search-user" type="text" ng-model="userSearch" placeholder="User full name or email" ng-change="searchUser()" class="form-control"/>
-            <div class="input-group-btn">
-              <button class="btn btn-default"><i class="fa fa-search"></i></button>
-            </div>
-          </div>
-          <div ng-repeat="user in foundUsers"><a href="/settings/{{user._id}}" class="btn btn-default">{{user.name}}</a></div>
+          <etto-search-user></etto-search-user>
         </div>
         <div ng-show="children[0]" class="list-group-item">
           <div class="list-group">
