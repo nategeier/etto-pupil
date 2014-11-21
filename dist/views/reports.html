@@ -9,8 +9,13 @@
               <h2 class="etto-color-primary">{{currentTier.title}}</h2></a>
             <div class="col-xs-12 col-sm-12 col-md-7 etto-report-btns">
               <div class="row">
-                <div etto-add-tier="etto-add-tier" ng-click="addTier()" class="etto-bgcolor-accent etto-color-light report-btn col-xs-4">Add Tier</div>
-                <div etto-invite-user-modal="etto-invite-user-modal" ng-click="inviteUser()" class="etto-bgcolor-accent etto-color-light report-btn col-xs-4">Add Users</div><a href="/tier/edit/{{ currentTier._id }}" class="etto-bgcolor-accent etto-color-light report-btn col-xs-4">Edit Tier</a>
+                <div class="col-xs-4 nopad">
+                  <div etto-add-tier="etto-add-tier" ng-click="addTier()" class="etto-bgcolor-accent etto-color-light report-btn">Add Tier</div>
+                </div>
+                <div class="col-xs-4 nopad">
+                  <div etto-invite-user-modal="etto-invite-user-modal" ng-click="inviteUser()" class="etto-bgcolor-accent etto-color-light report-btn col-xs-4">Add Users</div>
+                </div>
+                <div class="col-xs-4 nopad"><a href="/tier/edit/{{ currentTier._id }}" class="etto-bgcolor-accent etto-color-light report-btn col-xs-4">Edit Tier</a></div>
               </div>
             </div>
           </div>
