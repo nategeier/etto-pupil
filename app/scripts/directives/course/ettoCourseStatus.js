@@ -6,10 +6,16 @@ angular.module("ettoPupil")
     function () {
       return {
         restrict: "AE",
-        controller: function ($scope, $modal, CourseMetaChange) {
+        controller: function ($scope, $modal, CourseMetaChange, $location) {
           $scope.changeStatus = function () {
 
             var course = $scope.course;
+            var user;
+            $scope.$watch("user", function () {
+              if ($scope.user) {
+                user = $scope.user;
+              }
+            });
 
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoCourseStatusModal.html",
@@ -28,6 +34,9 @@ angular.module("ettoPupil")
             modal.result.then(function (didRemove) {
               if (didRemove) {
                 $scope.saveCourse();
+                if ($scope.course.status === "private") {
+                  $location.path("/tier/edit/" + $scope.user._tier._id);
+                }
               }
             });
           };

@@ -19,6 +19,9 @@ angular.module("ettoPupil", ["ngRoute", "ngSanitize", "ngResource", "ngAnimate",
         .when("/beta", {
           templateUrl: "/views/beta.html"
         })
+        .when("/docs/bamboohr", {
+          templateUrl: "/views/docs/bamboohr.html"
+        })
         .when("/reset/:code", {
           templateUrl: "/views/resetPassword.html"
         })

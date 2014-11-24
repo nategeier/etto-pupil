@@ -12,6 +12,14 @@ angular.module("ettoPupil")
 
           var companyId;
 
+          var user;
+
+          $scope.$watch("user", function () {
+            if ($scope.user) {
+              user = $scope.user;
+            }
+          });
+
           $scope.syncBambooHR = function (editKeys) {
 
             async.waterfall([
@@ -47,10 +55,12 @@ angular.module("ettoPupil")
 
           $scope.refreshBamboo = function (keys) {
             Tiers.syncBambooHR(keys, function (err, results) {
+
               if (err) {
                 $scope.editBambooKeys(err, keys);
               } else if (results.rejected) {
-                $scope.err = results.rejected;
+
+                $scope.rejectedUsers = results.rejected;
                 $scope.reset();
                 $scope.listUsers();
               } else {
@@ -68,6 +78,15 @@ angular.module("ettoPupil")
 
                 $scope.keys = keys;
                 $scope.err = err;
+                $scope.user = user;
+
+                $scope.keys.auth = {
+                  canEditCompany: false,
+                  canPurchase: false,
+                  canGetCourses: false,
+                  canCreateCourses: false,
+                  canInvite: false
+                };
 
                 $scope.saveBambooKey = function (keys) {
 

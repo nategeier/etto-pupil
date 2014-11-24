@@ -1,16 +1,45 @@
 .modal-header.etto-bgcolor-primary
   button.close( type="button" )
-  img(src="/images/logos/bamboo.png")
+  img.center-block(src="/images/logos/bamboo.png")
 .modal-body.etto-bgcolor-light
   form(ng-submit="saveBambooKey(keys)")
+    .row
 
-    .form-group.col-sm-12
-      nnp Divisions and Branches will populate with users from your company's BambooHR account. An email invite will be sent to any active employees who are not already in Coursetto.
-    .form-group.col-sm-12
-      .alert.alert-danger.alert-sm(ng-show= "err") {{err}}
-      input.form-control( type="text", ng-model="keys.bamboo.apikey", placeholder="API Key", autocomplete="on", required )
-    .form-group.col-sm-12
-      input.form-control( type="text", ng-model="keys.bamboo.subdomain", placeholder="Subdomain", required )
-    .form-group.col-sm-12.col-md-12
-      input.btn.btn-primary( type="submit", value="Sync to BambooHR")
-    .clearfix
+      .form-group.col-sm-12
+        p Before syncing we highly suggesting reading our docs
+        a.btn.btn-default.center-block(href ="/docs/bamboohr", target="_blank") Linking to BambooHR Documentation
+       
+      .form-group.col-sm-12
+        .row
+          .col-md-6
+            .checkbox(ng-if="user.auth.canEditCompany")
+              label
+                input(type='checkbox', ng-model="keys.auth.canEditCompany")
+                small Can edit company view
+            .checkbox(ng-if="user.auth.canPurchase")
+              label
+                input(type='checkbox', ng-model="keys.auth.canPurchase")
+                small Can purchase credits and courses
+            .checkbox(ng-if="user.auth.canGetCourses")
+              label
+                input(type='checkbox', ng-model="keys.auth.canGetCourses")
+                small Can add/remove courses
+          .col-md-6
+            .checkbox(ng-if="user.auth.canCreateCourses")
+              label
+                input(type='checkbox', ng-model="keys.auth.canCreateCourses")
+                small Can create courses
+            .checkbox(ng-if="user.auth.canInvite")
+              label
+                input(type='checkbox', ng-model="keys.auth.canInvite")
+                small Can invite other users {{editUser._tier.title}}
+
+
+      .form-group.col-sm-12
+        .alert.alert-danger.alert-sm(ng-show= "err") {{err}}
+        input.form-control( type="text", ng-model="keys.bamboo.apikey", placeholder="API Key", autocomplete="on", required )
+      .form-group.col-sm-12
+        input.form-control( type="text", ng-model="keys.bamboo.subdomain", placeholder="Subdomain", required )
+      .form-group.col-sm-12.col-md-12
+        input.btn.btn-primary( type="submit", value="Sync to BambooHR")
+      .clearfix
