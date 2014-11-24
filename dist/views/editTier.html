@@ -1,17 +1,46 @@
 
 <etto-logged-in-nav></etto-logged-in-nav>
 <div class="container-full etto-edit-tier">
-  <div class="row">
-    <hyp class="col-sm-12 col-md-12">
-      <h3 editable-text="tier.title" buttons="no" blur="submit" onaftersave="updateTier()">{{tier.title || 'Title'}}</h3>
-      <p editable-text="tier.internalId" buttons="no" blur="submit" onaftersave="updateTier()">{{tier.internalId || 'Optional ID'}}</p>
-      <hr/>
-      <div ng-show="saved" class="alert alert-success">
-        <p>saved</p>
-      </div>
-    </hyp>
-    <div class="col-sm-6">
+  <div etto-update-company="etto-update-company" class="row">
+    <div class="col-sm-12 col-md-5">
+      <h3 id="title" editable-textarea="tier.title" buttons="no" blur="submit" onaftersave="updateTier()" class="etto-color-primary">{{tier.title || 'Title'}}</h3>
+      <h4 id="subtite" editable-textarea="tier.internalId" buttons="no" blur="submit" onaftersave="updateTier()" class="etto-color-secondary">{{tier.internalId || 'Optional ID'}}</h4>
+      <p>Once a course is set to ‘private’ it needs to be added to the appropriate tier.</p>
+    </div>
+    <div ng-show="saved" class="alert alert-success">
+      <p>saved</p>
+    </div>
+    <div class="col-sm-12 col-md-7 hidden-sm hidden-xs">
+      <div style="background-image: url('/images/site/connections.jpg');" class="main-img-container"></div>
+    </div>
+  </div>
+  <div class="row etto-bgcolor-light">
+    <div class="col-sm-5">
+      <h2>Company's courses</h2>
+      <p>Available courses to add to your Departments</p>
+      <table class="table-striped">
+        <tr>
+          <th>Course</th>
+        </tr>
+        <tr ng-repeat="course in companyCourses">
+          <td>{{course.title}}</td>
+          <td>
+            <div class="checkbox">
+              <label>Add to all lower tiers
+                <input type="checkbox" ng-model="course.ison"/>
+              </label>
+            </div>
+          </td>
+          <td>
+            <button type="button" ng-click="addCourseToTier(course)" class="btn btn-default btn-sm">Add Course</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-sm-2 hidden-xs"><img src="/images/site/add-course.jpg" class="img-responsive"/></div>
+    <div class="col-sm-5">
       <h2>{{tier.title}} Courses</h2>
+      <p>Current courses available for this Department</p>
       <h4 class="pull-left">Overall</h4>
       <h4 class="pull-right"> {{tierReport.totalTaken}}/{{tierReport.totalToTake}}</h4>
       <div class="col-sm-12">
@@ -32,26 +61,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-sm-6">
-      <h2>Company's courses</h2>
-      <table class="table-striped">
-        <tr>
-          <th>Course</th>
-          <th>Add to all lower tiers</th>
-        </tr>
-        <tr ng-repeat="course in companyCourses">
-          <td>{{course.title}}</td>
-          <td>
-            <div class="checkbox">
-              <input type="checkbox" ng-model="course.ison"/>
-            </div>
-          </td>
-          <td>
-            <button type="button" ng-click="addCourseToTier(course)" class="btn btn-default">Add Course</button>
-          </td>
-        </tr>
-      </table>
     </div>
   </div>
 </div>

@@ -1,22 +1,57 @@
 
 <div class="modal-header etto-bgcolor-primary">
-  <button type="button" class="close"></button><img src="/images/logos/bamboo.png"/>
+  <button type="button" class="close"></button><img src="/images/logos/bamboo.png" class="center-block"/>
 </div>
 <div class="modal-body etto-bgcolor-light">
   <form ng-submit="saveBambooKey(keys)">
-    <div class="form-group col-sm-12">
-      <nnp>Divisions and Branches will populate with users from your company's BambooHR account. An email invite will be sent to any active employees who are not already in Coursetto.</nnp>
+    <div class="row">
+      <div class="form-group col-sm-12">
+        <p>Before syncing we highly suggesting reading our docs</p><a href="/docs/bamboohr" target="_blank" class="btn btn-default center-block">Linking to BambooHR Documentation</a>
+      </div>
+      <div class="form-group col-sm-12">
+        <div class="row">
+          <div class="col-md-6">
+            <div ng-if="user.auth.canEditCompany" class="checkbox">
+              <label>
+                <input type="checkbox" ng-model="keys.auth.canEditCompany"/><small>Can edit company view</small>
+              </label>
+            </div>
+            <div ng-if="user.auth.canPurchase" class="checkbox">
+              <label>
+                <input type="checkbox" ng-model="keys.auth.canPurchase"/><small>Can purchase credits and courses</small>
+              </label>
+            </div>
+            <div ng-if="user.auth.canGetCourses" class="checkbox">
+              <label>
+                <input type="checkbox" ng-model="keys.auth.canGetCourses"/><small>Can add/remove courses</small>
+              </label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div ng-if="user.auth.canCreateCourses" class="checkbox">
+              <label>
+                <input type="checkbox" ng-model="keys.auth.canCreateCourses"/><small>Can create courses</small>
+              </label>
+            </div>
+            <div ng-if="user.auth.canInvite" class="checkbox">
+              <label>
+                <input type="checkbox" ng-model="keys.auth.canInvite"/><small>Can invite other users {{editUser._tier.title}}</small>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-sm-12">
+        <div ng-show="err" class="alert alert-danger alert-sm">{{err}}</div>
+        <input type="text" ng-model="keys.bamboo.apikey" placeholder="API Key" autocomplete="on" required="required" class="form-control"/>
+      </div>
+      <div class="form-group col-sm-12">
+        <input type="text" ng-model="keys.bamboo.subdomain" placeholder="Subdomain" required="required" class="form-control"/>
+      </div>
+      <div class="form-group col-sm-12 col-md-12">
+        <input type="submit" value="Sync to BambooHR" class="btn btn-primary"/>
+      </div>
+      <div class="clearfix"></div>
     </div>
-    <div class="form-group col-sm-12">
-      <div ng-show="err" class="alert alert-danger alert-sm">{{err}}</div>
-      <input type="text" ng-model="keys.bamboo.apikey" placeholder="API Key" autocomplete="on" required="required" class="form-control"/>
-    </div>
-    <div class="form-group col-sm-12">
-      <input type="text" ng-model="keys.bamboo.subdomain" placeholder="Subdomain" required="required" class="form-control"/>
-    </div>
-    <div class="form-group col-sm-12 col-md-12">
-      <input type="submit" value="Sync to BambooHR" class="btn btn-primary"/>
-    </div>
-    <div class="clearfix"></div>
   </form>
 </div>

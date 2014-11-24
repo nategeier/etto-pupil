@@ -6,12 +6,16 @@ angular.module("ettoPupil")
 
       $scope.newUser = {};
 
-      Users.inviteDetails($routeParams.id, function (user) {
-        $scope.newUser = user;
-        getCompnay();
+      Users.inviteDetails($routeParams.id, function (results) {
+
+        if (results && results._tier) {
+          $scope.newUser = results;
+          getCompany();
+        }
       });
 
-      var getCompnay = function () {
+      var getCompany = function () {
+
         Tier.getCompany($scope.newUser._tier, function (results) {
           $scope.company = results;
           WhiteLabel.setColors($scope.company.colors);

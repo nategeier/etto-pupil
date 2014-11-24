@@ -29,6 +29,5 @@
     "end_with_newline": true,
     "selector_separator_newline": false,
     "max_preserve_newlines": 0
-
   }
 }
