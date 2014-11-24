@@ -7,7 +7,7 @@
  */
 .etto-footer {
   background-color: $etto-darkblue;
-  text-align: center;
+
   padding: 30px;
   color: $etto-grey;
 
@@ -15,4 +15,15 @@
   box-shadow: 0px 500px 0px 500px $etto-darkblue;
   height: 200px;
   width: 100%;
+  text-align: center;
+
+  .btn-group{
+    text-align: center;
+  }
+
+  hr{
+    background-color: $etto-mildblue; 
+    height: 1px; 
+    border: none;
+  }
 }

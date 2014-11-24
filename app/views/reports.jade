@@ -40,7 +40,7 @@ etto-sync-bamboo
         .etto-tier-holder
           .alert.alert-danger.alert-sm.alert-dismissible(ng-show= "rejectedUsers", role="alert") 
             h4 Rejected Users 
-            p Coursetto only imports users with a work email not home emails or no emails:
+            p Coursetto only imports users with an email:
             p {{rejectedUsers}}
 
           div(class="animate-repeat", ng-repeat= 'tier in children')
@@ -130,7 +130,7 @@ etto-sync-bamboo
                   a(href = "/settings/{{user._id}}")
                     .row
                       .col-xs-3
-                        img.img-circle.user-thumb(height="80", ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
+                        img.img-circle.img-responsive(ng-show="user.avatarUrl", src= "{{user.avatarUrl}}")
                         i.fa.fa-user.fa-3x.center-block.etto-color-primary(ng-show="!user.avatarUrl")
                       .col-xs-9
                         .col-xs-12

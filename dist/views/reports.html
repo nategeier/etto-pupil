@@ -44,7 +44,7 @@
         <div class="etto-tier-holder">
           <div ng-show="rejectedUsers" role="alert" class="alert alert-danger alert-sm alert-dismissible"> 
             <h4>Rejected Users </h4>
-            <p>Coursetto only imports users with a work email not home emails or no emails:</p>
+            <p>Coursetto only imports users with an email:</p>
             <p>{{rejectedUsers}}</p>
           </div>
           <div ng-repeat="tier in children" class="animate-repeat">
@@ -149,7 +149,7 @@
               <div class="row">
                 <div class="col-md-12 list-group-item etto-bgcolor-light-hover"><a href="/settings/{{user._id}}">
                     <div class="row">
-                      <div class="col-xs-3"><img height="80" ng-show="user.avatarUrl" src="{{user.avatarUrl}}" class="img-circle user-thumb"/><i ng-show="!user.avatarUrl" class="fa fa-user fa-3x center-block etto-color-primary"></i></div>
+                      <div class="col-xs-3"><img ng-show="user.avatarUrl" src="{{user.avatarUrl}}" class="img-circle img-responsive"/><i ng-show="!user.avatarUrl" class="fa fa-user fa-3x center-block etto-color-primary"></i></div>
                       <div class="col-xs-9">
                         <div class="col-xs-12">
                           <h5 ng-show="user.name" class="cap-first etto-color-primary">{{user.name}}</h5>
