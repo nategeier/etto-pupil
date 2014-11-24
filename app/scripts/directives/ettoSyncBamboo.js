@@ -20,7 +20,6 @@ angular.module("ettoPupil")
             }
           });
 
-
           $scope.syncBambooHR = function (editKeys) {
 
             async.waterfall([
@@ -57,7 +56,6 @@ angular.module("ettoPupil")
           $scope.refreshBamboo = function (keys) {
             Tiers.syncBambooHR(keys, function (err, results) {
 
-
               if (err) {
                 $scope.editBambooKeys(err, keys);
               } else if (results.rejected) {
@@ -83,13 +81,12 @@ angular.module("ettoPupil")
                 $scope.user = user;
 
                 $scope.keys.auth = {
-                  canEditCompany : false,
+                  canEditCompany: false,
                   canPurchase: false,
                   canGetCourses: false,
                   canCreateCourses: false,
                   canInvite: false
                 };
-
 
                 $scope.saveBambooKey = function (keys) {
 
