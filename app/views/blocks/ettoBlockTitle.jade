@@ -1,13 +1,11 @@
 
 
 .row.etto-title
-  .etto-title-image
-    img.img-responsive.title-img(style="-webkit-filter: blur({{block.data.blur || 5}}px);", src="{{ block.data.url || '/images/courses/default/title.jpg'}}")
-    
-  .title-text
-    .etto-main-txt
-      h1.etto-color-light {{ block.data.title || 'Enter a title of the course or chapter'}}
-      h4.etto-color-light {{ block.data.subtitle || "And something to descibe the course a little deeper"}}
+  .etto-title-image(style="-webkit-filter: blur({{block.data.blur || 0}}px);;background-image: url('{{block.data.url || '/images/courses/default/title.jpg'}}');")
+
+  .title-text.img-rounded
+    h1(ng-class="block.data.textDark ? 'etto-color-primary' : 'etto-color-light'") {{ block.data.title }}
+    h4(ng-class="block.data.textDark ? 'etto-color-primary' : 'etto-color-light'") {{ block.data.subtitle }}
 
 
 .row  

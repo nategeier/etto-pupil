@@ -1,17 +1,29 @@
 
 
 .row.etto-title
-  .etto-title-image
-    img.img-responsive.title-img(style="-webkit-filter: blur({{block.data.blur || 5}}px);", src="{{ block.data.url || '/images/courses/default/title.jpg'}}")
-    
-  .title-text
-    h1.etto-color-light(e-rows="3", e-cols="90", editable-textarea="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.title || 'Enter a title of the course or chapter'}}
-    h4.etto-color-light(e-rows="3", e-cols="90", editable-textarea="block.data.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.subtitle || "And something to descibe the course a little deeper"}}
-    hr
-    .edit-title
-      .etto-camera.img-rounded.img-uploadable.etto-img-shadow( etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'url', 390, 200)")
-        i.fa.fa-camera.fa-2x.etto-color-white
-      input(ng-model= "block.data.blur", type="range", min="0", max="23", value="{{block.data.blur || 3}}", step="3", onchange="block.data.blur=value", ng-mouseup="saveCourse()")
+  .etto-title-image(style="-webkit-filter: blur({{block.data.blur || 0}}px);;background-image: url('{{block.data.url || '/images/courses/default/title.jpg'}}');")
+
+  .title-text.img-rounded
+    h1(ng-class="block.data.textDark ? 'etto-color-primary' : 'etto-color-light'", e-rows="3", e-cols="90", editable-textarea="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.title || 'Title or Chapter'}}
+    h4(ng-class="block.data.textDark ? 'etto-color-primary' : 'etto-color-light'", e-rows="3", e-cols="90", editable-textarea="block.data.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.subtitle || "And something to descibe the course a little deeper"}}
+
+  .edit-title
+    .row
+      .col-md-4
+        p Change Image
+        .etto-camera.img-rounded.img-uploadable.etto-img-shadow( etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'url', 390, 200)")
+          
+          i.fa.fa-camera.fa-2x.etto-color-white
+      .col-md-4
+        p Blur Image
+        input(ng-model= "block.data.blur", type="range", min="0", max="23", value="{{block.data.blur || 3}}", step="3", onchange="block.data.blur=value", ng-mouseup="saveCourse()")
+      .col-md-4
+        .checkbox
+          p Make Text Dark
+          input(type='checkbox', ng-model="block.data.textDark", ng-change="saveCourse()") 
+
+              
+         
 
 
 .row  
