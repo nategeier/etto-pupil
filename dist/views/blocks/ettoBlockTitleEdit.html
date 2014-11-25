@@ -5,7 +5,7 @@
     <h1 ng-class="block.data.textDark ? 'etto-color-primary' : 'etto-color-light'" e-rows="3" e-cols="90" editable-textarea="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.title || 'Title or Chapter'}}</h1>
     <h4 ng-class="block.data.textDark ? 'etto-color-primary' : 'etto-color-light'" e-rows="3" e-cols="90" editable-textarea="block.data.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.subtitle || "And something to descibe the course a little deeper"}}</h4>
   </div>
-  <div class="edit-title">
+  <div move-side="move-side" class="edit-title">
     <div class="row">
       <div class="col-md-4">
         <p>Change Image</p>
