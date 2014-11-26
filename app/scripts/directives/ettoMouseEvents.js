@@ -9,16 +9,16 @@ angular.module("ettoPupil")
 
         link: function postLink(scope, element, attrs) {
 
-          element.bind("mouseover", function () {
-            TweenMax.to(element, 0.3, {
-              x: -10
-            });
-          });
+          var delay = 0.4;
 
-          element.bind("mouseout", function () {
-            TweenMax.to(element, 0.3, {
-              x: 0
-            });
+          if (attrs.delay) {
+            delay = Number(attrs.delay);
+          }
+
+          TweenMax.from(element, 0.6, {
+            delay: delay,
+            x: -100,
+            opacity: 0
           });
 
         }
