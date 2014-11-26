@@ -29,6 +29,8 @@ module.exports = function (config) {
       "app/bower_components/angular-xeditable/dist/js/xeditable.min.js",
       "app/vendor/soundcloud-sdk.js",
 
+      "app/bower_components/greensock/src/minified/TweenMax.min.js",
+
       "app/scripts/*.js",
       "app/scripts/**/*.js",
 

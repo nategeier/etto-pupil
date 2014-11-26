@@ -51,7 +51,7 @@ angular.module("ettoPupil")
         // TODO: Validate course before update
 
         var emmitedCourse = $scope.course;
-
+        $scope.blockEvent = "none";
         emmitedCourse.eventType = CoursePlayer.eventType();
         emmitedCourse.blockChanged = CoursePlayer.currentBlock();
 
