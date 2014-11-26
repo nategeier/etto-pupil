@@ -115,7 +115,6 @@ angular.module("ettoPupil")
           };
 
           $scope.nextBlock = function () {
-            console.log("next again")
             $scope.blockEvent = "next";
             //--- No more slides so show options to create a new slide on next button click if in editiing
             if ($scope.editing) {
