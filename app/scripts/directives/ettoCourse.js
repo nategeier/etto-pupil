@@ -10,6 +10,7 @@ angular.module("ettoPupil")
           // Are we in edit mode?
           $scope.editing = $attrs.edit !== undefined;
           $scope.onLastBlock = false;
+          $scope.blockEvent = "next";
 
           // Setup blocktype info
           // TODO: Should be refactored somewhere else. Service?
@@ -93,6 +94,7 @@ angular.module("ettoPupil")
           };
 
           $scope.saveCourse = function () {
+            $scope.blockEvent = "none";
             $scope.$emit("course-save");
           };
 
@@ -113,6 +115,8 @@ angular.module("ettoPupil")
           };
 
           $scope.nextBlock = function () {
+            console.log("next again")
+            $scope.blockEvent = "next";
             //--- No more slides so show options to create a new slide on next button click if in editiing
             if ($scope.editing) {
               //---- Editing free will
@@ -147,6 +151,7 @@ angular.module("ettoPupil")
 
           $scope.prevBlock = function () {
             if (CoursePlayer.isLocked() === false) {
+              $scope.blockEvent = "prev";
               CoursePlayer.prevBlock();
               $scope.scrollTop();
               $scope.onLastBlock = CoursePlayer.onLastBlock();

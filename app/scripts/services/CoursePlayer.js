@@ -99,7 +99,6 @@ angular.module("ettoPupil")
       var prevBlock = function () {
         if (onBlock > 0) {
           onBlock--;
-
         }
       };
 
@@ -109,8 +108,8 @@ angular.module("ettoPupil")
       var nextBlock = function () {
         if (!onLastBlock()) {
           onBlock++;
-
         }
+
       };
 
       /**
