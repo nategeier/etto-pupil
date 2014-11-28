@@ -14,13 +14,13 @@ angular.module("ettoPupil")
           if (attrs.delay) {
             delay = Number(attrs.delay);
           }
-
-          TweenMax.from(element, 0.6, {
-            delay: delay,
-            x: -100,
-            opacity: 0
-          });
-
+          if (scope.blockEvent !== "none") {
+            TweenMax.from(element, 0.6, {
+              delay: delay,
+              x: 100,
+              opacity: 0
+            });
+          }
         }
       };
     }
