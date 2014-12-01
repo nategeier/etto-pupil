@@ -144,64 +144,70 @@ etto-not-logged-in-nav(etto-register-modal)
     .container
 
       h2.text-center The Coursetto Team
+      hr
       .row
-        .col-sm-3
-          .etto-course-holder()
-            .course-holder-img.landing-thumb(style="background-image: url('https://www.gravatar.com/avatar/a197153b753ca03e837a6deba12486b1?s=500');")
-            .etto-padding
-              h4 Nate Geier
-              p CEO and Founder
-              a.btn.btn-default(href="mailto:nate@coursetto.com") nate@coursetto.com
-        .col-sm-3
-          .etto-course-holder()
-            .course-holder-img.landing-thumb(style="background-image: url('/images/landing/meris.jpg')")
-            .etto-padding
-              h4 Meris Gebhardt
-              p VP Business Development
-              a.btn.btn-default(href="mailto:meris@coursetto.com") meris@coursetto.com
-        .col-sm-3
-          .etto-course-holder()
-            .course-holder-img.landing-thumb(style="background-image: url('/images/landing/vera.jpg');")
-            .etto-padding
-              h4 Vera Klebleeva
-              p Strategy
-              a.btn.btn-default(href="mailto:vera@coursetto.com") vera@coursetto.com
-
-        .col-sm-3
-          .etto-course-holder
-            .course-holder-img.landing-thumb(style="background-image: url('https://www.gravatar.com/avatar/a895de9f0021b3a08b654fe2efe43e97?s=300');")
-            .etto-padding
-              h4 Randall A. Gordon
-              p Technical
-      .row
-        .col-sm-10.col-sm-offset-1
-          h3.text-center Advisors/Press
+        .col-sm-4
           .row
+            .col-sm-8
+              img.img-circle.img-responsive(src="https://www.gravatar.com/avatar/a197153b753ca03e837a6deba12486b1?s=500")
+          .etto-padding
+            h4 Nate Geier
+            p CEO and Founder
+            a.btn.btn-default(href="mailto:nate@coursetto.com") nate@coursetto.com
+        .col-sm-4
+          .row
+            .col-sm-8
+              img.img-circle.img-responsive(src="/images/landing/meris.jpg")
+          .etto-padding
+            h4 Meris Gebhardt
+            p VP Business Development
+            a.btn.btn-default(href="mailto:meris@coursetto.com") meris@coursetto.com
 
-            .col-xs-6.col-sm-3
+
+        .col-sm-4
+          .row
+            .col-sm-8
+              img.img-circle.img-responsive(src="https://www.gravatar.com/avatar/a895de9f0021b3a08b654fe2efe43e97?s=300")
+          .etto-padding
+            h4 Randall A. Gordon
+            p Technical
+  .reverse-bkd.section
+    .container
+      h3.text-center Advisors/Press
+
+      .row
+        .col-xs-6.col-sm-3
+          .row
+            .col-sm-8
               img.img-circle.img-responsive(src="/images/landing/ryan.jpg")
-              .etto-padding
-                h4 Ryan Carson
-                p CEO of <a href="http://teamtreehouse.com/">Treehouse</a>
-            .col-xs-6.col-sm-3
+          .etto-padding
+            h4 Ryan Carson
+            p CEO of <a href="http://teamtreehouse.com/">Treehouse</a>
+        .col-xs-6.col-sm-3
+          .row
+            .col-sm-8
               img.img-circle.img-responsive(src="/images/landing/david.jpg")
-              .etto-padding
-                h4 David Nelsen
-                p Last venture was Giftango, Sold to InComm 50mm+
+          .etto-padding
+            h4 David Nelsen
+            p Last venture was Giftango, Sold to InComm 50mm+
 
-            .col-xs-6.col-sm-3
-              a(href= "http://www.bizjournals.com/portland/print-edition/2014/06/20/training-made-easy.html", target="_blank")
+        .col-xs-6.col-sm-3
+          a(href= "http://www.bizjournals.com/portland/print-edition/2014/06/20/training-made-easy.html", target="_blank")
+            .row
+              .col-sm-8
                 img.img-circle.img-responsive(src="/images/landing/press.jpg")
-                .etto-padding
-                  h4 Training made easy
-                  p Portland Business Journal
+            .etto-padding
+              h4 Training made easy
+              p Portland Business Journal
 
-            .col-xs-6.col-sm-3
-              a(href= "http://www.bizjournals.com/portland/blog/2014/10/are-education-software-companies-portland-s-next.html", target="_blank")
+        .col-xs-6.col-sm-3
+          a(href= "http://www.bizjournals.com/portland/blog/2014/10/are-education-software-companies-portland-s-next.html", target="_blank")
+            .row
+              .col-sm-8
                 img.img-circle.img-responsive(src="/images/landing/ed-tech-avatar.jpg")
-                .etto-padding
-                  h4 Are education software companies Portland’s next tech cluster?
-                  p Portland Business Journal
+            .etto-padding
+              h4 Are education software companies Portland’s next tech cluster?
+              p Portland Business Journal
 
 
 etto-footer
