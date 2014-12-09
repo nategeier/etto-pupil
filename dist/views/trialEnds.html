@@ -1,0 +1,25 @@
+
+<etto-logged-in-nav></etto-logged-in-nav>
+<div class="etto-company etto-bgcolor-light">
+  <div class="container">
+    <h3 editable-text="tier._id" buttons="no" blur="submit" onaftersave="reset()" class="etto-color-primary">{{ tier._id || 'Enter Tier ID'}}</h3>
+    <h1>{{tier.title}}</h1>
+    <div ng-if="tier">
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Trial Ends</h3>
+          <div style="display:inline-block; min-height:290px;">
+            <datepicker ng-model="tier.trialEnds" min-date="minDate" show-weeks="true" ng-change="updateTier()" class="well well-sm"></datepicker>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h3>Subscription</h3>
+          <p ng-show="tier._subscription">{{tier._subscription}}</p>
+          <p ng-show="!tier._subscription">No Subscription</p>
+          <h3>Users</h3>
+          <p>{{tier.totUsers}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

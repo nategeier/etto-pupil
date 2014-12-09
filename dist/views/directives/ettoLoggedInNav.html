@@ -26,7 +26,7 @@
           <ul role="menu" aria-labelledby="dLabel" class="dropdown-menu">
             <li><a href="/settings/{{user._id}}">Settings</a></li>
             <li ng-show="user.auth.canEditCompany"><a href="/company/{{user._tier._company}}">Company</a></li>
-            <li ng-show="user.auth.canEditCompany"><a href="/subscription/{{user._id}}" ng-show="user.auth.canPurchase">Subscriptions</a></li>
+            <li ng-show="user.auth.canPurchase"><a href="/subscription/{{user._id}}" ng-show="user.auth.canPurchase">Subscriptions</a></li>
             <li ng-show="user.auth.canEditCompany"><a href="/payments/{{user._id}}" ng-show="user.auth.canPurchase">Payments</a></li>
             <li ng-show="user.auth.canEditCompany"><a href="/assets">Asset Library</a></li>
             <li><a href="#" ng-click="destroySession('/')">Logout</a></li>

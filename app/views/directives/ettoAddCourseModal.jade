@@ -2,14 +2,11 @@
   button.close( type="button" )
   h2.modal-title Create a Course
 .modal-body.etto-bgcolor-light
-  form(ng-submit="createCourse()", ng-show="subscriptionGood === true")
+  form(ng-submit="createCourse()")
     .form-group
       input.form-control( type="text", ng-model="course.title", placeholder="title", autocomplete="on", required, maxlength="40" )
     .form-group
       input.form-control( type="text", ng-model="course.subtitle", placeholder="subTitle", required, maxlength="40" )
     .form-group
       input.btn.btn-default( type="submit", value="Create")
-  div(ng-show="subscriptionGood === false")
-    p Looks like you need a higher subscription to create another course.
-    button.btn.btn-default(type="button", ng-click="linkSubscription()") Subscriptions
 

@@ -19,11 +19,20 @@ angular.module("ettoPupil")
 
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoCourseStatusModal.html",
-              controller: function ($scope, $modalInstance, $location) {
+              controller: function ($scope, $modalInstance, CourseMetaChange, $location) {
 
                 $scope.course = course;
                 $scope.saveSettings = function () {
-                  $modalInstance.close(true);
+
+                  var status = {
+                    _id: $scope.course._id,
+                    status: $scope.course.status
+                  };
+
+                  CourseMetaChange.updateStatus(status, function () {
+                    $modalInstance.close(true);
+                  });
+
                 };
 
                 $scope.cancel = function () {

@@ -44,9 +44,10 @@ angular.module("ettoPupil")
           });
         },
 
-        searchTiers: function (text, callback) {
-          var Tiers = $resource(Endpoint("tier", "searchTiers") + "/:text", {
-            text: text
+        searchTiers: function (text, isAdmin, callback) {
+          var Tiers = $resource(Endpoint("tier", "searchTiers") + "/:text/:isAdmin", {
+            text: text,
+            isAdmin: isAdmin
           });
 
           Tiers.query(function (results) {

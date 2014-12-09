@@ -4,7 +4,7 @@
   <h2 class="modal-title">Create a Course</h2>
 </div>
 <div class="modal-body etto-bgcolor-light">
-  <form ng-submit="createCourse()" ng-show="subscriptionGood === true">
+  <form ng-submit="createCourse()">
     <div class="form-group">
       <input type="text" ng-model="course.title" placeholder="title" autocomplete="on" required="required" maxlength="40" class="form-control"/>
     </div>
@@ -15,8 +15,4 @@
       <input type="submit" value="Create" class="btn btn-default"/>
     </div>
   </form>
-  <div ng-show="subscriptionGood === false">
-    <p>Looks like you need a higher subscription to create another course.</p>
-    <button type="button" ng-click="linkSubscription()" class="btn btn-default">Subscriptions</button>
-  </div>
 </div>

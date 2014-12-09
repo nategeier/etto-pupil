@@ -1,43 +1,48 @@
 etto-logged-in-nav
 .container.etto-subscriptions
 
-  h1 Subscriptions
-  p Subscriptions are based on the number of employees in your system.
- 
+  div(ng-if= "err")
+    h4.text-center {{err}}
+    hr
 
-  hr
-  .row
-    .col-sm-4(ng-repeat="subscriptionType in subscriptionTypes")      
-      .etto-subscription.etto-bgcolor-light
-        h4 {{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}} Employees
-        h1.etto-color-primary ${{subscriptionType.price | number:0}}/mo
-        
-        div(ng-show="subscriptionType._id === currentSubscription")
-          hr
-          small Current Subscription
-          br
-          i.fa.fa-check-square-o.fa-2x
-          button.btn.btn-danger.cancel-btn.btn-sm.pull-right(ng-show="company._subscription && subscriptionType._id === currentSubscription", etto-recipient-modal, ng-click="cancelSubscription()") Cancel Subscription
+  div(ng-show="user.auth.canPurchase")
+    h1 Subscriptions
+    p Subscriptions are based on the number of employees in your system.
+   
+
+    hr
+    .row
+      .col-sm-4(ng-repeat="subscriptionType in subscriptionTypes")      
+        .etto-subscription.etto-bgcolor-light
+          h4 {{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}} Employees
+          h1.etto-color-primary ${{subscriptionType.price | number:0}}/mo
+          
+          div(ng-show="subscriptionType._id === currentSubscription")
+            hr
+            small Current Subscription
+            br
+            i.fa.fa-check-square-o.fa-2x
+            button.btn.btn-danger.cancel-btn.btn-sm.pull-right(ng-show="company._subscription && subscriptionType._id === currentSubscription", etto-recipient-modal, ng-click="cancelSubscription()") Cancel Subscription
 
 
-        button.btn.btn-sm.btn-default(etto-purchase, type="button", ng-click='purchase(null, {_id:subscriptionType._id, price:subscriptionType.price})', ng-show="subscriptionType._id !== currentSubscription") Purchase
+          button.btn.btn-sm.btn-default(etto-purchase, type="button", ng-click='purchase(null, {_id:subscriptionType._id, price:subscriptionType.price})', ng-show="subscriptionType._id !== currentSubscription") Purchase
 
-  hr
-  h4.text-center Call (541) 521-7967 if your company has 2,000+ Employees
-  hr
-  .row
-    .col-sm-6.etto-bgcolor-light
-      h4 Includes
-      ul
-        li Unlimited internal courses
-        li Unlimited tiers
-        li Cancel anytime
-        li 24 Hour support response time
-    .col-sm-6
-      h1 Still Have Questions?
-      p We are here to answer, give us a call at (541) 521-7967
+    hr
+    h4.text-center Call (541) 521-7967 if your company has 2,000+ Employees
+    hr
+    .row
+      .col-sm-6.etto-bgcolor-light
+        h4 Includes
+        ul
+          li Unlimited internal courses
+          li Unlimited tiers
+          li Cancel anytime
+          li 24 Hour support response time
+      .col-sm-6
+        h1 Still Have Questions?
+        p We are here to answer, give us a call at (541) 521-7967
 
-  hr
+    hr
 etto-footer
 
 

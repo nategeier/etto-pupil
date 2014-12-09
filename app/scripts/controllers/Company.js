@@ -19,7 +19,6 @@ angular.module("ettoPupil")
           WhiteLabel.setColors($scope.company.colors);
           WhiteLabel.setFonts($scope.company.font);
         });
-
       };
     }
   ]);

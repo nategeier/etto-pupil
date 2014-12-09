@@ -18,10 +18,6 @@ angular.module("ettoPupil")
 
                 $scope.user = user;
 
-                Payment.checkCanAddCourse(user._tier._company, function (result) {
-                  $scope.subscriptionGood = result.isGood;
-                });
-
                 $scope.course = {};
 
                 $scope.createCourse = function () {
@@ -42,9 +38,7 @@ angular.module("ettoPupil")
               course._creator = $scope.user._tier._company;
 
               CourseMetaChange.create(course, function (data) {
-
                 $location.path("/course/edit/" + data._id);
-
               });
             });
           };
