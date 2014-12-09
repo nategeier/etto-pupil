@@ -42,7 +42,7 @@ angular.module("ettoPupil")
             });
             modal.result.then(function (didRemove) {
               if (didRemove) {
-                $scope.saveCourse();
+                //$scope.saveCourse();
                 if ($scope.course.status === "private") {
                   $location.path("/tier/edit/" + $scope.user._tier._id);
                 }

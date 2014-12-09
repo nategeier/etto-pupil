@@ -45,7 +45,7 @@ angular.module("ettoPupil")
         },
 
         searchTiers: function (text, isAdmin, callback) {
-          var Tiers = $resource(Endpoint("tier", "searchTiers") + "/:text/:isAdmin", {
+          var Tiers = $resource(Endpoint("tier", "searchTier") + "/:text/:isAdmin", {
             text: text,
             isAdmin: isAdmin
           });
