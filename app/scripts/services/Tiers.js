@@ -38,6 +38,17 @@ angular.module("ettoPupil")
             });
         },
 
+        countUsersInTierTree: function (tier, callback) {
+
+          $http.post(Endpoint("tier", "countUsersInTierTree"), tier)
+            .success(function (data, status, headers, config) {
+              callback(data);
+            })
+            .error(function (data, status, headers, config) {
+              console.dir(data);
+            });
+        },
+
         addTier: function (newTier, callback) {
           $http.post(Endpoint("tier", "add"), newTier).success(function (data) {
             callback(data);

@@ -15,6 +15,15 @@ angular.module("ettoPupil")
               console.dir(data);
             });
         },
+        updateStatus: function (status, callback) {
+          $http.post(Endpoint("course", "updateStatus"), status)
+            .success(function (data, status, headers, config) {
+              callback(data);
+            })
+            .error(function (data, status, headers, config) {
+              console.dir(data);
+            });
+        },
 
         removeCourse: function (course, callback) {
           $http.post(Endpoint("course", "destroy"), course)

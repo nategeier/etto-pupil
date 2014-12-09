@@ -16,6 +16,10 @@ angular.module("ettoPupil", ["ngRoute", "ngSanitize", "ngResource", "ngAnimate",
           templateUrl: "/views/terms.html",
           controller: "TermsCtrl"
         })
+        .when("/trialEnds", {
+          templateUrl: "/views/trialEnds.html",
+          controller: "TrialEndsCtrl"
+        })
         .when("/beta", {
           templateUrl: "/views/beta.html"
         })

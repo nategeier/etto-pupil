@@ -10,11 +10,10 @@ angular.module("ettoPupil")
 
           $scope.searchTiers = function () {
             if ($scope.tierSearch !== "") {
-              Tier.searchTiers($scope.tierSearch, function (results) {
+              Tier.searchTiers($scope.tierSearch, false, function (results) {
                 $scope.foundTiers = results;
               });
             }
-
           };
         },
         link: function postLink(scope, element, attrs) {

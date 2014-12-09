@@ -8,6 +8,7 @@ angular.module("ettoPupil")
         restrict: "AE",
         controller: function ($scope, $modal, $rootScope, $http, $upload, $q) {
           $scope.showAssetLibrary = function (w, h, done) {
+
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoAssetLibraryModal.html",
               windowClass: "app-modal-large",

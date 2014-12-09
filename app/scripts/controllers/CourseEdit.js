@@ -55,8 +55,6 @@ angular.module("ettoPupil")
         emmitedCourse.eventType = CoursePlayer.eventType();
         emmitedCourse.blockChanged = CoursePlayer.currentBlock();
 
-        console.log(CoursePlayer.currentBlock());
-
         socket.emit("updated course", emmitedCourse);
 
         $scope.course.$update();
