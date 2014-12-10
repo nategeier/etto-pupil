@@ -26,7 +26,7 @@ etto-logged-in-nav
         h3.etto-color-primary Custom Login Link
         p.etto-color-secondary https://coursetto.com/login/{{company._id}}
         h3.etto-color-primary Logo
-        img.img-uploadable(ng-if="user.auth.canPurchase", src="{{company.logo}}", etto-asset-library-modal, ng-click='updateLogo()', height="65")
+        img.img-uploadable(src="{{company.logo}}", etto-asset-library-modal, ng-click='updateLogo()', height="65")
         
         h3.etto-color-primary Font
         select(ng-change="changeWhiteLabel()", ng-model="company.font", ng-options="font for font in fonts")

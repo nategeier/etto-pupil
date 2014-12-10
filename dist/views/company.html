@@ -26,7 +26,7 @@
       <div class="col-sm-6 etto-bgcolor-white etto-company-info">
         <h3 class="etto-color-primary">Custom Login Link</h3>
         <p class="etto-color-secondary">https://coursetto.com/login/{{company._id}}</p>
-        <h3 class="etto-color-primary">Logo</h3><img ng-if="user.auth.canPurchase" src="{{company.logo}}" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateLogo()" height="65" class="img-uploadable"/>
+        <h3 class="etto-color-primary">Logo</h3><img src="{{company.logo}}" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateLogo()" height="65" class="img-uploadable"/>
         <h3 class="etto-color-primary">Font</h3>
         <select ng-change="changeWhiteLabel()" ng-model="company.font" ng-options="font for font in fonts"></select>
         <h3 class="etto-color-primary">Main Image</h3><img src="{{company.leaderboard.imgUrl}}" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateMainImg()" class="img-responsive default-lg img-uploadable"/>
