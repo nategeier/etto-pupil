@@ -20,6 +20,7 @@
   }
 }
 
+body { overflow-x: hidden;}
 
 .animate-enter {
   -webkit-transition: 3s linear all; /* Chrome */
@@ -44,10 +45,6 @@
 }
 
 
-.main-holder{
-  padding-right:10px;
-}
-
 .left-holder{
   background-color: $etto-lightblue;
   margin-bottom: 0;
@@ -56,7 +53,6 @@
 .nopad{
   margin:0;
   padding:0;
-  color: $etto-mildblue;
 }
 
 

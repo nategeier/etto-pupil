@@ -51,9 +51,9 @@ $grid-gutter-width:         15px !default;
  $line-height-base:$ratio;
  $headings-line-height:$line-height-base;
  $navbar-default-link-hover-color:$etto-darkblue !default;
- $navbar-default-link-hover-bg:lighten($etto-grey, 9.5%) !default;
+ $navbar-default-link-hover-bg:lighten(#ffffff, 9.5%) !default;
  $navbar-default-link-active-color:$etto-darkblue !default;
- $navbar-default-link-active-bg:lighten($etto-grey, 0%) !default;
+ $navbar-default-link-active-bg:rgba(255,255,255, 0.8) !default;
 // Components
 // -------------------------
  $border-radius-base:4px;
