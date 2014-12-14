@@ -23,12 +23,23 @@
   }
 }
 
+.etto-home-content{
+  padding-left:15px;
+  padding-right:15px;
+}
+.etto-searchbar{
+  margin-bottom: 15px;
+}
 
 .etto-head-img{
   max-height: 300px;
   width:100%;
 }
 
+.etto-leadertxt{
+  padding-left:15px;
+  background-color: #ffffff;
+}
 
 .etto-pad-top{
   padding-top:20px;
@@ -38,6 +49,8 @@
 .main-img-container{
   width: 100%;
   height: 240px;
+  padding:0;
+  margin:0;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -48,5 +61,4 @@
   h4{
     color: #ffffff;
   }
-
 }

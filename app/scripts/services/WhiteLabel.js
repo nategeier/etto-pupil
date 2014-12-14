@@ -35,6 +35,7 @@ angular.module("ettoPupil")
       };
 
       var giveColors = function () {
+
         $("<style> .etto-color-primary { color: " + colors.primary + "; } </style>").appendTo("head");
         $("<style> .etto-color-secondary { color: " + colors.secondary + "; } </style>").appendTo("head");
         $("<style> .etto-color-accent { color: " + colors.accent + "; } </style>").appendTo("head");
