@@ -171,7 +171,7 @@ module.exports = function (grunt) {
       },
       dox: {
         options: {
-          port: 8080,
+          port: 9090,
           middleware: function (connect) {
             return [
               require("connect-livereload")({
@@ -184,7 +184,7 @@ module.exports = function (grunt) {
       },
       styleguide: {
         options: {
-          port: 8080,
+          port: 9090,
           middleware: function (connect) {
             return [
               mountFolder(connect, "styleguide")

@@ -68,7 +68,7 @@ angular.module("ettoPupil")
           $scope.$watch("details.geometry", function () {
             if ($scope.details) {
               $scope.center.lat = $scope.details.geometry.location.k;
-              $scope.center.lng = $scope.details.geometry.location.B;
+              $scope.center.lng = $scope.details.geometry.location.D;
               $scope.addMarker();
             }
           });
