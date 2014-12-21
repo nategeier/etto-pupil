@@ -31,7 +31,7 @@ angular.module("ettoPupil")
 
           $http.post(Endpoint("tier", "changeWhiteLabel"), tier)
             .success(function (data, status, headers, config) {
-              callback(data);
+              callback();
             })
             .error(function (data, status, headers, config) {
               console.dir(data);

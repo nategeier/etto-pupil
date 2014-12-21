@@ -1,4 +1,4 @@
-###
+
 describe "Service: CoursePlayer", ->
   CoursePlayer = null
   testCourse = null
@@ -12,7 +12,7 @@ describe "Service: CoursePlayer", ->
         { type: "title", data: {} },
         { type: "text", data: {} },
         { type: "quote", data: {} } ]
-    CoursePlayer.play testCourse
+    CoursePlayer.play testCourse, 0
 
   it "should start on the first Block", ->
     expect( CoursePlayer.currentBlock() ).toBe 0
@@ -66,7 +66,7 @@ describe "Service: CoursePlayer", ->
   describe "play functions", ->
     it "should reset to the first block", ->
       CoursePlayer.nextBlock()
-      CoursePlayer.play { blocks: [ {} ] }
+      CoursePlayer.play { blocks: [ {} ] }, 0
       expect( CoursePlayer.currentBlock() ).toBe 0
 
   describe "adding blocks", ->

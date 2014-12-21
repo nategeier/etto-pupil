@@ -4,18 +4,12 @@ angular.module("ettoPupil")
   .controller("HomeCtrl", ["$scope", "$location", "CourseMetaChange", "Users", "Tier",
     function ($scope, $location, CourseMetaChange, Users, Tier) {
 
-      $scope.$watch("user", function () {
-        if ($scope.user) {
-          $scope.listUsersCreatedCourses();
-        }
-      });
+      $scope.activetab = "home";
 
       TweenMax.from($("#head-img"), 1, {
         delay: 0.6,
         opacity: 0
       });
-
-      $scope.activetab = "home";
 
       TweenMax.from($("#title"), 0.6, {
         delay: 0.3,
@@ -45,6 +39,12 @@ angular.module("ettoPupil")
       $scope.openCourse = function (course) {
         $location.path("/course/view/" + course._id);
       };
+
+      $scope.$watch("user", function () {
+        if ($scope.user) {
+          $scope.listUsersCreatedCourses();
+        }
+      });
 
     }
   ]);

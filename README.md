@@ -45,3 +45,8 @@ Testing dist:
 $ grunt build
 $ grunt serve:throttledist
 ```
+Testing Karma:
+
+```sh
+$ karma start --auto-watch
+```

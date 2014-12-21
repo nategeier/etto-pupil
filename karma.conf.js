@@ -22,8 +22,11 @@ module.exports = function (config) {
       "app/bower_components/angular-touch/angular-touch.js",
       "app/bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js",
       "app/bower_components/ngAutocomplete/src/ngAutocomplete.js",
+      "app/bower_components/async/lib/async.js",
 
       "app/bower_components/angular-mocks/angular-mocks.js",
+      "app/bower_components/socket.io-client/socket.io.js",
+
       "app/bower_components/angular-loading-bar/src/loading-bar.js",
       "app/bower_components/ng-file-upload/angular-file-upload.min.js",
       "app/bower_components/angular-xeditable/dist/js/xeditable.min.js",
@@ -33,10 +36,14 @@ module.exports = function (config) {
 
       "app/scripts/*.js",
       "app/scripts/**/*.js",
-
+      "app/scripts/**/**/*.js",
+      "app/scripts/**/**/**/*.js",
       // CoffeScript tests take precedence over JS
       "test/**/*.coffee",
       "test/**/*.js",
+      "test/**/**/*.js",
+      "test/**/**/**/*.js",
+      "test/**/**/**/**/*.js",
 
       "app/views/**/*.jade"
     ],

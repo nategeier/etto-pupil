@@ -14,6 +14,7 @@ angular.module("ettoPupil")
     function (BlockQuiz, Record) {
       var onBlock = 0;
       var lastEventBlock = 0;
+
       var locked = false;
       var course = {
         blocks: []
@@ -25,18 +26,34 @@ angular.module("ettoPupil")
        * @param {course} newCourse The new course object to start playing.
        */
       var play = function (newCourse, playBlock) {
-
         course = newCourse;
         onBlock = playBlock;
       };
 
+      /**
+       * Unlock the course.
+       *
+       *
+       */
       var unlock = function () {
         locked = false;
       };
 
+      /**
+       * Lock a course.
+       *
+       *
+       */
+
       var lock = function () {
         locked = true;
       };
+
+      /**
+       * Check if Course is locked
+       *
+       *
+       */
 
       var isLocked = function () {
         return locked;

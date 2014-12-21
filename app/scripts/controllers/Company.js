@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("CompanyCtrl", ["$scope", "$routeParams", "Session", "Tiers", "WhiteLabel", "Fonts",
-    function ($scope, $routeParams, Session, Tiers, WhiteLabel, Fonts) {
+  .controller("CompanyCtrl", ["$scope", "$routeParams", "Tiers", "WhiteLabel", "Fonts",
+    function ($scope, $routeParams, Tiers, WhiteLabel, Fonts) {
 
       var companyId = $routeParams.companyId;
 
@@ -15,7 +15,7 @@ angular.module("ettoPupil")
           font: $scope.company.font
         };
 
-        Tiers.changeWhiteLabel(company, function (data) {
+        Tiers.changeWhiteLabel(company, function () {
           WhiteLabel.setColors($scope.company.colors);
           WhiteLabel.setFonts($scope.company.font);
         });
