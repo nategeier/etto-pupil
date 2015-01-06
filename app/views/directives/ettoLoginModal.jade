@@ -2,24 +2,31 @@
   .row
     .col-md-12
       h2.modal-title Login
-    //.col-sm-4.col-md-4
-      .btn-group.sign-on-btns
-        a.btn.btn-default(href='/api/v1/auth/github/', target="_self")
-          i.fa.fa-github-square.fa-2x
-        a.btn.btn-default(href='/api/v1/auth/facebook/', target="_self")
-          i.fa.fa-facebook.fa-2x
-        a.btn.btn-default(href='/api/v1/auth/google/', target="_self")
-          i.fa.fa-google-plus-square.fa-2x
+    
 .modal-body
   form(ng-submit="handleLogin(user)")
     div(ng-show="err")
       .alert.alert-danger {{err.message}}
-    .form-group
-      input.form-control( autocapitalize="off", type="text", ng-model="user.username", placeholder="Email or username...", autocomplete="on", required )
-    .form-group
-      input.form-control( type="password", ng-model="user.password", placeholder="Enter your password...", required )
+    .row
+      .col-sm-8
+        .form-group
+          input.form-control( autocapitalize="off", type="text", ng-model="user.username", placeholder="Email or username...", autocomplete="on", required )
+        .form-group
+          input.form-control( type="password", ng-model="user.password", placeholder="Enter your password...", required )
+        
+        .form-group
+          input.btn.btn-success.btn-sm(type="submit", value="Login")
+
+      .col-sm-4
+        p Sign in via
+        .btn-group.sign-on-btns
+          a.btn.btn-default(href='/api/v1/auth/github/', target="_self")
+            i.fa.fa-github-square.fa-2x
+          a.btn.btn-default(href='/api/v1/auth/facebook/', target="_self")
+            i.fa.fa-facebook.fa-2x
+          a.btn.btn-default(href='/api/v1/auth/google/', target="_self")
+            i.fa.fa-google-plus-square.fa-2x
     
-    input.btn.btn-success.btn-sm(type="submit", value="Login")
     hr
     .btn-group
       .btn.btn-default.btn-sm( ng-click="cancel()") Cancel

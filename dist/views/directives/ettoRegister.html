@@ -1,6 +1,6 @@
 
 <div class="modal-header">
-  <h2 class="modal-title">Welcome</h2>
+  <h2 class="modal-title">Register</h2>
 </div>
 <div class="modal-body">
   <div class="row">
@@ -8,29 +8,38 @@
       <div ng-show="err" class="alert alert-danger">
         <p>{{err}}</p>
       </div>
-      <form ng-submit="handleLogin(newUser)" novalidate="novalidate" class="css-form">
-        <div class="form-group">
-          <input type="text" ng-model="newUser.tierTitle" placeholder="Company Name" autocomplete="on" required="required" class="form-control"/>
+      <div class="row">
+        <div class="col-sm-8">
+          <form ng-submit="handleLogin(newUser)" novalidate="novalidate" class="css-form">
+            <div class="form-group">
+              <input type="text" ng-model="newUser.tierTitle" placeholder="Company Name" autocomplete="on" required="required" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <input type="text" ng-model="newUser.name" placeholder="Your Name" autocomplete="on" required="required" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <input type="email" ng-model="newUser.emails" placeholder="Email" autocomplete="on" required="required" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <input autocapitalize="off" type="text" ng-model="newUser.username" placeholder="Username" required="required" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <input type="password" ng-model="newUser.password" placeholder="Password" required="required" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="I agree to the terms" class="btn btn-success btn-sm"/>
+            </div>
+          </form>
         </div>
-        <div class="form-group">
-          <input type="text" ng-model="newUser.name" placeholder="Your Name" autocomplete="on" required="required" class="form-control"/>
+        <div class="col-sm-4">
+          <p>Register in via</p>
+          <div class="btn-group sign-on-btns"><a href="/api/v1/auth/github/" target="_self" class="btn btn-default"><i class="fa fa-github-square fa-2x"></i></a><a href="/api/v1/auth/facebook/" target="_self" class="btn btn-default"><i class="fa fa-facebook fa-2x"></i></a><a href="/api/v1/auth/google/" target="_self" class="btn btn-default"><i class="fa fa-google-plus-square fa-2x"></i></a></div>
+          <hr/>
+          <div class="btn-group">
+            <button type="button" ng-click="cancel()" class="btn btn-default btn-sm">Cancel</button><a href="/terms" target="_blank" class="btn btn-default btn-sm">Terms</a>
+          </div>
         </div>
-        <div class="form-group">
-          <input type="email" ng-model="newUser.emails" placeholder="Email" autocomplete="on" required="required" class="form-control"/>
-        </div>
-        <div class="form-group">
-          <input autocapitalize="off" type="text" ng-model="newUser.username" placeholder="Username" required="required" class="form-control"/>
-        </div>
-        <div class="form-group">
-          <input type="password" ng-model="newUser.password" placeholder="Password" required="required" class="form-control"/>
-        </div>
-        <div class="form-group">
-          <input type="submit" value="I agree to the terms" class="btn btn-success btn-sm"/>
-        </div>
-        <div class="btn-group pull-right">
-          <button type="button" ng-click="cancel()" class="btn btn-default btn-sm">Cancel</button><a href="/terms" target="_blank" class="btn btn-default btn-sm">Terms</a>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>

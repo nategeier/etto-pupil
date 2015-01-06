@@ -23,7 +23,6 @@ angular.module("ettoPupil")
 
         var question = {
           question: "Question",
-          incorrect: true,
           answers: [{
             answer: "Answer",
             correct: false

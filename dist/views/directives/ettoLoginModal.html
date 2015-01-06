@@ -4,9 +4,6 @@
     <div class="col-md-12">
       <h2 class="modal-title">Login</h2>
     </div>
-    <!--.col-sm-4.col-md-4
-    <div class="btn-group sign-on-btns"><a href="/api/v1/auth/github/" target="_self" class="btn btn-default"><i class="fa fa-github-square fa-2x"></i></a><a href="/api/v1/auth/facebook/" target="_self" class="btn btn-default"><i class="fa fa-facebook fa-2x"></i></a><a href="/api/v1/auth/google/" target="_self" class="btn btn-default"><i class="fa fa-google-plus-square fa-2x"></i></a></div>
-    -->
   </div>
 </div>
 <div class="modal-body">
@@ -14,13 +11,23 @@
     <div ng-show="err">
       <div class="alert alert-danger">{{err.message}}</div>
     </div>
-    <div class="form-group">
-      <input autocapitalize="off" type="text" ng-model="user.username" placeholder="Email or username..." autocomplete="on" required="required" class="form-control"/>
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="form-group">
+          <input autocapitalize="off" type="text" ng-model="user.username" placeholder="Email or username..." autocomplete="on" required="required" class="form-control"/>
+        </div>
+        <div class="form-group">
+          <input type="password" ng-model="user.password" placeholder="Enter your password..." required="required" class="form-control"/>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Login" class="btn btn-success btn-sm"/>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <p>Sign in via</p>
+        <div class="btn-group sign-on-btns"><a href="/api/v1/auth/github/" target="_self" class="btn btn-default"><i class="fa fa-github-square fa-2x"></i></a><a href="/api/v1/auth/facebook/" target="_self" class="btn btn-default"><i class="fa fa-facebook fa-2x"></i></a><a href="/api/v1/auth/google/" target="_self" class="btn btn-default"><i class="fa fa-google-plus-square fa-2x"></i></a></div>
+      </div>
     </div>
-    <div class="form-group">
-      <input type="password" ng-model="user.password" placeholder="Enter your password..." required="required" class="form-control"/>
-    </div>
-    <input type="submit" value="Login" class="btn btn-success btn-sm"/>
     <hr/>
     <div class="btn-group">
       <div ng-click="cancel()" class="btn btn-default btn-sm">Cancel</div>
