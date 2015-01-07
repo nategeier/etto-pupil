@@ -8,7 +8,6 @@
         <div id="question{{$index}}" class="panel panel-default etto-question">
           <div class="panel-heading">
             <h3 class="panel-title etto-color-primary">{{$index + 1}}. {{q.question}}</h3>
-            <p>{{q}}</p>
           </div>
           <div class="list-group"><a href="#" ng-if="q.incorrect &amp;&amp; q.incorrect === true" class="list-group-item list-group-item-success">
               <div class="alert alert-danger">Incorrect, please try again.</div></a><a href="#" ng-repeat="a in q.answers track by $index" ng-class="!a.selected ? 'not-active' : 'active'" class="list-group-item">

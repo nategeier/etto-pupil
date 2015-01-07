@@ -9,7 +9,6 @@
         .panel.panel-default.etto-question(id="question{{$index}}")
           .panel-heading
             h3.panel-title.etto-color-primary {{$index + 1}}. {{q.question}}
-            p {{q}}
           
           .list-group
             a.list-group-item.list-group-item-success(href="#", ng-if="q.incorrect && q.incorrect === true")
