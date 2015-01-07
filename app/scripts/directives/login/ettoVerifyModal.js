@@ -49,12 +49,7 @@ angular.module("ettoPupil")
               }
             });
             modal.result.then(function (user) {
-
-              Session.updateSession(user, function (data) {
-                $scope.user = data;
-                $location.path($scope.redirectTo);
-              });
-
+              $scope.updateSession();
             });
           };
         },

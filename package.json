@@ -1,7 +1,7 @@
 {
   "name": "etto-pupil",
   "private": true,
-  "version": "0.0.0-150",
+  "version": "0.0.0-151",
   "dependencies": {
     "node-static": "https://github.com/cloudhead/node-static/tarball/master"
   },
