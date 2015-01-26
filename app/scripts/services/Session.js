@@ -27,17 +27,16 @@ angular.module("ettoPupil")
         },
 
         getSession: function (callback) {
-          $http({
-              method: "GET",
-              url: Endpoint("auth", "getSession")
-            })
+
+          $http.get(Endpoint("auth", "getSession"))
             .success(function (data, status, headers, config) {
               currentUser = data;
               callback(data);
             })
             .error(function (data, status, headers, config) {
-              console.dir(data, "");
+              console.dir(data);
             });
+
         },
         currentUser: function () {
           return currentUser;
