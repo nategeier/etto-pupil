@@ -183,7 +183,10 @@ angular.module("ettoPupil", ["ui.router", "ngSanitize", "ngResource", "ngAnimate
 
       var initStage = function (reladController) {
         Session.getSession(function (user) {
+
           $rootScope.user = user;
+
+          console.log("user-----", user);
 
           if ($rootScope.user) {
 
