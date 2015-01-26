@@ -186,25 +186,26 @@ angular.module("ettoPupil", ["ui.router", "ngSanitize", "ngResource", "ngAnimate
           $rootScope.user = user;
 
           if ($rootScope.user) {
+            if ($rootScope.user._tier && $rootScope.user._tier._company) {
+              Store.findCredit($rootScope.user._tier._company, function (results) {
+                $rootScope.credits = results.credits;
+              });
 
-            Store.findCredit($rootScope.user._tier._company, function (results) {
-              $rootScope.credits = results.credits;
-            });
+              Tier.getCompany($rootScope.user._tier._id, function (company) {
 
-            Tier.getCompany($rootScope.user._tier._id, function (company) {
+                $rootScope.company = company;
 
-              $rootScope.company = company;
+                if (company.colors) {
+                  WhiteLabel.setColors(company.colors);
+                  WhiteLabel.setFonts(company.font);
+                }
 
-              if (company.colors) {
-                WhiteLabel.setColors(company.colors);
-                WhiteLabel.setFonts(company.font);
-              }
+                if (reladController === true) {
+                  $state.go(toState.name, toParams);
+                }
 
-              if (reladController === true) {
-                $state.go(toState.name, toParams);
-              }
-
-            });
+              });
+            }
           } else {
             Session.loginModal();
           }
