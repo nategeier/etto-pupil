@@ -31,11 +31,9 @@ angular.module("ettoPupil")
           $http.get(Endpoint("auth", "getSession"))
             .success(function (data, status, headers, config) {
               currentUser = data;
-              console.log("getSession-----", data, status, headers, config);
               callback(data);
             })
             .error(function (data, status, headers, config) {
-              console.log("error-----", data, status, headers, config);
               console.dir(data);
             });
 
