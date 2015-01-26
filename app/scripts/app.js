@@ -1,119 +1,154 @@
 "use strict";
 
-angular.module("ettoPupil", ["ngRoute", "ngSanitize", "ngResource", "ngAnimate", "ngTouch", "ui.bootstrap", "xeditable", "angularFileUpload", "chieffancypants.loadingBar", "leaflet-directive", "ngAutocomplete"])
-  .config(["$routeProvider", "$locationProvider", "$httpProvider",
-    function ($routeProvider, $locationProvider, $httpProvider) {
-      $httpProvider.defaults.withCredentials = true;
-      $httpProvider.interceptors.push("httpInterceptor");
+angular.module("ettoPupil", ["ui.router", "ngSanitize", "ngResource", "ngAnimate", "ngTouch", "ui.bootstrap", "xeditable", "angularFileUpload", "chieffancypants.loadingBar", "leaflet-directive", "ngAutocomplete"])
+  .config(["$locationProvider", "$stateProvider", "$urlRouterProvider",
+    function ($locationProvider, $stateProvider, $urlRouterProvider) {
+      //$httpProvider.defaults.withCredentials = true;
+      //$httpProvider.interceptors.push("httpInterceptor");
 
       $locationProvider.html5Mode(true).hashPrefix("#");
-      $routeProvider
-        .when("/", {
+
+      $urlRouterProvider.otherwise("/");
+
+      $stateProvider
+        .state("landing", {
+          url: "/",
           templateUrl: "/views/landing.html",
           controller: "LandingCtrl"
         })
-        .when("/terms", {
+
+      .state("terms", {
+          url: "/terms",
           templateUrl: "/views/terms.html",
           controller: "TermsCtrl"
         })
-        .when("/trialEnds", {
+        .state("trialEnds", {
+          url: "/trialEnds",
           templateUrl: "/views/trialEnds.html",
           controller: "TrialEndsCtrl"
         })
-        .when("/beta", {
+        .state("/beta", {
+          url: "",
           templateUrl: "/views/beta.html"
         })
-        .when("/docs/bamboohr", {
+        .state("bamboohrDocs", {
+          url: "/docs/bamboohr",
           templateUrl: "/views/bamboohr.html"
         })
-        .when("/reset/:code", {
+        .state("pwReset", {
+          url: "/reset/:code",
           templateUrl: "/views/resetPassword.html"
         })
-        .when("/etto", {
+        .state("home", {
+          url: "/etto",
           templateUrl: "/views/home.html",
-          controller: "HomeCtrl"
+          controller: "HomeCtrl",
+          requireLogin: true
+
         })
-        .when("/login/:companyId", {
+        .state("loginPage", {
+          url: "/login/:companyId",
           templateUrl: "/views/loginPage.html",
           controller: "LoginPageCtrl"
         })
-        .when("/company/:companyId", {
+        .state("companySettings", {
+          url: "/company/:companyId",
           templateUrl: "/views/company.html",
-          controller: "CompanyCtrl"
+          controller: "CompanyCtrl",
+          requireLogin: true
         })
-        .when("/report/:parentID", {
+        .state("report", {
+          url: "/report/:parentID",
           templateUrl: "/views/reports.html",
-          controller: "ReportsCtrl"
+          controller: "ReportsCtrl",
+          requireLogin: true
         })
-        .when("/tier/edit/:id", {
+        .state("editTier", {
+          url: "/tier/edit/:id",
           templateUrl: "/views/editTier.html",
-          controller: "TierCtrl"
+          controller: "TierCtrl",
+          requireLogin: true
         })
-        .when("/store/:tierID", {
+        .state("store", {
+          url: "/store/:tierID",
           templateUrl: "/views/store.html",
-          controller: "StoreCtrl"
+          controller: "StoreCtrl",
+          requireLogin: true
         })
-        .when("/invited/:id", {
+        .state("registerInvite", {
+          url: "/invited/:id",
           templateUrl: "/views/register_invite.html",
           controller: "InviteCtrl"
         })
-        .when("/settings/:userID", {
+        .state("userSettings", {
+          url: "/settings/:userID",
           templateUrl: "/views/settings.html",
-          controller: "SettingsCtrl"
+          controller: "SettingsCtrl",
+          requireLogin: true
         })
-        .when("/subscription/:userID", {
+        .state("subscriptions", {
+          url: "/subscription/:userID",
           templateUrl: "/views/Subscription.html",
-          controller: "SubscriptionCtrl"
+          controller: "SubscriptionCtrl",
+          requireLogin: true
         })
-        .when("/payments/:userID", {
+        .state("payment", {
+          url: "/payments/:userID",
           templateUrl: "/views/payments.html",
-          controller: "PaymentsCtrl"
+          controller: "PaymentsCtrl",
+          requireLogin: true
         })
-        .when("/session/destroy", {
+        .state("destroySession", {
+          url: "/session/destro",
           controller: "LogoutCtrl",
           templateUrl: "/views/home.html"
         })
-        .when("/course/demo/:courseId", {
+        .state("demoCourse", {
+          url: "/course/demo/:courseId/:blockId",
           templateUrl: "/views/CourseView.html",
           controller: "CourseDemoCtrl",
           resolve: {
-            course: function (CourseLoader) {
-              return new CourseLoader();
+            course: function (CourseLoader, $stateParams) {
+              return CourseLoader($stateParams.courseId);
             }
-          }
+          },
+          requireLogin: true
         })
-        .when("/course/view/:courseId", {
+        .state("viewCourse", {
+          url: "/course/view/:courseId/:blockId",
           templateUrl: "/views/CourseView.html",
           controller: "CourseViewCtrl",
           resolve: {
-            course: function (CourseLoader) {
-              return new CourseLoader();
+            course: function (CourseLoader, $stateParams) {
+              return CourseLoader($stateParams.courseId);
             }
-          }
+          },
+          requireLogin: true
         })
-        .when("/course/edit/:courseId", {
+        .state("editCourse", {
+          url: "/course/edit/:courseId/:blockId",
           templateUrl: "/views/CourseEdit.html",
-          controller: "CourseEditCtrl",
+          requireLogin: true,
           resolve: {
-            course: function (CourseLoader) {
-              return new CourseLoader();
+            course: function (CourseLoader, $stateParams) {
+              return CourseLoader($stateParams.courseId);
             }
-          }
+          },
+          controller: "CourseEditCtrl",
         })
-        .when("/assets", {
+        .state("assets", {
+          url: "/assets",
           templateUrl: "/views/AssetLibrary.html",
           controller: "AssetLibrary",
           resolve: {
             assets: function (AssetLoader) {
               return new AssetLoader();
             }
-          }
-        })
-        .otherwise({
-          redirectTo: "/etto"
+          },
+          requireLogin: true
         });
     }
-  ]).run(function ($rootScope, editableOptions) {
+  ]).run(function ($rootScope, editableOptions, $state, Session, WhiteLabel, Tier, Store) {
     var environment = "production";
 
     // Production
@@ -143,6 +178,48 @@ angular.module("ettoPupil", ["ngRoute", "ngSanitize", "ngResource", "ngAnimate",
         "socketUrl": "http://localhost:4220"
       };
     }
+
+    $rootScope.$on("$stateChangeStart", function (event, toState, toParams) {
+
+      var initStage = function (reladController) {
+        Session.getSession(function (user) {
+          $rootScope.user = user;
+
+          if ($rootScope.user) {
+
+            Store.findCredit($rootScope.user._tier._company, function (results) {
+              $rootScope.credits = results.credits;
+            });
+
+            Tier.getCompany($rootScope.user._tier._id, function (company) {
+
+              $rootScope.company = company;
+
+              if (company.colors) {
+                WhiteLabel.setColors(company.colors);
+                WhiteLabel.setFonts(company.font);
+              }
+
+              if (reladController === true) {
+                $state.go(toState.name, toParams);
+              }
+
+            });
+          } else {
+            Session.loginModal();
+          }
+
+        });
+      };
+      //--
+      if (toState.requireLogin && !Session.currentUser()) {
+        event.preventDefault();
+        initStage(true);
+      } else if (Session.currentUser()) {
+        initStage(false);
+      }
+
+    });
 
     editableOptions.theme = "bs3";
   });

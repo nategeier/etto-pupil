@@ -1,61 +1,72 @@
 
-<div etto-choose-block="etto-choose-block" etto-session="etto-session" class="etto-course-editor">
-  <div class="col-sm-3 col-lg-2">
-    <div ng-if="isEditing" class="panel panel-default">
-      <div class="panel-heading">
-        <h4 editable-text="course.title" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-accent">{{course.title || 'Title'}} </h4>
-        <p editable-text="course.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-accent">{{course.subtitle || 'Description'}}</p>
-      </div>
-      <div class="list-group">
-        <div class="list-group-item">
-          <div class="btn-group etto-btns">
-            <button ng-click="showOptions()" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></button>
-            <button ng-show="onLastBlock === false" ng-click="swapBlocks(currentBlock(), currentBlock() + 1)" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button><a href="/course/view/{{course._id}}" target="_blank" class="btn btn-default btn-sm"><i class="fa fa-eye"></i></a>
-            <button ng-click="removeBlock()" class="btn btn-danger btn-sm"><i class="fa fa-minus etto-color-light"></i></button>
-          </div>
+<div ng-if="user._tier._company === course._creator &amp;&amp; user.auth.canCreateCourses">
+  <div etto-choose-block="etto-choose-block" class="etto-course-editor">
+    <div class="col-sm-3 col-lg-2">
+      <div ng-if="isEditing" class="panel panel-default">
+        <div class="panel-heading">
+          <h4 editable-text="course.title" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-accent">{{course.title || 'Title'}} </h4>
+          <p editable-text="course.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-accent">{{course.subtitle || 'Description'}}</p>
         </div>
-        <div class="list-group-item">
-          <div class="row">
-            <div class="col-md-12">
-              <etto-course-nav ng-if="blocksInCourse() &gt;= 1"></etto-course-nav>
+        <div class="list-group">
+          <div class="list-group-item">
+            <div class="btn-group etto-btns">
+              <button ng-click="showOptions()" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></button>
+              <button ng-show="onLastBlock === false" ng-click="swapBlocks(currentBlock(), currentBlock() + 1)" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button><a href="/course/view/{{course._id}}" target="_blank" class="btn btn-default btn-sm"><i class="fa fa-eye"></i></a>
+              <button ng-click="removeBlock()" class="btn btn-danger btn-sm"><i class="fa fa-minus etto-color-light"></i></button>
             </div>
           </div>
-        </div>
-        <div class="list-group-item">
-          <p>Current State: {{course.status}}</p>
-        </div>
-        <div class="list-group-item"><img src="{{course.thumb}}" etto-asset-library-modal="etto-asset-library-modal" etto-image="etto-image" ng-click="updateThumb()" class="img-responsive default-lg img-uploadable"/></div>
-        <div class="list-group-item">
-          <div href="#" editable-textarea="course.meta.keywords" e-rows="5" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()"> 
-            <pre>{{ course.meta.keywords || 'keywords'}}</pre>
+          <div class="list-group-item">
+            <div class="row">
+              <div class="col-md-12">
+                <etto-course-nav ng-if="blocksInCourse() &gt;= 1"></etto-course-nav>
+              </div>
+            </div>
+          </div>
+          <div class="list-group-item">
+            <p>Current State: {{course.status}}</p>
+          </div>
+          <div class="list-group-item"><img src="{{course.thumb}}" etto-asset-library-modal="etto-asset-library-modal" etto-image="etto-image" ng-click="updateThumb()" class="img-responsive default-lg img-uploadable"/></div>
+          <div class="list-group-item">
+            <div href="#" editable-textarea="course.meta.keywords" e-rows="5" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()"> 
+              <pre>{{ course.meta.keywords || 'keywords'}}</pre>
+            </div>
+          </div>
+          <div class="list-group-item">
+            <div class="btn-group"><a href="#" etto-course-status="etto-course-status" ng-click="changeStatus()" class="btn btn-success">Launch</a><a href="/etto" class="btn btn-default">Exit</a></div>
           </div>
         </div>
-        <div class="list-group-item">
-          <div class="btn-group"><a href="#" etto-course-status="etto-course-status" ng-click="changeStatus()" class="btn btn-success">Launch</a><a href="/etto" class="btn btn-default">Exit</a></div>
+      </div>
+    </div>
+    <div class="etto-course-container col-sm-9 col-lg-10">
+      <div class="row">
+        <div class="col-md-12">         
+          <etto-course edit="edit" course="course"></etto-course>
+        </div>
+      </div>
+      <div class="etto-course-exit"><a href="/etto" target="_self" class="etto-course-exit"><i class="fa fa-2x fa-times-circle"></i>
+          <p>{{currentBlock() + 1}} / {{blocksInCourse() + 1}}</p></a></div>
+      <div ng-if="blocksInCourse() === 0">
+        <h1 class="etto-color-primary">Welcome {{company.title}} course builder</h1>
+        <hr/>
+        <div class="row">
+          <div class="col-md-6">
+            <h4 class="etto-color-primary">To create a block (slide), press the plus button to the left and choose a template. We suggest a title for the first block.</h4>
+            <p class="etto-color-primary">Keep adding blocks as you would any presentation.</p>
+          </div>
+          <div class="col-md-6">
+            <iframe style="min-height:300px; width: 100%;" width="1080" height="728" src="//www.youtube.com/embed/hc8qiJ0cjdI?showinfo=0&amp;controls=2&amp;thumbnail=high&amp;html5=1" frameborder="0" allowfullscreen="allowfullscreen" class="img-responsive etto-landing__youtube-demo img-rounded"></iframe>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="etto-course-container col-sm-9 col-lg-10">
-    <div class="row">
-      <div class="col-md-12">         
-        <etto-course edit="edit" course="course"></etto-course>
-      </div>
-    </div>
-    <div class="etto-course-exit"><a href="/etto" target="_self" class="etto-course-exit"><i class="fa fa-2x fa-times-circle"></i>
-        <p>{{currentBlock() + 1}} / {{blocksInCourse() + 1}}</p></a></div>
-    <div ng-if="blocksInCourse() === 0">
-      <h1 class="etto-color-primary">Welcome {{company.title}} course builder</h1>
-      <hr/>
-      <div class="row">
-        <div class="col-md-6">
-          <h4 class="etto-color-primary">To create a block (slide), press the plus button to the left and choose a template. We suggest a title for the first block.</h4>
-          <p class="etto-color-primary">Keep adding blocks as you would any presentation.</p>
-        </div>
-        <div class="col-md-6">
-          <iframe style="min-height:300px; width: 100%;" width="1080" height="728" src="//www.youtube.com/embed/hc8qiJ0cjdI?showinfo=0&amp;controls=2&amp;thumbnail=high&amp;html5=1" frameborder="0" allowfullscreen="allowfullscreen" class="img-responsive etto-landing__youtube-demo img-rounded"></iframe>
-        </div>
-      </div>
-    </div>
+</div>
+<div ng-if="user._tier._company !== course._creator || !user.auth.canCreateCourses">
+  <etto-logged-in-nav ng-if="user"></etto-logged-in-nav>
+  <etto-not-logged-in-nav ng-if="!user"></etto-not-logged-in-nav>
+  <div class="col-md-12">
+    <h1 class="text-center">Authorization Denied</h1>
+    <p ng-if="user._tier._company !== course._creator" class="text-center">This course is private.</p>
+    <p ng-if="!user.auth.canCreateCourses" class="text-center">You do not have the authorization to edit company courses.</p>
   </div>
 </div>

@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("SubscriptionCtrl", ["$scope", "$routeParams", "Users", "$resource", "Payment", "Tier",
-    function ($scope, $routeParams, Users, $resource, Payment, Tier) {
+  .controller("SubscriptionCtrl", ["$rootScope", "$scope", "Session", "Users", "$resource", "Payment", "Tier",
+    function ($rootScope, $scope, Session, Users, $resource, Payment, Tier) {
 
       $scope.currentSubscription = 0;
 
@@ -13,7 +13,13 @@ angular.module("ettoPupil")
       $scope.cancelSubscription = function () {
         Payment.cancelSubscription($scope.user._tier._company, function (results) {
           $scope.currentSubscription = null;
-          $scope.resetSubscription();
+          //$scope.resetSubscription();
+
+          Tier.getCompany($scope.company._id, function (data) {
+            $rootScope.company = data;
+            $scope.resetSubscription();
+          });
+
         });
       };
 
@@ -27,10 +33,10 @@ angular.module("ettoPupil")
                 $scope.onSubscription = $scope.subscriptionTypes[0]._id;
                 callback(null, results);
               });
-
             },
             function (callback) {
-              Users.fullDetails($routeParams.userID, function (user) {
+
+              Users.fullDetails(Session.currentUser()._id, function (user) {
                 Tier.findTier(user._tier._company, function (results) {
                   $scope.currentSubscription = results._subscription;
                   callback(null);

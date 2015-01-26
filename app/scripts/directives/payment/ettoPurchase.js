@@ -7,7 +7,7 @@ angular.module("ettoPupil")
 
       return {
         restrict: "AE",
-        controller: function ($scope, $modal, Store, Tiers) {
+        controller: function ($rootScope, $scope, $modal, Store, Tiers, Tier) {
 
           $scope.distributeCourseToTiers = function (course) {
 
@@ -97,7 +97,11 @@ angular.module("ettoPupil")
               });
               modal.result.then(function (order) {
                 if (order.subscription) {
-                  $scope.resetSubscription();
+                  Tier.getCompany($scope.company._id, function (data) {
+                    $rootScope.company = data;
+                    $scope.resetSubscription();
+                  });
+
                 }
 
                 if (course) {

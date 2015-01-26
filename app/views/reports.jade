@@ -18,7 +18,7 @@ etto-sync-bamboo
                 .col-xs-4.nopad
                   .etto-bgcolor-accent.etto-color-light.report-btn.col-xs-4(etto-invite-user-modal, ng-click="inviteUser()") Add Users
                 .col-xs-4.nopad
-                  a.etto-bgcolor-accent.etto-color-light.report-btn.col-xs-4(href="/tier/edit/{{ currentTier._id }}") Edit Tier
+                  a.etto-bgcolor-accent.etto-color-light.report-btn.col-xs-4(ui-sref="editTier({id:currentTier._id})") Edit Tier
 
               
           .row.etto-bgcolor-light.etto-color-primary.statBox
@@ -47,7 +47,7 @@ etto-sync-bamboo
             .col-sm-12.col-md-6.col-lg-6(sink-in)
               button.close.aria-hidden(type="button", ng-click="removeTier(tier)", etto-remove-tier) &times;
               .row
-                .etto-tier-box(ng-click ="viewChildren('/report/{{tier._id}}')")
+                .etto-tier-box(ui-sref="report({parentID:tier._id})")
                   .row.etto-color-primary
                     .col-md-10
                       h4 {{tier.title}}
@@ -66,7 +66,7 @@ etto-sync-bamboo
         .etto-tier-holder
           etto-search-user
           br
-          a(class="animate-repeat", ng-repeat= 'user in users', href ="/settings/{{user._id}}")
+          a(class="animate-repeat", ng-repeat= 'user in users', ui-sref="userSettings({userID:user._id})")
             .col-sm-6.col-md-6(sink-in)
               .row
                 .etto-tier-box.etto-user-box
@@ -91,7 +91,7 @@ etto-sync-bamboo
             h4.etto-color-primary Tier Info
           .col-md-7
             .btn-group(ng-if="user.auth.canEditCompany")
-              button.btn.btn-default.btn-sm(ng-click="syncBambooHR({{true}})")
+              button.btn.btn-default.btn-sm(ng-click="syncBambooHR(true)")
                 .row
                   .col-md-10.col-md-offset-1
                     img.img-responsive(src="/images/logos/bamboo-green.png")

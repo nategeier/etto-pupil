@@ -6,29 +6,21 @@ angular.module("ettoPupil")
     function () {
       return {
         restrict: "AE",
-        controller: function ($scope, $modal, CourseMetaChange, $location) {
+        controller: function ($scope, $modal, CourseMetaChange, $state) {
           $scope.addCourse = function () {
 
             var user = $scope.user;
-            //var createdCourses = $scope.createdCourses;
 
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoAddCourseModal.html",
-              controller: function ($scope, $modalInstance, Payment, $location) {
+              controller: function ($scope, $modalInstance) {
 
                 $scope.user = user;
-
                 $scope.course = {};
 
                 $scope.createCourse = function () {
 
                   $modalInstance.close($scope.course);
-                };
-
-                $scope.linkSubscription = function () {
-
-                  $modalInstance.close();
-                  $location.path("/subscription/" + user._id);
                 };
 
               }
@@ -38,13 +30,12 @@ angular.module("ettoPupil")
               course._creator = $scope.user._tier._company;
 
               CourseMetaChange.create(course, function (data) {
-                $location.path("/course/edit/" + data._id);
+                $state.go("editCourse", {
+                  courseId: data._id
+                });
               });
             });
           };
-        },
-        link: function postLink(scope, element, attrs) {
-          scope.redirectTo = attrs.redirectTo;
         }
       };
     }

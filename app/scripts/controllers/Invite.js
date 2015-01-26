@@ -1,12 +1,12 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("InviteCtrl", ["$scope", "$location", "Session", "$routeParams", "Users", "Tier", "WhiteLabel",
-    function ($scope, $location, Session, $routeParams, Users, Tier, WhiteLabel) {
+  .controller("InviteCtrl", ["$scope", "$location", "Session", "$stateParams", "Users", "Tier", "WhiteLabel",
+    function ($scope, $location, Session, $stateParams, Users, Tier, WhiteLabel) {
 
       $scope.newUser = {};
 
-      Users.inviteDetails($routeParams.id, function (results) {
+      Users.inviteDetails($stateParams.id, function (results) {
 
         if (results && results._tier) {
           $scope.newUser = results;

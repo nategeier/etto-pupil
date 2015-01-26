@@ -1,8 +1,11 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .factory("Tiers", ["$http", "Endpoint",
-    function ($http, Endpoint) {
+  .factory("Tiers", ["$http", "Endpoint", "$state", "$rootScope",
+    function ($http, Endpoint, $state, $rootScope) {
+
+      var company = null;
+
       return {
 
         listChildrenAndCountUsers: function (tier, callback) {
@@ -109,7 +112,37 @@ angular.module("ettoPupil")
             callback(data);
           });
         },
+        checkCompanySubscription: function (user, company) {
+          var trialEnds = new Date(company.trialEnds);
+          var trailEnded = trialEnds < Date.now();
+          var basePath = $state.current.name;
 
+          //-- Check if user is not already on the subscrption page
+          if (basePath !== "subscriptions") {
+            //----- Compnay tral period is over
+            if (trailEnded === true) {
+              //--- Company does not have a subscription
+              if (!company._subscription || (company._subscription.empRange.high < company.totUsers)) {
+                $state.go("subscriptions", {
+                  userId: user._id
+                });
+              }
+            }
+          } else {
+
+            //----- user is on the subscription page, give the proper error info
+            if (trailEnded === true) {
+              //--- Company does not have a subscription
+              if (!company._subscription) {
+                $rootScope.err = "Looks like your trial expired, your company needs a subscription to continue.";
+              } else if (company._subscription.empRange.high < company.totUsers) {
+                $rootScope.err = "Looks you need a larger subscription. You currently have " + $rootScope.company.totUsers + " total employees.";
+              } else {
+
+              }
+            }
+          }
+        },
         syncBambooHR: function (keys, callback) {
           $http.post(Endpoint("tier", "syncBambooHR"), keys)
             .success(function (data, status, headers, config) {

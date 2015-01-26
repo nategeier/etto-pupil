@@ -27,7 +27,6 @@ angular.module("ettoPupil")
             });
             modal.result.then(function (blockName) {
 
-              console.log("blockName---", blockName);
               $scope.addBlock(blockName);
             });
           };

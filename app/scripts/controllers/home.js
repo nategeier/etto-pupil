@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("HomeCtrl", ["$scope", "$location", "CourseMetaChange", "Users", "Tier",
-    function ($scope, $location, CourseMetaChange, Users, Tier) {
+  .controller("HomeCtrl", ["$state", "$scope", "$location", "CourseMetaChange", "Users", "Tier",
+    function ($state, $scope, $location, CourseMetaChange, Users, Tier) {
 
       $scope.activetab = "home";
 
@@ -22,6 +22,15 @@ angular.module("ettoPupil")
         opacity: 0,
         y: 20
       });
+
+      $scope.test = function () {
+        $state.go("lazy.state", {
+          a: 1,
+          b: 2
+        }, {
+          inherit: false
+        });
+      };
 
       $scope.listUsersCreatedCourses = function () {
 

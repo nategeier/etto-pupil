@@ -8,7 +8,7 @@
     "requireMultipleVarDecl": true,
     "requireSpacesInsideObjectBrackets": "all",
     "requireSpacesInsideArrayBrackets": "all",
-    "disallowQuotedKeysInObjects": true,
+    "disallowQuotedKeysInObjects": false,
     "disallowSpaceAfterObjectKeys": true,
     "disallowLeftStickedOperators": ["?", "+", "-", "/", "*", "=", "==", "===", "!=", "!==", ">", ">=", "<", "<="],
     "requireRightStickedOperators": ["!"],

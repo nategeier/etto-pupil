@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("LandingCtrl", ["$scope", "$location", "Session", "Payment", "WhiteLabel",
-    function ($scope, $location, Session, Payment, WhiteLabel) {
+  .controller("LandingCtrl", ["$scope", "Session", "Payment", "WhiteLabel", "$state",
+    function ($scope, Session, Payment, WhiteLabel, $state) {
 
       $scope.currentSubscription = 0;
 
@@ -15,9 +15,9 @@ angular.module("ettoPupil")
         $scope.onSubscription = $scope.subscriptionTypes[0]._id;
       });
 
-      Session.getSession(function (data) {
-        if (data) {
-          $location.path("/etto");
+      Session.getSession(function (user) {
+        if (user) {
+          $state.go("home");
         } else {
           WhiteLabel.setFonts("Lato");
         }

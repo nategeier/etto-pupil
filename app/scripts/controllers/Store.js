@@ -1,12 +1,12 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("StoreCtrl", ["$scope", "$http", "Session", "Store", "CourseList", "Tiers", "$timeout", "$routeParams",
-    function ($scope, $http, Session, Store, CourseList, Tiers, $timeout, $routeParams) {
+  .controller("StoreCtrl", ["$scope", "$http", "Session", "Store", "CourseList", "Tiers", "$timeout", "$stateParams",
+    function ($scope, $http, Session, Store, CourseList, Tiers, $timeout, $stateParams) {
 
       var totUsers = 0;
       $scope.onTiers = [];
-      $scope.parentID = $routeParams.tierID;
+      $scope.parentID = $stateParams.tierID;
       $scope.activetab = "market";
 
       TweenMax.from($("#head-img"), 1, {

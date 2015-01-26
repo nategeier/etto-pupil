@@ -6,7 +6,7 @@ angular.module("ettoPupil")
     function () {
       return {
         restrict: "AE",
-        controller: function ($scope, $modal, Session, $location, $route, Security) {
+        controller: function ($scope, $modal, Session, $location, $state, $stateParams) {
 
           $scope.login = function () {
 
@@ -33,14 +33,8 @@ angular.module("ettoPupil")
             });
             modal.result.then(function (user) {
 
-              var redir = "/etto";
-
               if (user) {
-                if ($location.path() === redir) {
-                  $route.reload();
-                } else {
-                  $location.path(redir);
-                }
+                $state.transitionTo("home");
               }
             });
           };

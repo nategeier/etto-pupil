@@ -1,26 +1,26 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("LoginPageCtrl", ["$scope", "$routeParams", "$location", "Session", "Tiers", "WhiteLabel",
-    function ($scope, $routeParams, $location, Session, Tiers, WhiteLabel) {
+  .controller("LoginPageCtrl", ["$rootScope", "$scope", "$stateParams", "$location", "Session", "Tiers", "WhiteLabel",
+    function ($rootScope, $scope, $stateParams, $location, Session, Tiers, WhiteLabel) {
 
       var companyId = "";
       var redirUrl = "/etto";
 
       var findCompany = function () {
         Tiers.findTier(companyId, function (company) {
-          $scope.company = company;
-          WhiteLabel.setColors($scope.company.colors);
-          WhiteLabel.setFonts($scope.company.font);
+          $rootScope.company = company;
+          WhiteLabel.setColors($rootScope.company.colors);
+          WhiteLabel.setFonts($rootScope.company.font);
         });
       };
 
-      if ($routeParams.companyId) {
-        companyId = $routeParams.companyId;
+      if ($stateParams.companyId) {
+        companyId = $stateParams.companyId;
         findCompany();
 
-      } else if ($routeParams.redirUrl) {
-        redirUrl = $routeParams.redirUrl;
+      } else if ($stateParams.redirUrl) {
+        redirUrl = $stateParams.redirUrl;
       }
 
       $scope.login = function () {

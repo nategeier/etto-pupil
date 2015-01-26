@@ -6,13 +6,13 @@ angular.module("ettoPupil")
     function () {
       return {
         restrict: "AE",
-        controller: function ($scope, $modal, Tiers, Security, $routeParams) {
+        controller: function ($scope, $modal, Tiers, Security, $stateParams) {
 
           var verifyPasswordReset = function () {
 
-            Security.verifyPasswordReset($routeParams.code, function (results) {
+            Security.verifyPasswordReset($stateParams.code, function (results) {
               $scope.user = results;
-              $scope.user.resetCode = $routeParams.code;
+              $scope.user.resetCode = $stateParams.code;
             });
           };
 

@@ -2,11 +2,14 @@
 
 angular.module("ettoPupil")
   .factory("Session", ["$http", "$compile", "$document", "$modal", "$location", "$log", "$resource", "Endpoint",
+
     function ($http, $compile, $document, $modal, $location, $log, $resource, Endpoint) {
 
-      var Session;
+      var Session,
+        currentUser = null;
 
       Session = {
+
         treatSession: function (data, callback) {
           if (data.err && data.err === "Login" || !data) {
             $location.path("/");
@@ -25,15 +28,19 @@ angular.module("ettoPupil")
 
         getSession: function (callback) {
           $http({
-            method: "GET",
-            url: Endpoint("auth", "getSession"),
-          })
+              method: "GET",
+              url: Endpoint("auth", "getSession")
+            })
             .success(function (data, status, headers, config) {
+              currentUser = data;
               callback(data);
-            }).
-          error(function (data, status, headers, config) {
-            console.log(data, "err");
-          });
+            })
+            .error(function (data, status, headers, config) {
+              console.dir(data, "");
+            });
+        },
+        currentUser: function () {
+          return currentUser;
         },
         updateSession: function (user, callback) {
           $http.post(Endpoint("auth", "updateSession"), user)
@@ -49,15 +56,23 @@ angular.module("ettoPupil")
           var Logout = $resource(Endpoint("auth", "logout"));
 
           Logout.get(function (results) {
+            currentUser = null;
             callback(results);
           });
 
         },
+        checkIfCanEditCourse: function (user, courseId, creator) {
+
+          if (user._tier._company === creator && user.auth.canCreateCourses) {
+            return true;
+          }
+          return false;
+        },
 
         loginModal: function () {
           var modal = $modal.open({
-            templateUrl: "views/directives/ettoLogin.html",
-            controller: function ($scope) {}
+            templateUrl: "/views/directives/ettoLoginModal.html",
+            controller: "LoginCtrl"
           });
         }
       };
