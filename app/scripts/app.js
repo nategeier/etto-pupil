@@ -149,7 +149,7 @@ angular.module("ettoPupil", ["ui.router", "ngSanitize", "ngResource", "ngAnimate
         });
     }
   ]).run(function ($rootScope, editableOptions, $state, Session, WhiteLabel, Tier, Store) {
-    var environment = "development";
+    var environment = "production";
 
     // Production
     if (environment === "production") {
