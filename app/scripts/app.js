@@ -122,8 +122,7 @@ angular.module("ettoPupil", ["ui.router", "ngSanitize", "ngResource", "ngAnimate
             course: function (CourseLoader, $stateParams) {
               return CourseLoader($stateParams.courseId);
             }
-          },
-          requireLogin: true
+          }
         })
         .state("editCourse", {
           url: "/course/edit/:courseId/:blockId",
@@ -185,8 +184,6 @@ angular.module("ettoPupil", ["ui.router", "ngSanitize", "ngResource", "ngAnimate
         Session.getSession(function (user) {
 
           $rootScope.user = user;
-
-          console.log("user-----", user);
 
           if ($rootScope.user) {
 

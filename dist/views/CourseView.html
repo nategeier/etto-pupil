@@ -1,5 +1,5 @@
 
-<div ng-if="user._tier._company === course._creator || checkIfFreeCourse() === true">
+<div ng-if="(user &amp;&amp; user._tier._company === course._creator) || checkIfFreeCourse() === true || isDemo === true">
   <div etto-login-modal="etto-login-modal" class="container-full">
     <div class="row">
       <div ng-if="err" class="col-xs-12 etto-course-container">
@@ -24,7 +24,7 @@
     </div>
   </div>
 </div>
-<div ng-if="user._tier._company !== course._creator &amp;&amp; checkIfFreeCourse() === false">
+<div ng-if="(user &amp;&amp; user._tier._company !== course._creator) &amp;&amp; checkIfFreeCourse() === false">
   <etto-logged-in-nav ng-if="user"></etto-logged-in-nav>
   <etto-not-logged-in-nav ng-if="!user"></etto-not-logged-in-nav>
   <div class="col-md-12">
