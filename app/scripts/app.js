@@ -1,10 +1,10 @@
 "use strict";
 
 angular.module("ettoPupil", ["ui.router", "ngSanitize", "ngResource", "ngAnimate", "ngTouch", "ui.bootstrap", "xeditable", "angularFileUpload", "chieffancypants.loadingBar", "leaflet-directive", "ngAutocomplete"])
-  .config(["$locationProvider", "$stateProvider", "$urlRouterProvider",
-    function ($locationProvider, $stateProvider, $urlRouterProvider) {
-      //$httpProvider.defaults.withCredentials = true;
-      //$httpProvider.interceptors.push("httpInterceptor");
+  .config(["$httpProvider", "$locationProvider", "$stateProvider", "$urlRouterProvider",
+    function ($httpProvider, $locationProvider, $stateProvider, $urlRouterProvider) {
+      $httpProvider.defaults.withCredentials = true;
+      $httpProvider.interceptors.push("httpInterceptor");
 
       $locationProvider.html5Mode(true).hashPrefix("#");
 
@@ -149,7 +149,7 @@ angular.module("ettoPupil", ["ui.router", "ngSanitize", "ngResource", "ngAnimate
         });
     }
   ]).run(function ($rootScope, editableOptions, $state, Session, WhiteLabel, Tier, Store) {
-    var environment = "production";
+    var environment = "development";
 
     // Production
     if (environment === "production") {
