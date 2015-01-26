@@ -26,7 +26,7 @@
           <hr/>
           <div etto-color="etto-color" ng-repeat="course in usersCourses | filter:searchCourse" class="animate-repeat">
             <div ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-lg-4' : 'col-sm-6 col-md-4 col-lg-3'">
-              <div sink-in="sink-in" ng-click="openCourse(course)" class="etto-course-holder">
+              <div sink-in="sink-in" ui-sref="viewCourse({courseId:course._id, blockId:1})" class="etto-course-holder">
                 <div style="background-image: url('{{course.thumb}}');" class="course-holder-img"></div>
                 <div ng-if="course._record">
                   <div ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks &amp;&amp; course._record.progress.totalBlocks !== 1" class="etto-certificate etto-color-accent img-rounded etto-shadow-img"> 
@@ -66,7 +66,7 @@
               </div>
               <div sink-in="sink-in" etto-color="etto-color" ng-repeat="course in createdCourses | filter:searchComposedCourse">
                 <div class="etto-composed-course">
-                  <div class="etto-course-box"><a href="/course/edit/{{ course._id }}">
+                  <div class="etto-course-box"><a ui-sref="editCourse({courseId:course._id})">
                       <div class="row">
                         <div class="col-xs-5 col-sm-5 col-md-4">
                           <div style="background-image: url('{{course.thumb}}');" class="etto-side-thumb"></div>

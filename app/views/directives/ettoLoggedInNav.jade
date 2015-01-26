@@ -1,12 +1,12 @@
 
-nav.navbar.navbar-default.etto-bgcolor-light( role="navigation", etto-session, etto-update-company)
+nav.navbar.navbar-default.etto-bgcolor-light( role="navigation")
   .navbar-header
     etto-login-modal
     button.navbar-toggle( data-toggle="collapse", data-target="#etto-navbar" )
       .sr-only Toggle navigation
       .icon-bar
       .icon-bar
-      .icon-bar
+      .icon-bar, etto-login-modal
     a.navbar-brand( href="/etto" )
       span.logo
         img(src="{{company.logo}}", height="65")

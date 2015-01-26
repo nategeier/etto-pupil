@@ -9,40 +9,42 @@
  *
  */
 angular.module("ettoPupil")
-/**
- * Course
- *
- * @param {course} newCourse Optional new course information.
- */
-.factory("Course", ["$resource", "Endpoint",
-  function ($resource, Endpoint) {
-    return $resource(Endpoint("course"), {}, {
-      update: {
-        method: "PUT"
-      }
-    });
-  }
-])
+  /**
+   * Course
+   *
+   * @param {course} newCourse Optional new course information.
+   */
+  .factory("Course", ["$resource", "Endpoint",
+    function ($resource, Endpoint) {
+      return $resource(Endpoint("course"), {}, {
+        update: {
+          method: "PUT"
+        }
+      });
+    }
+  ])
 
 /**
  * CourseLoader
  *
  * @param {Object} findParams Optional keys to pass to find
  */
-.factory("CourseLoader", ["Course", "$route", "$q",
-  function (Course, $route, $q) {
-    return function () {
+.factory("CourseLoader", ["Course", "$q", "$state",
+  function (Course, $q, $state) {
+
+    return function (courseId) {
       var delay = $q.defer();
       Course.get({
-        id: $route.current.params.courseId
+        id: courseId
       }, function (course) {
         delay.resolve(course);
       }, function () {
         // Are we in edit mode? If so, send back a new course.
-        if ($route.current.controller === "CourseEditCtrl") {
+
+        if ($state.current.controller === "CourseEditCtrl") {
 
           var newCourse = new Course({
-            _id: $route.current.params.courseId,
+            _id: "540ca9c0f066cb43ef4b9fe2",
             blocks: [{
               type: "title",
               data: {
@@ -56,8 +58,9 @@ angular.module("ettoPupil")
           newCourse.$save();
           delay.resolve(newCourse);
         } else {
-          delay.reject("Unable to fetch course " + $route.current.params.courseId);
+          delay.reject("Unable to fetch course " + "540ca9c0f066cb43ef4b9fe2");
         }
+
       });
       return delay.promise;
     };

@@ -3,6 +3,9 @@
 angular.module("ettoPupil")
   .factory("Tier", ["$resource", "Endpoint",
     function ($resource, Endpoint) {
+
+      var company;
+
       return {
         findTier: function (id, callback) {
           var FindTier = $resource(Endpoint("tier") + "/:id", {
@@ -30,8 +33,13 @@ angular.module("ettoPupil")
           });
 
           Company.get(function (results) {
+            company = results;
             callback(results);
           });
+        },
+
+        currentCompany: function () {
+          return company;
         },
 
         listCompanyCreatedCourses: function (id, callback) {

@@ -1,10 +1,10 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("TierCtrl", ["$scope", "Tiers", "$routeParams", "CourseList", "Users",
-    function ($scope, Tiers, $routeParams, CourseList, Users) {
+  .controller("TierCtrl", ["$scope", "Tiers", "$stateParams", "CourseList", "Users",
+    function ($scope, Tiers, $stateParams, CourseList, Users) {
 
-      $scope.tierID = $routeParams.id;
+      $scope.tierID = $stateParams.id;
 
       $scope.reset = function () {
         Tiers.findTier($scope.tierID, function (results) {

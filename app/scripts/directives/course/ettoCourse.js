@@ -6,7 +6,7 @@ angular.module("ettoPupil")
       return {
         templateUrl: "/views/directives/ettoCourse.html",
         restrict: "E",
-        controller: function ($scope, $document, $attrs) {
+        controller: function ($scope, $document, $attrs, $state, $stateParams) {
           // Are we in edit mode?
           $scope.editing = $attrs.edit !== undefined;
           $scope.onLastBlock = false;
@@ -52,8 +52,12 @@ angular.module("ettoPupil")
           $scope.newBlocktype = $scope.blocktypes[0];
 
           // Start the course!
+          var startingBlock = 0;
+          if ($stateParams.blockId) {
+            startingBlock = Number($stateParams.blockId) - 1;
+          }
 
-          CoursePlayer.play($scope.course, 0);
+          CoursePlayer.play($scope.course, startingBlock);
 
           //--- Sets last frome "you win! to user"
           if (!$scope.editing) {
@@ -126,7 +130,8 @@ angular.module("ettoPupil")
               } else {
                 $scope.onLastBlock = false;
                 CoursePlayer.nextBlock();
-                $scope.scrollTop();
+
+                $scope.changeUrl();
               }
 
               $scope.onLastBlock = CoursePlayer.onLastBlock();
@@ -139,12 +144,12 @@ angular.module("ettoPupil")
                 var currBlock = Number(CoursePlayer.currentBlock()) + 1;
 
                 Record.updateBookmark($scope.record._id, currBlock, CoursePlayer.blocksInCourse());
-                $scope.scrollTop();
+                $scope.changeUrl();
               }
             } else {
               //----- Demo mode, carry on
               CoursePlayer.nextBlock();
-              $scope.scrollTop();
+              $scope.changeUrl();
             }
           };
 
@@ -152,9 +157,22 @@ angular.module("ettoPupil")
             if (CoursePlayer.isLocked() === false) {
               $scope.blockEvent = "prev";
               CoursePlayer.prevBlock();
-              $scope.scrollTop();
+              $scope.changeUrl();
               $scope.onLastBlock = CoursePlayer.onLastBlock();
             }
+          };
+
+          $scope.changeUrl = function () {
+
+            $state.transitionTo($state.current, {
+              courseId: $scope.course._id,
+              blockId: Number(CoursePlayer.currentBlock() + 1)
+            }, {
+              reload: true,
+              inherit: false,
+              notify: false
+            });
+            $scope.scrollTop();
           };
 
           $scope.scrollTop = function () {

@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("TrialEndsCtrl", ["$scope", "$routeParams", "Session", "Tier", "Tiers", "WhiteLabel", "Fonts",
-    function ($scope, $routeParams, Session, Tier, Tiers, WhiteLabel, Fonts) {
+  .controller("TrialEndsCtrl", ["$scope", "$stateParams", "Session", "Tier", "Tiers", "WhiteLabel", "Fonts",
+    function ($scope, $stateParams, Session, Tier, Tiers, WhiteLabel, Fonts) {
 
       $scope.reset = function () {
         Tier.getCompany($scope.tier._id, function (results) {

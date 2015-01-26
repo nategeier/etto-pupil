@@ -1,63 +1,81 @@
 
-.etto-course-editor(etto-choose-block, etto-session)
 
-  .col-sm-3.col-lg-2
-    .panel.panel-default(ng-if="isEditing")
-      .panel-heading
-        h4.etto-color-accent(editable-text="course.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{course.title || 'Title'}} 
-        p.etto-color-accent(editable-text="course.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{course.subtitle || 'Description'}}
-    
-      .list-group
-        .list-group-item
-          .btn-group.etto-btns
-            button.btn.btn-success.btn-sm(ng-click="showOptions()")
-              i.fa.fa-plus
-            button.btn.btn-default.btn-sm(ng-show="onLastBlock === false", ng-click="swapBlocks(currentBlock(), currentBlock() + 1)")
-              i.fa.fa-refresh
-            a.btn.btn-default.btn-sm(href="/course/view/{{course._id}}", target="_blank")
-              i.fa.fa-eye
-            button.btn.btn-danger.btn-sm(ng-click='removeBlock()')
-              i.fa.fa-minus.etto-color-light
-            
-
-        
-        .list-group-item
-          .row
-            .col-md-12
-              etto-course-nav(ng-if="blocksInCourse() >= 1")
-        .list-group-item
-          p Current State: {{course.status}}
-        .list-group-item
-          img.img-responsive.default-lg.img-uploadable(src="{{course.thumb}}", etto-asset-library-modal, etto-image, ng-click='updateThumb()')
-        .list-group-item
-          div(href="#", editable-textarea="course.meta.keywords", e-rows="5", e-cols="40", buttons="no", blur="submit", onaftersave="saveCourse()") 
-            pre {{ course.meta.keywords || 'keywords'}}
-        .list-group-item
-          .btn-group
-            a.btn.btn-success(href="#", etto-course-status, ng-click="changeStatus()") Launch
-            a.btn.btn-default(href="/etto") Exit
-        
-  .etto-course-container.col-sm-9.col-lg-10
-    .row
-      .col-md-12          
-        etto-course( edit='edit',
-                   course='course')
+div(ng-if="user._tier._company === course._creator && user.auth.canCreateCourses")
+  
+  .etto-course-editor(etto-choose-block)
+    .col-sm-3.col-lg-2
+      .panel.panel-default(ng-if="isEditing")
+        .panel-heading
+          h4.etto-color-accent(editable-text="course.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{course.title || 'Title'}} 
+          p.etto-color-accent(editable-text="course.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{course.subtitle || 'Description'}}
       
+        .list-group
+          .list-group-item
+            .btn-group.etto-btns
+              button.btn.btn-success.btn-sm(ng-click="showOptions()")
+                i.fa.fa-plus
+              button.btn.btn-default.btn-sm(ng-show="onLastBlock === false", ng-click="swapBlocks(currentBlock(), currentBlock() + 1)")
+                i.fa.fa-refresh
+              a.btn.btn-default.btn-sm(href="/course/view/{{course._id}}", target="_blank")
+                i.fa.fa-eye
+              button.btn.btn-danger.btn-sm(ng-click='removeBlock()')
+                i.fa.fa-minus.etto-color-light
+              
 
-
-    .etto-course-exit
-      a.etto-course-exit(href="/etto", target="_self")
-        i.fa.fa-2x.fa-times-circle
-        p {{currentBlock() + 1}} / {{blocksInCourse() + 1}}
-
-      
-
-    div(ng-if="blocksInCourse() === 0")
-      h1.etto-color-primary Welcome {{company.title}} course builder
-      hr
+          
+          .list-group-item
+            .row
+              .col-md-12
+                etto-course-nav(ng-if="blocksInCourse() >= 1")
+          .list-group-item
+            p Current State: {{course.status}}
+          .list-group-item
+            img.img-responsive.default-lg.img-uploadable(src="{{course.thumb}}", etto-asset-library-modal, etto-image, ng-click='updateThumb()')
+          .list-group-item
+            div(href="#", editable-textarea="course.meta.keywords", e-rows="5", e-cols="40", buttons="no", blur="submit", onaftersave="saveCourse()") 
+              pre {{ course.meta.keywords || 'keywords'}}
+          .list-group-item
+            .btn-group
+              a.btn.btn-success(href="#", etto-course-status, ng-click="changeStatus()") Launch
+              a.btn.btn-default(href="/etto") Exit
+          
+    .etto-course-container.col-sm-9.col-lg-10
       .row
-        .col-md-6
-          h4.etto-color-primary To create a block (slide), press the plus button to the left and choose a template. We suggest a title for the first block.
-          p.etto-color-primary Keep adding blocks as you would any presentation.
-        .col-md-6
-          iframe.img-responsive.etto-landing__youtube-demo.img-rounded(style="min-height:300px; width: 100%;", width="1080", height="728", src="//www.youtube.com/embed/hc8qiJ0cjdI?showinfo=0&controls=2&thumbnail=high&html5=1", frameborder="0", allowfullscreen)
+        .col-md-12          
+          etto-course( edit='edit',
+                     course='course')
+        
+
+
+      .etto-course-exit
+        a.etto-course-exit(href="/etto", target="_self")
+          i.fa.fa-2x.fa-times-circle
+          p {{currentBlock() + 1}} / {{blocksInCourse() + 1}}
+
+        
+
+      div(ng-if="blocksInCourse() === 0")
+        h1.etto-color-primary Welcome {{company.title}} course builder
+        hr
+        .row
+          .col-md-6
+            h4.etto-color-primary To create a block (slide), press the plus button to the left and choose a template. We suggest a title for the first block.
+            p.etto-color-primary Keep adding blocks as you would any presentation.
+          .col-md-6
+            iframe.img-responsive.etto-landing__youtube-demo.img-rounded(style="min-height:300px; width: 100%;", width="1080", height="728", src="//www.youtube.com/embed/hc8qiJ0cjdI?showinfo=0&controls=2&thumbnail=high&html5=1", frameborder="0", allowfullscreen)
+
+div(ng-if="user._tier._company !== course._creator || !user.auth.canCreateCourses")
+  etto-logged-in-nav(ng-if="user")
+  etto-not-logged-in-nav(ng-if="!user")
+  .col-md-12
+    h1.text-center Authorization Denied
+    p.text-center(ng-if="user._tier._company !== course._creator") This course is private.
+    p.text-center(ng-if="!user.auth.canCreateCourses") You do not have the authorization to edit company courses.
+
+
+
+
+
+
+
+

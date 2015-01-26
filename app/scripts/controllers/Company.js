@@ -1,10 +1,10 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("CompanyCtrl", ["$scope", "$routeParams", "Tiers", "WhiteLabel", "Fonts",
-    function ($scope, $routeParams, Tiers, WhiteLabel, Fonts) {
+  .controller("CompanyCtrl", ["$scope", "$stateParams", "Tiers", "WhiteLabel", "Fonts",
+    function ($scope, $stateParams, Tiers, WhiteLabel, Fonts) {
 
-      var companyId = $routeParams.companyId;
+      var companyId = $stateParams.companyId;
 
       $scope.fonts = Fonts;
 

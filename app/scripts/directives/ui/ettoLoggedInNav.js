@@ -7,7 +7,13 @@ angular.module("ettoPupil")
       return {
         templateUrl: "/views/directives/ettoLoggedInNav.html",
         restrict: "E",
-        link: function postLink(scope, element, attrs) {}
+        controller: function ($scope, $state, Session) {
+          $scope.destroySession = function (redir) {
+            Session.destroySession(function () {
+              $state.go("landing");
+            });
+          };
+        }
       };
     }
   ]);

@@ -1,10 +1,13 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("CourseEditCtrl", ["$scope", "course", "CoursePlayer", "$rootScope",
-    function ($scope, course, CoursePlayer, $rootScope) {
-      $scope.course = course;
+  .controller("CourseEditCtrl", ["$scope", "course", "CoursePlayer", "$rootScope", "Tiers", "$state", "$stateParams",
+    function ($scope, course, CoursePlayer, $rootScope, Tiers, $state, $stateParams) {
 
+      // Page will redirect if the user subscription is overdue or has to many employees
+      Tiers.checkCompanySubscription($scope.user, $scope.company);
+
+      $scope.course = course;
       $scope.isEditing = true;
 
       $scope.statuses = ["live", "testing", "private"];

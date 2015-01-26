@@ -1,10 +1,10 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("PaymentsCtrl", ["$scope", "$routeParams", "Users", "Store", "Payment",
-    function ($scope, $routeParams, Users, Store, Payment) {
+  .controller("PaymentsCtrl", ["$scope", "$stateParams", "Users", "Store", "Payment",
+    function ($scope, $stateParams, Users, Store, Payment) {
 
-      var id = $routeParams.userID;
+      var id = $stateParams.userID;
 
       Users.fullDetails(id, function (user) {
 

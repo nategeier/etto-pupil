@@ -13,7 +13,6 @@ module.exports = function (config) {
     files: [
       "app/bower_components/jquery/jquery.min.js",
       "app/bower_components/angular/angular.js",
-      "app/bower_components/angular-route/angular-route.js",
       "app/bower_components/angular-animate/angular-animate.js",
       "app/bower_components/angular-resource/angular-resource.js",
       "app/bower_components/angular-sanitize/angular-sanitize.js",
@@ -23,6 +22,7 @@ module.exports = function (config) {
       "app/bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js",
       "app/bower_components/ngAutocomplete/src/ngAutocomplete.js",
       "app/bower_components/async/lib/async.js",
+      "app/bower_components/angular-ui-router/release/angular-ui-router.js",
 
       "app/bower_components/angular-mocks/angular-mocks.js",
       "app/bower_components/socket.io-client/socket.io.js",

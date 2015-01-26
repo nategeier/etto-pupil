@@ -1,24 +1,34 @@
 
-<div etto-session="etto-session" class="container-full">
-  <div class="row">
-    <div ng-if="err" class="col-xs-12 etto-course-container">
-      <div class="container">
-        <h1 class="bg-danger">Sorry</h1>
-        <h1>{{err}}</h1>
-      </div>
-    </div>
-    <div ng-if="!err" class="col-xs-12 etto-course-container">
-      <div class="row">
-        <div class="col-sm-12">
-          <etto-course course="course"></etto-course>
-        </div>
-        <div class="col-sm-12">
-          <div class="etto-course-exit"><a href="/etto" target="_self" class="etto-course-exit"><i class="etto-color-accent fa fa-2x fa-times-circle"></i></a></div>
-        </div>
-        <div class="etto-nav-view">
-          <etto-course-nav ng-show="checkLocked() === false"></etto-course-nav>
+<div ng-if="user._tier._company === course._creator || checkIfFreeCourse() === true">
+  <div etto-login-modal="etto-login-modal" class="container-full">
+    <div class="row">
+      <div ng-if="err" class="col-xs-12 etto-course-container">
+        <div class="container">
+          <h1 class="bg-danger">Sorry</h1>
+          <h1>{{err}}</h1>
         </div>
       </div>
+      <div ng-if="!err" class="col-xs-12 etto-course-container">
+        <div class="row">
+          <div class="col-sm-12">
+            <etto-course course="course"></etto-course>
+          </div>
+          <div class="col-sm-12">
+            <div class="etto-course-exit"><a href="/etto" target="_self" class="etto-course-exit"><i class="etto-color-accent fa fa-2x fa-times-circle"></i></a></div>
+          </div>
+          <div class="etto-nav-view">
+            <etto-course-nav ng-show="checkLocked() === false"></etto-course-nav>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+<div ng-if="user._tier._company !== course._creator &amp;&amp; checkIfFreeCourse() === false">
+  <etto-logged-in-nav ng-if="user"></etto-logged-in-nav>
+  <etto-not-logged-in-nav ng-if="!user"></etto-not-logged-in-nav>
+  <div class="col-md-12">
+    <h1 class="text-center">Authorization Denied</h1>
+    <p ng-if="user._tier._company !== course._creator" class="text-center">This course is private.</p>
   </div>
 </div>

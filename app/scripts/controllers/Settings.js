@@ -1,10 +1,10 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("SettingsCtrl", ["$scope", "Tiers", "$routeParams", "Users", "Store", "Session",
-    function ($scope, Tiers, $routeParams, Users, Store, Session) {
+  .controller("SettingsCtrl", ["$rootScope", "$scope", "Tiers", "$stateParams", "Users", "Store", "Session",
+    function ($rootScope, $scope, Tiers, $stateParams, Users, Store, Session) {
 
-      var id = $routeParams.userID;
+      var id = $stateParams.userID;
 
       $scope.addEmail = function () {
         $scope.editUser.emails.push(null);
@@ -62,7 +62,7 @@ angular.module("ettoPupil")
 
         if (userId === editUserId) {
           Session.updateSession($scope.user, function (data) {
-            $scope.user = data;
+            $rootScope.user = data;
           });
         }
       };

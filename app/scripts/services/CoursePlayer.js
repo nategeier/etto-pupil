@@ -9,9 +9,9 @@
  */
 
 angular.module("ettoPupil")
-  .factory("CoursePlayer", ["BlockQuiz", "Record",
+  .factory("CoursePlayer", ["BlockQuiz", "Record", "$state",
 
-    function (BlockQuiz, Record) {
+    function (BlockQuiz, Record, $state) {
       var onBlock = 0;
       var lastEventBlock = 0;
 
