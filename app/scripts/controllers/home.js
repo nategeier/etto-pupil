@@ -23,30 +23,20 @@ angular.module("ettoPupil")
         y: 20
       });
 
-      $scope.test = function () {
-        $state.go("lazy.state", {
-          a: 1,
-          b: 2
-        }, {
-          inherit: false
-        });
-      };
-
       $scope.listUsersCreatedCourses = function () {
 
-        Tier.listCompanyCreatedCourses($scope.user._tier._company, function (data) {
-          $scope.createdCourses = data;
-        });
+        if ($scope.user && $scope.user._tier) {
+          Tier.listCompanyCreatedCourses($scope.user._tier._company, function (data) {
+            $scope.createdCourses = data;
+          });
+        }
 
         if ($scope.user._tier) {
           Users.listUsersCourses($scope.user._id, function (courses) {
             $scope.usersCourses = courses;
           });
         }
-      };
 
-      $scope.openCourse = function (course) {
-        $location.path("/course/view/" + course._id);
       };
 
       $scope.$watch("user", function () {
