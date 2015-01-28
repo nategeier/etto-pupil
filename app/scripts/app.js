@@ -209,7 +209,6 @@ angular.module("ettoPupil", ["ui.router", "ngSanitize", "ngResource", "ngAnimate
           } else {
             Session.loginModal();
           }
-
         });
       };
       //--
