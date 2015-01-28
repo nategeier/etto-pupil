@@ -10,44 +10,50 @@ angular.module("ettoPupil")
         restrict: "AE",
         controller: function (Store, WhiteLabel, Tier, $rootScope, $scope, $modal, Tiers, $location, Users, Session) {
           var user = null;
+          var opened = false;
 
           $scope.$watch("user", function () {
             if ($scope.user && $scope.user.isBeta && !$scope.user._tier) {
               user = $scope.user;
+
               $scope.register();
             }
           });
 
           $scope.register = function () {
+            if (opened === false) {
+              opened = true;
+              var modal = $modal.open({
+                templateUrl: "/views/directives/ettoVerifyModal.html",
+                controller: function ($scope, $modalInstance) {
+                  $scope.user = user;
+                  $scope.handleLogin = function (user) {
 
-            var modal = $modal.open({
-              templateUrl: "/views/directives/ettoVerifyModal.html",
-              controller: function ($scope, $modalInstance) {
-                $scope.user = user;
-                $scope.handleLogin = function (user) {
+                    var newTier = {
+                      title: user.tier.title
+                    };
 
-                  var newTier = {
-                    title: user.tier.title
-                  };
+                    Tiers.createCompany(newTier, function (tier) {
 
-                  Tiers.createCompany(newTier, function (tier) {
+                      user._tier = tier._id;
 
-                    user._tier = tier._id;
+                      Users.updateUsersTier(user, function (data) {
 
-                    Users.updateUsersTier(user, function (data) {
+                        if (data.err) {
+                          $scope.err = data.err;
+                        } else {
+                          $modalInstance.close(data);
+                        }
 
-                      if (data.err) {
-                        $scope.err = data.err;
-                      } else {
-                        $modalInstance.close(data);
-                      }
-
+                      });
                     });
-                  });
 
-                };
-              }
-            });
+                  };
+                }
+              });
+
+            }
+
             modal.result.then(function (user) {
               Tier.getCompany(user._tier._id, function (company) {
 
