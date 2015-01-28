@@ -205,6 +205,8 @@ angular.module("ettoPupil", ["ui.router", "ngSanitize", "ngResource", "ngAnimate
                 }
 
               });
+            } else {
+              $state.go(toState.name, toParams);
             }
           } else {
             Session.loginModal();
