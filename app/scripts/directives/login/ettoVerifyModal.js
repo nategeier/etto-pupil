@@ -8,7 +8,7 @@ angular.module("ettoPupil")
       return {
 
         restrict: "AE",
-        controller: function ($scope, $modal, Tiers, $location, Users, Session) {
+        controller: function (Store, WhiteLabel, Tier, $rootScope, $scope, $modal, Tiers, $location, Users, Session) {
           var user = null;
 
           $scope.$watch("user", function () {
@@ -49,7 +49,23 @@ angular.module("ettoPupil")
               }
             });
             modal.result.then(function (user) {
-              $scope.updateSession();
+              Tier.getCompany(user._tier._id, function (company) {
+
+                $rootScope.company = company;
+
+                Store.findCredit($rootScope.user._tier._company, function (results) {
+                  $rootScope.credits = results.credits;
+                });
+
+                if (company.colors) {
+                  WhiteLabel.setColors(company.colors);
+                  WhiteLabel.setFonts(company.font);
+                }
+              });
+
+              Session.updateSession($scope.user, function (data) {
+                $rootScope.user = data;
+              });
             });
           };
         },
