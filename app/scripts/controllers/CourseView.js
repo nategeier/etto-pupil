@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("CourseViewCtrl", ["$scope", "$compile", "course", "Record",
-    function ($scope, $compile, course, Record) {
+  .controller("CourseViewCtrl", ["Session", "$scope", "$compile", "course", "Record", "Tier",
+    function (Session, $scope, $compile, course, Record, Tier) {
       $scope.course = course;
 
       $scope.checkIfFreeCourse = function () {
@@ -14,7 +14,17 @@ angular.module("ettoPupil")
 
       $scope.lockedBlock = false;
 
-      $scope.$watch("user", function () {
+      console.log("$scope.course._creator--------", $scope.course._creator)
+
+      Tier.getCompany($scope.course._creator, function (company) {
+        console.log("u$scope.company--------", company)
+        $scope.company = company;
+
+      });
+
+      Session.getSession(function (user) {
+
+        $scope.user = user;
 
         if ($scope.user) {
 
@@ -26,5 +36,6 @@ angular.module("ettoPupil")
           });
         }
       });
+
     }
   ]);

@@ -1,3 +1,4 @@
+etto-not-logged-in-nav(ng-if="!user")
 
 div(ng-if="(user && user._tier._company === course._creator) || checkIfFreeCourse() === true || isDemo === true")
   .container-full(etto-login-modal)

@@ -1,4 +1,5 @@
 
+<etto-not-logged-in-nav ng-if="!user"></etto-not-logged-in-nav>
 <div ng-if="(user &amp;&amp; user._tier._company === course._creator) || checkIfFreeCourse() === true || isDemo === true">
   <div etto-login-modal="etto-login-modal" class="container-full">
     <div class="row">

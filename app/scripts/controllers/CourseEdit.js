@@ -50,6 +50,16 @@ angular.module("ettoPupil")
         });
       });
 
+      $scope.viewCourse = function () {
+
+        var currentBlock = CoursePlayer.currentBlock() + 1;
+
+        $state.go("viewCourse", {
+          courseId: $scope.course._id,
+          blockId: currentBlock
+        });
+      };
+
       $scope.$on("course-save", function () {
         // TODO: Validate course before update
 
