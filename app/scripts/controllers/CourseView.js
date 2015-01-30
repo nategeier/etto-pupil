@@ -14,12 +14,8 @@ angular.module("ettoPupil")
 
       $scope.lockedBlock = false;
 
-      console.log("$scope.course._creator--------", $scope.course._creator)
-
       Tier.getCompany($scope.course._creator, function (company) {
-        console.log("u$scope.company--------", company)
         $scope.company = company;
-
       });
 
       Session.getSession(function (user) {
