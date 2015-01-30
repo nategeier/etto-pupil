@@ -16,7 +16,7 @@ div(ng-if="user._tier._company === course._creator && user.auth.canCreateCourses
                 i.fa.fa-plus
               button.btn.btn-default.btn-sm(ng-show="onLastBlock === false", ng-click="swapBlocks(currentBlock(), currentBlock() + 1)")
                 i.fa.fa-refresh
-              a.btn.btn-default.btn-sm(href="/course/view/{{course._id}}", target="_blank")
+              a.btn.btn-default.btn-sm(ng-click="viewCourse()")
                 i.fa.fa-eye
               button.btn.btn-danger.btn-sm(ng-click='removeBlock()')
                 i.fa.fa-minus.etto-color-light

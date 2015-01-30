@@ -6,8 +6,15 @@ angular.module("ettoPupil")
     function () {
       return {
         restrict: "AE",
-        controller: function ($scope, Tiers) {
-
+        controller: function ($scope, Tiers, Tier, Session) {
+          /*
+          Session.getSession(function (user) {
+            $scope.user = user;
+            Tier.getCompany($scope.user._tier._id, function (company) {
+              $scope.company = company;
+            });
+          });
+          */
           $scope.updateLeaderboard = function () {
 
             if ($scope.user.auth.canEditCompany) {
@@ -30,6 +37,7 @@ angular.module("ettoPupil")
           };
 
           $scope.updateLogo = function () {
+            console.log("reached comp")
             $scope.showAssetLibrary(55, 55, function (asset) {
               $scope.company.logo = asset.url;
               $scope.updateLeaderboard();

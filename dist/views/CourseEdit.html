@@ -11,7 +11,7 @@
           <div class="list-group-item">
             <div class="btn-group etto-btns">
               <button ng-click="showOptions()" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></button>
-              <button ng-show="onLastBlock === false" ng-click="swapBlocks(currentBlock(), currentBlock() + 1)" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button><a href="/course/view/{{course._id}}" target="_blank" class="btn btn-default btn-sm"><i class="fa fa-eye"></i></a>
+              <button ng-show="onLastBlock === false" ng-click="swapBlocks(currentBlock(), currentBlock() + 1)" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button><a ng-click="viewCourse()" class="btn btn-default btn-sm"><i class="fa fa-eye"></i></a>
               <button ng-click="removeBlock()" class="btn btn-danger btn-sm"><i class="fa fa-minus etto-color-light"></i></button>
             </div>
           </div>
