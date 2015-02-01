@@ -3,33 +3,51 @@
 <etto-update-company class="etto-company etto-bgcolor-light">
   <div class="container">
     <div class="row">
-      <div class="col-sm-6 etto-color-light">
+      <div class="col-sm-4 etto-color-light">
         <h4 class="etto-color-primary">Color input format accepts </h4>
         <p class="etto-color-primary">#xxxxxx, rba(xxx, xxx, xxx), or rgba(xxx, xxx, xxx, 0.3)</p>
         <h4 class="etto-color-primary">Primary Color</h4>
         <div class="etto-bgcolor-primary etto-color-input-box">
-          <h1 editable-text="company.colors.primary" buttons="no" blur="submit" onaftersave="changeWhiteLabel()" class="etto-color-light">{{ company.colors.primary || 'Primary Color'}}</h1>
+          <h3 editable-text="tier.colors.primary" buttons="no" blur="submit" onaftersave="updateTier()" class="etto-color-light">{{ tier.colors.primary || 'Primary Color'}}</h3>
         </div>
         <h4 class="etto-color-secondary">Secondary Color</h4>
         <div class="etto-bgcolor-secondary etto-color-input-box">
-          <h1 editable-text="company.colors.secondary" buttons="no" blur="submit" onaftersave="changeWhiteLabel()" class="etto-color-light">{{ company.colors.secondary || 'Secondary Color'}}</h1>
+          <h3 editable-text="tier.colors.secondary" buttons="no" blur="submit" onaftersave="updateTier()" class="etto-color-light">{{ tier.colors.secondary || 'Secondary Color'}}</h3>
         </div>
         <h4 class="etto-color-accent">Accent</h4>
         <div class="etto-bgcolor-accent etto-color-input-box">
-          <h1 editable-text="company.colors.accent" buttons="no" blur="submit" onaftersave="changeWhiteLabel()" class="etto-color-light">{{ company.colors.accent || 'Accent Color'}}</h1>
+          <h3 editable-text="tier.colors.accent" buttons="no" blur="submit" onaftersave="updateTier()" class="etto-color-light">{{ tier.colors.accent || 'Accent Color'}}</h3>
         </div><br/>
         <div class="etto-bgcolor-primary etto-color-input-box etto-light-example">
           <h4 class="etto-color-light">Light</h4>
-          <h1 editable-text="company.colors.light" buttons="no" blur="submit" onaftersave="changeWhiteLabel()" class="etto-bgcolor-light etto-color-primary etto-color-input-box">{{ company.colors.light || 'Accent Color'}}</h1>
+          <h3 editable-text="tier.colors.light" buttons="no" blur="submit" onaftersave="updateTier()" class="etto-bgcolor-light etto-color-primary etto-color-input-box">{{ tier.colors.light || 'Accent Color'}}</h3>
         </div>
       </div>
-      <div class="col-sm-6 etto-bgcolor-white etto-company-info">
+      <div class="col-sm-8 etto-bgcolor-white etto-company-info">
+        <h4>Company Name</h4>
+        <div class="etto-bgcolor-light etto-color-input-box">
+          <h3 editable-text="tier.title" buttons="no" blur="submit" onaftersave="updateTier()" class="etto-color-secondary">{{ tier.title || 'Company Name'}}</h3>
+        </div>
+        <hr/>
         <h3 class="etto-color-primary">Custom Login Link</h3>
         <p class="etto-color-secondary">https://coursetto.com/login/{{company._id}}</p>
-        <h3 class="etto-color-primary">Logo</h3><img src="{{company.logo}}" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateLogo()" height="65" class="img-uploadable"/>
-        <h3 class="etto-color-primary">Font</h3>
-        <select ng-change="changeWhiteLabel()" ng-model="company.font" ng-options="font for font in fonts"></select>
-        <h3 class="etto-color-primary">Main Image</h3><img src="{{company.leaderboard.imgUrl}}" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateMainImg()" class="img-responsive default-lg img-uploadable"/>
+        <hr/>
+        <div class="row">
+          <div class="col-md-6">
+            <h3 class="etto-color-primary">Logo</h3><img src="{{tier.logo}}" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateLogo()" height="65" class="img-uploadable"/>
+          </div>
+          <div class="col-md-6">
+            <div class="checkbox">
+              <label>Don't show company name in the navigation bar (our logo is our company name)
+                <input type="checkbox" ng-model="tier.logoIsCompanyName" ng-change="updateTier()"/>
+              </label>
+            </div>
+            <h3 class="etto-color-primary">Font</h3>
+            <select ng-change="updateTier()" ng-model="tier.font" ng-options="font for font in fonts"></select>
+          </div>
+        </div>
+        <hr/>
+        <h3 class="etto-color-primary">Main Image</h3><img src="{{tier.leaderboard.imgUrl}}" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateMainImg()" class="img-responsive default-lg img-uploadable"/>
       </div>
     </div>
   </div>

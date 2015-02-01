@@ -1,6 +1,6 @@
 
 <etto-not-logged-in-nav ng-if="!user"></etto-not-logged-in-nav>
-<div ng-if="(user &amp;&amp; user._tier._company === course._creator) || checkIfFreeCourse() === true || isDemo === true">
+<div ng-if="checkIfAuthorized() === true || isDemo === true">
   <div etto-login-modal="etto-login-modal" class="container-full">
     <div class="row">
       <div ng-if="err" class="col-xs-12 etto-course-container">
@@ -14,7 +14,7 @@
           <div class="col-sm-12">
             <etto-course course="course"></etto-course>
           </div>
-          <div class="col-sm-12">
+          <div ng-if="user" class="col-sm-12">
             <div class="etto-course-exit"><a href="/etto" target="_self" class="etto-course-exit"><i class="etto-color-accent fa fa-2x fa-times-circle"></i></a></div>
           </div>
           <div class="etto-nav-view">
@@ -25,11 +25,12 @@
     </div>
   </div>
 </div>
-<div ng-if="(user &amp;&amp; user._tier._company !== course._creator) &amp;&amp; checkIfFreeCourse() === false">
+<div ng-if="checkIfAuthorized() === false">
   <etto-logged-in-nav ng-if="user"></etto-logged-in-nav>
-  <etto-not-logged-in-nav ng-if="!user"></etto-not-logged-in-nav>
   <div class="col-md-12">
     <h1 class="text-center">Authorization Denied</h1>
-    <p ng-if="user._tier._company !== course._creator" class="text-center">This course is private.</p>
+    <hr/>
+    <h4 ng-if="!user || user._tier._company !== course._creator" class="text-center">This course is private.</h4>
+    <p class="text-center">You may need to login.</p>
   </div>
 </div>

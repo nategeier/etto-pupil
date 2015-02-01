@@ -7,7 +7,7 @@
       <div class="icon-bar"></div>
       <div class="icon-bar"></div>
       <div class="icon-bar">, etto-login-modal</div>
-    </button><a href="/etto" class="navbar-brand"><span class="logo"><img src="{{company.logo}}" height="65"/></span><span class="etto-color-primary">{{ company.title || 'Coursetto'}}</span></a>
+    </button><a href="/etto" class="navbar-brand"><span class="logo"><img src="{{company.logo}}" height="65"/></span><span ng-show="company.logoIsCompanyName === false" class="etto-color-primary">{{ company.title || 'Coursetto'}}</span></a>
   </div>
   <div id="etto-navbar" class="collapse navbar-collapse">
     <ul class="nav navbar-nav">

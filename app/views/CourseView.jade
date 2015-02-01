@@ -1,6 +1,6 @@
 etto-not-logged-in-nav(ng-if="!user")
 
-div(ng-if="(user && user._tier._company === course._creator) || checkIfFreeCourse() === true || isDemo === true")
+div(ng-if="checkIfAuthorized() === true || isDemo === true")
   .container-full(etto-login-modal)
     .row
       .col-xs-12.etto-course-container(ng-if="err")
@@ -12,7 +12,7 @@ div(ng-if="(user && user._tier._company === course._creator) || checkIfFreeCours
           .col-sm-12
             etto-course( course='course')
 
-          .col-sm-12
+          .col-sm-12(ng-if="user")
             .etto-course-exit
               a.etto-course-exit(href="/etto", target="_self")
                 i.etto-color-accent.fa.fa-2x.fa-times-circle
@@ -20,12 +20,12 @@ div(ng-if="(user && user._tier._company === course._creator) || checkIfFreeCours
           .etto-nav-view
             etto-course-nav(ng-show="checkLocked() === false")
 
-div(ng-if="(user && user._tier._company !== course._creator) && checkIfFreeCourse() === false")
+div(ng-if="checkIfAuthorized() === false")
   etto-logged-in-nav(ng-if="user")
-  etto-not-logged-in-nav(ng-if="!user")
   .col-md-12
     h1.text-center Authorization Denied
-    p.text-center(ng-if="user._tier._company !== course._creator") This course is private.
-
+    hr
+    h4.text-center(ng-if="!user || user._tier._company !== course._creator") This course is private.
+    p.text-center You may need to login.
 
 

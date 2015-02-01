@@ -33,9 +33,16 @@ angular.module("ettoPupil")
             });
             modal.result.then(function (user) {
 
-              if (user) {
-                $state.transitionTo("home");
+              if (user && $state.current.controller === "CourseViewCtrl") {
+                $scope.user = user;
+                window.location.reload();
+
+              } else if (user) {
+                $scope.user = user;
+                $state.go("home");
               }
+
+              console.log($state)
             });
           };
         },

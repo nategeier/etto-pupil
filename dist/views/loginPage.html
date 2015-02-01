@@ -1,14 +1,18 @@
 
 <div class="container">
-  <div class="col-md-7 col-md-offset-3 etto-loginpage">
-    <div class="row">
+  <div class="col-md-6 col-md-offset-3 etto-loginpage">
+    <div ng-if="company.logoIsCompanyName === false" class="row">
       <div class="col-sm-3"><img ng-src="{{company.logo}}" class="img-responsive"/><br/></div>
       <div class="col-sm-9">
-        <h1 class="etto-color-primary">{{company.title}} </h1>
-        <h4 class="etto-color-secondary">Courses</h4>
+        <h2 class="etto-color-primary">{{company.title}} </h2>
+        <p>Courses | Wiki | Guidebooks | Assets</p>
       </div>
     </div>
-    <hr/>
+    <div ng-if="company.logoIsCompanyName === true" class="row">
+      <div class="col-md-6 col-md-offset-3"><img ng-src="{{company.logo}}" class="img-responsive"/><br/>
+        <p class="etto-color-secondary text-center">Courses | Wiki | Guidebooks | Assets</p>
+      </div>
+    </div>
     <form ng-submit="login()">
       <div ng-show="err">
         <div class="alert alert-danger">{{err.message}}</div>
@@ -19,9 +23,8 @@
       <div class="form-group">
         <input type="password" ng-model="user.password" placeholder="Enter your password..." required="required" class="form-control"/>
       </div>
-      <input type="submit" value="Login" class="btn btn-success btn-sm"/>
-      <hr/>
-      <etto-send-forgot-password></etto-send-forgot-password>
+      <input type="submit" value="Login" class="btn btn-success btn-sm etto-bgcolor-primary"/>
+      <etto-send-forgot-password class="pull-right"></etto-send-forgot-password>
     </form>
   </div>
 </div>
