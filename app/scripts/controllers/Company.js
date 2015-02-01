@@ -26,5 +26,12 @@ angular.module("ettoPupil")
           $scope.updateTier();
         });
       };
+
+      $scope.updateLogo = function () {
+        $scope.showAssetLibrary(55, 55, function (asset) {
+          $scope.tier.logo = asset.url;
+          $scope.updateTier();
+        });
+      };
     }
   ]);
