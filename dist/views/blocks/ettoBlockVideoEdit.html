@@ -1,29 +1,37 @@
 
 <div ng-class="block.data.youtube || block.data.vimeo ? 'show-video' : 'none'" class="row">
-  <div ng-show="!block.data.youtube &amp;&amp; !block.data.vimeo">
-    <div class="col-md-6 etto-shadow">
+  <div ng-show="!block.data.youtube &amp;&amp; !block.data.vimeo &amp;&amp; !block.data.wistia">
+    <div class="col-md-4 etto-shadow">
       <div class="etto-video-insert"><img src="/images/logos/youtube.jpg" class="img-responsive"/>
         <hr/>
         <p editable-text="block.data.youtube" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.youtube || 'Enter Youtube ID'}}</p>
-        <hr/><small>Example:</small><br/><img src="/images/courses/misc/youtube_id.jpg"/>
+        <hr/><small>Example:</small><br/><img src="/images/courses/misc/youtube_id.jpg" class="img-responsive"/>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="etto-video-insert"><img src="/images/logos/vimeo.jpg" class="img-responsive"/>
         <hr/>
         <p editable-text="block.data.vimeo" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.vimeo || 'Enter Vimeo ID'}}</p>
-        <hr/><small>Example:</small><br/><img src="/images/courses/misc/vimeo_id.jpg"/>
+        <hr/><small>Example:</small><br/><img src="/images/courses/misc/vimeo_id.jpg" class="img-responsive"/>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="etto-video-insert"><img src="/images/logos/wistia.png" class="img-responsive"/>
+        <hr/>
+        <p editable-text="block.data.wistia" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.wistia || 'Enter Wistia ID'}}</p>
+        <hr/><small>Example:</small><br/><img src="/images/courses/misc/wistia_id.png" class="img-responsive"/>
       </div>
     </div>
     <hr/>
   </div>
 </div>
-<div ng-show="block.data.youtube || block.data.vimeo">
+<div ng-if="block.data.youtube || block.data.vimeo || block.data.wistia">
   <div class="row">
     <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
       <div class="etto-video">
         <etto-youtube ng-if="block.data.youtube" code="{{ block.data.youtube }}"></etto-youtube>
         <etto-vimeo ng-if="block.data.vimeo" vimeo="{{ block.data.vimeo }}"></etto-vimeo>
+        <etto-wistia ng-if="block.data.wistia" wistia="{{ block.data.wistia }}"></etto-wistia>
       </div>
     </div>
   </div>
