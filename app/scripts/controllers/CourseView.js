@@ -5,8 +5,10 @@ angular.module("ettoPupil")
     function (Session, $scope, $compile, course, Record, Tier) {
       $scope.course = course;
 
-      $scope.checkIfFreeCourse = function () {
+      $scope.checkIfAuthorized = function () {
         if ($scope.course.price === 0 && $scope.course.status === "live") {
+          return true;
+        } else if ($scope.user && $scope.user._tier._company === $scope.course._creator) {
           return true;
         }
         return false;
@@ -23,15 +25,20 @@ angular.module("ettoPupil")
         $scope.user = user;
 
         if ($scope.user) {
-
-          Record.create(course._id, $scope.user._id, function (record) {
-            if (record.err) {
-              $scope.err = record.err;
-            }
-            $scope.record = record;
-          });
+          createRecord($scope.user._id);
+        } else {
+          createRecord(null);
         }
       });
+
+      var createRecord = function (userId) {
+        Record.create(course._id, userId, function (record) {
+          if (record.err) {
+            $scope.err = record.err;
+          }
+          $scope.record = record;
+        });
+      };
 
     }
   ]);

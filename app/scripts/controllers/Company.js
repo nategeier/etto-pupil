@@ -1,23 +1,37 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("CompanyCtrl", ["$scope", "$stateParams", "Tiers", "WhiteLabel", "Fonts",
-    function ($scope, $stateParams, Tiers, WhiteLabel, Fonts) {
+  .controller("CompanyCtrl", ["$scope", "$stateParams", "Tiers", "WhiteLabel", "Fonts", "Tier",
+    function ($scope, $stateParams, Tiers, WhiteLabel, Fonts, Tier) {
 
       var companyId = $stateParams.companyId;
 
       $scope.fonts = Fonts;
 
-      $scope.changeWhiteLabel = function () {
-        var company = {
-          _id: companyId,
-          colors: $scope.company.colors,
-          font: $scope.company.font
-        };
+      Tier.findTier(companyId, function (tier) {
+        $scope.tier = tier;
+      });
 
-        Tiers.changeWhiteLabel(company, function () {
-          WhiteLabel.setColors($scope.company.colors);
-          WhiteLabel.setFonts($scope.company.font);
+      $scope.updateTier = function () {
+        Tiers.updateTier($scope.tier, function (data) {
+          console.log("updated", data);
+          WhiteLabel.setColors(data.colors);
+          WhiteLabel.setFonts(data.font);
+          $scope.company = data;
+        });
+      };
+
+      $scope.updateMainImg = function () {
+        $scope.showAssetLibrary(400, 200, function (asset) {
+          $scope.tier.leaderboard.imgUrl = asset.url;
+          $scope.updateTier();
+        });
+      };
+
+      $scope.updateLogo = function () {
+        $scope.showAssetLibrary(55, 55, function (asset) {
+          $scope.tier.logo = asset.url;
+          $scope.updateTier();
         });
       };
     }
