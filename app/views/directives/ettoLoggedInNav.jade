@@ -10,7 +10,7 @@ nav.navbar.navbar-default.etto-bgcolor-light( role="navigation")
     a.navbar-brand( href="/etto" )
       span.logo
         img(src="{{company.logo}}", height="65")
-      span.etto-color-primary(ng-show="company.logoIsCompanyName === false") {{ company.title || 'Coursetto'}}
+      span.etto-color-primary(ng-show="company.logoIsCompanyName != true") {{ company.title || 'Coursetto'}}
 
   #etto-navbar.collapse.navbar-collapse
     ul.nav.navbar-nav

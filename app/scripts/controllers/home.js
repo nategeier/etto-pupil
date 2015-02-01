@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("HomeCtrl", ["$state", "$scope", "$location", "CourseMetaChange", "Users", "Tier",
-    function ($state, $scope, $location, CourseMetaChange, Users, Tier) {
+  .controller("HomeCtrl", ["$state", "$scope", "$location", "CourseMetaChange", "Users", "Tier", "Tiers", "WhiteLabel",
+    function ($state, $scope, $location, CourseMetaChange, Users, Tier, Tiers, WhiteLabel) {
 
       $scope.activetab = "home";
 
@@ -22,6 +22,25 @@ angular.module("ettoPupil")
         opacity: 0,
         y: 20
       });
+
+      $scope.updateTier = function () {
+        if (!$scope.user.auth.canEditCompany) {
+          Tiers.updateTier($scope.company, function (data) {
+            WhiteLabel.setColors(data.colors);
+            WhiteLabel.setFonts(data.font);
+            $scope.company = data;
+          });
+        }
+      };
+
+      $scope.updateMainImg = function () {
+        if (!$scope.user.auth.canEditCompany) {
+          $scope.showAssetLibrary(400, 200, function (asset) {
+            $scope.company.leaderboard.imgUrl = asset.url;
+            $scope.updateTier();
+          });
+        }
+      };
 
       $scope.listUsersCreatedCourses = function () {
 
