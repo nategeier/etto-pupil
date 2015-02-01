@@ -24,7 +24,7 @@ angular.module("ettoPupil")
       });
 
       $scope.updateTier = function () {
-        if (!$scope.user.auth.canEditCompany) {
+        if ($scope.user.auth.canEditCompany) {
           Tiers.updateTier($scope.company, function (data) {
             WhiteLabel.setColors(data.colors);
             WhiteLabel.setFonts(data.font);
@@ -34,7 +34,7 @@ angular.module("ettoPupil")
       };
 
       $scope.updateMainImg = function () {
-        if (!$scope.user.auth.canEditCompany) {
+        if ($scope.user.auth.canEditCompany) {
           $scope.showAssetLibrary(400, 200, function (asset) {
             $scope.company.leaderboard.imgUrl = asset.url;
             $scope.updateTier();
