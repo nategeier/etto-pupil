@@ -14,7 +14,6 @@ angular.module("ettoPupil")
 
       $scope.updateTier = function () {
         Tiers.updateTier($scope.tier, function (data) {
-          console.log("updated", data);
           WhiteLabel.setColors(data.colors);
           WhiteLabel.setFonts(data.font);
           $scope.company = data;
@@ -24,13 +23,6 @@ angular.module("ettoPupil")
       $scope.updateMainImg = function () {
         $scope.showAssetLibrary(400, 200, function (asset) {
           $scope.tier.leaderboard.imgUrl = asset.url;
-          $scope.updateTier();
-        });
-      };
-
-      $scope.updateLogo = function () {
-        $scope.showAssetLibrary(55, 55, function (asset) {
-          $scope.tier.logo = asset.url;
           $scope.updateTier();
         });
       };

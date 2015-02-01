@@ -5,8 +5,8 @@ etto-verify-modal(redirect-to='/etto')
   .row.etto-bgcolor-white(etto-update-company)
     .col-sm-12.col-md-6
       .etto-leadertxt
-        h3.etto-color-primary#title(editable-textarea="company.leaderboard.title", buttons="no", blur="submit", onaftersave="updateLeaderboard()") {{company.leaderboard.title}}
-        h4.etto-color-secondary#subtite(editable-textarea="company.leaderboard.subtitle", buttons="no", blur="submit", onaftersave="updateLeaderboard()") {{company.leaderboard.subtitle}}
+        h3.etto-color-primary#title(editable-textarea="company.leaderboard.title", buttons="no", blur="submit", onaftersave="updateTier()") {{company.leaderboard.title}}
+        h4.etto-color-secondary#subtite(editable-textarea="company.leaderboard.subtitle", buttons="no", blur="submit", onaftersave="updateTier()") {{company.leaderboard.subtitle}}
     .col-sm-12.col-md-6.hidden-sm.hidden-xs
       .main-img-container.img-uploadable(style="background-image: url('{{company.leaderboard.imgUrl}}');", etto-asset-library-modal, ng-click='updateMainImg()')
 

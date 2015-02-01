@@ -6,7 +6,7 @@
       <h1 class="etto-color-primary white">Congratulations!</h1>
       <hr/>
       <h4 class="etto-color-secondary">You have completed {{course.title}}</h4>
-      <hr/><a href="/etto" class="btn btn-default etto-color-primary">Return Home</a>
+      <hr/><a ng-if="user" href="/etto" class="btn btn-default etto-color-primary">Return Home</a><a ng-if="!user" href="/" class="btn btn-default etto-color-primary">Return Home</a>
     </div>
   </div>
 </div>

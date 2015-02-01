@@ -8,5 +8,5 @@
       hr
       h4.etto-color-secondary You have completed {{course.title}}
       hr
-      a.btn.btn-default.etto-color-primary(href="/etto") Return Home
-      
+      a.btn.btn-default.etto-color-primary(ng-if = "user", href="/etto") Return Home
+      a.btn.btn-default.etto-color-primary(ng-if = "!user", href="/") Return Home
