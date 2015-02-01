@@ -1,7 +1,7 @@
 
 .row(ng-class="block.data.youtube || block.data.vimeo ? 'show-video' : 'none'")
-  div(ng-show="!block.data.youtube && !block.data.vimeo")
-    .col-md-6.etto-shadow
+  div(ng-show="!block.data.youtube && !block.data.vimeo && !block.data.wistia")
+    .col-md-4.etto-shadow
       .etto-video-insert
         img.img-responsive(src="/images/logos/youtube.jpg")
         hr
@@ -9,8 +9,8 @@
         hr
         small Example:
         br
-        img(src="/images/courses/misc/youtube_id.jpg")
-    .col-md-6
+        img.img-responsive(src="/images/courses/misc/youtube_id.jpg")
+    .col-md-4
       .etto-video-insert
         img.img-responsive(src="/images/logos/vimeo.jpg")
         hr
@@ -18,12 +18,22 @@
         hr
         small Example:
         br
-        img(src="/images/courses/misc/vimeo_id.jpg")
+        img.img-responsive(src="/images/courses/misc/vimeo_id.jpg")
+    .col-md-4
+      .etto-video-insert
+        img.img-responsive(src="/images/logos/wistia.png")
+        hr
+        p(editable-text="block.data.wistia", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.wistia || 'Enter Wistia ID'}}
+        hr
+        small Example:
+        br
+        img.img-responsive(src="/images/courses/misc/wistia_id.png")
     hr
 
-div(ng-show="block.data.youtube || block.data.vimeo")
+div(ng-if="block.data.youtube || block.data.vimeo || block.data.wistia")
   .row
     .col-xs-12.col-md-10.col-md-offset-1.col-lg-8.col-lg-offset-2
       .etto-video
         etto-youtube(ng-if="block.data.youtube", code="{{ block.data.youtube }}" )
         etto-vimeo(ng-if="block.data.vimeo", vimeo="{{ block.data.vimeo }}" )
+        etto-wistia(ng-if="block.data.wistia", wistia="{{ block.data.wistia }}" )

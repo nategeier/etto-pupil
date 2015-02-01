@@ -3,8 +3,9 @@
 <div class="row etto-video-placer">
   <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
     <div class="etto-video">
-      <etto-youtube ng-show="block.data.youtube" code="{{ block.data.youtube }}"></etto-youtube>
-      <etto-vimeo ng-show="block.data.vimeo" vimeo="{{ block.data.vimeo }}"></etto-vimeo>
+      <etto-youtube ng-if="block.data.youtube" code="{{ block.data.youtube }}"></etto-youtube>
+      <etto-vimeo ng-if="block.data.vimeo" vimeo="{{ block.data.vimeo }}"></etto-vimeo>
+      <etto-wistia ng-if="block.data.wistia" wistia="{{ block.data.wistia }}"></etto-wistia>
     </div>
   </div>
 </div>
