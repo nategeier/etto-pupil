@@ -14,12 +14,11 @@ angular.module("ettoPupil")
 
           var code = attrs.wistia;
 
-          if (code.substring(0, 4) === "https") {
-            var parts = code.split(".com/", 2);
+          if (code.substring(0, 4) === "http") {
+            var parts = code.split("medias/", 2);
             code = parts[1];
           }
 
-          console.log("hello", code)
           scope.wistiaUrl = $sce.trustAsResourceUrl("//fast.wistia.net/embed/iframe/" + code);
         }
 

@@ -4,8 +4,6 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-4 etto-color-light">
-        <h4 class="etto-color-primary">Color input format accepts </h4>
-        <p class="etto-color-primary">#xxxxxx, rba(xxx, xxx, xxx), or rgba(xxx, xxx, xxx, 0.3)</p>
         <h4 class="etto-color-primary">Primary Color</h4>
         <div class="etto-bgcolor-primary etto-color-input-box">
           <h3 editable-text="tier.colors.primary" buttons="no" blur="submit" onaftersave="updateTier()" class="etto-color-light">{{ tier.colors.primary || 'Primary Color'}}</h3>
@@ -33,17 +31,17 @@
         <p class="etto-color-secondary">https://coursetto.com/login/{{company._id}}</p>
         <hr/>
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-5">
             <h3 class="etto-color-primary">Logo</h3><img src="{{tier.logo}}" etto-asset-library-modal="etto-asset-library-modal" ng-click="updateLogo()" height="65" class="img-uploadable"/>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-7">
+            <h3 class="etto-color-primary">Font</h3>
+            <select ng-change="updateTier()" ng-model="tier.font" ng-options="font for font in fonts"></select>
             <div class="checkbox">
               <label>Don't show company name in the navigation bar (our logo is our company name)
                 <input type="checkbox" ng-model="tier.logoIsCompanyName" ng-change="updateTier()"/>
               </label>
             </div>
-            <h3 class="etto-color-primary">Font</h3>
-            <select ng-change="updateTier()" ng-model="tier.font" ng-options="font for font in fonts"></select>
           </div>
         </div>
         <hr/>

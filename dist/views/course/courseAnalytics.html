@@ -1,0 +1,42 @@
+
+<etto-logged-in-nav></etto-logged-in-nav>
+<div class="container etto-course-analytics">
+  <div class="text-center"></div>
+  <h1>{{report.course.title}}</h1>
+  <p>Analytics</p>
+  <div class="row text-center">
+    <div class="col-sm-4">
+      <div class="statBox etto-color-light etto-bgcolor-primary">
+        <h1>{{report.totalViews}}</h1>
+        <p>Views</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="statBox etto-color-light etto-bgcolor-primary">
+        <h1>{{report.totalPassed}}</h1>
+        <p>Completed</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="statBox etto-color-light etto-bgcolor-primary">
+        <h1>{{((report.totalPassed / report.totalViews) * 100) | number : 0}} %</h1>
+        <p>Success</p>
+      </div>
+    </div>
+  </div>
+  <hr/><span class="text-center">
+    <h4>Course Comments<i class="fa fa-comment"></i></h4></span>
+  <div ng-repeat="commentedCourse in report.commentedCourses" class="etto-comment etto-bgcolor-light">
+    <div class="row">
+      <div class="col-sm-8 text-center"><i>{{commentedCourse.comment}}</i></div>
+      <div ng-if="commentedCourse._user" class="col-sm-4">
+        <div class="row">
+          <div class="col-sm-3"><img src="{{commentedCourse._user.avatarUrl}}" class="img-circle img-responsive"/></div>
+          <div class="col-sm-9">
+            <h4>- {{commentedCourse._user.name}}</h4><small>{{commentedCourse.lastUpdate | date:"MM/dd/yyyy"}}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

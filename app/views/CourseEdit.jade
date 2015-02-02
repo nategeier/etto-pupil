@@ -20,8 +20,7 @@ div(ng-if="user._tier._company === course._creator && user.auth.canCreateCourses
                 i.fa.fa-eye
               button.btn.btn-danger.btn-sm(ng-click='removeBlock()')
                 i.fa.fa-minus.etto-color-light
-              
-
+             
           
           .list-group-item
             .row
@@ -36,8 +35,10 @@ div(ng-if="user._tier._company === course._creator && user.auth.canCreateCourses
               pre {{ course.meta.keywords || 'keywords'}}
           .list-group-item
             .btn-group
-              a.btn.btn-success(href="#", etto-course-status, ng-click="changeStatus()") Launch
-              a.btn.btn-default(href="/etto") Exit
+              a.btn.btn-success.btn-sm(href="#", etto-course-status, ng-click="changeStatus()") Launch
+              a.btn.btn-default.btn-sm(href="/etto") Exit
+              button.btn.btn-default.btn-sm(ui-sref='courseAnalytics({courseId:course._id})')
+                i.fa.fa-bar-chart-o
           
     .etto-course-container.col-sm-9.col-lg-10
       .row

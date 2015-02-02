@@ -32,7 +32,9 @@
             </div>
           </div>
           <div class="list-group-item">
-            <div class="btn-group"><a href="#" etto-course-status="etto-course-status" ng-click="changeStatus()" class="btn btn-success">Launch</a><a href="/etto" class="btn btn-default">Exit</a></div>
+            <div class="btn-group"><a href="#" etto-course-status="etto-course-status" ng-click="changeStatus()" class="btn btn-success btn-sm">Launch</a><a href="/etto" class="btn btn-default btn-sm">Exit</a>
+              <button ui-sref="courseAnalytics({courseId:course._id})" class="btn btn-default btn-sm"><i class="fa fa-bar-chart-o"></i></button>
+            </div>
           </div>
         </div>
       </div>

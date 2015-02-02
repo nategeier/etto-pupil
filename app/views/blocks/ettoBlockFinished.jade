@@ -10,3 +10,9 @@
       hr
       a.btn.btn-default.etto-color-primary(ng-if = "user", href="/etto") Return Home
       a.btn.btn-default.etto-color-primary(ng-if = "!user", href="/") Return Home
+
+  hr
+  .row
+    .col-md-12
+
+      p.etto.color-secondary(editable-textarea="record.comment", e-rows="7", e-cols="40", buttons="no", blur="submit", onaftersave="updateRecord()") {{ record.comment || 'Leave a comment for the course composers'}}

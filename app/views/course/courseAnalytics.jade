@@ -1,0 +1,38 @@
+etto-logged-in-nav
+
+.container.etto-course-analytics
+  .text-center
+  h1 {{report.course.title}}
+  p Analytics
+  
+  .row.text-center
+    .col-sm-4
+      .statBox.etto-color-light.etto-bgcolor-primary
+        h1 {{report.totalViews}}
+        p Views
+    .col-sm-4
+      .statBox.etto-color-light.etto-bgcolor-primary
+        h1 {{report.totalPassed}}
+        p Completed
+    .col-sm-4
+      .statBox.etto-color-light.etto-bgcolor-primary
+        h1 {{((report.totalPassed / report.totalViews) * 100) | number : 0}} %
+        p Success
+  hr
+  span.text-center
+    h4 Course Comments
+      i.fa.fa-comment
+  div.etto-comment.etto-bgcolor-light(ng-repeat="commentedCourse in report.commentedCourses")
+    
+    .row
+      .col-sm-8.text-center
+        i {{commentedCourse.comment}}
+      .col-sm-4(ng-if="commentedCourse._user")
+        .row
+          .col-sm-3
+            img.img-circle.img-responsive(src="{{commentedCourse._user.avatarUrl}}")
+          .col-sm-9
+            h4 - {{commentedCourse._user.name}}
+            small {{commentedCourse.lastUpdate | date:"MM/dd/yyyy"}}
+
+  

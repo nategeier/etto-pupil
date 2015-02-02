@@ -26,15 +26,18 @@ angular.module("ettoPupil")
           });
         },
 
-        updateBookmark: function (id, bookmark, totalBlocks) {
-          var Record = $resource(Endpoint("record", "updateBookmark") + "/:id", {
-            id: id,
-            bookmark: bookmark,
-            totalBlocks: totalBlocks
+        updateBookmark: function (record, done) {
+          var UsersRecord = $resource(Endpoint("record", "updateBookmark"));
+          var updateRecord = new UsersRecord(record);
+          updateRecord.$save();
+        },
+        findCourseRecords: function (courseId, done) {
+          var Record = $resource(Endpoint("record", "findCourseRecords") + "/:courseId", {
+            courseId: courseId
           });
 
           Record.get(function (results) {
-            //callback(results);
+            done(results);
           });
         }
       };
