@@ -4,8 +4,6 @@ etto-update-company.etto-company.etto-bgcolor-light
   .container
     .row
       .col-sm-4.etto-color-light
-        h4.etto-color-primary Color input format accepts 
-        p.etto-color-primary #xxxxxx, rba(xxx, xxx, xxx), or rgba(xxx, xxx, xxx, 0.3)
         h4.etto-color-primary Primary Color
         .etto-bgcolor-primary.etto-color-input-box
           h3.etto-color-light(editable-text="tier.colors.primary", buttons="no", blur="submit", onaftersave="updateTier()") {{ tier.colors.primary || 'Primary Color'}}
@@ -32,16 +30,17 @@ etto-update-company.etto-company.etto-bgcolor-light
         p.etto-color-secondary https://coursetto.com/login/{{company._id}}
         hr
         .row
-          .col-md-6
+          .col-md-5
             h3.etto-color-primary Logo
             img.img-uploadable(src="{{tier.logo}}", etto-asset-library-modal, ng-click='updateLogo()', height="65")
-          .col-md-6
+          .col-md-7
+            h3.etto-color-primary Font
+            select(ng-change="updateTier()", ng-model="tier.font", ng-options="font for font in fonts")
             .checkbox
               label Don't show company name in the navigation bar (our logo is our company name)
                 input(type="checkbox", ng-model="tier.logoIsCompanyName", ng-change="updateTier()") 
 
-            h3.etto-color-primary Font
-            select(ng-change="updateTier()", ng-model="tier.font", ng-options="font for font in fonts")
+           
         hr
         h3.etto-color-primary Main Image
         img.img-responsive.default-lg.img-uploadable(src="{{tier.leaderboard.imgUrl}}", etto-asset-library-modal, ng-click='updateMainImg()')

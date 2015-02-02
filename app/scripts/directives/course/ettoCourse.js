@@ -143,14 +143,27 @@ angular.module("ettoPupil")
                 CoursePlayer.nextBlock();
                 var currBlock = Number(CoursePlayer.currentBlock()) + 1;
 
-                Record.updateBookmark($scope.record._id, currBlock, CoursePlayer.blocksInCourse());
+                $scope.record.bookmark = currBlock;
+                $scope.record.totalBlocks = CoursePlayer.blocksInCourse();
+
+                //--- Set the course as completed
+                if (CoursePlayer.currentBlock() === (CoursePlayer.blocksInCourse() - 1) && !$scope.record.completed) {
+                  $scope.record.completed = Date.now();
+                }
+
+                Record.updateBookmark($scope.record);
                 $scope.changeUrl();
+
               }
             } else {
               //----- Demo mode, carry on
               CoursePlayer.nextBlock();
               $scope.changeUrl();
             }
+          };
+
+          $scope.updateRecord = function () {
+            Record.updateBookmark($scope.record);
           };
 
           $scope.prevBlock = function () {

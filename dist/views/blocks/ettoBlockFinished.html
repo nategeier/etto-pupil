@@ -9,4 +9,10 @@
       <hr/><a ng-if="user" href="/etto" class="btn btn-default etto-color-primary">Return Home</a><a ng-if="!user" href="/" class="btn btn-default etto-color-primary">Return Home</a>
     </div>
   </div>
+  <hr/>
+  <div class="row">
+    <div class="col-md-12">
+      <p editable-textarea="record.comment" e-rows="7" e-cols="40" buttons="no" blur="submit" onaftersave="updateRecord()" class="etto color-secondary">{{ record.comment || 'Leave a comment for the course composers'}}</p>
+    </div>
+  </div>
 </div>

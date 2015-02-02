@@ -98,6 +98,12 @@ angular.module("ettoPupil", ["ui.router", "ngSanitize", "ngResource", "ngAnimate
           controller: "PaymentsCtrl",
           requireLogin: true
         })
+        .state("courseAnalytics", {
+          url: "/courseAnalytics/:courseId",
+          templateUrl: "/views/course/courseAnalytics.html",
+          controller: "CourseAnalyticsCtrl",
+          requireLogin: true
+        })
         .state("destroySession", {
           url: "/session/destro",
           controller: "LogoutCtrl",
