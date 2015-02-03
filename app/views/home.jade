@@ -24,7 +24,7 @@ etto-verify-modal(redirect-to='/etto')
               .etto-course-holder(sink-in, ui-sref="viewCourse({courseId:course._id, blockId:1})")
                 .course-holder-img(style="background-image: url('{{course.thumb}}');")
                 div(ng-if="course._record")
-                  div.etto-certificate.etto-color-accent.img-rounded.etto-shadow-img(ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks && course._record.progress.totalBlocks !== 1") 
+                  div.etto-certificate.etto-color-accent.img-rounded.etto-shadow-img(ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks") 
                     div(etto-certificate)
                 .etto-padding
                   h4.etto-color-primary {{course.title}} 

@@ -120,8 +120,10 @@ angular.module("ettoPupil")
 
           $scope.nextBlock = function () {
             $scope.blockEvent = "next";
+
             //--- No more slides so show options to create a new slide on next button click if in editiing
             if ($scope.editing) {
+
               //---- Editing free will
               if (CoursePlayer.currentBlock() === (CoursePlayer.blocksInCourse() - 1)) {
                 //--- If no more blocks and they press right, show block template options
@@ -136,15 +138,16 @@ angular.module("ettoPupil")
 
               $scope.onLastBlock = CoursePlayer.onLastBlock();
             } else if (!$scope.isDemo) {
+
               //----- View mode, update bookmark and check if locked
 
               if (CoursePlayer.isLocked() === false) {
                 $scope.locked = false;
                 CoursePlayer.nextBlock();
-                var currBlock = Number(CoursePlayer.currentBlock()) + 1;
+                var currBlock = Number(CoursePlayer.currentBlock() + 1);
 
-                $scope.record.bookmark = currBlock;
-                $scope.record.totalBlocks = CoursePlayer.blocksInCourse();
+                $scope.record.progress.bookmark = currBlock;
+                $scope.record.progress.totalBlocks = CoursePlayer.blocksInCourse();
 
                 //--- Set the course as completed
                 if (CoursePlayer.currentBlock() === (CoursePlayer.blocksInCourse() - 1) && !$scope.record.completed) {
