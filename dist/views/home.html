@@ -34,12 +34,12 @@
                   </div>
                 </div>
                 <div class="etto-padding">
-                  <h4 class="etto-color-primary">{{course.title}}</h4>
+                  <h4 class="etto-color-primary">{{course.title}} </h4>
                   <div ng-show="!course._record" class="progress etto-bgcolor-light">
-                    <div role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 1%;" class="progress-bar etto-bgcolor-accent"></div>
+                    <div role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 5%;" class="progress-bar etto-bgcolor-accent"></div>
                   </div>
                   <div ng-show="course._record" class="progress etto-bgcolor-light">
-                    <div ng-show="course._record.progress.totalBlocks &gt; 1" role="progressbar" aria-valuenow="{{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}%;" class="progress-bar etto-bgcolor-accent"></div>
+                    <div ng-show="course._record.progress.totalBlocks &gt; 0" role="progressbar" aria-valuenow="{{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}%;" class="progress-bar etto-bgcolor-accent"></div>
                   </div>
                   <p class="etto-color-secondary">{{course.subtitle}}</p>
                 </div>
