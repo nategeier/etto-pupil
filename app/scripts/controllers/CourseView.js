@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("CourseViewCtrl", ["Session", "$scope", "$compile", "course", "Record", "Tier",
-    function (Session, $scope, $compile, course, Record, Tier) {
+  .controller("CourseViewCtrl", ["Session", "$scope", "$compile", "course", "Record", "Tier", "CoursePlayer",
+    function (Session, $scope, $compile, course, Record, Tier, CoursePlayer) {
       $scope.course = course;
 
       $scope.checkIfAuthorized = function () {
@@ -32,7 +32,10 @@ angular.module("ettoPupil")
       });
 
       var createRecord = function (userId) {
-        Record.create(course._id, userId, function (record) {
+
+        var totalBlocks = course.blocks.length;
+
+        Record.create(course._id, userId, totalBlocks, function (record) {
           if (record.err) {
             $scope.err = record.err;
           }

@@ -29,7 +29,7 @@
               <div sink-in="sink-in" ui-sref="viewCourse({courseId:course._id, blockId:1})" class="etto-course-holder">
                 <div style="background-image: url('{{course.thumb}}');" class="course-holder-img"></div>
                 <div ng-if="course._record">
-                  <div ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks &amp;&amp; course._record.progress.totalBlocks !== 1" class="etto-certificate etto-color-accent img-rounded etto-shadow-img"> 
+                  <div ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks" class="etto-certificate etto-color-accent img-rounded etto-shadow-img"> 
                     <div etto-certificate="etto-certificate"></div>
                   </div>
                 </div>

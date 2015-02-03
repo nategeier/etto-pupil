@@ -4,10 +4,11 @@ angular.module("ettoPupil")
   .factory("Record", ["$resource", "Endpoint",
     function ($resource, Endpoint) {
       return {
-        create: function (courseId, userId, callback) {
+        create: function (courseId, userId, totalBlocks, callback) {
           var Record = $resource(Endpoint("record", "create") + "/:userId", {
             courseId: courseId,
-            userId: userId
+            userId: userId,
+            totalBlocks: totalBlocks
           });
 
           Record.get(function (results) {
