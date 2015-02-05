@@ -153,10 +153,14 @@ angular.module("ettoPupil", ["ui.router", "ngSanitize", "ngResource", "ngAnimate
           requireLogin: true
         });
     }
-  ]).run(function ($rootScope, editableOptions, $state, Session, WhiteLabel, Tier, Store) {
-    var environment = "production";
+  ]).run(function ($rootScope, editableOptions, $state, Session, WhiteLabel, Tier, Store, $location) {
+    var environment = "development";
 
+    if ($location.host() === "coursetto.com") {
+      environment = "production";
+    }
     // Production
+
     if (environment === "production") {
       $rootScope.config = {
         "api": {

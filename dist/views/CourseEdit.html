@@ -45,8 +45,8 @@
           <etto-course edit="edit" course="course"></etto-course>
         </div>
       </div>
-      <div class="etto-course-exit"><a href="/etto" target="_self" class="etto-course-exit"><i class="fa fa-2x fa-times-circle"></i>
-          <p>{{currentBlock() + 1}} / {{blocksInCourse() + 1}}</p></a></div>
+      <div class="etto-course-exit"><a href="/etto" target="_self" class="etto-course-exit">
+          <p class="pull-left">{{currentBlock() + 1}} / {{blocksInCourse() + 1}}</p><i class="fa fa-2x fa-times-circle pull-left"></i></a></div>
       <div ng-if="blocksInCourse() === 0">
         <h1 class="etto-color-primary">Welcome {{company.title}} course builder</h1>
         <hr/>

@@ -12,10 +12,10 @@ div(ng-if="checkIfAuthorized() === true || isDemo === true")
           .col-sm-12
             etto-course( course='course')
 
-          .col-sm-12(ng-if="user")
-            .etto-course-exit
-              a.etto-course-exit(href="/etto", target="_self")
-                i.etto-color-accent.fa.fa-2x.fa-times-circle
+          .etto-course-exit(ng-if="user")
+            a.etto-course-exit(href="/etto", target="_self")
+              p.pull-left {{currentBlock() + 1}} / {{blocksInCourse()}}
+              i.fa.fa-2x.fa-times-circle.pull-left
 
           .etto-nav-view
             etto-course-nav(ng-show="checkLocked() === false")
