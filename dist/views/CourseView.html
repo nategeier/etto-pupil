@@ -14,9 +14,8 @@
           <div class="col-sm-12">
             <etto-course course="course"></etto-course>
           </div>
-          <div ng-if="user" class="col-sm-12">
-            <div class="etto-course-exit"><a href="/etto" target="_self" class="etto-course-exit"><i class="etto-color-accent fa fa-2x fa-times-circle"></i></a></div>
-          </div>
+          <div ng-if="user" class="etto-course-exit"><a href="/etto" target="_self" class="etto-course-exit">
+              <p class="pull-left">{{currentBlock() + 1}} / {{blocksInCourse()}}</p><i class="fa fa-2x fa-times-circle pull-left"></i></a></div>
           <div class="etto-nav-view">
             <etto-course-nav ng-show="checkLocked() === false"></etto-course-nav>
           </div>

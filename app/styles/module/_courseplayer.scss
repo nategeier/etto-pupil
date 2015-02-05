@@ -33,6 +33,10 @@
     padding:4px;
     padding-bottom: 0px;
     text-align: center;
+    width: 85px;
+    p {
+      margin-right: 7px;
+    }
   }
 
   .etto-course-exit:hover {
@@ -128,28 +132,7 @@ etto-course {
     display: block;
     margin-bottom: 30px;
   }
-  /*
-  .block.ng-enter {
-    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.6s;
-    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.6s;
-  }
 
-
-
-  .block.ng-enter,
-  .block.ng-leave.ng-leave-active {
-    opacity:0;
-    margin-left: 5%;
-    width: 100%;
-  }
-
-  .block.ng-leave,
-  .block.ng-enter.ng-enter-active {
-    opacity:1;
-    margin-left: 0%;
-    width: 100%;
-  }
-  */
   pre{
     display:block;
     overflow:hidden;
@@ -171,8 +154,6 @@ etto-course {
     h3{
       font-size: 18px;
     }
-
-
   }
 
   

@@ -50,8 +50,9 @@ div(ng-if="user._tier._company === course._creator && user.auth.canCreateCourses
 
       .etto-course-exit
         a.etto-course-exit(href="/etto", target="_self")
-          i.fa.fa-2x.fa-times-circle
-          p {{currentBlock() + 1}} / {{blocksInCourse() + 1}}
+          p.pull-left {{currentBlock() + 1}} / {{blocksInCourse() + 1}}
+          i.fa.fa-2x.fa-times-circle.pull-left
+          
 
         
 
