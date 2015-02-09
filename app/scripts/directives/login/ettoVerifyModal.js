@@ -10,7 +10,7 @@ angular.module("ettoPupil")
         restrict: "AE",
         controller: function (Store, WhiteLabel, Tier, $rootScope, $scope, $modal, Tiers, $location, Users, Session) {
           var user = null;
-          var opened = false;
+          $scope.opened = false;
 
           $scope.$watch("user", function () {
             if ($scope.user && $scope.user.isBeta && !$scope.user._tier) {
@@ -21,8 +21,8 @@ angular.module("ettoPupil")
           });
 
           $scope.register = function () {
-            if (opened === false) {
-              opened = true;
+            if ($scope.opened === false) {
+              $scope.opened = true;
               var modal = $modal.open({
                 templateUrl: "/views/directives/ettoVerifyModal.html",
                 controller: function ($scope, $modalInstance) {
@@ -52,27 +52,27 @@ angular.module("ettoPupil")
                 }
               });
 
-            }
+              modal.result.then(function (user) {
 
-            modal.result.then(function (user) {
-              Tier.getCompany(user._tier._id, function (company) {
+                Tier.getCompany(user._tier._id, function (company) {
 
-                $rootScope.company = company;
+                  $rootScope.company = company;
 
-                Store.findCredit($rootScope.user._tier._company, function (results) {
-                  $rootScope.credits = results.credits;
+                  Store.findCredit($rootScope.user._tier._company, function (results) {
+                    $rootScope.credits = results.credits;
+                  });
+
+                  if (company.colors) {
+                    WhiteLabel.setColors(company.colors);
+                    WhiteLabel.setFonts(company.font);
+                  }
                 });
 
-                if (company.colors) {
-                  WhiteLabel.setColors(company.colors);
-                  WhiteLabel.setFonts(company.font);
-                }
+                Session.updateSession($scope.user, function (data) {
+                  $rootScope.user = data;
+                });
               });
-
-              Session.updateSession($scope.user, function (data) {
-                $rootScope.user = data;
-              });
-            });
+            }
           };
         },
         link: function postLink(scope, element, attrs) {

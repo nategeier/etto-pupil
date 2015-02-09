@@ -1,13 +1,14 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("LoginCtrl", ["$scope", "$modalInstance", "Session", "$state", "$stateParams",
+  .controller("LoginCtrl", ["$scope", "$modalInstance", "Session", "$state", "$stateParams", "$location",
 
-    function ($scope, $modalInstance, Session, $state, $stateParams) {
+    function ($scope, $modalInstance, Session, $state, $stateParams, $location) {
       $scope.user = {};
 
       $scope.cancel = function () {
         $modalInstance.close();
+        $state.go("landing");
       };
 
       $scope.handleLogin = function (user) {
@@ -20,6 +21,7 @@ angular.module("ettoPupil")
             window.location.reload();
           }
         });
+
       };
 
     }

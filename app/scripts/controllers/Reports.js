@@ -75,8 +75,10 @@ angular.module("ettoPupil")
           $scope.reset();
         });
       };
+      if ($scope.parentID) {
+        $scope.reset();
+        $scope.listUsers();
+      }
 
-      $scope.reset();
-      $scope.listUsers();
     }
   ]);

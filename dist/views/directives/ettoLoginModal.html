@@ -1,37 +1,44 @@
 
-<div class="modal-header">
-  <div class="row">
-    <div class="col-md-12">
-      <h2 class="modal-title">Login</h2>
+<div etto-social-auth="etto-social-auth" class="etto-login-modal">
+  <div class="modal-header">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="modal-title">Login</h2>
+      </div>
     </div>
   </div>
-</div>
-<div class="modal-body">
-  <form ng-submit="handleLogin(user)">
-    <div ng-show="err">
-      <div class="alert alert-danger">{{err.message}}</div>
+  <div class="modal-body">
+    <div sink-in="sink-in" ng-click="handleAuth('github')" class="sso-btns github-btn"> 
+      <p>Github</p>
     </div>
-    <div class="row">
-      <div class="col-sm-8">
-        <div class="form-group">
-          <input autocapitalize="off" type="text" ng-model="user.username" placeholder="Email or username..." autocomplete="on" required="required" class="form-control"/>
-        </div>
-        <div class="form-group">
-          <input type="password" ng-model="user.password" placeholder="Enter your password..." required="required" class="form-control"/>
-        </div>
-        <div class="form-group">
-          <input type="submit" value="Login" class="btn btn-success btn-sm"/>
+    <div sink-in="sink-in" ng-click="handleAuth('google')" class="sso-btns google-btn"> 
+      <p>Google</p>
+    </div>
+    <div sink-in="sink-in" ng-click="handleAuth('forcedotcom')" class="sso-btns forcedotcom-btn"> 
+      <p>Salesforce</p>
+    </div>
+    <form ng-submit="handleLogin(user)">
+      <div ng-show="err">
+        <div class="alert alert-danger">{{err.message}}</div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <input autocapitalize="off" type="text" ng-model="user.username" placeholder="Email or username..." autocomplete="on" required="required" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <input type="password" ng-model="user.password" placeholder="Enter your password..." required="required" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Login" class="btn btn-success btn-sm"/>
+          </div>
         </div>
       </div>
-      <div class="col-sm-4">
-        <p>Sign in via</p>
-        <div class="btn-group sign-on-btns"><a href="https://api.coursetto.com/auth/github/" target="_self" class="btn btn-default"><i class="fa fa-github-square fa-2x"></i></a><a href="https://api.coursetto.com/auth/google/" target="_self" class="btn btn-default"><i class="fa fa-google-plus-square fa-2x"></i></a></div>
+      <hr/>
+      <div class="btn-group">
+        <div ng-click="cancel()" class="btn btn-default btn-sm">Cancel</div>
+        <etto-send-forgot-password></etto-send-forgot-password>
       </div>
-    </div>
-    <hr/>
-    <div class="btn-group">
-      <div ng-click="cancel()" class="btn btn-default btn-sm">Cancel</div>
-      <etto-send-forgot-password></etto-send-forgot-password>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
