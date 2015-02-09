@@ -7,11 +7,11 @@
       .col-md-12
         .alert.alert-danger(ng-show="err")
           p {{err}}
-        a.sso-btns.github-btn(href="#", sink-in, ng-click="handleAuth('github')") 
+        a.sso-btns.github-btn(href="#", ng-click="handleAuth('github')") 
           p Github
-        a.sso-btns.google-btn(href="#", sink-in, ng-click="handleAuth('google')") 
+        a.sso-btns.google-btn(href="#", ng-click="handleAuth('google')") 
           p Google
-        a.sso-btns.forcedotcom-btn(href="#", sink-in, ng-click="handleAuth('forcedotcom')") 
+        a.sso-btns.forcedotcom-btn(href="#", ng-click="handleAuth('forcedotcom')") 
           p Salesforce
         .row
           .col-sm-12
