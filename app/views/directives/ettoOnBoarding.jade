@@ -1,11 +1,27 @@
 .etto-onboarding-box
-  .etto-instruction.etto-color-secondary.cours-holder
-    h3.etto-color-primary Let's get you started...
-    p.etto-bgcolor-light.etto-color-primary 1. <a class="etto-color-accent" href="#", etto-add-course, ng-click='addCourse()'">Create a course.</a>
-    p.etto-bgcolor-light.etto-color-primary 2. <a class="etto-color-accent" href="/company/{{user._tier._id}}">Customize your brand. </a>
-    p.etto-bgcolor-light.etto-color-primary 3. <a class="etto-color-accent" href="/report/{{user._tier._id}}">Set up your company structure </a> by adding tiers (Marketing, Sales, Engineers), then click a tier and add more branches underneath mimicking your companies organization tree.
-    p.etto-bgcolor-light.etto-color-primary 4. Add employees and managers to the appropriate divisions, departments and branches you created.
-
-
+  .row
+    .col-md-5
+      .etto-instruction.etto-color-secondary.cours-holder
+        h3.etto-color-primary Let's get you started...
+        p.etto-color-primary 1. <a class="etto-color-accent" href="#", etto-add-course, ng-click='addCourse()'">Create a course.</a>
+        p.etto-color-primary 2. <a class="etto-color-accent" href="/company/{{user._tier._id}}">Customize your brand. </a>
+        p.etto-color-primary 3. <a class="etto-color-accent" href="/report/{{user._tier._id}}">Set up your company structure </a> by adding tiers (Marketing, Sales, Engineers), then click a tier and add more branches underneath mimicking your companies organization tree.
+        p.etto-color-primary 4. Add employees and managers to the appropriate divisions, departments and branches you created.
+    .col-md-7
+      div(etto-color, class="animate-repeat", ng-repeat='course in onboardingCourses | filter:searchCourse')
+        div(ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-lg-6' : 'col-sm-6 col-md-4 col-lg-3'")
+          .etto-course-holder(sink-in, ui-sref="viewCourse({courseId:course._id, blockId:1})")
+            .course-holder-img(style="background-image: url('{{course.thumb}}');")
+            div(ng-if="course._record")
+              div.etto-certificate.etto-color-accent.img-rounded.etto-shadow-img(ng-show="course._record.progress.bookmark === course._record.progress.totalBlocks") 
+                div(etto-certificate)
+            .etto-padding
+              h4.etto-color-primary {{course.title}} 
+              .progress.etto-bgcolor-light(ng-show="!course._record")
+                .progress-bar.etto-bgcolor-accent(role="progressbar", aria-valuenow="1", aria-valuemin="0", aria-valuemax="100", style="width: 5%;")
+              .progress.etto-bgcolor-light(ng-show="course._record")
+                .progress-bar.etto-bgcolor-accent(ng-show="course._record.progress.totalBlocks > 0", role="progressbar", aria-valuenow="{{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(course._record.progress.bookmark/course._record.progress.totalBlocks) * 100}}%;")
+                
+              p.etto-color-secondary {{course.subtitle}}
 
 

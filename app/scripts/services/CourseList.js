@@ -27,6 +27,16 @@ angular.module("ettoPupil")
               console.dir(data);
             });
         },
+
+        getOnboardingCourses: function (done) {
+          var Courses = $resource(Endpoint("course", "getOnboardingCourses/") + ":id", {
+            id: "1232"
+          });
+
+          Courses.query(function (results) {
+            done(results);
+          });
+        },
         listUsersCreatedCourses: function (id, callback) {
           $http.get(Endpoint("user", "listUsersCreatedCourses/") + id)
             .success(function (data, status, headers, config) {
