@@ -29,12 +29,14 @@ angular.module("ettoPupil")
             if ($scope.blockEvent === "prev") {
               transBlock = -(transBlock);
             }
+            if (!$scope.editing) {
+              TweenMax.from($element, 0.6, {
+                x: transBlock,
+                scaleX: 0.8,
+                opacity: 0
+              });
+            }
 
-            TweenMax.from($element, 0.6, {
-              x: transBlock,
-              scaleX: 0.8,
-              opacity: 0
-            });
           }
 
           // Set the blockTemplate based off $scope's block.type
