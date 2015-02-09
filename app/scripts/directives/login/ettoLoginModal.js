@@ -29,6 +29,7 @@ angular.module("ettoPupil")
                     }
                   });
                 };
+
               }
             });
             modal.result.then(function (user) {
@@ -41,8 +42,6 @@ angular.module("ettoPupil")
                 $scope.user = user;
                 $state.go("home");
               }
-
-              console.log($state)
             });
           };
         },

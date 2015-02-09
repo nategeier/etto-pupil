@@ -7,4 +7,42 @@
     margin: 0 auto;
     max-height: 150px;
   }
+
+  
+}
+
+.etto-login-modal{
+  .sso-btns{
+    float: left;
+    border: 1px solid #eee;
+    padding:5px;
+    padding-bottom:5px;
+    padding-left:15px;
+    padding-right:15px;
+    margin-bottom:20px;
+    width:33%;
+    text-align: center;
+    color: #ffffff;
+    p{
+      padding:0;
+      margin:0;
+    }
+  }
+
+  .sso-btns:hover{
+    cursor: pointer;
+  }
+
+
+  .google-btn{
+    background-color: #d51f1f;
+  }
+  .forcedotcom-btn{
+    background-color: #0580c3;
+  }
+
+  .github-btn{
+    background-color: #151515;
+  }
+
 }

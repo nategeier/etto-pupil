@@ -1,39 +1,36 @@
+.etto-login-modal(etto-social-auth)
+  .modal-header
+    h2.modal-title Register
 
-.modal-header
-  h2.modal-title Register
+  .modal-body
+    .row
+      .col-md-12
+        .alert.alert-danger(ng-show="err")
+          p {{err}}
+        .sso-btns.github-btn(sink-in, ng-click="handleAuth('github')") 
+          p Github
+        .sso-btns.google-btn(sink-in, ng-click="handleAuth('google')") 
+          p Google
+        .sso-btns.forcedotcom-btn(sink-in, ng-click="handleAuth('forcedotcom')") 
+          p Salesforce
+        .row
+          .col-sm-12
+            form(ng-submit="handleLogin(newUser)", novalidate, class="css-form")
+              .form-group
+                input.form-control( type="text", ng-model="newUser.tierTitle", placeholder="Company Name", autocomplete="on", required )
+              .form-group
+                input.form-control( type="text", ng-model="newUser.name", placeholder="Your Name", autocomplete="on", required )
+              .form-group
+                input.form-control( type="email", ng-model="newUser.emails", placeholder="Email", autocomplete="on", required )
+              .form-group
+                input.form-control( autocapitalize="off", type="text", ng-model="newUser.username", placeholder="Username", required )
+              .form-group
+                input.form-control( type="password", ng-model="newUser.password", placeholder="Password", required )
+              .form-group
+                input.btn.btn-success.btn-sm( type="submit", value="I agree to the terms" )
 
-.modal-body
-  .row
-    .col-md-12
-      .alert.alert-danger(ng-show="err")
-        p {{err}}
-
-      .row
-        .col-sm-8
-          form(ng-submit="handleLogin(newUser)", novalidate, class="css-form")
-            .form-group
-              input.form-control( type="text", ng-model="newUser.tierTitle", placeholder="Company Name", autocomplete="on", required )
-            .form-group
-              input.form-control( type="text", ng-model="newUser.name", placeholder="Your Name", autocomplete="on", required )
-            .form-group
-              input.form-control( type="email", ng-model="newUser.emails", placeholder="Email", autocomplete="on", required )
-            .form-group
-              input.form-control( autocapitalize="off", type="text", ng-model="newUser.username", placeholder="Username", required )
-            .form-group
-              input.form-control( type="password", ng-model="newUser.password", placeholder="Password", required )
-            .form-group
-              input.btn.btn-success.btn-sm( type="submit", value="I agree to the terms" )
-
-            
-        .col-sm-4
-          p Register in via
-          .btn-group.sign-on-btns
-            a.btn.btn-default(href='https://api.coursetto.com/auth/github/', target="_self")
-              i.fa.fa-github-square.fa-2x
-            a.btn.btn-default(href='https://api.coursetto.com/auth/google/', target="_self")
-              i.fa.fa-google-plus-square.fa-2x
-          hr
-          .btn-group
-              button.btn.btn-default.btn-sm( type="button", ng-click="cancel()") Cancel
-              a.btn.btn-default.btn-sm(href="/terms", target="_blank") Terms
-     
+            hr
+            .btn-group
+                button.btn.btn-default.btn-sm( type="button", ng-click="cancel()") Cancel
+                a.btn.btn-default.btn-sm(href="/terms", target="_blank") Terms
+       
