@@ -1,7 +1,7 @@
 .col-md-12
   .row
     .col-md-6
-      h1.etto-color-primary(e-rows="3", e-cols="90", editable-textarea="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()", spellcheck="true") {{block.data.title || 'title'}}
+      h2.etto-color-primary(e-rows="3", e-cols="90", editable-textarea="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()", spellcheck="true") {{block.data.title || 'title'}}
       h4.etto-color-secondary(e-rows="3", e-cols="90", editable-textarea="block.data.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()", spellcheck="true") {{block.data.subtitle || 'subtitle'}}
       div(href="#", editable-textarea="block.data.copy", e-rows="12", e-cols="40", buttons="no", blur="submit", onaftersave="saveCourse()", spellcheck="true") 
         pre.etto-color-dark {{ block.data.copy || 'copy'}}
