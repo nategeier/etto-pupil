@@ -11,7 +11,7 @@ angular.module("ettoPupil")
           var ssoPath = "api/v1/";
           var baseBath = "http://localhost:9010/";
           if ($location.host() === "coursetto.com") {
-            baseBath = "https://coursetto.com/";
+            baseBath = "https://api.coursetto.com/";
             ssoPath = "";
           }
 
