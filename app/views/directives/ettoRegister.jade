@@ -13,24 +13,24 @@
           p Google
         a.sso-btns.forcedotcom-btn(href="#", ng-click="handleAuth('forcedotcom')") 
           p Salesforce
-        .row
-          .col-sm-12
-            form(ng-submit="handleLogin(newUser)", novalidate, class="css-form")
-              .form-group
-                input.form-control( type="text", ng-model="newUser.tierTitle", placeholder="Company Name", autocomplete="on", required )
-              .form-group
-                input.form-control( type="text", ng-model="newUser.name", placeholder="Your Name", autocomplete="on", required )
-              .form-group
-                input.form-control( type="email", ng-model="newUser.emails", placeholder="Email", autocomplete="on", required )
-              .form-group
-                input.form-control( autocapitalize="off", type="text", ng-model="newUser.username", placeholder="Username", required )
-              .form-group
-                input.form-control( type="password", ng-model="newUser.password", placeholder="Password", required )
-              .form-group
-                input.btn.btn-success.btn-sm( type="submit", value="I agree to the terms" )
+    .row
+      .col-sm-12
+        form(ng-submit="handleLogin(newUser)", novalidate, class="css-form")
+          .form-group
+            input.form-control( type="text", ng-model="newUser.tierTitle", placeholder="Company Name", autocomplete="on", required )
+          .form-group
+            input.form-control( type="text", ng-model="newUser.name", placeholder="Your Name", autocomplete="on", required )
+          .form-group
+            input.form-control( type="email", ng-model="newUser.emails", placeholder="Email", autocomplete="on", required )
+          .form-group
+            input.form-control( autocapitalize="off", type="text", ng-model="newUser.username", placeholder="Username", required )
+          .form-group
+            input.form-control( type="password", ng-model="newUser.password", placeholder="Password", required )
+          .form-group
+            input.btn.btn-success.btn-sm( type="submit", value="I agree to the terms" )
 
-            hr
-            .btn-group
-                button.btn.btn-default.btn-sm( type="button", ng-click="cancel()") Cancel
-                a.btn.btn-default.btn-sm(href="/terms", target="_blank") Terms
-       
+        hr
+        .btn-group
+            button.btn.btn-default.btn-sm( type="button", ng-click="cancel()") Cancel
+            a.btn.btn-default.btn-sm(href="/terms", target="_blank") Terms
+   

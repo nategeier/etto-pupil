@@ -12,33 +12,33 @@
           <p>Github</p></a><a href="#" ng-click="handleAuth('google')" class="sso-btns google-btn"> 
           <p>Google</p></a><a href="#" ng-click="handleAuth('forcedotcom')" class="sso-btns forcedotcom-btn"> 
           <p>Salesforce</p></a>
-        <div class="row">
-          <div class="col-sm-12">
-            <form ng-submit="handleLogin(newUser)" novalidate="novalidate" class="css-form">
-              <div class="form-group">
-                <input type="text" ng-model="newUser.tierTitle" placeholder="Company Name" autocomplete="on" required="required" class="form-control"/>
-              </div>
-              <div class="form-group">
-                <input type="text" ng-model="newUser.name" placeholder="Your Name" autocomplete="on" required="required" class="form-control"/>
-              </div>
-              <div class="form-group">
-                <input type="email" ng-model="newUser.emails" placeholder="Email" autocomplete="on" required="required" class="form-control"/>
-              </div>
-              <div class="form-group">
-                <input autocapitalize="off" type="text" ng-model="newUser.username" placeholder="Username" required="required" class="form-control"/>
-              </div>
-              <div class="form-group">
-                <input type="password" ng-model="newUser.password" placeholder="Password" required="required" class="form-control"/>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="I agree to the terms" class="btn btn-success btn-sm"/>
-              </div>
-            </form>
-            <hr/>
-            <div class="btn-group">
-              <button type="button" ng-click="cancel()" class="btn btn-default btn-sm">Cancel</button><a href="/terms" target="_blank" class="btn btn-default btn-sm">Terms</a>
-            </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <form ng-submit="handleLogin(newUser)" novalidate="novalidate" class="css-form">
+          <div class="form-group">
+            <input type="text" ng-model="newUser.tierTitle" placeholder="Company Name" autocomplete="on" required="required" class="form-control"/>
           </div>
+          <div class="form-group">
+            <input type="text" ng-model="newUser.name" placeholder="Your Name" autocomplete="on" required="required" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <input type="email" ng-model="newUser.emails" placeholder="Email" autocomplete="on" required="required" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <input autocapitalize="off" type="text" ng-model="newUser.username" placeholder="Username" required="required" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <input type="password" ng-model="newUser.password" placeholder="Password" required="required" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <input type="submit" value="I agree to the terms" class="btn btn-success btn-sm"/>
+          </div>
+        </form>
+        <hr/>
+        <div class="btn-group">
+          <button type="button" ng-click="cancel()" class="btn btn-default btn-sm">Cancel</button><a href="/terms" target="_blank" class="btn btn-default btn-sm">Terms</a>
         </div>
       </div>
     </div>

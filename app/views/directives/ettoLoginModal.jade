@@ -5,33 +5,35 @@
         h2.modal-title Login
       
   .modal-body
-    
-    a.sso-btns.github-btn(href="#", sink-in, ng-click="handleAuth('github')") 
-      p Github
-    a.sso-btns.google-btn(href="#", sink-in, ng-click="handleAuth('google')") 
-      p Google
-    a.sso-btns.forcedotcom-btn(href="#", sink-in, ng-click="handleAuth('forcedotcom')") 
-      p Salesforce
+    .row
+      .col-md-12
+        a.sso-btns.github-btn(href="#", sink-in, ng-click="handleAuth('github')") 
+          p Github
+        a.sso-btns.google-btn(href="#", sink-in, ng-click="handleAuth('google')") 
+          p Google
+        a.sso-btns.forcedotcom-btn(href="#", sink-in, ng-click="handleAuth('forcedotcom')") 
+          p Salesforce
+    .row
+      .col-md-12
+        form(ng-submit="handleLogin(user)")
+          div(ng-show="err")
+            .alert.alert-danger {{err.message}}
 
-    form(ng-submit="handleLogin(user)")
-      div(ng-show="err")
-        .alert.alert-danger {{err.message}}
-
-      
-      .row
-        .col-sm-12
-          .form-group
-            input.form-control( autocapitalize="off", type="text", ng-model="user.username", placeholder="Email or username...", autocomplete="on", required )
-          .form-group
-            input.form-control( type="password", ng-model="user.password", placeholder="Enter your password...", required )
           
-          .form-group
-            input.btn.btn-success.btn-sm(type="submit", value="Login")
+          .row
+            .col-sm-12
+              .form-group
+                input.form-control( autocapitalize="off", type="text", ng-model="user.username", placeholder="Email or username...", autocomplete="on", required )
+              .form-group
+                input.form-control( type="password", ng-model="user.password", placeholder="Enter your password...", required )
+              
+              .form-group
+                input.btn.btn-success.btn-sm(type="submit", value="Login")
 
 
-      
-      hr
-      .btn-group
-        .btn.btn-default.btn-sm( ng-click="cancel()") Cancel
-        etto-send-forgot-password
+          
+          hr
+          .btn-group
+            .btn.btn-default.btn-sm( ng-click="cancel()") Cancel
+            etto-send-forgot-password
 
