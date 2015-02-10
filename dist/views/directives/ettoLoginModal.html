@@ -7,32 +7,39 @@
       </div>
     </div>
   </div>
-  <div class="modal-body"><a href="#" sink-in="sink-in" ng-click="handleAuth('github')" class="sso-btns github-btn"> 
-      <p>Github</p></a><a href="#" sink-in="sink-in" ng-click="handleAuth('google')" class="sso-btns google-btn"> 
-      <p>Google</p></a><a href="#" sink-in="sink-in" ng-click="handleAuth('forcedotcom')" class="sso-btns forcedotcom-btn"> 
-      <p>Salesforce</p></a>
-    <form ng-submit="handleLogin(user)">
-      <div ng-show="err">
-        <div class="alert alert-danger">{{err.message}}</div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <input autocapitalize="off" type="text" ng-model="user.username" placeholder="Email or username..." autocomplete="on" required="required" class="form-control"/>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12"><a href="#" sink-in="sink-in" ng-click="handleAuth('github')" class="sso-btns github-btn"> 
+          <p>Github</p></a><a href="#" sink-in="sink-in" ng-click="handleAuth('google')" class="sso-btns google-btn"> 
+          <p>Google</p></a><a href="#" sink-in="sink-in" ng-click="handleAuth('forcedotcom')" class="sso-btns forcedotcom-btn"> 
+          <p>Salesforce</p></a></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <form ng-submit="handleLogin(user)">
+          <div ng-show="err">
+            <div class="alert alert-danger">{{err.message}}</div>
           </div>
-          <div class="form-group">
-            <input type="password" ng-model="user.password" placeholder="Enter your password..." required="required" class="form-control"/>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input autocapitalize="off" type="text" ng-model="user.username" placeholder="Email or username..." autocomplete="on" required="required" class="form-control"/>
+              </div>
+              <div class="form-group">
+                <input type="password" ng-model="user.password" placeholder="Enter your password..." required="required" class="form-control"/>
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-success btn-sm"/>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <input type="submit" value="Login" class="btn btn-success btn-sm"/>
+          <hr/>
+          <div class="btn-group">
+            <div ng-click="cancel()" class="btn btn-default btn-sm">Cancel</div>
+            <etto-send-forgot-password></etto-send-forgot-password>
           </div>
-        </div>
+        </form>
       </div>
-      <hr/>
-      <div class="btn-group">
-        <div ng-click="cancel()" class="btn btn-default btn-sm">Cancel</div>
-        <etto-send-forgot-password></etto-send-forgot-password>
-      </div>
-    </form>
+    </div>
   </div>
 </div>
