@@ -27,7 +27,7 @@
 </head>
 
 <body ng-app="ettoPupil">
-  <!--[if lt IE 10]>
+  <!--[if lt IE 11]>
     <nav role="navigation" class="navbar navbar-default">
       <div class="navbar-header">
         <a href="/" class="navbar-brand"><span><img src="/images/icons/coursetto-144.png" width="48" height="48"></span><span class="logo-name">Coursetto</span></a>
@@ -64,12 +64,12 @@
     </div>
     <![endif]-->
 
-  <!--[if lt IE 9]>
+  <!--[if lt IE 11]>
       <script src="/bower_components/es5-shim/es5-shim.js"></script>
       <script src="/bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-  <!--[if gt IE 9]><!-->
+  <!--[if gt IE 11]><!-->
   <div ui-view=""></div>
   <!--<![endif]-->
 
@@ -112,6 +112,8 @@
   <script src="/bower_components/ng-file-upload/angular-file-upload-shim.min.js"></script>
   <script src="/bower_components/ng-file-upload/angular-file-upload.min.js"></script>
   <script src="/bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
+  <script src="/bower_components/angular-embed-codepen/dist/embed-codepen.min.js"></script>
+
   <!-- endbuild -->
 
   <!-- build:js({.tmp,app}) /scripts/scripts.js -->
@@ -177,6 +179,8 @@
   <script src="/scripts/directives/course/ettoYoutube.js"></script>
   <script src="/scripts/directives/course/ettoVimeo.js"></script>
   <script src="/scripts/directives/course/ettoWistia.js"></script>
+  <script src="/scripts/directives/course/ettoCode.js"></script>
+
 
   <script src="/scripts/directives/course/ettoCourse.js"></script>
   <script src="/scripts/directives/course/ettoCertificate.js"></script>

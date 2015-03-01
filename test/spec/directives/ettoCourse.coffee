@@ -9,7 +9,8 @@ describe "Directive: ettoCourse", ->
                     "/views/blocks/ettoBlockQuote.html",
                     "/views/blocks/ettoBlockFinished.html",
                     "/views/blocks/ettoBlockMap.html",
-                    "/views/course/ettoSound.html"
+                    "/views/course/ettoSound.html",
+                    "/views/blocks/ettoBlockCode.html"
 
   beforeEach inject ( $rootScope, $compile, $httpBackend, Endpoint ) ->
     scope = $rootScope.$new()

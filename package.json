@@ -1,7 +1,7 @@
 {
   "name": "etto-pupil",
   "private": true,
-  "version": "0.0.0-178",
+  "version": "0.0.0-179",
   "dependencies": {
     "node-static": "https://github.com/cloudhead/node-static/tarball/master"
   },
@@ -53,7 +53,8 @@
     "grunt-newer": "~0.6.1",
     "grunt-sass": "~0.10.0",
     "grunt-throttle": "^0.1.0",
-    "grunt-contrib-compress": "^0.8.0"
+    "grunt-contrib-compress": "^0.8.0",
+    "grunt-browser-sync": "~2.0.0"
   },
   "engines": {
     "node": ">=0.8.0"

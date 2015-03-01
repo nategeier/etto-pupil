@@ -47,6 +47,9 @@ angular.module("ettoPupil")
           }, {
             name: "map",
             humanized: "Map",
+          }, {
+            name: "code",
+            humanized: "Code",
           }];
 
           $scope.newBlocktype = $scope.blocktypes[0];
@@ -116,6 +119,28 @@ angular.module("ettoPupil")
 
           $scope.checkLocked = function () {
             return CoursePlayer.isLocked();
+          };
+
+          //.etto-title-image(ng-style="{{"webkit-filter": blur(block.data.blur || 0px); url(insertUrl());}}")
+
+          $scope.setTitleImage = function (imageUrl, blur) {
+
+            if (!imageUrl) {
+              imageUrl = "/images/courses/default/title.jpg";
+            }
+
+            if (!blur) {
+              blur = 0;
+            }
+
+            var url = "url('" + imageUrl + "')";
+            var blur = "blur(" + blur + "px)";
+
+            $scope.titleImage = {
+              "background-image": url,
+              "webkit-filter": blur,
+              "filter": blur
+            };
           };
 
           $scope.nextBlock = function () {

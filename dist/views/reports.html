@@ -103,16 +103,12 @@
     <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 panel panel-default nopad">
       <div class="panel-heading etto-bgcolor-light">
         <div class="row">
-          <div class="col-md-5">
+          <div class="col-sm-5">
             <h4 class="etto-color-primary">Tier Info</h4>
           </div>
-          <div class="col-md-7">
+          <div class="col-sm-7">
             <div ng-if="user.auth.canEditCompany" class="btn-group">
-              <button ng-click="syncBambooHR(true)" class="btn btn-default btn-sm">
-                <div class="row">
-                  <div class="col-md-10 col-md-offset-1"><img src="/images/logos/bamboo-green.png" class="img-responsive"/></div>
-                </div>
-              </button>
+              <button ng-click="syncBambooHR(true)" class="btn btn-default btn-sm"><img src="/images/logos/bamboo-green.png" style="width:100%;" class="img-responsive"/></button>
             </div>
           </div>
         </div>

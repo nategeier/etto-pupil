@@ -1,7 +1,8 @@
 
 
 .row.etto-title
-  .etto-title-image(style="-webkit-filter: blur({{block.data.blur || 0}}px);;background-image: url('{{block.data.url || '/images/courses/default/title.jpg'}}');")
+  .etto-title-image(ng-style="titleImage", ng-init="setTitleImage(block.data.url, block.data.blur)")
+
 
   .title-text.img-rounded(ng-class="block.data.textDark ? 'etto-light-fadded-bk' : 'etto-dark-fadded-bk'")
     h1(ng-class="block.data.textDark ? 'etto-color-primary' : 'etto-color-light'", e-rows="3", e-cols="90", editable-textarea="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.title || 'Title or Chapter'}}
@@ -13,6 +14,7 @@
     .etto-camera.img-rounded.img-uploadable.etto-img-shadow( etto-image, etto-asset-library-modal, ng-click="updateBlockImage(block, 'url', 390, 200)")
       i.fa.fa-camera.fa-2x.etto-color-white
     hr
+
     p Blur Image
     input(ng-model= "block.data.blur", type="range", min="0", max="23", value="{{block.data.blur || 3}}", step="3", onchange="block.data.blur=value", ng-mouseup="saveCourse()")
     hr
@@ -20,9 +22,9 @@
       .checkbox
         label Dark Text
           input(type='checkbox', ng-model="block.data.textDark", ng-change="saveCourse()") 
-              
-         
 
+              
+        
 
 .row  
   .col-md-12
