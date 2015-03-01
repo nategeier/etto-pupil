@@ -1,0 +1,12 @@
+
+<div class="etto-code">
+  <h2 e-rows="3" e-cols="90" editable-textarea="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()" spellcheck="true" class="etto-color-primary">{{block.data.title || 'Enter a Title'}}</h2>
+  <h4 e-rows="3" e-cols="90" editable-textarea="block.data.copy" buttons="no" blur="submit" onaftersave="saveCourse()" spellcheck="true" class="etto-color-primary">{{block.data.copy || 'Enter a description of this CodePen'}}</h4>
+  <hr/>
+  <div ng-if="!block.data.pinnedCode" class="row"> <a target="_blank" href="http://codepen.io/" class="col-md-3"><img src="/images/logos/code-pen-logo.png" class="img-responsive"/></a>
+    <div class="input-code col-md-9">
+      <div editable-textarea="block.data.pinnedCode" e-rows="3" e-cols="40" buttons="no" blur="submit" onaftersave="saveCourse()">Place the Copy and Paste CodePen HTML embed code here.</div>
+    </div>
+  </div>
+  <etto-code code="{{block.data.pinnedCode}}"></etto-code>
+</div>

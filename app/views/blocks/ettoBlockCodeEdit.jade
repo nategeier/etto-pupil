@@ -1,0 +1,16 @@
+
+
+.etto-code
+  h2.etto-color-primary(e-rows="3", e-cols="90", editable-textarea="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()", spellcheck="true") {{block.data.title || 'Enter a Title'}}
+
+  h4.etto-color-primary(e-rows="3", e-cols="90", editable-textarea="block.data.copy", buttons="no", blur="submit", onaftersave="saveCourse()", spellcheck="true") {{block.data.copy || 'Enter a description of this CodePen'}}
+
+  hr
+  .row(ng-if="!block.data.pinnedCode") 
+
+    a.col-md-3(target="_blank", href="http://codepen.io/")
+      img.img-responsive(src="/images/logos/code-pen-logo.png")
+    .input-code.col-md-9
+      div(editable-textarea="block.data.pinnedCode", e-rows="3", e-cols="40", buttons="no", blur="submit", onaftersave="saveCourse()") Place the Copy and Paste CodePen HTML embed code here.
+
+  etto-code(code="{{block.data.pinnedCode}}")

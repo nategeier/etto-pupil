@@ -88,14 +88,12 @@ etto-verify-modal(redirect-to='/etto')
     .col-xs-12.col-sm-5.col-md-4.col-lg-3.panel.panel-default.nopad
       .panel-heading.etto-bgcolor-light
         .row
-          .col-md-5
+          .col-sm-5
             h4.etto-color-primary Tier Info
-          .col-md-7
+          .col-sm-7
             .btn-group(ng-if="user.auth.canEditCompany")
               button.btn.btn-default.btn-sm(ng-click="syncBambooHR(true)")
-                .row
-                  .col-md-10.col-md-offset-1
-                    img.img-responsive(src="/images/logos/bamboo-green.png")
+                img.img-responsive(src="/images/logos/bamboo-green.png", style="width:100%;")
 
       .list-group
         .list-group-item

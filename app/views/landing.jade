@@ -28,7 +28,7 @@ etto-not-logged-in-nav(etto-register-modal)
     .container.etto-course-creation-intro
       .row
         .col-xs-12.col-sm-12.col-md-6
-          h2 Anyone Can Create Courses
+          h3 Anyone Can Create Courses
           p By allowing HR, legal counsel, and employees to create their own courses, Coursetto provides companies with a holistic catalogue of organizational policies and skills.
           hr
           .row
@@ -54,21 +54,25 @@ etto-not-logged-in-nav(etto-register-modal)
           .row
             .col-xs-10.col-xs-offset-1
               .row
-                .col-xs-5
+                .col-xs-6(style="margin-top:23px;")
                   img.img-responsive(src="/images/logos/bamboo-green.png")
-                .col-xs-2
-                  img.img-responsive(src="/images/logos/gmaps.png")
-                .col-xs-5
+                .col-xs-6
                   img.img-responsive(src="/images/logos/wistia.png")
+          .row
+            .col-xs-6
+              img.img-responsive(src="/images/logos/code-pen-logo.png")
+            .col-xs-3
+              img.img-responsive(src="/images/logos/gmaps.png")
+            .col-xs-3
+              img.img-responsive(src="/images/logos/salesforce.png")
 
-          
 
           ul
             li Link video from YouTube, Vimeo, or Wistia
-            li Link voice over or any sound with SoundCloud
+            li Link voice over, podcasts or any sound with SoundCloud
             li Add images or animated gifs
             li Create a quiz anywhere
-            li Track completion dates and progress
+            li Link your CodePens
 
 
         .col-sm-12.col-md-6.course-compser
@@ -97,13 +101,13 @@ etto-not-logged-in-nav(etto-register-modal)
   .section
     .container
       .row
-        h2.text-center Mobile First Design
+        h3.text-center Mobile First Design
         .col-xs-12
           img.img-responsive.img-rounded(src='/images/landing/tabs.jpg')
   .reverse-bkd.section
     .container
       .row
-        h2.text-center Create a Custom Company Structure
+        h3.text-center Create a Custom Company Structure
         .col-xs-12.col-sm-4.col-md-4
           img.img-responsive.img-rounded.drop-shadow(src='/images/landing/old.jpg')
           h4 The Old Way
@@ -114,13 +118,13 @@ etto-not-logged-in-nav(etto-register-modal)
           p Create your company's organization tree any way you need. Place managers in charge of their own tier to create micro training environments.
         .col-xs-12.col-sm-4.col-md-4
           img.img-responsive.img-rounded.drop-shadow(src='/images/landing/small.jpg')
-          h4 And You Get Graphs!
+          h4 Emplopyee Progress Charts
           p Assign managers and employees to their own tiers and delegate training. Then track progress across all tiers.
 
   .section
     .container
       .row
-        h2.text-center Course Marketplace
+        h3.text-center Course Marketplace
         p.text-center
         .col-md-6
           img.img-responsive.img-rounded(src='/images/landing/expert.jpg')
@@ -139,77 +143,38 @@ etto-not-logged-in-nav(etto-register-modal)
   .reverse-bkd.section
     .container
       .row
-        h2.text-center Set Your Company Branding
+        h3.text-center Set Your Company Branding
         .col-xs-12
           img.img-responsive.img-rounded.drop-shadow(src='/images/landing/white-label.jpg')
   .section
+    .container.etto-subscriptions
+      .row
+        .col-sm-4(ng-repeat="subscriptionType in subscriptionTypes")      
+          .etto-subscription.etto-bgcolor-light
+            h4 {{subscriptionType.empRange.low}} - {{subscriptionType.empRange.high}} Employees
+            h1.etto-color-primary ${{subscriptionType.price | number:0}}/mo
+            
+
+  .section
     .container
 
-      h2.text-center The Coursetto Team
-      hr
       .row
-        .col-sm-4
-          .row
-            .col-sm-8
-              img.img-circle.img-responsive(src="https://www.gravatar.com/avatar/a197153b753ca03e837a6deba12486b1?s=500")
-          .etto-padding
-            h4 Nate Geier
-            p CEO and Founder
-            a.btn.btn-default(href="mailto:nate@coursetto.com") nate@coursetto.com
-        .col-sm-4
-          .row
-            .col-sm-8
-              img.img-circle.img-responsive(src="/images/landing/meris.jpg")
-          .etto-padding
-            h4 Meris Gebhardt
-            p VP Business Development
-            a.btn.btn-default(href="mailto:meris@coursetto.com") meris@coursetto.com
-
-
-        .col-sm-4
-          .row
-            .col-sm-8
-              img.img-circle.img-responsive(src="https://www.gravatar.com/avatar/a895de9f0021b3a08b654fe2efe43e97?s=300")
-          .etto-padding
-            h4 Randall A. Gordon
-            p Technical
-  .reverse-bkd.section
-    .container
-      h3.text-center Advisors/Press
-
-      .row
-        .col-xs-6.col-sm-3
-          .row
-            .col-sm-8
-              img.img-circle.img-responsive(src="/images/landing/ryan.jpg")
-          .etto-padding
-            h4 Ryan Carson
-            p CEO of <a href="http://teamtreehouse.com/">Treehouse</a>
-        .col-xs-6.col-sm-3
-          .row
-            .col-sm-8
-              img.img-circle.img-responsive(src="/images/landing/david.jpg")
-          .etto-padding
-            h4 David Nelsen
-            p Last venture was Giftango, Sold to InComm 50mm+
-
-        .col-xs-6.col-sm-3
-          a(href= "http://www.bizjournals.com/portland/print-edition/2014/06/20/training-made-easy.html", target="_blank")
-            .row
-              .col-sm-8
+        .col-xs-10.col-xs-offset-1
+          .col-xs-6
+            a.row(href= "http://www.bizjournals.com/portland/print-edition/2014/06/20/training-made-easy.html", target="_blank")
+              .col-md-4
                 img.img-circle.img-responsive(src="/images/landing/press.jpg")
-            .etto-padding
-              h4 Training made easy
-              p Portland Business Journal
+              .col-md-8
+                h4 Training made easy
+                p Portland Business Journal
 
-        .col-xs-6.col-sm-3
-          a(href= "http://www.bizjournals.com/portland/blog/2014/10/are-education-software-companies-portland-s-next.html", target="_blank")
-            .row
-              .col-sm-8
+          .col-xs-6
+            a.row(href= "http://www.bizjournals.com/portland/blog/2014/10/are-education-software-companies-portland-s-next.html", target="_blank")
+              .col-md-4
                 img.img-circle.img-responsive(src="/images/landing/ed-tech-avatar.jpg")
-            .etto-padding
-              h4 Are education software companies Portland’s next tech cluster?
-              p Portland Business Journal
+              .col-md-8
+                h4 Are education software companies Portland’s next tech cluster?
+                p Portland Business Journal
 
 
 etto-footer

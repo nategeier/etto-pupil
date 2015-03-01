@@ -483,7 +483,7 @@ module.exports = function (grunt) {
           "watch:coffeeTest",
           "watch:sass",
           "watch:styles",
-          "watch:livereload",
+          "watch:livereload"
         ],
       },
     },
