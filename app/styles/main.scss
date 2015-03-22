@@ -8,7 +8,7 @@
 
 @import "base/_config";
 @import "base/_typography";
-
+@import "base/_animations";
 @import "vendor/leaflet";
 
 //@import "legacy"
@@ -22,11 +22,12 @@
 @import "module/_animate";
 @import "module/_code";
 
+
 @import "module/_assetlibrary";
 @import "module/_courseplayer";
 @import "module/_courseholder";
 @import "module/_subscription";
-@import "module/_editTier";
+@import "module/_edittier";
 @import "module/_courseAnalytics";
 
 

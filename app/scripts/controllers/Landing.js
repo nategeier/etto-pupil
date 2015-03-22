@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("LandingCtrl", ["$scope", "Session", "Payment", "WhiteLabel", "$state",
-    function ($scope, Session, Payment, WhiteLabel, $state) {
+  .controller("LandingCtrl", ["$q", "$scope", "Session", "Payment", "WhiteLabel", "$state",
+    function ($q, $scope, Session, Payment, WhiteLabel, $state) {
 
       $scope.currentSubscription = 0;
 

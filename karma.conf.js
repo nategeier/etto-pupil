@@ -11,6 +11,7 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
+
       "app/bower_components/jquery/jquery.min.js",
       "app/bower_components/angular/angular.js",
       "app/bower_components/angular-animate/angular-animate.js",
@@ -23,13 +24,14 @@ module.exports = function (config) {
       "app/bower_components/ngAutocomplete/src/ngAutocomplete.js",
       "app/bower_components/async/lib/async.js",
       "app/bower_components/angular-ui-router/release/angular-ui-router.js",
-
+      "app/bower_components/AutoLinker.js/src/AutoLinker.js",
       "app/bower_components/angular-mocks/angular-mocks.js",
       "app/bower_components/socket.io-client/socket.io.js",
       "app/bower_components/angular-embed-codepen/dist/embed-codepen.min.js",
       "app/bower_components/angular-loading-bar/src/loading-bar.js",
       "app/bower_components/ng-file-upload/angular-file-upload.min.js",
       "app/bower_components/angular-xeditable/dist/js/xeditable.min.js",
+      "app/bower_components/angular-bootstrap-toggle-switch/angular-toggle-switch.js",
       "app/vendor/soundcloud-sdk.js",
 
       "app/bower_components/greensock/src/minified/TweenMax.min.js",

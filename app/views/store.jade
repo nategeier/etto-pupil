@@ -18,7 +18,7 @@ etto-verify-modal(redirect-to='/etto')
 
       .etto-courses.etto-bgcolor-light
         .row.etto-padding
-          .main-holder(class="animate-repeat", ng-repeat='course in courses | filter:searchCourse')
+          .main-holder.soft-open(ng-repeat='course in courses | filter:searchCourse')
             .col-sm-6.col-md-4.col-lg-3
               .etto-course-holder(ng-class="course.added ? 'closed-course' : 'open-course'")
                 .row.hidden-xs

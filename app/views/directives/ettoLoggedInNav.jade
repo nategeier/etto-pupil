@@ -28,6 +28,9 @@ nav.navbar.navbar-default.etto-bgcolor-light( role="navigation")
       li(ng-show= "user.auth.canInvite", ng-class="{active: activetab === 'people'}")
         a.navbar-btn.img-rounded( href="/report/{{user._tier._id}}" )
           small.etto-color-primary People
+      li(ng-show= "user.auth.canCreateCourses", ng-class="{active: activetab === 'manage'}")
+        a.navbar-btn.img-rounded( href="/tier/edit/{{ user._tier._id }}" )
+          small.etto-color-primary Manage Courses
      
 
     .navbar-right

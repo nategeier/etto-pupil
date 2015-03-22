@@ -48,7 +48,7 @@
             <p>Coursetto only imports users with an email:</p>
             <p>{{rejectedUsers}}</p>
           </div>
-          <div ng-repeat="tier in children" class="animate-repeat">
+          <div ng-repeat="tier in children" class="soft-open">
             <div sink-in="sink-in" class="col-sm-12 col-md-6 col-lg-6">
               <button type="button" ng-click="removeTier(tier)" etto-remove-tier="etto-remove-tier" class="close aria-hidden">&times;</button>
               <div class="row">
@@ -75,7 +75,7 @@
       </div>
       <div ng-show="!children[0]" class="row">
         <div class="etto-tier-holder">
-          <etto-search-user></etto-search-user><br/><a ng-repeat="user in users" ui-sref="userSettings({userID:user._id})" class="animate-repeat">
+          <etto-search-user></etto-search-user><br/><a ng-class="soft-open" ng-repeat="user in users" ui-sref="userSettings({userID:user._id})">
             <div sink-in="sink-in" class="col-sm-6 col-md-6">
               <div class="row">
                 <div class="etto-tier-box etto-user-box">

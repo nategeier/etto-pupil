@@ -17,13 +17,10 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/icons/coursetto-144.png">
   <!-- build:css(.tmp) /styles/main.css -->
   <link rel="stylesheet" href="/styles/main.css">
-
   <!-- endbuild -->
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato">
-
-
+  <link rel="stylesheet" href="/bower_components/angular-bootstrap-toggle-switch/style/bootstrap3/angular-toggle-switch-bootstrap-3.css">
   <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
-
 </head>
 
 <body ng-app="ettoPupil">
@@ -63,43 +60,31 @@
       </div>
     </div>
     <![endif]-->
-
   <!--[if lt IE 11]>
       <script src="/bower_components/es5-shim/es5-shim.js"></script>
       <script src="/bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
-
   <!--[if gt IE 11]><!-->
   <div ui-view=""></div>
   <!--<![endif]-->
-
-
   <script src="/bower_components/jquery/jquery.js"></script>
   <script src="/bower_components/angular/angular.js"></script>
-
-
   <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
   <script src="https://connect.soundcloud.com/sdk.js"></script>
   <script src="//fast.wistia.net/assets/external/E-v1.js"></script>
-
-
   <!-- build:js /scripts/plugins.js -->
-  <script src="/bower_components/bootstrap-sass/dist/js/bootstrap.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
   <script src="/bower_components/greensock/src/minified/TweenMax.min.js"></script>
   <script src="/bower_components/async/lib/async.js"></script>
   <script src="/bower_components/lodash/dist/lodash.min.js"></script>
   <script src="/bower_components/tinycolor/tinycolor.js"></script>
-
-
-
   <!-- endbuild -->
-
   <!-- build:js /scripts/modules.js -->
   <script src="/bower_components/leaflet/dist/leaflet.js"></script>
   <script src="/bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
+  <script src="/bower_components/angular-bootstrap-toggle-switch/angular-toggle-switch.min.js"></script>
   <script src="/bower_components/socket.io-client/socket.io.js"></script>
   <script src="/bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
-  <script src="/bower_components/bootstrap-sass/js/tab.js"></script>
   <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="/bower_components/angular-resource/angular-resource.js"></script>
   <script src="/bower_components/angular-animate/angular-animate.js"></script>
@@ -113,9 +98,7 @@
   <script src="/bower_components/ng-file-upload/angular-file-upload.min.js"></script>
   <script src="/bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
   <script src="/bower_components/angular-embed-codepen/dist/embed-codepen.min.js"></script>
-
   <!-- endbuild -->
-
   <!-- build:js({.tmp,app}) /scripts/scripts.js -->
   <script src="/scripts/app.js"></script>
   <script src="/scripts/controllers/Landing.js"></script>
@@ -138,19 +121,13 @@
   <script src="/scripts/controllers/TrialEnds.js"></script>
   <script src="/scripts/controllers/Login.js"></script>
   <script src="/scripts/controllers/CourseAnalytics.js"></script>
-
-
-
   <script src="/scripts/directives/payment/ettoAddCredits.js"></script>
   <script src="/scripts/directives/payment/ettoDeleteCard.js"></script>
   <script src="/scripts/directives/payment/ettoRecipientModal.js"></script>
   <script src="/scripts/directives/payment/ettoPurchase.js"></script>
-
   <script src="/scripts/directives/assets/ettoAssetLibraryModal.js"></script>
-
   <script src="/scripts/directives/user/ettoSearchUser.js"></script>
   <script src="/scripts/directives/user/ettoInviteUserModal.js"></script>
-
   <script src="/scripts/directives/ui/ettoOnBoarding.js"></script>
   <script src="/scripts/directives/ui/ettoSettingsNav.js"></script>
   <script src="/scripts/directives/ui/ettoFooter.js"></script>
@@ -158,30 +135,24 @@
   <script src="/scripts/directives/ui/ettoNotLoggedInNav.js"></script>
   <script src="/scripts/directives/ui/ettoLoggedInNav.js"></script>
   <script src="/scripts/directives/ui/ettoMouseEvents.js"></script>
-
   <script src="/scripts/directives/tier/ettoRemoveTier.js"></script>
   <script src="/scripts/directives/tier/ettoSearchTiers.js"></script>
   <script src="/scripts/directives/tier/ettoAddTier.js"></script>
   <script src="/scripts/directives/tier/ettoTierTree.js"></script>
   <script src="/scripts/directives/tier/ettoNewBrand.js"></script>
-
   <script src="/scripts/directives/login/ettoResetPassword.js"></script>
   <script src="/scripts/directives/login/ettoSendForgotPassword.js"></script>
   <script src="/scripts/directives/login/ettoLoginModal.js"></script>
   <script src="/scripts/directives/login/ettoVerifyModal.js"></script>
   <script src="/scripts/directives/login/ettoRegisterModal.js"></script>
   <script src="/scripts/directives/login/ettoSocialAuth.js"></script>
-
   <script src="/scripts/directives/bamboo/ettoSyncBamboo.js"></script>
-
   <script src="/scripts/directives/course/ettoAddCourse.js"></script>
   <script src="/scripts/directives/course/ettoBlock.js"></script>
   <script src="/scripts/directives/course/ettoYoutube.js"></script>
   <script src="/scripts/directives/course/ettoVimeo.js"></script>
   <script src="/scripts/directives/course/ettoWistia.js"></script>
   <script src="/scripts/directives/course/ettoCode.js"></script>
-
-
   <script src="/scripts/directives/course/ettoCourse.js"></script>
   <script src="/scripts/directives/course/ettoCertificate.js"></script>
   <script src="/scripts/directives/course/ettoCourseNav.js"></script>
@@ -192,8 +163,6 @@
   <script src="/scripts/directives/course/ettoSoundEdit.js"></script>
   <script src="/scripts/directives/course/ettoBlockMap.js"></script>
   <script src="/scripts/directives/course/ettoRemoveCourse.js"></script>
-
-
   <script src="/scripts/services/WhiteLabel.js"></script>
   <script src="/scripts/services/Key.js"></script>
   <script src="/scripts/services/Fonts.js"></script>
@@ -215,9 +184,7 @@
   <script src="/scripts/services/BlockQuiz.js"></script>
   <script src="/scripts/services/Invite.js"></script>
   <script src="/scripts/services/Security.js"></script>
-
   <!-- endbuild -->
-
   <script type="text/javascript">
   (function(i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r;

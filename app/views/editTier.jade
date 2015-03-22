@@ -2,54 +2,37 @@ etto-logged-in-nav
 
 
 .container-full.etto-edit-tier
+
   .row(etto-update-company)
     .col-sm-12.col-md-5
       h3.etto-color-primary#title(editable-textarea="tier.title", buttons="no", blur="submit", onaftersave="updateTier()") {{tier.title || 'Title'}}
       h4.etto-color-secondary#subtite(editable-textarea="tier.internalId", buttons="no", blur="submit", onaftersave="updateTier()") {{tier.internalId || 'Optional ID'}}
-      p Once a course is set to ‘private’ it needs to be added to the appropriate tier.
+      p Courses are binded to the tiers not the users.
     .alert.alert-success(ng-show="saved")
       p saved
     .col-sm-12.col-md-7.hidden-sm.hidden-xs
       .main-img-container(style="background-image: url('/images/site/connections.jpg');")
 
-    
+  
   .row.etto-bgcolor-light
 
-    .col-sm-5
-      h2 Company's courses
+    .col-sm-12
+      h3 Company's courses
       p Available courses to add to your Departments
-      table.table-striped
-        tr
-          th Course
-        tr(ng-repeat="course in companyCourses")
-          td {{course.title}}
-          td
-            .checkbox
-              label Add to all lower tiers
-                input(type="checkbox", ng-model="course.ison")
-          td
-            button.btn.btn-default.btn-sm(type="button", ng-click="addCourseToTier(course)") Add Course
-    .col-sm-2.hidden-xs
-      img.img-responsive(src="/images/site/add-course.jpg")
-    .col-sm-5
-      h2 {{tier.title}} Courses
-      p Current courses available for this Department
-      h4.pull-left Overall
-      h4.pull-right  {{tierReport.totalTaken}}/{{tierReport.totalToTake}}
 
-      .col-sm-12
-        .progress
-          .progress-bar(role="progressbar", aria-valuenow="{{(tierReport.totalTaken/tierReport.totalToTake) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(tierReport.totalTaken/tierReport.totalToTake) * 100}}%;")
-        div(ng-repeat="course in tierReport.courses")
-          .col-md-12
-            p.pull-left {{course.title}}
-            button.close.pull-right(type="button", aria-hidden="true", ng-click="removeCourse(course._id)") &times;
-            p.pull-right  {{course.completed.length}}/{{course.completed.length + course.notCompleted.length}}
-
-          .clearfix
-          .col-md-12
-            .progress
-              .progress-bar(role="progressbar", aria-valuenow="{{(course.completed.length/(course.completed.length + course.notCompleted.length)) * 100}}", aria-valuemin="0", aria-valuemax="100", style="width: {{(course.completed.length/(course.completed.length + course.notCompleted.length)) * 100}}%;")
-
-
+      table.table-striped.table
+        thead.etto-bgcolor-primary.etto-color-light
+          tr
+            th Course
+            th Add to Tier
+            th Add to all Lower Tiers
+        tbody
+          tr(ng-repeat="course in companyCourses | orderBy: 'title'")
+            td {{course.title}}
+            
+            td
+              div(toggle-switch, model="course.ison", on-change="changeCourse(course)")
+              
+            td
+              button.btn.btn-default.btn-sm(type="button", ng-click="addToAllLowerTiers(course)") Add to all tiers
 

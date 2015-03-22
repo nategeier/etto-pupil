@@ -5,9 +5,9 @@ etto-verify-modal(redirect-to='/etto')
   .row.etto-bgcolor-white(etto-update-company)
     .col-sm-12.col-md-6
       .etto-leadertxt
-        h3.etto-color-primary#title(editable-textarea="company.leaderboard.title", buttons="no", blur="submit", onaftersave="updateTier()") {{company.leaderboard.title}}
-        h4.etto-color-secondary#subtite(editable-textarea="company.leaderboard.subtitle", buttons="no", blur="submit", onaftersave="updateTier()") {{company.leaderboard.subtitle}}
-    .col-sm-12.col-md-6.hidden-sm.hidden-xs
+        h3.etto-color-primary#title(editable-textarea="company.leaderboard.title", buttons="no", blur="submit", onaftersave="updateTier()") {{company.leaderboard.title || "Edit this welcome title"}}
+        h4.etto-color-secondary#subtite(editable-textarea="company.leaderboard.subtitle", buttons="no", blur="submit", onaftersave="updateTier()") {{company.leaderboard.subtitle || "Edit this welcome content"}}
+    .col-sm-12.col-md-6.hidden-sm.hidden-xs.soft-open
       .main-img-container.img-uploadable(style="background-image: url('{{company.leaderboard.imgUrl}}');", etto-asset-library-modal, ng-click='updateMainImg()')
 
   .row
@@ -19,7 +19,7 @@ etto-verify-modal(redirect-to='/etto')
           .col-md-12
             input.form-control.etto-searchbar(type='text', ng-model='searchCourse', placeholder='Search Courses')
           hr
-          div(etto-color, class="animate-repeat", ng-repeat='course in usersCourses | filter:searchCourse')
+          div.soft-open(etto-color, class="animate-repeat", ng-repeat='course in usersCourses | filter:searchCourse')
             div(ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-lg-4' : 'col-sm-6 col-md-4 col-lg-3'")
               .etto-course-holder(sink-in, ui-sref="viewCourse({courseId:course._id, blockId:1})")
                 .course-holder-img(style="background-image: url('{{course.thumb}}');")
@@ -50,7 +50,7 @@ etto-verify-modal(redirect-to='/etto')
               div(ng-if="!createdCourses[0]")
                 .list-group-item.etto-bgcolor-lightgrey.etto-bgcolor-light-hover(etto-add-course, ng-click='addCourse()')
                   h3 Create a Course
-              div(sink-in, etto-color, ng-repeat='course in createdCourses | filter:searchComposedCourse')
+              div.soft-open(sink-in, etto-color, ng-repeat='course in createdCourses | filter:searchComposedCourse')
                 .etto-composed-course
                   .etto-course-box
                     a(ui-sref="editCourse({courseId:course._id})")

@@ -8,13 +8,12 @@ angular.module("ettoPupil")
       return {
         restrict: "AE",
         controller: function ($scope, $modal, Tiers, $location, Users, Session) {
-
           $scope.register = function () {
 
             var modal = $modal.open({
               templateUrl: "/views/directives/ettoRegister.html",
               controller: function ($scope, $modalInstance) {
-
+                $scope.isLoading = false;
                 $scope.cancel = function () {
                   $modalInstance.close();
                 };
@@ -34,6 +33,8 @@ angular.module("ettoPupil")
                     title: $scope.newUser.tierTitle
                   };
 
+                  $scope.isLoading = true;
+
                   Tiers.createCompany(newTier, function (tier) {
                     createUser(tier);
                   });
@@ -43,6 +44,7 @@ angular.module("ettoPupil")
                   $scope.newUser._tier = tier._id;
                   $scope.newUser.code = "ettoCourse";
                   Users.saveNewUser($scope.newUser, function (data) {
+                    $scope.isLoading = false;
                     if (data.err) {
                       $scope.err = data.err;
                     } else {
