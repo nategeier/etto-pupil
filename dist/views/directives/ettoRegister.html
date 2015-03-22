@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-md-12">
         <div ng-show="err" class="alert alert-danger">
-          <p>{{err}}</p>
+          <p>{{err}} thing</p>
         </div><a href="#" ng-click="handleAuth('github')" class="sso-btns github-btn"> 
           <p>Github</p></a><a href="#" ng-click="handleAuth('google')" class="sso-btns google-btn"> 
           <p>Google</p></a><a href="#" ng-click="handleAuth('forcedotcom')" class="sso-btns forcedotcom-btn"> 
@@ -33,7 +33,7 @@
             <input type="password" ng-model="newUser.password" placeholder="Password" required="required" class="form-control"/>
           </div>
           <div class="form-group">
-            <input type="submit" value="I agree to the terms" class="btn btn-success btn-sm"/>
+            <input ng-if="isLoading === false" type="submit" value="I agree to the terms" class="btn btn-success btn-sm"/><img ng-if="isLoading === true" src="/images/site/etto_loader.gif"/>
           </div>
         </form>
         <hr/>

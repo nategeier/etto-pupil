@@ -6,7 +6,8 @@
     .row
       .col-md-12
         .alert.alert-danger(ng-show="err")
-          p {{err}}
+
+          p {{err}} thing
         a.sso-btns.github-btn(href="#", ng-click="handleAuth('github')") 
           p Github
         a.sso-btns.google-btn(href="#", ng-click="handleAuth('google')") 
@@ -27,10 +28,11 @@
           .form-group
             input.form-control( type="password", ng-model="newUser.password", placeholder="Password", required )
           .form-group
-            input.btn.btn-success.btn-sm( type="submit", value="I agree to the terms" )
-
+            input.btn.btn-success.btn-sm( ng-if="isLoading === false", type="submit", value="I agree to the terms" )
+            img(ng-if="isLoading === true", src="/images/site/etto_loader.gif")
         hr
         .btn-group
+
             button.btn.btn-default.btn-sm( type="button", ng-click="cancel()") Cancel
             a.btn.btn-default.btn-sm(href="/terms", target="_blank") Terms
    

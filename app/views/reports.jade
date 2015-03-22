@@ -44,7 +44,7 @@ etto-verify-modal(redirect-to='/etto')
             p Coursetto only imports users with an email:
             p {{rejectedUsers}}
 
-          div(class="animate-repeat", ng-repeat= 'tier in children')
+          div(class="soft-open", ng-repeat= 'tier in children')
             .col-sm-12.col-md-6.col-lg-6(sink-in)
               button.close.aria-hidden(type="button", ng-click="removeTier(tier)", etto-remove-tier) &times;
               .row
@@ -67,7 +67,7 @@ etto-verify-modal(redirect-to='/etto')
         .etto-tier-holder
           etto-search-user
           br
-          a(class="animate-repeat", ng-repeat= 'user in users', ui-sref="userSettings({userID:user._id})")
+          a(ng-class="soft-open", ng-repeat= 'user in users', ui-sref="userSettings({userID:user._id})")
             .col-sm-6.col-md-6(sink-in)
               .row
                 .etto-tier-box.etto-user-box

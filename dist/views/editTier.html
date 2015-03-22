@@ -5,7 +5,7 @@
     <div class="col-sm-12 col-md-5">
       <h3 id="title" editable-textarea="tier.title" buttons="no" blur="submit" onaftersave="updateTier()" class="etto-color-primary">{{tier.title || 'Title'}}</h3>
       <h4 id="subtite" editable-textarea="tier.internalId" buttons="no" blur="submit" onaftersave="updateTier()" class="etto-color-secondary">{{tier.internalId || 'Optional ID'}}</h4>
-      <p>Once a course is set to ‘private’ it needs to be added to the appropriate tier.</p>
+      <p>Courses are binded to the tiers not the users.</p>
     </div>
     <div ng-show="saved" class="alert alert-success">
       <p>saved</p>
@@ -15,52 +15,29 @@
     </div>
   </div>
   <div class="row etto-bgcolor-light">
-    <div class="col-sm-5">
-      <h2>Company's courses</h2>
+    <div class="col-sm-12">
+      <h3>Company's courses</h3>
       <p>Available courses to add to your Departments</p>
-      <table class="table-striped">
-        <tr>
-          <th>Course</th>
-        </tr>
-        <tr ng-repeat="course in companyCourses">
-          <td>{{course.title}}</td>
-          <td>
-            <div class="checkbox">
-              <label>Add to all lower tiers
-                <input type="checkbox" ng-model="course.ison"/>
-              </label>
-            </div>
-          </td>
-          <td>
-            <button type="button" ng-click="addCourseToTier(course)" class="btn btn-default btn-sm">Add Course</button>
-          </td>
-        </tr>
+      <table class="table-striped table">
+        <thead class="etto-bgcolor-primary etto-color-light">
+          <tr>
+            <th>Course</th>
+            <th>Add to Tier</th>
+            <th>Add to all Lower Tiers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="course in companyCourses | orderBy: 'title'">
+            <td>{{course.title}}</td>
+            <td>
+              <div toggle-switch="toggle-switch" model="course.ison" on-change="changeCourse(course)"></div>
+            </td>
+            <td>
+              <button type="button" ng-click="addToAllLowerTiers(course)" class="btn btn-default btn-sm">Add to all tiers</button>
+            </td>
+          </tr>
+        </tbody>
       </table>
-    </div>
-    <div class="col-sm-2 hidden-xs"><img src="/images/site/add-course.jpg" class="img-responsive"/></div>
-    <div class="col-sm-5">
-      <h2>{{tier.title}} Courses</h2>
-      <p>Current courses available for this Department</p>
-      <h4 class="pull-left">Overall</h4>
-      <h4 class="pull-right"> {{tierReport.totalTaken}}/{{tierReport.totalToTake}}</h4>
-      <div class="col-sm-12">
-        <div class="progress">
-          <div role="progressbar" aria-valuenow="{{(tierReport.totalTaken/tierReport.totalToTake) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{(tierReport.totalTaken/tierReport.totalToTake) * 100}}%;" class="progress-bar"></div>
-        </div>
-        <div ng-repeat="course in tierReport.courses">
-          <div class="col-md-12">
-            <p class="pull-left">{{course.title}}</p>
-            <button type="button" aria-hidden="true" ng-click="removeCourse(course._id)" class="close pull-right">&times;</button>
-            <p class="pull-right"> {{course.completed.length}}/{{course.completed.length + course.notCompleted.length}}</p>
-          </div>
-          <div class="clearfix"></div>
-          <div class="col-md-12">
-            <div class="progress">
-              <div role="progressbar" aria-valuenow="{{(course.completed.length/(course.completed.length + course.notCompleted.length)) * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{(course.completed.length/(course.completed.length + course.notCompleted.length)) * 100}}%;" class="progress-bar"></div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>

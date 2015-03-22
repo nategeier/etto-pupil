@@ -1,12 +1,15 @@
 "use strict";
 
-angular.module("ettoPupil", ["ui.router", "ngSanitize", "ngResource", "ngAnimate", "ngTouch", "ui.bootstrap", "xeditable", "angularFileUpload", "chieffancypants.loadingBar", "leaflet-directive", "ngAutocomplete", "embedCodepen"])
+angular.module("ettoPupil", ["ui.router", "ngSanitize", "ngResource", "ngAnimate", "ngTouch", "toggle-switch", "ui.bootstrap", "xeditable", "angularFileUpload", "chieffancypants.loadingBar", "leaflet-directive", "ngAutocomplete", "embedCodepen"])
   .config(["$httpProvider", "$locationProvider", "$stateProvider", "$urlRouterProvider",
     function ($httpProvider, $locationProvider, $stateProvider, $urlRouterProvider) {
       $httpProvider.defaults.withCredentials = true;
       $httpProvider.interceptors.push("httpInterceptor");
 
-      $locationProvider.html5Mode(true).hashPrefix("#");
+      $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+      }).hashPrefix("#");
 
       $urlRouterProvider.otherwise("/");
 

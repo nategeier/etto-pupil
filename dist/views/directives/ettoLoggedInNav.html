@@ -17,6 +17,7 @@
       <li class="divider"></li>
       <li ng-show="user.auth.canCreateCourses" ng-class="{active: activetab === 'create'}"><a href="#" etto-add-course="etto-add-course" ng-click="addCourse()" class="navbar-btn img-rounded"><small class="etto-color-primary">Create Course</small></a></li>
       <li ng-show="user.auth.canInvite" ng-class="{active: activetab === 'people'}"><a href="/report/{{user._tier._id}}" class="navbar-btn img-rounded"><small class="etto-color-primary">People</small></a></li>
+      <li ng-show="user.auth.canCreateCourses" ng-class="{active: activetab === 'manage'}"><a href="/tier/edit/{{ user._tier._id }}" class="navbar-btn img-rounded"><small class="etto-color-primary">Manage Courses</small></a></li>
     </ul>
     <div class="navbar-right">
       <ul class="nav navbar-nav">

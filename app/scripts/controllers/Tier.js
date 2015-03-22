@@ -1,34 +1,65 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("TierCtrl", ["$scope", "Tiers", "$stateParams", "CourseList", "Users",
-    function ($scope, Tiers, $stateParams, CourseList, Users) {
+  .controller("TierCtrl", ["$q", "$scope", "Tiers", "$stateParams", "CourseList", "Users",
+    function ($q, $scope, Tiers, $stateParams, CourseList, Users) {
 
       $scope.tierID = $stateParams.id;
 
       $scope.reset = function () {
-        Tiers.findTier($scope.tierID, function (results) {
-          $scope.tier = results;
 
-          //---Company courses
-          CourseList.listCompanyCourses(results._company, function (courses) {
+        $q.all([getCompanyCourses(), getTierReport(), listUsersInTier()])
+          .then(function (values) {
+            checkIfTierHasCourse();
+          });
+      };
 
-            async.map(courses, function (course, callback) {
-                course.ison = false;
-                callback();
-              },
-              function () {
-                $scope.companyCourses = courses;
-              });
+      var getCompanyCourses = function () {
+        return $q(function (resolve, reject) {
+          Tiers.findTier($scope.tierID, function (results) {
+            $scope.tier = results;
+
+            //---Company courses
+            CourseList.listCompanyCourses(results._company, function (courses) {
+
+              async.map(courses, function (course, callback) {
+                  course.ison = false;
+                  callback();
+                },
+                function () {
+                  $scope.companyCourses = courses;
+                  resolve(courses);
+                });
+            });
           });
         });
+      };
 
-        Tiers.tierReport($scope.tierID, function (results) {
-          $scope.tierReport = results;
+      var getTierReport = function () {
+        return $q(function (resolve, reject) {
+          Tiers.tierReport($scope.tierID, function (results) {
+            $scope.tierReport = results;
+            resolve($scope.tierReport);
+          });
         });
+      };
 
-        Users.listUsersInTier($scope.tierID, function (users) {
-          $scope.users = users;
+      var listUsersInTier = function () {
+        return $q(function (resolve, reject) {
+          Users.listUsersInTier($scope.tierID, function (users) {
+            $scope.users = users;
+            resolve($scope.users);
+          });
+        });
+      };
+
+      var checkIfTierHasCourse = function () {
+        _.map($scope.companyCourses, function (course) {
+          _.map($scope.tierReport.courses, function (tierCourse) {
+            if (course._id === tierCourse._id) {
+              course.ison = true;
+            }
+          });
         });
       };
 
@@ -38,14 +69,27 @@ angular.module("ettoPupil")
         });
       };
 
-      $scope.addCourseToTier = function (course) {
-        Tiers.addCourseToTier($scope.tierID, course._id, course.ison, function (results) {
+      $scope.addToAllLowerTiers = function (course) {
+        addCourseToTier(course, true);
+      };
+
+      $scope.changeCourse = function (course) {
+
+        if (course.ison === false) {
+          addCourseToTier(course, false);
+        } else {
+          removeCourse(course._id);
+        }
+      };
+
+      var addCourseToTier = function (course, addToAllLowerTiers) {
+        Tiers.addCourseToTier($scope.tierID, course._id, addToAllLowerTiers, function (results) {
           $scope.tierReport = [];
           $scope.reset();
         });
       };
 
-      $scope.removeCourse = function (courseId) {
+      var removeCourse = function (courseId) {
         Tiers.removeCourseFromTiers($scope.tierID, courseId, function (results) {
           $scope.tierReport = [];
           $scope.reset();
@@ -53,5 +97,6 @@ angular.module("ettoPupil")
       };
 
       $scope.reset();
+
     }
   ]);
