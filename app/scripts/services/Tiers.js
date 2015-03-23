@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .factory("Tiers", ["$http", "Endpoint", "$state", "$rootScope",
-    function ($http, Endpoint, $state, $rootScope) {
+  .factory("Tiers", ["$http", "Endpoint", "$state", "$rootScope", "$resource",
+    function ($http, Endpoint, $state, $rootScope, $resource) {
 
       var company = null;
 
@@ -103,14 +103,18 @@ angular.module("ettoPupil")
         },
 
         updateTier: function (tier, callback) {
-          $http.post(Endpoint("tier", "update"), tier).success(function (data) {
-            callback(data);
-          });
+
+          $http.post(Endpoint("tier", "update"), tier)
+            .success(function (data, status, headers, config) {
+              callback(data);
+            });
+
         },
         inviteUser: function (newLevel, callback) {
           $http.post(Endpoint("sessions", "invite_user"), newLevel).success(function (data) {
             callback(data);
           });
+
         },
         checkCompanySubscription: function (user, company) {
           var trialEnds = new Date(company.trialEnds);

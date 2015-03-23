@@ -11,13 +11,17 @@
         .list-group
           div.list-group-item(ng-repeat = "a in q.answers track by $index")
             .row
-              .col-sm-8
+              .col-sm-2.col-md-2.col-lg-1
+                div(toggle-switch, model="a.correct", 
+                  html="true",
+                  class="switch-small",
+                  on-label="<i class='fa fa-check'></i>",
+                  off-label="<i class='fa fa-times'></i>")
+              .col-sm-9.col-md-9.col-lg-10
                 p.etto-color-dark(editable-textarea="a.answer", e-rows="3", e-cols="70", buttons="no", blur="submit", onaftersave="saveCourse()")  {{alphabet[$index]}} ) {{ a.answer || "author"}}
-              .col-sm-2
-                .checkbox.etto-color-secondary
-                  lable Correct
-                    input(type="checkbox", ng-model = "a.correct", ng-change="saveCourse()")
-              .col-sm-2
+              
+
+              .col-sm-1.col-md-1
                 .close.btn.btn-defult(ng-click="deleteAnswer(q.answers, $index)") &times;
           .list-group-item
             button.btn.btn-default.btn-sm.etto-color-primary(ng-click="addAnswer(block.data.questions, $index)") New Answer
@@ -25,3 +29,4 @@
   .col-sm-12
     br
     button.btn.btn-success.btn-sm(ng-click="addQuestion(block.data.questions)") New Question
+    button.btn.btn-success.btn-sm(ng-click="saveCourse()") Save Answers
