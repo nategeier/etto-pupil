@@ -85,14 +85,14 @@ angular.module("ettoPupil")
       var addCourseToTier = function (course, addToAllLowerTiers) {
         Tiers.addCourseToTier($scope.tierID, course._id, addToAllLowerTiers, function (results) {
           $scope.tierReport = [];
-          $scope.reset();
+          //$scope.reset();
         });
       };
 
       var removeCourse = function (courseId) {
         Tiers.removeCourseFromTiers($scope.tierID, courseId, function (results) {
           $scope.tierReport = [];
-          $scope.reset();
+          //$scope.reset();
         });
       };
 
