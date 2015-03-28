@@ -16,7 +16,9 @@ etto-verify-modal(redirect-to='/etto')
         .main-holder(ng-show="usersCourses[0]")
           .alert.alert-danger(ng-show="err")
             p {{err}}
+
           .col-md-12
+            hr.hidden-md.hidden-lg
             input.form-control.etto-searchbar(type='text', ng-model='searchCourse', placeholder='Search Courses')
           hr
           div.soft-open(etto-color, class="animate-repeat", ng-repeat='course in usersCourses | filter:searchCourse')
