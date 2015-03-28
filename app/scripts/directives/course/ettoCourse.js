@@ -178,7 +178,6 @@ angular.module("ettoPupil")
                 if (CoursePlayer.currentBlock() === (CoursePlayer.blocksInCourse() - 1) && !$scope.record.completed) {
                   $scope.record.completed = Date.now();
                 }
-
                 Record.updateBookmark($scope.record);
                 $scope.changeUrl();
 

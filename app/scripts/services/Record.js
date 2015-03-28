@@ -28,6 +28,7 @@ angular.module("ettoPupil")
         },
 
         updateBookmark: function (record, done) {
+
           var UsersRecord = $resource(Endpoint("record", "updateBookmark"));
           var updateRecord = new UsersRecord(record);
           updateRecord.$save();
