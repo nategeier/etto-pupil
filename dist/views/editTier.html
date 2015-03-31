@@ -24,16 +24,20 @@
             <th>Course</th>
             <th>Add to Tier</th>
             <th>Add to all Lower Tiers</th>
+            <th>Priority</th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="course in companyCourses | orderBy: 'title'">
+          <tr ng-repeat="course in companyCourses | orderBy: 'priority'" class="soft-open">
             <td>{{course.title}}</td>
             <td>
               <div toggle-switch="toggle-switch" model="course.ison" on-change="changeCourse(course)"></div>
             </td>
             <td>
               <button type="button" ng-click="addToAllLowerTiers(course)" class="btn btn-default btn-sm">Add to all tiers</button>
+            </td>
+            <td>
+              <input type="number" ng-model="course.priority" ng-blur="changeCoursePriority(course)" class="priority"/>
             </td>
           </tr>
         </tbody>

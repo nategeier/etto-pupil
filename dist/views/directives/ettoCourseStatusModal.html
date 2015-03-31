@@ -6,25 +6,16 @@
 <div class="modal-body etto-bgcolor-light">
   <div class="form-group">
     <h4>Testing</h4>
-    <div class="radio">
-      <label>Only managers can view and change
-        <input type="radio" name="status" ng-model="course.status" value="testing"/>
-      </label>
-    </div>
+    <input id="testingChoice" type="radio" name="status" ng-model="course.status" value="testing"/>
+    <label for="testingChoice">Only managers can view and change</label>
     <hr/>
     <h4>Private (Internal use only)</h4>
-    <div class="radio">
-      <label>Add the courses to the correct tier under "People > Edit Tier"
-        <input type="radio" name="status" ng-model="course.status" value="private"/>
-      </label>
-    </div>
+    <input id="privateChoice" type="radio" name="status" ng-model="course.status" value="private"/>
+    <label for="privateChoice">Add the courses to the correct tier under "People > Edit Tier"</label>
     <hr/>
     <h4>Open Market</h4>
-    <div class="radio">
-      <label>Sell & share with the world
-        <input type="radio" name="status" ng-model="course.status" value="live"/>
-      </label>
-    </div>
+    <input id="marketChoice" type="radio" name="status" ng-model="course.status" value="live"/>
+    <label for="marketChoice">Sell & share with the world</label>
     <div ng-show="course.status === 'live'">
       <div class="alert alert-warning">Price cannot be changed after the course is sent to the market.</div>
       <div class="input-group"><span class="input-group-addon">Price $</span>

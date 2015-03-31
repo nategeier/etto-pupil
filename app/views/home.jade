@@ -21,7 +21,7 @@ etto-verify-modal(redirect-to='/etto')
             hr.hidden-md.hidden-lg
             input.form-control.etto-searchbar(type='text', ng-model='searchCourse', placeholder='Search Courses')
           hr
-          div.soft-open(etto-color, class="animate-repeat", ng-repeat='course in usersCourses | filter:searchCourse')
+          div.soft-open(etto-color, ng-repeat='course in usersCourses | filter:searchCourse | orderBy: "priority"')
             div(ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-lg-4' : 'col-sm-6 col-md-4 col-lg-3'")
               .etto-course-holder(sink-in, ui-sref="viewCourse({courseId:course._id, blockId:1})")
                 .course-holder-img(style="background-image: url('{{course.thumb}}');")
@@ -52,7 +52,7 @@ etto-verify-modal(redirect-to='/etto')
               div(ng-if="!createdCourses[0]")
                 .list-group-item.etto-bgcolor-lightgrey.etto-bgcolor-light-hover(etto-add-course, ng-click='addCourse()')
                   h3 Create a Course
-              div.soft-open(sink-in, etto-color, ng-repeat='course in createdCourses | filter:searchComposedCourse')
+              div.soft-open(sink-in, etto-color, ng-repeat="course in createdCourses | filter:searchComposedCourse | orderBy: 'priority'")
                 .etto-composed-course
                   .etto-course-box
                     a(ui-sref="editCourse({courseId:course._id})")

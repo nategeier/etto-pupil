@@ -6,7 +6,7 @@
 
   .title-text.img-rounded(ng-class="block.data.textDark ? 'etto-light-fadded-bk' : 'etto-dark-fadded-bk'")
     h1(ng-class="block.data.textDark ? 'etto-color-primary' : 'etto-color-light'", e-rows="3", e-cols="90", editable-textarea="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.title || 'Title or Chapter'}}
-    h4(ng-class="block.data.textDark ? 'etto-color-primary' : 'etto-color-light'", e-rows="3", e-cols="90", editable-textarea="block.data.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.subtitle || "And something to descibe the course a little deeper"}}
+    pre(ng-class="block.data.textDark ? 'etto-color-primary' : 'etto-color-light'", e-rows="3", e-cols="90", editable-textarea="block.data.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.subtitle || "And something to descibe the course a little deeper"}}
 
   .edit-title(move-side, delay='0.6')
 
@@ -18,10 +18,9 @@
     p Blur Image
     input(ng-model= "block.data.blur", type="range", min="0", max="23", value="{{block.data.blur || 3}}", step="3", onchange="block.data.blur=value", ng-mouseup="saveCourse()")
     hr
-    form(role="form")
-      .checkbox
-        label Dark Text
-          input(type='checkbox', ng-model="block.data.textDark", ng-change="saveCourse()") 
+
+    input#changeText(type="checkbox", ng-model="block.data.textDark", ng-change="saveCourse()")
+    label(for="changeText") Dark Text
 
               
         

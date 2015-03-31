@@ -8,16 +8,17 @@ etto-logged-in-nav
       .etto-assetlibrary.etto-assetlibrary--settings
         .etto-assetlibrary__picker
           .etto-assetlibrary__assetlist
-            .etto-assetlibrary__asset(ng-repeat="asset in assets", ng-click="selectAsset(asset._id)")
-              .overlay
-                i.fa.fa-3x.fa-check-circle-o
+            div(infinite-scroll="myPagingFunction()", infinite-scroll-distance="3")
+              .etto-assetlibrary__asset(ng-repeat="asset in assets", ng-click="selectAsset(asset._id)")
+                .overlay
+                  i.fa.fa-3x.fa-check-circle-o
 
-              div(ng-if= "isImage(asset.url)")
-                img(ng-if= "isImage(asset.url)", src="{{ asset.url }}") Not an image
-              div(ng-if= "isImage(asset.url) === false")
-                h4 {{fileName(asset.s3.key)}}
+                div(ng-if= "isImage(asset.url)")
+                  img(ng-if= "isImage(asset.url)", src="{{ asset.url }}") Not an image
+                div(ng-if= "isImage(asset.url) === false")
+                  h4 {{fileName(asset.s3.key)}}
 
-              i.fa.fa-2x.fa-trash-o(ng-click="deleteAsset($index)")
+                i.fa.fa-2x.fa-trash-o(ng-click="deleteAsset($index)")
 
           form.etto-assetlibrary__uploader()
             div(ng-show="err")

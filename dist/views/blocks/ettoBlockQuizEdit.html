@@ -2,6 +2,8 @@
 <div class="row quiz-block">
   <etto-block-quiz></etto-block-quiz>
   <div class="col-sm-12">
+    <h2 e-rows="3" e-cols="90" editable-textarea="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()" class="text-center">{{ block.data.title || 'Quiz Title'}}</h2>
+    <pre e-rows="3" e-cols="90" editable-textarea="block.data.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()" class="text-center">{{ block.data.subtitle || "Enter a subtitle"}}</pre>
     <div ng-repeat="q in block.data.questions track by $index">
       <div class="panel panel-default etto-question">
         <div class="panel-heading etto-bgcolor-light">

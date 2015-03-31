@@ -26,8 +26,9 @@ etto-logged-in-nav
             th Course
             th Add to Tier
             th Add to all Lower Tiers
+            th Priority
         tbody
-          tr(ng-repeat="course in companyCourses | orderBy: 'title'")
+          tr.soft-open(ng-repeat="course in companyCourses | orderBy: 'priority'")
             td {{course.title}}
             
             td
@@ -35,4 +36,7 @@ etto-logged-in-nav
               
             td
               button.btn.btn-default.btn-sm(type="button", ng-click="addToAllLowerTiers(course)") Add to all tiers
+
+            td
+              input.priority(type="number", ng-model="course.priority", ng-blur="changeCoursePriority(course)")
 

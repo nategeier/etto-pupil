@@ -8,12 +8,14 @@
       <div class="etto-assetlibrary etto-assetlibrary--settings">
         <div class="etto-assetlibrary__picker">
           <div class="etto-assetlibrary__assetlist">
-            <div ng-repeat="asset in assets" ng-click="selectAsset(asset._id)" class="etto-assetlibrary__asset">
-              <div class="overlay"><i class="fa fa-3x fa-check-circle-o"></i></div>
-              <div ng-if="isImage(asset.url)"><img ng-if="isImage(asset.url)" src="{{ asset.url }}"/></div>
-              <div ng-if="isImage(asset.url) === false">
-                <h4>{{fileName(asset.s3.key)}}</h4>
-              </div><i ng-click="deleteAsset($index)" class="fa fa-2x fa-trash-o"></i>
+            <div infinite-scroll="myPagingFunction()" infinite-scroll-distance="3">
+              <div ng-repeat="asset in assets" ng-click="selectAsset(asset._id)" class="etto-assetlibrary__asset">
+                <div class="overlay"><i class="fa fa-3x fa-check-circle-o"></i></div>
+                <div ng-if="isImage(asset.url)"><img ng-if="isImage(asset.url)" src="{{ asset.url }}"/></div>
+                <div ng-if="isImage(asset.url) === false">
+                  <h4>{{fileName(asset.s3.key)}}</h4>
+                </div><i ng-click="deleteAsset($index)" class="fa fa-2x fa-trash-o"></i>
+              </div>
             </div>
           </div>
           <form class="etto-assetlibrary__uploader">
