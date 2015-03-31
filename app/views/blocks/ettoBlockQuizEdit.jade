@@ -2,6 +2,9 @@
 .row.quiz-block
   etto-block-quiz
   .col-sm-12
+    h2.text-center(e-rows="3", e-cols="90", editable-textarea="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.title || 'Quiz Title'}}
+    pre.text-center(e-rows="3", e-cols="90", editable-textarea="block.data.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.subtitle || "Enter a subtitle"}}
+
     div(ng-repeat = "q in block.data.questions track by $index")
       .panel.panel-default.etto-question
         .panel-heading.etto-bgcolor-light

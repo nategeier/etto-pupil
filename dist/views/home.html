@@ -25,7 +25,7 @@
             <input type="text" ng-model="searchCourse" placeholder="Search Courses" class="form-control etto-searchbar"/>
           </div>
           <hr/>
-          <div etto-color="etto-color" ng-repeat="course in usersCourses | filter:searchCourse" class="soft-open animate-repeat">
+          <div etto-color="etto-color" ng-repeat="course in usersCourses | filter:searchCourse | orderBy: &quot;priority&quot;" class="soft-open">
             <div ng-class="user.auth.canCreateCourses ? 'col-sm-6 col-lg-4' : 'col-sm-6 col-md-4 col-lg-3'">
               <div sink-in="sink-in" ui-sref="viewCourse({courseId:course._id, blockId:1})" class="etto-course-holder">
                 <div style="background-image: url('{{course.thumb}}');" class="course-holder-img"></div>
@@ -65,7 +65,7 @@
                   <h3>Create a Course</h3>
                 </div>
               </div>
-              <div sink-in="sink-in" etto-color="etto-color" ng-repeat="course in createdCourses | filter:searchComposedCourse" class="soft-open">
+              <div sink-in="sink-in" etto-color="etto-color" ng-repeat="course in createdCourses | filter:searchComposedCourse | orderBy: 'priority'" class="soft-open">
                 <div class="etto-composed-course">
                   <div class="etto-course-box"><a ui-sref="editCourse({courseId:course._id})">
                       <div class="row">

@@ -37,6 +37,21 @@ angular.module("ettoPupil")
             done(results);
           });
         },
+        setCoursePriority: function (id, priority, done) {
+
+          var CoursePriority = $resource(Endpoint("course", "setCoursePriority/") + ":id/:priority", {
+            id: id,
+            priority: priority
+          });
+
+          CoursePriority.get({
+            id: id,
+            priority: priority
+          }, function (results) {
+            done(results);
+          });
+
+        },
         listUsersCreatedCourses: function (id, callback) {
           $http.get(Endpoint("user", "listUsersCreatedCourses/") + id)
             .success(function (data, status, headers, config) {

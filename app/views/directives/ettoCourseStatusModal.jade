@@ -5,19 +5,22 @@
 .modal-body.etto-bgcolor-light
   .form-group
     h4 Testing
-    .radio
-      label Only managers can view and change
-        input(type= "radio", name="status", ng-model="course.status", value = "testing") 
+
+    input#testingChoice(type= "radio", name="status", ng-model="course.status", value = "testing") 
+    label(for="testingChoice") Only managers can view and change
+
+
     hr
     h4 Private (Internal use only)
-    .radio
-      label Add the courses to the correct tier under "People > Edit Tier"
-        input(type= "radio", name="status", ng-model="course.status", value = "private") 
+    input#privateChoice(type= "radio", name="status", ng-model="course.status", value = "private") 
+    label(for="privateChoice") Add the courses to the correct tier under "People > Edit Tier"
+
     hr
     h4 Open Market
-    .radio
-      label Sell & share with the world
-        input(type= "radio", name="status", ng-model="course.status", value = "live") 
+
+    input#marketChoice(type= "radio", name="status", ng-model="course.status", value = "live") 
+    label(for="marketChoice") Sell & share with the world
+
     div(ng-show="course.status === 'live'")
       .alert.alert-warning Price cannot be changed after the course is sent to the market.
       .input-group

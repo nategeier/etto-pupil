@@ -73,6 +73,10 @@ angular.module("ettoPupil")
         addCourseToTier(course, true);
       };
 
+      $scope.changeCoursePriority = function (course) {
+        CourseList.setCoursePriority(course._id, course.priority, function () {});
+      };
+
       $scope.changeCourse = function (course) {
 
         if (course.ison === false) {
@@ -85,14 +89,13 @@ angular.module("ettoPupil")
       var addCourseToTier = function (course, addToAllLowerTiers) {
         Tiers.addCourseToTier($scope.tierID, course._id, addToAllLowerTiers, function (results) {
           $scope.tierReport = [];
-          //$scope.reset();
+          course.ison = true;
         });
       };
 
       var removeCourse = function (courseId) {
         Tiers.removeCourseFromTiers($scope.tierID, courseId, function (results) {
           $scope.tierReport = [];
-          //$scope.reset();
         });
       };
 
