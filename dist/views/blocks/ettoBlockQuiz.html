@@ -3,8 +3,7 @@
   <div etto-block-quiz="etto-block-quiz" class="row quiz-block">
     <div class="col-md-10 col-md-offset-1">
       <h1 e-rows="3" e-cols="90" editable-textarea="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.title}}</h1>
-    </div>
-    <pre e-rows="3" e-cols="90" editable-textarea="block.data.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.subtitle }}
+      <pre e-rows="3" e-cols="90" editable-textarea="block.data.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.subtitle }}</pre>
       <div ng-init="setUpEvalArr(block.data.questions)"></div>
       <div ng-init="scoreToPass(block.data.passable)"></div>
       <div ng-repeat="q in block.data.questions track by $index">
@@ -20,7 +19,8 @@
       <div ng-show="err">
         <hr/>
         <div class="alert alert-danger">{{err.message}}</div>
-      </div></pre>
+      </div>
+    </div>
     <div class="col-md-10 col-md-offset-1">
       <hr/>
       <button ng-click="evaluate(block.data.questions)" class="btn btn-success w100">Evaluate</button>
