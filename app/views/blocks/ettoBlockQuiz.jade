@@ -3,8 +3,8 @@
 .container-full
   .row.quiz-block(etto-block-quiz)
     .col-md-10.col-md-offset-1
-          h1(e-rows="3", e-cols="90", editable-textarea="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.title}}
-    pre(e-rows="3", e-cols="90", editable-textarea="block.data.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.subtitle }}
+      h1(e-rows="3", e-cols="90", editable-textarea="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.title}}
+      pre(e-rows="3", e-cols="90", editable-textarea="block.data.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.subtitle }}
       div(ng-init="setUpEvalArr(block.data.questions)")
       div(ng-init="scoreToPass(block.data.passable)")
       div(ng-repeat = "q in block.data.questions track by $index")
