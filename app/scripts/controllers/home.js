@@ -42,7 +42,7 @@ angular.module("ettoPupil")
         }
       };
 
-      $scope.listUsersCreatedCourses = function () {
+      $scope.reset = function () {
 
         if ($scope.user && $scope.user._tier) {
           Tier.listCompanyCreatedCourses($scope.user._tier._company, function (data) {
@@ -60,7 +60,7 @@ angular.module("ettoPupil")
 
       $scope.$watch("user", function () {
         if ($scope.user) {
-          $scope.listUsersCreatedCourses();
+          $scope.reset();
         }
       });
 

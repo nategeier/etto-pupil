@@ -25,6 +25,8 @@
             <th>Add to Tier</th>
             <th>Add to all Lower Tiers</th>
             <th>Priority</th>
+            <th>Make a Copy</th>
+            <th> </th>
           </tr>
         </thead>
         <tbody>
@@ -38,6 +40,12 @@
             </td>
             <td>
               <input type="number" ng-model="course.priority" ng-blur="changeCoursePriority(course)" class="priority"/>
+            </td>
+            <td>
+              <div ng-click="duplicateCourse(course)" class="btn btn-default btn-sm">Duplicate</div>
+            </td>
+            <td>
+              <button etto-remove-course="etto-remove-course" type="button" ng-click="removeCourse(course._id, course.title)" class="close aria-hidden pull-right delete-course">&times;</button>
             </td>
           </tr>
         </tbody>

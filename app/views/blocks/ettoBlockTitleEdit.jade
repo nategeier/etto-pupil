@@ -6,7 +6,7 @@
 
   .title-text.img-rounded(ng-class="block.data.textDark ? 'etto-light-fadded-bk' : 'etto-dark-fadded-bk'")
     h1(ng-class="block.data.textDark ? 'etto-color-primary' : 'etto-color-light'", e-rows="3", e-cols="90", editable-textarea="block.data.title", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.title || 'Title or Chapter'}}
-    pre(ng-class="block.data.textDark ? 'etto-color-primary' : 'etto-color-light'", e-rows="3", e-cols="90", editable-textarea="block.data.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.subtitle || "And something to descibe the course a little deeper"}}
+    pre(ng-class="block.data.textDark ? 'etto-color-primary' : 'etto-color-light'", e-rows="3", e-cols="90", editable-textarea="block.data.subtitle", buttons="no", blur="submit", onaftersave="saveCourse()") {{ block.data.subtitle || "Enter a Subtitle"}}
 
   .edit-title(move-side, delay='0.6')
 
