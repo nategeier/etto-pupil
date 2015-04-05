@@ -32,7 +32,7 @@ angular.module("ettoPupil")
 
               if (didRemove) {
                 CourseMetaChange.removeCourse(course, function (data) {
-                  $scope.listUsersCreatedCourses();
+                  $scope.reset();
                 });
               }
 

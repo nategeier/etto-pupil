@@ -3,7 +3,7 @@
   <div ng-style="titleImage" ng-init="setTitleImage(block.data.url, block.data.blur)" class="etto-title-image"></div>
   <div ng-class="block.data.textDark ? 'etto-light-fadded-bk' : 'etto-dark-fadded-bk'" class="title-text img-rounded">
     <h1 ng-class="block.data.textDark ? 'etto-color-primary' : 'etto-color-light'" e-rows="3" e-cols="90" editable-textarea="block.data.title" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.title || 'Title or Chapter'}}</h1>
-    <pre ng-class="block.data.textDark ? 'etto-color-primary' : 'etto-color-light'" e-rows="3" e-cols="90" editable-textarea="block.data.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.subtitle || "And something to descibe the course a little deeper"}}</pre>
+    <pre ng-class="block.data.textDark ? 'etto-color-primary' : 'etto-color-light'" e-rows="3" e-cols="90" editable-textarea="block.data.subtitle" buttons="no" blur="submit" onaftersave="saveCourse()">{{ block.data.subtitle || "Enter a Subtitle"}}</pre>
   </div>
   <div move-side="move-side" delay="0.6" class="edit-title">
     <p>Change Image</p>

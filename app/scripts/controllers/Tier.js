@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("ettoPupil")
-  .controller("TierCtrl", ["$q", "$scope", "Tiers", "$stateParams", "CourseList", "Users",
-    function ($q, $scope, Tiers, $stateParams, CourseList, Users) {
+  .controller("TierCtrl", ["$q", "$scope", "Tiers", "$stateParams", "CourseList", "Users", "CourseMetaChange",
+    function ($q, $scope, Tiers, $stateParams, CourseList, Users, CourseMetaChange) {
 
       $scope.tierID = $stateParams.id;
 
@@ -60,6 +60,14 @@ angular.module("ettoPupil")
               course.ison = true;
             }
           });
+        });
+      };
+
+      $scope.duplicateCourse = function (course) {
+        course.makeCopy = true;
+
+        CourseMetaChange.create(course, function (results) {
+          $scope.reset();
         });
       };
 
