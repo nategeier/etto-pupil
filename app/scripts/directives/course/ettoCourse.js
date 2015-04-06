@@ -19,37 +19,37 @@ angular.module("ettoPupil")
             humanized: "Title",
           }, {
             name: "three-up",
-            humanized: "Three Up",
+            humanized: "Just Text",
           }, {
             name: "quote",
             humanized: "Quote",
           }, {
             name: "video",
-            humanized: "Video",
+            humanized: "Add Video",
           }, {
             name: "image",
-            humanized: "Image",
+            humanized: "Text + Image",
           }, {
             name: "quiz",
             humanized: "Quiz",
           }, {
             name: "three-images",
-            humanized: "Images",
+            humanized: "3 Images + Text",
           }, {
             name: "four-images",
-            humanized: "Images",
+            humanized: "4 Images + Text",
           }, {
             name: "define",
-            humanized: "Define",
+            humanized: "Define a Word",
           }, {
             name: "download",
-            humanized: "Download",
+            humanized: "Downloadables",
           }, {
             name: "map",
             humanized: "Map",
           }, {
             name: "code",
-            humanized: "Code",
+            humanized: "Display Code",
           }];
 
           $scope.newBlocktype = $scope.blocktypes[0];
@@ -152,6 +152,7 @@ angular.module("ettoPupil")
               //---- Editing free will
               if (CoursePlayer.currentBlock() === (CoursePlayer.blocksInCourse() - 1)) {
                 //--- If no more blocks and they press right, show block template options
+
                 $scope.showOptions();
 
               } else {

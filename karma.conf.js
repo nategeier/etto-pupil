@@ -32,7 +32,6 @@ module.exports = function (config) {
       "app/bower_components/ng-file-upload/angular-file-upload.min.js",
       "app/bower_components/angular-xeditable/dist/js/xeditable.min.js",
       "app/bower_components/angular-bootstrap-toggle-switch/angular-toggle-switch.js",
-      "app/bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js",
       "app/vendor/soundcloud-sdk.js",
 
       "app/bower_components/greensock/src/minified/TweenMax.min.js",

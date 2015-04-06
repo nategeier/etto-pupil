@@ -15,9 +15,47 @@
 
 
 
+
+
+/*
+ The ng-enter-active and ng-move-active
+ are where the transition destination properties
+ are set so that the animation knows what to
+ animate.
+*/
+
+
+.fade-show {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+
+.fade-show.ng-hide {
+   -webkit-transition:all linear 0s;
+  transition:all linear 0s;
+  opacity:0;
+}
+
+
 .template-thumb{
   border:1px solid #eeeeee;
+  height:125px;
+  background-color: #ffffff;
 }
+
+.template-thumb:hover{
+  cursor: pointer;
+}
+
+
+
+.thumb-message{
+  padding-top:35px;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+
 .etto-course-container {
   padding-bottom: 0;
   position: relative;

@@ -52,6 +52,18 @@
   }
 }
 
+.list-group-item{
+  .modal-content {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+
+
+.modal-backdrop.in{
+  opacity:0.8 !important;
+}
+
 
 .w100 {
   width: 100%;
