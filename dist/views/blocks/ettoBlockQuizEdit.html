@@ -13,11 +13,11 @@
         <div class="list-group">
           <div ng-repeat="a in q.answers track by $index" class="list-group-item">
             <div class="row">
-              <div class="col-sm-2 col-md-2 col-lg-1">
-                <div toggle-switch="toggle-switch" model="a.correct" html="true" on-label="&lt;i class='fa fa-check'&gt;&lt;/i&gt;" off-label="&lt;i class='fa fa-times'&gt;&lt;/i&gt;" class="switch-small"></div>
-              </div>
-              <div class="col-sm-9 col-md-9 col-lg-10">
+              <div class="col-sm-9 col-md-9 col-lg-9">
                 <p editable-textarea="a.answer" e-rows="3" e-cols="70" buttons="no" blur="submit" onaftersave="saveCourse()" class="etto-color-dark"> {{alphabet[$index]}} ) {{ a.answer || "author"}}</p>
+              </div>
+              <div class="col-sm-2 col-md-2 col-lg-2">
+                <div toggle-switch="toggle-switch" model="a.correct" html="true" on-label="&lt;i class='fa fa-check'&gt;&lt;/i&gt;" off-label="&lt;i class='fa fa-times'&gt;&lt;/i&gt;" class="switch-small"></div>
               </div>
               <div class="col-sm-1 col-md-1">
                 <div ng-click="deleteAnswer(q.answers, $index)" class="close btn btn-defult">&times;</div>

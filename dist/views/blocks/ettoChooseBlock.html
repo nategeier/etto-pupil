@@ -1,6 +1,13 @@
 
-<div class="row">
-  <div ng-repeat="bt in blocktypes">
-    <div sink-in="sink-in" class="col-xs-6 col-sm-4 col-md-3 nopad"><a href="#" ng-click="chose(bt.name)"><img src="/images/courses/blocks/templates/{{bt.name}}.jpg" class="template-thumb img-responsive"/></a></div>
+<div class="modal-header etto-bgcolor-primary">
+  <h3 class="modal-title">Slide Templates</h3>
+</div>
+<div class="modal-body etto-bgcolor-light">
+  <div class="row">
+    <div ng-repeat="bt in blocktypes" class="fast-open">
+      <div ng-mouseover="bt.isHidde = true" ng-mouseout="bt.isHidde = false" ng-click="chose(bt.name)" class="col-xs-6 col-sm-4 col-md-4 nopad template-thumb"><img ng-show="!bt.isHidde" src="/images/courses/blocks/templates/{{bt.name}}.jpg" class="img-responsive"/>
+        <div ng-show="bt.isHidde === true" class="thumb-message">{{bt.humanized}}</div>
+      </div>
+    </div>
   </div>
 </div>

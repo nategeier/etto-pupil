@@ -12,8 +12,10 @@ angular.module("ettoPupil")
             var blocktypes = $scope.blocktypes;
 
             var modal = $modal.open({
+              modalTemplate: '<div class="modal modal-width-override" ng-transclude></div>',
               templateUrl: "/views/blocks/ettoChooseBlock.html",
               windowClass: "app-modal-large",
+
               controller: function ($scope, $modalInstance) {
 
                 $scope.blocktypes = blocktypes;

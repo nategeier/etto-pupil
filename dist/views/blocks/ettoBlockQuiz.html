@@ -13,7 +13,7 @@
           </div>
           <div class="list-group"><a href="#" ng-if="q.incorrect &amp;&amp; q.incorrect === true" class="list-group-item list-group-item-success">
               <div class="alert alert-danger">Incorrect, please try again.</div></a><a href="#" ng-repeat="a in q.answers track by $index" ng-class="!a.selected ? 'not-active' : 'active'" class="list-group-item">
-              <div ng-click="checkAnswer(q.answers, a, $parent.$index)"> {{alphabet[$index]}} ) {{a.answer}}</div></a></div>
+              <div ng-click="checkAnswer(q.answers, a, $parent.$index)"> {{alphabet[$index]}} ) {{a.answer || 'Answer'}}</div></a></div>
         </div><br/>
       </div>
       <div ng-show="err">

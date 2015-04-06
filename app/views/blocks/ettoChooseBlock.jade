@@ -1,6 +1,9 @@
+.modal-header.etto-bgcolor-primary
+  h3.modal-title Slide Templates
 
-.row
-  div(ng-repeat="bt in blocktypes")
-    .col-xs-6.col-sm-4.col-md-3.nopad(sink-in)
-      a(href="#", ng-click="chose(bt.name)")
-        img.template-thumb.img-responsive(src="/images/courses/blocks/templates/{{bt.name}}.jpg")
+.modal-body.etto-bgcolor-light
+  .row
+    div.fast-open(ng-repeat="bt in blocktypes")
+      .col-xs-6.col-sm-4.col-md-4.nopad.template-thumb(ng-mouseover="bt.isHidde = true", ng-mouseout="bt.isHidde = false", ng-click="chose(bt.name)")
+        img.img-responsive(ng-show="!bt.isHidde", src="/images/courses/blocks/templates/{{bt.name}}.jpg")
+        div.thumb-message(ng-show="bt.isHidde === true") {{bt.humanized}}
