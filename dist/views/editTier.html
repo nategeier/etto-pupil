@@ -27,6 +27,7 @@
             <th>Priority</th>
             <th>Make a Copy</th>
             <th> </th>
+            <th> </th>
           </tr>
         </thead>
         <tbody>
@@ -44,6 +45,7 @@
             <td>
               <div ng-click="duplicateCourse(course)" class="btn btn-default btn-sm">Duplicate</div>
             </td>
+            <td><a ui-sref="editCourse({courseId:course._id})"><i class="fa fa-pencil-square-o"></i></a></td>
             <td>
               <button etto-remove-course="etto-remove-course" type="button" ng-click="removeCourse(course._id, course.title)" class="close aria-hidden pull-right delete-course">&times;</button>
             </td>
